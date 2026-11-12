@@ -1,0 +1,143 @@
+{
+  "repository": {
+    "isPrivate": true,
+    "nameWithOwner": "Artyx71/Last-Skuf",
+    "url": "https://github.com/Artyx71/Last-Skuf"
+  },
+  "pull_request": {
+    "baseRefName": "phase/p00-bootstrap",
+    "headRefOid": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
+    "isDraft": true,
+    "number": 2,
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-11-12T22:29:10Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Artyx71/Last-Skuf/actions/runs/43319881768/job/131537444692",
+        "name": "bootstrap",
+        "startedAt": "2026-11-12T22:26:19Z",
+        "status": "COMPLETED",
+        "workflowName": "Native Godot validation"
+      }
+    ],
+    "url": "https://github.com/Artyx71/Last-Skuf/pull/2"
+  },
+  "ci_run": {
+    "conclusion": "success",
+    "event": "pull_request",
+    "headSha": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
+    "jobs": [
+      {
+        "completedAt": "2026-11-12T22:29:10Z",
+        "conclusion": "success",
+        "databaseId": 131537444692,
+        "name": "bootstrap",
+        "startedAt": "2026-11-12T22:26:19Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-12T22:26:25Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-12T22:26:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:26:28Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "startedAt": "2026-11-12T22:26:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:28:36Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/install_deps.py --templates",
+            "number": 3,
+            "startedAt": "2026-11-12T22:26:28Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:28:44Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "number": 4,
+            "startedAt": "2026-11-12T22:28:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:28:51Z",
+            "conclusion": "success",
+            "name": "Export native bootstrap binaries",
+            "number": 5,
+            "startedAt": "2026-11-12T22:28:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:29:05Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "number": 6,
+            "startedAt": "2026-11-12T22:28:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:29:06Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 12,
+            "startedAt": "2026-11-12T22:29:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T22:29:06Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "startedAt": "2026-11-12T22:29:06Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43319881768/job/131537444692"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43319881768"
+  },
+  "artifacts": {
+    "total_count": 1,
+    "artifacts": [
+      {
+        "id": 13989039062,
+        "node_id": "MDg6QXJ0aWZhY3QxMzk4OTAzOTA2Mg==",
+        "name": "bootstrap-validation",
+        "size_in_bytes": 68276328,
+        "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/13989039062",
+        "archive_download_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/13989039062/zip",
+        "expired": false,
+        "digest": "sha256:a4ffff56588cb30e9284dab80e31c11223795b61387fe02aa5b3aa1da3264251",
+        "created_at": "2026-11-12T22:29:05Z",
+        "updated_at": "2026-11-12T22:29:05Z",
+        "expires_at": "2026-11-19T22:28:51Z",
+        "workflow_run": {
+          "id": 43319881768,
+          "repository_id": 1455873586,
+          "head_repository_id": 1455873586,
+          "head_branch": "phase/p01-art-movement",
+          "head_sha": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd"
+        }
+      }
+    ]
+  },
+  "runners": {
+    "total_count": 0,
+    "runners": []
+  },
+  "variables": {
+    "variables": [],
+    "total_count": 0
+  }
+}

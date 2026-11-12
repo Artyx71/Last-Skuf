@@ -1,15 +1,35 @@
 {
   "active_phase": "P01",
-  "status": "IN_PROGRESS",
-  "attempts": 0,
+  "status": "BLOCKED",
+  "attempts": 1,
   "last_pass": "P00",
-  "last_decision": "reports/phases/P00/decision-attempt2.json",
-  "last_commit": "d2f3fd9a751a268ea621c30b9cb12bffac9f360c",
+  "last_decision": "reports/phases/P01/decision-attempt1.json",
+  "last_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
   "blocked": [
-    "Windows runtime unavailable",
-    "Default hosted CI billing; temporary local runner required per active session"
+    "HUMAN-P01-01: authorized human likeness/grotesque approval PENDING"
   ],
-  "next_action": "Generate real Yakuza pixel art from authorized local reference, integrate native movement sandbox, inspect animations and seek independent + human art QA",
-  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/1",
-  "persistent_runner": false
+  "next_action": "Record actual human response against exact present/past/world asset hashes, preserve request checkpoint; independent P01 attempt2. PASS -> P02, corrections -> art fix/review. No P02 before PASS.",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/2",
+  "persistent_runner": false,
+  "phase_work": {
+    "native_commands_passed": 15,
+    "bootstrap_assertions_passed": 6,
+    "art_assertions_passed": 90,
+    "movement_assertions_passed": 34,
+    "human_likeness": "PENDING",
+    "independent_review": "BLOCKED: human evidence dependency only",
+    "ci_run": 43319881768,
+    "ci_status": "SUCCESS",
+    "ephemeral_runner_active": false,
+    "review_evidence_hashes_checked": 103
+  },
+  "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
+  "limitations": [
+    "Windows runtime unavailable; Linux runtime/render verified",
+    "Default hosted CI account billing restricted; temporary per-session local runners used, none active"
+  ],
+  "nonblocking_findings": [
+    "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
+    "META-P01-01 LOW: atlas known_limitations sentence differs after source recipe"
+  ]
 }
