@@ -1,0 +1,13 @@
+# P01 — реальный арт и movement prototype
+
+Исполнитель кода `/root`, art `/root/art_production`. Prerequisite: independent P00 PASS attempt2. Не готовая миссия/vertical slice.
+
+Арты созданы встроенным image_gen с разрешением владельца: только правильная reference yakuza_ref01.png, без копирования raw фото в Git/game. Два набора по5портретов (прошлая и вымышленная нынешняя версия)160×160;32worldframes48×64 — 2idle+6walk в4направлениях. Source masters,4точных prompts/metadata, технические packing recipes в assets/source_art/yakuza, inventory/atlas сhashes/provenance. Базовая общая palette31color, binaryalpha, footpivot24/58. Это рисованный оригинальный draft, публичные права/likeness не объявлены утверждёнными. Raw references остаются ignored.
+
+Godot lab: Enter из bootstrap, WASD/стрелки,1–5эмоции,Tabэпоха,Escвыход. CharacterBody2D с фиксированным physics tick, нормализованной диагональю,82px/s и физическими препятствиями; без случайной неуклюжести/суперсилы. Это только movement, боевого маршрута ещё нет. Лабораторная геометрия намеренно техническая, не tiles/map P04. Runtime sprites AnimatedSprite2D/AtlasTexture,nearest и integer scaling.
+
+Финальный `python3 tools/verify_p01.py`:15commands exit0; bootstrap6,art structure90,movement34assertionsPASS. Проверены actual animation frame advances во всех направлениях, physical walls/prop,velocity,diagonal,inputbindings,10expressions/era switching. Native screenshots movement_lab.png, movement_lab_past.png; video movement_replay.mp4 записан Godot Movie Maker433/493frames (точное число вlogs/replay.log), не нарисован отдельно. Автор открыл screenshot/contactsheet/native sheets. Видео без музыки: аудио P03 ещё не создано и не проверено.
+
+Экспорты в build/P01/linux и windows отделены от неизменённых P00 builds. Linux smoke и реальный lab render экспортированного executable PASS (export_linux_lab.png). Windows PE экспортPASS, runtimeBLOCKED: Windows/Wineнет. Release Godot запрещает positionalsceneoverrides, поэтому поддержан ограниченный userarg --open-lab для проверок/стенда. Не использовать код engine flags из предположений.
+
+Human likeness/гротеск signoff запрошен у владельца по готовым present/past/worldpreview; покаPENDING. Независимый Lead Reviewer должен сам сравнить правильное локальное фото, посмотреть фактические animations и rerun native checks; без обоих gate P02 запрещён. Hair/body jitter2–4nativepx замечен художником, просим оценить вmotion. Optionaltalkframe отсутствует; дляP01необязателен. Publicreleaseconsent pending, не разрешение распространять. CI P01 и draftPR готовятся; успешный P00CI не подменяет P01run.
