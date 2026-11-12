@@ -1,8 +1,12 @@
 {
   "active_phase": "P00",
-  "status": "READY",
+  "status": "REVIEW_PENDING",
   "attempts": 0,
   "last_commit": null,
-  "blocked": [],
-  "next_action": "Initialize private Godot project and tooling audit; invoke independent lead reviewer"
+  "blocked": [
+    "Windows runtime unavailable; export only"
+  ],
+  "next_action": "Finish private remote/PR; independent Lead Reviewer evaluates P00; PASS -> P01; FAIL -> fix; BLOCKED -> persist dependencies",
+  "author": "/root",
+  "persistent_runner": false
 }
