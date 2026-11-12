@@ -1,0 +1,124 @@
+diff --git a/.github/workflows/validate.yml b/.github/workflows/validate.yml
+index cc9858b..7702806 100644
+--- a/.github/workflows/validate.yml
++++ b/.github/workflows/validate.yml
+@@ -1,13 +1,14 @@
+ name: Native Godot validation
+ on:
+   push:
++    branches: [main]
+   pull_request:
+   workflow_dispatch:
+ permissions:
+   contents: read
+ jobs:
+   bootstrap:
+-    runs-on: ubuntu-24.04
++    runs-on: ${{ vars.AYAY_RUNNER || 'ubuntu-24.04' }}
+     timeout-minutes: 20
+     steps:
+       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+diff --git a/automation/SESSION_HANDOFF.md b/automation/SESSION_HANDOFF.md
+index 97d7962..d15ca5a 100644
+--- a/automation/SESSION_HANDOFF.md
++++ b/automation/SESSION_HANDOFF.md
+@@ -14,4 +14,4 @@ python3 tools/package_evidence.py P00
+ 
+ Публичный CI не содержит фото и не запускает `validate_pack.py`; приватный локальный прогон обязан запускать `--references`. CI проверяет исходники, экспортирует Linux/Windows bootstrap и запускает Linux headless smoke. CI не является художественным или музыкальным review, и Windows export не заменяет Windows runtime test.
+ 
+-Постоянный агент/runner не установлен. Workflow ещё не исполнен GitHub до появления доступного remote. Коммиты и PR не публикуются автоматически без соответствующих прав. Raw references и любые фото-производные остаются локальными; никакой отправки в генераторы без отдельного согласия.
++Постоянный агент/runner не установлен. Hosted workflow реально был поставлен в очередь и заблокирован до steps из-за биллинга аккаунта. Приватный remote и PR #1 созданы с разрешения владельца. `AYAY_RUNNER` позволяет временный локальный single-job runner, default — ubuntu-24.04; variable/registration удаляются после проверки, сервиса нет. Коммиты и PR не публикуются автоматически без соответствующих прав. Raw references и любые фото-производные остаются локальными; никакой отправки в генераторы без отдельного согласия.
+diff --git a/planning/P00_TASKS.md b/planning/P00_TASKS.md
+index c416a72..74527aa 100644
+--- a/planning/P00_TASKS.md
++++ b/planning/P00_TASKS.md
+@@ -8,6 +8,6 @@
+ | P00-04 / TEC-01 | CI, Linux/Windows export presets, platform audit | T-TEC-003: локальный runner; exports только при наличии templates |
+ | P00-05 / OPS-01 | Evidence с hashes, diff, отдельный Lead Reviewer, resume | T-OPS-001: reviewer сам читает файлы и запускает проверки |
+ 
+-Не считать bootstrap игровой сценой, рисунком или музыкальным прототипом. P01 начинается только после независимого PASS P00. Репозиторий недоступен через connector (422) и gh (404): remote/PR — внешняя зависимость, ничего не создавать и не публиковать.
++Не считать bootstrap игровой сценой, рисунком или музыкальным прототипом. P01 начинается только после независимого PASS P00. Первичный аудит дал connector 422 / gh 404. После явного разрешения владельца создан приватный Artyx71/Last-Skuf и draft PR #1; raw фото не отправлялись. Hosted CI заблокирован биллингом до запуска steps; готовится временный single-job self-hosted runner без изменения платежей.
+ 
+ Минимальная установка: скачать официальный Godot Linux 4.7.2 в `.tools/`, сверить официальный SHA512-SUMS, распаковать только локально. Export templates — того же релиза; Python stdlib достаточен для P00. Нет sudo, платных API и системных изменений.
+diff --git a/reports/phases/P00/logs/session_runner_config.log b/reports/phases/P00/logs/session_runner_config.log
+new file mode 100644
+index 0000000..25b47da
+--- /dev/null
++++ b/reports/phases/P00/logs/session_runner_config.log
+@@ -0,0 +1,31 @@
++
++--------------------------------------------------------------------------------
++|        ____ _ _   _   _       _          _        _   _                      |
++|       / ___(_) |_| | | |_   _| |__      / \   ___| |_(_) ___  _ __  ___      |
++|      | |  _| | __| |_| | | | | '_ \    / _ \ / __| __| |/ _ \| '_ \/ __|     |
++|      | |_| | | |_|  _  | |_| | |_) |  / ___ \ (__| |_| | (_) | | | \__ \     |
++|       \____|_|\__|_| |_|\__,_|_.__/  /_/   \_\___|\__|_|\___/|_| |_|___/     |
++|                                                                              |
++|                       Self-hosted runner registration                        |
++|                                                                              |
++--------------------------------------------------------------------------------
++
++# Authentication
++
++
++√ Connected to GitHub
++
++# Runner Registration
++
++
++
++
++√ Runner successfully added
++
++# Runner settings
++
++
++√ Settings Saved.
++
++
++exit_code=0
+diff --git a/reports/phases/P00/remote_ci.json b/reports/phases/P00/remote_ci.json
+new file mode 100644
+index 0000000..02eed72
+--- /dev/null
++++ b/reports/phases/P00/remote_ci.json
+@@ -0,0 +1,26 @@
++{
++  "repository": "Artyx71/Last-Skuf",
++  "private": true,
++  "pr": "https://github.com/Artyx71/Last-Skuf/pull/1",
++  "runs": [
++    43315609038,
++    43315700909
++  ],
++  "ci_status": "BLOCKED_BILLING",
++  "annotation": [
++    {
++      "path": ".github",
++      "blob_href": "https://github.com/Artyx71/Last-Skuf/blob/fd746b6126f10cfb36e6b2bb71cf008f073c3a06/.github",
++      "start_line": 1,
++      "start_column": null,
++      "end_line": 1,
++      "end_column": null,
++      "annotation_level": "failure",
++      "title": "",
++      "message": "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
++      "raw_details": ""
++    }
++  ],
++  "money_spent_by_agent": false,
++  "billing_modified": false
++}
+diff --git a/reports/phases/P00/session_runner.json b/reports/phases/P00/session_runner.json
+new file mode 100644
+index 0000000..d33e3fc
+--- /dev/null
++++ b/reports/phases/P00/session_runner.json
+@@ -0,0 +1,7 @@
++{
++  "source": "https://github.com/actions/runner/releases/download/v2.338.2/actions-runner-linux-x64-2.338.2.tar.gz",
++  "sha256": "baebf204307bac6193480852732f0aba2ae97b6c5597c244f4d5558390147c40",
++  "mode": "ephemeral single job, user-local, no service",
++  "label": "last-skuf-session",
++  "persistent": false
++}

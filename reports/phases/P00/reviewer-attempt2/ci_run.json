@@ -1,0 +1,84 @@
+{
+  "conclusion": "success",
+  "event": "pull_request",
+  "headSha": "d2f3fd9a751a268ea621c30b9cb12bffac9f360c",
+  "jobs": [
+    {
+      "completedAt": "2026-11-12T22:06:11Z",
+      "conclusion": "success",
+      "databaseId": 131524906037,
+      "name": "bootstrap",
+      "startedAt": "2026-11-12T22:03:24Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-12T22:03:30Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-12T22:03:25Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:03:32Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "startedAt": "2026-11-12T22:03:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:05:44Z",
+          "conclusion": "success",
+          "name": "Run python3 tools/install_deps.py --templates",
+          "number": 3,
+          "startedAt": "2026-11-12T22:03:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:05:47Z",
+          "conclusion": "success",
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "number": 4,
+          "startedAt": "2026-11-12T22:05:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:05:52Z",
+          "conclusion": "success",
+          "name": "Export native bootstrap binaries",
+          "number": 5,
+          "startedAt": "2026-11-12T22:05:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:06:06Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "number": 6,
+          "startedAt": "2026-11-12T22:05:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:06:06Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 12,
+          "startedAt": "2026-11-12T22:06:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-12T22:06:06Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "startedAt": "2026-11-12T22:06:06Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43316247166/job/131524906037"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43316247166"
+}

@@ -1,0 +1,92 @@
+{
+  "artifact_archive_sha256": "06006b9a9468dadbaea6f5f4a1838904755b57b0f7b00bf6ff6294a6f692a8f8",
+  "api_digest_matches": true,
+  "files": [
+    {
+      "path": "build/artifact/build/linux/last-skuf.x86_64",
+      "bytes": 73625456,
+      "sha256": "6592253329680278ad96612bd62b59f92647089cfff7000bedaa9aaa5c69800f"
+    },
+    {
+      "path": "build/artifact/build/windows/last-skuf.exe",
+      "bytes": 109374528,
+      "sha256": "ebf22b6e5947de1a007ce97ab888d3a8bea8f794985430efddd753df93da1cc2"
+    },
+    {
+      "path": "build/artifact/reports/ci/logs/import.log",
+      "bytes": 1497,
+      "sha256": "61270bf67350a3442493a9b6986a015d229282bb36934b8fa529ef3bff132b1a"
+    },
+    {
+      "path": "build/artifact/reports/ci/logs/integration.log",
+      "bytes": 475,
+      "sha256": "6db83fe6d63af7d68ce31931fa658587fe07b5305ae64a091f3c66c6556971cf"
+    },
+    {
+      "path": "build/artifact/reports/ci/logs/privacy.log",
+      "bytes": 92,
+      "sha256": "729371bc93ed35d445158a4dac71fc1b2d146285538f0b70b01aa3b492088563"
+    },
+    {
+      "path": "build/artifact/reports/ci/logs/smoke.log",
+      "bytes": 267,
+      "sha256": "6ddbff8aad5c6c0695b78813ab3c0f06d9a4f8b83f82ba5773f95c8e7c617852"
+    },
+    {
+      "path": "build/artifact/reports/ci/logs/version.log",
+      "bytes": 206,
+      "sha256": "a691c6510a69810c0919bca5c031425af90a260b96e5ef1580e84a0f3caf8bbd"
+    },
+    {
+      "path": "build/artifact/reports/ci/validation.json",
+      "bytes": 570,
+      "sha256": "00251d5a21ed84cc8a7a31b178d3c41f4574de15b5cd210e12294fb450e94b77"
+    }
+  ],
+  "archive_names": [
+    "reports/ci/logs/import.log",
+    "reports/ci/logs/integration.log",
+    "reports/ci/logs/privacy.log",
+    "reports/ci/logs/smoke.log",
+    "reports/ci/logs/version.log",
+    "reports/ci/validation.json",
+    "build/linux/last-skuf.x86_64",
+    "build/windows/last-skuf.exe"
+  ],
+  "validation": [
+    {
+      "name": "privacy",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/privacy.log"
+    },
+    {
+      "name": "version",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/version.log"
+    },
+    {
+      "name": "import",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/import.log"
+    },
+    {
+      "name": "smoke",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/smoke.log"
+    },
+    {
+      "name": "integration",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/integration.log"
+    }
+  ],
+  "downloaded_linux_smoke": {
+    "exit_code": 0,
+    "passed": true
+  }
+}
