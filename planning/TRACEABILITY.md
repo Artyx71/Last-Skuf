@@ -1,0 +1,19 @@
+# Traceability / required specifications
+
+| Req | Origin | Acceptance |
+|---|---|---|
+| VIS-01 | approved art | photo-linked custom true pixel art for all ten, stylized grotesque, native pixel audit |
+| VIS-02 | approved art | VHS/transitions, injured portraits, low-effects and gore toggles |
+| MAP-01 | approved art | recognisable fictionalised Vladikavkaz locations drawn from own references |
+| GP-01 | approved gameplay | lethal hard combat, instant restart, character-specific attacks |
+| GP-02 | approved gameplay | weak Yakudza and viable non-power escape levels |
+| GP-03 | approved gameplay | varied enemy AI, bosses, ranks, combos and secrets |
+| ST-01 | approved story | seven POV, non-linear 21 slots, PRIME/Kaban reveal, WIFE CALLING main |
+| ST-02 | approved story | persistent branching affects gameplay routes and endings |
+| DL-01 | approved dialogue | natural profanity, rare verified Ossetian, distinct voices and animated portraits |
+| AU-01 | approved audio | original/licensed musical tracks and adaptive stems, per-hero themes, rich SFX |
+| TEC-01 | approved technical | Godot4 GDScript, Windows/Linux, tests/screenshots/reviews/atom commits |
+| OPS-01 | newest request | reviewer obtains artifacts automatically, finite FAIL→FIX→REVIEW, PASS→NEXT, no user report forwarding |
+| PRI-01 | safety | photos private, permission/license checks, fictional disclaimer |
+
+At kickoff derive atomic test IDs `T-REQ-###` for each and reference them in phase reports; add failed tests to issue tracker.

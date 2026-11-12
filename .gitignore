@@ -1,0 +1,25 @@
+# Private reference photos and sensitive delivery bundle
+assets/references/
+*.zip
+.env
+.env.*
+.secrets/
+# Godot transient
+.godot/
+# Build outputs / artifact cache
+build/
+dist/
+.cache/
+# Local logs and reports may contain identifying screenshots; review before publication
+reports/phases/**/private/
+
+# Private derived likenesses and local toolchain
+assets/concepts/
+.tools/
+.venv/
+__pycache__/
+*.pyc
+*.pem
+*.key
+# Explicitly private source material anywhere
+**/private/
