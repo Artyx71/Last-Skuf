@@ -1,0 +1,121 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 131857921221,
+      "run_id": 43417181910,
+      "workflow_name": "Native Godot validation",
+      "head_branch": "phase/p03-dialogue-audio",
+      "run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43417181910",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVsbeMs8AAAAes1g0xQ",
+      "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+      "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/jobs/131857921221",
+      "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43417181910/job/131857921221",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T11:27:15Z",
+      "started_at": "2026-11-13T11:27:18Z",
+      "completed_at": "2026-11-13T11:28:57Z",
+      "name": "bootstrap",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T11:27:18Z",
+          "completed_at": "2026-11-13T11:27:19Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T11:27:19Z",
+          "completed_at": "2026-11-13T11:27:22Z"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T11:27:22Z",
+          "completed_at": "2026-11-13T11:27:29Z"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T11:27:29Z",
+          "completed_at": "2026-11-13T11:28:20Z"
+        },
+        {
+          "name": "Install pinned user-local audio decoder",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T11:28:20Z",
+          "completed_at": "2026-11-13T11:28:20Z"
+        },
+        {
+          "name": "Verify sequential autopilot recovery and merge gates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T11:28:20Z",
+          "completed_at": "2026-11-13T11:28:24Z"
+        },
+        {
+          "name": "Decode and analyze actual audio signals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-13T11:28:24Z",
+          "completed_at": "2026-11-13T11:28:44Z"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-13T11:28:44Z",
+          "completed_at": "2026-11-13T11:28:49Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-13T11:28:49Z",
+          "completed_at": "2026-11-13T11:28:56Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-13T11:28:56Z",
+          "completed_at": "2026-11-13T11:28:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-13T11:28:56Z",
+          "completed_at": "2026-11-13T11:28:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/check-runs/131857921221",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000638,
+      "runner_name": "GitHub Actions 1000000638",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

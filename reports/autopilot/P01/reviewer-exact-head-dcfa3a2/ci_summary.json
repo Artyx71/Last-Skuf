@@ -1,0 +1,65 @@
+{
+  "validation": [
+    {
+      "name": "privacy",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/privacy.log"
+    },
+    {
+      "name": "version",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/version.log"
+    },
+    {
+      "name": "import",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/import.log"
+    },
+    {
+      "name": "smoke",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/smoke.log"
+    },
+    {
+      "name": "integration",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/integration.log"
+    },
+    {
+      "name": "art_structure",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/art_structure.log"
+    },
+    {
+      "name": "movement",
+      "exit_code": 0,
+      "passed": true,
+      "log": "reports/ci/logs/movement.log"
+    }
+  ],
+  "native_assertions": [
+    {
+      "log": "build/autopilot-ci-P01/reports/ci/logs/art_structure.log",
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "log": "build/autopilot-ci-P01/reports/ci/logs/integration.log",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "log": "build/autopilot-ci-P01/reports/ci/logs/movement.log",
+      "passed": 34,
+      "failed": 0
+    }
+  ],
+  "passed_assertions": 130,
+  "failed_assertions": 0
+}

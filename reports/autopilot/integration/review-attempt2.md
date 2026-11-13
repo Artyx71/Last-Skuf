@@ -1,0 +1,11 @@
+# PR recovery integration delta — independent PASS with MEDIUM follow-up
+
+Reviewer `/root/lead_autopilot_p03`; source `0c7f75137341770d93fdc7853b80ade68b2d19ca`, identical delivery tree `dbb8d2b87fbdf6e41f55f92938267764a3f44ed8`. Previous integration and phase reports are preserved.
+
+Inspected actual github.py/test delta. Original duplicate-PR recovery now discovers exact owner/branch/repository open PR before POST, blocks ambiguity/truncation and reuses PR4. Live PR5 independently confirmed closed/unmerged. Registered matching existing-PR workspace publishes ordinary repair commits before CI, rejects wrong existing branches; origin/privacy and merge gates remain intact. All 41 unit tests independently rerun, plus own truncation/foreign-repository probes. Current exact-head CI has 41 Python tests, 785 Godot assertions, 62 signal-only checks and two exports; live artifact digest and all entries match. No unresolved CRITICAL/HIGH.
+
+New MEDIUM AUTO-PR-OWN-01, reproduced beyond author tests: when a registered workspace has no PR number and discovery finds none, an unexpected current phase/* branch can be published and a draft created before record.branch validation; published=True bypasses the later guard. Current correct-branch PR4 is unaffected and no merge gate is bypassed. Expected fix: validate nonempty record.branch ownership before any publish/POST, retain existing-PR repo/ref/open checks; add missing-number/no-open mismatch and legitimate-path regressions. Root accepted this follow-up in the metadata/resume PR with fresh CI/independent review before P04 implementation.
+
+Retain MEDIUM AUTO-REV-01 historical unattended refresh limitation, LOW receipt directory fsync/power-loss limitation and forced-quit diagnostics. No daemon, native Windows, new gameplay replay, agent listening or final soundtrack quality is claimed. Owner provisional listening proof and all 135 game/45 audio hashes remain independently verified. P04G queue remains unchanged.
+
+Current exact-head/base receipt and detailed reasoning: `reports/autopilot/P03/review-exact-head-dbb8d2b.md`; independent probes and hashes: `reports/autopilot/P03/reviewer-exact-head-dbb8d2b/`. Guarded manager must still ready/recheck all gates and confirm actual squash before progression. Reviewer performed no implementation/state/Git/PR mutations.

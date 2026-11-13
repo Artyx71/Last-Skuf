@@ -1,0 +1,184 @@
+{
+  "P00": {
+    "head": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+    "run_id": 43411931003,
+    "conclusion": "success",
+    "validation_commands": 5,
+    "validation_passed": 5,
+    "native_assertions_passed": 6,
+    "native_assertions_failed": 0,
+    "assertions": [
+      {
+        "log": "build/autopilot-ci-P00/reports/ci/logs/integration.log",
+        "passed": 6,
+        "failed": 0
+      }
+    ],
+    "jobs": [
+      {
+        "name": "bootstrap",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/install_deps.py --templates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export native bootstrap binaries",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "P03": {
+    "head": "84332875ecc7c3effcde540f14c2e5c9a714e1ef",
+    "run_id": 43412420904,
+    "conclusion": "success",
+    "validation_commands": 16,
+    "validation_passed": 16,
+    "native_assertions_passed": 785,
+    "native_assertions_failed": 0,
+    "assertions": [
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/ai.log",
+        "passed": 32,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/art_structure.log",
+        "passed": 90,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/audio.log",
+        "passed": 45,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/combat.log",
+        "passed": 43,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/combat_art.log",
+        "passed": 300,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/contact_timing.log",
+        "passed": 48,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/dialogue.log",
+        "passed": 44,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/integration.log",
+        "passed": 6,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/movement.log",
+        "passed": 34,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/options.log",
+        "passed": 26,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/portrait_motion.log",
+        "passed": 49,
+        "failed": 0
+      },
+      {
+        "log": "build/autopilot-ci-final/reports/ci/logs/restart.log",
+        "passed": 68,
+        "failed": 0
+      }
+    ],
+    "jobs": [
+      {
+        "name": "bootstrap",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/install_deps.py --templates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned user-local audio decoder",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify sequential autopilot recovery and merge gates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Decode and analyze actual audio signals",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export native bootstrap binaries",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ],
+    "audio_signal_status": "PASS_SIGNAL_ONLY",
+    "audio_signal_checks": 62,
+    "unit_37_confirmed": true
+  }
+}

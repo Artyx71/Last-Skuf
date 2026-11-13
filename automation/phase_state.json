@@ -1,36 +1,27 @@
 {
-  "active_phase": "P03",
-  "status": "BLOCKED",
-  "attempts": 1,
-  "last_pass": "P02",
-  "last_decision": "reports/phases/P03/decision-attempt1.json",
-  "last_commit": "348e2235c0a8e06eabf2a5a9b7a75eedaa88ee41",
-  "blocked": [
-    {
-      "id": "AU-P03-01",
-      "scope": "Awaiting independent verification of owner actual listening; signal QA PASS",
-      "decision": "reports/phases/P03/decision-attempt1.json",
-      "reason": "Root and independent Lead actual MP3 input both returned: audio content omitted because you do not support audio input",
-      "request": "reports/phases/P03/listening_request.json",
-      "question_sent": true,
-      "answer_received": true,
-      "response": "reports/autopilot/P03/human_listening.json"
-    }
-  ],
-  "next_action": "Sequential independent review of P03 owner listening + audio signal QA + AUTOPILOT integration; then current-SHA CI/review/merge chain in main, prepare P04/P04G without resetting progress.",
+  "active_phase": "P04",
+  "status": "READY",
+  "attempts": 0,
+  "last_pass": "P03",
+  "last_decision": "reports/phases/P03/decision-attempt2.json",
+  "last_commit": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+  "blocked": [],
+  "next_action": "From reviewed main verify handoff branch-ownership guard and current CI/review, then execute authored first mission P04 per planning/P04_READINESS.md. No mission implementation yet; P04G required before P07.",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/4",
   "persistent_runner": false,
   "phase_work": {
     "P01": "PASS attempt2 with owner human art approval; P02 begins",
     "P02": "PASSattempt2; ART-P02-01 MEDIUM socket carryforward remains until P03fix/review",
-    "P03": "Independent BLOCKED attempt1 only AU-P03-01; local785/CI785/reviewer212/technical57 PASS; ART-P02-01 CLOSED. Actual Linux+Windows/Wine builds ready."
+    "P03": "Independent phasePASS attempt2 and exact-head/base delivery PASS; guarded squash PR4 confirmed5ed735156fc01d3366367d92bce81d2bb8af544a. Owner provisional prototype audio listening verified.",
+    "P04": "READY: source/dependency readiness prepared; mission, original map, integration/runtime evidence and independent acceptance still to implement.",
+    "P04G": "QUEUED after P04; original impact/blood/enemy reactions/five finisher categories/settings/QA; must PASS before campaign P07."
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [
-    "Native Windows unavailable; actual Windows PE runtime under user-local Wine11.17 verified",
-    "Audio perception unsupported; await actual human listening only",
-    "CI43398074747 SUCCESS on92c8e96;348e223 only local verifier delta tested57/57,135game files unchanged",
-    "Ephemeral runner/variable/credentials/process removed; persistent runner absent"
+    "Native Windows unavailable; real Windows PE runtime under Wine11.17 retained",
+    "Agent actual audio perception unavailable; owner provisional prototype listening independently verified, no final soundtrack quality claim",
+    "No persistent runner/daemon; active executor required for historical receipt refresh",
+    "Private Timka reference hash drift blocks P06 reference use only"
   ],
   "nonblocking_findings": [
     "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
@@ -49,7 +40,16 @@
         "reviewer": "/root/lead_reviewer",
         "pull_request_number": 1,
         "merge": {
-          "status": "INSPECTED",
+          "status": "MERGED",
+          "reviewed_head": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+          "merge_sha": "96c18544ea6f0ff60f8906edd075470d501b436b",
+          "number": 1,
+          "method": "squash",
+          "base": "main"
+        },
+        "merge_intent": {
+          "head_sha": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+          "method": "squash",
           "snapshot": {
             "number": 1,
             "repository": "Artyx71/Last-Skuf",
@@ -79,11 +79,22 @@
               "bootstrap"
             ],
             "integration_ids": {},
-            "checks": {},
+            "checks": {
+              "bootstrap": {
+                "status": "completed",
+                "conclusion": "success",
+                "head_sha": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+                "app_id": 15368,
+                "app_slug": "github-actions",
+                "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43411931003/job/131840221450"
+              }
+            },
             "approvals_required": 0,
             "queue_required": false,
-            "protection_inspected": true
-          }
+            "protection_inspected": true,
+            "expected_ci_app_slug": "github-actions"
+          },
+          "review_sha256": "7c3f8231fd01e89251de6a9a2f2f0ca88af82ad9a1782e67e1f9b279331a5f65"
         }
       },
       "P01": {
@@ -91,21 +102,195 @@
         "attempts": 2,
         "decision": "reports/phases/P01/decision.json",
         "decision_sha256": "d940b5ffecc4ab3082a0dde3c75e29a544d8186be0fb1a5dd58c09644d7bfd13",
-        "reviewer": "/root/lead_reviewer"
+        "reviewer": "/root/lead_reviewer",
+        "pull_request_number": 2,
+        "merge": {
+          "status": "MERGED",
+          "reviewed_head": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+          "merge_sha": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb",
+          "number": 2,
+          "method": "squash",
+          "base": "main"
+        },
+        "merge_intent": {
+          "head_sha": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+          "method": "squash",
+          "snapshot": {
+            "number": 2,
+            "repository": "Artyx71/Last-Skuf",
+            "private": false,
+            "permissions": {
+              "admin": true,
+              "maintain": true,
+              "push": true,
+              "triage": true,
+              "pull": true
+            },
+            "squash_allowed": true,
+            "head_sha": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+            "head_repo": "Artyx71/Last-Skuf",
+            "base": "main",
+            "base_sha": "96c18544ea6f0ff60f8906edd075470d501b436b",
+            "state": "open",
+            "draft": false,
+            "merged": false,
+            "merge_commit_sha": "151104c4ec24b7db8b3bf74774fc107e16f9e416",
+            "mergeable": true,
+            "merge_state": "CLEAN",
+            "review_decision": null,
+            "threads_complete": true,
+            "unresolved_threads": 0,
+            "required_checks": [
+              "bootstrap"
+            ],
+            "integration_ids": {},
+            "checks": {
+              "bootstrap": {
+                "status": "completed",
+                "conclusion": "success",
+                "head_sha": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+                "app_id": 15368,
+                "app_slug": "github-actions",
+                "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43414877024/job/131853049146"
+              }
+            },
+            "approvals_required": 0,
+            "queue_required": false,
+            "protection_inspected": true,
+            "expected_ci_app_slug": "github-actions"
+          },
+          "review_sha256": "57963f44ffa6656ab2e172c75f62d261de346bf8dba08d2061b15e82bb9af75f"
+        }
       },
       "P02": {
         "status": "PASS",
         "attempts": 2,
         "decision": "reports/phases/P02/decision.json",
         "decision_sha256": "622f1cbde150b186da86578261f579698d4fd927bf01c1132f10a01ad68378b2",
-        "reviewer": "/root/lead_reviewer"
+        "reviewer": "/root/lead_reviewer",
+        "pull_request_number": 3,
+        "merge": {
+          "status": "MERGED",
+          "reviewed_head": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+          "merge_sha": "e8eaf5c89d372e988fa351267f00d4034856faf9",
+          "number": 3,
+          "method": "squash",
+          "base": "main"
+        },
+        "merge_intent": {
+          "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+          "method": "squash",
+          "snapshot": {
+            "number": 3,
+            "repository": "Artyx71/Last-Skuf",
+            "private": false,
+            "permissions": {
+              "admin": true,
+              "maintain": true,
+              "push": true,
+              "triage": true,
+              "pull": true
+            },
+            "squash_allowed": true,
+            "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+            "head_repo": "Artyx71/Last-Skuf",
+            "base": "main",
+            "base_sha": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb",
+            "state": "open",
+            "draft": false,
+            "merged": false,
+            "merge_commit_sha": "8160aea135a872510c7eed273f2c9dd0931be5eb",
+            "mergeable": true,
+            "merge_state": "CLEAN",
+            "review_decision": null,
+            "threads_complete": true,
+            "unresolved_threads": 0,
+            "required_checks": [
+              "bootstrap"
+            ],
+            "integration_ids": {},
+            "checks": {
+              "bootstrap": {
+                "status": "completed",
+                "conclusion": "success",
+                "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+                "app_id": 15368,
+                "app_slug": "github-actions",
+                "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43416032464/job/131854059451"
+              }
+            },
+            "approvals_required": 0,
+            "queue_required": false,
+            "protection_inspected": true,
+            "expected_ci_app_slug": "github-actions"
+          },
+          "review_sha256": "0dd28b6400dff75f8fd0bbb7c8f603b302c322471544586b3ad948633cd8b396"
+        }
       },
       "P03": {
-        "status": "BLOCKED",
-        "attempts": 1,
+        "status": "PASS",
+        "attempts": 2,
         "decision": "reports/phases/P03/decision.json",
-        "decision_sha256": "dc8b4f5956d01ed835e66f83f5dbe8f02f66d12a05c3506478fd3e40f17cea3f",
-        "reviewer": "/root/lead_reviewer_p03"
+        "decision_sha256": "4b0b1c7a4ab4134ab2df6641ca418ee6ecf6bfdfe400495eaca99a03389f8b85",
+        "reviewer": "/root/lead_autopilot_p03",
+        "merge": {
+          "status": "MERGED",
+          "reviewed_head": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+          "merge_sha": "5ed735156fc01d3366367d92bce81d2bb8af544a",
+          "number": 4,
+          "method": "squash",
+          "base": "main"
+        },
+        "pull_request_number": 4,
+        "merge_intent": {
+          "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+          "method": "squash",
+          "snapshot": {
+            "number": 4,
+            "repository": "Artyx71/Last-Skuf",
+            "private": false,
+            "permissions": {
+              "admin": true,
+              "maintain": true,
+              "push": true,
+              "triage": true,
+              "pull": true
+            },
+            "squash_allowed": true,
+            "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+            "head_repo": "Artyx71/Last-Skuf",
+            "base": "main",
+            "base_sha": "e8eaf5c89d372e988fa351267f00d4034856faf9",
+            "state": "open",
+            "draft": false,
+            "merged": false,
+            "merge_commit_sha": "d10bde9a69d6a5d3f2f8ba0f29be5fd416633684",
+            "mergeable": true,
+            "merge_state": "CLEAN",
+            "review_decision": null,
+            "threads_complete": true,
+            "unresolved_threads": 0,
+            "required_checks": [
+              "bootstrap"
+            ],
+            "integration_ids": {},
+            "checks": {
+              "bootstrap": {
+                "status": "completed",
+                "conclusion": "success",
+                "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+                "app_id": 15368,
+                "app_slug": "github-actions",
+                "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43417181910/job/131857921221"
+              }
+            },
+            "approvals_required": 0,
+            "queue_required": false,
+            "protection_inspected": true,
+            "expected_ci_app_slug": "github-actions"
+          },
+          "review_sha256": "a2b94f2a7901192a92833cc1768a1fde46cbbffd4f6bc2cf7fd919cc67c57fae"
+        }
       },
       "P04": {
         "status": "PENDING",
@@ -138,35 +323,100 @@
         "report": "reports/autopilot/P03/audio_qa/report.json",
         "sha256": "c75743436c087ab78db3a1f6fe75e842b116f0f2349d4f99565847f9f09a6a00",
         "scope": "Technical audio signal/runtime only; never clears artistic gate"
+      },
+      "P03/workspace-ownership": {
+        "implementation": "early guard + two regression cases",
+        "report": "reports/autopilot/integration/ownership_fix/implementation.md",
+        "review_gate": "Independent exact-handoff review and mandatory CI before merge/start P04; no self-approval"
       }
     },
-    "history": [],
+    "history": [
+      {
+        "event": "SQUASH_MERGE_CONFIRMED",
+        "phase": "P00",
+        "status": "MERGED",
+        "reviewed_head": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+        "merge_sha": "96c18544ea6f0ff60f8906edd075470d501b436b",
+        "number": 1,
+        "method": "squash",
+        "base": "main"
+      },
+      {
+        "event": "SQUASH_MERGE_CONFIRMED",
+        "phase": "P01",
+        "status": "MERGED",
+        "reviewed_head": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+        "merge_sha": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb",
+        "number": 2,
+        "method": "squash",
+        "base": "main"
+      },
+      {
+        "event": "SQUASH_MERGE_CONFIRMED",
+        "phase": "P02",
+        "status": "MERGED",
+        "reviewed_head": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+        "merge_sha": "e8eaf5c89d372e988fa351267f00d4034856faf9",
+        "number": 3,
+        "method": "squash",
+        "base": "main"
+      },
+      {
+        "event": "DUPLICATE_DRAFT_CLOSED",
+        "phase": "P03",
+        "closed_pull_request": 5,
+        "existing_pull_request": 4,
+        "reason": "New decision omitted historical PR association; automatic branch discovery added"
+      },
+      {
+        "event": "SQUASH_MERGE_CONFIRMED",
+        "phase": "P03",
+        "status": "MERGED",
+        "reviewed_head": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+        "merge_sha": "5ed735156fc01d3366367d92bce81d2bb8af544a",
+        "number": 4,
+        "method": "squash",
+        "base": "main"
+      }
+    ],
     "operation": {
-      "id": "bf279052915f41108b4af6636e11af6d",
-      "task": "P03/audio-qa",
+      "id": "346a93b862cd44029c2aac75eb56cf9e",
+      "task": "prepare-p04",
       "argv": [
         "/usr/bin/python3",
-        "tools/audio_qa.py",
-        "--capture-engine",
-        "--output",
-        "reports/autopilot/P03/audio_qa"
+        "tools/p04_readiness.py"
       ],
-      "argv_sha256": "a59526134cd99d89fcd9a024a908d5010a15de68334d3268258de4649a909ac6",
+      "argv_sha256": "d6e6583332e09d7d26489a39cfcd93d013086ec8f416aafa0a367c6c54ccba96",
       "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
-      "timeout": 180,
+      "timeout": 60,
       "stdin": "",
-      "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf279052915f41108b4af6636e11af6d/output.log",
-      "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf279052915f41108b4af6636e11af6d/receipt.json",
-      "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf279052915f41108b4af6636e11af6d/started.json",
+      "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/346a93b862cd44029c2aac75eb56cf9e/output.log",
+      "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/346a93b862cd44029c2aac75eb56cf9e/receipt.json",
+      "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/346a93b862cd44029c2aac75eb56cf9e/started.json",
       "status": "COMPLETED",
       "consumed": true,
-      "input_sha256": "4e5e1066f6c418aa8849a26f5dc8d53cf37c4104301e83a5c99d9adc1155b272",
+      "input_sha256": "3715ea7dab99c059e52a7d373012e4ca0db0c1030ea9efc81f32c0c54c4cbd94",
       "safe_retry": true,
-      "created_at": "2026-11-13T10:41:00+00:00",
+      "created_at": "2026-11-13T11:37:41+00:00",
       "exit_code": 0
     },
-    "authority": "automation/phase_state.json"
+    "authority": "automation/phase_state.json",
+    "delivery_next": "P04"
   },
   "repository_visibility": "public",
-  "authorization": "automation/AUTHORIZATIONS.json"
+  "authorization": "automation/AUTHORIZATIONS.json",
+  "closed_blockers": [
+    {
+      "id": "AU-P03-01",
+      "scope": "Awaiting independent verification of owner actual listening; signal QA PASS",
+      "decision": "reports/phases/P03/decision-attempt2.json",
+      "reason": "Root and independent Lead actual MP3 input both returned: audio content omitted because you do not support audio input",
+      "request": "reports/phases/P03/listening_request.json",
+      "question_sent": true,
+      "answer_received": true,
+      "response": "reports/autopilot/P03/human_listening.json",
+      "resolution": "Independent P03 attempt2 PASS; owner provisional actual listening verified"
+    }
+  ],
+  "last_confirmed_merge": "5ed735156fc01d3366367d92bce81d2bb8af544a"
 }

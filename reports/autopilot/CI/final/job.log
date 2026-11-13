@@ -1,0 +1,532 @@
+bootstrap	Set up job	﻿2026-11-13T10:52:09.8366193Z Current runner version: '2.338.2'
+bootstrap	Set up job	2026-11-13T10:52:09.8394028Z ##[group]Runner Image Provisioner
+bootstrap	Set up job	2026-11-13T10:52:09.8394981Z Hosted Compute Agent
+bootstrap	Set up job	2026-11-13T10:52:09.8395722Z Version: 20261028.624
+bootstrap	Set up job	2026-11-13T10:52:09.8396381Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+bootstrap	Set up job	2026-11-13T10:52:09.8397168Z Build Date: 2026-10-28T21:51:42Z
+bootstrap	Set up job	2026-11-13T10:52:09.8398529Z Worker ID: {6678bfd7-975e-47c2-8991-1e7e36c2de72}
+bootstrap	Set up job	2026-11-13T10:52:09.8399289Z Region: westus
+bootstrap	Set up job	2026-11-13T10:52:09.8399943Z Cloud: Azure
+bootstrap	Set up job	2026-11-13T10:52:09.8400510Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:52:09.8402492Z ##[group]Operating System
+bootstrap	Set up job	2026-11-13T10:52:09.8403405Z Ubuntu
+bootstrap	Set up job	2026-11-13T10:52:09.8403956Z 24.04.5
+bootstrap	Set up job	2026-11-13T10:52:09.8404557Z LTS
+bootstrap	Set up job	2026-11-13T10:52:09.8405117Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:52:09.8405689Z ##[group]Runner Image
+bootstrap	Set up job	2026-11-13T10:52:09.8406447Z Image: ubuntu-24.04
+bootstrap	Set up job	2026-11-13T10:52:09.8407045Z Version: 20261101.360.1
+bootstrap	Set up job	2026-11-13T10:52:09.8408639Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+bootstrap	Set up job	2026-11-13T10:52:09.8410541Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+bootstrap	Set up job	2026-11-13T10:52:09.8411628Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:52:09.8412850Z ##[group]GITHUB_TOKEN Permissions
+bootstrap	Set up job	2026-11-13T10:52:09.8415043Z Contents: read
+bootstrap	Set up job	2026-11-13T10:52:09.8415719Z Metadata: read
+bootstrap	Set up job	2026-11-13T10:52:09.8416413Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:52:09.8418988Z Secret source: Actions
+bootstrap	Set up job	2026-11-13T10:52:09.8420048Z Cache mode: write
+bootstrap	Set up job	2026-11-13T10:52:09.8420819Z Prepare workflow directory
+bootstrap	Set up job	2026-11-13T10:52:09.8839545Z Prepare all required actions
+bootstrap	Set up job	2026-11-13T10:52:09.8889921Z Getting action download info
+bootstrap	Set up job	2026-11-13T10:52:10.2724971Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+bootstrap	Set up job	2026-11-13T10:52:10.5269105Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+bootstrap	Set up job	2026-11-13T10:52:10.7566991Z Complete job name: bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-13T10:52:10.8526528Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8527946Z with:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8528418Z   fetch-depth: 0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8528909Z   persist-credentials: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8529458Z   repository: Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8533393Z   token: ***
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8533852Z   ssh-strict: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8534314Z   ssh-user: git
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8534754Z   clean: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8535223Z   sparse-checkout-cone-mode: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8535772Z   fetch-tags: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8536245Z   show-progress: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8536711Z   lfs: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8537146Z   submodules: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8537798Z   set-safe-directory: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:10.8538561Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3746362Z Syncing repository: Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3750141Z ##[group]Getting Git version info
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3751701Z Working directory is '/home/runner/work/Last-Skuf/Last-Skuf'
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3754020Z [command]/usr/bin/git version
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3854633Z git version 2.56.0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3881297Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3899449Z Temporarily overriding HOME='/home/runner/work/_temp/1d95f4c5-2d39-455d-9ff7-8293b5241462' before making global git config changes
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3901245Z Adding repository directory to the temporary git global config as a safe directory
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.3905136Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4112042Z Deleting the contents of '/home/runner/work/Last-Skuf/Last-Skuf'
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4117802Z ##[group]Initializing the repository
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4126006Z [command]/usr/bin/git init /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4239058Z hint: Using 'master' as the name for the initial branch. This default branch name
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4240984Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4242924Z hint: to use in all of your new repositories, which will suppress this warning,
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4244206Z hint: call:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4244863Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4245777Z hint: 	git config --global init.defaultBranch <name>
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4247659Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4249095Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4250997Z hint: 'development'. The just-created branch can be renamed via this command:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4252058Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4253186Z hint: 	git branch -m <name>
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4254589Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4255778Z hint: Disable this message with "git config set advice.defaultBranchName false"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4257565Z Initialized empty Git repository in /home/runner/work/Last-Skuf/Last-Skuf/.git/
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4264559Z [command]/usr/bin/git remote add origin https://github.com/Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4325032Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4326828Z ##[group]Disabling automatic garbage collection
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4340457Z [command]/usr/bin/git config --local gc.auto 0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4382742Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4383674Z ##[group]Setting up auth
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4394283Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.4721246Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5363718Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5411187Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5668718Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5724146Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5725216Z ##[group]Fetching the repository
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:11.5737749Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +06a9656b453fc3de0e596dd7ebe532224bb2f7a5:refs/remotes/pull/4/merge
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9091987Z From https://github.com/Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9094123Z  * [new branch]      main                                     -> origin/main
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9095526Z  * [new branch]      phase/p00-bootstrap                      -> origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9096798Z  * [new branch]      phase/p01-art-movement                   -> origin/phase/p01-art-movement
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9098321Z  * [new branch]      phase/p02-combat                         -> origin/phase/p02-combat
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9099618Z  * [new branch]      phase/p03-dialogue-audio                 -> origin/phase/p03-dialogue-audio
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9101011Z  * [new ref]         06a9656b453fc3de0e596dd7ebe532224bb2f7a5 -> pull/4/merge
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9103575Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9104460Z ##[group]Determining the checkout info
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9105411Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9108729Z [command]/usr/bin/git sparse-checkout disable
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9178151Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9278666Z ##[group]Checking out the ref
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:14.9288295Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/4/merge
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4874698Z Note: switching to 'refs/remotes/pull/4/merge'.
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4876645Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4876958Z You are in 'detached HEAD' state. You can look around, make experimental
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4878021Z changes and commit them, and you can discard any commits you make in this
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4878669Z state without impacting any branches by switching back to a branch.
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4879526Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4879772Z If you want to create a new branch to retain commits you create, you may
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4880335Z do so (now or later) by using -c with the switch command. Example:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4880657Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4880817Z   git switch -c <new-branch-name>
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4881040Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4881175Z Or undo this operation with:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4881398Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4881515Z   git switch -
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4881696Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4882023Z Turn off this advice by setting config variable advice.detachedHead to false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4882378Z 
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4882758Z HEAD is now at 06a9656 Merge 84332875ecc7c3effcde540f14c2e5c9a714e1ef into 3194671ba3b564cd98856b975fae2e7896c6e2a0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4924010Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.4980059Z [command]/usr/bin/git log -1 --format=%H
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5015682Z 06a9656b453fc3de0e596dd7ebe532224bb2f7a5
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5025755Z ##[group]Removing auth
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5029856Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5070584Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5318480Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5358950Z http.https://github.com/.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5368513Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5414905Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:52:15.5663922Z ##[endgroup]
+bootstrap	Run python3 tools/install_deps.py --templates	﻿2026-11-13T10:52:15.5890194Z ##[group]Run python3 tools/install_deps.py --templates
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:52:15.5890742Z ^[[36;1mpython3 tools/install_deps.py --templates^[[0m
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:52:15.5914655Z shell: /usr/bin/bash -e {0}
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:52:15.5914974Z ##[endgroup]
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:52:23.9123268Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/Godot_v4.7.2-stable_linux.x86_64
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:52:23.9124514Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/templates
+bootstrap	Run python3 tools/verify.py --output reports/ci	﻿2026-11-13T10:52:24.0508363Z ##[group]Run python3 tools/verify.py --output reports/ci
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:52:24.0508919Z ^[[36;1mpython3 tools/verify.py --output reports/ci^[[0m
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:52:24.0530487Z shell: /usr/bin/bash -e {0}
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:52:24.0530755Z ##[endgroup]
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9480858Z privacy PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9481307Z version PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9481646Z import PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9481981Z smoke PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9482315Z integration PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9482690Z art_structure PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9483105Z movement PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9483454Z combat_art PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9483802Z combat PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9484125Z ai PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9484429Z restart PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9484762Z contact_timing PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9485147Z portrait_motion PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9485508Z dialogue PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9485829Z audio PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:53:15.9486149Z options PASS exit 0
+bootstrap	Install pinned user-local audio decoder	﻿2026-11-13T10:53:15.9582257Z ##[group]Run python3 tools/install_ci_media.py
+bootstrap	Install pinned user-local audio decoder	2026-11-13T10:53:15.9582643Z ^[[36;1mpython3 tools/install_ci_media.py^[[0m
+bootstrap	Install pinned user-local audio decoder	2026-11-13T10:53:15.9602577Z shell: /usr/bin/bash -e {0}
+bootstrap	Install pinned user-local audio decoder	2026-11-13T10:53:15.9602830Z ##[endgroup]
+bootstrap	Install pinned user-local audio decoder	2026-11-13T10:53:17.1346080Z ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers
+bootstrap	Install pinned user-local audio decoder	2026-11-13T10:53:17.1347500Z Verified user-local media tool: /home/runner/work/Last-Skuf/Last-Skuf/.tools/ci-media/bin
+bootstrap	Verify sequential autopilot recovery and merge gates	﻿2026-11-13T10:53:17.1479051Z ##[group]Run python3 -m unittest discover -s tools/tests -v
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.1479538Z ^[[36;1mpython3 -m unittest discover -s tools/tests -v^[[0m
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.1501442Z shell: /usr/bin/bash -e {0}
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.1501711Z ##[endgroup]
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.2936894Z test_broken_loop_boundary_detected (test_audio_qa.SignalTests.test_broken_loop_boundary_detected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.2951347Z test_clipped_and_dc_signals_fail (test_audio_qa.SignalTests.test_clipped_and_dc_signals_fail) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.2973391Z test_corrupt_audio_not_accepted_as_metadata (test_audio_qa.SignalTests.test_corrupt_audio_not_accepted_as_metadata) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.3315390Z test_internal_dropout_detected (test_audio_qa.SignalTests.test_internal_dropout_detected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.3603489Z test_nonempty_sine_is_not_clipped (test_audio_qa.SignalTests.test_nonempty_sine_is_not_clipped) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.3730109Z test_real_samples_in_event_window_detect_impulse (test_audio_qa.SignalTests.test_real_samples_in_event_window_detect_impulse) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.3769405Z test_silent_file_fails_energy (test_audio_qa.SignalTests.test_silent_file_fails_energy) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.3924925Z test_cannot_downgrade_pass_automatically (test_autopilot.ControllerTests.test_cannot_downgrade_pass_automatically) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.6135963Z test_changed_script_after_completed_stage_requires_reconciliation (test_autopilot.ControllerTests.test_changed_script_after_completed_stage_requires_reconciliation) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.8346425Z test_changed_stage_inputs_not_adopted (test_autopilot.ControllerTests.test_changed_stage_inputs_not_adopted) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.8550607Z test_current_phase_merge_advances_after_confirmation (test_autopilot.ControllerTests.test_current_phase_merge_advances_after_confirmation) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.8759365Z test_historical_merge_never_regresses_authoring_progress (test_autopilot.ControllerTests.test_historical_merge_never_regresses_authoring_progress) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:17.8920285Z test_invalid_decision_does_not_reset_state (test_autopilot.ControllerTests.test_invalid_decision_does_not_reset_state) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4057632Z test_killed_parent_worker_finishes_and_is_adopted_once (test_autopilot.ControllerTests.test_killed_parent_worker_finishes_and_is_adopted_once) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4197083Z test_legacy_live_process_lock_is_not_deleted (test_autopilot.ControllerTests.test_legacy_live_process_lock_is_not_deleted) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4354743Z test_missing_state_is_not_reinitialized (test_autopilot.ControllerTests.test_missing_state_is_not_reinitialized) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4505404Z test_pause_blocks_execution_without_phase_reset (test_autopilot.ControllerTests.test_pause_blocks_execution_without_phase_reset) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4667711Z test_phase_gate_pass_does_not_bypass_missing_merge (test_autopilot.ControllerTests.test_phase_gate_pass_does_not_bypass_missing_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.4805987Z test_prerequisite_cannot_skip_blocked_p03 (test_autopilot.ControllerTests.test_prerequisite_cannot_skip_blocked_p03) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.7031789Z test_receipt_tampering_fails_closed (test_autopilot.ControllerTests.test_receipt_tampering_fails_closed) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.7198295Z test_reconcile_preserves_progress_and_ignores_legacy_reset (test_autopilot.ControllerTests.test_reconcile_preserves_progress_and_ignores_legacy_reset) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:19.9424593Z test_success_checkpoint_is_atomic_with_receipt_consumption (test_autopilot.ControllerTests.test_success_checkpoint_is_atomic_with_receipt_consumption) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:20.3196309Z test_timeout_stops_whole_child_group (test_autopilot.ControllerTests.test_timeout_stops_whole_child_group) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4322360Z test_two_controllers_cannot_hold_lease (test_autopilot.ControllerTests.test_two_controllers_cannot_hold_lease) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4329519Z test_atomic_sha_squash_and_remote_confirmation (test_autopilot.MergeTests.test_atomic_sha_squash_and_remote_confirmation) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4335996Z test_ci_changes_immediately_before_merge_block (test_autopilot.MergeTests.test_ci_changes_immediately_before_merge_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4340754Z test_exact_review_and_ci_pass (test_autopilot.MergeTests.test_exact_review_and_ci_pass) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4350739Z test_fail_blocked_and_unresolved_critical_forbid_merge (test_autopilot.MergeTests.test_fail_blocked_and_unresolved_critical_forbid_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4364473Z test_manual_approval_threads_protection_and_draft_block (test_autopilot.MergeTests.test_manual_approval_threads_protection_and_draft_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4370918Z test_merge_intent_is_persisted_before_request (test_autopilot.MergeTests.test_merge_intent_is_persisted_before_request) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4379507Z test_missing_pending_failed_wrong_sha_ci_all_block (test_autopilot.MergeTests.test_missing_pending_failed_wrong_sha_ci_all_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4385627Z test_mutated_evidence_rejected (test_autopilot.MergeTests.test_mutated_evidence_rejected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4391912Z test_old_head_and_old_base_review_rejected (test_autopilot.MergeTests.test_old_head_and_old_base_review_rejected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4396314Z test_signal_metrics_cannot_close_artistic_gate (test_autopilot.MergeTests.test_signal_metrics_cannot_close_artistic_gate) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4401063Z test_toctou_head_change_never_sends_merge (test_autopilot.MergeTests.test_toctou_head_change_never_sends_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4406982Z test_unverified_merged_parent_blocks_progress (test_autopilot.MergeTests.test_unverified_merged_parent_blocks_progress) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4635400Z test_original_reference_hash_catches_renamed_blob_after_local_replacement (test_privacy.PrivacyTests.test_original_reference_hash_catches_renamed_blob_after_local_replacement) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4636190Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4636345Z ----------------------------------------------------------------------
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4636791Z Ran 37 tests in 5.199s
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4636942Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:53:22.4637026Z OK
+bootstrap	Decode and analyze actual audio signals	﻿2026-11-13T10:53:22.4813238Z ##[group]Run python3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa
+bootstrap	Decode and analyze actual audio signals	2026-11-13T10:53:22.4813866Z ^[[36;1mpython3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa^[[0m
+bootstrap	Decode and analyze actual audio signals	2026-11-13T10:53:22.4833159Z shell: /usr/bin/bash -e {0}
+bootstrap	Decode and analyze actual audio signals	2026-11-13T10:53:22.4833411Z ##[endgroup]
+bootstrap	Decode and analyze actual audio signals	2026-11-13T10:53:42.6921778Z {"technical_status": "PASS_SIGNAL_ONLY", "passed_checks": 62, "failed_checks": 0}
+bootstrap	Export native bootstrap binaries	﻿2026-11-13T10:53:42.7066475Z ##[group]Run mkdir -p build/linux build/windows
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7066895Z ^[[36;1mmkdir -p build/linux build/windows^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7067755Z ^[[36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Linux^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7068448Z ^[[36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Windows^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7068979Z ^[[36;1mbuild/linux/last-skuf.x86_64 --headless --quit^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7089296Z shell: /usr/bin/bash -e {0}
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7089564Z ##[endgroup]
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7333692Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:42.7610409Z 
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.7769526Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Started Project initialization (5 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.7770656Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Scanning file structure...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.7785862Z [  16% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Loading global class names...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.7822112Z [  33% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Verifying GDExtensions...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.7823213Z [  50% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Creating autoload scripts...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.8051789Z [  66% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Initializing plugins...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.8052816Z [  83% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Starting file scan...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.8054120Z ^[[92m[ DONE ]^[[39m ^[[1mfirst_scan_filesystem^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.8054659Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9059954Z [   0% ] ^[[90m^[[1msavepack^[[22m | Started Packing (102 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9111482Z [   1% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9115257Z [   2% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/patrol_sheet.png-d496d01845e05242f54697af21aa5c9c.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9116398Z [   2% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/patrol_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9119008Z [   4% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/rusher_sheet.png-0d53e78c458263a6a077cc0311ff7c39.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9120047Z [   4% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/rusher_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9122396Z [   5% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/shooter_sheet.png-f3df25ac9950adf641cc0213a7ff54d7.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9123424Z [   5% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/shooter_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9124560Z [   7% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/actions_atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9128014Z [   9% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/action_sheet.png-5237e57464a1d501fce0cfbebd076ba3.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9129074Z [   9% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/action_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9130300Z [  10% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9133423Z [  12% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9134469Z [  12% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portraits.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9136855Z [  14% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9138170Z [  14% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portraits_past.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9140441Z [  15% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portrait_motion.png-8fbff73d48037e3a66a0f67d9b366503.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9141520Z [  15% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portrait_motion.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9142947Z [  17% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portrait_motion_atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9145286Z [  19% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9146303Z [  19% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/world_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9150397Z [  20% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_bass.ogg-1eeca6f6f17a87b7d9c8e9189f4443a2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9151447Z [  20% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_bass.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9158459Z [  22% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_drums.ogg-972bb64ed78bdffbd1bc422b84007d85.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9159567Z [  22% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_drums.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9163854Z [  23% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_lead.ogg-2ba82d1c7255214a63552522c72b29d0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9164903Z [  23% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_lead.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9168544Z [  25% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_texture.ogg-fb2742b114bc4d5f6a643bc84058e547.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9169624Z [  25% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_texture.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9170919Z [  27% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/clear.ogg-93ba053b5fe06a152162d2023cabc599.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9171976Z [  27% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/clear.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9173552Z [  28% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/death.ogg-886d56efc7d54658275fbe74ae3e444f.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9174558Z [  28% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/death.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9176229Z [  30% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/footstep_metal_1.ogg-af0489d6fc16fa7e60dcf0735ae695aa.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9177529Z [  30% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/footstep_metal_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9179192Z [  32% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/footstep_metal_2.ogg-3b4dc358b517fe786ffcc93027db43f2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9180938Z [  32% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/footstep_metal_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9182691Z [  33% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/gunshot.ogg-14b19c98f652cca7b221b458f816c62e.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9184408Z [  33% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/gunshot.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9186095Z [  34% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/impact_1.ogg-8ab08f9bddf566882e7c1b0ee2491694.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9187884Z [  34% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/impact_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9189416Z [  36% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/impact_2.ogg-73473df8fbd7bef114cb3508a2008e1c.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9190850Z [  36% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/impact_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9192325Z [  37% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/knife.ogg-39ede5efb5e71cf3421bc5e066d5d541.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9193726Z [  37% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/knife.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9195461Z [  39% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/noise.ogg-8a6df8f00d51d204311423c1543a21e2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9196856Z [  39% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/noise.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9198554Z [  40% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/phone_ring.ogg-2ce505456ff81ad8a7042f9c28ca9eb0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9200022Z [  40% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/phone_ring.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9201492Z [  42% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/retry.ogg-5e3f65c412027a4ca6ed74f04f494f6e.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9202889Z [  42% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/retry.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9204334Z [  44% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/shove.ogg-885bc2fd73e2f687b6884eb20033b2af.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9205563Z [  44% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/shove.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9207063Z [  45% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/speech_yakuza_1.ogg-527dcb1a840d5b0f3dd7f4cfdc73f0c4.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9208475Z [  45% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/speech_yakuza_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9210028Z [  47% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/speech_yakuza_2.ogg-7f45bc36cbc3e97f820fc169ae72f70a.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9210942Z [  47% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/speech_yakuza_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9212537Z [  49% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/step_concrete_1.ogg-05472e7afecb1eb63a244f62a16eca8a.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9213407Z [  49% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/step_concrete_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9214765Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/step_concrete_2.ogg-0d19f6849d892f8a075fa8b2741d66f0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9215795Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/step_concrete_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9216756Z [  52% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/ui_confirm.ogg-835f5ce713a16583ec5b3dfebe9b1659.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9218375Z [  52% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/ui_confirm.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9219449Z [  54% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/ui_open.ogg-47d1a9beff873fb2fb97d6208b7dc831.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9220699Z [  54% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/ui_open.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9221706Z [  55% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/manifest.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9222787Z [  57% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/combat/prototype.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9223767Z [  59% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/combat/weapon_visuals.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9224641Z [  60% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/dialogue/yakuza_phone.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9291357Z [  62% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9783164Z [  63% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-7ec123d12220e876e356999a9b337fee-combat_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:44.9995545Z [  65% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-1f6edd4dd32bc44f1db051deb0ca264a-dialogue_audio_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0088170Z [  66% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-068f8a3c41af9493c93f0643319ed36a-movement_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0100937Z [  67% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_player.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0104457Z [  69% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_weapon_visual.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0109359Z [  71% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/yakuza_actor.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0120264Z [  72% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_actor.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0123216Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0128122Z [  76% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0147035Z [  77% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/combat_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0165869Z [  79% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/dialogue_audio_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0169138Z [  80% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/input_bindings.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0176519Z [  82% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/movement_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0182018Z [  84% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/options_store.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0184255Z [  85% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/runtime_shutdown.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0197067Z [  87% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/audio_director.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0206434Z [  89% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/combat_system.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0216456Z [  90% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/dialogue_director.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0238783Z [  92% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ui/vhs_overlay.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0239985Z [  94% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0241201Z [  95% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0242130Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0242801Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0243702Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/combat_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0244841Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/dialogue_audio_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0245567Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/movement_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0246272Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_player.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0246991Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_weapon_visual.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0248061Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/yakuza_actor.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0248742Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_actor.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0249712Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0250685Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0251739Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/combat_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0252411Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/dialogue_audio_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0253352Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/input_bindings.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0254017Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/movement_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0254668Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/options_store.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0255337Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/runtime_shutdown.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0256017Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/audio_director.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0256692Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/combat_system.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0257748Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/dialogue_director.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0258448Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ui/vhs_overlay.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0259092Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://default_bus_layout.tres.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0259745Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/global_script_class_cache.cfg^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0260355Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/uid_cache.bin^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0261090Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://project.binary^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0261513Z ^[[92m[ DONE ]^[[39m ^[[1msavepack^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.0261779Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.6313948Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:45.6596130Z 
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6221457Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Started Project initialization (5 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6222997Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Scanning file structure...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6233884Z [  16% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Loading global class names...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6266705Z [  33% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Verifying GDExtensions...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6268286Z [  50% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Creating autoload scripts...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6472088Z [  66% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Initializing plugins...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6473466Z [  83% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Starting file scan...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6474523Z ^[[92m[ DONE ]^[[39m ^[[1mfirst_scan_filesystem^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.6475209Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7650952Z [   0% ] ^[[90m^[[1msavepack^[[22m | Started Packing (102 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7701736Z [   1% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7704689Z [   2% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/patrol_sheet.png-d496d01845e05242f54697af21aa5c9c.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7706314Z [   2% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/patrol_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7708331Z [   4% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/rusher_sheet.png-0d53e78c458263a6a077cc0311ff7c39.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7709888Z [   4% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/rusher_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7711771Z [   5% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/shooter_sheet.png-f3df25ac9950adf641cc0213a7ff54d7.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7713275Z [   5% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/enemies/shooter_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7714475Z [   7% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/actions_atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7716931Z [   9% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/action_sheet.png-5237e57464a1d501fce0cfbebd076ba3.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7718838Z [   9% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/action_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7720268Z [  10% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7723499Z [  12% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7724553Z [  12% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portraits.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7726975Z [  14% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7728259Z [  14% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portraits_past.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7730610Z [  15% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/portrait_motion.png-8fbff73d48037e3a66a0f67d9b366503.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7731664Z [  15% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portrait_motion.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7732905Z [  17% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/portrait_motion_atlas.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7735523Z [  19% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7736702Z [  19% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/art/yakuza/world_sheet.png.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7740661Z [  20% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_bass.ogg-1eeca6f6f17a87b7d9c8e9189f4443a2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7741696Z [  20% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_bass.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7748914Z [  22% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_drums.ogg-972bb64ed78bdffbd1bc422b84007d85.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7750006Z [  22% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_drums.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7754356Z [  23% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_lead.ogg-2ba82d1c7255214a63552522c72b29d0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7755430Z [  23% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_lead.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7759268Z [  25% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/last_skuf_demo_texture.ogg-fb2742b114bc4d5f6a643bc84058e547.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7760315Z [  25% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/music/last_skuf_demo_texture.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7761690Z [  27% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/clear.ogg-93ba053b5fe06a152162d2023cabc599.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7762727Z [  27% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/clear.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7764302Z [  28% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/death.ogg-886d56efc7d54658275fbe74ae3e444f.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7765351Z [  28% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/death.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7767066Z [  30% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/footstep_metal_1.ogg-af0489d6fc16fa7e60dcf0735ae695aa.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7768355Z [  30% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/footstep_metal_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7770222Z [  32% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/footstep_metal_2.ogg-3b4dc358b517fe786ffcc93027db43f2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7771294Z [  32% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/footstep_metal_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7773356Z [  33% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/gunshot.ogg-14b19c98f652cca7b221b458f816c62e.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7774849Z [  33% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/gunshot.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7776509Z [  34% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/impact_1.ogg-8ab08f9bddf566882e7c1b0ee2491694.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7778332Z [  34% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/impact_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7788462Z [  36% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/impact_2.ogg-73473df8fbd7bef114cb3508a2008e1c.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7798720Z [  36% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/impact_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7800226Z [  37% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/knife.ogg-39ede5efb5e71cf3421bc5e066d5d541.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7801650Z [  37% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/knife.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7803084Z [  39% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/noise.ogg-8a6df8f00d51d204311423c1543a21e2.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7804457Z [  39% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/noise.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7806395Z [  40% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/phone_ring.ogg-2ce505456ff81ad8a7042f9c28ca9eb0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7808068Z [  40% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/phone_ring.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7809558Z [  42% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/retry.ogg-5e3f65c412027a4ca6ed74f04f494f6e.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7810956Z [  42% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/retry.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7812390Z [  44% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/shove.ogg-885bc2fd73e2f687b6884eb20033b2af.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7813774Z [  44% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/shove.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7815283Z [  45% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/speech_yakuza_1.ogg-527dcb1a840d5b0f3dd7f4cfdc73f0c4.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7816813Z [  45% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/speech_yakuza_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7818135Z [  47% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/speech_yakuza_2.ogg-7f45bc36cbc3e97f820fc169ae72f70a.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7818959Z [  47% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/speech_yakuza_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7819805Z [  49% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/step_concrete_1.ogg-05472e7afecb1eb63a244f62a16eca8a.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7820656Z [  49% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/step_concrete_1.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7821512Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/step_concrete_2.ogg-0d19f6849d892f8a075fa8b2741d66f0.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7822356Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/step_concrete_2.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7823237Z [  52% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/ui_confirm.ogg-835f5ce713a16583ec5b3dfebe9b1659.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7824058Z [  52% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/ui_confirm.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7824904Z [  54% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/imported/ui_open.ogg-47d1a9beff873fb2fb97d6208b7dc831.oggvorbisstr^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7825700Z [  54% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/sfx/ui_open.ogg.import^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7826484Z [  55% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://assets/audio/manifest.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7827082Z [  57% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/combat/prototype.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7828054Z [  59% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/combat/weapon_visuals.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7828743Z [  60% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://resources/dialogue/yakuza_phone.json^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7829870Z [  62% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7831294Z [  63% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-7ec123d12220e876e356999a9b337fee-combat_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7832370Z [  65% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-1f6edd4dd32bc44f1db051deb0ca264a-dialogue_audio_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7833969Z [  66% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-068f8a3c41af9493c93f0643319ed36a-movement_lab.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7834812Z [  67% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_player.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7835643Z [  69% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_weapon_visual.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7838293Z [  71% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/yakuza_actor.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7849203Z [  72% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_actor.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7851933Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7856543Z [  76% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7876245Z [  77% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/combat_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7896192Z [  79% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/dialogue_audio_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7899466Z [  80% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/input_bindings.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7906788Z [  82% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/movement_lab.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7912131Z [  84% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/options_store.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7914579Z [  85% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/runtime_shutdown.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7927537Z [  87% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/audio_director.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7936728Z [  89% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/combat_system.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7946739Z [  90% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/dialogue_director.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7949626Z [  92% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ui/vhs_overlay.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7950713Z [  94% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7952632Z [  95% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7955731Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7958241Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7959415Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/combat_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7960597Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/dialogue_audio_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7962011Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/world/movement_lab.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7963187Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_player.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7964402Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/combat_weapon_visual.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7965595Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/actors/yakuza_actor.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7966707Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_actor.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7967705Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7968355Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7968991Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/combat_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7969663Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/dialogue_audio_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7970333Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/input_bindings.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7970979Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/movement_lab.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7971770Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/options_store.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7972430Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/runtime_shutdown.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7973096Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/audio_director.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7973785Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/combat_system.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7974592Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/systems/dialogue_director.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7975375Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/ui/vhs_overlay.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7976392Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://default_bus_layout.tres.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7977204Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/global_script_class_cache.cfg^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7978066Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/uid_cache.bin^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7980355Z [  97% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://project.binary^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7981385Z ^[[92m[ DONE ]^[[39m ^[[1msavepack^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:47.7981841Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:48.5501068Z WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:48.5501793Z    at: cleanup (core/object/object.cpp:2536)
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:48.5601105Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:53:48.5601663Z 
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	﻿2026-11-13T10:53:48.5697907Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5698366Z with:
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5698590Z   name: bootstrap-validation
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5698844Z   path: reports/ci/
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	build/
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5699078Z   retention-days: 7
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5699299Z   if-no-files-found: warn
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5699552Z   compression-level: 6
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5699766Z   overwrite: false
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5699981Z   include-hidden-files: false
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.5700218Z ##[endgroup]
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7471576Z (node:3324) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7472390Z (Use `node --trace-deprecation ...` to show where the warning was created)
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7636049Z Multiple search paths detected. Calculating the least common ancestor of all paths
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7638567Z The least common ancestor is /home/runner/work/Last-Skuf/Last-Skuf. This will be the root directory of the artifact
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7639427Z With the provided path, there will be 20 files uploaded
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7640317Z Artifact name is valid!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:48.7640994Z Root directory input is valid!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:49.1830130Z Beginning upload of artifact content to blob storage
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:49.8720546Z (node:3324) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:50.7999399Z Uploaded bytes 8388608
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:51.4303098Z Uploaded bytes 16777216
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:51.5268510Z Uploaded bytes 25165824
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:52.0699645Z Uploaded bytes 33554432
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:52.7276187Z Uploaded bytes 41943040
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:53.4639511Z Uploaded bytes 50331648
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:54.1110088Z Uploaded bytes 58720256
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:54.8268439Z Uploaded bytes 67108864
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:54.9915484Z Uploaded bytes 69640106
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.0729981Z Finished uploading artifact content to blob storage!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.0733843Z SHA256 digest of uploaded artifact zip is 3337c3aefa2188daf2d9e28a8057d1bfa716f4984a18ed361e0e44f72fcfafdf
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.0736547Z Finalizing artifact upload
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.6226996Z Artifact bootstrap-validation.zip successfully finalized. Artifact ID 14030850098
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.6229144Z Artifact bootstrap-validation has been successfully uploaded! Final size is 69640106 bytes. Artifact ID is 14030850098
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:53:55.6235221Z Artifact download URL: https://github.com/Artyx71/Last-Skuf/actions/runs/43412420904/artifacts/14030850098
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-13T10:53:55.6511104Z Post job cleanup.
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7449667Z [command]/usr/bin/git version
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7496905Z git version 2.56.0
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7544573Z Temporarily overriding HOME='/home/runner/work/_temp/d96a6033-766d-4a42-bf3b-8e4f0404b850' before making global git config changes
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7546309Z Adding repository directory to the temporary git global config as a safe directory
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7551522Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7603875Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7652109Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7942883Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:53:55.7990468Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Complete job	﻿2026-11-13T10:53:55.8491055Z Cleaning up orphan processes
+bootstrap	Complete job	2026-11-13T10:53:55.8893894Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

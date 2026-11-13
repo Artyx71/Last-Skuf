@@ -1,0 +1,103 @@
+{
+  "phase": "P00",
+  "status": "PASS",
+  "reviewed_commit": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+  "base_branch": "main",
+  "base_sha": "5c66c28be71205cafb86f46e839a11c70d5c8ad7",
+  "independent_review": true,
+  "reviewer": "/root/lead_autopilot_p03",
+  "next_action": "Guarded manager may squash PR1 only after rechecking exact head/main base/current mandatory CI/rules/manual approvals; confirm merged commit parent before progression. Then retarget/review P01 internally; never reset active P03/history.",
+  "evidence": [
+    {
+      "path": "reports/autopilot/P00/review-exact-head-7cded8b.md",
+      "sha256": "8c73b7d9ac78c0e163308459916bba77a5793db7e8a24495567ff9e7ebcf8ab0"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/P00_exact_source_proof.json",
+      "sha256": "5d34f0aceb04a6e12f74f79157502f229335ccbcd0ccd96f10385769d10abc3c"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/P00_exact_head_base.diff",
+      "sha256": "2c23afbc590a3cfe131484ac2253d586c250f2fac18ebe1ea611afb00afc5dad"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/P00_historical_evidence_check.json",
+      "sha256": "da063a9ef9647473fca73676e633481292fd4ca4ecc53877dfb54f95bffd39c8"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/remote_P00_pull.json",
+      "sha256": "914246455e80a6ad60e22bf5b7bc85f0f1148a3f685dd359e20ccc46b0b552ab"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/remote_main.json",
+      "sha256": "855e5ddcc8687b7895811f54831986da8e8f5cfcd49889feb0cbe1a394c6c7df"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/remote_P00_checks.json",
+      "sha256": "e12dbb0874525556487ed0057d9b5475e4676e5db8c11c1d11953055cb85c22c"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/remote_P00_run.json",
+      "sha256": "34b92a29fe10f2bbd08c3a58975358d971d32186e76579a03069abc74b4d4fd8"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/ci_archive_P00.json",
+      "sha256": "8eb3fd07cb2597327d1f8ddc0c81ae2609d6042ac71247877e01180b7b74d896"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/builds_P00.json",
+      "sha256": "4c57ebb3cd10cf6f45cad31566c2d362bf738a08ea79bd2b1a962113dce2d19e"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/P00_fresh_ci_linux_smoke.log",
+      "sha256": "0866accc3f9c97dde09e9ab6677cee6a2803141bb0c5067809d41678180ec930"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/ci_verified_summary.json",
+      "sha256": "df283f96d0bd02086c0eb0e8c012a9712cf583ae2095637734713d9a2ed98a8b"
+    },
+    {
+      "path": "reports/phases/P00/decision-attempt2.json",
+      "sha256": "b4045244095e9ae3c3398675deff7ab667e04d0796bc1ef5e28f0cc370a6fd97"
+    },
+    {
+      "path": "reports/phases/P00/review-attempt2.md",
+      "sha256": "02d2923493a504258e317fd8772d5eba9fd4b40f6259650add303157ebdd04e4"
+    },
+    {
+      "path": "reports/autopilot/CI/P00/run.json",
+      "sha256": "dedb3f86e2c94af7e88e697c1239016ec96fd9a33ad89dc7bfc74a5f25886ea2"
+    },
+    {
+      "path": "reports/autopilot/CI/P00/jobs.json",
+      "sha256": "e49dca3423a9acd95835a33ce1d255dfc06360b30d127cdd9e014b0e946c4835"
+    },
+    {
+      "path": "reports/autopilot/CI/P00/artifact.json",
+      "sha256": "181bf139af423bad1b0b56303fcd233d10fd6f7cafc2bbcd77fd4d744abf7ef4"
+    },
+    {
+      "path": "reports/autopilot/CI/P00/job.log",
+      "sha256": "a5d1c4982fab5c3eab83e82a33586379e92d7130bc879a0e3eaad93917aa3a14"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt2/live_artifact_API_verified.json",
+      "sha256": "69754345aedfeba6e6a233c654e8cacd1de000b5813246cc0284175313102ab6"
+    }
+  ],
+  "findings": [
+    {
+      "id": "N-P00-03",
+      "severity": "LOW",
+      "status": "RECORDED_NONBLOCKING",
+      "message": "Fresh-import exports may vary by generated scene node IDs. Actual current CI build hashes are independently recorded; no cross-import byte reproducibility claim."
+    },
+    {
+      "id": "P00-WINDOWS",
+      "severity": "LOW",
+      "status": "RECORDED_SCOPE_LIMITATION",
+      "message": "Current PE export exists; no native Windows runtime was run. Historical P00 bootstrap scope permits this explicit limitation; later milestone QA is separate."
+    }
+  ],
+  "artistic_audio_acceptance": null
+}

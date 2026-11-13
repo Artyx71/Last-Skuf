@@ -1,0 +1,50 @@
+[
+  {
+    "name": "pre_import_art_structure_attempt",
+    "result": "TIMEOUT60s",
+    "scope": "Initial isolated worktree attempt before explicit editor import; not a PASS."
+  },
+  {
+    "name": "import",
+    "exit_code": 0,
+    "results": [],
+    "errors": []
+  },
+  {
+    "name": "art_structure",
+    "exit_code": 0,
+    "results": [
+      "RESULT passed=90 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "movement",
+    "exit_code": 0,
+    "results": [
+      "RESULT passed=34 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "downloaded_actual_P01_ELF_smoke",
+    "exit_code": 0,
+    "errors": []
+  },
+  {
+    "platform": "Linux",
+    "path": "build/autopilot-ci-P01/build/linux/last-skuf.x86_64",
+    "sha256": "5005c9648074eb1c5a3e41d30f3f80f72a208a8920ba10e424a61dcdd5462467",
+    "bytes": 73727144,
+    "magic": "7f454c46",
+    "scope": "Actual Linux headless bootstrap smoke"
+  },
+  {
+    "platform": "Windows",
+    "path": "build/autopilot-ci-P01/build/windows/last-skuf.exe",
+    "sha256": "199192a00627bf15d372165e4bf72e206a2c3731ba55072ee46ba499ed6ac873",
+    "bytes": 109476216,
+    "magic": "4d5a9000",
+    "scope": "Windows export only, no runtime test"
+  }
+]

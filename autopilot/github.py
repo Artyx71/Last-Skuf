@@ -211,9 +211,14 @@ def manage(controller,phase,action,review=None):
     try:
         if action=='prepare':
             published=False
+            if record.get('workspace'):
+                branch=subprocess.check_output(['git','branch','--show-current'],cwd=work,text=True).strip()
+                if branch!=record.get('branch') or not branch.startswith('phase/'+phase.lower()+'-'):
+                    raise GitHubBlocked('Phase workspace ownership mismatch before publication/discovery')
             if number is None:
                 branch=subprocess.check_output(['git','branch','--show-current'],cwd=work,text=True).strip()
-                if not branch.startswith('phase/'): raise GitHubBlocked('Only phase/* branches may create PRs')
+                if not branch.startswith('phase/'+phase.lower()+'-'):
+                    raise GitHubBlocked('Current branch does not belong to the requested phase')
                 number=find_open_pull(branch)
                 if number is None:
                     private=api(f'repos/{REPO}')
