@@ -72,6 +72,13 @@ func fixture(index: int, direction: Vector2, health := 1) -> CharacterBody2D:
 func run() -> void:
 	var audio := get_node("/root/AudioDirector")
 	check(audio.begin_capture(),"actual mixer recorder starts")
+	var ready_cues := true
+	for category in CATEGORIES:
+		for suffix in ["body","concrete","metal","finish"]:
+			var id: String = "finish_"+category if suffix=="finish" else "impact_"+category+"_"+suffix
+			ready_cues = ready_cues and audio.manifest.sfx.has(id)
+			if audio.manifest.sfx.has(id): ready_cues = ready_cues and ResourceLoader.exists(audio.manifest.sfx[id].path)
+	check(ready_cues,"20 original cues are actually packaged/imported")
 	for ci in CATEGORIES.size():
 		for di in DIRECTIONS.size():
 			var category: String = CATEGORIES[ci]

@@ -244,6 +244,25 @@ class ControllerTests(unittest.TestCase):
                 argv=run.call_args.args[1];self.assertIn('--movie',argv);self.assertIn('--exports',argv)
         self.assertEqual(events,['native','publication'])
 
+    def test_p04g_native_failure_preserves_attempt_and_blocks_publication(self):
+        with self.controller.exclusive():
+            state=self.controller.state()
+            for phase in ['P03','P04']:
+                state['autopilot']['phases'][phase].update(status='PASS',merge={'status':'MERGED'})
+            state['autopilot']['phases']['P04G'].update(status='VALIDATING',attempts=1,workspace=str(self.root),branch='phase/p04g-fixture',checkpoint='validation')
+            self.controller.persist(state)
+            def stage(name,argv,*args,**kwargs):return 0 if name.endswith('/validation') else 1
+            with patch.object(self.controller,'stage',side_effect=stage) as run,patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage') as manage:
+                with self.assertRaises(Blocked):self.controller.run_phase('P04G')
+                self.assertEqual(run.call_count,2)
+                argv=run.call_args.args[1]
+                self.assertIn('tools/verify_p04g.py',argv)
+                self.assertIn('--movie',argv);self.assertIn('--exports',argv)
+                self.assertFalse(run.call_args.kwargs['safe_retry'])
+                manage.assert_not_called()
+        item=self.controller.state()['autopilot']['phases']['P04G']
+        self.assertEqual(item['checkpoint'],'recovery-review');self.assertEqual(item['attempts'],1)
+
 
 class MergeTests(unittest.TestCase):
     def setUp(self):

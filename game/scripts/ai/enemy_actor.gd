@@ -167,7 +167,7 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) -> 
 
 
 func _physics_process(delta: float) -> void:
-	_move_impulse(delta)
+	if lab.state == "playing": _move_impulse(delta)
 	state_elapsed += delta
 	hurt_flash = maxf(0, hurt_flash-delta)
 	if sprite:

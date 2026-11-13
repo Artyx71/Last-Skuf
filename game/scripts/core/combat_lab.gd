@@ -43,6 +43,8 @@ var training_bench: Node2D
 var equipment_label: Label
 var options_panel: Control
 var damage_portrait: Sprite2D
+var options_resume_state := "playing"
+var options_actor_processing: Dictionary = {}
 
 
 func _ready() -> void:
@@ -75,11 +77,23 @@ func _ready() -> void:
 	status_label = _add_label("", Vector2(17, 321), 12, Color("d8d6e8"))
 	hint_label = _add_label("", Vector2(17, 341), 11, Color("a7a6bd"))
 	if config_path == CONFIG_PATH:
-		training_bench = Sprite2D.new()
-		training_bench.texture = load("res://assets/art/combat_polish/training_bench.png")
+		training_bench = StaticBody2D.new()
 		training_bench.position = Vector2(302,270)
-		training_bench.z_index = 1
+		training_bench.collision_layer = 1
+		training_bench.collision_mask = 2|4
 		training_bench.set_meta("finisher_enabled",true)
+		training_bench.set_meta("combat_surface","metal")
+		var bench_shape := CollisionShape2D.new()
+		var bench_bounds := RectangleShape2D.new()
+		bench_bounds.size = Vector2(20,12)
+		bench_shape.shape = bench_bounds
+		bench_shape.position = Vector2(0,-6)
+		training_bench.add_child(bench_shape)
+		var bench_sprite := Sprite2D.new()
+		bench_sprite.texture = load("res://assets/art/combat_polish/training_bench.png")
+		bench_sprite.position = Vector2(0,-26)
+		bench_sprite.z_index = 1
+		training_bench.add_child(bench_sprite)
 		add_child(training_bench)
 		combat.register_environment("training_bench",training_bench)
 		equipment_label = _add_label("",Vector2(17,47),10,Color("edcf82"))
@@ -108,6 +122,7 @@ func _ready() -> void:
 
 
 func reset_encounter() -> void:
+	if options_panel and options_panel.visible: _set_options_visible(false)
 	if death_started_usec > 0:
 		restart_latencies_ms.append(float(Time.get_ticks_usec() - death_started_usec) / 1000.0)
 	death_started_usec = 0
@@ -168,7 +183,7 @@ func _physics_process(delta: float) -> void:
 	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("equipment_next") and state == "playing":
 		select_equipment((equipment_index + 1) % 5)
 	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("polish_options"):
-		options_panel.visible = not options_panel.visible
+		_set_options_visible(not options_panel.visible)
 	elif Input.is_action_just_pressed("switch_kit") and state == "playing":
 		set_kit("training" if player.kit == "escape" else "escape")
 	if state == "dead":
@@ -198,7 +213,7 @@ func _update_hud() -> void:
 		damage_portrait.region_rect.position.x = (0 if get_node("/root/OptionsStore").values.reduced_gore else mini(2,player.hits_received)) * 160
 	if equipment_label:
 		var names := ["Кулаки","Труба","Нож","Пистолет","Верстак"]
-		equipment_label.text = "Tab: " + names[equipment_index] + " · F: добивание после толчка · C/WASD: отмена · O: эффекты"
+		equipment_label.text = "Tab: " + names[equipment_index] + " · V: добивание после толчка · C/WASD: отмена · O: эффекты"
 	kit_label.text = String(config.kits[player.kit].label) + (" · ОРУЖЕЙНЫЙ СТЕНД" if gallery_mode else " · ЦЕЛЬ: ВЫХОД БЕЗ УБИЙСТВ")
 	hint_label.text = "WASD · Space/ЛКМ: нож · ПКМ: пистолет · F2: уход · R: заново · Esc: меню" if player.kit == "training" else "WASD · E: отвлечь · Space/ЛКМ: толчок · F2: учебный · R: заново · Esc: меню"
 	if state == "dead":
@@ -211,6 +226,9 @@ func _update_hud() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		if options_panel and options_panel.visible:
+			_set_options_visible(false)
+			return
 		get_tree().change_scene_to_file("res://scenes/bootstrap/bootstrap.tscn")
 
 
@@ -242,6 +260,7 @@ func _add_wall(bounds: Rect2) -> void:
 	var body := StaticBody2D.new()
 	body.position = bounds.get_center()
 	body.collision_layer = 1
+	body.set_meta("combat_surface","metal" if bounds.position.x > 430 else "concrete")
 	body.collision_mask = 2 | 4
 	var shape := CollisionShape2D.new()
 	var rectangle := RectangleShape2D.new()
@@ -306,7 +325,11 @@ func snapshot() -> Dictionary:
 		"attack_sequence": combat.next_attack_id, "damage_events": combat.damage_events,
 		"wall_impacts": combat.wall_impacts, "hit_flash": combat.hit_flash, "hit_position": _vector(combat.last_hit_position),
 		"noise_position": _vector(noise_position), "noise_remaining": noise_remaining,
-		"death_timer": death_timer, "gallery": gallery_mode}
+		"death_timer": death_timer, "gallery": gallery_mode,
+		"polish": {"reservations":combat.finishers.size(),"receipts":combat.receipts.size(),
+			"particles":combat.impact.particles.size(),"decals":combat.impact.decals.size(),"held":combat.impact.held_poses.size(),
+			"hold":combat.impact.hold_remaining,"hold_cooldown":combat.impact.hold_cooldown,"shake":_vector(combat.impact.shake_offset),
+			"equipment":player.finisher_category,"weapon":player.finisher_weapon,"impulse":_vector(player.impulse)}}
 
 
 func training_fixture() -> void:
@@ -466,3 +489,19 @@ func _build_polish_options() -> void:
 	slider.value_changed.connect(func(value: float): store.set_value(&"shake",value))
 	box.add_child(slider)
 	options_panel.hide()
+
+
+func _set_options_visible(value: bool) -> void:
+	options_panel.visible = value
+	if value:
+		options_resume_state = state
+		state = "options"
+		options_actor_processing.clear()
+		for actor in [player]+enemies:
+			options_actor_processing[actor.get_instance_id()] = actor.is_physics_processing()
+			actor.set_physics_process(false)
+	else:
+		state = options_resume_state
+		for actor in [player]+enemies:
+			actor.set_physics_process(bool(options_actor_processing.get(actor.get_instance_id(),true)))
+		options_actor_processing.clear()

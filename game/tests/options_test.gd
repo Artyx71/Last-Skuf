@@ -24,7 +24,7 @@ func _run() -> void:
  store.storage_path = "user://p03_test_options.json"
  var expected := {"master": 0.35, "music": 0.55, "sfx": 0.45, "voice_ui": 0.65,
   "text_speed": 58.0, "instant_text": true, "vhs": false, "reduced_motion": true,
-  "reduced_impact": true, "subtitles": true, "text_scale": 1.2, "reduced_gore": true}
+  "reduced_impact": true, "subtitles": true, "text_scale": 1.2, "reduced_gore": true, "decals": true, "shake": 100.0, "flashes": true}
  for key in expected:
   check(store.set_value(StringName(key), expected[key], false), "accept option " + key)
  check(store.save_options() == OK, "versioned preferences persist")
@@ -32,7 +32,7 @@ func _run() -> void:
  root.add_child(second)
  second.storage_path = store.storage_path
  check(second.load_options(), "read saved preferences")
- check(second.values == expected, "all twelve options round trip")
+ check(second.values == expected, "all previous and P04G options round trip")
  for bus in {"Master": "master", "Music": "music", "SFX": "sfx", "SFX_UI": "voice_ui", "Speech_Cues": "voice_ui"}:
   var key: String = {"Master": "master", "Music": "music", "SFX": "sfx", "SFX_UI": "voice_ui", "Speech_Cues": "voice_ui"}[bus]
   check(absf(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index(bus))) - expected[key]) < 0.0001, "actual bus gain " + bus)
@@ -46,10 +46,11 @@ func _run() -> void:
  var file := FileAccess.open(store.storage_path, FileAccess.WRITE)
  var legacy := expected.duplicate()
  legacy.erase("reduced_gore")
+ for key in ["decals","shake","flashes"]: legacy.erase(key)
  file.store_string(JSON.stringify({"schema":1,"values":legacy}))
  file.close()
  second.values = second.DEFAULTS.duplicate()
- check(second.load_options() and not second.values.reduced_gore and second.values.music == expected.music, "P03 preferences retain values and gain default gore option")
+ check(second.load_options() and not second.values.reduced_gore and second.values.music == expected.music and second.values.decals and second.values.flashes and second.values.shake == 100, "P03 preferences retain values and gain default gore option")
  file = FileAccess.open(store.storage_path, FileAccess.WRITE)
  file.store_string('{"schema":999,"values":{"music":0}}')
  file.close()

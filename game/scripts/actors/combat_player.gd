@@ -212,7 +212,7 @@ func aim_direction() -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
-	_move_impulse(delta)
+	if lab.state == "playing": _move_impulse(delta)
 	_advance_action(delta)
 	if lab.state != "playing" or health <= 0:
 		velocity = Vector2.ZERO

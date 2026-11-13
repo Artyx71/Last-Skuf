@@ -200,7 +200,7 @@ func run(world: Node) -> void:
  report["progress"] = saved.data
  var sorted: Array[float] = mission.frame_times.duplicate()
  sorted.sort()
- report["frame_timings"] = {"samples":sorted.size(),"p50_ms":sorted[int(sorted.size()*.50)],"p95_ms":sorted[int(sorted.size()*.95)],"p99_ms":sorted[int(sorted.size()*.99)],"backend":RenderingServer.get_video_adapter_name(),"display":DisplayServer.get_name(),"movie_maker":"--write-movie" in OS.get_cmdline_args()}
+ report["frame_timings"] = {"samples":sorted.size(),"p50_ms":sorted[int(sorted.size()*.50)],"p95_ms":sorted[int(sorted.size()*.95)],"p99_ms":sorted[int(sorted.size()*.99)],"backend":RenderingServer.get_video_adapter_name(),"display":DisplayServer.get_name(),"movie_maker":not Engine.get_write_movie_path().is_empty()}
  var audio_path := OS.get_environment("AYAY_P04_AUDIO_PATH")
  if not audio_path.is_empty(): check("audio_capture_saved", mission.audio.end_capture(audio_path) == OK)
  var success := true

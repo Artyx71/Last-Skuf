@@ -133,7 +133,7 @@ func _run() -> void:
 	_check(lab.enemies[0].stun_remaining > 0 and lab.enemies[0].state == "stunned", "shove buys escape time through stun")
 	_check(lab.player.distract(), "noise ability available")
 	_check(not lab.player.distract(), "noise ability has finite cooldown")
-	_check(lab.noise_remaining > 0 and lab.enemies[0].state == "investigate", "noise changes real enemy intent")
+	_check(lab.noise_remaining > 0 and lab.enemies[0].state == "stunned" and lab.enemies[0].investigate_remaining > 0, "noise remembers real intent without overriding earned stun priority")
 	await _fixture()
 	lab.player.set_physics_process(true)
 	Input.action_press("attack_melee")
@@ -152,15 +152,17 @@ func _run() -> void:
 	lab.enemies[0].set_physics_process(true)
 	lab.player.attack_melee()
 	await _frames(8)
-	_check(lab.enemies[0].health == 0 and lab.enemies[0].defeat_visual.visible,
-		"actual defeat produces explicit front-layer cross cue")
-	_check(lab.enemies[0].sprite.modulate.a < 1 and lab.enemies[0].defeat_elapsed > 0,
-		"defeated standing art fades immediately rather than posing as a corpse")
+	_check(lab.enemies[0].health == 0 and lab.enemies[0].state == "dead"
+		and lab.enemies[0].sprite.animation.begins_with("reaction_death_"),
+		"actual defeat immediately presents authored death instead of standing fade")
+	_check(lab.enemies[0].sprite.visible and lab.enemies[0].defeat_elapsed > 0,
+		"authored fall remains visible during death transition")
 	await _frames(12)
-	_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
-		"standing guard disappears within .18 seconds while defeat cue remains")
+	_check(lab.enemies[0].sprite.visible and lab.enemies[0].sprite.frame == 2,
+		"death reaches authored prone corpse frame2")
 	await _frames(35)
-	_check(not lab.enemies[0].defeat_visual.visible, "defeat cue expires deterministically")
+	_check(not lab.enemies[0].defeat_visual.visible and lab.enemies[0].sprite.frame == 2,
+		"prone corpse remains stable without obsolete temporary cross cue")
 	lab.enemies[0].set_physics_process(false)
 	lab.reset_encounter()
 	_check(lab.enemies[0].sprite.visible and lab.enemies[0].sprite.modulate.a == 1

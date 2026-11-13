@@ -80,7 +80,7 @@ func start_melee(source: CharacterBody2D, team: String, direction: Vector2, defi
 	next_attack_id += 1
 	if source.has_method("bind_melee"): source.bind_melee(next_attack_id,definition)
 	attacks.append({"id": next_attack_id, "source": source, "team": team,
-		"direction": direction.normalized(), "definition": _stamp(definition), "time": 0.0, "hit": []})
+		"direction": direction.normalized(), "definition": _stamp(definition), "time": 0.0, "hit": [], "wall_hit": false})
 	queue_redraw()
 	return next_attack_id
 
@@ -101,7 +101,7 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 	if not obstruction.is_empty():
 		if obstruction.collider.collision_layer & 1:
 			wall_impacts += 1
-			_wall_contact(obstruction.position, definition)
+			_wall_contact(obstruction.position, definition, obstruction.collider)
 			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
@@ -139,6 +139,13 @@ func _physics_process(delta: float) -> void:
 		if source.has_method("present_melee_contact"): source.present_melee_contact(attack.id)
 		var definition: Dictionary = attack.definition
 		var center: Vector2 = source.global_position + Vector2(0, -7) + attack.direction * float(definition.reach)
+		if not attack.wall_hit:
+			var wall_query := PhysicsRayQueryParameters2D.create(source.global_position+Vector2(0,-7),center+attack.direction*float(definition.radius),1)
+			var wall := get_world_2d().direct_space_state.intersect_ray(wall_query)
+			if not wall.is_empty():
+				attack.wall_hit = true
+				wall_impacts += 1
+				_wall_contact(wall.position,definition,wall.collider)
 		var sphere := CircleShape2D.new()
 		sphere.radius = float(definition.radius)
 		var query := PhysicsShapeQueryParameters2D.new()
@@ -169,7 +176,7 @@ func _physics_process(delta: float) -> void:
 		if not contact.is_empty():
 			if contact.collider.collision_layer & 1:
 				wall_impacts += 1
-				_wall_contact(contact.position, bullet.definition)
+				_wall_contact(contact.position, bullet.definition, contact.collider)
 				last_hit_position = contact.position + bullet.visual_offset
 				hit_flash = 0.15
 			else:
@@ -183,9 +190,9 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 
-func _wall_contact(at: Vector2, definition: Dictionary) -> void:
+func _wall_contact(at: Vector2, definition: Dictionary, object: Node = null) -> void:
 	var weapon := String(definition.get("category", "firearm"))
-	var surface := "metal" if at.x > 430 else "concrete"
+	var surface := String(object.get_meta("combat_surface","concrete")) if is_instance_valid(object) else "concrete"
 	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
 
 
@@ -257,7 +264,9 @@ func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String
 		if not is_instance_valid(object) or not object.is_inside_tree() or not object.get_meta("finisher_enabled",false): return false
 		if object.global_position.distance_to(target.global_position) > float(definition.environment_range): return false
 		if offset.normalized().dot((object.global_position-target.global_position).normalized()) < 0.3: return false
-		if not clear_line(target.global_position + Vector2(0,-7), object.global_position + Vector2(0,-7)): return false
+		var environment_query := PhysicsRayQueryParameters2D.create(target.global_position+Vector2(0,-7),object.global_position+Vector2(0,-7),1)
+		if object is CollisionObject2D: environment_query.exclude = [object.get_rid()]
+		if not get_world_2d().direct_space_state.intersect_ray(environment_query).is_empty(): return false
 	return true
 
 func finisher_for(source: CharacterBody2D) -> Dictionary:

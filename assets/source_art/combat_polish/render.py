@@ -86,7 +86,7 @@ def pose(kind,direction,state,f,reaction=False):
   if state=='hurt':d.line([(17,28),(20,30),(22,29)],fill=COLORS['lightblood'],width=1)
   if state in CATEGORIES and not reaction:
    hx,hy=joints[6:8]
-   if state=='blunt':d.line([(hx,hy+2),(hx+2,hy-10)],fill=COLORS['wood'],width=3);d.point((hx+2,hy-10),fill='#ce9a62')
+   if state=='blunt':d.line([(hx,hy+2),(hx+2,max(3,hy-10))],fill=COLORS['wood'],width=3);d.point((hx+2,max(3,hy-10)),fill='#ce9a62')
    if state=='sharp':d.line([(hx,hy),(hx+3,hy-6)],fill=COLORS['metal'],width=2)
    if state=='firearm':d.rectangle((hx-2,hy-3,hx+4,hy),fill='#99a6b5');d.point((hx+5,hy-2),fill='#ffe4a3' if f==1 else '#151824')
    if state=='environmental':d.line([(hx-2,hy+2),(hx+1,hy+1)],fill='#cfbca1',width=2)

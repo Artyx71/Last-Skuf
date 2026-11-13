@@ -6,6 +6,9 @@ var particles: Array[Dictionary] = []
 var decals: Array[Dictionary] = []
 var cosmetic_rng := RandomNumberGenerator.new()
 var hold_remaining := 0.0
+var hold_cooldown := 0.0
+var applied_shake := Vector2.ZERO
+var shake_camera: Camera2D
 var shake_remaining := 0.0
 var flash_remaining := 0.0
 var shake_offset := Vector2.ZERO
@@ -32,6 +35,8 @@ func reset() -> void:
 	particles.clear()
 	decals.clear()
 	hold_remaining = 0
+	hold_cooldown = 0
+	_clear_shake()
 	shake_remaining = 0
 	flash_remaining = 0
 	shake_offset = Vector2.ZERO
@@ -46,7 +51,8 @@ func _release_poses() -> void:
 
 func on_contact(event: Dictionary) -> void:
 	var cfg: Dictionary = combat.polish
-	if event.strong:
+	if event.strong and hold_cooldown <= 0:
+		hold_cooldown = 0.12
 		hold_remaining = float(cfg.hitstop_seconds)
 		shake_remaining = float(cfg.shake_seconds)
 		# Snapshot the exact committed pose; no hit query or damage in render callbacks.
@@ -63,7 +69,7 @@ func on_contact(event: Dictionary) -> void:
 	while particles.size() > int(cfg.particle_cap): particles.pop_front()
 	if event.damage > 0:
 		for column in ([4, 6, 8] if event.finisher else [4, 6]):
-			decals.append({"at": event.at + (Vector2(0,-24) if column == 6 else Vector2.ZERO), "ttl": float(cfg.decal_ttl), "row": row, "column": column + cosmetic_rng.randi_range(0,1)})
+			decals.append({"at": event.at + (Vector2(0,-24) if column == 6 else Vector2.ZERO), "ttl": float(cfg.decal_ttl), "row": row, "column": column + cosmetic_rng.randi_range(0,1), "actor": instance_from_id(event.target) if column == 6 and event.has("target") else null})
 		var ray := PhysicsRayQueryParameters2D.create(event.at + Vector2(0,-7), event.at + Vector2(0,-7) + direction * 45, 1)
 		var wall := combat.get_world_2d().direct_space_state.intersect_ray(ray)
 		if not wall.is_empty(): decals.append({"at": wall.position, "ttl": float(cfg.decal_ttl), "row": row, "column": 10})
@@ -71,6 +77,7 @@ func on_contact(event: Dictionary) -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	hold_cooldown = maxf(0,hold_cooldown-delta)
 	hold_remaining = maxf(0, hold_remaining - delta)
 	if hold_remaining <= 0 and not held_poses.is_empty(): _release_poses()
 	shake_remaining = maxf(0, shake_remaining - delta)
@@ -78,11 +85,19 @@ func _process(delta: float) -> void:
 	var intensity := float(options.values.get("shake",100)) / 100.0 if options else 1.0
 	if options and options.values.reduced_motion: intensity = 0
 	shake_offset = Vector2(cosmetic_rng.randf_range(-1,1), cosmetic_rng.randf_range(-1,1)) * float(combat.polish.max_shake_px) * intensity if shake_remaining > 0 else Vector2.ZERO
-	# canvas_transform affects rendering only, including all arena actors, never physics transforms.
-	var view := get_viewport()
-	view.canvas_transform.origin = shake_offset
+	# Preserve the chapter Camera2D transform; shake changes only camera.offset.
+	var current_camera := get_viewport().get_camera_2d()
+	if current_camera != shake_camera:
+		_clear_shake()
+		shake_camera = current_camera
+	if shake_camera:
+		shake_camera.offset += shake_offset-applied_shake
+	else:
+		get_viewport().canvas_transform.origin += shake_offset-applied_shake
+	applied_shake = shake_offset
 	for pool in [particles, decals]:
 		for entry in pool.duplicate():
+			if entry.has("actor") and is_instance_valid(entry.actor): entry.at = entry.actor.global_position+Vector2(0,-24)
 			entry.ttl -= delta
 			if entry.ttl <= 0: pool.erase(entry)
 	queue_redraw()
@@ -101,6 +116,11 @@ func _draw() -> void:
 func _draw_cell(at: Vector2, column: int, row: int) -> void:
 	draw_texture_rect_region(texture, Rect2(at - Vector2(24,32), Vector2(48,64)), Rect2(column*48,row*64,48,64))
 
+func _clear_shake() -> void:
+	if is_instance_valid(shake_camera): shake_camera.offset -= applied_shake
+	elif is_inside_tree(): get_viewport().canvas_transform.origin -= applied_shake
+	applied_shake = Vector2.ZERO
+
 func _exit_tree() -> void:
 	_release_poses()
-	get_viewport().canvas_transform = Transform2D.IDENTITY
+	_clear_shake()
