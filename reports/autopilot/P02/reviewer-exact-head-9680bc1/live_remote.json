@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-11-13T11:21:41.761864+00:00",
+  "pull": {
+    "number": 3,
+    "state": "open",
+    "draft": false,
+    "merged": false,
+    "mergeable": true,
+    "mergeable_state": "clean",
+    "html_url": "https://github.com/Artyx71/Last-Skuf/pull/3",
+    "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+    "base_sha": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb",
+    "base_branch": "main"
+  },
+  "main_sha": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb",
+  "run": {
+    "id": 43416032464,
+    "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43416032464"
+  },
+  "artifact": {
+    "id": 14031408749,
+    "node_id": "MDg6QXJ0aWZhY3QxNDAzMTQwODc0OQ==",
+    "name": "bootstrap-validation",
+    "size_in_bytes": 68525370,
+    "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14031408749",
+    "archive_download_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14031408749/zip",
+    "expired": false,
+    "digest": "sha256:510602b61f3eec75808a6021773c96c997afda17ea7ad68b35db5b722e785544",
+    "created_at": "2026-11-13T11:19:56Z",
+    "updated_at": "2026-11-13T11:19:56Z",
+    "expires_at": "2026-11-20T11:19:50Z",
+    "workflow_run": {
+      "id": 43416032464,
+      "repository_id": 1455873586,
+      "head_repository_id": 1455873586,
+      "head_branch": "phase/p02-combat",
+      "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c"
+    }
+  },
+  "checks": [
+    {
+      "name": "bootstrap",
+      "head_sha": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "bootstrap",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "conclusion": "success"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "graphql": {
+    "data": {
+      "repository": {
+        "pullRequest": {
+          "mergeStateStatus": "CLEAN",
+          "reviewDecision": null,
+          "headRefOid": "9680bc11aafb9297b5fa9798bf3142262d01c31c",
+          "baseRefOid": "ae8e3a7d632c374d21dfbe40d297b20e474be1cb"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "timing_probe.json": {
+    "authored_fps": 12,
+    "damage_during_windup_observed": false,
+    "expected_contact_frame": 1,
+    "passed": true
+  },
+  "linux_export_replay.json": {
+    "passed": true,
+    "escape_cleared": true,
+    "escape_kills": 0,
+    "real_input": true,
+    "keys": [
+      "capture_code",
+      "escape",
+      "passed",
+      "restart",
+      "schema",
+      "training"
+    ]
+  },
+  "runtime_checks.json": [
+    {
+      "name": "linux_export_replay",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "wine_capture",
+      "exit_code": 0,
+      "passed": true
+    }
+  ]
+}

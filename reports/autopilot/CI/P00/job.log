@@ -1,0 +1,237 @@
+bootstrap	Set up job	﻿2026-11-13T10:48:27.6045591Z Current runner version: '2.338.2'
+bootstrap	Set up job	2026-11-13T10:48:27.6064796Z ##[group]Runner Image Provisioner
+bootstrap	Set up job	2026-11-13T10:48:27.6065424Z Hosted Compute Agent
+bootstrap	Set up job	2026-11-13T10:48:27.6065920Z Version: 20261028.624
+bootstrap	Set up job	2026-11-13T10:48:27.6066303Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+bootstrap	Set up job	2026-11-13T10:48:27.6066722Z Build Date: 2026-10-28T21:51:42Z
+bootstrap	Set up job	2026-11-13T10:48:27.6067189Z Worker ID: {ad368bc1-82a3-4e1e-a085-23aa97f1f578}
+bootstrap	Set up job	2026-11-13T10:48:27.6067616Z Region: westus3
+bootstrap	Set up job	2026-11-13T10:48:27.6067971Z Cloud: Azure
+bootstrap	Set up job	2026-11-13T10:48:27.6068348Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:48:27.6069146Z ##[group]Operating System
+bootstrap	Set up job	2026-11-13T10:48:27.6069572Z Ubuntu
+bootstrap	Set up job	2026-11-13T10:48:27.6069899Z 24.04.5
+bootstrap	Set up job	2026-11-13T10:48:27.6070296Z LTS
+bootstrap	Set up job	2026-11-13T10:48:27.6070628Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:48:27.6070978Z ##[group]Runner Image
+bootstrap	Set up job	2026-11-13T10:48:27.6071370Z Image: ubuntu-24.04
+bootstrap	Set up job	2026-11-13T10:48:27.6071718Z Version: 20261101.360.1
+bootstrap	Set up job	2026-11-13T10:48:27.6072459Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+bootstrap	Set up job	2026-11-13T10:48:27.6073613Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+bootstrap	Set up job	2026-11-13T10:48:27.6074206Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:48:27.6074885Z ##[group]GITHUB_TOKEN Permissions
+bootstrap	Set up job	2026-11-13T10:48:27.6076339Z Contents: read
+bootstrap	Set up job	2026-11-13T10:48:27.6076698Z Metadata: read
+bootstrap	Set up job	2026-11-13T10:48:27.6077026Z ##[endgroup]
+bootstrap	Set up job	2026-11-13T10:48:27.6078457Z Secret source: Actions
+bootstrap	Set up job	2026-11-13T10:48:27.6079051Z Cache mode: write
+bootstrap	Set up job	2026-11-13T10:48:27.6079565Z Prepare workflow directory
+bootstrap	Set up job	2026-11-13T10:48:27.6290555Z Prepare all required actions
+bootstrap	Set up job	2026-11-13T10:48:27.6323158Z Getting action download info
+bootstrap	Set up job	2026-11-13T10:48:27.9450066Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+bootstrap	Set up job	2026-11-13T10:48:28.0468134Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+bootstrap	Set up job	2026-11-13T10:48:28.2329103Z Complete job name: bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-13T10:48:28.2846175Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2846714Z with:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2846947Z   fetch-depth: 0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2847203Z   persist-credentials: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2847488Z   repository: Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2849542Z   token: ***
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2849779Z   ssh-strict: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2850018Z   ssh-user: git
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2850250Z   clean: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2850496Z   sparse-checkout-cone-mode: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2850781Z   fetch-tags: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2851025Z   show-progress: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2851272Z   lfs: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2851497Z   submodules: false
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2851745Z   set-safe-directory: true
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.2852066Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5137348Z Syncing repository: Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5138623Z ##[group]Getting Git version info
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5139112Z Working directory is '/home/runner/work/Last-Skuf/Last-Skuf'
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5140165Z [command]/usr/bin/git version
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5222444Z git version 2.56.0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5236728Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5247425Z Temporarily overriding HOME='/home/runner/work/_temp/2c3469d7-4591-4b45-8575-9df6b8e3ba02' before making global git config changes
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5248690Z Adding repository directory to the temporary git global config as a safe directory
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5251187Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5304912Z Deleting the contents of '/home/runner/work/Last-Skuf/Last-Skuf'
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5306307Z ##[group]Initializing the repository
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5308639Z [command]/usr/bin/git init /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5424121Z hint: Using 'master' as the name for the initial branch. This default branch name
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5425354Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5427753Z hint: to use in all of your new repositories, which will suppress this warning,
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5428626Z hint: call:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5429171Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5429792Z hint: 	git config --global init.defaultBranch <name>
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5430441Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5430892Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5431531Z hint: 'development'. The just-created branch can be renamed via this command:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5432066Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5432560Z hint: 	git branch -m <name>
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5433116Z hint:
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5433621Z hint: Disable this message with "git config set advice.defaultBranchName false"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5437697Z Initialized empty Git repository in /home/runner/work/Last-Skuf/Last-Skuf/.git/
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5447673Z [command]/usr/bin/git remote add origin https://github.com/Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5509602Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5510285Z ##[group]Disabling automatic garbage collection
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5512607Z [command]/usr/bin/git config --local gc.auto 0
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5542654Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5543261Z ##[group]Setting up auth
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5548416Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5584894Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5925697Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.5962524Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.6148528Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.6190568Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.6191178Z ##[group]Fetching the repository
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:28.6200036Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8640348Z From https://github.com/Artyx71/Last-Skuf
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8641838Z  * [new branch]      main                   -> origin/main
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8643226Z  * [new branch]      phase/p00-bootstrap    -> origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8644674Z  * [new branch]      phase/p01-art-movement -> origin/phase/p01-art-movement
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8646056Z  * [new branch]      phase/p02-combat       -> origin/phase/p02-combat
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8647315Z  * [new branch]      phase/p03-dialogue-audio -> origin/phase/p03-dialogue-audio
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8650340Z [command]/usr/bin/git branch --list --remote origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8683240Z   origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8691192Z [command]/usr/bin/git rev-parse refs/remotes/origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8722893Z 7cded8bb4bfd7826a8833eaaebeadfc33298bbda
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8727375Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8728788Z ##[group]Determining the checkout info
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8730204Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8731114Z [command]/usr/bin/git sparse-checkout disable
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8783429Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8818348Z ##[group]Checking out the ref
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.8827869Z [command]/usr/bin/git checkout --progress --force -B phase/p00-bootstrap refs/remotes/origin/phase/p00-bootstrap
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9019568Z Switched to a new branch 'phase/p00-bootstrap'
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9024177Z branch 'phase/p00-bootstrap' set up to track 'origin/phase/p00-bootstrap'.
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9032401Z ##[endgroup]
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9080109Z [command]/usr/bin/git log -1 --format=%H
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9111176Z 7cded8bb4bfd7826a8833eaaebeadfc33298bbda
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9120256Z ##[group]Removing auth
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9123507Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9159987Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9360493Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9393135Z http.https://github.com/.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9400121Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9438831Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:30.9628948Z ##[endgroup]
+bootstrap	Run python3 tools/install_deps.py --templates	﻿2026-11-13T10:48:30.9835249Z ##[group]Run python3 tools/install_deps.py --templates
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:48:30.9836401Z ^[[36;1mpython3 tools/install_deps.py --templates^[[0m
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:48:30.9857249Z shell: /usr/bin/bash -e {0}
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:48:30.9857972Z ##[endgroup]
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:48:37.1599110Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/Godot_v4.7.2-stable_linux.x86_64
+bootstrap	Run python3 tools/install_deps.py --templates	2026-11-13T10:48:37.1599486Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/templates
+bootstrap	Run python3 tools/verify.py --output reports/ci	﻿2026-11-13T10:48:37.2840371Z ##[group]Run python3 tools/verify.py --output reports/ci
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:37.2840743Z ^[[36;1mpython3 tools/verify.py --output reports/ci^[[0m
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:37.2859240Z shell: /usr/bin/bash -e {0}
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:37.2859380Z ##[endgroup]
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:41.2187064Z privacy PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:41.2187396Z version PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:41.2187597Z import PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:41.2187783Z smoke PASS exit 0
+bootstrap	Run python3 tools/verify.py --output reports/ci	2026-11-13T10:48:41.2188022Z integration PASS exit 0
+bootstrap	Export native bootstrap binaries	﻿2026-11-13T10:48:41.2336863Z ##[group]Run mkdir -p build/linux build/windows
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2337109Z ^[[36;1mmkdir -p build/linux build/windows^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2337418Z ^[[36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Linux^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2337769Z ^[[36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Windows^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2338046Z ^[[36;1mbuild/linux/last-skuf.x86_64 --headless --quit^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2354186Z shell: /usr/bin/bash -e {0}
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2354331Z ##[endgroup]
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2532890Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:41.2738632Z 
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6225087Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Started Project initialization (5 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6225777Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Scanning file structure...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6229812Z [  16% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Loading global class names...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6236731Z [  33% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Verifying GDExtensions...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6237206Z [  50% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Creating autoload scripts...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6237641Z [  66% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Initializing plugins...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6238075Z [  83% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Starting file scan...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6238415Z ^[[92m[ DONE ]^[[39m ^[[1mfirst_scan_filesystem^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.6238646Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7127168Z [   0% ] ^[[90m^[[1msavepack^[[22m | Started Packing (102 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7166018Z [   1% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7169240Z [  26% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7170112Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7172944Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7173759Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7174293Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7175348Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/global_script_class_cache.cfg^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7175832Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/uid_cache.bin^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7179769Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://project.binary^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7180133Z ^[[92m[ DONE ]^[[39m ^[[1msavepack^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:42.7180301Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:43.2910122Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:43.3105597Z 
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.5989185Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Started Project initialization (5 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.5989859Z [   0% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Scanning file structure...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.5993664Z [  16% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Loading global class names...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6000964Z [  33% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Verifying GDExtensions...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6001455Z [  50% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Creating autoload scripts...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6001902Z [  66% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Initializing plugins...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6002527Z [  83% ] ^[[90m^[[1mfirst_scan_filesystem^[[22m | Starting file scan...^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6002876Z ^[[92m[ DONE ]^[[39m ^[[1mfirst_scan_filesystem^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.6003117Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7027416Z [   0% ] ^[[90m^[[1msavepack^[[22m | Started Packing (102 steps)^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7038133Z [   1% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7042435Z [  26% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gdc^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7043409Z [  50% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7045993Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7047778Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7048164Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://scripts/core/bootstrap.gd.remap^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7049475Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/global_script_class_cache.cfg^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7049795Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://.godot/uid_cache.bin^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7053441Z [  74% ] ^[[90m^[[1msavepack^[[22m | Storing File: res://project.binary^[[39m^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7053990Z ^[[92m[ DONE ]^[[39m ^[[1msavepack^[[22m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:44.7054256Z ^[[0m
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:45.4496555Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+bootstrap	Export native bootstrap binaries	2026-11-13T10:48:45.4496923Z 
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	﻿2026-11-13T10:48:45.4571732Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4571972Z with:
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572096Z   name: bootstrap-validation
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572439Z   path: reports/ci/
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	build/
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572586Z   retention-days: 7
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572709Z   if-no-files-found: warn
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572841Z   compression-level: 6
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4572964Z   overwrite: false
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4573088Z   include-hidden-files: false
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.4573224Z ##[endgroup]
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5730685Z (node:2264) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5731924Z (Use `node --trace-deprecation ...` to show where the warning was created)
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5923571Z Multiple search paths detected. Calculating the least common ancestor of all paths
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5924674Z The least common ancestor is /home/runner/work/Last-Skuf/Last-Skuf. This will be the root directory of the artifact
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5925172Z With the provided path, there will be 8 files uploaded
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5926204Z Artifact name is valid!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.5926413Z Root directory input is valid!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:45.9470913Z Beginning upload of artifact content to blob storage
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:46.4214796Z (node:2264) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:47.1265529Z Uploaded bytes 8388608
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:47.6435473Z Uploaded bytes 16777216
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:47.6621611Z Uploaded bytes 25165824
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:48.0806146Z Uploaded bytes 33554432
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:48.5163644Z Uploaded bytes 41943040
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:49.0227908Z Uploaded bytes 50331648
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:49.5036533Z Uploaded bytes 58720256
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:49.9558819Z Uploaded bytes 67108864
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.0287145Z Uploaded bytes 68126103
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.0863326Z Finished uploading artifact content to blob storage!
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.0865312Z SHA256 digest of uploaded artifact zip is 088138f05efd8e2d563b74f1ea6b33eb819a30897f5788ab884a16c51998250f
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.0866903Z Finalizing artifact upload
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.4562699Z Artifact bootstrap-validation.zip successfully finalized. Artifact ID 14030246281
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.4563173Z Artifact bootstrap-validation has been successfully uploaded! Final size is 68126103 bytes. Artifact ID is 14030246281
+bootstrap	Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02	2026-11-13T10:48:50.4569440Z Artifact download URL: https://github.com/Artyx71/Last-Skuf/actions/runs/43411931003/artifacts/14030246281
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-13T10:48:50.4783919Z Post job cleanup.
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5341378Z [command]/usr/bin/git version
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5376450Z git version 2.56.0
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5401835Z Temporarily overriding HOME='/home/runner/work/_temp/89196775-3a2e-4da6-974e-4b207e611b16' before making global git config changes
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5402697Z Adding repository directory to the temporary git global config as a safe directory
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5404051Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5438800Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5468338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5683424Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+bootstrap	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-13T10:48:50.5723448Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+bootstrap	Complete job	﻿2026-11-13T10:48:50.6094189Z Cleaning up orphan processes
+bootstrap	Complete job	2026-11-13T10:48:50.6355820Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

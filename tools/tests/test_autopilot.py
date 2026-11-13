@@ -178,6 +178,18 @@ class ControllerTests(unittest.TestCase):
             self.assertEqual(manage(self.controller,'P03','prepare'),4)
         self.assertEqual(api.call_count,1)
         self.assertIn('Multiple open PRs',self.controller.state()['autopilot']['phases']['P03']['merge']['blockers'][0])
+    def test_missing_number_workspace_ownership_blocks_before_any_github_action(self):
+        from github import manage
+        with self.controller.exclusive():
+            state=self.controller.state();state['autopilot']['phases']['P03'].update(workspace=str(self.root),branch='phase/p03-audio');self.controller.persist(state)
+            with patch('github.api') as api,patch('github.subprocess.check_output',return_value='phase/p04-mission\n'),patch('github.publish_branch') as publish,contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P03','prepare'),4)
+                api.assert_not_called();publish.assert_not_called()
+    def test_unregistered_wrong_phase_branch_cannot_discover_or_create_pr(self):
+        from github import manage
+        with self.controller.exclusive(),patch('github.api') as api,patch('github.subprocess.check_output',return_value='phase/p04-mission\n'),patch('github.publish_branch') as publish,contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(manage(self.controller,'P03','prepare'),4)
+            api.assert_not_called();publish.assert_not_called()
     def test_existing_workspace_pr_publishes_repair_before_ci(self):
         from github import manage
         with self.controller.exclusive():

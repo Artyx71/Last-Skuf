@@ -1,0 +1,112 @@
+[
+  {
+    "label": "final",
+    "artifact_id": 14030850098,
+    "run_id": 43412420904,
+    "head_sha": "84332875ecc7c3effcde540f14c2e5c9a714e1ef",
+    "live_API_digest": "sha256:3337c3aefa2188daf2d9e28a8057d1bfa716f4984a18ed361e0e44f72fcfafdf",
+    "actual_archive_sha256": "3337c3aefa2188daf2d9e28a8057d1bfa716f4984a18ed361e0e44f72fcfafdf",
+    "matches": true,
+    "job_summary": [
+      {
+        "name": "bootstrap",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/install_deps.py --templates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned user-local audio decoder",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify sequential autopilot recovery and merge gates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Decode and analyze actual audio signals",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export native bootstrap binaries",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "P00",
+    "artifact_id": 14030246281,
+    "run_id": 43411931003,
+    "head_sha": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+    "live_API_digest": "sha256:088138f05efd8e2d563b74f1ea6b33eb819a30897f5788ab884a16c51998250f",
+    "actual_archive_sha256": "088138f05efd8e2d563b74f1ea6b33eb819a30897f5788ab884a16c51998250f",
+    "matches": true,
+    "job_summary": [
+      {
+        "name": "bootstrap",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/install_deps.py --templates",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "conclusion": "success"
+          },
+          {
+            "name": "Export native bootstrap binaries",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  }
+]

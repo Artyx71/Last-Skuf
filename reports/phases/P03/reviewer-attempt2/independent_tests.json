@@ -1,0 +1,106 @@
+[
+  {
+    "name": "unit",
+    "argv": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 2.89,
+    "results": [
+      "Ran 37 tests",
+      "OK"
+    ],
+    "errors": []
+  },
+  {
+    "name": "dialogue",
+    "argv": [
+      ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "game",
+      "--script",
+      "res://tests/dialogue_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.79,
+    "results": [
+      "RESULT passed=44 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "audio",
+    "argv": [
+      ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "game",
+      "--script",
+      "res://tests/audio_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.51,
+    "results": [
+      "RESULT passed=45 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "options",
+    "argv": [
+      ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "game",
+      "--script",
+      "res://tests/options_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.51,
+    "results": [
+      "RESULT passed=26 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "contact_timing",
+    "argv": [
+      ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "game",
+      "--script",
+      "res://tests/contact_timing_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 5.96,
+    "results": [
+      "RESULT passed=48 failed=0"
+    ],
+    "errors": []
+  },
+  {
+    "name": "portrait_motion",
+    "argv": [
+      ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "game",
+      "--script",
+      "res://tests/portrait_motion_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.41,
+    "results": [
+      "RESULT passed=49 failed=0"
+    ],
+    "errors": []
+  }
+]

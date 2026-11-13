@@ -1,0 +1,13 @@
+{
+  "case": "registered workspace branch mismatch with missing PR number and no existing open PR",
+  "result_code": 0,
+  "publish_calls": [
+    "call(PosixPath('/tmp/tmpg5x41328'), 'phase/p04-accidental')"
+  ],
+  "created_PR": true,
+  "expected_branch": "phase/p03-expected",
+  "actual_branch": "phase/p04-accidental",
+  "real_external_mutations": false,
+  "severity": "MEDIUM",
+  "scope": "Current reviewed P03 head/base has correct branch and no such mismatch. Existing-PR mismatch guard is separately covered; new-PR creation path skips this guard after published=True."
+}

@@ -1,0 +1,17 @@
+# Independent PR recovery delta audit
+
+Reviewed `0c7f75137341770d93fdc7853b80ade68b2d19ca` source, exact same tree as delivery `dbb8d2b87fbdf6e41f55f92938267764a3f44ed8`. Reviewer `/root/lead_autopilot_p03`; no implementation/state/Git/PR mutations or agents.
+
+Observed original defect is real: phase decision lost its PR URL/record number, so prior prepare created PR5 instead of associating PR4. Live API independently confirms PR5 closed and unmerged, PR4 open/draft on the exact intended branch/main base. Closing a duplicate does not itself prove the fix; code and probes below do.
+
+`find_open_pull` queries exact owner:branch, rejects truncated result sets, filters exact branch/head repository and rejects ambiguity. Existing-number recovery occurs before POST. Independently reran all41 unit cases including the four new author regressions. Added own mocked probes for100-result truncation and a foreign repository match: both fail closed/filter as intended. No real external mutation occurred in probes.
+
+`publish_branch` preserves strict phase/* and authorized-origin checks, invokes the actual privacy checker before ordinary push, and uses no force/admin/protection changes. Registered existing-PR workspaces compare head repository, current branch, recorded branch and open state before publishing repairs. This occurs before the subsequent CI checkpoint. Exact SHA review/base/manual approvals/CI/confirmation gates are unchanged.
+
+New MEDIUM AUTO-PR-OWN-01: independently reproduced the missing-number/new-PR path with registered record.branch=phase/p03-expected and actual current branch=phase/p04-accidental, with discovery returning no open PR. `prepare` calls publish and POST and returns PREPARED because `published=True` skips the later ownership guard. The correct-branch current PR4 is unaffected, and no review/CI/main-merge gate is bypassed. This is a real remaining branch-ownership gap, not a claim that all wrong-branch cases are rejected.
+
+Expected fix before P04: whenever record.workspace exists, validate the current local branch against a nonempty record.branch and required phase/* policy BEFORE any publish_branch call or POST creation, including when PR number is absent and discovery finds none. Keep exact existing PR head-repository/ref/open checks. Add regressions for missing-number/no-existing-PR mismatch with zero publish/POST, recovered-existing mismatch, and legitimate matching new/existing creation/repair. Root has accepted this bounded follow-up in the next handoff/resume PR before P04 implementation; it does not weaken current delivery gates.
+
+Previous MEDIUM AUTO-REV-01 remains: historical PASS without fresh receipt blocks safely; unattended historical re-review is not scheduled. Current sequential internal root handoffs supplied actual receipts without owner ferrying. LOW worker receipt directory fsync and known forced-quit ObjectDB diagnostics remain recorded. No unresolved CRITICAL/HIGH in this current reviewed delivery.
+
+Game/assets baseline is unchanged:135 native source hashes,45 audio hashes,28 phase acceptance evidence all match. Owner human listening event and all3 requested clip hashes were rechecked from the real user-role record. This is provisional P03 prototype acceptance, no agent listening or final soundtrack/mastering claim. Original accepted gameplay/runtime/visual evidence remains bound; no new P03 gameplay replay was performed.

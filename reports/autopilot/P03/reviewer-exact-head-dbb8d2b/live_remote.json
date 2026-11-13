@@ -1,0 +1,122 @@
+{
+  "timestamp": "2026-11-13T11:31:20.149668+00:00",
+  "pull": {
+    "number": 4,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": true,
+    "mergeable_state": "clean",
+    "html_url": "https://github.com/Artyx71/Last-Skuf/pull/4",
+    "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+    "base_sha": "e8eaf5c89d372e988fa351267f00d4034856faf9",
+    "base_branch": "main"
+  },
+  "duplicate": {
+    "number": 5,
+    "state": "closed",
+    "draft": true,
+    "merged": false,
+    "html_url": "https://github.com/Artyx71/Last-Skuf/pull/5"
+  },
+  "main_sha": "e8eaf5c89d372e988fa351267f00d4034856faf9",
+  "run": {
+    "id": 43417181910,
+    "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43417181910"
+  },
+  "artifact": {
+    "id": 14031744405,
+    "node_id": "MDg6QXJ0aWZhY3QxNDAzMTc0NDQwNQ==",
+    "name": "bootstrap-validation",
+    "size_in_bytes": 69640104,
+    "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14031744405",
+    "archive_download_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14031744405/zip",
+    "expired": false,
+    "digest": "sha256:75e17017e7ce7b2d85a4ef6d16207e55f5eb0a17a4dfe7be12bd5b5fc9f0d4e0",
+    "created_at": "2026-11-13T11:28:56Z",
+    "updated_at": "2026-11-13T11:28:56Z",
+    "expires_at": "2026-11-20T11:28:50Z",
+    "workflow_run": {
+      "id": 43417181910,
+      "repository_id": 1455873586,
+      "head_repository_id": 1455873586,
+      "head_branch": "phase/p03-dialogue-audio",
+      "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8"
+    }
+  },
+  "checks": [
+    {
+      "name": "bootstrap",
+      "head_sha": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "bootstrap",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned user-local audio decoder",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify sequential autopilot recovery and merge gates",
+          "conclusion": "success"
+        },
+        {
+          "name": "Decode and analyze actual audio signals",
+          "conclusion": "success"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "graphql": {
+    "data": {
+      "repository": {
+        "pullRequest": {
+          "mergeStateStatus": "CLEAN",
+          "reviewDecision": null,
+          "headRefOid": "dbb8d2b87fbdf6e41f55f92938267764a3f44ed8",
+          "baseRefOid": "e8eaf5c89d372e988fa351267f00d4034856faf9"
+        }
+      }
+    }
+  }
+}

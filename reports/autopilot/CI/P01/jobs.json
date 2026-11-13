@@ -1,0 +1,97 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 131850209913,
+      "run_id": 43414895024,
+      "workflow_name": "Native Godot validation",
+      "head_branch": "phase/p01-art-movement",
+      "run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43414895024",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVsbeMs8AAAAesuKKeQ",
+      "head_sha": "dcfa3a224d98a4be5205e84102673d91b3a8cb11",
+      "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/jobs/131850209913",
+      "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43414895024/job/131850209913",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T11:10:22Z",
+      "started_at": "2026-11-13T11:10:25Z",
+      "completed_at": "2026-11-13T11:11:04Z",
+      "name": "bootstrap",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T11:10:25Z",
+          "completed_at": "2026-11-13T11:10:26Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T11:10:26Z",
+          "completed_at": "2026-11-13T11:10:29Z"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T11:10:29Z",
+          "completed_at": "2026-11-13T11:10:37Z"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T11:10:37Z",
+          "completed_at": "2026-11-13T11:10:49Z"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T11:10:49Z",
+          "completed_at": "2026-11-13T11:10:54Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T11:10:54Z",
+          "completed_at": "2026-11-13T11:11:02Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-13T11:11:02Z",
+          "completed_at": "2026-11-13T11:11:02Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-13T11:11:02Z",
+          "completed_at": "2026-11-13T11:11:02Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/check-runs/131850209913",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000635,
+      "runner_name": "GitHub Actions 1000000635",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# P02 exact-head/base independent review — PASS
+
+Reviewer `/root/lead_autopilot_p03`, independent from author `/root` and historical gameplay/art authors. Exact head `9680bc11aafb9297b5fa9798bf3142262d01c31c`, main base `ae8e3a7d632c374d21dfbe40d297b20e474be1cb`. No implementation/state edits, commits, pushes, merges or agents.
+
+The merge commit tree exactly equals old P02 head `3194671`. Production diff from independently accepted `4202a74` is empty for game/tools/.github/assets/licenses/.gitignore. All 29 source snapshot hashes match the exact new head. Rechecked historical attempt 1 evidence 108/108 and attempt 2 evidence 325/325. Conflict resolution did not change accepted implementation or pixels. Current base-to-head changed paths were inspected.
+
+Read the independent Lead/art attempt 2 reports, original unchanged timing probe and real Linux export replay. The probe records no wind-up damage and first contact on frame 1; retained actual-input escape replay clears with zero kills, with separate training/restart success. Historical Wine evidence remains valid for its unchanged P02 source; this review does not claim a fresh Wine/native Windows run. Viewed actual wind-up/recovery captures and Linux replay framebuffer. P02 is a technical combat lab, not an authored mission.
+
+Audited fixed-physics action phase/contact coupling, per-attack hit deduplication, wall LOS/muzzle handling and projectile sweep in the exact head. Independently imported the isolated P02 worktree and ran contact timing 48/48, combat 43/43 and restart 68/68 assertions: total 159/159, no script errors. Downloaded actual CI Linux ELF headless smoke exited 0. Privacy checker returned zero errors. Tracked P02 worktree remains clean. Windows PE export exists; native Windows was not tested here.
+
+Live GitHub API confirms PR 3 exact head/base and actual CI 43416032464 SUCCESS. GraphQL reports CLEAN; current head has one successful bootstrap check. ZIP SHA256 `510602b61f3eec75808a6021773c96c997afda17ea7ad68b35db5b722e785544` independently equals live artifact API digest; every extracted entry matches. CI has 12/12 validation commands, 621/621 assertions and Linux/Windows exports.
+
+No unresolved CRITICAL/HIGH. ART-P02-01 remains the known nonblocking MEDIUM in this P02 snapshot: right wind-up/recovery and left wind-up weapon sockets can use the phone hand. The later P03 fix is not falsely attributed to P02. The historical P02 acceptance carried this bounded cosmetic defect into P03, mandatory before P04. Earlier P01 jitter/atlas metadata limitations remain unchanged. No new public likeness/voice/release rights are inferred.
+
+Receipt: `.autopilot/reviews/P02-9680bc11aafb9297b5fa9798bf3142262d01c31c.json`. Independent proofs: `reports/autopilot/P02/reviewer-exact-head-9680bc1/`. Guarded manager must still freshly inspect exact head/base, all required/current CI, CLEAN, rules and manual approvals, then confirm merged squash parent. Only confirmed P02 merge permits P03 retarget and a fresh exact-head/base review. Preserve active P03 PASS/history; P04 implementation still requires confirmed P03 main merge.
