@@ -1,34 +1,39 @@
 {
   "active_phase": "P03",
-  "status": "IN_PROGRESS",
-  "attempts": 0,
+  "status": "BLOCKED",
+  "attempts": 1,
   "last_pass": "P02",
-  "last_decision": "reports/phases/P02/decision-attempt2.json",
-  "last_commit": "a2c09cb",
+  "last_decision": "reports/phases/P03/decision-attempt1.json",
+  "last_commit": "348e2235c0a8e06eabf2a5a9b7a75eedaa88ee41",
   "blocked": [
     {
-      "id": "AU-P03-LISTEN",
-      "scope": "perceptual listening only",
-      "reason": "Root and independent Lead actual MP3 input returned: audio content omitted because you do not support audio input",
-      "unblocks": "Owner listens to actual original previews + Godot mixer replay and reports acceptance or specific defects."
+      "id": "AU-P03-01",
+      "scope": "human perceptual listening only",
+      "decision": "reports/phases/P03/decision-attempt1.json",
+      "reason": "Root and independent Lead actual MP3 input both returned: audio content omitted because you do not support audio input",
+      "request": "reports/phases/P03/listening_request.json",
+      "question_sent": true,
+      "answer_received": false
     }
   ],
-  "next_action": "Finish frozen-source native/export/CI evidence and independent P03 review; obtain one concrete human listening result before P03 PASS.",
-  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/3",
+  "next_action": "Await actual listening result for LISTENING.md clips; independent reviewer resolves AU-P03-01 before P03 PASS/P04. No technical work remains required for this candidate.",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/4",
   "persistent_runner": false,
   "phase_work": {
     "P01": "PASS attempt2 with owner human art approval; P02 begins",
     "P02": "PASSattempt2; ART-P02-01 MEDIUM socket carryforward remains until P03fix/review",
-    "P03": "Original 4stems/18SFX +6portraitframes +dialogue/audio/options implemented; exact-source regression/export/CI/review running."
+    "P03": "Independent BLOCKED attempt1 only AU-P03-01; local785/CI785/reviewer212/technical57 PASS; ART-P02-01 CLOSED. Actual Linux+Windows/Wine builds ready."
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [
-    "Native Windows unavailable; Windows PE actual smoke/render/replay passed under Wine11.17 on Linux",
-    "Hosted billing restricted; ephemeral P02CI runner cleaned up, none active"
+    "Native Windows unavailable; actual Windows PE runtime under user-local Wine11.17 verified",
+    "Audio perception unsupported; await actual human listening only",
+    "CI43398074747 SUCCESS on92c8e96;348e223 only local verifier delta tested57/57,135game files unchanged",
+    "Ephemeral runner/variable/credentials/process removed; persistent runner absent"
   ],
   "nonblocking_findings": [
     "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
     "META-P01-01 LOW: atlas known_limitations sentence differs after source recipe",
-    "ART-P02-01 MEDIUM OPEN_PARTIALLY_REMEDIATED: correct right windup/recovery and left hidden-hand sockets; fullphase captures required beforeP04"
+    "TEC-P03-01 LOW: artificial forced --quit CI smokes can leak2 audio references; normal app paths clean; replace CLI at next workflow change."
   ]
 }

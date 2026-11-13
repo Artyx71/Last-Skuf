@@ -1,0 +1,83 @@
+{
+  "run_id": 43398074747,
+  "source_commit": "92c8e96912f4db1731dbe3da46c3f99f097e59de",
+  "archive": "build/ci-P03.zip",
+  "archive_sha256": "465f742fe9fd0b97c049ccf006e1c609a4eabda4e69460377ca9a8df313401a4",
+  "api_digest": "sha256:465f742fe9fd0b97c049ccf006e1c609a4eabda4e69460377ca9a8df313401a4",
+  "api_digest_matches": true,
+  "archive_entries": 19,
+  "extracted_file_mismatches": [],
+  "validation_commands": 16,
+  "validation_all_pass": true,
+  "suites": [
+    {
+      "name": "ai",
+      "passed": 32,
+      "failed": 0
+    },
+    {
+      "name": "art_structure",
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "name": "audio",
+      "passed": 45,
+      "failed": 0
+    },
+    {
+      "name": "combat",
+      "passed": 43,
+      "failed": 0
+    },
+    {
+      "name": "combat_art",
+      "passed": 300,
+      "failed": 0
+    },
+    {
+      "name": "contact_timing",
+      "passed": 48,
+      "failed": 0
+    },
+    {
+      "name": "dialogue",
+      "passed": 44,
+      "failed": 0
+    },
+    {
+      "name": "integration",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "name": "movement",
+      "passed": 34,
+      "failed": 0
+    },
+    {
+      "name": "options",
+      "passed": 26,
+      "failed": 0
+    },
+    {
+      "name": "portrait_motion",
+      "passed": 49,
+      "failed": 0
+    },
+    {
+      "name": "restart",
+      "passed": 68,
+      "failed": 0
+    }
+  ],
+  "passed_assertions": 785,
+  "failed_assertions": 0,
+  "artifact_log_warning_error_lines": [
+    {
+      "path": "reports/ci/logs/smoke.log",
+      "line": "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+    }
+  ],
+  "job_log_diagnostic": "2 ObjectDB instances were leaked at exit only in abrupt exported --headless --quit; actual rendered app paths clean"
+}
