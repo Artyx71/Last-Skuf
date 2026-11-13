@@ -3,6 +3,31 @@ extends RefCounted
 var mission: Node
 var report := {"schema":1,"actual_input":true,"route_warps":0,"checks":{},"captures":[],"events":[]}
 var directory := ""
+const MOVEMENT := ["move_right","move_left","move_down","move_up"]
+
+func release_movement() -> void:
+ for id in MOVEMENT: Input.action_release(id)
+
+func input_vector() -> Array:
+ var value := Input.get_vector("move_left","move_right","move_up","move_down")
+ return [value.x,value.y]
+
+func abort_idle(id: String, details: Dictionary) -> void:
+ release_movement()
+ check(id,false)
+ report["abort"] = details
+ report["audio"] = mission.audio.diagnostics()
+ report["final_snapshot"] = mission.snapshot()
+ report["progress"] = mission.progress.data.duplicate(true)
+ report["passed"] = false
+ report["scope"] = "Aborted: real-input idle precondition failed; no stale death/reset evidence reused"
+ report["capture_status"] = "BLOCKED_HEADLESS" if DisplayServer.get_name() == "headless" else "PARTIAL_CAPTURE"
+ var audio_path := OS.get_environment("AYAY_P04_AUDIO_PATH")
+ if not audio_path.is_empty(): mission.audio.end_capture(audio_path)
+ var path := OS.get_environment("AYAY_P04_RESULT_PATH")
+ if not path.is_empty(): FileAccess.open(path,FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
+ print("P04_REPLAY ",JSON.stringify(report))
+ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(mission.get_tree(),1)
 
 func frames(count: int) -> void:
  for i in count: await mission.get_tree().physics_frame
@@ -59,14 +84,16 @@ func walk(target: Vector2) -> bool:
    await capture("options")
    await key(KEY_O)
    await finish_dialogue()
-  if mission.state != "playing": return false
+  if mission.state != "playing":
+   release_movement()
+   return false
   var delta: Vector2 = target-mission.player.position
   for pair in [["move_right",delta.x>2],["move_left",delta.x< -2],["move_down",delta.y>2],["move_up",delta.y< -2]]:
    if pair[1]: Input.action_press(pair[0])
    else: Input.action_release(pair[0])
   await frames(1)
   count += 1
- for id in ["move_right","move_left","move_down","move_up"]: Input.action_release(id)
+ release_movement()
  await frames(2)
  report.events.append({"walk":[target.x,target.y],"reached":mission.player.position.distance_to(target)<5,"state":mission.state,"ticks":mission.encounter_ticks})
  return mission.player.position.distance_to(target)<5 and mission.state == "playing"
@@ -102,18 +129,43 @@ func run(world: Node) -> void:
  await capture("service_checkpoint")
  # The same live AI must kill a stationary player, followed by ten real cached retries.
  var death_rows := []
+ report["deaths"] = death_rows
+ report["idle_waits"] = []
  var reset_signature := ""
  for cycle in 10:
+  release_movement()
   mission.auto_retry = false
+  var origin: Vector2 = mission.player.position
+  var deaths_before: int = int(mission.progress.data.deaths)
+  var idle := {"cycle":cycle,"commanded_input":[0,0],"start_position":[origin.x,origin.y],"start_tick":Engine.get_physics_frames(),"observed_input":input_vector(),"mouse_aim":mission.player.mouse_aim}
   var safety := 0
   while mission.state == "playing" and safety < 600:
-   await frames(1); safety += 1
-  var died: bool = mission.state == "dead" and mission.player.hits_received > 0
+   # Observe the completed physics tick, rather than its pre-update signal.
+   # Keep the general walk/action cadence intact; only idle observation settles.
+   await mission.get_tree().physics_frame
+   await mission.get_tree().process_frame
+   safety += 1
+   idle["observed_input"] = input_vector()
+   idle["last_position"] = [mission.player.position.x,mission.player.position.y]
+   idle["last_state"] = mission.state
+   idle["last_tick"] = Engine.get_physics_frames()
+   if not Input.get_vector("move_left","move_right","move_up","move_down").is_zero_approx() or mission.player.position.distance_to(origin) > 1.5:
+    report.idle_waits.append(idle)
+    abort_idle("idle_input_or_position_"+str(cycle),idle)
+    return
+   release_movement()
+  report.idle_waits.append(idle)
+  var died: bool = mission.state == "dead" and mission.player.hits_received > 0 and int(mission.progress.data.deaths) == deaths_before+1
+  if not died:
+   abort_idle("new_ai_death_required_"+str(cycle),idle)
+   return
   if cycle == 0: await capture("death")
   var hit_events: int = mission.combat.damage_events
+  release_movement()
   mission.auto_retry = true
   var start := Time.get_ticks_usec()
   while mission.state == "dead" and Time.get_ticks_usec()-start < 2000000: await frames(1)
+  release_movement()
   var latency: float = float(Time.get_ticks_usec()-mission.death_started_usec)/1000 if mission.death_started_usec > 0 else mission.restart_latencies_ms.back()
   var reset: Dictionary = mission.last_reset_snapshot
   var signature := JSON.stringify(reset).sha256_text()

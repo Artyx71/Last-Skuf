@@ -1,0 +1,304 @@
+[
+  {
+    "name": "pinned_engine",
+    "passed": true,
+    "checks": {
+      "sha256": true
+    },
+    "details": null
+  },
+  {
+    "name": "engine_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/engine_replay.log",
+    "elapsed_seconds": 68.103
+  },
+  {
+    "name": "engine_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "engine_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2952192,
+      "duration": 66.94312925170068,
+      "peak": 0.511932373046875,
+      "rms": 0.09647154765618425,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  },
+  {
+    "name": "reduced_visual_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/reduced_visual_replay.log",
+    "elapsed_seconds": 68.093
+  },
+  {
+    "name": "reduced_visual_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "reduced_visual_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2951168,
+      "duration": 66.91990929705216,
+      "peak": 0.509002685546875,
+      "rms": 0.09639689443174455,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  },
+  {
+    "name": "movie_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/movie_replay.log",
+    "elapsed_seconds": 122.746
+  },
+  {
+    "name": "movie_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "movie_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 48000,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 3215360,
+      "duration": 66.98666666666666,
+      "peak": 0.5411376953125,
+      "rms": 0.09645664051818835,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  },
+  {
+    "name": "encode_movie",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/encode_movie.log",
+    "elapsed_seconds": 12.046
+  },
+  {
+    "name": "export_linux",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/export_linux.log",
+    "elapsed_seconds": 2.875
+  },
+  {
+    "name": "export_linux_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "linux_export_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/linux_export_replay.log",
+    "elapsed_seconds": 67.972
+  },
+  {
+    "name": "linux_export_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "linux_export_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2949120,
+      "duration": 66.87346938775511,
+      "peak": 0.573150634765625,
+      "rms": 0.0962316823604428,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  },
+  {
+    "name": "export_windows",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/export_windows.log",
+    "elapsed_seconds": 2.41
+  },
+  {
+    "name": "export_windows_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "windows_wine_probe",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/windows_wine_probe.log",
+    "elapsed_seconds": 11.422
+  },
+  {
+    "name": "windows_export_replay",
+    "passed": false,
+    "exit_code": 1,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/windows_export_replay.log",
+    "elapsed_seconds": 63.191
+  },
+  {
+    "name": "windows_export_replay_acceptance",
+    "passed": false,
+    "checks": {
+      "engine_passed": false,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": false,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "windows_export_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 48000,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2612736,
+      "duration": 54.432,
+      "peak": 0.508544921875,
+      "rms": 0.06684942888832628,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  },
+  {
+    "name": "detailed_audio_signal",
+    "passed": false,
+    "exit_code": 1,
+    "log": "reports/phases/P04/attempt1/native-host-02/logs/detailed_audio_signal.log",
+    "elapsed_seconds": 41.328
+  },
+  {
+    "name": "sources_unchanged",
+    "passed": true,
+    "checks": {
+      "hashes_match": true
+    },
+    "details": null
+  }
+]
