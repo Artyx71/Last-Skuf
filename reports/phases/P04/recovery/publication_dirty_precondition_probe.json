@@ -1,0 +1,23 @@
+{
+  "source_module": "autopilot/github.py",
+  "dirty_worktree_already_proven": "manifest_inventory_initial.json",
+  "remote_queries": [
+    "call(['git', 'remote', 'get-url', 'origin'], cwd=PosixPath('/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P04'), text=True)"
+  ],
+  "subprocess_calls": [
+    [
+      "/usr/bin/python3",
+      "tools/check_privacy.py"
+    ],
+    [
+      "git",
+      "push",
+      "--set-upstream",
+      "origin",
+      "phase/p04-implementation"
+    ]
+  ],
+  "git_push_reached_without_dirty_check": true,
+  "real_external_mutations": false,
+  "required_fix": "Before any push/PR creation reject tracked modifications, staged changes and nonignored untracked deliverables; require committed expected local HEAD and publication CI/review binding. Do not auto-add or auto-discard unknown files."
+}

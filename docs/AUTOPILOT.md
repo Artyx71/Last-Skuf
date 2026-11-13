@@ -48,3 +48,17 @@ Merge требует: independent PASS на **точный текущий head S
 Hosted Ubuntu image не содержит ffprobe/ffmpeg. tools/install_ci_media.py извлекает pinned SHA256-verified ImageIO0.6.0 wheel из PyPI в .tools/ci-media (FFmpeg7.0.2 static), без pip/system/sudo; licenses/provenance сохраняются вне game. AudioQA декодирует floatWAV и читает rate/channels из реального потока, отдельный ffprobe не нужен. Первый failedCI43410070643 сохранён в reports/autopilot/CI/attempt1; forced-kill test теперь ожидает реального освобождения lease после durable receipt, не подменяет эти события.
 
 Merge intent (head/base/checked snapshot/review hash) fsync-сохраняется перед HTTP-запросом. После потери ответа допустима только сверка уже merged PR с этим intent, неизменным review и single-parent commit на проверенной main base. Старые confirmed merges обновляют отдельный delivery_next и не откатывают active_phase/last_pass. Текущая фаза переходит дальше только после её собственного confirmed merge. Tests теперь37, включая обе эти state/race регрессии.
+
+## P04 recovery and publication fixes
+
+Interrupted P04 implementation was preserved at attempt1 and independently cleared for local recovery in `reports/phases/P04/recovery/decision.json`. That scoped SAFE_TO_CONTINUE is not phase acceptance. The controller used ordinary host commits for the preserved files. No author was replayed, progress reset, or second author started.
+
+Implementation uses `workspace-write` with `--add-dir` limited to the same repository's common Git directory. A live restricted-executor probe wrote a harmless object, refreshed the index and created/deleted a temporary probe ref without changing HEAD. A foreign Git repository is rejected. Read-only reviewers receive no writable Git allowance.
+
+Before a push, publication checks the current phase branch and committed SHA. Staged changes, source deletions, renames into reports and nonignored untracked implementation files block publication. Only unstaged/untracked files confined to `reports/` may remain as generated evidence. Privacy checks run, then HEAD/branch/dirty checks run again; Git pushes the verified object ID to the explicit phase ref. No force or protection bypass is used. Dirty publication tests cover zero push and zero PR POST.
+
+P04 validation proceeds through native renderer/audio, reduced settings, MovieMaker, clean exports, Linux and Windows-under-Wine replays before publication. Output directories bind HEAD and attempt; interrupted/nonzero native QA requires evidence inspection, not a blind replay. Detailed audio checks decode original masters/game files, measure loudness/silence/clipping/loops, probe every directed musical transition, and inspect actual runtime PCM. They cannot approve artistic audio. P04 PASS additionally requires hash-bound structured P04 listening evidence; P03 listening cannot satisfy it.
+
+Shutdown uses monotonic wall time while still processing frames so asynchronous audio cleanup also works in accelerated/headless tests. Mandatory regression includes full normal and accelerated mission exits, and fails on leaked-object/resource warnings. Runtime bootstrap smokes use the clean shutdown path; editor import still uses the editor's `--quit`.
+
+Current final candidate paths and gates are recorded in `reports/STATUS.md` and `reports/NEXT_ACTION.md`. A configured active bounded controller is required; this does not install or claim a permanent daemon.

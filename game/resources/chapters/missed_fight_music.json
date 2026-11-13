@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "music": {
+    "bpm": 144,
+    "beats_per_bar": 4,
+    "bars": 8,
+    "sample_rate": 48000,
+    "loop_frames": 640000,
+    "key": "E minor; Cmaj7 colour, B dominant turnaround",
+    "id": "MISSED_FIGHT_BACK_DOOR",
+    "loop_seconds": 13.333333333333334,
+    "stems": [
+      {
+        "id": "bass",
+        "path": "res://assets/audio/music/missed_fight_bass.ogg"
+      },
+      {
+        "id": "texture",
+        "path": "res://assets/audio/music/missed_fight_texture.ogg"
+      },
+      {
+        "id": "drums",
+        "path": "res://assets/audio/music/missed_fight_drums.ogg"
+      },
+      {
+        "id": "lead",
+        "path": "res://assets/audio/music/missed_fight_lead.ogg"
+      }
+    ],
+    "profiles": {
+      "EXPLORE": {
+        "bass": 0.58,
+        "texture": 0.7,
+        "drums": 0.2,
+        "lead": 0.0
+      },
+      "SUSPICION": {
+        "bass": 0.78,
+        "texture": 0.85,
+        "drums": 0.58,
+        "lead": 0.25
+      },
+      "COMBAT": {
+        "bass": 1.0,
+        "texture": 0.72,
+        "drums": 1.0,
+        "lead": 0.82
+      },
+      "CLEAR": {
+        "bass": 0.38,
+        "texture": 0.85,
+        "drums": 0.15,
+        "lead": 0.42
+      }
+    },
+    "source": "assets/source_audio/missed_fight",
+    "runtime_linear_gain": 1.0
+  }
+}

@@ -3,7 +3,7 @@ extends Node
 signal changed(key: StringName, value: Variant)
 const DEFAULTS := {"master": 0.8, "music": 0.7, "sfx": 0.8, "voice_ui": 0.8,
  "text_speed": 36.0, "instant_text": false, "vhs": true, "reduced_motion": false,
- "reduced_impact": false, "subtitles": true, "text_scale": 1.0}
+ "reduced_impact": false, "subtitles": true, "text_scale": 1.0, "reduced_gore": false}
 var values: Dictionary = DEFAULTS.duplicate()
 var storage_path := "user://options_v1.json"
 var last_error := OK

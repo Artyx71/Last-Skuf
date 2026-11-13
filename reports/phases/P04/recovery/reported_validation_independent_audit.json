@@ -1,0 +1,160 @@
+{
+  "regression_commands": 17,
+  "regression_passed": 16,
+  "regression_nonpass": [
+    {
+      "name": "import",
+      "exit_code": 0,
+      "passed": false,
+      "log": "reports/phases/P04/attempt1/regression-final/logs/import.log"
+    }
+  ],
+  "native_assertions_passed": 815,
+  "native_assertions_failed": 0,
+  "assertion_logs": [
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/ai.log",
+      "passed": 32,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/art_structure.log",
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/audio.log",
+      "passed": 45,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/combat.log",
+      "passed": 43,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/combat_art.log",
+      "passed": 300,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/contact_timing.log",
+      "passed": 48,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/dialogue.log",
+      "passed": 44,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/integration.log",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/mission.log",
+      "passed": 28,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/movement.log",
+      "passed": 34,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/options.log",
+      "passed": 28,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/portrait_motion.log",
+      "passed": 49,
+      "failed": 0
+    },
+    {
+      "log": "reports/phases/P04/attempt1/regression-final/logs/restart.log",
+      "passed": 68,
+      "failed": 0
+    }
+  ],
+  "technical_passed": 13,
+  "technical_total": 16,
+  "technical_nonpass": [
+    {
+      "name": "export_linux",
+      "passed": false,
+      "exit_code": 0,
+      "log": "reports/phases/P04/attempt1/technical-final/logs/export_linux.log",
+      "elapsed_seconds": 2.804
+    },
+    {
+      "name": "export_windows",
+      "passed": false,
+      "exit_code": 0,
+      "log": "reports/phases/P04/attempt1/technical-final/logs/export_windows.log",
+      "elapsed_seconds": 2.431
+    },
+    {
+      "name": "windows_wine_probe",
+      "passed": false,
+      "exit_code": 1,
+      "log": "reports/phases/P04/attempt1/technical-final/logs/windows_wine_probe.log",
+      "elapsed_seconds": 0.004
+    }
+  ],
+  "replays": [
+    {
+      "name": "engine_replay",
+      "passed": true,
+      "actual_input": true,
+      "route_warps": 0,
+      "checks_type": "dict",
+      "checks_count": 50,
+      "deaths": 10,
+      "all_actual_AI_deaths": true,
+      "retry_ms_min": 260.476,
+      "retry_ms_max": 267.569,
+      "kills": 0,
+      "completion_events": 1.0,
+      "scope": "Headless real-input simulation; no rendered frames",
+      "capture_status": "BLOCKED_HEADLESS",
+      "actual_capture_count": 0
+    },
+    {
+      "name": "reduced_visual_replay",
+      "passed": true,
+      "actual_input": true,
+      "route_warps": 0,
+      "checks_type": "dict",
+      "checks_count": 50,
+      "deaths": 10,
+      "all_actual_AI_deaths": true,
+      "retry_ms_min": 260.574,
+      "retry_ms_max": 267.734,
+      "kills": 0,
+      "completion_events": 1.0,
+      "scope": "Headless real-input simulation; no rendered frames",
+      "capture_status": "BLOCKED_HEADLESS",
+      "actual_capture_count": 0
+    },
+    {
+      "name": "linux_export_replay",
+      "passed": true,
+      "actual_input": true,
+      "route_warps": 0,
+      "checks_type": "dict",
+      "checks_count": 50,
+      "deaths": 10,
+      "all_actual_AI_deaths": true,
+      "retry_ms_min": 260.771,
+      "retry_ms_max": 267.75,
+      "kills": 0,
+      "completion_events": 1.0,
+      "scope": "Headless real-input simulation; no rendered frames",
+      "capture_status": "BLOCKED_HEADLESS",
+      "actual_capture_count": 0
+    }
+  ],
+  "absence_of_phase_decision": true
+}

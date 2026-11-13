@@ -29,7 +29,7 @@ def main():
     commands = [('privacy', [sys.executable, 'tools/check_privacy.py']),
                 ('version', [str(binary), '--version']),
                 ('import', base + ['--editor', '--quit']),
-                ('smoke', base + ['--quit']),
+                ('smoke', base + ['--', '--smoke-bootstrap']),
                 ('integration', base + ['--script', 'res://tests/bootstrap_test.gd'])]
     if args.references:
         commands.insert(0, ('references', [sys.executable, 'tools/validate_pack.py']))
@@ -44,6 +44,10 @@ def main():
     if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['portrait_motion', 'dialogue', 'audio', 'options'])
+    if (ROOT / 'game/scenes/levels/missed_fight.tscn').is_file():
+        commands.append(('mission', base + ['--script', 'res://tests/mission_test.gd']))
+        commands.append(('mission_normal_exit', base + ['--verbose', '--', '--open-mission', '--p04-replay']))
+        commands.append(('mission_fast_exit', base + ['--verbose', '--fixed-fps', '60', '--disable-vsync', '--max-fps', '0', '--', '--open-mission', '--p04-replay']))
     env = dict(os.environ)
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:
@@ -54,12 +58,15 @@ def main():
         # Distinct paths also prevent one test or capture from masking another's defaults.
         saves = output / 'isolated_saves' / name
         saves.mkdir(parents=True, exist_ok=True)
-        for filename in ['options.json', 'dialogue.json']:
+        for filename in ['options.json', 'dialogue.json', 'chapter.json']:
             path = saves / filename
             path.unlink(missing_ok=True)
             path.with_suffix(path.suffix + '.tmp').unlink(missing_ok=True)
         env['AYAY_OPTIONS_PATH'] = str(saves / 'options.json')
         env['AYAY_DIALOGUE_SAVE_PATH'] = str(saves / 'dialogue.json')
+        env['AYAY_CHAPTER_SAVE_PATH'] = str(saves / 'chapter.json')
+        env['AYAY_P04_RESULT_PATH'] = str(saves / 'replay.json')
+        env['AYAY_P04_AUDIO_PATH'] = str(saves / 'replay.wav')
         try:
             result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=90)
             text = result.stdout + result.stderr
@@ -67,7 +74,7 @@ def main():
         except subprocess.TimeoutExpired as error:
             text, code = str(error), 124
         # Godot may exit zero after a parse error: logs are part of the gate.
-        ok = code == 0 and not any(token in text for token in ['SCRIPT ERROR:', 'ERROR:', 'FAIL:'])
+        ok = code == 0 and not any(token in text for token in ['SCRIPT ERROR:', 'ERROR:', 'FAIL:', 'ObjectDB instances were leaked', 'resources still in use'])
         if name == 'version':
             ok = ok and text.startswith(lock['godot_version'] + '.stable.')
         log = output / 'logs' / (name + '.log')

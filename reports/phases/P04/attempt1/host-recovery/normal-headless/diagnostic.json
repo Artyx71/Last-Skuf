@@ -1,0 +1,14 @@
+{
+  "scope": "Fresh full-permission host normal source headless shutdown, not renderer/listening acceptance",
+  "exit_code": 0,
+  "replay_passed": true,
+  "engine_checks": 50,
+  "diagnostic_errors_or_leaks": [
+    "Leaked instance: AudioStreamSynchronized:9223372065342490068 - Reference count: 1",
+    "Leaked instance: AudioStreamPlaybackSynchronized:9223372081985488400 - Reference count: 1",
+    "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).",
+    "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+  ],
+  "native_tested_game_sources_unchanged": true,
+  "passed": false
+}

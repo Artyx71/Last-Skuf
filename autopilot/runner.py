@@ -252,6 +252,15 @@ class Controller:
         item.update(workspace=str(directory),branch=branch); self.persist(state)
         return directory
 
+    def author_command(self,work):
+        # Linked worktree metadata lives outside the default workspace sandbox.
+        # Permit only this repository's Git directory, never grant this to review.
+        common=subprocess.check_output(['git','rev-parse','--path-format=absolute','--git-common-dir'],cwd=work,text=True).strip()
+        owner=subprocess.check_output(['git','rev-parse','--path-format=absolute','--git-common-dir'],cwd=self.root,text=True).strip()
+        if Path(common).resolve()!=Path(owner).resolve():
+            raise Blocked('Author workspace belongs to a different Git repository')
+        return [self.config['codex_binary'],'exec','--sandbox','workspace-write','--add-dir',common,'--cd',str(work),'-']
+
     def run_phase(self,phase):
         self.prerequisite(phase)
         from github import manage,validate_review,wait_ci
@@ -270,7 +279,7 @@ class Controller:
             if checkpoint=='implementation':
                 prompt=(self.root/'autopilot/prompts/PHASE_EXECUTION.md').read_text()
                 prompt+=f'\nPhase={phase}; authoritative controller={self.state_path} (do not edit it). This worktree preserves prior main. One executor, no subagents. Commit source/evidence on this phase branch. Do not merge/change gates. Findings: {json.dumps(item.get("remediation",[]))}\n'
-                code=self.stage(phase+'/implementation',[cli,'exec','--sandbox','workspace-write','--cd',work,'-'],
+                code=self.stage(phase+'/implementation',self.author_command(work),
                     self.config['phase_timeout_seconds'],prompt,safe_retry=False,cwd=work)
                 if code:
                     self.checkpoint(phase,'recovery-review','BLOCKED')
@@ -282,6 +291,17 @@ class Controller:
                     state=self.state(); item=state['autopilot']['phases'][phase]
                     item['remediation']=[{'severity':'HIGH','message':f'Validation failed; inspect reports/autopilot/{phase}/validation'}]
                     self.persist(state); self.checkpoint(phase,None,'FAIL'); continue
+                checkpoint='native-validation' if phase=='P04' else 'publication'
+                self.checkpoint(phase,checkpoint)
+            if checkpoint=='native-validation':
+                head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip()
+                suffix=f'{head}-a{item["attempts"]}'
+                code=self.stage(phase+'/native-validation',[sys.executable,'tools/verify_p04.py','--exports','--movie',
+                    '--output',f'reports/autopilot/P04/native-{suffix}','--build-output',f'build/P04/autopilot-{suffix}'],
+                    self.config.get('native_qa_timeout_seconds',1800),cwd=work,safe_retry=False)
+                if code:
+                    self.checkpoint(phase,'recovery-review','BLOCKED')
+                    raise Blocked('Native QA failed/interrupted; inspect preserved evidence before retry; no publication')
                 self.checkpoint(phase,'publication'); checkpoint='publication'
             if checkpoint=='publication':
                 if manage(self,phase,'prepare'): return 4
@@ -314,7 +334,7 @@ class Controller:
                 if verdict['status']=='BLOCKED': raise Blocked('Lead BLOCKED; no merge/advance')
                 checkpoint='merge'
             if checkpoint=='merge': return manage(self,phase,'merge')
-            if checkpoint not in ['implementation','validation','publication','ci','review','merge']:
+            if checkpoint not in ['implementation','validation','native-validation','publication','ci','review','merge']:
                 raise Blocked('Recovery checkpoint requires independent investigation')
 
 

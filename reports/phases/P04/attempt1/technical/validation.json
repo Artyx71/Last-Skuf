@@ -1,0 +1,190 @@
+[
+  {
+    "name": "pinned_engine",
+    "passed": true,
+    "checks": {
+      "sha256": true
+    },
+    "details": null
+  },
+  {
+    "name": "engine_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/technical/logs/engine_replay.log",
+    "elapsed_seconds": 67.097
+  },
+  {
+    "name": "engine_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true
+    },
+    "details": {
+      "capture_status": "BLOCKED_HEADLESS",
+      "scope": "Headless real-input simulation; no rendered frames"
+    }
+  },
+  {
+    "name": "engine_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2904064,
+      "duration": 65.85179138321996,
+      "peak": 0.565399169921875,
+      "rms": 0.09525039193721212,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; Dummy mixer, no realtime audio device or rendering"
+    }
+  },
+  {
+    "name": "reduced_visual_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/technical/logs/reduced_visual_replay.log",
+    "elapsed_seconds": 67.087
+  },
+  {
+    "name": "reduced_visual_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true
+    },
+    "details": {
+      "capture_status": "BLOCKED_HEADLESS",
+      "scope": "Headless real-input simulation; no rendered frames"
+    }
+  },
+  {
+    "name": "reduced_visual_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2904064,
+      "duration": 65.85179138321996,
+      "peak": 0.558685302734375,
+      "rms": 0.0953107866683363,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; Dummy mixer, no realtime audio device or rendering"
+    }
+  },
+  {
+    "name": "export_linux",
+    "passed": false,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/technical/logs/export_linux.log",
+    "elapsed_seconds": 3.279
+  },
+  {
+    "name": "export_linux_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "linux_export_replay",
+    "passed": false,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/technical/logs/linux_export_replay.log",
+    "elapsed_seconds": 67.024
+  },
+  {
+    "name": "linux_export_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true
+    },
+    "details": {
+      "capture_status": "BLOCKED_HEADLESS",
+      "scope": "Headless real-input simulation; no rendered frames"
+    }
+  },
+  {
+    "name": "linux_export_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2912256,
+      "duration": 66.03755102040816,
+      "peak": 0.55230712890625,
+      "rms": 0.09610071575550372,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; Dummy mixer, no realtime audio device or rendering"
+    }
+  },
+  {
+    "name": "export_windows",
+    "passed": false,
+    "exit_code": 0,
+    "log": "reports/phases/P04/attempt1/technical/logs/export_windows.log",
+    "elapsed_seconds": 2.624
+  },
+  {
+    "name": "export_windows_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "windows_wine_probe",
+    "passed": false,
+    "exit_code": 1,
+    "log": "reports/phases/P04/attempt1/technical/logs/windows_wine_probe.log",
+    "elapsed_seconds": 0.013
+  },
+  {
+    "name": "sources_unchanged",
+    "passed": true,
+    "checks": {
+      "hashes_match": true
+    },
+    "details": null
+  }
+]

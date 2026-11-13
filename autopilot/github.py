@@ -53,13 +53,19 @@ def validate_review(root,review,head,phase):
             if not isinstance(item,dict): errors.append('Malformed finding'); continue
             if item.get('severity') in ['CRITICAL','HIGH'] and item.get('status') not in ['CLOSED','RESOLVED']:
                 errors.append('Unresolved CRITICAL/HIGH finding')
-        if phase=='P03':
+        if phase in ['P03','P04']:
             acceptance=review.get('artistic_audio_acceptance') or {}
             if acceptance.get('status')!='PASS' or acceptance.get('method') not in ['human_listening','actual_listening_tool']:
-                errors.append('P03 artistic acceptance cannot be replaced by signal metrics')
+                errors.append(phase+' artistic acceptance cannot be replaced by signal metrics')
             proof=acceptance.get('evidence')
             if not isinstance(proof,dict) or proof not in evidence:
                 errors.append('Actual listening acceptance must be hash-bound review evidence')
+            elif phase=='P04':
+                try:
+                    listening=json.loads((Path(root)/proof['path']).read_text())
+                    if listening.get('phase')!='P04': errors.append('P03/other-phase listening does not accept new P04 audio')
+                except (OSError,ValueError,AttributeError):
+                    errors.append('P04 listening proof must identify this phase in structured evidence')
     return errors
 
 
@@ -184,13 +190,43 @@ def find_open_pull(branch):
     return matches[0]['number'] if matches else None
 
 
+def publication_head(work,branch,expected_head=None):
+    """Only committed implementation may publish; generated report files stay local.
+
+    --no-renames makes source-to-report moves visible as source deletions too.
+    Reject every staged change and non-report unstaged/untracked path. Never add
+    files on the author's behalf or infer that a tested dirty tree is committed.
+    """
+    actual=subprocess.check_output(['git','branch','--show-current'],cwd=work,text=True).strip()
+    if actual!=branch or not branch.startswith('phase/'):
+        raise GitHubBlocked('Publication requires the registered current phase branch')
+    head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip()
+    if not SHA.fullmatch(head) or (expected_head is not None and head!=expected_head):
+        raise GitHubBlocked('Committed HEAD changed during publication preflight')
+    dirty=subprocess.check_output(['git','status','--porcelain=v1','--no-renames','-z','--untracked-files=all'],cwd=work)
+    blocked=[]
+    reports=(Path(work)/'reports').resolve()
+    for row in dirty.split(b'\0'):
+        if not row: continue
+        status=row[:2].decode('ascii'); name=row[3:].decode('utf-8','surrogateescape')
+        path=Path(work)/name
+        report=name.startswith('reports/') and path.resolve().is_relative_to(reports)
+        staged=status[0] not in [' ','?']
+        if staged or not report: blocked.append(name)
+    if blocked:
+        raise GitHubBlocked('Uncommitted implementation/index changes prohibit publication: '+repr(blocked[:20]))
+    return head
+
+
 def publish_branch(work,branch):
-    if not branch.startswith('phase/'): raise GitHubBlocked('Only phase/* branches may publish')
+    head=publication_head(work,branch)
     origin=subprocess.check_output(['git','remote','get-url','origin'],cwd=work,text=True).strip()
     if not re.fullmatch(r'(?:https://github.com/|git@github.com:)Artyx71/Last-Skuf(?:\.git)?',origin):
         raise GitHubBlocked('Push origin does not match the authorized repository')
     subprocess.run([sys.executable,'tools/check_privacy.py'],cwd=work,check=True,capture_output=True)
-    subprocess.run(['git','push','--set-upstream','origin',branch],cwd=work,check=True,capture_output=True)
+    publication_head(work,branch,head)
+    # Push the verified object, not a moving local branch name. No force/bypass.
+    subprocess.run(['git','push','origin',f'{head}:refs/heads/{branch}'],cwd=work,check=True,capture_output=True)
 
 
 def manage(controller,phase,action,review=None):

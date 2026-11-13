@@ -1,6 +1,6 @@
 # АЫАЫ: Последний скуф — SDD v1.0
 
-**Статус исполнения:** актуальные gate, сборки и ограничения — в [reports/STATUS.md](reports/STATUS.md), возобновление — [automation/phase_state.json](automation/phase_state.json). Последняя независимая PASS-фаза — P02; Владелец прослушал звук P03 и предварительно принял его; выполняется независимая проверка приёмки и интеграции AUTOPILOT. Полная игра ещё не готова.
+**Статус исполнения:** P00–P03 PASS и merged. Кандидат P04 THE MISSED FIGHT реализован и реально проверен с графикой/звуком на Linux и в Windows EXE под Wine. Владелец прослушал новую музыку и принял прототип P04; независимый Lead и CI текущего коммита ещё обязательны. Отчёт: [reports/phases/P04/implementation-host.md](reports/phases/P04/implementation-host.md). Полная игра ещё не готова.
 **Цель:** качественный Godot 4 / GDScript single-player Windows/Linux top-down action с собственным pixel-art, сильным саундтреком, драматургией и локальными шутками. Репозиторий: `Artyx71/Last-Skuf` (доступ/существование проверяет Codex, без самовольной публикации).
 
 ## С чего начать
@@ -28,9 +28,9 @@
 
 ## Локальная проверка прототипа
 
-Сборки P03: `build/P03/linux/last-skuf.x86_64` и `build/P03/windows/last-skuf.exe`. Из стартового экрана Enter открывает боевой полигон, F1 — арт, F3 — диалог/звук. В диалоге Space раскрывает/продвигает реплику, Shift ускоряет текст, H показывает историю, O — настройки, K пропускает уже просмотренную сцену, R повторяет её. Портреты и музыка оригинальные; реального озвучивания нет.
+Кандидат P04: `build/P04/native-host-03/linux/last-skuf.x86_64`, `build/P04/native-host-03/windows/last-skuf.exe` (локальные экспортные артефакты, не релиз). Enter открывает главу 01: забрать куртку у раковины, открыть служебку и уйти во двор. WASD/стрелки — движение; F — действие, E — отвлечение, Space/ЛКМ — слабый толчок; R — retry/повтор; O/Esc — пауза, Q в паузе — меню. В диалоге Space раскрывает/продвигает текст, Shift ускоряет, H показывает журнал, K пропускает просмотренное. F1/F2/F3 из меню сохраняют арт/бой/диалог P01–P03.
 
-Проверки: `python3 tools/verify.py --references --output reports/phases/P03/regression`; реальные captures/exports — `python3 tools/verify_p03.py --movie`. Флаг `--references` используется только локально, где есть приватный manifest. Windows PE проверяется под Wine на Linux; native Windows пока не проверен. Evidence и независимое решение — в `reports/phases/P03/`, без подмены прослушивания численными метриками.
+`python3 tools/verify.py --output <новая-папка>` — regression. `python3 tools/analyze_p04_audio.py --output <новый-json>` — сигнальный анализ, **не listening**. `python3 tools/verify_p04.py --output <новая-папка> --exports --movie` — реальные captures/replay/exports в окружении с разрешёнными display/audio/Wine sockets; `--headless` проверяет Input/AI/save без графических доказательств. Старые P03 evidence/decisions сохранены. Билды Windows должны проверяться отдельно; экспорт PE не считается запуском.
 
 ## Последовательный AUTOPILOT
 
