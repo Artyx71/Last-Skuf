@@ -257,14 +257,32 @@ func _finisher_definition(source: CharacterBody2D, category: String, job: Dictio
 		return source.resolve_finisher(category,base.duplicate(true))
 	return base
 
+func _finisher_authority(source: CharacterBody2D, category: String) -> Dictionary:
+	# Legacy Yakuza keeps its existing policy. Opt-in character resolvers must
+	# supply a live scene policy AND a stable identity/context/fixture generation.
+	if not source.has_method("resolve_finisher"): return {}
+	if not source.has_method("can_use_finisher") or not source.has_method("finisher_authority"): return {}
+	if not source.can_use_finisher(category): return {}
+	var authority: Variant = source.finisher_authority(category)
+	if not authority is Dictionary: return {}
+	for field in ["actor_id", "context", "fixture_id"]:
+		if not authority.get(field) is String or String(authority[field]).is_empty(): return {}
+	if not authority.get("generation") is int or int(authority.generation) < 0: return {}
+	if authority.get("category") != category: return {}
+	return authority.duplicate(true)
+
 func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String, job: Dictionary = {}) -> bool:
 	if not finisher_definitions.has(category) or not is_instance_valid(target) or not is_instance_valid(source): return false
 	if lab.state != "playing" or source.health <= 0 or target.health <= 0 or not source.is_inside_tree() or not target.is_inside_tree(): return false
-	if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+	if source.has_method("resolve_finisher"):
+		var authority := _finisher_authority(source,category)
+		if authority.is_empty(): return false
+		if not job.is_empty() and job.get("authority",{}) != authority: return false
+	elif source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
 	var definition: Dictionary = _finisher_definition(source,category,job)
 	if definition.is_empty(): return false
 	if source.finisher_weapon != definition.weapon: return false
-	var reserved: bool = not job.is_empty() and target.state == "finisher_reaction" and job.target == target
+	var reserved: bool = job.has("id") and target.state == "finisher_reaction" and job.target == target
 	if not target.state in ["stunned", "knockdown"] and not reserved: return false
 	if reserved and float(job.vulnerability) + 0.00001 < float(job.elapsed): return false
 	var offset: Vector2 = target.global_position - source.global_position
@@ -287,16 +305,24 @@ func finisher_for(source: CharacterBody2D) -> Dictionary:
 	return {}
 
 func start_finisher(source: CharacterBody2D, target: CharacterBody2D, category: String) -> bool:
-	if not finisher_for(source).is_empty() or not eligible(source,target,category): return false
+	if not is_instance_valid(source) or not is_instance_valid(target) or not finisher_definitions.has(category): return false
+	if not finisher_for(source).is_empty(): return false
+	# Resolve once, then reauthorize the SAME definition after cancel_action.
+	# No resolver is allowed to spend ammo or change scene state.
+	var definition := _finisher_definition(source,category).duplicate(true)
+	var authority := _finisher_authority(source,category)
+	var candidate := {"definition":definition,"authority":authority}
+	if not eligible(source,target,category,candidate): return false
 	for job in finishers:
 		if job.target == target: return false
 	source.cancel_action()
-	var definition := _stamp(_finisher_definition(source,category))
+	if not eligible(source,target,category,candidate): return false
+	definition = _stamp(definition)
 	next_attack_id += 1
 	var duration := float(definition.windup) + float(definition.active) + float(definition.recovery)
 	var vulnerability: float = target.stun_remaining if target.state == "stunned" else target.timer
 	finishers.append({"id":next_attack_id,"epoch":encounter_epoch,"source":source,"target":target,"category":category,
-		"definition":definition,"elapsed":0.0,"stage":"windup","committed":false,"vulnerability":vulnerability})
+		"definition":definition,"authority":authority,"elapsed":0.0,"stage":"windup","committed":false,"vulnerability":vulnerability})
 	source.action_windup = float(definition.windup)
 	source.action_active = float(definition.active)
 	source.action_recovery = float(definition.recovery)

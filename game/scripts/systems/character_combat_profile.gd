@@ -5,7 +5,7 @@ const PATH := "res://resources/characters/combat_profiles.json"
 
 static func resolve_finisher(actor_id: String, context: String, category: String, base: Dictionary) -> Dictionary:
  if not Characters.valid_context(actor_id, context) or base.is_empty(): return {}
- if category not in Characters.actor(actor_id).equipment_categories: return {}
+ if category not in Characters.allowed_equipment(actor_id, context): return {}
  if base.get("category") != category: return {}
  # Existing Yakuza clocks/risks are never changed by selecting another character.
  if actor_id == "yakuza": return base.duplicate(true)
