@@ -4,6 +4,7 @@ var story: Node
 var list: ItemList
 var recap: Label
 var launch: Button
+var close: Button
 var selected := 0
 
 func _ready() -> void:
@@ -17,9 +18,10 @@ func _ready() -> void:
  var row := HBoxContainer.new(); row.size_flags_vertical = Control.SIZE_EXPAND_FILL; column.add_child(row)
  list = ItemList.new(); list.custom_minimum_size = Vector2(270,220); list.size_flags_vertical = Control.SIZE_EXPAND_FILL; list.add_theme_font_size_override("font_size",14); row.add_child(list)
  var right := VBoxContainer.new(); right.size_flags_horizontal = Control.SIZE_EXPAND_FILL; row.add_child(right)
- recap = Label.new(); recap.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; recap.size_flags_vertical = Control.SIZE_EXPAND_FILL; recap.add_theme_font_size_override("font_size",15); right.add_child(recap)
+ var scroll := ScrollContainer.new(); scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL; scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED; right.add_child(scroll)
+ recap = Label.new(); recap.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; recap.size_flags_horizontal = Control.SIZE_EXPAND_FILL; recap.add_theme_font_size_override("font_size",15); scroll.add_child(recap)
  launch = Button.new(); launch.text = "Продолжить · Enter"; launch.pressed.connect(_launch); right.add_child(launch)
- var close := Button.new(); close.text = "Назад · Esc / J"; close.pressed.connect(hide); right.add_child(close)
+ close = Button.new(); close.text = "Назад · Esc / J"; close.pressed.connect(hide); right.add_child(close)
  list.item_selected.connect(_select)
  story.changed.connect(refresh)
  refresh()

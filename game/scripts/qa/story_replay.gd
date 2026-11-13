@@ -24,11 +24,26 @@ func capture(id: String) -> void:
  report.captures.append({"id":id,"path":path,"error":error})
  check("capture_"+id,error == OK)
 func current_mission() -> Node:
- for i in 30:
-  await frames(1)
-  if tree.current_scene and tree.current_scene.get("scene_ready") == true: return tree.current_scene
+ for i in 120:
+  await tree.process_frame
+  var scene := tree.current_scene
+  if is_instance_valid(scene) and scene.scene_file_path == "res://scenes/levels/missed_fight.tscn" and scene.is_node_ready() and scene.get("scene_ready") == true: return scene
  check("mission_scene_ready",false)
+ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(tree,1)
  return null
+func current_bootstrap() -> Control:
+ for i in 120:
+  await tree.process_frame
+  var scene := tree.current_scene
+  if is_instance_valid(scene) and scene.scene_file_path == "res://scenes/bootstrap/bootstrap.tscn" and scene.is_node_ready():
+   var journal: Control = scene.get("journal")
+   if is_instance_valid(journal) and journal.is_node_ready(): return scene
+ check("bootstrap_scene_ready",false)
+ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(tree,1)
+ return null
+func journal_controls(bootstrap: Control, id: String) -> void:
+ var viewport := tree.root.get_visible_rect()
+ check("journal_controls_visible_"+id,viewport.encloses(bootstrap.journal.launch.get_global_rect()) and viewport.encloses(bootstrap.journal.close.get_global_rect()))
 func run(bootstrap: Control) -> void:
  tree = get_tree(); story = tree.root.get_node("StoryState")
  directory = OS.get_environment("AYAY_P05_CAPTURE_DIR")
@@ -37,6 +52,7 @@ func run(bootstrap: Control) -> void:
  await key(KEY_F4)
  check("journal_visible",bootstrap.journal.visible)
  check("journal_21_slots",bootstrap.journal.list.item_count == 21)
+ journal_controls(bootstrap,"initial")
  await capture("journal_initial")
  # Keyboard navigation selects a real unavailable slot; Enter must leave the journal open.
  bootstrap.journal.list.grab_focus()
@@ -44,6 +60,7 @@ func run(bootstrap: Control) -> void:
  check("planned_slot_disabled",bootstrap.journal.selected == 1 and bootstrap.journal.launch.disabled)
  await key(KEY_ENTER)
  check("unavailable_enter_stays",tree.current_scene == bootstrap and bootstrap.journal.visible)
+ journal_controls(bootstrap,"unavailable")
  await capture("journal_unavailable")
  await key(KEY_ESCAPE)
  check("journal_close_keeps_bootstrap",not bootstrap.journal.visible)
@@ -66,14 +83,16 @@ func run(bootstrap: Control) -> void:
  for id in ["EV_CH01_INTRO","EV_CH01_PHONE","EV_CH01_OUTRO","EV_CH01_SERVICE_ESCAPE"]:
   check("canonical_once_"+id,readback.state.ledger.get(id,false) and readback.state.history.filter(func(row: Dictionary) -> bool: return row.id == id).size() == 1)
  await key(KEY_ESCAPE)
- await frames(3)
- bootstrap = tree.current_scene
+ bootstrap = await current_bootstrap()
+ if bootstrap == null: return
  await key(KEY_J)
  check("completed_chapter_label", "пройдена" in bootstrap.journal.list.get_item_text(0))
  check("future_chapter_still_disabled",not story.store.registry.entry_ready(story.store.registry.data.chapters[1].id,story.store.state))
+ journal_controls(bootstrap,"complete")
  await capture("journal_complete")
  await key(KEY_ENTER)
  mission = await current_mission()
+ if mission == null: return
  check("replay_starts_intro",mission.state == "dialogue" and story.session.replay)
  await key(KEY_K)
  check("seen_intro_skip_safe",mission.state == "playing")
@@ -85,10 +104,13 @@ func run(bootstrap: Control) -> void:
  for point in [Vector2(80,144),Vector2(80,544),Vector2(336,544)]: check("replay_service_"+str(point),await route.walk(point))
  await route.action("interact")
  check("replay_cross_checkpoint",await route.walk(Vector2(432,544)))
- await key(KEY_O); await key(KEY_Q); await frames(3)
+ await key(KEY_O); await key(KEY_Q)
+ bootstrap = await current_bootstrap()
+ if bootstrap == null: return
  # Exit/re-enter without resetting progress: real checkpoint resume during a sandbox replay.
  await key(KEY_ENTER)
  mission = await current_mission()
+ if mission == null: return
  check("replay_resume_service",mission.checkpoint == "service" and mission.has_key and mission.state == "playing")
  route.mission = mission
  mission.player.set_aim(Vector2.UP)
