@@ -1,0 +1,10 @@
+{
+  "status": "FAILED_STRICT_SOURCE_CELL_BOUNDS",
+  "master": "assets/source_art/characters/gabar/action_master_v1.png",
+  "master_sha256": "eadd532bc8e4017323a87663034635e643a50434efa292da138ff6b2e535c082",
+  "command": ".tools/art-venv/bin/python assets/source_art/characters/pack_actor_sheet.py gabar action --version v1 --anchor reference --source-only",
+  "error": "AssertionError: ('gabar', 'action', 'right', 1, 'cell boundary/clipping', (14,31,192,233))",
+  "native_output_created": false,
+  "remediation": "Whole-pose image_gen correction; do not crop extended hand or relax source-cell checks",
+  "phase_approval": false
+}
