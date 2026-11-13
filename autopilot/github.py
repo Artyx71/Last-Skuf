@@ -176,6 +176,23 @@ def guarded_merge(root,number,config,review,phase,get_snapshot=snapshot,request=
     return {'status':'MERGED','reviewed_head':fresh['head_sha'],'merge_sha':response['sha'],'number':number,'method':'squash','base':'main'}
 
 
+def find_open_pull(branch):
+    pulls=api(f'repos/{REPO}/pulls?state=open&head={quote("Artyx71:"+branch,safe="")}&per_page=100')
+    if len(pulls)>=100: raise GitHubBlocked('Existing PR discovery truncated')
+    matches=[p for p in pulls if p['head']['ref']==branch and p['head']['repo']['full_name']==REPO]
+    if len(matches)>1: raise GitHubBlocked('Multiple open PRs for phase branch; reconcile without creating another')
+    return matches[0]['number'] if matches else None
+
+
+def publish_branch(work,branch):
+    if not branch.startswith('phase/'): raise GitHubBlocked('Only phase/* branches may publish')
+    origin=subprocess.check_output(['git','remote','get-url','origin'],cwd=work,text=True).strip()
+    if not re.fullmatch(r'(?:https://github.com/|git@github.com:)Artyx71/Last-Skuf(?:\.git)?',origin):
+        raise GitHubBlocked('Push origin does not match the authorized repository')
+    subprocess.run([sys.executable,'tools/check_privacy.py'],cwd=work,check=True,capture_output=True)
+    subprocess.run(['git','push','--set-upstream','origin',branch],cwd=work,check=True,capture_output=True)
+
+
 def manage(controller,phase,action,review=None):
     from runner import save,load,Blocked
     state=controller.state(); record=state['autopilot']['phases'][phase]
@@ -193,21 +210,26 @@ def manage(controller,phase,action,review=None):
         if re.fullmatch(r'https://github.com/Artyx71/Last-Skuf/pull/\d+',url): number=int(url.rsplit('/',1)[1])
     try:
         if action=='prepare':
+            published=False
             if number is None:
                 branch=subprocess.check_output(['git','branch','--show-current'],cwd=work,text=True).strip()
                 if not branch.startswith('phase/'): raise GitHubBlocked('Only phase/* branches may create PRs')
-                private=api(f'repos/{REPO}')
-                if private['private'] != (controller.config.get('repository_visibility','private')=='private'):
-                    raise GitHubBlocked('Repository visibility differs from owner authorization')
-                origin=subprocess.check_output(['git','remote','get-url','origin'],cwd=work,text=True).strip()
-                if not re.fullmatch(r'(?:https://github.com/|git@github.com:)Artyx71/Last-Skuf(?:\.git)?',origin):
-                    raise GitHubBlocked('Push origin does not match the authorized repository')
-                subprocess.run([sys.executable,'tools/check_privacy.py'],cwd=work,check=True,capture_output=True)
-                subprocess.run(['git','push','--set-upstream','origin',branch],cwd=work,check=True,capture_output=True)
-                pull=api(f'repos/{REPO}/pulls','POST',{'title':f'{phase}: phase implementation','head':branch,'base':'main',
-                    'body':f'Phase {phase}. Independent review and exact-SHA CI required. Evidence in reports/phases/{phase}.','draft':True})
-                number=pull['number']
+                number=find_open_pull(branch)
+                if number is None:
+                    private=api(f'repos/{REPO}')
+                    if private['private'] != (controller.config.get('repository_visibility','private')=='private'):
+                        raise GitHubBlocked('Repository visibility differs from owner authorization')
+                    publish_branch(work,branch); published=True
+                    pull=api(f'repos/{REPO}/pulls','POST',{'title':f'{phase}: phase implementation','head':branch,'base':'main',
+                        'body':f'Phase {phase}. Independent review and exact-SHA CI required. Evidence in reports/phases/{phase}.','draft':True})
+                    number=pull['number']
             view=api(f'repos/{REPO}/pulls/{number}')
+            if record.get('workspace') and not published:
+                branch=subprocess.check_output(['git','branch','--show-current'],cwd=work,text=True).strip()
+                if view['head']['repo']['full_name']!=REPO or branch!=view['head']['ref'] or branch!=record.get('branch'):
+                    raise GitHubBlocked('Phase workspace branch does not match existing PR')
+                if view['state']!='open': raise GitHubBlocked('Cannot publish repairs to a closed phase PR')
+                publish_branch(work,branch)
             if view['base']['ref']!='main':
                 previous=controller.phases[:controller.phases.index(phase)]
                 if previous and state['autopilot']['phases'][previous[-1]].get('merge',{}).get('status')!='MERGED':

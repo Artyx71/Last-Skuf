@@ -154,6 +154,46 @@ class ControllerTests(unittest.TestCase):
         state=self.controller.state()
         self.assertEqual(state['autopilot']['phases']['P03']['checkpoint'],'validation')
         self.assertTrue(state['autopilot']['operation']['consumed'])
+    def test_prepare_recovers_existing_pr_after_decision_loses_number(self):
+        from github import manage
+        calls=[]
+        def api(endpoint,method='GET',payload=None):
+            calls.append((endpoint,method,payload))
+            if '/pulls?' in endpoint:
+                return [{'number':4,'head':{'ref':'phase/p03-dialogue-audio','repo':{'full_name':'Artyx71/Last-Skuf'}}}]
+            if method=='PATCH':return {}
+            return {'base':{'ref':'phase/p02-combat'}}
+        with self.controller.exclusive():
+            state=self.controller.state();state['autopilot']['phases']['P02']['merge']={'status':'MERGED'};self.controller.persist(state)
+            with patch('github.api',side_effect=api),patch('github.subprocess.check_output',return_value='phase/p03-dialogue-audio\n'),patch('github.publish_branch') as publish,contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P03','prepare'),0)
+                publish.assert_not_called()
+        self.assertEqual(self.controller.state()['autopilot']['phases']['P03']['pull_request_number'],4)
+        self.assertFalse(any(method=='POST' for _,method,_ in calls))
+        self.assertIn(('repos/Artyx71/Last-Skuf/pulls/4','PATCH',{'base':'main'}),calls)
+    def test_ambiguous_existing_prs_block_without_creating_duplicate(self):
+        from github import manage
+        pulls=[{'number':n,'head':{'ref':'phase/p03-audio','repo':{'full_name':'Artyx71/Last-Skuf'}}} for n in [4,5]]
+        with self.controller.exclusive(),patch('github.api',return_value=pulls) as api,patch('github.subprocess.check_output',return_value='phase/p03-audio\n'),contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(manage(self.controller,'P03','prepare'),4)
+        self.assertEqual(api.call_count,1)
+        self.assertIn('Multiple open PRs',self.controller.state()['autopilot']['phases']['P03']['merge']['blockers'][0])
+    def test_existing_workspace_pr_publishes_repair_before_ci(self):
+        from github import manage
+        with self.controller.exclusive():
+            state=self.controller.state();state['autopilot']['phases']['P03'].update(pull_request_number=4,workspace=str(self.root),branch='phase/p03-audio');self.controller.persist(state)
+            view={'state':'open','head':{'ref':'phase/p03-audio','repo':{'full_name':'Artyx71/Last-Skuf'}},'base':{'ref':'main'}}
+            with patch('github.api',return_value=view),patch('github.subprocess.check_output',return_value='phase/p03-audio\n'),patch('github.publish_branch') as publish,contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P03','prepare'),0)
+                publish.assert_called_once_with(self.root,'phase/p03-audio')
+    def test_existing_workspace_cannot_publish_to_different_pr_branch(self):
+        from github import manage
+        with self.controller.exclusive():
+            state=self.controller.state();state['autopilot']['phases']['P03'].update(pull_request_number=4,workspace=str(self.root),branch='phase/p03-audio');self.controller.persist(state)
+            view={'state':'open','head':{'ref':'phase/p04-mission','repo':{'full_name':'Artyx71/Last-Skuf'}},'base':{'ref':'main'}}
+            with patch('github.api',return_value=view),patch('github.subprocess.check_output',return_value='phase/p03-audio\n'),patch('github.publish_branch') as publish,contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P03','prepare'),4)
+                publish.assert_not_called()
 
 
 class MergeTests(unittest.TestCase):
