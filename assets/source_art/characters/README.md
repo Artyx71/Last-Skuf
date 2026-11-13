@@ -36,3 +36,27 @@ independent source dispositions, report hashes, native hashes and all32cell hash
 `tools/verify_p06_world.py` runs an explicitly labelled art movement fixture with
 actual key Input and records the viewport. It contains no hero combat/abilities;
 it must never replace the complete per-character combat/control gates.
+
+## Olezhka WORLD v2b
+
+`olezhka/world_master_v2.png` is retained unchanged. The v1 RIGHT gait rejection,
+strict alpha128 cell-boundary failure and alpha208/v2a matte rejection are preserved.
+Only this exact master was independently accepted with one global alpha240 threshold;
+this is not a new default for other characters. All32 whole cells use the same
+192×256→48×64 nearest sampling, fixed palette and one idle anchor per direction.
+No semantic masks, limb edits or lost post-threshold opaque pixels are allowed.
+
+```
+.tools/art-venv/bin/python assets/source_art/characters/pack_actor_sheet.py olezhka world --version v2 --output-version v2b --source-only --anchor idle --alpha-threshold 240
+```
+
+`adopt_world.py` verifies the independent source disposition, report/metrics/master/
+native/frame hashes and copies an accepted32cell atlas into runtime byte-for-byte.
+It refuses to overwrite existing runtime art. Source acceptance permits a native
+movement preview; it does not approve combat, game feel or P06. Original source-only
+metadata stays unchanged, while runtime metadata records the exact adoption chain.
+
+The action packer's `--anchor reference` uses one standing column0 offset for all
+eight cells of a direction, preserving actual fall/death depth instead of separately
+centering each pose. Strict source-cell bounds remain mandatory; the rejected Gabar
+action v1 is not packed by cropping its extended fist.

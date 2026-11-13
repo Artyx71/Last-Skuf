@@ -1,0 +1,12 @@
+{
+  "raw_master_unchanged": true,
+  "supplements": "world_v2_pack_failure.json",
+  "clarification": "Alpha128 foreground mask touches source boundaries because low/medium-alpha matte remains; this does not establish anatomical clipping. Alpha208 clears gutters but independent ART found brown contour fringe. Alpha240 is ONE uniform bounded native candidate, pending all32 independent outline/pose checks.",
+  "vertical_cell_boundary_alpha_max": 181,
+  "packing_attempts": {
+    "128": "strict native packing rejected; no output",
+    "208": "v2a source-only; FAIL_NATIVE_CONTOUR_FRINGE reviewer",
+    "240": "v2b source-only; PENDING independent all32 review"
+  },
+  "anatomical_mask_or_pixel_edit": false
+}
