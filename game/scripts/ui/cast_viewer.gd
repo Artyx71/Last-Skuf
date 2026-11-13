@@ -124,10 +124,11 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
  if event is InputEventKey and event.pressed and not event.echo:
+  # Consume while this Control still owns a viewport; Esc may remove the scene.
+  get_viewport().set_input_as_handled()
   if event.keycode >= KEY_1 and event.keycode <= KEY_9:
    var index := int(event.keycode - KEY_1)
    if index < ids.size(): open_actor(ids[index])
-   get_viewport().set_input_as_handled()
    return
   match event.keycode:
    KEY_SPACE: _advance()
@@ -135,7 +136,6 @@ func _unhandled_input(event: InputEvent) -> void:
    KEY_K: _skip()
    KEY_R: _repeat()
    KEY_ESCAPE: _close()
-  get_viewport().set_input_as_handled()
 
 func _close() -> void:
  session.pause_view()
