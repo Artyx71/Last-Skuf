@@ -132,6 +132,12 @@ def main():
      row['wine_probe_passed']=probe
      if probe:replay('windows_export_replay',command,wine=True)
    exports.append(row);write(output/'exports.json',exports)
+ audio_command=[sys.executable,'tools/analyze_p04_audio.py','--output',output/'audio_detailed.json']
+ if not args.headless:
+  audio_command+=['--runtime-dir',output]
+  names=['engine_replay','reduced_visual_replay']+(['movie_replay'] if args.movie else [])+(['linux_export_replay','windows_export_replay'] if args.exports else [])
+  for name in names:audio_command+=['--runtime-name',name]
+ run('detailed_audio_signal',audio_command,environment('audio_detail'),180)
  check('sources_unchanged',{'hashes_match':before==game_sources()})
  write(output/'environment.json',{'platform':platform.platform(),'scope':'Headless technical execution only' if args.headless else 'Native renderer requested','listening':'PENDING_ACTUAL_HUMAN_LISTENING','independent_lead':'PENDING_CONTROLLER_READ_ONLY_REVIEW','git_base':subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True).stdout.strip(),'uncommitted_sources':bool(subprocess.check_output(['git','status','--porcelain=v1','--untracked-files=all','--','game','tools','assets'],cwd=ROOT).strip()),'phase_gate':'NOT_DECIDED_BY_AUTHOR'})
  write(output/'artifacts.json',[{'path':str(p.relative_to(ROOT)),'sha256':sha(p),'bytes':p.stat().st_size} for p in sorted(output.rglob('*')) if p.is_file() and p.name!='artifacts.json'])
