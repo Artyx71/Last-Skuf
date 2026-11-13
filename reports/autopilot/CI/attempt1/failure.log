@@ -1,0 +1,87 @@
+bootstrap	Verify sequential autopilot recovery and merge gates	﻿2026-11-13T10:35:22.6202574Z ##[group]Run python3 -m unittest discover -s tools/tests -v
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:22.6203527Z ^[[36;1mpython3 -m unittest discover -s tools/tests -v^[[0m
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:22.6229811Z shell: /usr/bin/bash -e {0}
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:22.6230087Z ##[endgroup]
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.2754942Z test_broken_loop_boundary_detected (test_audio_qa.SignalTests.test_broken_loop_boundary_detected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.2768938Z test_clipped_and_dc_signals_fail (test_audio_qa.SignalTests.test_clipped_and_dc_signals_fail) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.2799400Z test_corrupt_audio_not_accepted_as_metadata (test_audio_qa.SignalTests.test_corrupt_audio_not_accepted_as_metadata) ... ERROR
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.3127481Z test_internal_dropout_detected (test_audio_qa.SignalTests.test_internal_dropout_detected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.3411673Z test_nonempty_sine_is_not_clipped (test_audio_qa.SignalTests.test_nonempty_sine_is_not_clipped) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.3531005Z test_real_samples_in_event_window_detect_impulse (test_audio_qa.SignalTests.test_real_samples_in_event_window_detect_impulse) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.3565507Z test_silent_file_fails_energy (test_audio_qa.SignalTests.test_silent_file_fails_energy) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.3719467Z test_cannot_downgrade_pass_automatically (test_autopilot.ControllerTests.test_cannot_downgrade_pass_automatically) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.5937453Z test_changed_script_after_completed_stage_requires_reconciliation (test_autopilot.ControllerTests.test_changed_script_after_completed_stage_requires_reconciliation) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.8145085Z test_changed_stage_inputs_not_adopted (test_autopilot.ControllerTests.test_changed_stage_inputs_not_adopted) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:24.8287087Z test_invalid_decision_does_not_reset_state (test_autopilot.ControllerTests.test_invalid_decision_does_not_reset_state) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3132263Z test_killed_parent_worker_finishes_and_is_adopted_once (test_autopilot.ControllerTests.test_killed_parent_worker_finishes_and_is_adopted_once) ... ERROR
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3288807Z test_legacy_live_process_lock_is_not_deleted (test_autopilot.ControllerTests.test_legacy_live_process_lock_is_not_deleted) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3421466Z test_missing_state_is_not_reinitialized (test_autopilot.ControllerTests.test_missing_state_is_not_reinitialized) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3586039Z test_pause_blocks_execution_without_phase_reset (test_autopilot.ControllerTests.test_pause_blocks_execution_without_phase_reset) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3731957Z test_phase_gate_pass_does_not_bypass_missing_merge (test_autopilot.ControllerTests.test_phase_gate_pass_does_not_bypass_missing_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.3859149Z test_prerequisite_cannot_skip_blocked_p03 (test_autopilot.ControllerTests.test_prerequisite_cannot_skip_blocked_p03) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.6072815Z test_receipt_tampering_fails_closed (test_autopilot.ControllerTests.test_receipt_tampering_fails_closed) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.6234941Z test_reconcile_preserves_progress_and_ignores_legacy_reset (test_autopilot.ControllerTests.test_reconcile_preserves_progress_and_ignores_legacy_reset) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:26.8456319Z test_success_checkpoint_is_atomic_with_receipt_consumption (test_autopilot.ControllerTests.test_success_checkpoint_is_atomic_with_receipt_consumption) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1665976Z test_timeout_stops_whole_child_group (test_autopilot.ControllerTests.test_timeout_stops_whole_child_group) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1798182Z test_two_controllers_cannot_hold_lease (test_autopilot.ControllerTests.test_two_controllers_cannot_hold_lease) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1805230Z test_atomic_sha_squash_and_remote_confirmation (test_autopilot.MergeTests.test_atomic_sha_squash_and_remote_confirmation) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1811390Z test_ci_changes_immediately_before_merge_block (test_autopilot.MergeTests.test_ci_changes_immediately_before_merge_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1815379Z test_exact_review_and_ci_pass (test_autopilot.MergeTests.test_exact_review_and_ci_pass) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1823091Z test_fail_blocked_and_unresolved_critical_forbid_merge (test_autopilot.MergeTests.test_fail_blocked_and_unresolved_critical_forbid_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1837030Z test_manual_approval_threads_protection_and_draft_block (test_autopilot.MergeTests.test_manual_approval_threads_protection_and_draft_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1845614Z test_missing_pending_failed_wrong_sha_ci_all_block (test_autopilot.MergeTests.test_missing_pending_failed_wrong_sha_ci_all_block) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1851878Z test_mutated_evidence_rejected (test_autopilot.MergeTests.test_mutated_evidence_rejected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1857517Z test_old_head_and_old_base_review_rejected (test_autopilot.MergeTests.test_old_head_and_old_base_review_rejected) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1862108Z test_signal_metrics_cannot_close_artistic_gate (test_autopilot.MergeTests.test_signal_metrics_cannot_close_artistic_gate) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.1866320Z test_toctou_head_change_never_sends_merge (test_autopilot.MergeTests.test_toctou_head_change_never_sends_merge) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2098195Z test_original_reference_hash_catches_renamed_blob_after_local_replacement (test_privacy.PrivacyTests.test_original_reference_hash_catches_renamed_blob_after_local_replacement) ... ok
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2099877Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2100022Z ======================================================================
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2100623Z ERROR: test_corrupt_audio_not_accepted_as_metadata (test_audio_qa.SignalTests.test_corrupt_audio_not_accepted_as_metadata)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2101262Z ----------------------------------------------------------------------
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2101681Z Traceback (most recent call last):
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2102250Z   File "/home/runner/work/Last-Skuf/Last-Skuf/tools/tests/test_audio_qa.py", line 40, in test_corrupt_audio_not_accepted_as_metadata
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2102883Z     with self.assertRaises(ValueError):audio.decode(p)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2103214Z                                        ^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2103633Z   File "/home/runner/work/Last-Skuf/Last-Skuf/tools/audio_qa.py", line 36, in decode
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2104168Z     metadata = json.loads(command(['ffprobe', '-v', 'error', '-select_streams', 'a:0',
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2104598Z                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2105041Z   File "/home/runner/work/Last-Skuf/Last-Skuf/tools/audio_qa.py", line 29, in command
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2105574Z     proc = subprocess.run(list(map(str, argv)), capture_output=True, timeout=timeout)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2105995Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2106358Z   File "/usr/lib/python3.12/subprocess.py", line 548, in run
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2106704Z     with Popen(*popenargs, **kwargs) as process:
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2106993Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2107310Z   File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2107718Z     self._execute_child(args, executable, preexec_fn, close_fds,
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2108172Z   File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2108935Z     raise child_exception_type(errno_num, err_msg, err_filename)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2109362Z FileNotFoundError: [Errno 2] No such file or directory: 'ffprobe'
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2109627Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2109742Z ======================================================================
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2110435Z ERROR: test_killed_parent_worker_finishes_and_is_adopted_once (test_autopilot.ControllerTests.test_killed_parent_worker_finishes_and_is_adopted_once)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2111128Z ----------------------------------------------------------------------
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2111461Z Traceback (most recent call last):
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2111868Z   File "/home/runner/work/Last-Skuf/Last-Skuf/autopilot/runner.py", line 59, in exclusive
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2112572Z     try: fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2112882Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2113221Z BlockingIOError: [Errno 11] Resource temporarily unavailable
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2113474Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2113657Z During handling of the above exception, another exception occurred:
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2113930Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2114031Z Traceback (most recent call last):
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2114621Z   File "/home/runner/work/Last-Skuf/Last-Skuf/tools/tests/test_autopilot.py", line 96, in test_killed_parent_worker_finishes_and_is_adopted_once
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2115576Z     with self.controller.exclusive():self.assertEqual(self.controller.stage('recovery-fixture',argv,5),0)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2116136Z   File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2116482Z     return next(self.gen)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2116703Z            ^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2117066Z   File "/home/runner/work/Last-Skuf/Last-Skuf/autopilot/runner.py", line 60, in exclusive
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2117690Z     except BlockingIOError: raise Busy('Another controller/worker holds the exclusive execution lease')
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2118216Z                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2119121Z runner.Busy: Another controller/worker holds the exclusive execution lease
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2119436Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2119578Z ----------------------------------------------------------------------
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2119913Z Ran 33 tests in 2.964s
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2120055Z 
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2120143Z FAILED (errors=2)
+bootstrap	Verify sequential autopilot recovery and merge gates	2026-11-13T10:35:27.2253583Z ##[error]Process completed with exit code 1.

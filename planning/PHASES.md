@@ -9,6 +9,7 @@
 | P02 Combat prototype | movement, melee/ranged test kits, hit detection, AI patrol/rusher/shooter, instant restart | deterministic hitbox/integration tests + combat replay; real weak-Yakudza route viable |
 | P03 Dialogue/audio prototype | portrait swapping, bleep-based dialogue, VHS options, first **original** adaptive musical loops, SFX | audible verified loops/transitions, screenshots, no copied media; skipping safe |
 | P04 Vertical slice | complete original first mission with authored tiles/story/music, death/restart, progression and Windows/Linux exports | playable, phase regression suite + smoke and human visual/audio reviewer report |
+| P04G Combat/Gore polish | impact, original blood/decals, enemy reaction states, five base finisher categories, settings | specs/COMBAT_GORE_POLISH_SPEC.md; independent ART/GAMEPLAY/QA + Lead PASS; required before P07 |
 | P05 Story infrastructure | event ledger, persistent flags, branch resolver, unlock/replay, 4 endings gate tests | complete reachable transition graph and automated simulations; no dead ends |
 | P06 Character expansion | other 6 playables + 3 photographed supporting, abilities, portraits, animation QA | per-character independent likeness/art/controls signoff |
 | P07 Campaign production | implement 21 chapter **slots** with real maps/dialogue/POV reveals, secret missions and choices | mission-specific functional and narrative checks; no fake filler levels |

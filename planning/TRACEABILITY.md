@@ -17,3 +17,7 @@
 | PRI-01 | safety | photos private, permission/license checks, fictional disclaimer |
 
 At kickoff derive atomic test IDs `T-REQ-###` for each and reference them in phase reports; add failed tests to issue tracker.
+
+## Дополнение Combat & Gore
+
+COMBAT_GORE_POLISH_SPEC IDs IMP/ART-G/AI-G/FIN/OPT-G/QA-G/PERF-G/REV-G → AUTOPILOT queue P04G → reports/phases/P04G/ (будущая реализация/evidence). FIN-02/AI-G01/IMP-01 являются hard prerequisite P07; character variants связаны с P06.

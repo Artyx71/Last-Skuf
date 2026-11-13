@@ -1,0 +1,840 @@
+[
+  {
+    "name": "native_replay",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 21.064,
+    "log": "reports/phases/P03/logs/native_replay.log"
+  },
+  {
+    "name": "native_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_report_passed": true,
+      "actual_input_finished_once": true,
+      "actual_deaths_10": true,
+      "portrait_world_visible": true,
+      "one_synchronized_player": true,
+      "actual_mixer_clock": true,
+      "driver_matches_capture_scope": true,
+      "all_four_profiles_committed": true,
+      "bar_requests_except_combat": true,
+      "commits_near_requested_beats": true,
+      "retry_no_stacking": true,
+      "voices_drained": true,
+      "capture_codes_ok": true
+    },
+    "details": {
+      "driver": "PulseAudio",
+      "clock": 20.4714366425069,
+      "commits": [
+        {
+          "beat": 28,
+          "clock": 11.68483,
+          "kind": "commit",
+          "state": "SUSPICION"
+        },
+        {
+          "beat": 32,
+          "clock": 13.34859,
+          "kind": "commit",
+          "state": "COMBAT"
+        },
+        {
+          "beat": 40,
+          "clock": 16.66822,
+          "kind": "commit",
+          "state": "EXPLORE"
+        },
+        {
+          "beat": 48,
+          "clock": 20.00664,
+          "kind": "commit",
+          "state": "CLEAR"
+        }
+      ],
+      "scope": "realtime rendered playback; not listening",
+      "preferences": "defaults"
+    }
+  },
+  {
+    "name": "native_replay_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_replay.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_replay_waveform",
+    "passed": true,
+    "checks": {
+      "actual_stereo_pcm16": true,
+      "real_nonempty_18s_capture": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "listening": "BLOCKED: audio input unsupported; waveform analysis is not listening",
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 897536,
+      "duration": 20.352290249433107,
+      "peak": 0.568023681640625,
+      "rms": 0.07245347793549631,
+      "full_scale_samples": 0
+    }
+  },
+  {
+    "name": "native_weapon_poses",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 10.097,
+    "log": "reports/phases/P03/logs/native_weapon_poses.log"
+  },
+  {
+    "name": "weapon_poses_acceptance",
+    "passed": true,
+    "checks": {
+      "real_input_draw": true,
+      "all_16_unique_phases": true,
+      "actual_phases_saved": true
+    }
+  },
+  {
+    "name": "native_movie_replay",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 40.232,
+    "log": "reports/phases/P03/logs/native_movie_replay.log"
+  },
+  {
+    "name": "native_movie_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_report_passed": true,
+      "actual_input_finished_once": true,
+      "actual_deaths_10": true,
+      "portrait_world_visible": true,
+      "one_synchronized_player": true,
+      "actual_mixer_clock": true,
+      "driver_matches_capture_scope": true,
+      "all_four_profiles_committed": true,
+      "bar_requests_except_combat": true,
+      "commits_near_requested_beats": true,
+      "retry_no_stacking": true,
+      "voices_drained": true,
+      "capture_codes_ok": true
+    },
+    "details": {
+      "driver": "Dummy",
+      "clock": 20.5002615278829,
+      "commits": [
+        {
+          "beat": 28,
+          "clock": 11.67215,
+          "kind": "commit",
+          "state": "SUSPICION"
+        },
+        {
+          "beat": 32,
+          "clock": 13.33626,
+          "kind": "commit",
+          "state": "COMBAT"
+        },
+        {
+          "beat": 40,
+          "clock": 16.68566,
+          "kind": "commit",
+          "state": "EXPLORE"
+        },
+        {
+          "beat": 48,
+          "clock": 20.00287,
+          "kind": "commit",
+          "state": "CLEAR"
+        }
+      ],
+      "scope": "MovieMaker fixed60 offline rendered mixer; not realtime driver or listening",
+      "preferences": "defaults"
+    }
+  },
+  {
+    "name": "native_movie_replay_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_movie_replay.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_movie_replay_waveform",
+    "passed": true,
+    "checks": {
+      "actual_stereo_pcm16": true,
+      "real_nonempty_18s_capture": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "listening": "BLOCKED: audio input unsupported; waveform analysis is not listening",
+      "sample_rate": 48000,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 980480,
+      "duration": 20.426666666666666,
+      "peak": 0.51678466796875,
+      "rms": 0.07170176356682974,
+      "full_scale_samples": 0
+    }
+  },
+  {
+    "name": "encode_dialogue_movie",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 2.563,
+    "log": "reports/phases/P03/logs/encode_dialogue_movie.log"
+  },
+  {
+    "name": "dialogue_movie_contact_sheet",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 0.429,
+    "log": "reports/phases/P03/logs/dialogue_movie_contact_sheet.log"
+  },
+  {
+    "name": "native_movie_replay_reduced_motion_vhs_off",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 36.864,
+    "log": "reports/phases/P03/logs/native_movie_replay_reduced_motion_vhs_off.log"
+  },
+  {
+    "name": "native_movie_replay_reduced_motion_vhs_off_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_report_passed": true,
+      "actual_input_finished_once": true,
+      "actual_deaths_10": true,
+      "portrait_world_visible": true,
+      "one_synchronized_player": true,
+      "actual_mixer_clock": true,
+      "driver_matches_capture_scope": true,
+      "all_four_profiles_committed": true,
+      "bar_requests_except_combat": true,
+      "commits_near_requested_beats": true,
+      "retry_no_stacking": true,
+      "voices_drained": true,
+      "capture_codes_ok": true
+    },
+    "details": {
+      "driver": "Dummy",
+      "clock": 20.5037095278829,
+      "commits": [
+        {
+          "beat": 28,
+          "clock": 11.67304,
+          "kind": "commit",
+          "state": "SUSPICION"
+        },
+        {
+          "beat": 32,
+          "clock": 13.33708,
+          "kind": "commit",
+          "state": "COMBAT"
+        },
+        {
+          "beat": 40,
+          "clock": 16.68641,
+          "kind": "commit",
+          "state": "EXPLORE"
+        },
+        {
+          "beat": 48,
+          "clock": 20.00355,
+          "kind": "commit",
+          "state": "CLEAR"
+        }
+      ],
+      "scope": "MovieMaker fixed60 offline rendered mixer; not realtime driver or listening",
+      "preferences": {
+        "reduced_motion": true,
+        "vhs": false
+      }
+    }
+  },
+  {
+    "name": "native_movie_replay_reduced_motion_vhs_off_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_movie_replay_reduced_motion_vhs_off.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_movie_replay_reduced_motion_vhs_off_waveform",
+    "passed": true,
+    "checks": {
+      "actual_stereo_pcm16": true,
+      "real_nonempty_18s_capture": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "listening": "BLOCKED: audio input unsupported; waveform analysis is not listening",
+      "sample_rate": 48000,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 980480,
+      "duration": 20.426666666666666,
+      "peak": 0.51678466796875,
+      "rms": 0.07170176356682974,
+      "full_scale_samples": 0
+    }
+  },
+  {
+    "name": "encode_dialogue_movie_reduced_motion_vhs_off",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 2.379,
+    "log": "reports/phases/P03/logs/encode_dialogue_movie_reduced_motion_vhs_off.log"
+  },
+  {
+    "name": "dialogue_movie_contact_sheet_reduced_motion_vhs_off",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 0.412,
+    "log": "reports/phases/P03/logs/dialogue_movie_contact_sheet_reduced_motion_vhs_off.log"
+  },
+  {
+    "name": "native_dialogue",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.881,
+    "log": "reports/phases/P03/logs/native_dialogue.log"
+  },
+  {
+    "name": "native_dialogue_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_dialogue.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_options",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.926,
+    "log": "reports/phases/P03/logs/native_options.log"
+  },
+  {
+    "name": "native_options_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_options.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_large_text",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.868,
+    "log": "reports/phases/P03/logs/native_large_text.log"
+  },
+  {
+    "name": "native_large_text_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_large_text.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_reduced_motion_vhs_off",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.873,
+    "log": "reports/phases/P03/logs/native_reduced_motion_vhs_off.log"
+  },
+  {
+    "name": "native_reduced_motion_vhs_off_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/native_reduced_motion_vhs_off.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "native_sources_unchanged",
+    "passed": true,
+    "checks": {
+      "source_snapshot_unchanged": true
+    },
+    "details": {
+      "changed": []
+    }
+  },
+  {
+    "name": "pinned_engine_hash",
+    "passed": true,
+    "checks": {
+      "sha256_matches_lock": true
+    }
+  },
+  {
+    "name": "export_linux",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 2.601,
+    "log": "reports/phases/P03/logs/export_linux.log"
+  },
+  {
+    "name": "linux_executable",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    }
+  },
+  {
+    "name": "linux_smoke",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 0.659,
+    "log": "reports/phases/P03/logs/linux_smoke.log"
+  },
+  {
+    "name": "linux_smoke_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_linux_bootstrap.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_linux_dialogue",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.818,
+    "log": "reports/phases/P03/logs/export_linux_dialogue.log"
+  },
+  {
+    "name": "export_linux_dialogue_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_linux_dialogue.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_linux_options",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.869,
+    "log": "reports/phases/P03/logs/export_linux_options.log"
+  },
+  {
+    "name": "export_linux_options_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_linux_options.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_linux_large_text",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 1.811,
+    "log": "reports/phases/P03/logs/export_linux_large_text.log"
+  },
+  {
+    "name": "export_linux_large_text_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_linux_large_text.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_linux_replay",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 21.122,
+    "log": "reports/phases/P03/logs/export_linux_replay.log"
+  },
+  {
+    "name": "export_linux_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_report_passed": true,
+      "actual_input_finished_once": true,
+      "actual_deaths_10": true,
+      "portrait_world_visible": true,
+      "one_synchronized_player": true,
+      "actual_mixer_clock": true,
+      "driver_matches_capture_scope": true,
+      "all_four_profiles_committed": true,
+      "bar_requests_except_combat": true,
+      "commits_near_requested_beats": true,
+      "retry_no_stacking": true,
+      "voices_drained": true,
+      "capture_codes_ok": true
+    },
+    "details": {
+      "driver": "PulseAudio",
+      "clock": 20.4889138601278,
+      "commits": [
+        {
+          "beat": 28,
+          "clock": 11.68405,
+          "kind": "commit",
+          "state": "SUSPICION"
+        },
+        {
+          "beat": 32,
+          "clock": 13.34222,
+          "kind": "commit",
+          "state": "COMBAT"
+        },
+        {
+          "beat": 40,
+          "clock": 16.66754,
+          "kind": "commit",
+          "state": "EXPLORE"
+        },
+        {
+          "beat": 48,
+          "clock": 20.00571,
+          "kind": "commit",
+          "state": "CLEAR"
+        }
+      ],
+      "scope": "realtime rendered playback; not listening",
+      "preferences": "defaults"
+    }
+  },
+  {
+    "name": "export_linux_replay_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_linux_replay.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_linux_replay_waveform",
+    "passed": true,
+    "checks": {
+      "actual_stereo_pcm16": true,
+      "real_nonempty_18s_capture": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "listening": "BLOCKED: audio input unsupported; waveform analysis is not listening",
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 898560,
+      "duration": 20.375510204081632,
+      "peak": 0.591522216796875,
+      "rms": 0.07190146048166736,
+      "full_scale_samples": 0
+    }
+  },
+  {
+    "name": "export_windows",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 2.414,
+    "log": "reports/phases/P03/logs/export_windows.log"
+  },
+  {
+    "name": "windows_executable",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    }
+  },
+  {
+    "name": "windows_smoke",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 5.876,
+    "log": "reports/phases/P03/logs/windows_smoke.log"
+  },
+  {
+    "name": "windows_smoke_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_windows_bootstrap.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_windows_dialogue",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 6.866,
+    "log": "reports/phases/P03/logs/export_windows_dialogue.log"
+  },
+  {
+    "name": "export_windows_dialogue_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_windows_dialogue.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_windows_options",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 6.966,
+    "log": "reports/phases/P03/logs/export_windows_options.log"
+  },
+  {
+    "name": "export_windows_options_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_windows_options.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_windows_large_text",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 6.854,
+    "log": "reports/phases/P03/logs/export_windows_large_text.log"
+  },
+  {
+    "name": "export_windows_large_text_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_windows_large_text.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_windows_replay",
+    "passed": true,
+    "exit_code": 0,
+    "error_tokens": [],
+    "elapsed_seconds": 26.139,
+    "log": "reports/phases/P03/logs/export_windows_replay.log"
+  },
+  {
+    "name": "export_windows_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_report_passed": true,
+      "actual_input_finished_once": true,
+      "actual_deaths_10": true,
+      "portrait_world_visible": true,
+      "one_synchronized_player": true,
+      "actual_mixer_clock": true,
+      "driver_matches_capture_scope": true,
+      "all_four_profiles_committed": true,
+      "bar_requests_except_combat": true,
+      "commits_near_requested_beats": true,
+      "retry_no_stacking": true,
+      "voices_drained": true,
+      "capture_codes_ok": true
+    },
+    "details": {
+      "driver": "WASAPI",
+      "clock": 20.4836378103536,
+      "commits": [
+        {
+          "beat": 28,
+          "clock": 11.67647,
+          "kind": "commit",
+          "state": "SUSPICION"
+        },
+        {
+          "beat": 32,
+          "clock": 13.33446,
+          "kind": "commit",
+          "state": "COMBAT"
+        },
+        {
+          "beat": 40,
+          "clock": 16.6871,
+          "kind": "commit",
+          "state": "EXPLORE"
+        },
+        {
+          "beat": 48,
+          "clock": 20.01049,
+          "kind": "commit",
+          "state": "CLEAR"
+        }
+      ],
+      "scope": "realtime rendered playback; not listening",
+      "preferences": "defaults"
+    }
+  },
+  {
+    "name": "export_windows_replay_image",
+    "passed": true,
+    "checks": {
+      "real_png_640x360": true
+    },
+    "details": {
+      "path": "reports/phases/P03/export_windows_replay.png",
+      "dimensions": [
+        640,
+        360
+      ]
+    }
+  },
+  {
+    "name": "export_windows_replay_waveform",
+    "passed": true,
+    "checks": {
+      "actual_stereo_pcm16": true,
+      "real_nonempty_18s_capture": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "listening": "BLOCKED: audio input unsupported; waveform analysis is not listening",
+      "sample_rate": 48000,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 976896,
+      "duration": 20.352,
+      "peak": 0.51300048828125,
+      "rms": 0.07102644035904655,
+      "full_scale_samples": 0
+    }
+  },
+  {
+    "name": "export_sources_unchanged",
+    "passed": true,
+    "checks": {
+      "source_snapshot_unchanged": true
+    },
+    "details": {
+      "changed": []
+    }
+  }
+]

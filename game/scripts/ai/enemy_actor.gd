@@ -103,6 +103,8 @@ func transition(next: String, duration := 0.0) -> void:
 	state = next
 	timer = duration
 	transitions.append(next)
+	if next == "alert": lab.audio_event.emit(&"state_suspicion", global_position)
+	elif next == "telegraph": lab.audio_event.emit(&"state_combat", global_position)
 
 
 func sees_player() -> bool:

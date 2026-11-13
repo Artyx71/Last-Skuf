@@ -43,6 +43,7 @@ func reset() -> void:
 
 
 func start_melee(source: CharacterBody2D, team: String, direction: Vector2, definition: Dictionary) -> int:
+	lab.audio_event.emit(&"weapon_melee", source.global_position)
 	next_attack_id += 1
 	attacks.append({"id": next_attack_id, "source": source, "team": team,
 		"direction": direction.normalized(), "definition": definition, "time": 0.0, "hit": []})
@@ -51,6 +52,7 @@ func start_melee(source: CharacterBody2D, team: String, direction: Vector2, defi
 
 
 func fire(source: CharacterBody2D, team: String, direction: Vector2, definition: Dictionary) -> int:
+	lab.audio_event.emit(&"weapon_fire", source.global_position)
 	next_attack_id += 1
 	var aim := direction.normalized()
 	var origin := source.global_position + Vector2(0, -7)
@@ -64,6 +66,7 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 	if not obstruction.is_empty():
 		if obstruction.collider.collision_layer & 1:
 			wall_impacts += 1
+			lab.audio_event.emit(&"impact_wall", obstruction.position)
 			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
@@ -129,6 +132,7 @@ func _physics_process(delta: float) -> void:
 		if not contact.is_empty():
 			if contact.collider.collision_layer & 1:
 				wall_impacts += 1
+				lab.audio_event.emit(&"impact_wall", contact.position)
 				last_hit_position = contact.position + bullet.visual_offset
 				hit_flash = 0.15
 			else:
@@ -146,6 +150,7 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	if target.health <= 0:
 		return
 	damage_events += 1
+	lab.audio_event.emit(&"impact_body", target.global_position)
 	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)

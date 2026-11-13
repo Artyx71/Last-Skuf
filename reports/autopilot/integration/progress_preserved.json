@@ -1,0 +1,68 @@
+{
+  "global_before": {
+    "active_phase": "P03",
+    "status": "BLOCKED",
+    "attempts": 1,
+    "last_pass": "P02",
+    "last_decision": "reports/phases/P03/decision-attempt1.json"
+  },
+  "global_after": {
+    "active_phase": "P03",
+    "status": "BLOCKED",
+    "attempts": 1,
+    "last_pass": "P02",
+    "last_decision": "reports/phases/P03/decision-attempt1.json"
+  },
+  "same": true,
+  "migrated_phases": {
+    "P00": {
+      "status": "PASS",
+      "attempts": 2,
+      "decision": "reports/phases/P00/decision.json",
+      "decision_sha256": "b4045244095e9ae3c3398675deff7ab667e04d0796bc1ef5e28f0cc370a6fd97"
+    },
+    "P01": {
+      "status": "PASS",
+      "attempts": 2,
+      "decision": "reports/phases/P01/decision.json",
+      "decision_sha256": "d940b5ffecc4ab3082a0dde3c75e29a544d8186be0fb1a5dd58c09644d7bfd13"
+    },
+    "P02": {
+      "status": "PASS",
+      "attempts": 2,
+      "decision": "reports/phases/P02/decision.json",
+      "decision_sha256": "622f1cbde150b186da86578261f579698d4fd927bf01c1132f10a01ad68378b2"
+    },
+    "P03": {
+      "status": "BLOCKED",
+      "attempts": 1,
+      "decision": "reports/phases/P03/decision.json",
+      "decision_sha256": "dc8b4f5956d01ed835e66f83f5dbe8f02f66d12a05c3506478fd3e40f17cea3f"
+    },
+    "P04": {
+      "status": "PENDING",
+      "attempts": 0
+    },
+    "P04G": {
+      "status": "PENDING",
+      "attempts": 0
+    },
+    "P05": {
+      "status": "PENDING",
+      "attempts": 0
+    },
+    "P06": {
+      "status": "PENDING",
+      "attempts": 0
+    },
+    "P07": {
+      "status": "PENDING",
+      "attempts": 0
+    },
+    "P08": {
+      "status": "PENDING",
+      "attempts": 0
+    }
+  },
+  "legacy_state_is_non_authoritative": true
+}

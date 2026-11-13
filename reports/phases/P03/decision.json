@@ -1,0 +1,979 @@
+{
+  "phase": "P03",
+  "status": "BLOCKED",
+  "attempt": 1,
+  "reviewer": "/root/lead_reviewer_p03",
+  "subreviewers": [
+    "/root/lead_reviewer_p03/art_review"
+  ],
+  "authors": [
+    "/root",
+    "P03 runtime implementer (separate author context)",
+    "/root/audio_production_p03",
+    "/root/art_production",
+    "/root/p03_build_qa"
+  ],
+  "independent_review": true,
+  "reviewed_commit": "348e2235c0a8e06eabf2a5a9b7a75eedaa88ee41",
+  "runtime_ci_commit": "92c8e96912f4db1731dbe3da46c3f99f097e59de",
+  "evidence_commit": "202ccbc38d6154553c42f9102543789c57f3ced1",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/4",
+  "ci_run": "https://github.com/Artyx71/Last-Skuf/actions/runs/43398074747",
+  "source_scope": "All135 game files exactly match independently tested/native/export snapshots and CI source. Post-CI348e223 changes only local tools/verify_p03.py (6lines);57/57 local technical acceptance covers it. No exact-current-head CI claim.",
+  "evidence": [
+    {
+      "path": "build/P03/dialogue_audio.avi",
+      "bytes": 90526272,
+      "sha256": "92c86970875a9fca2f878dc4afd4450c3d2078d190b58476b45f0875106e7a2b"
+    },
+    {
+      "path": "build/P03/dialogue_audio_reduced_motion_vhs_off.avi",
+      "bytes": 84076744,
+      "sha256": "4b563c53515a64d3b5be2669806282f94c60cf004604c331a1bb9a548dc43113"
+    },
+    {
+      "path": "build/P03/linux/last-skuf.x86_64",
+      "sha256": "a45d188c94d01eb8c01c7486a95abff180b3e73d1e8d19f8cb4eee5a65276e5c"
+    },
+    {
+      "path": "build/P03/windows/last-skuf.exe",
+      "sha256": "5dda956143ef3f4f713e6569332fcb67228a7ba1b726a0b83f560b823f0d0702"
+    },
+    {
+      "path": "build/ci-P03.zip",
+      "sha256": "465f742fe9fd0b97c049ccf006e1c609a4eabda4e69460377ca9a8df313401a4"
+    },
+    {
+      "path": "reports/phases/P03/LISTENING.md",
+      "bytes": 2807,
+      "sha256": "e5a98d0c8e39d03dc2e1ee976b823484ae791aa0dab488d5fd0f649d924ef04e"
+    },
+    {
+      "path": "reports/phases/P03/artifacts.json",
+      "sha256": "ba081b60808741f063ad26589dbedf97c09e2ce6eb0338b3430197eb1dfbc800"
+    },
+    {
+      "path": "reports/phases/P03/audio_inventory.json",
+      "bytes": 8275,
+      "sha256": "5a4aaa3fe9757b9878eac2631d490b2ff9609c953a061c3267f1f786dcbf22a8"
+    },
+    {
+      "path": "reports/phases/P03/audio_license_rows.csv",
+      "bytes": 10021,
+      "sha256": "d1952cbdbe15b4e47afe95025855788093a0dab73857d0e9683115c64f4aeaa8"
+    },
+    {
+      "path": "reports/phases/P03/audio_listening_capability.json",
+      "bytes": 1236,
+      "sha256": "7e7a1e07e69e67360458eb1c42903ed2a8e8f762d6f12fb7aebafe2a9b9bddc8"
+    },
+    {
+      "path": "reports/phases/P03/audio_loudness_ffmpeg.log",
+      "bytes": 24014,
+      "sha256": "bc52170b48602afe56b64635ce38af6062e3ec73efd279a67dddcb5e52d08fbd"
+    },
+    {
+      "path": "reports/phases/P03/audio_metrics.json",
+      "bytes": 20695,
+      "sha256": "114ddc63418d21f73319d7b5b4667e1567897dd167d4313d093a77db4a73ed66"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_adaptive_8states.mp3",
+      "bytes": 641708,
+      "sha256": "07f14dc18a41d509f38688715b7a0908bc9ac5560733f16e1457a55dd9425ea4"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_adaptive_8states.wav",
+      "bytes": 7680044,
+      "sha256": "2315bb5b8f33ed3e3a58d7872d6f0965011e2dd1e10b56309ad884f82a30abf7"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_clear.mp3",
+      "bytes": 321452,
+      "sha256": "1f5cd7a22505ca8c524d80838cbbfa596a99c61dee3e47a3f6c93b0e1fb26958"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_clear.wav",
+      "bytes": 3840044,
+      "sha256": "5d71f84f6e872c6408013e0b80bb3d9dc313329692bd6d3b0c52b83b3816ae58"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_combat.mp3",
+      "bytes": 321452,
+      "sha256": "fd6d2204324728bf208c15291e4da8ace7b1e8e4f40341e30097e66bcf189c0d"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_combat.wav",
+      "bytes": 3840044,
+      "sha256": "633e151b056f2617d60734b92c5fe78f6ec3791e273072f72b660a5097620b3c"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_combat_runtime_twice.wav",
+      "bytes": 7680044,
+      "sha256": "e8ba4815afd4618ed0d62128c68f3aee078a086819b8005f294172d9cafaef0f"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_explore.mp3",
+      "bytes": 321452,
+      "sha256": "5e2ea8e114ccf9c1e1f28512b23acf73850e0f0b0d53b6698fb9c29c96537a8d"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_explore.wav",
+      "bytes": 3840044,
+      "sha256": "a1a9f0c6cb1392e204b595448d55512134312a04fdf699ec324e53f084efa93b"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_sfx.mp3",
+      "bytes": 272492,
+      "sha256": "83a9821327c0b3627dc3ac6bc6282445f4db8fbce5ace617aeffe9d810a4c694"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_sfx.wav",
+      "bytes": 3254444,
+      "sha256": "8fce4c7e528474a3d19fa854a75987945e0138383acfbc9468bef14304bc71da"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_sfx_cues.json",
+      "bytes": 932,
+      "sha256": "07507ec967315f5e1ffb36320761d59eb47f9f8902ce6f0f1867337f92f8ebfc"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_suspicion.mp3",
+      "bytes": 321452,
+      "sha256": "578577391eca0127d95bac2f1a735c57898428d404fd5e09153cc7cfd129d6c0"
+    },
+    {
+      "path": "reports/phases/P03/audio_preview_suspicion.wav",
+      "bytes": 3840044,
+      "sha256": "cd659d506377316b5f2821eb8cf12c27f575e3ca583c89f5480a2c30af1be348"
+    },
+    {
+      "path": "reports/phases/P03/audio_production_report.md",
+      "bytes": 6803,
+      "sha256": "6007c6f2bebfe6bff58e836bf04ad452283e4c7d0d6bc77af55223ec7e30211c"
+    },
+    {
+      "path": "reports/phases/P03/build_qa.md",
+      "bytes": 6605,
+      "sha256": "391fc6c48a41ea9de403e3061e091771f5e3c50e36edcd2b1bd5174fc65afecb"
+    },
+    {
+      "path": "reports/phases/P03/ci_artifacts.json",
+      "bytes": 912,
+      "sha256": "5b5a1e5a280701d0c38c828387f5854d241dbb05f2f118069c3d88fa8b00badc"
+    },
+    {
+      "path": "reports/phases/P03/ci_cleanup.json",
+      "bytes": 360,
+      "sha256": "d9cd9fef3f709ed0ec2ba78d27b04f7e1be79eeca59bce1d0b19c3068d3b0d67"
+    },
+    {
+      "path": "reports/phases/P03/ci_jobs.json",
+      "bytes": 3342,
+      "sha256": "5014fc251ccd89d81dd9a60b89841ac48a9c960be41ce2e1832b57496807c684"
+    },
+    {
+      "path": "reports/phases/P03/ci_result.json",
+      "bytes": 4279,
+      "sha256": "b2ae560199c1346e5e5b316309e113df5d725fece9b708ae85850b0380f88278"
+    },
+    {
+      "path": "reports/phases/P03/ci_run.json",
+      "bytes": 14445,
+      "sha256": "cb763add32587064d699780224f5bd913a91e2970c676482bda825b8bb21cd4a"
+    },
+    {
+      "path": "reports/phases/P03/dialogue_audio_replay.mp4",
+      "bytes": 1292753,
+      "sha256": "a5909a3ffeb8e1230402112b82f39f016d0c5b0a4f144a9b1c1bf0eb5ad0367e"
+    },
+    {
+      "path": "reports/phases/P03/dialogue_audio_replay_reduced_motion_vhs_off.mp4",
+      "bytes": 1043405,
+      "sha256": "35d7f3711ddd4f2d834c4d148032bc4d58326801d226130606fa14129642dcf9"
+    },
+    {
+      "path": "reports/phases/P03/dialogue_replay_contact_sheet.png",
+      "bytes": 332154,
+      "sha256": "08fe5645d8ddaafd0ba57bf30a13edd6cf999513b1b3d87142be0b083baa6d8d"
+    },
+    {
+      "path": "reports/phases/P03/dialogue_replay_contact_sheet_reduced_motion_vhs_off.png",
+      "bytes": 277961,
+      "sha256": "bc6deb7a8861df1ddb01d7b7d72012aabbf10f28fefea698c448ddd72accf8a5"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_bootstrap.png",
+      "bytes": 35833,
+      "sha256": "80a2de2a4ad667276db85e5d0c3b2d0d04f41364c7483458ec32f6ba1b433708"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_dialogue.png",
+      "bytes": 43428,
+      "sha256": "2c6a241ab84a79fd3463f40b9529363b5972e185e0d109e912209fa0766e893b"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_large_text.png",
+      "bytes": 47357,
+      "sha256": "4e896f6492ba614109cc00b80c6991dcfc3edbb154e8eb3f27844085db6913d4"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_options.png",
+      "bytes": 53255,
+      "sha256": "9cb720d6a6bf4650d6d26727f3a0fcc350aeab4002e9fdb5119a959a5663bbca"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_replay.json",
+      "bytes": 13096,
+      "sha256": "dc61fcb70d1ae62402fb586999ddb97f03081de80ba1d786fca4b773baa10f4e"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_replay.png",
+      "bytes": 44293,
+      "sha256": "d5f944769025cfcd2337a42ff90b400daca0c30eac7569535446cfadd2235304"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_replay.wav",
+      "bytes": 3594284,
+      "sha256": "198ecc6eb6fc46f442e56f672462895e1838d8d9e57f6227028ab03317409886"
+    },
+    {
+      "path": "reports/phases/P03/export_linux_replay_waveform.json",
+      "bytes": 292,
+      "sha256": "acb7c29c38cd184683369b37bd49ed51f19139e7f62416f3ecbdf4f7dff3dd4a"
+    },
+    {
+      "path": "reports/phases/P03/export_source_hashes.json",
+      "bytes": 15065,
+      "sha256": "4181ffb9321eaf65090500b0bc519ee26edb3cc4b1e732f4cfd32e4f1e209fd4"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_bootstrap.png",
+      "bytes": 35833,
+      "sha256": "80a2de2a4ad667276db85e5d0c3b2d0d04f41364c7483458ec32f6ba1b433708"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_dialogue.png",
+      "bytes": 43428,
+      "sha256": "2c6a241ab84a79fd3463f40b9529363b5972e185e0d109e912209fa0766e893b"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_large_text.png",
+      "bytes": 47357,
+      "sha256": "4e896f6492ba614109cc00b80c6991dcfc3edbb154e8eb3f27844085db6913d4"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_options.png",
+      "bytes": 53255,
+      "sha256": "9cb720d6a6bf4650d6d26727f3a0fcc350aeab4002e9fdb5119a959a5663bbca"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_replay.json",
+      "bytes": 13094,
+      "sha256": "00f47b6e2b31d3757898599ebc71c594b9de8c59e5ccf058cc249163914cf811"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_replay.png",
+      "bytes": 44293,
+      "sha256": "d5f944769025cfcd2337a42ff90b400daca0c30eac7569535446cfadd2235304"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_replay.wav",
+      "bytes": 3907628,
+      "sha256": "07e63d02d72741ec0302d295fedec6014fa4de0c6e2497df9951ead5600d144e"
+    },
+    {
+      "path": "reports/phases/P03/export_windows_replay_waveform.json",
+      "bytes": 279,
+      "sha256": "25685e0209b67b79431178c005b3be878b1e0d7329543ecc34832923fc44c14a"
+    },
+    {
+      "path": "reports/phases/P03/exports.json",
+      "bytes": 573,
+      "sha256": "77e65aac1f82bfd92f0f22fa519b9e869bbfec7a70bd753047f9869400ee38de"
+    },
+    {
+      "path": "reports/phases/P03/implementation.md",
+      "bytes": 3450,
+      "sha256": "357a55d2fb2b3ed26a021373857527f1be1e1a608187befdbe9012da4a10b6e6"
+    },
+    {
+      "path": "reports/phases/P03/integration_final.md",
+      "bytes": 1816,
+      "sha256": "a269306e0ea665d88753fbdd7e9c1ef373c498d003afaa69f56cf4d91fd2b6b5"
+    },
+    {
+      "path": "reports/phases/P03/listening_request.json",
+      "bytes": 1054,
+      "sha256": "3843999258417266057a28b3d3b2ff490a6feeec671a34855cff0b5532f39c47"
+    },
+    {
+      "path": "reports/phases/P03/logs/ci.log",
+      "bytes": 74457,
+      "sha256": "315e1c0516500f92e428e27afee093e77af38d11da5a51e0007109640300fd5e"
+    },
+    {
+      "path": "reports/phases/P03/logs/diagnostic_abrupt_linux_quit.log",
+      "bytes": 593,
+      "sha256": "e820ad3186492d718f685f3d866e2686faf3479b11082c30869f8780e536bc29"
+    },
+    {
+      "path": "reports/phases/P03/logs/diagnostic_abrupt_windows_quit.log",
+      "bytes": 1354,
+      "sha256": "0c2b2c27e7b4ed953a4403b1ba67452b9a5dae712364a769227f5f5fc5660165"
+    },
+    {
+      "path": "reports/phases/P03/logs/dialogue_movie_contact_sheet.log",
+      "bytes": 4099,
+      "sha256": "62b83cc727fd146217cb3f5787eb9f833e2f59934df6ca9eb1137dcab64af699"
+    },
+    {
+      "path": "reports/phases/P03/logs/dialogue_movie_contact_sheet_reduced_motion_vhs_off.log",
+      "bytes": 4214,
+      "sha256": "e575a584d322294a338a3829b1cf6320a0a2b976661ff15dfb928dfdba35d680"
+    },
+    {
+      "path": "reports/phases/P03/logs/encode_dialogue_movie.log",
+      "bytes": 6387,
+      "sha256": "25f6ca6eca11669e30e3fb22cf0767958ae968265d930bca282c2efcbf5a4ff6"
+    },
+    {
+      "path": "reports/phases/P03/logs/encode_dialogue_movie_reduced_motion_vhs_off.log",
+      "bytes": 6381,
+      "sha256": "fc8567aaffbb9daf35931235e5643bcf825247adb77a34dd171d2864b1de5b41"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_linux.log",
+      "bytes": 14058,
+      "sha256": "0b607f83e884a558a85896e23ed28c0eab819d545ae4aa061f39dff667a326dd"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_linux_dialogue.log",
+      "bytes": 729,
+      "sha256": "54415b7e7b928016973f1c5a969e707cbf6a99d47a342b4e674a53f179679024"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_linux_large_text.log",
+      "bytes": 756,
+      "sha256": "8a588883959def80907c23ec12a455c35cd126e3d8fe4bf7cad5aec92d085c7d"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_linux_options.log",
+      "bytes": 744,
+      "sha256": "3413d9c1a52e23fca4fcc9fe52f96ad6d48fa2dad217981ee9d7d88cd282fb98"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_linux_replay.log",
+      "bytes": 8361,
+      "sha256": "37e39e863591e3c8f4a2da2059c662558ff2ff72fc3b95627337b770604f97f7"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_windows.log",
+      "bytes": 14059,
+      "sha256": "7ee96795502fc62764d12d5079b2406685ebca9f2a34029da058d22f77a6f43e"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_windows_dialogue.log",
+      "bytes": 2139,
+      "sha256": "b39446ae2f2d10debb06b06431a65b096c1d05abc1fd8627a306aae1062b1c0d"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_windows_large_text.log",
+      "bytes": 2166,
+      "sha256": "210e24e411729f5af74c159368efd75bcf40e515d8e70bb0f1dd91e8b6afeaf8"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_windows_options.log",
+      "bytes": 2154,
+      "sha256": "fcca6185bf46e59a6245ab965233fc62ebc330fdd7e52727e55f61815f42d734"
+    },
+    {
+      "path": "reports/phases/P03/logs/export_windows_replay.log",
+      "bytes": 9795,
+      "sha256": "038456e275036ae2ef4ceaf8aee98782b1f8f883c165f71b8b34ca4f88e337bb"
+    },
+    {
+      "path": "reports/phases/P03/logs/linux_smoke.log",
+      "bytes": 721,
+      "sha256": "fd3620c30ea0715e6ced231b74734843c3eff6d5a47aadd4eada2fc8307898cb"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_dialogue.log",
+      "bytes": 791,
+      "sha256": "cc3d30e1327d1001b40f9ec978f9a03b2daf0488e1ae39e34dee9aa04e94e9cb"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_large_text.log",
+      "bytes": 818,
+      "sha256": "9877f40b62b5fddcb760b9e1f7b52115f5ac803c4bb97f4dbca535e53b3e3bd1"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_movie_replay.log",
+      "bytes": 9216,
+      "sha256": "f521e1c07ec3b30a2a4b28d2117ade0693db5df1846a4c1556b98f0d8ba1f359"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_movie_replay_reduced_motion_vhs_off.log",
+      "bytes": 9379,
+      "sha256": "20fa65ac05b438ecd41c7b2883d7d2f1530a10e138fc27110f5298a2646efeb7"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_options.log",
+      "bytes": 806,
+      "sha256": "f13c7610f76c8b1a7cb90b70ed2eba840f29fc2e2d36db180d83c746336efb9f"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_reduced_motion_vhs_off.log",
+      "bytes": 833,
+      "sha256": "fcad0f07f792dfb9da8097216f4bdb6a0d6cb861a44dc87279b128ce3644fc34"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_replay.log",
+      "bytes": 8412,
+      "sha256": "25a5df65aa9e6bba76efe517a32a367c467012f045578ff14377ccda05ccaf87"
+    },
+    {
+      "path": "reports/phases/P03/logs/native_weapon_poses.log",
+      "bytes": 790,
+      "sha256": "f1961ea08616ca274f3a18f892c28b090bb2a25efc97c31e85e3760bab69434c"
+    },
+    {
+      "path": "reports/phases/P03/logs/runner_registration.log",
+      "bytes": 967,
+      "sha256": "6ec51179e3cad1cab3fbbe410a8346bd55cf15ddb9bd152374540315e369feaf"
+    },
+    {
+      "path": "reports/phases/P03/logs/windows_smoke.log",
+      "bytes": 2131,
+      "sha256": "08e7a808b7d8524d4e08adc32bc4cb7426cfa468bc0c20cc5523ef53745581ae"
+    },
+    {
+      "path": "reports/phases/P03/movie_metadata.json",
+      "bytes": 1080,
+      "sha256": "aea0eb32b708ca464b749e8f10098196ed9a4a653efded525c255136bab2d37b"
+    },
+    {
+      "path": "reports/phases/P03/native_dialogue.png",
+      "bytes": 43428,
+      "sha256": "2c6a241ab84a79fd3463f40b9529363b5972e185e0d109e912209fa0766e893b"
+    },
+    {
+      "path": "reports/phases/P03/native_large_text.png",
+      "bytes": 47357,
+      "sha256": "4e896f6492ba614109cc00b80c6991dcfc3edbb154e8eb3f27844085db6913d4"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay.json",
+      "bytes": 13206,
+      "sha256": "11a507e84eb4381e36e2641873391dd43c8b502c69276dcb04b99ca094e7a000"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay.png",
+      "bytes": 44293,
+      "sha256": "d5f944769025cfcd2337a42ff90b400daca0c30eac7569535446cfadd2235304"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay.wav",
+      "bytes": 3921964,
+      "sha256": "f1406d9e47402720f4f2bd10ee90dcb23adb2c4aef14664519e33ebf32e1e935"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay_reduced_motion_vhs_off.json",
+      "bytes": 13208,
+      "sha256": "5c0cc6e4211487ce877f063f8097a741efcd3b75cbd4899a9f43c08e6331987c"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay_reduced_motion_vhs_off.png",
+      "bytes": 42355,
+      "sha256": "15d5d40d36506612764070af2f9ce26d62ce5ae062c0aa6c9843ad93e0d35c52"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay_reduced_motion_vhs_off.wav",
+      "bytes": 3921964,
+      "sha256": "f1406d9e47402720f4f2bd10ee90dcb23adb2c4aef14664519e33ebf32e1e935"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay_reduced_motion_vhs_off_waveform.json",
+      "bytes": 291,
+      "sha256": "ecf4ddbc2092a4dd80d32fe4a9e388e9728cc88d9d965b5b09b5936d85985390"
+    },
+    {
+      "path": "reports/phases/P03/native_movie_replay_waveform.json",
+      "bytes": 291,
+      "sha256": "ecf4ddbc2092a4dd80d32fe4a9e388e9728cc88d9d965b5b09b5936d85985390"
+    },
+    {
+      "path": "reports/phases/P03/native_options.png",
+      "bytes": 53255,
+      "sha256": "9cb720d6a6bf4650d6d26727f3a0fcc350aeab4002e9fdb5119a959a5663bbca"
+    },
+    {
+      "path": "reports/phases/P03/native_reduced_motion_vhs_off.png",
+      "bytes": 40813,
+      "sha256": "1d729e1b7495fdb2c1fcb77b344803a41959cca876bea06ecf8c89dbe0c93789"
+    },
+    {
+      "path": "reports/phases/P03/native_replay.json",
+      "bytes": 13097,
+      "sha256": "df577d97649ee788f35bb618280efd18ccbff5de3d32a5c7a0e4f07d1c7931d7"
+    },
+    {
+      "path": "reports/phases/P03/native_replay.png",
+      "bytes": 44293,
+      "sha256": "d5f944769025cfcd2337a42ff90b400daca0c30eac7569535446cfadd2235304"
+    },
+    {
+      "path": "reports/phases/P03/native_replay.wav",
+      "bytes": 3590188,
+      "sha256": "236348a37c38d92279ee85b524c8708e5a8286bc891befba28104b56b038ffdd"
+    },
+    {
+      "path": "reports/phases/P03/native_replay_waveform.json",
+      "bytes": 292,
+      "sha256": "3fcca07db27f79570140083053dc06e83731558d2f8b8db711f9a66d52bcdd21"
+    },
+    {
+      "path": "reports/phases/P03/native_source_hashes.json",
+      "bytes": 15065,
+      "sha256": "4181ffb9321eaf65090500b0bc519ee26edb3cc4b1e732f4cfd32e4f1e209fd4"
+    },
+    {
+      "path": "reports/phases/P03/portrait_author_review.md",
+      "bytes": 2369,
+      "sha256": "0f58655d51cf733b9a715f749a13324f90a3c205b1768b8207bb92f0e94c96da"
+    },
+    {
+      "path": "reports/phases/P03/portrait_inventory.json",
+      "bytes": 4525,
+      "sha256": "ef47cc0280f76938d072541ba8ded3e2060e7e090f91e6d3a981a5471010c67b"
+    },
+    {
+      "path": "reports/phases/P03/portrait_license_row.csv",
+      "bytes": 586,
+      "sha256": "61b9084356a88ae8d89547f965eb17f96a3f22b9ef54fb7fcc10fb01d62ef744"
+    },
+    {
+      "path": "reports/phases/P03/portrait_motion_preview_2x.png",
+      "bytes": 36281,
+      "sha256": "3e1a4e8dc146b6b96c5c0eb52282027506abd5315a0b27025ed05cd7a8828b17"
+    },
+    {
+      "path": "reports/phases/P03/portrait_protected_hashes.json",
+      "bytes": 525,
+      "sha256": "38ce647203772ddd694b8bb8416ddde2a2f6fa0766b271d77b3fa730de050827"
+    },
+    {
+      "path": "reports/phases/P03/portrait_structure.json",
+      "bytes": 1491,
+      "sha256": "05a49e637c49a07f8a20a932e3c1716a6c84df994c34512204f9a6fb4c0d66f6"
+    },
+    {
+      "path": "reports/phases/P03/regression/assertions.json",
+      "bytes": 894,
+      "sha256": "75d02a53a7e9e3f7f709dfdd76c0b3c3d19502a20a6345e0b6981314a92c278d"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/ai.log",
+      "bytes": 1681,
+      "sha256": "6f630d9e59add1a4ad6a17f5261dac13b7cd28111b4cc2c595bdfe396065dee9"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/art_structure.log",
+      "bytes": 2865,
+      "sha256": "6649c0e2c284af44fe31efc100b7ae3e2f65059e589eb21521df2e60f91d69ec"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/audio.log",
+      "bytes": 2057,
+      "sha256": "83ee80a9222ad112de3ba43461b7f48d93502d7a11931b0b951b4a48757dcab0"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/combat.log",
+      "bytes": 2304,
+      "sha256": "1e5f7687e27dd748e33db5bd2e4548cb55455e9ce02ccc8e89203871525cc516"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/combat_art.log",
+      "bytes": 20715,
+      "sha256": "1af720057ce6374a72e38056a77ce1e239be73eb3a5317e1afde60f94a76c320"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/contact_timing.log",
+      "bytes": 3354,
+      "sha256": "ad8166b6d9ab162bcddd22704cba623788d5e2be20e4a3a84dea4cd3fa33a7d4"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/dialogue.log",
+      "bytes": 2125,
+      "sha256": "30e5bc752e23d4a273720d3d72b7d118568830736c4ff910ce719b911434ddef"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/import.log",
+      "bytes": 1172,
+      "sha256": "55af3a316a3f4a316d079c41c2a1d49e70c475ee3545dbcf8ad28b2833cdb7fe"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/integration.log",
+      "bytes": 427,
+      "sha256": "8ee895c676c88fda4cad35f541762e091bee75ff1fdef1d118bc3130915c3e7d"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/movement.log",
+      "bytes": 1322,
+      "sha256": "a68380b68b89ada53fa263801d9491f750a7058261031394deef94400f9abcdc"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/options.log",
+      "bytes": 1052,
+      "sha256": "8e729af1f080bea05fad59a1c49911020b922e966df307d538a4f0fbe6dfef6a"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/portrait_motion.log",
+      "bytes": 2438,
+      "sha256": "e7d5a885908f03829083ea8bbfe5443fc77774f9bf98d212fdd44f93ea455f77"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/privacy.log",
+      "bytes": 93,
+      "sha256": "c424cdf99b4410ba47d7e5593fab821e385c634d6797c5a7c4e427028b82dece"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/references.log",
+      "bytes": 81,
+      "sha256": "8dabe5224102016f27bbb243416cb9f463fc1d048a90d518c92b720231fce493"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/restart.log",
+      "bytes": 4517,
+      "sha256": "2a28c2605fea65dcf8d011544901934fde2f5a682b7be3039e928a06f24ad7e4"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/smoke.log",
+      "bytes": 219,
+      "sha256": "bc2762afe2370b2856ced02bc94cd5a14a6c745f67a8df56837b6dd1acc6f6d7"
+    },
+    {
+      "path": "reports/phases/P03/regression/logs/version.log",
+      "bytes": 158,
+      "sha256": "d12d4f32f8e963a6c029dc20de89ef9c6676165d809dc55b92aa4c3469c74d5e"
+    },
+    {
+      "path": "reports/phases/P03/regression/validation.json",
+      "bytes": 2291,
+      "sha256": "ac737e586df5b25a5a2ca9f87a39cdc0cecb05358f7417ef61911b5818a9c302"
+    },
+    {
+      "path": "reports/phases/P03/review.md",
+      "sha256": "e8239259a43ec4fa6b18dd9a6672fd54006517612930c8e22e796ab7812184ec"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/art_subreview.md",
+      "sha256": "d66b8478f6ff8ba8970a07013cdc87d9c6c363d4fc88626ca13124f22e852718"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/audio_independent.json",
+      "sha256": "97a92c8fa1ef3c80d8cd3446a2e08b61353506297cb37a22e3cbd4751a93e190"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/ci_artifact_verified.json",
+      "sha256": "feeef6c86edfe2f9bcc0649f023ee429bea9b8544aebb688c818ebf964739079"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/ci_artifacts_api.json",
+      "sha256": "812eeaedfbf2d5914501e082018b3ab7c3bd650ff907c7bf81d28ff242e87e73"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/ci_cleanup_independent.json",
+      "sha256": "96ad9abc1a5f7e04739f0be8163ced6134738fa6c7b0b4ae4cfd4883273c978c"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/ci_job.log",
+      "sha256": "315e1c0516500f92e428e27afee093e77af38d11da5a51e0007109640300fd5e"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/final_integrity.json",
+      "sha256": "0a2f9a0f37eb565cf693f344e64784903b9d46e78b5ee58dadee783e559b1089"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/independent_tests.json",
+      "sha256": "8cd5f8aa4c35b331956e15d2a197bf05f8940c7b7fd7514fe4446680d0db29d6"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/linux_export_dialogue.png",
+      "sha256": "2c6a241ab84a79fd3463f40b9529363b5972e185e0d109e912209fa0766e893b"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/linux_export_execution.json",
+      "sha256": "13c25802c00b2683d5c8102599e95a98d3e7d5079dabd3ae7005666dc248e2e4"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/audio.log",
+      "sha256": "83ee80a9222ad112de3ba43461b7f48d93502d7a11931b0b951b4a48757dcab0"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/contact_timing.log",
+      "sha256": "ad8166b6d9ab162bcddd22704cba623788d5e2be20e4a3a84dea4cd3fa33a7d4"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/dialogue.log",
+      "sha256": "30e5bc752e23d4a273720d3d72b7d118568830736c4ff910ce719b911434ddef"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/linux_export_dialogue.log",
+      "sha256": "8125af0456b5115ce7d4502cced6454a7bf044c1ab7d7e6d0ee2bd240f4c03a3"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/options.log",
+      "sha256": "8e729af1f080bea05fad59a1c49911020b922e966df307d538a4f0fbe6dfef6a"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/logs/portrait_motion.log",
+      "sha256": "e7d5a885908f03829083ea8bbfe5443fc77774f9bf98d212fdd44f93ea455f77"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/motion_video_samples.png",
+      "sha256": "98720ca377b43a00562a2436f1909d47e6c97b9e7dac45d89cf07e4518a555b8"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/portrait_inventory_check.json",
+      "sha256": "6811245d043bdece768179ae014c401d2423691e10b19a02531200587eb2d1e7"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/remote_ci.json",
+      "sha256": "68cb8ffc137cf219067b641462b58d188457f93c14550c53761c20642168e9cc"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/review.md",
+      "sha256": "e8239259a43ec4fa6b18dd9a6672fd54006517612930c8e22e796ab7812184ec"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/source_snapshot_hashes.json",
+      "sha256": "4181ffb9321eaf65090500b0bc519ee26edb3cc4b1e732f4cfd32e4f1e209fd4"
+    },
+    {
+      "path": "reports/phases/P03/reviewer-attempt1/weapon_pixels_independent.png",
+      "sha256": "88bd254dcab41de9645aca714842557029d1dacd9cb8da55df7d48496c459421"
+    },
+    {
+      "path": "reports/phases/P03/runtime_handoff.md",
+      "bytes": 9576,
+      "sha256": "a1733570577dfc2cb27d3f10a2279ae7916ccefb8ef814d8e4fb9ab70b7c40c2"
+    },
+    {
+      "path": "reports/phases/P03/source_diff.patch",
+      "bytes": 210849,
+      "sha256": "35c00ac0f01a375b8ee92a177a36be6f8aa7fb2a97df92b27e1039bf40cb5d30"
+    },
+    {
+      "path": "reports/phases/P03/technical_artifacts.json",
+      "bytes": 26666,
+      "sha256": "e3bd960f0aad5fc21e435217dba24947f48eadd452aa994267f935870a88a56d"
+    },
+    {
+      "path": "reports/phases/P03/technical_log_scan.json",
+      "bytes": 9246,
+      "sha256": "04c29771978484d6503651a88a6a36a91510ab9aa45cc619504a2d1b5edc5758"
+    },
+    {
+      "path": "reports/phases/P03/technical_sources.json",
+      "bytes": 766,
+      "sha256": "4d61dfec622519610e0897293cb43cdcc70fe357b4fd49540b3761978945ea6b"
+    },
+    {
+      "path": "reports/phases/P03/technical_validation.json",
+      "bytes": 19797,
+      "sha256": "11b207e09db5a2fcbc6e298f78dc3a7550bb9e5b06d24b9caa3ce7d1d86cb97e"
+    },
+    {
+      "path": "reports/phases/P03/verifier_smoke_diff.patch",
+      "bytes": 1243,
+      "sha256": "269565294150be3f44ad2d20876f54107ddab04101e13ecd544844450d76a36b"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/defeat_cleared.png",
+      "bytes": 28338,
+      "sha256": "105d138def30e22c81f98be56e7fece5fd87b0ac9481cdcbb28d374e2a2bcec0"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/defeat_cue.png",
+      "bytes": 29328,
+      "sha256": "a6e0ec13a0947944faa994c0fe4330691fcbd030dd4f545beb5129fd001dd05c"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/defeat_fade.png",
+      "bytes": 31149,
+      "sha256": "0c167abef2e2cce8eb2a66ee50f19e207a005a9d49d8297b685b5b1f4e43bfb1"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/hud_upper_edge.png",
+      "bytes": 31627,
+      "sha256": "526bfa84f64186619a054953e2754a5af1c6ce7f83d58d70357360532308b222"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_down_phase0.png",
+      "bytes": 27641,
+      "sha256": "eb7da22341e82e58acf7d351615796a00312b824145387653586c41faf3add37"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_down_phase1.png",
+      "bytes": 28150,
+      "sha256": "cfff821434faa32f9e12cb89725333ed65093dffc6d8290d109f12090361ae28"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_down_phase2.png",
+      "bytes": 27812,
+      "sha256": "536686221028a8c1cee9474180c13501d4beb1ac53842941215f59defe32b00d"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_left_phase0.png",
+      "bytes": 27078,
+      "sha256": "17c350318d4d4ebb83d3325a52772afbecad86995842a83671737c2d6953557a"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_left_phase1.png",
+      "bytes": 27768,
+      "sha256": "e6173b7905c5b5837a3b1f0a8b214da13ee8a2944a568d9cc9daa04ea9840456"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_left_phase2.png",
+      "bytes": 27432,
+      "sha256": "99137a25c3111eefd0321578d84c29d806c284ee5cea8f18604219ee900f579c"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_right_phase0.png",
+      "bytes": 27198,
+      "sha256": "d92bee360ab306ebda73e83c0e231e5db72446dcb640b540ad0871bd9a075411"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_right_phase1.png",
+      "bytes": 27438,
+      "sha256": "ecdb0fe267225c875747740c4c3aa061f4c405132014d289f64fa7af242721c9"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_right_phase2.png",
+      "bytes": 27412,
+      "sha256": "0e38cd4396015aa0753dc0a508ccbb772587b9ef41eb274fc2ee5e3d9dd989b3"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_up_phase0.png",
+      "bytes": 27224,
+      "sha256": "4ed666b9be75effb8435792f2603a92d66a273fa778394663673f057a14656ae"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_up_phase1.png",
+      "bytes": 27338,
+      "sha256": "1a19596917dad6de1ef1533499ec954d1467ddf0e027c972926d4d5b9b238dc1"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/melee_up_phase2.png",
+      "bytes": 27403,
+      "sha256": "99dc12f1be1f02f02cb513affcfb37066a7270ecc1418953737281b38125e276"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/ranged_down.png",
+      "bytes": 27560,
+      "sha256": "faece4d387f186f2267d9760b2fd2ba28650824beab2e3c591afd82ba40ab289"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/ranged_left.png",
+      "bytes": 27154,
+      "sha256": "d0f21e7495ee28894f8cb412bc197e831ffb5884df9141555d592baafc7af04e"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/ranged_right.png",
+      "bytes": 26910,
+      "sha256": "f80ed99d9a2a98636deb5966011230aecd9f3b692eebb642148585c5ce8eaa4c"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/ranged_up.png",
+      "bytes": 27056,
+      "sha256": "10a2e2e544261b936478cccc4c2f8299201d6e1d426d317962e384a370534fc8"
+    },
+    {
+      "path": "reports/phases/P03/weapon_poses/weapon_captures.json",
+      "bytes": 22720,
+      "sha256": "b1f8f276ad6474e90f590d161f10098afe40d8d6ec10c1d627e10f5c6e3dbec1"
+    },
+    {
+      "path": "reports/phases/P03/weapon_socket_map.json",
+      "bytes": 2232,
+      "sha256": "9005e5ac8d106b1b748fd7036648577506ac5c86eb3a1f86d3274b3bb63100fb"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AU-P03-01",
+      "severity": "HIGH",
+      "blocking": true,
+      "status": "BLOCKED_EXTERNAL_PERCEPTUAL_CAPABILITY",
+      "file": "specs/AUDIO_SPEC.md sections3/7; reports/phases/P03/LISTENING.md",
+      "expected": "Actual listening verifies original cue quality, decoded runtime loop seam, adaptive transitions/ducking, SFX/bleep intelligibility and10rapid death/retry tails.",
+      "observed": "Reviewer independently forwarded actual MP3 via functions.audio and received audio content omitted because you do not support audio input. No agent claims listening; numerical analysis cannot substitute.",
+      "repro": "reports/phases/P03/reviewer-attempt1/audio_independent.json; send actual audio_preview_combat.mp3 as audio content.",
+      "fix": "Owner/listener auditions immutable files in LISTENING.md/listening_request.json and records acceptance or concrete clip/time defects. Fix any defects and rerun affected independent checks before PASS."
+    },
+    {
+      "id": "TEC-P03-01",
+      "severity": "LOW",
+      "blocking": false,
+      "status": "RECORDED_DIAGNOSTIC_LIMITATION",
+      "file": "CI43398074747 reports/ci/logs/smoke.log and Export native bootstrap binaries step",
+      "expected": "Normal app startup/shutdown releases audio playback; CI smoke ideally exercises app cleanup.",
+      "observed": "Artificial engine --headless --quit reports2ObjectDB leaks in two CI contexts. Actual12assertion suites and normal rendered app/export teardown are clean; final local verifier uses actual bootstrap capture. Wine Mesa/SDR environment warnings separately retained.",
+      "repro": "Stored ci_job.log and ci_artifact_verified.json; original CI headless --quit commands.",
+      "fix": "On next workflow change, replace forced CLI quit smoke with normal app bootstrap capture and verify CI; retain existing diagnostic logs. No warning suppression or global zero-warning claim."
+    }
+  ],
+  "closed_findings": [
+    {
+      "id": "ART-P02-01",
+      "resolution": "Independent art review of all12melee phases and4fire captures confirms free-right-hand sockets, correct phase layers/left0occlusion; P01 approved PNG/atlas unchanged. Contact48/0 independently rerun."
+    }
+  ],
+  "tests": {
+    "passed": 63,
+    "failed": 0,
+    "counting": "5independent test commands +1independent actual Linux export execution +17root local regression commands +16actual CI validation commands +24QA technical commands.57derived QA acceptance checks are not counted again as commands.",
+    "independent_native_assertions_passed": 212,
+    "independent_native_assertions_failed": 0,
+    "local_full_assertions_passed": 785,
+    "ci_assertions_passed": 785,
+    "ci_assertions_failed": 0,
+    "technical_acceptance_checks_passed": 57,
+    "technical_acceptance_checks_failed": 0,
+    "author_artifacts_checked": 156,
+    "author_hash_mismatches": 0,
+    "technical_artifacts_checked": 152,
+    "technical_hash_mismatches": 0,
+    "audio_asset_hashes_checked": 45,
+    "portrait_asset_hashes_checked": 21,
+    "game_source_hashes_checked": 135,
+    "ci_archive_entries_checked": 19,
+    "ci_archive_digest_matches_api": true
+  },
+  "scorecard": {
+    "dialogue_external_Russian_and_once_only_persistence": "PASS",
+    "input_reveal_hold_history_seen_skip": "PASS",
+    "essential_text_accessibility_options_bus_persistence": "PASS",
+    "portrait_feature_motion_and_provenance": "PASS independent art subreview",
+    "held_weapon_all_phase_carryforward": "PASS ART-P02-01 CLOSED",
+    "original_audio_sources_and_structural_metrics": "PASS objective technical scope",
+    "adaptive_audio_runtime_and_10retry_lifecycle": "PASS technical; perceptual quality remains BLOCKED",
+    "audio_listening": "BLOCKED AU-P03-01",
+    "linux_export_runtime": "PASS independently executed final executable",
+    "windows_wine_runtime": "PASS actual PE/Wine11.17; separate from nativeWindows",
+    "native_windows_runtime": "NOT_TESTED_UNAVAILABLE",
+    "actual_ci": "PASS92c8e96; forcedquit warning explicitly recorded",
+    "privacy_and_runner_cleanup": "PASS",
+    "independent_review": "COMPLETE; final phase BLOCKED solely by listening"
+  },
+  "limitations": [
+    "No real perceptual listening has occurred; no P03PASS/P04advancement.",
+    "NativeWindows host unavailable; Wine is compatibility evidence only.",
+    "Historical nonblocking ART-P01-01 idle jitter and META-P01-01 atlas-note discrepancy remain backlog.",
+    "Forcedquit CI audio teardown diagnostics remain visible; normal application paths clean.",
+    "No public release, merge, real-voice use or persistent runner authorization is inferred."
+  ],
+  "next_action": "Obtain one concrete actual-listening result on immutable LISTENING.md/listening_request.json files. Independent reviewer verifies acceptance/hash linkage or sends clip/time defects to implementer. Remain withinP03 until full PASS; do not beginP04.",
+  "next_phase": "none"
+}

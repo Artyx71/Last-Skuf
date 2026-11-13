@@ -1,6 +1,8 @@
 extends Node2D
 ## P02 technical encounter: native input, active opponents, deterministic cached retry.
 
+signal audio_event(event_id: StringName, at: Vector2)
+
 const Bindings = preload("res://scripts/core/input_bindings.gd")
 const Player = preload("res://scripts/actors/combat_player.gd")
 const Enemy = preload("res://scripts/ai/enemy_actor.gd")
@@ -40,6 +42,8 @@ var escape_detection_count := 0
 func _ready() -> void:
 	process_physics_priority = -20
 	Bindings.install()
+	var audio := get_node_or_null("/root/AudioDirector")
+	if audio: audio_event.connect(audio.on_gameplay_audio)
 	config = JSON.parse_string(FileAccess.get_file_as_string(CONFIG_PATH))
 	visual_config = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/weapon_visuals.json"))
 	assert(config.schema == 1, "P02 combat config schema")
@@ -97,6 +101,7 @@ func reset_encounter() -> void:
 	_update_hud()
 	queue_redraw()
 	last_reset_snapshot = snapshot()
+	audio_event.emit(&"retry", Vector2.ZERO)
 
 
 func set_kit(value: String) -> void:
@@ -119,6 +124,7 @@ func player_died() -> void:
 	if state != "playing":
 		return
 	state = "dead"
+	audio_event.emit(&"death", player.global_position)
 	total_deaths += 1
 	death_timer = retry_delay
 	death_started_usec = Time.get_ticks_usec()
@@ -140,6 +146,7 @@ func _physics_process(delta: float) -> void:
 		noise_remaining = maxf(0.0, noise_remaining - delta)
 		if not gallery_mode and _exit_rect().has_point(player.position):
 			state = "escaped"
+			audio_event.emit(&"state_clear", player.global_position)
 			score = 1000 if kills == 0 else 0
 			escape_detection_count = 0
 			for enemy in enemies:
@@ -294,7 +301,7 @@ func _capture() -> int:
 
 func _capture_and_quit() -> void:
 	await _frames(6)
-	get_tree().quit(await _capture())
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), await _capture())
 
 
 func _replay() -> void:
@@ -359,4 +366,4 @@ func _replay() -> void:
 		var file := FileAccess.open(result_path, FileAccess.WRITE)
 		file.store_string(JSON.stringify(result, "  "))
 	print("COMBAT_REPLAY ", JSON.stringify(result))
-	get_tree().quit(0 if result.passed else 1)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0 if result.passed else 1)

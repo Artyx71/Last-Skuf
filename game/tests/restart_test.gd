@@ -116,4 +116,4 @@ func _run() -> void:
 		file.store_string(JSON.stringify(result, "  "))
 	print("RESTART_RESULT ", JSON.stringify(result))
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

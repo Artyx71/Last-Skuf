@@ -17,6 +17,12 @@ jobs:
           persist-credentials: false
       - run: python3 tools/install_deps.py --templates
       - run: python3 tools/verify.py --output reports/ci
+      - name: Install pinned user-local audio decoder
+        run: python3 tools/install_ci_media.py
+      - name: Verify sequential autopilot recovery and merge gates
+        run: python3 -m unittest discover -s tools/tests -v
+      - name: Decode and analyze actual audio signals
+        run: python3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa
       - name: Export native bootstrap binaries
         run: |
           mkdir -p build/linux build/windows

@@ -36,4 +36,4 @@ func _run() -> void:
 	_check(has_disclaimer, "fiction disclaimer visible in scene")
 	_check(has_scope, "bootstrap scope explicit")
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

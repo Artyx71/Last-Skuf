@@ -24,6 +24,7 @@ var action_active := 0.0
 var action_recovery := 0.0
 var melee_attack_id := 0
 var weapon_kind := ""
+var audio_step_distance := 0.0
 var actions_ready := false
 var weapon_visual: Node2D
 
@@ -93,8 +94,16 @@ func _present_action() -> void:
 
 func weapon_visual_update() -> void:
 	if weapon_visual:
-		weapon_visual.z_index = int(lab.visual_config.anchors[action_direction].layer)
+		var sockets: Dictionary = lab.visual_config.anchors[action_direction]
+		var layers: Array = sockets.get(action_kind + "_layers", [sockets.layer])
+		weapon_visual.z_index = int(layers[mini(action_frame, layers.size() - 1)])
 		weapon_visual.queue_redraw()
+
+
+func weapon_socket_visible() -> bool:
+	var sockets: Dictionary = lab.visual_config.anchors[action_direction]
+	var visibility: Array = sockets.get(action_kind + "_visible", [true])
+	return bool(visibility[mini(action_frame, visibility.size() - 1)])
 
 
 func _advance_action(delta: float) -> void:
@@ -144,6 +153,7 @@ func visual_muzzle() -> Vector2:
 
 
 func reset(at: Vector2) -> void:
+	audio_step_distance = 0.0
 	cancel_action()
 	position = at
 	velocity = Vector2.ZERO
@@ -200,7 +210,13 @@ func _physics_process(delta: float) -> void:
 			sprite.play(StringName("idle_" + String(facing)))
 		queue_redraw()
 		return
+	var audio_previous := position
 	super._physics_process(delta)
+	audio_step_distance += position.distance_to(audio_previous)
+	if audio_step_distance >= 24.0:
+		audio_step_distance = fmod(audio_step_distance, 24.0)
+		var material := "metal" if position.x > 430 else "concrete"
+		lab.audio_event.emit(StringName("footstep_" + material), global_position)
 	melee_cooldown = maxf(0.0, melee_cooldown - delta)
 	ranged_cooldown = maxf(0.0, ranged_cooldown - delta)
 	distract_cooldown = maxf(0.0, distract_cooldown - delta)

@@ -62,4 +62,4 @@ func _run() -> void:
 		_inspect("res://assets/art/enemies/" + kind + "_sheet.png", true)
 	_inspect("res://assets/art/yakuza/action_sheet.png", false)
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

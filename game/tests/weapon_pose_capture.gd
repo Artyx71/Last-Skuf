@@ -15,7 +15,7 @@ func _frames(count: int) -> void:
 func _run() -> void:
 	var output := OS.get_environment("AYAY_WEAPON_CAPTURE_DIR")
 	if output.is_empty():
-		quit(1)
+		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1)
 		return
 	DirAccess.make_dir_recursive_absolute(output)
 	lab = load("res://scenes/world/combat_lab.tscn").instantiate()
@@ -25,34 +25,45 @@ func _run() -> void:
 	var directions := {"down": Vector2.DOWN, "left": Vector2.LEFT, "right": Vector2.RIGHT, "up": Vector2.UP}
 	for weapon in ["melee", "ranged"]:
 		for direction in directions:
-			lab.reset_encounter()
-			lab.gallery_mode = true
-			lab.set_kit("training")
-			lab.player.position = Vector2(310, 260)
-			lab.player.set_aim(directions[direction])
-			for enemy in lab.enemies:
-				enemy.set_physics_process(false)
-				enemy.position = Vector2(540, 100)
-			await _frames(2)
-			var action := "attack_melee" if weapon == "melee" else "attack_ranged"
-			Input.action_press(action)
-			await _frames(2)
-			Input.action_release(action)
-			var ticks := 0
-			while weapon == "melee" and lab.player.action_frame != 1 and ticks < 20:
-				await _frames(1)
-				ticks += 1
-			await RenderingServer.frame_post_draw
-			var filename: String = weapon + "_" + direction + ".png"
-			var code := root.get_texture().get_image().save_png(output.path_join(filename))
-			var hand: Vector2 = lab.player.weapon_socket()
-			var muzzle: Vector2 = lab.player.visual_muzzle()
-			rows.append({"weapon": weapon, "direction": direction, "animation": String(lab.player.sprite.animation),
-				"frame": lab.player.sprite.frame, "hand_local": [hand.x, hand.y], "muzzle_global": [muzzle.x, muzzle.y],
-				"layer": lab.player.weapon_visual.z_index, "player_body_z": lab.player.z_index,
-				"enemy_body_z": lab.enemies[0].z_index, "saved": code == OK, "file": filename,
-				"projectile_visual_offsets": lab.combat.projectiles.map(func(bullet): return [bullet.visual_offset.x, bullet.visual_offset.y])})
-			await _frames(22)
+			var phases := [0, 1, 2] if weapon == "melee" else [0]
+			for expected_phase in phases:
+				lab.reset_encounter()
+				lab.gallery_mode = true
+				lab.set_kit("training")
+				lab.player.position = Vector2(310, 260)
+				lab.player.set_aim(directions[direction])
+				for enemy in lab.enemies:
+					enemy.set_physics_process(false)
+					enemy.position = Vector2(540, 100)
+				await _frames(2)
+				var action := "attack_melee" if weapon == "melee" else "attack_ranged"
+				Input.action_press(action)
+				await _frames(2)
+				Input.action_release(action)
+				var ticks := 0
+				while lab.player.action_frame != expected_phase and ticks < 30:
+					await _frames(1)
+					ticks += 1
+				await RenderingServer.frame_post_draw
+				var phase_ok: bool = lab.player.action_frame == expected_phase and lab.player.action_timer > 0
+				phase_ok = phase_ok and lab.player.action_kind == ("shove" if weapon == "melee" else "fire")
+				if not phase_ok:
+					push_error("Capture missed actual action phase " + weapon + " " + direction + " " + str(expected_phase))
+					preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1)
+					return
+				var suffix: String = "_phase%d" % expected_phase if weapon == "melee" else ""
+				var filename: String = weapon + "_" + direction + suffix + ".png"
+				var code := root.get_texture().get_image().save_png(output.path_join(filename))
+				var hand: Vector2 = lab.player.weapon_socket()
+				var muzzle: Vector2 = lab.player.visual_muzzle()
+				rows.append({"weapon": weapon, "direction": direction, "animation": String(lab.player.sprite.animation),
+					"expected_phase": expected_phase, "phase_verified": phase_ok,
+					"frame": lab.player.sprite.frame, "hand_local": [hand.x, hand.y], "muzzle_global": [muzzle.x, muzzle.y],
+					"weapon_visible": lab.player.weapon_socket_visible(),
+					"layer": lab.player.weapon_visual.z_index, "player_body_z": lab.player.z_index,
+					"enemy_body_z": lab.enemies[0].z_index, "saved": code == OK, "file": filename,
+					"projectile_visual_offsets": lab.combat.projectiles.map(func(bullet): return [bullet.visual_offset.x, bullet.visual_offset.y])})
+				await _frames(22)
 	# Separate actual defeat presentation samples from native melee, with AI/timers enabled.
 	for enemy in lab.enemies:
 		enemy.set_physics_process(true)
@@ -77,4 +88,4 @@ func _run() -> void:
 	root.get_texture().get_image().save_png(output.path_join("hud_upper_edge.png"))
 	var file := FileAccess.open(output.path_join("weapon_captures.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify({"schema": 1, "real_draw": true, "real_input": true, "captures": rows, "defeat": defeat_rows}, "  "))
-	quit(0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 0)

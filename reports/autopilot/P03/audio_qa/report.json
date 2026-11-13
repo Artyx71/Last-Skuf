@@ -1,0 +1,3674 @@
+{
+  "schema": 1,
+  "policy": {
+    "schema": 1,
+    "silence_dbfs": -70.0,
+    "dc_limit": 0.025,
+    "loop_join_limit": 0.025,
+    "mix_peak_limit": 0.95,
+    "mix_internal_silence_limit_seconds": 0.2,
+    "music_loudness_guard_lufs": [
+      -50,
+      -5
+    ],
+    "note": "Broad technical guards, not artistic loudness targets or proof of inaudibility."
+  },
+  "checks": [
+    {
+      "name": "res://assets/audio/music/last_skuf_demo_bass.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "broad_loudness_guard": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true
+      }
+    },
+    {
+      "name": "res://assets/audio/music/last_skuf_demo_texture.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "broad_loudness_guard": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true
+      }
+    },
+    {
+      "name": "res://assets/audio/music/last_skuf_demo_drums.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "broad_loudness_guard": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true
+      }
+    },
+    {
+      "name": "res://assets/audio/music/last_skuf_demo_lead.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "broad_loudness_guard": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/step_concrete_1.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/step_concrete_2.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/footstep_metal_1.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/footstep_metal_2.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/impact_1.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/impact_2.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/shove.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/knife.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/gunshot.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/noise.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/ui_confirm.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/ui_open.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/retry.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/clear.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/death.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/phone_ring.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/speech_yakuza_1.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "res://assets/audio/sfx/speech_yakuza_2.ogg",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "source_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_bass.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "exact_master_frames": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_drums.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "exact_master_frames": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_lead.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "exact_master_frames": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_texture.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "exact_master_frames": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_unity_master.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "exact_master_frames": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/clear.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/death.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/footstep_metal_1.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/footstep_metal_2.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/gunshot.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/impact_1.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/impact_2.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/knife.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/noise.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/phone_ring.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/retry.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/shove.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/speech_yakuza_1.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/speech_yakuza_2.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/step_concrete_1.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/step_concrete_2.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/ui_confirm.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "assets/source_audio/last_skuf_demo/sfx/ui_open.wav",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      }
+    },
+    {
+      "name": "decoded_profile_EXPLORE",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_join": true,
+        "no_internal_dropout": true
+      }
+    },
+    {
+      "name": "decoded_profile_SUSPICION",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_join": true,
+        "no_internal_dropout": true
+      }
+    },
+    {
+      "name": "decoded_profile_COMBAT",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_join": true,
+        "no_internal_dropout": true
+      }
+    },
+    {
+      "name": "decoded_profile_CLEAR",
+      "passed": true,
+      "details": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_join": true,
+        "no_internal_dropout": true
+      }
+    },
+    {
+      "name": "profile_transition_EXPLORE_SUSPICION",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.32285174405202266,
+          "max_step": 0.2566456883307546
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.3521313987195026,
+          "max_step": 0.13328267774544655
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3194215075508691,
+          "max_step": 0.2468026814237237
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_EXPLORE_COMBAT",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.508369714897219,
+          "max_step": 0.4441050070406714
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5518512897916721,
+          "max_step": 0.22792847034501512
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.45180329126575963,
+          "max_step": 0.4246641386413209
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_EXPLORE_CLEAR",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.16673196481617925,
+          "max_step": 0.06782061911188067
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.12911859752610325,
+          "max_step": 0.06674290127002945
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.18297681741968264,
+          "max_step": 0.06361970795318483
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_SUSPICION_EXPLORE",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.34768926470792405,
+          "max_step": 0.17509568768787281
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.2635544880676743,
+          "max_step": 0.20626328099040933
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3658498092224899,
+          "max_step": 0.10831738132337727
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_SUSPICION_COMBAT",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5086895573139191,
+          "max_step": 0.44416380785405635
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5539402537047863,
+          "max_step": 0.2295017863623798
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5108561626914888,
+          "max_step": 0.4246541265025735
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_SUSPICION_CLEAR",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.3478934573339444,
+          "max_step": 0.17509797321182893
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.2649552656220505,
+          "max_step": 0.20638140865980337
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3666424203601743,
+          "max_step": 0.1083174171087526
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_COMBAT_EXPLORE",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5431858132665094,
+          "max_step": 0.3021820105926701
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.4615017445734003,
+          "max_step": 0.36180546756355714
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5655976884227479,
+          "max_step": 0.1867011517175163
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_COMBAT_SUSPICION",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5437467412916294,
+          "max_step": 0.3021828398625003
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.46204050912056893,
+          "max_step": 0.36179017609376457
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5664677523820117,
+          "max_step": 0.2468026814237237
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_COMBAT_CLEAR",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5437467412916294,
+          "max_step": 0.3021828398625003
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.46204050912056893,
+          "max_step": 0.36179017609376457
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5664677523820117,
+          "max_step": 0.18670178933273227
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_CLEAR_EXPLORE",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.17268335144530284,
+          "max_step": 0.08808991821482778
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.17340172871947288,
+          "max_step": 0.061975535164835546
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.1657386452727951,
+          "max_step": 0.08540947802364826
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_CLEAR_SUSPICION",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.32285174405202266,
+          "max_step": 0.2566456883307546
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.3521313987195026,
+          "max_step": 0.13328267774544655
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3194215075508691,
+          "max_step": 0.2468026814237237
+        }
+      ]
+    },
+    {
+      "name": "profile_transition_CLEAR_COMBAT",
+      "passed": true,
+      "details": [
+        {
+          "beat_offset": 0,
+          "peak": 0.4932959236587087,
+          "max_step": 0.42464571014307434
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5318430916674436,
+          "max_step": 0.21648428323101254
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.4531566202219576,
+          "max_step": 0.408524603662213
+        }
+      ]
+    },
+    {
+      "name": "actual_gameplay_replay",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "pinned_engine",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_godot_execution",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "real_mixer_driver",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_mix_signal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_all_profiles",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_no_stacking",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_loop_wraps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "fresh_transition_windows",
+      "passed": true,
+      "details": {
+        "step_limit": 0.983154296875
+      }
+    },
+    {
+      "name": "fresh_loop_windows",
+      "passed": true,
+      "details": {
+        "step_limit": 0.983154296875
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "game/assets/audio/music/last_skuf_demo_bass.ogg",
+      "sha256": "f2aae6556451364680d255d3968089e0a9fff098b774eb0b4458189433e5983c",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.21561454236507416,
+        "sample_peak_dbfs": -13.326439020363024,
+        "rms_dbfs": -19.9320468728102,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001935832590685342,
+          0.001935832590685342
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.29,
+            0.34
+          ],
+          [
+            0.49,
+            0.62
+          ],
+          [
+            0.76,
+            0.93
+          ],
+          [
+            1.22,
+            1.34
+          ],
+          [
+            1.46,
+            1.51
+          ],
+          [
+            1.62,
+            1.65
+          ],
+          [
+            1.96,
+            2.01
+          ],
+          [
+            2.02,
+            2.03
+          ],
+          [
+            2.16,
+            2.29
+          ],
+          [
+            2.43,
+            2.6
+          ],
+          [
+            2.88,
+            3.01
+          ],
+          [
+            3.12,
+            3.17
+          ],
+          [
+            3.29,
+            3.31
+          ],
+          [
+            3.63,
+            3.68
+          ],
+          [
+            3.83,
+            3.95
+          ],
+          [
+            4.1,
+            4.27
+          ],
+          [
+            4.55,
+            4.67
+          ],
+          [
+            4.79,
+            4.84
+          ],
+          [
+            4.95,
+            4.98
+          ],
+          [
+            5.3,
+            5.36
+          ],
+          [
+            5.5,
+            5.6
+          ],
+          [
+            5.77,
+            5.93
+          ],
+          [
+            6.22,
+            6.35
+          ],
+          [
+            6.46,
+            6.51
+          ],
+          [
+            6.63,
+            6.65
+          ],
+          [
+            6.86,
+            6.97
+          ],
+          [
+            7.1,
+            7.23
+          ],
+          [
+            7.38,
+            7.48
+          ],
+          [
+            7.68,
+            7.81
+          ],
+          [
+            7.93,
+            8.0
+          ],
+          [
+            8.13,
+            8.17
+          ],
+          [
+            8.29,
+            8.31
+          ],
+          [
+            8.53,
+            8.64
+          ],
+          [
+            8.77,
+            8.89
+          ],
+          [
+            9.04,
+            9.16
+          ],
+          [
+            9.35,
+            9.47
+          ],
+          [
+            9.6,
+            9.67
+          ],
+          [
+            9.8,
+            9.84
+          ],
+          [
+            9.96,
+            9.98
+          ],
+          [
+            10.3,
+            10.35
+          ],
+          [
+            10.49,
+            10.62
+          ],
+          [
+            10.76,
+            10.93
+          ],
+          [
+            11.22,
+            11.34
+          ],
+          [
+            11.46,
+            11.51
+          ],
+          [
+            11.62,
+            11.65
+          ],
+          [
+            11.95,
+            12.03
+          ],
+          [
+            12.16,
+            12.28
+          ],
+          [
+            12.43,
+            12.6
+          ],
+          [
+            12.88,
+            13.01
+          ],
+          [
+            13.13,
+            13.17
+          ],
+          [
+            13.29,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.17000000000000004,
+        "boundary_step": 0.0002994104288518429,
+        "max_sample_step": 0.032799169421195984,
+        "sample_step_p9999": 0.011148247867822647
+      },
+      "loudness": {
+        "integrated_lufs": -21.3,
+        "true_peak_dbfs": -13.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/last_skuf_demo_texture.ogg",
+      "sha256": "ef9aad7fb07cbf997c0946289b8278e0f7f811e945f667c368e6bc4016ed04c5",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.06108034402132034,
+        "sample_peak_dbfs": -24.281970510851842,
+        "rms_dbfs": -36.65681759434578,
+        "clipped_samples": 0,
+        "dc_channels": [
+          1.9265967127915394e-06,
+          2.9947477356543575e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0016212747432291508,
+        "max_sample_step": 0.008034434169530869,
+        "sample_step_p9999": 0.002224110998213291
+      },
+      "loudness": {
+        "integrated_lufs": -34.7,
+        "true_peak_dbfs": -24.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/last_skuf_demo_drums.ogg",
+      "sha256": "57312b1c6d91edcac77d765849cdaa907a05e2bb688822ebb18a72b5c7ef62f7",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.5182072520256042,
+        "sample_peak_dbfs": -5.7099302719029685,
+        "rms_dbfs": -19.472801831094962,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0012600832508954344,
+          0.0012561792917531918
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.4,
+            0.41
+          ],
+          [
+            0.7,
+            0.72
+          ],
+          [
+            1.55,
+            1.66
+          ],
+          [
+            2.07,
+            2.08
+          ],
+          [
+            2.37,
+            2.39
+          ],
+          [
+            3.24,
+            3.25
+          ],
+          [
+            3.32,
+            3.33
+          ],
+          [
+            4.04,
+            4.06
+          ],
+          [
+            4.88,
+            4.99
+          ],
+          [
+            5.4,
+            5.41
+          ],
+          [
+            5.7,
+            5.72
+          ],
+          [
+            7.68,
+            7.7
+          ],
+          [
+            9.35,
+            9.37
+          ],
+          [
+            10.4,
+            10.41
+          ],
+          [
+            10.7,
+            10.72
+          ],
+          [
+            11.55,
+            11.66
+          ],
+          [
+            12.07,
+            12.08
+          ],
+          [
+            12.37,
+            12.39
+          ]
+        ],
+        "max_internal_silence_seconds": 0.11000000000000032,
+        "boundary_step": 0.0009198561310768127,
+        "max_sample_step": 0.4562550485134125,
+        "sample_step_p9999": 0.3267139717936516
+      },
+      "loudness": {
+        "integrated_lufs": -18.9,
+        "true_peak_dbfs": -5.7,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/last_skuf_demo_lead.ogg",
+      "sha256": "62fc727231e971741508ee5bb5702693bcae048e301ab7843c09f280a5863e71",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.08699093014001846,
+        "sample_peak_dbfs": -21.210520509806535,
+        "rms_dbfs": -32.52462420977673,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.5842099005151844e-07,
+          1.0009518416853705e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.05,
+            0.1
+          ],
+          [
+            0.83,
+            0.87
+          ],
+          [
+            0.9,
+            0.93
+          ],
+          [
+            1.1,
+            1.14
+          ],
+          [
+            1.41,
+            1.45
+          ],
+          [
+            1.71,
+            1.77
+          ],
+          [
+            2.5,
+            2.6
+          ],
+          [
+            2.76,
+            2.81
+          ],
+          [
+            3.07,
+            3.12
+          ],
+          [
+            3.38,
+            3.43
+          ],
+          [
+            4.16,
+            4.27
+          ],
+          [
+            4.43,
+            4.47
+          ],
+          [
+            4.74,
+            4.79
+          ],
+          [
+            5.05,
+            5.1
+          ],
+          [
+            5.83,
+            5.93
+          ],
+          [
+            6.1,
+            6.14
+          ],
+          [
+            6.41,
+            6.45
+          ],
+          [
+            6.71,
+            6.77
+          ],
+          [
+            7.46,
+            7.47
+          ],
+          [
+            7.5,
+            7.54
+          ],
+          [
+            7.56,
+            7.6
+          ],
+          [
+            7.76,
+            7.81
+          ],
+          [
+            8.07,
+            8.12
+          ],
+          [
+            8.38,
+            8.43
+          ],
+          [
+            9.16,
+            9.27
+          ],
+          [
+            9.43,
+            9.47
+          ],
+          [
+            9.74,
+            9.79
+          ],
+          [
+            10.05,
+            10.1
+          ],
+          [
+            10.83,
+            10.93
+          ],
+          [
+            11.1,
+            11.14
+          ],
+          [
+            11.41,
+            11.45
+          ],
+          [
+            11.71,
+            11.77
+          ],
+          [
+            12.5,
+            12.6
+          ],
+          [
+            12.76,
+            12.81
+          ],
+          [
+            13.07,
+            13.12
+          ]
+        ],
+        "max_internal_silence_seconds": 0.10999999999999943,
+        "boundary_step": 0.0017273747362196445,
+        "max_sample_step": 0.03619218897074461,
+        "sample_step_p9999": 0.030191018246114254
+      },
+      "loudness": {
+        "integrated_lufs": -29.5,
+        "true_peak_dbfs": -21.2,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/step_concrete_1.ogg",
+      "sha256": "e7643fe54161eab86dbe0f321c9b36dd3c9085e19c96f1a58e59aff88c0e3a50",
+      "kind": "sfx",
+      "signal": {
+        "frames": 6592,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.13733333333333334,
+        "sample_peak": 0.33804067969322205,
+        "sample_peak_dbfs": -9.420620674729092,
+        "rms_dbfs": -26.895800491867007,
+        "clipped_samples": 0,
+        "dc_channels": [
+          7.400788846240126e-05,
+          7.400788846240126e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0002925188164226711,
+        "max_sample_step": 0.08942665904760361,
+        "sample_step_p9999": 0.08942665904760361
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.4,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/step_concrete_2.ogg",
+      "sha256": "4795f6bb5c9e454f5b5bdcf3ef14083f58854225dfb0cd01c5551eb680bd4b98",
+      "kind": "sfx",
+      "signal": {
+        "frames": 7312,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.15233333333333332,
+        "sample_peak": 0.31939035654067993,
+        "sample_peak_dbfs": -9.913564015947893,
+        "rms_dbfs": -27.377958722995515,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0002792100473707982,
+          0.0002792100473707982
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.15,
+            0.15233333333333332
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0005567485804931493,
+        "max_sample_step": 0.05236043035984039,
+        "sample_step_p9999": 0.05236043035984039
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/footstep_metal_1.ogg",
+      "sha256": "5dedd9d260227a7d57b97bd231a9e804cb1fcd7e30d0c4621f8e2702d7d9bf44",
+      "kind": "sfx",
+      "signal": {
+        "frames": 8992,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.18733333333333332,
+        "sample_peak": 0.3381125330924988,
+        "sample_peak_dbfs": -9.418774611775355,
+        "rms_dbfs": -30.180073461675896,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -1.348575193654655e-05,
+          -1.348575193654655e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.18,
+            0.18733333333333332
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.001550605200463906,
+        "max_sample_step": 0.1805412583053112,
+        "sample_step_p9999": 0.1805412583053112
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.2,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/footstep_metal_2.ogg",
+      "sha256": "1dce87b427418009914b6fb8a3622fe68f377970cd6e2cf6feab815ca895f857",
+      "kind": "sfx",
+      "signal": {
+        "frames": 8512,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.17733333333333334,
+        "sample_peak": 0.3456186354160309,
+        "sample_peak_dbfs": -9.228056976631635,
+        "rms_dbfs": -29.133158104107885,
+        "clipped_samples": 0,
+        "dc_channels": [
+          4.666625318125889e-06,
+          4.666625318125889e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.17,
+            0.17733333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.004806744051165879,
+        "max_sample_step": 0.25384649634361267,
+        "sample_step_p9999": 0.25384649634361267
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -8.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/impact_1.ogg",
+      "sha256": "90198ec3b89dc89c91f08c84da6695fdc4e6337b66a49cc62f5862e2a8d0a2b9",
+      "kind": "sfx",
+      "signal": {
+        "frames": 12992,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.27066666666666667,
+        "sample_peak": 0.31034672260284424,
+        "sample_peak_dbfs": -10.163056731881678,
+        "rms_dbfs": -29.61473652312122,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0002480861275044243,
+          0.0002480861275044243
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.24,
+            0.27066666666666667
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.004012504094944743,
+        "max_sample_step": 0.10683889547362924,
+        "sample_step_p9999": 0.10049276798963547
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -10.1,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/impact_2.ogg",
+      "sha256": "4fa34ed7a46437657f0989574fa4b3c7925092b0afbc0381f908504790aac7e7",
+      "kind": "sfx",
+      "signal": {
+        "frames": 10432,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.21733333333333332,
+        "sample_peak": 0.34443068504333496,
+        "sample_peak_dbfs": -9.257963291210675,
+        "rms_dbfs": -27.28819238433079,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.7958706713479877e-05,
+          2.7958706713479877e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.21,
+            0.21733333333333332
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0019117051451758016,
+        "max_sample_step": 0.18532390519976616,
+        "sample_step_p9999": 0.18248004000633955
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -8.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/shove.ogg",
+      "sha256": "adecabc2cea47237650de88ce4c77bc829738e7ed716074acb3704074a3a2059",
+      "kind": "sfx",
+      "signal": {
+        "frames": 12352,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.25733333333333336,
+        "sample_peak": 0.33244913816452026,
+        "sample_peak_dbfs": -9.565495771374886,
+        "rms_dbfs": -28.513602865878617,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.00015657139981954188,
+          0.00015657139981954188
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0010232042550342157,
+        "max_sample_step": 0.08619120717048645,
+        "sample_step_p9999": 0.08297319896519184
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.5,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/knife.ogg",
+      "sha256": "c60c5ab01e2785dcbf5b561f0338096fab84811ee01828aa509a0be9260281dc",
+      "kind": "sfx",
+      "signal": {
+        "frames": 9952,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.20733333333333334,
+        "sample_peak": 0.3327803313732147,
+        "sample_peak_dbfs": -9.5568470027048,
+        "rms_dbfs": -30.212855927978623,
+        "clipped_samples": 0,
+        "dc_channels": [
+          1.2120808785378678e-08,
+          1.2120808785378678e-08
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.2,
+            0.20733333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0002570963406469673,
+        "max_sample_step": 0.3006138205528259,
+        "sample_step_p9999": 0.3006138205528259
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/gunshot.ogg",
+      "sha256": "5140a4ccc5eef01bc2ebe69c362fd2ca229ce627aa01d8d5b9de97c10bff8ba5",
+      "kind": "sfx",
+      "signal": {
+        "frames": 14752,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.30733333333333335,
+        "sample_peak": 0.3695591986179352,
+        "sample_peak_dbfs": -8.646319666421283,
+        "rms_dbfs": -29.53489569525804,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0004103647095089834,
+          0.0004103647095089834
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.23,
+            0.30733333333333335
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0015628968380951846,
+        "max_sample_step": 0.2494705580174923,
+        "sample_step_p9999": 0.24361254647374153
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -8.5,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/noise.ogg",
+      "sha256": "b997b8725f20e4c76c3b633ab6c4eb752654aaad4e0a32f7d047a3247b4bd58f",
+      "kind": "sfx",
+      "signal": {
+        "frames": 17152,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.35733333333333334,
+        "sample_peak": 0.31973838806152344,
+        "sample_peak_dbfs": -9.904104376696992,
+        "rms_dbfs": -29.894171297437893,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.980949088713778e-06,
+          2.980949088713778e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.35,
+            0.35733333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0008859553490765393,
+        "max_sample_step": 0.1550859399139881,
+        "sample_step_p9999": 0.15248116478323936
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -9.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/ui_confirm.ogg",
+      "sha256": "8f038893aeb4ce14615002f63afdcea643538020b4fb8dbbb956b6cd73bae9b6",
+      "kind": "sfx",
+      "signal": {
+        "frames": 11872,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.24733333333333332,
+        "sample_peak": 0.16007092595100403,
+        "sample_peak_dbfs": -15.913750856390303,
+        "rms_dbfs": -23.794332595273865,
+        "clipped_samples": 0,
+        "dc_channels": [
+          1.0330911084145342e-06,
+          1.0330911084145342e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.15,
+            0.24733333333333332
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0002586527552921325,
+        "max_sample_step": 0.02252867817878723,
+        "sample_step_p9999": 0.022457022219896317
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -15.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/ui_open.ogg",
+      "sha256": "e6ee3b8b13a03ac5e49e3aa3a4884f21f09c4f87f8a10fbda64ae5dbe5d5be04",
+      "kind": "sfx",
+      "signal": {
+        "frames": 11200,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.23333333333333334,
+        "sample_peak": 0.1612846553325653,
+        "sample_peak_dbfs": -15.848138990893537,
+        "rms_dbfs": -24.499574144596355,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -4.628772808431664e-05,
+          -4.628772808431664e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.13,
+            0.23333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 2.587878771009855e-05,
+        "max_sample_step": 0.011411654762923717,
+        "sample_step_p9999": 0.011395061388611794
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -15.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/retry.ogg",
+      "sha256": "73196909e63ebfecbeaa147db4daf96d6f17e11944791c2c27967d4a22ebb629",
+      "kind": "sfx",
+      "signal": {
+        "frames": 19008,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.396,
+        "sample_peak": 0.16097232699394226,
+        "sample_peak_dbfs": -15.86497555598488,
+        "rms_dbfs": -23.327150008205013,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -7.965200369678497e-05,
+          -7.965200369678497e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.27,
+            0.396
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.00036442154669202864,
+        "max_sample_step": 0.007671236468013376,
+        "sample_step_p9999": 0.007669446582440287
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -15.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/clear.ogg",
+      "sha256": "24f77a5bf4e498650d74e9b78cecd450a00dfae116b683d2b6eadf4e83abfe93",
+      "kind": "sfx",
+      "signal": {
+        "frames": 34912,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.7273333333333334,
+        "sample_peak": 0.1612846553325653,
+        "sample_peak_dbfs": -15.848138990893537,
+        "rms_dbfs": -22.346945010734927,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -1.031336876314307e-05,
+          -1.031336876314307e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.13,
+            0.15
+          ],
+          [
+            0.29,
+            0.3
+          ],
+          [
+            0.45,
+            0.47
+          ],
+          [
+            0.61,
+            0.7273333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.01999999999999999,
+        "boundary_step": 1.036141566146398e-05,
+        "max_sample_step": 0.01519954763352871,
+        "sample_step_p9999": 0.01505303755402565
+      },
+      "loudness": {
+        "integrated_lufs": -19.6,
+        "true_peak_dbfs": -15.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/death.ogg",
+      "sha256": "39db795558ce582f260f0f408ca84fba09576efb7e36e46efbcc9f1b42d80124",
+      "kind": "sfx",
+      "signal": {
+        "frames": 26176,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.5453333333333333,
+        "sample_peak": 0.34157246351242065,
+        "sample_peak_dbfs": -9.330342960283591,
+        "rms_dbfs": -16.406210327130868,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0012308750636129105,
+          0.0012308750636129105
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.42,
+            0.5453333333333333
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 9.942217002389953e-05,
+        "max_sample_step": 0.011743485927581787,
+        "sample_step_p9999": 0.01173098012804985
+      },
+      "loudness": {
+        "integrated_lufs": -15.1,
+        "true_peak_dbfs": -9.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/phone_ring.ogg",
+      "sha256": "48557fda4a2aed2ce60b12d4032350103017193135a389d2d88bc1923037aa77",
+      "kind": "sfx",
+      "signal": {
+        "frames": 23392,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.48733333333333334,
+        "sample_peak": 0.1609295755624771,
+        "sample_peak_dbfs": -15.867282682564811,
+        "rms_dbfs": -23.78285392571143,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.6089005767583493e-06,
+          3.6089005767583493e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.07,
+            0.1
+          ],
+          [
+            0.17,
+            0.2
+          ],
+          [
+            0.27,
+            0.3
+          ],
+          [
+            0.37,
+            0.48733333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.03,
+        "boundary_step": 0.00023079614038579166,
+        "max_sample_step": 0.03038531169295311,
+        "sample_step_p9999": 0.030182630755007267
+      },
+      "loudness": {
+        "integrated_lufs": -19.7,
+        "true_peak_dbfs": -15.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/speech_yakuza_1.ogg",
+      "sha256": "c81e888b0e3cf7ed9aa18819908733bc53144c88592296052b8986a4cdbcbaa4",
+      "kind": "sfx",
+      "signal": {
+        "frames": 10528,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.21933333333333332,
+        "sample_peak": 0.20525431632995605,
+        "sample_peak_dbfs": -13.754154025113511,
+        "rms_dbfs": -23.224501208861632,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0012551851936105497,
+          0.0012551851936105497
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.13,
+            0.21933333333333332
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.00021286460105329752,
+        "max_sample_step": 0.005738886073231697,
+        "sample_step_p9999": 0.005737185478210449
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -13.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/speech_yakuza_2.ogg",
+      "sha256": "709396fee76e1221bc05655cf2757aa3f972023c9c5ff51d94ccb913f1d30e20",
+      "kind": "sfx",
+      "signal": {
+        "frames": 10816,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.22533333333333333,
+        "sample_peak": 0.20498305559158325,
+        "sample_peak_dbfs": -13.765640746418288,
+        "rms_dbfs": -24.137276456826857,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0008315326171064999,
+          0.0008315326171064999
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.11,
+            0.22533333333333333
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.00018084979092236608,
+        "max_sample_step": 0.005715970881283283,
+        "sample_step_p9999": 0.00571372639387846
+      },
+      "loudness": {
+        "integrated_lufs": -70.0,
+        "true_peak_dbfs": -13.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_bass.wav",
+      "sha256": "136cf77f7b8cac70a4ca48ac6dc55645d0e14b56e4c005ac27265eb9bb80dc22",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.20800936222076416,
+        "sample_peak_dbfs": -13.63834235177235,
+        "rms_dbfs": -19.984311407439503,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0019177982151508332,
+          0.0019177982151508332
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.29,
+            0.36
+          ],
+          [
+            0.49,
+            0.62
+          ],
+          [
+            0.76,
+            0.93
+          ],
+          [
+            1.22,
+            1.35
+          ],
+          [
+            1.45,
+            1.51
+          ],
+          [
+            1.62,
+            1.66
+          ],
+          [
+            1.95,
+            2.03
+          ],
+          [
+            2.16,
+            2.29
+          ],
+          [
+            2.43,
+            2.6
+          ],
+          [
+            2.88,
+            3.02
+          ],
+          [
+            3.12,
+            3.17
+          ],
+          [
+            3.29,
+            3.33
+          ],
+          [
+            3.62,
+            3.69
+          ],
+          [
+            3.83,
+            3.95
+          ],
+          [
+            4.1,
+            4.27
+          ],
+          [
+            4.55,
+            4.68
+          ],
+          [
+            4.78,
+            4.84
+          ],
+          [
+            4.95,
+            5.0
+          ],
+          [
+            5.29,
+            5.36
+          ],
+          [
+            5.49,
+            5.62
+          ],
+          [
+            5.76,
+            5.93
+          ],
+          [
+            6.22,
+            6.35
+          ],
+          [
+            6.45,
+            6.51
+          ],
+          [
+            6.62,
+            6.66
+          ],
+          [
+            6.86,
+            6.97
+          ],
+          [
+            7.1,
+            7.23
+          ],
+          [
+            7.38,
+            7.5
+          ],
+          [
+            7.68,
+            7.81
+          ],
+          [
+            7.93,
+            8.02
+          ],
+          [
+            8.13,
+            8.17
+          ],
+          [
+            8.29,
+            8.33
+          ],
+          [
+            8.53,
+            8.64
+          ],
+          [
+            8.77,
+            8.9
+          ],
+          [
+            9.04,
+            9.16
+          ],
+          [
+            9.35,
+            9.47
+          ],
+          [
+            9.6,
+            9.68
+          ],
+          [
+            9.79,
+            9.84
+          ],
+          [
+            9.95,
+            10.0
+          ],
+          [
+            10.29,
+            10.36
+          ],
+          [
+            10.49,
+            10.62
+          ],
+          [
+            10.76,
+            10.93
+          ],
+          [
+            11.22,
+            11.35
+          ],
+          [
+            11.45,
+            11.51
+          ],
+          [
+            11.62,
+            11.66
+          ],
+          [
+            11.95,
+            12.03
+          ],
+          [
+            12.16,
+            12.29
+          ],
+          [
+            12.43,
+            12.6
+          ],
+          [
+            12.88,
+            13.02
+          ],
+          [
+            13.12,
+            13.17
+          ],
+          [
+            13.29,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.17000000000000004,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.04030942916870117,
+        "sample_step_p9999": 0.01151430606842041
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_drums.wav",
+      "sha256": "246159f76226f39ab8ebbfd1dce661ae9d6c2d009f87caa5ff3eb9e1e589db8e",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.534600019454956,
+        "sample_peak_dbfs": -5.439420595496108,
+        "rms_dbfs": -19.49515467662234,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0012141848733648658,
+          0.0012133931558579206
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.4,
+            0.41
+          ],
+          [
+            0.7,
+            0.72
+          ],
+          [
+            1.54,
+            1.66
+          ],
+          [
+            2.07,
+            2.08
+          ],
+          [
+            2.37,
+            2.39
+          ],
+          [
+            3.24,
+            3.25
+          ],
+          [
+            3.32,
+            3.33
+          ],
+          [
+            3.74,
+            3.75
+          ],
+          [
+            4.04,
+            4.06
+          ],
+          [
+            4.88,
+            5.0
+          ],
+          [
+            5.4,
+            5.41
+          ],
+          [
+            5.7,
+            5.72
+          ],
+          [
+            7.68,
+            7.7
+          ],
+          [
+            9.35,
+            9.37
+          ],
+          [
+            10.4,
+            10.41
+          ],
+          [
+            10.7,
+            10.72
+          ],
+          [
+            11.54,
+            11.66
+          ],
+          [
+            12.07,
+            12.08
+          ],
+          [
+            12.37,
+            12.39
+          ]
+        ],
+        "max_internal_silence_seconds": 0.120000000000001,
+        "boundary_step": 0.00031495094299316406,
+        "max_sample_step": 0.4937117099761963,
+        "sample_step_p9999": 0.34076690673828125
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_lead.wav",
+      "sha256": "a2e1e4eca540cdaf9bcaf97006898a8ae93318928f2e4af522e4135f73e57aa3",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.08589136600494385,
+        "sample_peak_dbfs": -21.321009804834375,
+        "rms_dbfs": -32.593101543110606,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.4464895725250243e-08,
+          -9.245742112398148e-08
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.05,
+            0.1
+          ],
+          [
+            0.83,
+            0.87
+          ],
+          [
+            0.9,
+            0.93
+          ],
+          [
+            1.1,
+            1.14
+          ],
+          [
+            1.41,
+            1.45
+          ],
+          [
+            1.71,
+            1.77
+          ],
+          [
+            2.5,
+            2.6
+          ],
+          [
+            2.76,
+            2.81
+          ],
+          [
+            3.07,
+            3.12
+          ],
+          [
+            3.38,
+            3.43
+          ],
+          [
+            4.16,
+            4.27
+          ],
+          [
+            4.43,
+            4.47
+          ],
+          [
+            4.74,
+            4.79
+          ],
+          [
+            5.05,
+            5.1
+          ],
+          [
+            5.83,
+            5.93
+          ],
+          [
+            6.1,
+            6.14
+          ],
+          [
+            6.41,
+            6.45
+          ],
+          [
+            6.71,
+            6.77
+          ],
+          [
+            7.46,
+            7.47
+          ],
+          [
+            7.5,
+            7.54
+          ],
+          [
+            7.56,
+            7.6
+          ],
+          [
+            7.76,
+            7.81
+          ],
+          [
+            8.07,
+            8.12
+          ],
+          [
+            8.38,
+            8.43
+          ],
+          [
+            9.16,
+            9.27
+          ],
+          [
+            9.43,
+            9.47
+          ],
+          [
+            9.74,
+            9.79
+          ],
+          [
+            10.05,
+            10.1
+          ],
+          [
+            10.83,
+            10.93
+          ],
+          [
+            11.1,
+            11.14
+          ],
+          [
+            11.41,
+            11.45
+          ],
+          [
+            11.71,
+            11.77
+          ],
+          [
+            12.5,
+            12.6
+          ],
+          [
+            12.76,
+            12.81
+          ],
+          [
+            13.07,
+            13.12
+          ]
+        ],
+        "max_internal_silence_seconds": 0.10999999999999943,
+        "boundary_step": 0.0019980669021606445,
+        "max_sample_step": 0.03660237789154053,
+        "sample_step_p9999": 0.030186057090759277
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_texture.wav",
+      "sha256": "dbae0dfba468927bed34523384dc798d0a8bda8f0938a34659dda56db5b63fcf",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.060617685317993164,
+        "sample_peak_dbfs": -24.34801302311437,
+        "rms_dbfs": -36.68553384192386,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.362150304019451e-06,
+          4.642389714717865e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0018110275268554688,
+        "max_sample_step": 0.010100960731506348,
+        "sample_step_p9999": 0.0022373199462890625
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/masters/last_skuf_demo_unity_master.wav",
+      "sha256": "ff9f486d18e6d42a72d33e7e3d0b5bbc9f0ef738f190c5ffb2facd63cb2d019c",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.6000000238418579,
+        "sample_peak_dbfs": -4.4369746471808895,
+        "rms_dbfs": -16.505489963328664,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0031353795224800707,
+          0.0031357411846518516
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0005360841751098633,
+        "max_sample_step": 0.5020961761474609,
+        "sample_step_p9999": 0.3408842086791992
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/clear.wav",
+      "sha256": "7ed365aa1136fb469390c63fd98c137f89cfcffe437eecc0d4253fabd111b18b",
+      "kind": "source",
+      "signal": {
+        "frames": 35040,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.73,
+        "sample_peak": 0.1597003936767578,
+        "sample_peak_dbfs": -15.933880265654532,
+        "rms_dbfs": -22.444887986469357,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -1.33182734387106e-05,
+          -1.33182734387106e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.13,
+            0.16
+          ],
+          [
+            0.29,
+            0.32
+          ],
+          [
+            0.45,
+            0.48
+          ],
+          [
+            0.61,
+            0.73
+          ]
+        ],
+        "max_internal_silence_seconds": 0.030000000000000027,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.015169858932495117,
+        "sample_step_p9999": 0.015012621879577637
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/death.wav",
+      "sha256": "664cd1bdee0c198dd26d29e50884dd631cddae1b68d64216b52242f0b4a1c212",
+      "kind": "source",
+      "signal": {
+        "frames": 25200,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.525,
+        "sample_peak": 0.3331948518753052,
+        "sample_peak_dbfs": -9.546034348151307,
+        "rms_dbfs": -16.28934311881201,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0013760691076990159,
+          0.0013760691076990159
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.12,
+            0.14
+          ],
+          [
+            0.27,
+            0.29
+          ],
+          [
+            0.41,
+            0.525
+          ]
+        ],
+        "max_internal_silence_seconds": 0.020000000000000018,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.01168203353881836,
+        "sample_step_p9999": 0.011667847633361816
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/footstep_metal_1.wav",
+      "sha256": "72dc6775e6bbaaec91b576b93ce0a3f5be580a0687a9e0e93db0254d7e3894ea",
+      "kind": "source",
+      "signal": {
+        "frames": 9120,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.19,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -29.986101982495008,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -1.2859689039096498e-05,
+          -1.2859689039096498e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.18,
+            0.19
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 1.1920928955078125e-07,
+        "max_sample_step": 0.18333494663238525,
+        "sample_step_p9999": 0.18333494663238525
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/footstep_metal_2.wav",
+      "sha256": "3eb2f74ba4a6095508f7f0cf39318116939cc482c87106127d30ae3dcc94b2c7",
+      "kind": "source",
+      "signal": {
+        "frames": 8640,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.18,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -28.990459834106126,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.395458243511341e-06,
+          2.395458243511341e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.17,
+            0.18
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 3.5762786865234375e-07,
+        "max_sample_step": 0.25239574909210205,
+        "sample_step_p9999": 0.25239574909210205
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/gunshot.wav",
+      "sha256": "fe5125b7e89986e3663cd92c256c9587bc4af6a9eda68cd1479162d3f8dd15c5",
+      "kind": "source",
+      "signal": {
+        "frames": 14880,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.31,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -29.49816653365293,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0003772198833445067,
+          0.0003772198833445067
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.23,
+            0.31
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.2726871967315674,
+        "sample_step_p9999": 0.25625836849212646
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/impact_1.wav",
+      "sha256": "d8ada333993dd169e28c0dc5ceda3fa9d60e12cb6855601e869a6f60cb0805ca",
+      "kind": "source",
+      "signal": {
+        "frames": 12000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.25,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -29.13803973471285,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0002886678874492645,
+          0.0002886678874492645
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.24,
+            0.25
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 4.76837158203125e-07,
+        "max_sample_step": 0.11690139770507812,
+        "sample_step_p9999": 0.1112908124923706
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/impact_2.wav",
+      "sha256": "a75ba0b801ec783aae35177850af11e98c33c9fa6e0087e52bbff9f1bf401a53",
+      "kind": "source",
+      "signal": {
+        "frames": 10560,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.22,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -27.066591366541346,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.363478815916813e-05,
+          3.363478815916813e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.21,
+            0.22
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 1.1920928955078125e-07,
+        "max_sample_step": 0.2019723653793335,
+        "sample_step_p9999": 0.19496512413024902
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/knife.wav",
+      "sha256": "2e4e6c31092e7a1896f71e656e90fb2e891a8c90e90b3d401dde8af88d3d21ee",
+      "kind": "source",
+      "signal": {
+        "frames": 10080,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.21,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -29.825862247778968,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -2.1995769606696235e-07,
+          -2.1995769606696235e-07
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.2,
+            0.21
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 1.1920928955078125e-07,
+        "max_sample_step": 0.31287240982055664,
+        "sample_step_p9999": 0.2692873477935791
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/noise.wav",
+      "sha256": "dccce447b3f55395d260d82a8b4f7c81f7f2da473e19304dd023261d501f3544",
+      "kind": "source",
+      "signal": {
+        "frames": 17280,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.36,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -29.489166340642868,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.961640280705911e-06,
+          2.961640280705911e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.35,
+            0.36
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 2.384185791015625e-07,
+        "max_sample_step": 0.18110299110412598,
+        "sample_step_p9999": 0.17843866348266602
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/phone_ring.wav",
+      "sha256": "cc6949e080bf4c7b6ccc72cc0eddcd568c4c700a8d2e5fdcba0c4ff3454a0d24",
+      "kind": "source",
+      "signal": {
+        "frames": 23520,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.49,
+        "sample_peak": 0.15960407257080078,
+        "sample_peak_dbfs": -15.939120621552892,
+        "rms_dbfs": -23.82013337238699,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.1070999142264024e-06,
+          3.1070999142264024e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.07,
+            0.1
+          ],
+          [
+            0.17,
+            0.2
+          ],
+          [
+            0.27,
+            0.3
+          ],
+          [
+            0.37,
+            0.49
+          ]
+        ],
+        "max_internal_silence_seconds": 0.03,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.030209660530090332,
+        "sample_step_p9999": 0.030156970024108887
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/retry.wav",
+      "sha256": "346048df9fadfdb3e672d9fdf1f82bc000fc95192d66ffd345a5e530d0305b8e",
+      "kind": "source",
+      "signal": {
+        "frames": 18000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.375,
+        "sample_peak": 0.1597003936767578,
+        "sample_peak_dbfs": -15.933880265654532,
+        "rms_dbfs": -23.16696636721304,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -4.8550996515485975e-05,
+          -4.8550996515485975e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.08,
+            0.09
+          ],
+          [
+            0.17,
+            0.19
+          ],
+          [
+            0.27,
+            0.375
+          ]
+        ],
+        "max_internal_silence_seconds": 0.01999999999999999,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.007593035697937012,
+        "sample_step_p9999": 0.007590055465698242
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/shove.wav",
+      "sha256": "a5bebce0457de4a1d204cbc8055fce94274d9b452e89d660d57c226aa8aff3ba",
+      "kind": "source",
+      "signal": {
+        "frames": 12480,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.26,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -28.405880446616344,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.00016413809588322273,
+          0.00016413809588322273
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 8.344650268554688e-07,
+        "max_sample_step": 0.09159445762634277,
+        "sample_step_p9999": 0.08309018611907959
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/speech_yakuza_1.wav",
+      "sha256": "52b88de7c7f01a5e1c0bc21b2493ff8f5c7463c8520c48c98298f85a8f59c753",
+      "kind": "source",
+      "signal": {
+        "frames": 10656,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.222,
+        "sample_peak": 0.20531129837036133,
+        "sample_peak_dbfs": -13.751743011137824,
+        "rms_dbfs": -23.300586504370912,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0010308080517851912,
+          0.0010308080517851912
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.05,
+            0.06
+          ],
+          [
+            0.12,
+            0.222
+          ]
+        ],
+        "max_internal_silence_seconds": 0.009999999999999995,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.0057086944580078125,
+        "sample_step_p9999": 0.005706429481506348
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/speech_yakuza_2.wav",
+      "sha256": "c2b89c7569092d4d5d3d0355dce24e0dedf79f5a0f0e833b1400ffe3004616c9",
+      "kind": "source",
+      "signal": {
+        "frames": 9888,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.206,
+        "sample_peak": 0.20531129837036133,
+        "sample_peak_dbfs": -13.751743011137824,
+        "rms_dbfs": -23.763048238049876,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0008739165865294756,
+          0.0008739165865294756
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.11,
+            0.206
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.0057086944580078125,
+        "sample_step_p9999": 0.0057086944580078125
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/step_concrete_1.wav",
+      "sha256": "c6a32ee1042f9d92e5f0348577025cdab3b477dba9aa44d76c41bb326379d002",
+      "kind": "source",
+      "signal": {
+        "frames": 6720,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.14,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -26.86015792254237,
+        "clipped_samples": 0,
+        "dc_channels": [
+          9.818376884573982e-05,
+          9.818376884573982e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 1.6689300537109375e-06,
+        "max_sample_step": 0.09316158294677734,
+        "sample_step_p9999": 0.09316158294677734
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/step_concrete_2.wav",
+      "sha256": "e902b6ed0bac0075ad55566e89937a414e1dc00fc4986f86d98b2fa6733e5d1c",
+      "kind": "source",
+      "signal": {
+        "frames": 7440,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.155,
+        "sample_peak": 0.3400000333786011,
+        "sample_peak_dbfs": -9.37042080644069,
+        "rms_dbfs": -27.280732941240498,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0002949238464396487,
+          0.0002949238464396487
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.15,
+            0.155
+          ]
+        ],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 1.6689300537109375e-06,
+        "max_sample_step": 0.05732715129852295,
+        "sample_step_p9999": 0.05732715129852295
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/ui_confirm.wav",
+      "sha256": "7bfd76e4d40867c5b44e74989a564d86c9bdcea3ab0e08a6ef414a474595d364",
+      "kind": "source",
+      "signal": {
+        "frames": 12000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.25,
+        "sample_peak": 0.15951871871948242,
+        "sample_peak_dbfs": -15.943766946858684,
+        "rms_dbfs": -23.907769899173864,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -1.9529958566029866e-06,
+          -1.9529958566029866e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.07,
+            0.08
+          ],
+          [
+            0.15,
+            0.25
+          ]
+        ],
+        "max_internal_silence_seconds": 0.009999999999999995,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.022719144821166992,
+        "sample_step_p9999": 0.022574782371520996
+      }
+    },
+    {
+      "path": "assets/source_audio/last_skuf_demo/sfx/ui_open.wav",
+      "sha256": "b6154aff879e2628af1ba984f11b7963d0fe35f613ded1bc850fea0805fffdb9",
+      "kind": "source",
+      "signal": {
+        "frames": 11328,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.236,
+        "sample_peak": 0.1597003936767578,
+        "sample_peak_dbfs": -15.933880265654532,
+        "rms_dbfs": -24.622804673038473,
+        "clipped_samples": 0,
+        "dc_channels": [
+          -5.7050789901092226e-05,
+          -5.7050789901092226e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.06,
+            0.07
+          ],
+          [
+            0.13,
+            0.236
+          ]
+        ],
+        "max_internal_silence_seconds": 0.010000000000000009,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.011298775672912598,
+        "sample_step_p9999": 0.01127326488494873
+      }
+    }
+  ],
+  "mixes": {
+    "EXPLORE": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.19965778291225433,
+      "sample_peak_dbfs": -13.994275115857732,
+      "rms_dbfs": -23.9680393881672,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0013761481658415508,
+        0.0013761150850111886
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0014475730276899412,
+      "max_sample_step": 0.09149925783276558,
+      "sample_step_p9999": 0.06534241512417793
+    },
+    "SUSPICION": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.3892137110233307,
+      "sample_peak_dbfs": -8.196237380566554,
+      "rms_dbfs": -19.865924489015512,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.002242524922741875,
+        0.0022413291871098565
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0015929238870739937,
+      "max_sample_step": 0.2669178918004036,
+      "sample_step_p9999": 0.189515121281147
+    },
+    "COMBAT": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.6134563684463501,
+      "sample_peak_dbfs": -4.244326413159576,
+      "rms_dbfs": -16.523527562767033,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0031975968851304156,
+        0.003194988887631592
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0007781237363815308,
+      "max_sample_step": 0.46303099393844604,
+      "sample_step_p9999": 0.3266870230436325
+    },
+    "CLEAR": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.16113096475601196,
+      "sample_peak_dbfs": -15.856419852019918,
+      "rms_dbfs": -26.99632378226746,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0009264170174013108,
+        0.0009270092106831397
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0008873926708474755,
+      "max_sample_step": 0.07208546064794064,
+      "sample_step_p9999": 0.04900493286550045
+    }
+  },
+  "transitions": [
+    {
+      "from": "EXPLORE",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.32285174405202266,
+          "max_step": 0.2566456883307546
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.3521313987195026,
+          "max_step": 0.13328267774544655
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3194215075508691,
+          "max_step": 0.2468026814237237
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "EXPLORE",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.508369714897219,
+          "max_step": 0.4441050070406714
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5518512897916721,
+          "max_step": 0.22792847034501512
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.45180329126575963,
+          "max_step": 0.4246641386413209
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "EXPLORE",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.16673196481617925,
+          "max_step": 0.06782061911188067
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.12911859752610325,
+          "max_step": 0.06674290127002945
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.18297681741968264,
+          "max_step": 0.06361970795318483
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.34768926470792405,
+          "max_step": 0.17509568768787281
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.2635544880676743,
+          "max_step": 0.20626328099040933
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3658498092224899,
+          "max_step": 0.10831738132337727
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5086895573139191,
+          "max_step": 0.44416380785405635
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5539402537047863,
+          "max_step": 0.2295017863623798
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5108561626914888,
+          "max_step": 0.4246541265025735
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.3478934573339444,
+          "max_step": 0.17509797321182893
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.2649552656220505,
+          "max_step": 0.20638140865980337
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3666424203601743,
+          "max_step": 0.1083174171087526
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "COMBAT",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5431858132665094,
+          "max_step": 0.3021820105926701
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.4615017445734003,
+          "max_step": 0.36180546756355714
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5655976884227479,
+          "max_step": 0.1867011517175163
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "COMBAT",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5437467412916294,
+          "max_step": 0.3021828398625003
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.46204050912056893,
+          "max_step": 0.36179017609376457
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5664677523820117,
+          "max_step": 0.2468026814237237
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "COMBAT",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5437467412916294,
+          "max_step": 0.3021828398625003
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.46204050912056893,
+          "max_step": 0.36179017609376457
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5664677523820117,
+          "max_step": 0.18670178933273227
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "CLEAR",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.17268335144530284,
+          "max_step": 0.08808991821482778
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.17340172871947288,
+          "max_step": 0.061975535164835546
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.1657386452727951,
+          "max_step": 0.08540947802364826
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "CLEAR",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.32285174405202266,
+          "max_step": 0.2566456883307546
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.3521313987195026,
+          "max_step": 0.13328267774544655
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3194215075508691,
+          "max_step": 0.2468026814237237
+        }
+      ],
+      "scope": "offline numerical probes"
+    },
+    {
+      "from": "CLEAR",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.4932959236587087,
+          "max_step": 0.42464571014307434
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5318430916674436,
+          "max_step": 0.21648428323101254
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.4531566202219576,
+          "max_step": 0.408524603662213
+        }
+      ],
+      "scope": "offline numerical probes"
+    }
+  ],
+  "artistic_acceptance": {
+    "status": "NOT_ASSESSED",
+    "method": "Decoded signal analysis is not listening"
+  },
+  "producer_files": {
+    "tools/audio_qa.py": "83e1b6d19e2ceb7e891e57fac9c3a5cd9501e86f6141826d203d6d71d98b2f8e",
+    "tools/fixtures/audio_qa_capture.gd": "69a14880a29f7fa731102a5924d5e50928bd84eaff7680d11199df1b035e667e",
+    "game/assets/audio/manifest.json": "3da81568ba7faf414e10fba267022c3843e5f862bc74f3ba000a54874c4d2412"
+  },
+  "historical_gameplay": {
+    "json": "reports/phases/P03/native_replay.json",
+    "json_sha256": "df577d97649ee788f35bb618280efd18ccbff5de3d32a5c7a0e4f07d1c7931d7",
+    "wav": "reports/phases/P03/native_replay.wav",
+    "wav_sha256": "236348a37c38d92279ee85b524c8708e5a8286bc891befba28104b56b038ffdd",
+    "signal": {
+      "frames": 897536,
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 20.352290249433107,
+      "sample_peak": 0.568023681640625,
+      "sample_peak_dbfs": -4.912671152277881,
+      "rms_dbfs": -22.798815250939263,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0013717197039028065,
+        0.001345082479956758
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.064544677734375,
+      "max_sample_step": 0.421356201171875,
+      "sample_step_p9999": 0.21160888671875
+    },
+    "provenance": "retained P03 native replay; not a fresh run"
+  },
+  "engine": {
+    "driver": "PulseAudio",
+    "json": "reports/autopilot/P03/audio_qa/engine.json",
+    "json_sha256": "ff1c137ad424cb9471242618e1bc0ba3dedb39f4751da971f24aa0f3a884eda7",
+    "wav": "reports/autopilot/P03/audio_qa/engine.wav",
+    "wav_sha256": "24ae2a90577552d5f1d2212c42171ceeb138e36876532ed10e7cf933820c3544",
+    "signal": {
+      "frames": 1279488,
+      "sample_rate": 44100,
+      "channels": 2,
+      "duration_seconds": 29.013333333333332,
+      "sample_peak": 0.526092529296875,
+      "sample_peak_dbfs": -5.578757305937808,
+      "rms_dbfs": -20.38098562410309,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0018685015977597703,
+        0.0018659729201968263
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.131256103515625,
+      "max_sample_step": 0.425018310546875,
+      "sample_step_p9999": 0.24578857421875
+    },
+    "loudness": {
+      "integrated_lufs": -20.4,
+      "true_peak_dbfs": -5.4,
+      "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+    },
+    "capture_start_clock": 2.38643135113525,
+    "estimated_first_sample_clock": 2.383854650136268,
+    "alignment_uncertainty_seconds": 0.04,
+    "transition_windows": [
+      {
+        "state": "SUSPICION",
+        "clock": 5.01362,
+        "sample_time_seconds": 2.6297653498637326,
+        "in_capture": true,
+        "peak": 0.209625244140625,
+        "max_step": 0.0474853515625,
+        "rms_dbfs": -20.173073954757655
+      },
+      {
+        "state": "COMBAT",
+        "clock": 7.50298,
+        "sample_time_seconds": 5.119125349863732,
+        "in_capture": true,
+        "peak": 0.1693115234375,
+        "max_step": 0.11785888671875,
+        "rms_dbfs": -23.858666537652713
+      },
+      {
+        "state": "CLEAR",
+        "clock": 11.67755,
+        "sample_time_seconds": 9.293695349863732,
+        "in_capture": true,
+        "peak": 0.52423095703125,
+        "max_step": 0.165252685546875,
+        "rms_dbfs": -14.313747509635801
+      },
+      {
+        "state": "EXPLORE",
+        "clock": 15.0032,
+        "sample_time_seconds": 12.619345349863732,
+        "in_capture": true,
+        "peak": 0.138580322265625,
+        "max_step": 0.03643798828125,
+        "rms_dbfs": -25.870328496930973
+      },
+      {
+        "state": "COMBAT",
+        "clock": 16.67753,
+        "sample_time_seconds": 14.293675349863733,
+        "in_capture": true,
+        "peak": 0.188629150390625,
+        "max_step": 0.046875,
+        "rms_dbfs": -21.815327443056894
+      },
+      {
+        "state": "SUSPICION",
+        "clock": 26.66943,
+        "sample_time_seconds": 24.28557534986373,
+        "in_capture": true,
+        "peak": 0.475433349609375,
+        "max_step": 0.18780517578125,
+        "rms_dbfs": -15.483477628389895
+      },
+      {
+        "state": "CLEAR",
+        "clock": 30.00549,
+        "sample_time_seconds": 27.621635349863734,
+        "in_capture": true,
+        "peak": 0.291351318359375,
+        "max_step": 0.115753173828125,
+        "rms_dbfs": -19.593285153303697
+      }
+    ],
+    "loop_windows": [
+      {
+        "clock": 13.333333333333334,
+        "sample_time_seconds": 10.949478683197066,
+        "in_capture": true,
+        "peak": 0.11358642578125,
+        "max_step": 0.039031982421875,
+        "rms_dbfs": -28.07059961558955
+      },
+      {
+        "clock": 26.666666666666668,
+        "sample_time_seconds": 24.2828120165304,
+        "in_capture": true,
+        "peak": 0.475433349609375,
+        "max_step": 0.18780517578125,
+        "rms_dbfs": -16.22230446258049
+      }
+    ],
+    "warning": "No listening/inaudibility claim. Window alignment is bounded by mixer latency, not sample-exact."
+  },
+  "technical_status": "PASS",
+  "technical_scope": "signal_and_fresh_mixer",
+  "passed_checks": 71,
+  "failed_checks": 0
+}

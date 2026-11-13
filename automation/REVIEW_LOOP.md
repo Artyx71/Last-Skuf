@@ -18,3 +18,9 @@ A markdown prompt does not create a background daemon. For true unattended conti
 - Reviewer should have separate conversation/context and not be the author; if multi-agent unsupported mark external check pending.
 - GitHub PR per phase, atom commits, no auto-merge without explicit authorization. No raw photo upload.
 - Use structured decisions, no emoji or optimistic unverifiable completion statements.
+
+## Интегрированный последовательный AUTOPILOT
+
+Implementation: autopilot/runner.py, authority только automation/phase_state.json, совместимое зеркало .autopilot/STATE.json. Один executor/worker lease, durable receipts/checkpoints, независимый read-only review после автора. Scoped artistic audio BLOCKED не запрещает независимые audio signal QA/подготовку; phase advancement всё ещё требует полного PASS.
+
+Новое разрешение владельца: automatic squash PR в main после независимого exact-head/base PASS и обязательного current-SHA CI; FAIL/BLOCKED/manual GitHub approval/unknown protection запрещают merge. Только подтверждённый MERGED разрешает автоматическое продолжение. Правила/права не обходить. Подробности docs/AUTOPILOT.md и automation/AUTHORIZATIONS.json. P04G обязательна перед P07.

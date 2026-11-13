@@ -6,6 +6,11 @@ config/name="АЫАЫ: Последний скуф"
 run/main_scene="res://scenes/bootstrap/bootstrap.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+OptionsStore="*res://scripts/core/options_store.gd"
+AudioDirector="*res://scripts/systems/audio_director.gd"
+DialogueDirector="*res://scripts/systems/dialogue_director.gd"
+
 [display]
 window/size/viewport_width=640
 window/size/viewport_height=360

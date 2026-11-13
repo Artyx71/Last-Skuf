@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "scene_id": "P03_YAKUZA_PHONE_01",
+  "event_id": "EV_P03_UNPAID_DELIVERY",
+  "pov": "YAKUZA",
+  "lines": [
+    {
+      "line_id": "P03_PHONE_001",
+      "loc_key": "dialogue.p03.phone.001",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Я принёс. Ну... почти всё."
+    },
+    {
+      "line_id": "P03_PHONE_002",
+      "loc_key": "dialogue.p03.phone.002",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "angry",
+      "text_ru": "Чё сразу я? Пакет уже открытый был, бля."
+    },
+    {
+      "line_id": "P03_PHONE_003",
+      "loc_key": "dialogue.p03.phone.003",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Деньги? Завтра закину. Не, точно завтра."
+    },
+    {
+      "line_id": "P03_PHONE_004",
+      "loc_key": "dialogue.p03.phone.004",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "angry",
+      "text_ru": "Да слышу я... Не ори.",
+      "cue": "phone_ring",
+      "caption_ru": "ТЕЛЕФОН · ЖИНЬКА",
+      "hold_seconds": 0.8
+    },
+    {
+      "line_id": "P03_PHONE_005",
+      "loc_key": "dialogue.p03.phone.005",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Ща, мне звонят. Я это... потом объясню."
+    }
+  ],
+  "entry_conditions": [],
+  "exit_actions": [
+    {
+      "type": "set_flag",
+      "name": "p03_delivery_interrupted",
+      "value": true
+    }
+  ]
+}

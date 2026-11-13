@@ -38,9 +38,9 @@ func _ready() -> void:
 		await RenderingServer.frame_post_draw
 		var output := OS.get_environment("AYAY_CAPTURE_PATH")
 		if output.is_empty():
-			get_tree().quit(1)
+			preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 1)
 			return
-		get_tree().quit(get_viewport().get_texture().get_image().save_png(output))
+		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), get_viewport().get_texture().get_image().save_png(output))
 
 
 func _draw() -> void:
@@ -97,7 +97,7 @@ func set_past_version(value: bool) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0)
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode >= KEY_1 and event.keycode <= KEY_5:
 			set_expression(event.keycode - KEY_1)
@@ -118,4 +118,4 @@ func _replay() -> void:
 		set_expression(index)
 		for frame in 36:
 			await get_tree().physics_frame
-	get_tree().quit()
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0)
