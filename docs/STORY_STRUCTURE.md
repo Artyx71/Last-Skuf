@@ -10,7 +10,7 @@
 - Bonus secret mission: Tega dreams of absurd `SUPPOSITORY CANNON` against brother Akhshar; slapstick fantasy, not a realistic attack.
 
 ## Important unresolved decisions
-- Exact chronology and chapter numbers (prior concept notes have overlapping chapter indices).
+- Chapter slot numbers are locked by STORY_SPEC (21 planned slots); only CH01 has a playable scene. Future exact timestamps and scene variants remain production work. P05 relative chronology/eligibility implementation is a candidate, not campaign completion.
 - Criminal organization details and plausible legal consequences; timeline coherence.
 - Exact physical layouts of Vladikavkaz locations; photos/permissions if portraying named businesses.
 - Final Ossetian dialogue translations and voice actor consent.

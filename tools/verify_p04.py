@@ -71,7 +71,7 @@ def main():
   folder=local/name;folder.mkdir()
   convert=winpath if wine else str
   env=dict(os.environ,XDG_CONFIG_HOME=str(config),XDG_DATA_HOME=str(data))
-  for key,filename in [('AYAY_OPTIONS_PATH','options.json'),('AYAY_DIALOGUE_SAVE_PATH','dialogue.json'),('AYAY_CHAPTER_SAVE_PATH','chapter.json')]:env[key]=convert(folder/filename)
+  for key,filename in [('AYAY_OPTIONS_PATH','options.json'),('AYAY_DIALOGUE_SAVE_PATH','dialogue.json'),('AYAY_CHAPTER_SAVE_PATH','chapter.json'),('AYAY_STORY_SAVE_PATH','story.json')]:env[key]=convert(folder/filename)
   if preferences:write(folder/'options.json',{'schema':1,'values':preferences})
   if wine:
    # Never mutate the shared cache prefix or owner settings.

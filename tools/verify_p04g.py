@@ -59,7 +59,7 @@ def main():
   folder=local/name;folder.mkdir(exist_ok=True)
   convert=winpath if wine else str
   e=dict(os.environ,XDG_CONFIG_HOME=str(local/'config'),XDG_DATA_HOME=str(local/'data'))
-  for key,file in [('AYAY_OPTIONS_PATH','options.json'),('AYAY_DIALOGUE_SAVE_PATH','dialogue.json'),('AYAY_CHAPTER_SAVE_PATH','chapter.json')]:e[key]=convert(folder/file)
+  for key,file in [('AYAY_OPTIONS_PATH','options.json'),('AYAY_DIALOGUE_SAVE_PATH','dialogue.json'),('AYAY_CHAPTER_SAVE_PATH','chapter.json'),('AYAY_STORY_SAVE_PATH','story.json')]:e[key]=convert(folder/file)
   write(folder/'options.json',{'schema':2,'values':{'reduced_gore':reduced,'decals':not reduced,'shake':0 if reduced else 100,'flashes':not reduced,'reduced_motion':reduced,'vhs':not reduced}})
   if wine:e.update(WINEPREFIX=str(local/'wine-prefix'),WINEARCH='win64',WINEDEBUG='-all',WINEDLLOVERRIDES='winemenubuilder.exe=d;mscoree,mshtml=')
   return e

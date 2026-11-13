@@ -17,16 +17,16 @@ func expect(ok: bool, title: String) -> void:
  if not ok:
   failures += 1
   if failures < 20: push_error("FAIL: "+title)
-func observe(store: RefCounted) -> void:
+func observe(store: RefCounted, initial := false) -> void:
  unique[JSON.stringify(store.state).sha256_text()] = true
- transitions += 1
+ if not initial: transitions += 1
 func apply_event(store: RefCounted, id: String) -> void:
  expect(store.record(id),"record_"+id+" "+store.last_error)
  observe(store)
 func scenario(choices: Array, evidence_mask: int, secret_mask: int = 0) -> RefCounted:
  var store := Store.new(true,registry)
  store.replay = true # Scenario domain, in-memory only; no campaign file access.
- observe(store)
+ observe(store,true)
  for chapter in registry.data.chapters:
   expect(registry.entry_ready(chapter.id,store.state,true),"no_softlock_entry")
   for d in registry.decisions.values():
@@ -96,6 +96,10 @@ func run() -> void:
  for mask in 512:
   var store := scenario([1,1,1,1,1,1],7,mask)
   expect(not store.overlay_eligible(),"overlay_only_post_story")
+  if mask == 511:
+   var brother: RefCounted = store.fork_replay()
+   expect(brother.finish_story("ENDING_BROTHERHOOD") and brother.finish_overlay(),"overlay_follows_brotherhood_too")
+   expect(brother.state.endings.completed == ["ENDING_BROTHERHOOD","ENDING_REAL_PRIME"],"brotherhood_classification_preserved")
   expect(store.finish_story("ENDING_WIFE_CALLING"),"secret_primary_first")
   var qualifies: bool = mask == 511
   expect(store.overlay_eligible() == qualifies,"exact_secret_subset_%d" % mask)
@@ -110,7 +114,7 @@ func run() -> void:
  expect(paths == 6344,"explicit_path_count")
  expect(route_counts.ENDING_BROTHERHOOD > 0 and route_counts.ENDING_FAMILY_BUSINESS > 0 and route_counts.ENDING_REAL_PRIME == 1,"all_routes_reached")
  var output := OS.get_environment("AYAY_STORY_GRAPH_PATH")
- var report := {"schema":1,"scope":"Exhaustive 729 ternary decision combinations x 8 evidence acquisition toggles; separately 512 secret subsets with all positive choices/evidence. Not exhaustive interleavings or all campaign content.","paths":paths,"observed_transitions":transitions,"unique_observed_states":unique.size(),"checks":checks,"failures":failures,"routes":route_counts,"reproducible_witnesses":witnesses}
+ var report := {"schema":1,"scope":"Exhaustive 729 ternary decision combinations x 8 evidence acquisition toggles; separately 512 secret subsets with all positive choices/evidence. Not exhaustive interleavings or all campaign content.","paths":paths,"observed_transitions":transitions,"observed_state_visits":transitions+paths,"unique_observed_states":unique.size(),"checks":checks,"failures":failures,"routes":route_counts,"reproducible_witnesses":witnesses}
  if not output.is_empty(): FileAccess.open(output,FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
  print("STORY_GRAPH_TEST paths=",paths," transitions=",transitions," states=",unique.size()," checks=",checks," failures=",failures," routes=",route_counts)
  preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1 if failures else 0)

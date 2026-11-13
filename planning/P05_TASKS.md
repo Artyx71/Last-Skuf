@@ -15,9 +15,10 @@
 
 - [x] Data registry: 21 slot, 43 event definitions; CH01 timestamp locked, будущие timestamps production_pending; относительная chronology предварительна.
 - [x] StoryState schema2, event-sourced validation, atomic rename, first-choice lock, replay fork и read-only legacy migration.
-- [ ] Подключение CH01 и русский журнал, сохранение Enter/F1–F4.
-- [ ] Исчерпывающие ternary D01–D06 + optional evidence/secret exploration, реальные Input fixtures.
-- [ ] verify_p05/CI, регрессия P04G, source freeze/inventory/bundle.
+- [x] Подключение CH01 и русский журнал, сохранение Enter/F1–F4.
+- [x] Исчерпывающие ternary D01–D06 + optional evidence/secret exploration, реальные Input fixtures.
+- [x] verify_p05/CI и P04G Full/Reduced regression.
+- [ ] Финальный неизменный hash run, source freeze/inventory/bundle.
 - [ ] Native host renderer/audio/Linux/Wine и отдельные Lead/Narrative/QA (после автора).
 
 Общий index недоступен (read-only index.lock); коммиты создаются в ignored `.tools/p05-author-git`, base `b774a1abfc18ef41f263259dc5c99cd4f26bc4c9`. ROOT controller не изменяется. Никаких runner/subagents/push/merge.

@@ -1,6 +1,6 @@
 # АЫАЫ: ПОСЛЕДНИЙ СКУФ — GAMEPLAY SPEC v0.1
 
-Status: Approved direction, implementation details proposed; not yet prototyped.
+Status: P00–P04G prototypes independently accepted and merged; only CH01 is playable. P05 story infrastructure candidate; campaign and other character production pending.
 
 ## Approved requirements
 - Desktop top-down 2D action in Godot 4 with a fast, lethal, instant-retry loop and original art/audio/code.
@@ -51,4 +51,4 @@ One Yakuza level with original pixel art assets, top-down navigation, interactab
 
 ## Combat/Gore зависимая подфаза
 
-Утверждённое дополнение владельца: [COMBAT_GORE_POLISH_SPEC.md](COMBAT_GORE_POLISH_SPEC.md), IDs IMP-01/02, ART-G01/02, AI-G01, FIN-01/02/03, OPT-G01, QA-G01, PERF-G01, REV-G01. P04G после stabilised P04, обязательно до полной кампании P07. Сохранить CombatSystem/action IDs/physics contact clock и exactly-once score; текущая фаза не прерывается. Статус QUEUED, не реализовано.
+Утверждённое дополнение владельца: [COMBAT_GORE_POLISH_SPEC.md](COMBAT_GORE_POLISH_SPEC.md), IDs IMP-01/02, ART-G01/02, AI-G01, FIN-01/02/03, OPT-G01, QA-G01, PERF-G01, REV-G01. P04G после stabilised P04, обязательно до полной кампании P07. Сохранить CombatSystem/action IDs/physics contact clock и exactly-once score; текущая фаза не прерывается. Статус P04G PASS и merged (PR9); история решения и human acceptance сохранены в reports/phases/P04G/.
