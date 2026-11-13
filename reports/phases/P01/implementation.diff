@@ -1,0 +1,2827 @@
+diff --git a/assets/source_art/yakuza/README.md b/assets/source_art/yakuza/README.md
+new file mode 100644
+index 0000000..c60f4fe
+--- /dev/null
++++ b/assets/source_art/yakuza/README.md
+@@ -0,0 +1,47 @@
++# Якудза — исходники P01
++
++Статус всего набора: **DRAFT_REQUIRES_LIKENESS_REVIEW**. Это реальная генерация оригинального рисованного pixel-art через встроенный `image_gen`; ниже нет разрешения на публичное распространение портрета частного человека. Никакой PASS художником не присваивался.
++
++## Происхождение
++
++В текущей сессии владелец проекта явно разрешил встроенный image_gen с фотографиями всех персонажей. Для P01 использована только правильная фотография `assets/references/characters/yakuza_ref01.png`, предварительно открытая локально через view_image. Вызовы не использовали платный CLI/API fallback. Второй вызов дополнительно получил наш `portraits_master_v1.png` для согласованности собственного дизайна. Сырые фотографии сюда не копируются.
++
++- `portraits_master_v1.png` — реальный RGBA результат встроенного генератора, 1536×1024; 3×2 ячейки 512×512, пять выражений и пустая последняя ячейка.
++- `world_master_v1.png` — реальный RGBA результат встроенного генератора, 1536×1024; 8×4 ячейки 192×256.
++- `*_prompt.txt` — точный текст соответствующего вызова.
++- `*_generation_metadata.json` — возвращённые имена полей и output_hint, без base64 payload. Original generated files оставлены на месте в CODEX_HOME согласно imagegen skill.
++- `portraits_native_source.png`, `world_native_source.png` — экспортированные исходники на фактической фиксированной сетке160/48×64. Layered Aseprite/LibreSprite source не создавался; редактируемый растровый source — PNG и воспроизводимый packing recipe.
++- `build_assets.py` — техническая нарезка собственных сгенерированных рисунков, НЕ автоматическое превращение фотографии в pixel-art. Никаких raw photos он не читает. Технические операции: crop, alpha threshold128, NN sampling, вставка в фиксированный foot anchor, зеркалирование up-row ради постоянной левой руки с телефоном, намеренно выбранная31-цветная палитра и экспорт. Все изображения на выходе прозрачные RGBA с alpha0/255, transparentRGB=(0,0,0).
++
++## Воспроизведение
++
++Из корня проекта: `.tools/art-venv/bin/python assets/source_art/yakuza/build_assets.py`. Установлена локальная Pillow13.0.0 через существующий uv0.13.7, безsudo. Каталог `.tools/` игнорируется. Скрипт обновляет PNG/atlas и структурные evidence. Он не меняет scenes/scripts, не публикует файлы и не утверждает likeness.
++
++## Контракт
++
++Runtime: `game/assets/art/yakuza/portraits.png`800×160, 5 столбцов160×160; neutral, angry, surprised, hurt, catchphrase. Размер160 выбран из разрешённого диапазона: сохраняются узнаваемый объём волос, соотношения глаз/носа/губ/подбородка и родинки, остаётся место для текста в640×360 UI. Insets2px защищают контур от случайного соседнего кадра. Optional talk отсутствует.
++
++Runtime: `game/assets/art/yakuza/world_sheet.png`384×256, 48×64×8×4; down,left,right,up; col0–1idle3FPS, col2–7walk8FPS. Pivot=(24,58), нижняя граница подошвы каждого кадра58. Согласованные blacktee/густыеblackhair/широкое короткое вымышленное тело/phone. Подробные rect/origin/bounds/hash/fps/source в `atlas.json`.
++
++## Честные ограничения
++
++Автор открыл исходные и native экспортированные sheets, сравнил с правильным фото. Наблюдение художника: узнаются объёмные асимметричные волосы, спокойный прищур neutral, геометрия лица и родинки; чёрная футболка и телефон согласованы. Это НЕ человеческий signoff или независимая оценка сходства.
++
++Original masters содержат мягкие alpha fringes и градиентные RGB в полностью/почти прозрачных областях; numeric corner alpha0/1 и compositing на зелёный фон показали, что это не непрозрачная фоновая matte. Художник визуально не обнаружил фотографических фрагментов: изображения полностью рисованные. Native export порогомalpha128 удаляет прозрачный шум; это не утверждение, что любой future master можно так очищать.
++
++Генератор не выдержал идеально однородную сетку крупного master; настоящая единичная pixel-grid и hard alpha зафиксированы в native production export. Поэтому highres master не следует использовать напрямую в игре. Это разрешённая техническая обработка сгенерированных pixel drawings, не photo downscale/posterization.
++
++Остался небольшой межкадровый jitter объёма волос/тела и высоты idle2. При зафиксированных подошвах верх головы гуляет на2–4nativepx; независимый reviewer должен оценить его в анимации. Верхняя часть волос темнее фона некоторых локаций — проверять силуэт в Godot. Выражения intentionally гротескные; пользователь должен подтвердить, что это нужная узнаваемость. Созданы отдельные past/flashback-портреты: менее тяжёлая молодая вымышленная версия, согласованная с исходной фотографией. World sheet изображает только тяжёлую present-версию. Разрешение на public distribution и human likeness approval пока не получены.
++
++
++## Дополнение: past / flashback
++
++Требование `ART_PIPELINE.md` о прежней и стилизованной современной версиях выполнено отдельным atlas `portraits_past.png`, 800×160, в том же порядке пяти эмоций. Это прежний период, не пожилой возраст. Face/hair/phone/black tee остаются согласованными; шея и щёки менее раздуты. Размер глаз/головы и рамка сохраняют совместимость с present-портретами.
++
++- `portraits_past_master_v1.png` — первый реальный generated past master. Автор обнаружил белёсую кайму вокруг волос и не принял этот вариант как финальный экспорт.
++- `portraits_past_master_v2.png` — результат отдельного targeted built-in background-extraction edit; удалена светлая matte/кайма, сохранены лица и оригинальный рисунок. При проверке углы имеют alpha 0, native checkerboard preview показывает чистые края.
++- `past_portrait_prompt.txt`, `past_cleanup_prompt.txt` и соответствующие `*_generation_metadata.json` сохраняют оба вызова.
++- `build_past_assets.py` — отдельный воспроизводимый packing, читающий shared palette из atlas. Он не перезаписывает present/world PNG. Запускать после основного `build_assets.py`; основной скрипт сохраняет уже существующий `portraits_past` entry.
++- `portraits_past_native_source.png` — фактическая native pixel-grid версия для ручной растровой правки.
++
++Автор открыл master v1, master v2 и native preview. Сходство и выбор между era-версиями по-прежнему требуют человеческого signoff; отдельного old-world moveset в P01 не требуется. Всего выполнены четыре встроенных image_gen вызова: present portraits, world sheet, past portraits, past alpha cleanup.
+diff --git a/assets/source_art/yakuza/build_assets.py b/assets/source_art/yakuza/build_assets.py
+new file mode 100644
+index 0000000..c3dbed8
+--- /dev/null
++++ b/assets/source_art/yakuza/build_assets.py
+@@ -0,0 +1,145 @@
++#!/usr/bin/env python3
++"""Deterministic technical packing of generated pixel drawings; never reads raw photos.
++Run with Pillow13: .tools/art-venv/bin/python assets/source_art/yakuza/build_assets.py
++Only nearest-neighbor sampling, generated alpha cleanup, palette reduction and atlas packing.
++"""
++from pathlib import Path
++import hashlib
++import json
++from collections import Counter
++from PIL import Image, ImageOps
++
++ROOT = Path(__file__).resolve().parents[3]
++SOURCE = ROOT / 'assets/source_art/yakuza'
++DEST = ROOT / 'game/assets/art/yakuza'
++REPORT = ROOT / 'reports/phases/P01'
++DEST.mkdir(parents=True, exist_ok=True)
++REPORT.mkdir(parents=True, exist_ok=True)
++EMOTIONS = ['neutral', 'angry', 'surprised', 'hurt', 'catchphrase']
++DIRECTIONS = ['down', 'left', 'right', 'up']
++
++def sha(path):
++    return hashlib.sha256(path.read_bytes()).hexdigest()
++
++def hard_alpha(image):
++    result = image.convert('RGBA')
++    result.putalpha(result.getchannel('A').point(lambda a: 255 if a >= 128 else 0))
++    result.paste((0,0,0,0), (0,0), ImageOps.invert(result.getchannel('A')))
++    return result
++
++portraits = Image.new('RGBA', (800,160))
++portrait_master = Image.open(SOURCE/'portraits_master_v1.png')
++assert portrait_master.size == (1536,1024)
++for index, emotion in enumerate(EMOTIONS):
++    sx, sy = (index % 3)*512, (index//3)*512
++    frame = hard_alpha(portrait_master.crop((sx,sy,sx+512,sy+512)))
++    frame = frame.resize((156,156), Image.Resampling.NEAREST)
++    portraits.paste(frame, (index*160+2,2))
++
++world = Image.new('RGBA', (384,256))
++world_master = Image.open(SOURCE/'world_master_v1.png')
++assert world_master.size == (1536,1024)
++packing = []
++for row, direction in enumerate(DIRECTIONS):
++    for col in range(8):
++        sx, sy = col*192, row*256
++        frame = hard_alpha(world_master.crop((sx,sy,sx+192,sy+256)))
++        frame = frame.resize((48,64), Image.Resampling.NEAREST)
++        # The generator placed up-view phone on its right. Mirroring this row
++        # puts the phone in the same anatomical left hand as down/side views.
++        if direction == 'up':
++            frame = ImageOps.mirror(frame)
++        box = frame.getbbox()
++        assert box is not None
++        # Keep the fixed engine anchor at center-x24, sole-bottom58.
++        offset = (24-(box[0]+box[2])//2,58-box[3])
++        aligned = Image.new('RGBA',(48,64))
++        aligned.paste(frame,offset)
++        assert sum(aligned.getchannel('A').get_flattened_data()) == sum(frame.getchannel('A').get_flattened_data()), 'cropped opaque pixels'
++        world.paste(aligned,(col*48,row*64))
++        packing.append({'direction':direction,'column':col,'source_rect':[sx,sy,192,256], 'mirror_x':direction=='up','offset_after_nearest':list(offset)})
++
++# Deliberate shared production palette. Adaptive quantization was tried first,
++# but dark clothing dominated it and erased the phone cyan and bruise purple.
++# These 31 opaque colors preserve those important character/readability cues.
++PALETTE_HEX = [
++    '0b090e','15101a','211b29','352b3d','4c3c56','6c9aaf','75455f',
++    '15151e','252332','353244','222936','344255','4c6076',
++    '562d37','873e3c','a75c49','c47755','dc956f','efb08b','f6c59f',
++    'ece3d5','2b1a1e','6d354b','994a63','bc6573',
++    '4e202c','8b3146','bc5260','e8878c','3e94b4','7bd2df',
++]
++PALETTE_RGB = [tuple(bytes.fromhex(color)) for color in PALETTE_HEX]
++palette_image = Image.new('P',(1,1))
++flat_palette = [channel for rgb in PALETTE_RGB for channel in rgb]
++palette_image.putpalette(flat_palette + list(PALETTE_RGB[0]) * (256-len(PALETTE_RGB)))
++
++def apply_palette(image):
++    result = image.convert('RGB').quantize(palette=palette_image,dither=Image.Dither.NONE).convert('RGBA')
++    result.putalpha(image.getchannel('A'))
++    result.paste((0,0,0,0),(0,0),ImageOps.invert(result.getchannel('A')))
++    return result
++portraits, world = apply_palette(portraits), apply_palette(world)
++portraits.save(DEST/'portraits.png')
++world.save(DEST/'world_sheet.png')
++portraits.save(SOURCE/'portraits_native_source.png')
++world.save(SOURCE/'world_native_source.png')
++
++# Visual evidence on two opaque backgrounds exposes alpha halos/matte.
++def preview(image, scale):
++    checker=Image.new('RGBA',image.size)
++    pixels=checker.load()
++    for y in range(image.height):
++        for x in range(image.width):
++            pixels[x,y]=(45,80,65,255) if (x//16+y//16)%2 else (210,192,150,255)
++    checker.alpha_composite(image)
++    return checker.resize((image.width*scale,image.height*scale),Image.Resampling.NEAREST).convert('RGB')
++preview(portraits,2).save(REPORT/'portraits_preview_2x.png')
++preview(world,3).save(REPORT/'world_preview_3x.png')
++
++palette=sorted(set(p[:3] for im in (portraits,world) for p in im.get_flattened_data() if p[3]))
++def frame_info(image,rect,pivot):
++    x,y,w,h=rect
++    frame=image.crop((x,y,x+w,y+h))
++    return {'rect':rect,'origin':pivot,'bounds':list(frame.getbbox()),'rgba_sha256':hashlib.sha256(frame.tobytes()).hexdigest()}
++frames=[]
++for row,direction in enumerate(DIRECTIONS):
++    for col in range(8):
++        info=frame_info(world,[col*48,row*64,48,64],[24,58]); info.update({'id':f'{direction}_{col}','direction':direction,'column':col,'animation':'idle' if col<2 else 'walk'})
++        frames.append(info)
++portrait_frames=[]
++for col,emotion in enumerate(EMOTIONS):
++    info=frame_info(portraits,[col*160,0,160,160],[80,160]);info.update({'id':emotion,'expression':emotion,'index':col})
++    portrait_frames.append(info)
++manifest={
++ 'asset_id':'yakuza_p01_v1', 'version':1, 'status':'DRAFT_REQUIRES_LIKENESS_REVIEW',
++ 'author':'Codex art production using built-in image_gen; technical packing by Pillow13',
++ 'source':{'reference_id':'yakuza','reference_private_path':'assets/references/characters/yakuza_ref01.png','generation':'built-in image_gen','authorization':'Owner explicitly authorized image_gen with supplied photographs in the active session. No public distribution approval implied.','masters':[{'path':str(p.relative_to(ROOT)), 'sha256':sha(p)} for p in [SOURCE/'portraits_master_v1.png',SOURCE/'world_master_v1.png']], 'prompts':['assets/source_art/yakuza/portrait_prompt.txt','assets/source_art/yakuza/world_prompt.txt'],'recipe':'assets/source_art/yakuza/build_assets.py'},
++ 'palette':{'opaque_colors':len(palette),'transparent_colors':1,'rgb_hex':['#%02x%02x%02x'%p for p in palette]},
++ 'portraits':{'file':'portraits.png','dimensions':[800,160],'frame_size':[160,160],'columns':5,'rows':1,'expressions':EMOTIONS,'fps':0,'frames':portrait_frames,'sha256':sha(DEST/'portraits.png'),'native_size_rationale':'160px preserves hair silhouette, eye relationships, jaw and moles while fitting a 640x360 dialogue UI. 2px transparent cell inset prevents edge clipping.'},
++ 'world':{'file':'world_sheet.png','dimensions':[384,256],'frame_size':[48,64],'columns':8,'rows':4,'directions':DIRECTIONS,'pivot':[24,58],'animations':{'idle':{'columns':[0,1],'fps':3,'loop':True},'walk':{'columns':[2,3,4,5,6,7],'fps':8,'loop':True}},'frames':frames,'sha256':sha(DEST/'world_sheet.png')},
++ 'packing':{'alpha_threshold':128,'resize_filter':'NEAREST','shared_palette_method':'31 intentionally selected opaque colors; nearest RGB, no dither','up_row_mirrored_for_phone_hand':True,'world_frame_adjustments':packing},
++ 'review':{'human_likeness':'PENDING','independent_art_review':'PENDING','in_engine':'PENDING root integration','known_limitations':['Image generation masters have soft alpha fringe and off-grid color variation; native exports clean alpha and use one fixed pixel grid and shared palette.','Generated walk poses may show hair/volume jitter; require animation and likeness inspection.','World sprite represents present-era body; past/flashback portraits are a separate atlas entry.','No talk frames; five required expressions are included.']}
++}
++if (DEST/'atlas.json').exists():
++    previous = json.loads((DEST/'atlas.json').read_text())
++    if 'portraits_past' in previous:
++        manifest['portraits_past'] = previous['portraits_past']
++(DEST/'atlas.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
++structure={'status':'STRUCTURAL_CHECKS_ONLY_NOT_LIKENESS_APPROVAL','assets':[]}
++for file,image in [('portraits.png',portraits),('world_sheet.png',world)]:
++    alpha=set(image.getchannel('A').get_flattened_data())
++    assert alpha=={0,255}
++    assert all(p==(0,0,0,0) for p in image.get_flattened_data() if p[3]==0)
++    opaque_count=sum(p[3]==255 for p in image.get_flattened_data())
++    structure['assets'].append({'file':file,'dimensions':list(image.size),'mode':image.mode,'alpha_values':sorted(alpha),'opaque_pixels':opaque_count,'opaque_colors':len(set(p[:3] for p in image.get_flattened_data() if p[3])),'sha256':sha(DEST/file)})
++assert all(frame['bounds'][3] == 58 for frame in frames)
++assert len({f['rgba_sha256'] for f in frames}) == 32
++structure['world_frame_count']=32
++structure['unique_world_frames']=32
++structure['portrait_expression_count']=5
++structure['sole_baseline_y_exclusive']=58
++structure['palette_opaque_colors']=len(palette)
++structure['raw_reference_read_by_packer']=False
++(REPORT/'art_structural_check.json').write_text(json.dumps(structure,ensure_ascii=False,indent=2)+'\n')
++print(json.dumps(structure,ensure_ascii=False,indent=2))
+diff --git a/assets/source_art/yakuza/build_past_assets.py b/assets/source_art/yakuza/build_past_assets.py
+new file mode 100644
+index 0000000..1f4c4a6
+--- /dev/null
++++ b/assets/source_art/yakuza/build_past_assets.py
+@@ -0,0 +1,53 @@
++#!/usr/bin/env python3
++"""Pack only the flashback portraits; never rewrites present/world runtime PNG."""
++from pathlib import Path
++from PIL import Image, ImageOps
++from collections import Counter
++import hashlib
++import json
++ROOT=Path(__file__).resolve().parents[3]
++SOURCE=ROOT/'assets/source_art/yakuza'
++DEST=ROOT/'game/assets/art/yakuza'
++REPORT=ROOT/'reports/phases/P01'
++atlas_path=DEST/'atlas.json'
++atlas=json.loads(atlas_path.read_text())
++master_path=SOURCE/'portraits_past_master_v2.png'
++master=Image.open(master_path).convert('RGBA')
++assert master.size==(1536,1024)
++result=Image.new('RGBA',(800,160))
++for index in range(5):
++    x,y=(index%3)*512,(index//3)*512
++    frame=master.crop((x,y,x+512,y+512))
++    frame.putalpha(frame.getchannel('A').point(lambda value:255 if value>=128 else 0))
++    frame.paste((0,0,0,0),(0,0),ImageOps.invert(frame.getchannel('A')))
++    frame=frame.resize((156,156),Image.Resampling.NEAREST)
++    result.paste(frame,(index*160+2,2))
++colors=[tuple(bytes.fromhex(c[1:])) for c in atlas['palette']['rgb_hex']]
++shared_palette=Image.new('P',(1,1))
++shared_palette.putpalette([v for rgb in colors for v in rgb]+list(colors[0])*(256-len(colors)))
++quant=result.convert('RGB').quantize(palette=shared_palette,dither=Image.Dither.NONE).convert('RGBA')
++quant.putalpha(result.getchannel('A'))
++quant.paste((0,0,0,0),(0,0),ImageOps.invert(quant.getchannel('A')))
++quant.save(DEST/'portraits_past.png')
++quant.save(SOURCE/'portraits_past_native_source.png')
++def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
++frames=[]
++for index,name in enumerate(atlas['portraits']['expressions']):
++    frame=quant.crop((index*160,0,index*160+160,160))
++    frames.append({'id':name,'expression':name,'index':index,'rect':[index*160,0,160,160],'origin':[80,160],'bounds':list(frame.getbbox()),'rgba_sha256':hashlib.sha256(frame.tobytes()).hexdigest()})
++atlas['portraits_past']={'file':'portraits_past.png','era':'past_flashback','dimensions':[800,160],'frame_size':[160,160],'columns':5,'rows':1,'expressions':atlas['portraits']['expressions'],'fps':0,'frames':frames,'sha256':sha(DEST/'portraits_past.png'),'status':'DRAFT_REQUIRES_LIKENESS_REVIEW','source':{'master':str(master_path.relative_to(ROOT)),'master_sha256':sha(master_path),'prompt':'assets/source_art/yakuza/past_portrait_prompt.txt','metadata':'assets/source_art/yakuza/past_portrait_generation_metadata.json','cleanup_prompt':'assets/source_art/yakuza/past_cleanup_prompt.txt','cleanup_metadata':'assets/source_art/yakuza/past_cleanup_generation_metadata.json','previous_master':'assets/source_art/yakuza/portraits_past_master_v1.png','recipe':'assets/source_art/yakuza/build_past_assets.py','identity_reference_id':'yakuza','style_reference':'assets/source_art/yakuza/portraits_master_v1.png','mode':'built-in image_gen','alpha_threshold':128,'resize':'NEAREST','palette':'same31 opaque colors as present/world'}}
++atlas['review']['known_limitations']=[x for x in atlas['review']['known_limitations'] if 'old-era' not in x]
++atlas_path.write_text(json.dumps(atlas,ensure_ascii=False,indent=2)+'\n')
++preview=Image.new('RGBA',quant.size)
++pixels=preview.load()
++for y in range(preview.height):
++    for x in range(preview.width):pixels[x,y]=(45,80,65,255) if (x//16+y//16)%2 else (210,192,150,255)
++preview.alpha_composite(quant)
++preview.resize((1600,320),Image.Resampling.NEAREST).convert('RGB').save(REPORT/'portraits_past_preview_2x.png')
++alpha_values=set(quant.getchannel('A').get_flattened_data())
++assert alpha_values=={0,255}
++assert all(p==(0,0,0,0) for p in quant.get_flattened_data() if not p[3])
++assert len({f['rgba_sha256'] for f in frames})==5
++report={'status':'STRUCTURAL_CHECKS_ONLY_NOT_LIKENESS_APPROVAL','file':'portraits_past.png','dimensions':list(quant.size),'alpha_values':sorted(alpha_values),'opaque_colors':len(set(p[:3] for p in quant.get_flattened_data() if p[3])),'sha256':sha(DEST/'portraits_past.png'),'master_alpha_samples':[{'position':list(p),'rgba':list(master.getpixel(p))} for p in [(0,0),(100,10),(500,10),(1300,700)]],'raw_reference_read_by_packer':False}
++(REPORT/'art_past_structural_check.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
++print(json.dumps(report,ensure_ascii=False,indent=2))
+diff --git a/assets/source_art/yakuza/past_cleanup_generation_metadata.json b/assets/source_art/yakuza/past_cleanup_generation_metadata.json
+new file mode 100644
+index 0000000..11be9f1
+--- /dev/null
++++ b/assets/source_art/yakuza/past_cleanup_generation_metadata.json
+@@ -0,0 +1,11 @@
++{
++  "tool": "image_gen__imagegen",
++  "mode": "built-in_edit",
++  "transparent_background": true,
++  "result_keys": [
++    "image_url",
++    "output_hint"
++  ],
++  "output_hint": "Generated images are saved to /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b as /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b/exec-8e67cace-8d91-4eb6-a0ee-1c0e1d6e98eb.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
++  "image_payload_recorded": false
++}
+diff --git a/assets/source_art/yakuza/past_cleanup_prompt.txt b/assets/source_art/yakuza/past_cleanup_prompt.txt
+new file mode 100644
+index 0000000..e28ef36
+--- /dev/null
++++ b/assets/source_art/yakuza/past_cleanup_prompt.txt
+@@ -0,0 +1,3 @@
++Use case: background-extraction
++Edit target: image1, our original pixel-art five-expression portrait sheet for flashback Yakudza.
++Change ONLY the background transparency and pale-white edge contamination. Preserve ALL character identity, expressions, head shapes, phone, black T-shirt, pixel clusters, shading, exact3-column2-row layout and scale. Five portraits occupy first five512x512 cells of1536x1024, bottom-right cell empty. The current file has faint white/gray matte and bright near-white halo around dark hair. Remove the background fully to actual zero alpha, remove ALL stray background noise, eliminate the pale white/gray halo along hair/shoulders/phone. Keep the dark purple-black hard one-pixel outline and subtle narrow cyan/magenta rim highlights (not white). No diffuse glow, no shadow outside characters, no checkerboard painted in, no background color. HARD binary alpha, clean pixel silhouette edges. Do not redraw faces, don't change expressions or palettes or camera; don't add text. Preserve low-resolution pixel art and square clusters with no smoothing. Result must be actual transparent PNG.
+diff --git a/assets/source_art/yakuza/past_portrait_generation_metadata.json b/assets/source_art/yakuza/past_portrait_generation_metadata.json
+new file mode 100644
+index 0000000..87b4d75
+--- /dev/null
++++ b/assets/source_art/yakuza/past_portrait_generation_metadata.json
+@@ -0,0 +1,11 @@
++{
++  "tool": "image_gen__imagegen",
++  "mode": "built-in",
++  "transparent_background": true,
++  "result_keys": [
++    "image_url",
++    "output_hint"
++  ],
++  "output_hint": "Generated images are saved to /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b as /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b/exec-4c81684e-2ace-4f9c-96bb-a79adab2e228.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
++  "image_payload_recorded": false
++}
+diff --git a/assets/source_art/yakuza/past_portrait_prompt.txt b/assets/source_art/yakuza/past_portrait_prompt.txt
+new file mode 100644
+index 0000000..f53e66c
+--- /dev/null
++++ b/assets/source_art/yakuza/past_portrait_prompt.txt
+@@ -0,0 +1,6 @@
++Use case: stylized-concept
++Asset type: original pixel-art dialogue portrait expression atlas for flashback-era Yakudza, matching an already-created present-era character pack.
++Input image1 is the ONLY real identity reference yakuza_ref01.png, explicitly authorized by the project owner for built-in image generation. Input image2 is our original present-era pixel-art portrait sheet for style matching. DO NOT paste, trace or retain any photographic pixels or background.
++Create the SAME recognizable man's face as in photo1: extremely thick black asymmetric swept-up tousled hair, calm slightly heavy-lidded dark eyes, strong straight dark eyebrows, softly broad cheeks, compact nose, small lips and round jaw/chin, preserve his distinctive actual facial relationships and small cheek/chin moles. No beard, glasses or cap. Black crewneck tee, phone in left hand visible at lower right. This is a PREVIOUS / FLASHBACK version, NOT an elderly version. In this fictional previous era he is younger and less heavy than our exaggerated very obese present-era design image2; use the reference photo's narrower jaw/cheeks and neck as likeness anchors. Still caricatured, still broad-faced, do not make a generic slender handsome game hero. Preserve likeness MORE closely than the obese present design.
++Layout: transparent canvas960x640, EXACT3-column2-row grid of320x320 cells, no gaps. Five busts of SAME character, identical scale, shared eye-line, head placement, phone, lighting and framing as image2. First row neutral calm, angry furrowed brows, surprised raised brows. Second row hurt small cheek bruise and wince(no gore), catchphrase mouth open shouting АЫАЫ but NO lettering. Final bottom-right cell fully transparent. Keep all hair and shoulders within each cell. No labels, text, borders, background, floor shadow or UI.
++Style: SAME true pixel-art medium and cluster language as image2. Each320px cell represents160x160 native drawing enlarged2x NEAREST. Perfectly square2x2 solid-color pixels, hard staircase edges, NO antialiasing or gradients. Controlled31-color palette: near-black purple outlines/hair/blacktee, warm tan skin five flat ramps, muted cyan and magenta rim highlights, purple-red bruise, darkphone tiny cyanlight. Original gritty action pixel art. No photographic textures, realistic painted skin, soft brush or smooth outlines. No copied existing game assets or characters. Maximum exact-photo likeness at160px native.
+diff --git a/assets/source_art/yakuza/portrait_generation_metadata.json b/assets/source_art/yakuza/portrait_generation_metadata.json
+new file mode 100644
+index 0000000..8a56b67
+--- /dev/null
++++ b/assets/source_art/yakuza/portrait_generation_metadata.json
+@@ -0,0 +1,11 @@
++{
++  "tool": "image_gen__imagegen",
++  "mode": "built-in",
++  "transparent_background": true,
++  "result_keys": [
++    "image_url",
++    "output_hint"
++  ],
++  "output_hint": "Generated images are saved to /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b as /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b/exec-57e6f788-1d36-41f2-9e67-79083af84a63.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
++  "image_payload_recorded": false
++}
+diff --git a/assets/source_art/yakuza/portrait_prompt.txt b/assets/source_art/yakuza/portrait_prompt.txt
+new file mode 100644
+index 0000000..e02972d
+--- /dev/null
++++ b/assets/source_art/yakuza/portrait_prompt.txt
+@@ -0,0 +1,6 @@
++Use case: stylized-concept
++Asset type: original pixel-art dialogue portrait expression atlas for a private game prototype.
++Input image 1 is the ONLY identity reference: yakuza_ref01.png. The project owner explicitly authorized this reference to be used for image generation. Use it only as a likeness guide; do not paste, trace, or retain photographic pixels or backgrounds.
++Create an original strong grotesque caricature of this exact man's recognizable face, reimagined as the fictional broad short 170cm/120kg Yakudza: extremely thick black hair with the same asymmetric swept-up tousled silhouette, calm slightly heavy-lidded dark eyes, strong straight dark eyebrows, softly broad cheeks, compact nose, small closed lips and round jaw/chin. No beard, glasses or cap. Preserve the distinctive actual facial relationships from the reference rather than a generic obese character. Black crewneck tee, thick neck and broad upper body. Phone in his hand visible at lower right. Exaggerated fictional weight, not the reference person's real body.
++Layout: transparent canvas 960x640, EXACT 3-column 2-row grid of 320x320 cells, no gaps. Five busts of the SAME character, identical scale/head placement/lighting and eye line. First row neutral calm, angry furrowed brows, surprised raised brows. Second row hurt small cheek bruise and wince (no gore), catchphrase mouth open shouting АЫАЫ but NO lettering anywhere, final bottom-right cell completely transparent. No labels, text, panel borders, background, shadow floor or UI. Each cell safely contains all hair and shoulders, centered with space at the edges.
++Style: TRUE deliberate low-resolution pixel art, each 320px cell is a 2x nearest-neighbor presentation of a 160x160 pixel drawing. Clean staircase edges, coherent square 2x2 pixel clusters everywhere, no antialiasing, no smooth gradients, no painterly brush, no photographic texture. Controlled shared 24–32 color palette: near-black hair and tee, dark purple-black outlines, warm tan skin in 5 flat ramps, restrained muted blue/cyan rim and muted magenta small highlights. Dramatic readable flat cluster shading. Dark black hair must read as black with very restrained violet/cyan edge highlights. Original 1990s gritty action pixel art, no copied game assets or recognizable existing game characters. Maximum likeness at 160px native per portrait.
+diff --git a/assets/source_art/yakuza/portraits_master_v1.png b/assets/source_art/yakuza/portraits_master_v1.png
+new file mode 100644
+index 0000000..c4f8ccc
+Binary files /dev/null and b/assets/source_art/yakuza/portraits_master_v1.png differ
+diff --git a/assets/source_art/yakuza/portraits_native_source.png b/assets/source_art/yakuza/portraits_native_source.png
+new file mode 100644
+index 0000000..72d8e1f
+Binary files /dev/null and b/assets/source_art/yakuza/portraits_native_source.png differ
+diff --git a/assets/source_art/yakuza/portraits_past_master_v1.png b/assets/source_art/yakuza/portraits_past_master_v1.png
+new file mode 100644
+index 0000000..5268198
+Binary files /dev/null and b/assets/source_art/yakuza/portraits_past_master_v1.png differ
+diff --git a/assets/source_art/yakuza/portraits_past_master_v2.png b/assets/source_art/yakuza/portraits_past_master_v2.png
+new file mode 100644
+index 0000000..7239789
+Binary files /dev/null and b/assets/source_art/yakuza/portraits_past_master_v2.png differ
+diff --git a/assets/source_art/yakuza/portraits_past_native_source.png b/assets/source_art/yakuza/portraits_past_native_source.png
+new file mode 100644
+index 0000000..3229f91
+Binary files /dev/null and b/assets/source_art/yakuza/portraits_past_native_source.png differ
+diff --git a/assets/source_art/yakuza/world_generation_metadata.json b/assets/source_art/yakuza/world_generation_metadata.json
+new file mode 100644
+index 0000000..3a1ac2d
+--- /dev/null
++++ b/assets/source_art/yakuza/world_generation_metadata.json
+@@ -0,0 +1,11 @@
++{
++  "tool": "image_gen__imagegen",
++  "mode": "built-in",
++  "transparent_background": true,
++  "result_keys": [
++    "image_url",
++    "output_hint"
++  ],
++  "output_hint": "Generated images are saved to /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b as /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b/exec-ef4de225-ed70-450c-a640-8fb73f423d21.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
++  "image_payload_recorded": false
++}
+diff --git a/assets/source_art/yakuza/world_master_v1.png b/assets/source_art/yakuza/world_master_v1.png
+new file mode 100644
+index 0000000..998e685
+Binary files /dev/null and b/assets/source_art/yakuza/world_master_v1.png differ
+diff --git a/assets/source_art/yakuza/world_native_source.png b/assets/source_art/yakuza/world_native_source.png
+new file mode 100644
+index 0000000..4037133
+Binary files /dev/null and b/assets/source_art/yakuza/world_native_source.png differ
+diff --git a/assets/source_art/yakuza/world_prompt.txt b/assets/source_art/yakuza/world_prompt.txt
+new file mode 100644
+index 0000000..a8a9c7c
+--- /dev/null
++++ b/assets/source_art/yakuza/world_prompt.txt
+@@ -0,0 +1,9 @@
++Use case: stylized-concept
++Asset type: original game-ready pixel-art four-direction character animation sprite atlas.
++Input image 1 is the authorized identity reference yakuza_ref01.png. Input image 2 is our original generated pixel portrait sheet of that same character. Use image 1 only for recognizable hair/face identity, image 2 for consistent character design and palette. Do not include photographic pixels, portrait busts, other people, or backgrounds.
++Make one precise game sprite sheet of the fictional Yakudza, short and VERY broad and overweight (120kg at170cm in fiction), huge round belly under a black crewneck T-shirt, thick neck, thick black asymmetric swept-up tousled hair, calm heavy-lidded dark eyes, clean-shaven round face; dark blue-grey trousers, dark shoes, phone in left hand. Original satirical design consistent with image2. Fictional body exaggeration, no real-person body inference.
++CRITICAL CAMERA: OVERHEAD TOP-DOWN ACTION GAME, looking steeply down at the top of his hair, shoulders and belly, with short FORESHORTENED legs visible below. NOT a side-view/platformer front-facing RPG paper doll. All directions share this exact overhead camera. Compact wide silhouette max40px wide and50px tall within a48x64 logical frame. Feet baseline logical y58. No floor shadows.
++Layout: exact 8 columns by4 rows, 32 frames, transparent canvas1536x1024. Each frame is192x256 pixels, representing a48x64 pixel drawing enlarged EXACTLY4x nearest neighbor. Each logical pixel is a perfectly crisp4x4 solid-color square. Center of each actor at horizontal logical x24, foot baseliney58. Keep ALL actors inside their own cell with8px logical side margins where possible and clear gutters. All frames same apparent scale.
++Rows top to bottom: 8 looking DOWN toward bottom of sheet; 8 looking LEFT; 8 looking RIGHT; 8 looking UP away from viewer (back of black hair and T-shirt, no face visible).
++Columns in EVERY row:0 calm idle standing,1 distinct idle breathing with belly/shoulders one pixel lower;2 walk left-foot forward,3 transition left-foot passing,4 centered planted left-foot,5 right-foot forward,6 transition right-foot passing,7 centered planted right-foot. Six clear small clumsy walking steps, anatomical limbs stay coherent, phone hand keeps phone with tiny sway. Left and right rows must genuinely point left/right. No duplicates of the neutral stance for every walk frame.
++TRUE low-resolution game pixel art: controlled shared palette maximum24 colors, near-black purple outlines and hair, black tee with subtle violet highlights,5 warm tan skin tones, desaturated charcoal-blue trousers, tiny cyan phone light. Solid cluster shading and hard staircase edges only. Do not render 3D, photorealism, painterly textures, antialiasing, blur, smooth gradients, huge detailed illustration, gridlines, labels, text, UI, watermarks, logos, weapons, hats, additional props or backgrounds. Each of32 frames is an actual full-body sprite, not a poster or a portrait collage.
+diff --git a/docs/CONSENT_STATUS.md b/docs/CONSENT_STATUS.md
+new file mode 100644
+index 0000000..ed6ddf9
+--- /dev/null
++++ b/docs/CONSENT_STATUS.md
+@@ -0,0 +1,8 @@
++# Разрешения текущей сессии
++
++2026-11-13 владелец явно разрешил:
++
++- Создать **приватный** `Artyx71/Last-Skuf` и отправить проверенные файлы **без фото**.
++- Использовать встроенный `image_gen` с фотографиями всех персонажей для создания арта. Для P01 нужен только `yakuza_ref01.png`.
++
++Это не художественный likeness signoff, не разрешение включать raw references в Git/билды и не разрешение публичного релиза. Публичные права на изображения/имена/голоса ещё не оформлены. Реальные голоса не синтезируются и не имитируются. Новых покупок, платёжных изменений, merge или release владелец не разрешал.
+diff --git a/game/assets/art/yakuza/atlas.json b/game/assets/art/yakuza/atlas.json
+new file mode 100644
+index 0000000..8e38aef
+--- /dev/null
++++ b/game/assets/art/yakuza/atlas.json
+@@ -0,0 +1,1633 @@
++{
++  "asset_id": "yakuza_p01_v1",
++  "version": 1,
++  "status": "DRAFT_REQUIRES_LIKENESS_REVIEW",
++  "author": "Codex art production using built-in image_gen; technical packing by Pillow13",
++  "source": {
++    "reference_id": "yakuza",
++    "reference_private_path": "assets/references/characters/yakuza_ref01.png",
++    "generation": "built-in image_gen",
++    "authorization": "Owner explicitly authorized image_gen with supplied photographs in the active session. No public distribution approval implied.",
++    "masters": [
++      {
++        "path": "assets/source_art/yakuza/portraits_master_v1.png",
++        "sha256": "0f47d96410232b3779cfde1042b5c76f8ce5401fd5deab39bf33f20b991fae83"
++      },
++      {
++        "path": "assets/source_art/yakuza/world_master_v1.png",
++        "sha256": "a53af6e3da4a7ecb47d104fbd4b566ca1c64f67649b39ba7eab7b2585d885949"
++      }
++    ],
++    "prompts": [
++      "assets/source_art/yakuza/portrait_prompt.txt",
++      "assets/source_art/yakuza/world_prompt.txt"
++    ],
++    "recipe": "assets/source_art/yakuza/build_assets.py"
++  },
++  "palette": {
++    "opaque_colors": 31,
++    "transparent_colors": 1,
++    "rgb_hex": [
++      "#0b090e",
++      "#15101a",
++      "#15151e",
++      "#211b29",
++      "#222936",
++      "#252332",
++      "#2b1a1e",
++      "#344255",
++      "#352b3d",
++      "#353244",
++      "#3e94b4",
++      "#4c3c56",
++      "#4c6076",
++      "#4e202c",
++      "#562d37",
++      "#6c9aaf",
++      "#6d354b",
++      "#75455f",
++      "#7bd2df",
++      "#873e3c",
++      "#8b3146",
++      "#994a63",
++      "#a75c49",
++      "#bc5260",
++      "#bc6573",
++      "#c47755",
++      "#dc956f",
++      "#e8878c",
++      "#ece3d5",
++      "#efb08b",
++      "#f6c59f"
++    ]
++  },
++  "portraits": {
++    "file": "portraits.png",
++    "dimensions": [
++      800,
++      160
++    ],
++    "frame_size": [
++      160,
++      160
++    ],
++    "columns": 5,
++    "rows": 1,
++    "expressions": [
++      "neutral",
++      "angry",
++      "surprised",
++      "hurt",
++      "catchphrase"
++    ],
++    "fps": 0,
++    "frames": [
++      {
++        "rect": [
++          0,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "8816259d95687dc4869f6a66664581f103fb098ece7ccd1a021eb23290eef151",
++        "id": "neutral",
++        "expression": "neutral",
++        "index": 0
++      },
++      {
++        "rect": [
++          160,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "dbb5a0448e92783fd3a3fd384bb69c814d7f73685aacb70b83787ba24a304d18",
++        "id": "angry",
++        "expression": "angry",
++        "index": 1
++      },
++      {
++        "rect": [
++          320,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "2c5b10cf916309bc6a90b4b862517068d9308620981802f68fbbfc8da9751a21",
++        "id": "surprised",
++        "expression": "surprised",
++        "index": 2
++      },
++      {
++        "rect": [
++          480,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "b3b5000149eb547587e0cfcca06b92cb099cbc47820e42e93795e8aced79e924",
++        "id": "hurt",
++        "expression": "hurt",
++        "index": 3
++      },
++      {
++        "rect": [
++          640,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "773b3fdef453584a16d41f8ba37b8df003ade5e47c09aff111213d87f492b49b",
++        "id": "catchphrase",
++        "expression": "catchphrase",
++        "index": 4
++      }
++    ],
++    "sha256": "e4ab5075660c214fb34999e69bf160d67fbab5afcf2453d82ba46fbb466251ab",
++    "native_size_rationale": "160px preserves hair silhouette, eye relationships, jaw and moles while fitting a 640x360 dialogue UI. 2px transparent cell inset prevents edge clipping."
++  },
++  "world": {
++    "file": "world_sheet.png",
++    "dimensions": [
++      384,
++      256
++    ],
++    "frame_size": [
++      48,
++      64
++    ],
++    "columns": 8,
++    "rows": 4,
++    "directions": [
++      "down",
++      "left",
++      "right",
++      "up"
++    ],
++    "pivot": [
++      24,
++      58
++    ],
++    "animations": {
++      "idle": {
++        "columns": [
++          0,
++          1
++        ],
++        "fps": 3,
++        "loop": true
++      },
++      "walk": {
++        "columns": [
++          2,
++          3,
++          4,
++          5,
++          6,
++          7
++        ],
++        "fps": 8,
++        "loop": true
++      }
++    },
++    "frames": [
++      {
++        "rect": [
++          0,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          7,
++          45,
++          58
++        ],
++        "rgba_sha256": "ac8cd5e9043a2230b80b5077d7b549c5ebab922b500f6ccd133119630b9ddb17",
++        "id": "down_0",
++        "direction": "down",
++        "column": 0,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          48,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          9,
++          45,
++          58
++        ],
++        "rgba_sha256": "c6bf352030ab3f9487431ce623f7ed6a9a807ed6f2b32dca90b5e9adc712b925",
++        "id": "down_1",
++        "direction": "down",
++        "column": 1,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          96,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          5,
++          44,
++          58
++        ],
++        "rgba_sha256": "3a5c736edef509a0f2f37841f967aa7bd0c6de20c5cd801ee40935ba088d11e6",
++        "id": "down_2",
++        "direction": "down",
++        "column": 2,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          144,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          5,
++          44,
++          58
++        ],
++        "rgba_sha256": "6a104a4257bcbd09e7b3ec819f53c651310f5b4327d688717a7822bd753d49e1",
++        "id": "down_3",
++        "direction": "down",
++        "column": 3,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          192,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          5,
++          45,
++          58
++        ],
++        "rgba_sha256": "9bd03aeb1509591683742141dd0b26606e47bebc7c460663c6751ff13492cd53",
++        "id": "down_4",
++        "direction": "down",
++        "column": 4,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          240,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          3,
++          45,
++          58
++        ],
++        "rgba_sha256": "a4bd9cd0a52fee28199c6427f1a2577aab46345c3082a7b5dc2fd11a4be10949",
++        "id": "down_5",
++        "direction": "down",
++        "column": 5,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          288,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          6,
++          44,
++          58
++        ],
++        "rgba_sha256": "21c5b840669299f034e52cd740d58846767aaa9ad4af9d670f662d6dc0355177",
++        "id": "down_6",
++        "direction": "down",
++        "column": 6,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          336,
++          0,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          6,
++          44,
++          58
++        ],
++        "rgba_sha256": "fcb0a627fad94d290b6421f5a483a10ed98f83c43e812886d0e09769f85e2608",
++        "id": "down_7",
++        "direction": "down",
++        "column": 7,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          0,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          7,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "243f009eab0cb6e89dc45630e43aa8f16ab2024a829287fa86869f708caf672f",
++        "id": "left_0",
++        "direction": "left",
++        "column": 0,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          48,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          6,
++          42,
++          58
++        ],
++        "rgba_sha256": "27b7bed6e2ebbff60b51a229e3a1ddc9ab40fab3552914c9c7de359fee05eb26",
++        "id": "left_1",
++        "direction": "left",
++        "column": 1,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          96,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          4,
++          43,
++          58
++        ],
++        "rgba_sha256": "5f64abef9ab716e6a75f5e1f4317bbd70f561ede7857f57001f35f76a1df0dea",
++        "id": "left_2",
++        "direction": "left",
++        "column": 2,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          144,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "4013c6197f7e50a489af24bceea5746170690ddb75e1580e89a013dd65992796",
++        "id": "left_3",
++        "direction": "left",
++        "column": 3,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          192,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          7,
++          4,
++          42,
++          58
++        ],
++        "rgba_sha256": "309a6c39f9b1f86f9f12d753ba6034dae0bb2ad238dd7d09919bcec3a045af5f",
++        "id": "left_4",
++        "direction": "left",
++        "column": 4,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          240,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          4,
++          42,
++          58
++        ],
++        "rgba_sha256": "3a5a45d54dbf7c029f4f5c3349a5ca1d3a1d89a3ad857279a76a23bef5cff9ae",
++        "id": "left_5",
++        "direction": "left",
++        "column": 5,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          288,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "801362c01a1389be70f9270d9bf77866e354844d640bc3333ec8d92a495e8eaf",
++        "id": "left_6",
++        "direction": "left",
++        "column": 6,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          336,
++          64,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          4,
++          42,
++          58
++        ],
++        "rgba_sha256": "514b6d7b4acde934b01dba611e80dbc4dbcf080a14582479fc3202e2412d6368",
++        "id": "left_7",
++        "direction": "left",
++        "column": 7,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          0,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          4,
++          42,
++          58
++        ],
++        "rgba_sha256": "e7a8680ae426b622776f57c10949d373f039592915c0944fa5a0bfeff90cc5ae",
++        "id": "right_0",
++        "direction": "right",
++        "column": 0,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          48,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "f3aa8dc78148c8d80417314e253fa4f78396a50376d3420d11763f1af4bcca3d",
++        "id": "right_1",
++        "direction": "right",
++        "column": 1,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          96,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "ed36267238256b615cbc9e3cab923daf8f8dd561bc713bbf7c64e0c1cf793250",
++        "id": "right_2",
++        "direction": "right",
++        "column": 2,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          144,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "55b924f291ae516ed51bc4d5aa212d0e1d550e91a2148caa4416c84993280e61",
++        "id": "right_3",
++        "direction": "right",
++        "column": 3,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          192,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "d46bccc67f9d8a5fa054cdd6f5b7e67d60037c4fe491e77dd4d8918ce0ac95ee",
++        "id": "right_4",
++        "direction": "right",
++        "column": 4,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          240,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          3,
++          42,
++          58
++        ],
++        "rgba_sha256": "f5e97f87728bbd6b6bcfc9400b6b36aa5f42c62a8709b7b32bcebb50af8177aa",
++        "id": "right_5",
++        "direction": "right",
++        "column": 5,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          288,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "04d28a8d055097424d8548aae65ded2859e3774ecb2b7cd6d6fbbf03d34a1d57",
++        "id": "right_6",
++        "direction": "right",
++        "column": 6,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          336,
++          128,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          6,
++          5,
++          42,
++          58
++        ],
++        "rgba_sha256": "e1d72a68c2c62e462f0c5417a4d5c56aab5e288348b7243454f2d9d61b8d7fd1",
++        "id": "right_7",
++        "direction": "right",
++        "column": 7,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          0,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          6,
++          44,
++          58
++        ],
++        "rgba_sha256": "5ef4829a86ad5573cee1c88a704a73d4463a22a9c08b270e6ef58f70f46e7b31",
++        "id": "up_0",
++        "direction": "up",
++        "column": 0,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          48,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          9,
++          45,
++          58
++        ],
++        "rgba_sha256": "746fd4dd73bc40323afc77a4b101e5498dbc30ed1c82969972e57b946ac46de9",
++        "id": "up_1",
++        "direction": "up",
++        "column": 1,
++        "animation": "idle"
++      },
++      {
++        "rect": [
++          96,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          4,
++          44,
++          58
++        ],
++        "rgba_sha256": "e94e9bc6dac8c8ffb0c24a1528764d5aaea6d1814a4da9f9cb84d4a8e74b2f9f",
++        "id": "up_2",
++        "direction": "up",
++        "column": 2,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          144,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          5,
++          44,
++          58
++        ],
++        "rgba_sha256": "86e17ed42fda06a2a9a933f642bb6c06c0c417f8041f94cf0203f88088cdf089",
++        "id": "up_3",
++        "direction": "up",
++        "column": 3,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          192,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          6,
++          44,
++          58
++        ],
++        "rgba_sha256": "d99f6974c32f1bf3b182b3ef048fb62d2365526844e6394aa8de04f3f5724d65",
++        "id": "up_4",
++        "direction": "up",
++        "column": 4,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          240,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          4,
++          44,
++          58
++        ],
++        "rgba_sha256": "1716d22a342da260c90af0630d3349527d0b16e870c9cdf9b246b18a03f0c088",
++        "id": "up_5",
++        "direction": "up",
++        "column": 5,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          288,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          7,
++          44,
++          58
++        ],
++        "rgba_sha256": "252556609ca73ef913799fb44ab53b45a1c765e712b0de5797b84a3ef48f15eb",
++        "id": "up_6",
++        "direction": "up",
++        "column": 6,
++        "animation": "walk"
++      },
++      {
++        "rect": [
++          336,
++          192,
++          48,
++          64
++        ],
++        "origin": [
++          24,
++          58
++        ],
++        "bounds": [
++          4,
++          6,
++          44,
++          58
++        ],
++        "rgba_sha256": "b9f8176c0a1c48da3f8e3905c1285428df184d0133de5718455120f7b11d18cc",
++        "id": "up_7",
++        "direction": "up",
++        "column": 7,
++        "animation": "walk"
++      }
++    ],
++    "sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8"
++  },
++  "packing": {
++    "alpha_threshold": 128,
++    "resize_filter": "NEAREST",
++    "shared_palette_method": "31 intentionally selected opaque colors; nearest RGB, no dither",
++    "up_row_mirrored_for_phone_hand": true,
++    "world_frame_adjustments": [
++      {
++        "direction": "down",
++        "column": 0,
++        "source_rect": [
++          0,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 1,
++        "source_rect": [
++          192,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 2,
++        "source_rect": [
++          384,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          -1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 3,
++        "source_rect": [
++          576,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          -1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 4,
++        "source_rect": [
++          768,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          -1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 5,
++        "source_rect": [
++          960,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          -1
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 6,
++        "source_rect": [
++          1152,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "down",
++        "column": 7,
++        "source_rect": [
++          1344,
++          0,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 0,
++        "source_rect": [
++          0,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 1,
++        "source_rect": [
++          192,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 2,
++        "source_rect": [
++          384,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          2,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 3,
++        "source_rect": [
++          576,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 4,
++        "source_rect": [
++          768,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 5,
++        "source_rect": [
++          960,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          1,
++          0
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 6,
++        "source_rect": [
++          1152,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "left",
++        "column": 7,
++        "source_rect": [
++          1344,
++          256,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 0,
++        "source_rect": [
++          0,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          -1
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 1,
++        "source_rect": [
++          192,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          -1
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 2,
++        "source_rect": [
++          384,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 3,
++        "source_rect": [
++          576,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 4,
++        "source_rect": [
++          768,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 5,
++        "source_rect": [
++          960,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          -1
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 6,
++        "source_rect": [
++          1152,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "right",
++        "column": 7,
++        "source_rect": [
++          1344,
++          512,
++          192,
++          256
++        ],
++        "mirror_x": false,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 0,
++        "source_rect": [
++          0,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 1,
++        "source_rect": [
++          192,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 2,
++        "source_rect": [
++          384,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 3,
++        "source_rect": [
++          576,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 4,
++        "source_rect": [
++          768,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 5,
++        "source_rect": [
++          960,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          0
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 6,
++        "source_rect": [
++          1152,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          3
++        ]
++      },
++      {
++        "direction": "up",
++        "column": 7,
++        "source_rect": [
++          1344,
++          768,
++          192,
++          256
++        ],
++        "mirror_x": true,
++        "offset_after_nearest": [
++          0,
++          1
++        ]
++      }
++    ]
++  },
++  "review": {
++    "human_likeness": "PENDING",
++    "independent_art_review": "PENDING",
++    "in_engine": "PENDING root integration",
++    "known_limitations": [
++      "Image generation masters have soft alpha fringe and off-grid color variation; native exports clean alpha and use one fixed pixel grid and shared palette.",
++      "Generated walk poses may show hair/volume jitter; require animation and likeness inspection.",
++      "No talk frames; five required expressions are included."
++    ]
++  },
++  "portraits_past": {
++    "file": "portraits_past.png",
++    "era": "past_flashback",
++    "dimensions": [
++      800,
++      160
++    ],
++    "frame_size": [
++      160,
++      160
++    ],
++    "columns": 5,
++    "rows": 1,
++    "expressions": [
++      "neutral",
++      "angry",
++      "surprised",
++      "hurt",
++      "catchphrase"
++    ],
++    "fps": 0,
++    "frames": [
++      {
++        "id": "neutral",
++        "expression": "neutral",
++        "index": 0,
++        "rect": [
++          0,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "9220ba92e073b9d1ed85bc4284baeaa6aa882548b17627f251fd5f6a40d18492"
++      },
++      {
++        "id": "angry",
++        "expression": "angry",
++        "index": 1,
++        "rect": [
++          160,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "e7c1f7cffd7687f1003af9c41c5d6b096fe8a9d6696f9b8c08701112dc26ba20"
++      },
++      {
++        "id": "surprised",
++        "expression": "surprised",
++        "index": 2,
++        "rect": [
++          320,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "d384c58beab463e9062278b2433b58c2a3a6a586b4a94c40e82761c66c33b644"
++      },
++      {
++        "id": "hurt",
++        "expression": "hurt",
++        "index": 3,
++        "rect": [
++          480,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "bc28bc4871410ca82eed9cd20293c55be0b76436fdfb099a7f5544b7f39f68bd"
++      },
++      {
++        "id": "catchphrase",
++        "expression": "catchphrase",
++        "index": 4,
++        "rect": [
++          640,
++          0,
++          160,
++          160
++        ],
++        "origin": [
++          80,
++          160
++        ],
++        "bounds": [
++          2,
++          4,
++          158,
++          158
++        ],
++        "rgba_sha256": "f76d6fe0bb4aedff056f4e964ef8fabd818fe229aed7dca45f9d656728f1d09f"
++      }
++    ],
++    "sha256": "40e7865392d6d73af895c27bb51f9d0e9bf4d497c3aa49b187dfc26c18d01d02",
++    "status": "DRAFT_REQUIRES_LIKENESS_REVIEW",
++    "source": {
++      "master": "assets/source_art/yakuza/portraits_past_master_v2.png",
++      "master_sha256": "9b3bd9e256c0ac26fb01690478792a5401f3557234681c6cf9d28dd430a4731c",
++      "prompt": "assets/source_art/yakuza/past_portrait_prompt.txt",
++      "metadata": "assets/source_art/yakuza/past_portrait_generation_metadata.json",
++      "cleanup_prompt": "assets/source_art/yakuza/past_cleanup_prompt.txt",
++      "cleanup_metadata": "assets/source_art/yakuza/past_cleanup_generation_metadata.json",
++      "previous_master": "assets/source_art/yakuza/portraits_past_master_v1.png",
++      "recipe": "assets/source_art/yakuza/build_past_assets.py",
++      "identity_reference_id": "yakuza",
++      "style_reference": "assets/source_art/yakuza/portraits_master_v1.png",
++      "mode": "built-in image_gen",
++      "alpha_threshold": 128,
++      "resize": "NEAREST",
++      "palette": "same31 opaque colors as present/world"
++    }
++  }
++}
+diff --git a/game/assets/art/yakuza/portraits.png b/game/assets/art/yakuza/portraits.png
+new file mode 100644
+index 0000000..72d8e1f
+Binary files /dev/null and b/game/assets/art/yakuza/portraits.png differ
+diff --git a/game/assets/art/yakuza/portraits.png.import b/game/assets/art/yakuza/portraits.png.import
+new file mode 100644
+index 0000000..8399b4c
+--- /dev/null
++++ b/game/assets/art/yakuza/portraits.png.import
+@@ -0,0 +1,40 @@
++[remap]
++
++importer="texture"
++type="CompressedTexture2D"
++uid="uid://d4crgy14duhwd"
++path="res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://assets/art/yakuza/portraits.png"
++dest_files=["res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex"]
++
++[params]
++
++compress/mode=0
++compress/high_quality=false
++compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
++compress/hdr_compression=1
++compress/normal_map=0
++compress/channel_pack=0
++mipmaps/generate=false
++mipmaps/limit=-1
++roughness/mode=0
++roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/normal_map_invert_y=false
++process/hdr_as_srgb=false
++process/hdr_clamp_exposure=false
++process/size_limit=0
++detect_3d/compress_to=1
+diff --git a/game/assets/art/yakuza/portraits_past.png b/game/assets/art/yakuza/portraits_past.png
+new file mode 100644
+index 0000000..3229f91
+Binary files /dev/null and b/game/assets/art/yakuza/portraits_past.png differ
+diff --git a/game/assets/art/yakuza/portraits_past.png.import b/game/assets/art/yakuza/portraits_past.png.import
+new file mode 100644
+index 0000000..95bdd62
+--- /dev/null
++++ b/game/assets/art/yakuza/portraits_past.png.import
+@@ -0,0 +1,40 @@
++[remap]
++
++importer="texture"
++type="CompressedTexture2D"
++uid="uid://cckhohjavsj14"
++path="res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://assets/art/yakuza/portraits_past.png"
++dest_files=["res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex"]
++
++[params]
++
++compress/mode=0
++compress/high_quality=false
++compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
++compress/hdr_compression=1
++compress/normal_map=0
++compress/channel_pack=0
++mipmaps/generate=false
++mipmaps/limit=-1
++roughness/mode=0
++roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/normal_map_invert_y=false
++process/hdr_as_srgb=false
++process/hdr_clamp_exposure=false
++process/size_limit=0
++detect_3d/compress_to=1
+diff --git a/game/assets/art/yakuza/world_sheet.png b/game/assets/art/yakuza/world_sheet.png
+new file mode 100644
+index 0000000..4037133
+Binary files /dev/null and b/game/assets/art/yakuza/world_sheet.png differ
+diff --git a/game/assets/art/yakuza/world_sheet.png.import b/game/assets/art/yakuza/world_sheet.png.import
+new file mode 100644
+index 0000000..7f53fd1
+--- /dev/null
++++ b/game/assets/art/yakuza/world_sheet.png.import
+@@ -0,0 +1,40 @@
++[remap]
++
++importer="texture"
++type="CompressedTexture2D"
++uid="uid://dbj7i5ib8g5nu"
++path="res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex"
++metadata={
++"vram_texture": false
++}
++
++[deps]
++
++source_file="res://assets/art/yakuza/world_sheet.png"
++dest_files=["res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex"]
++
++[params]
++
++compress/mode=0
++compress/high_quality=false
++compress/lossy_quality=0.7
++compress/uastc_level=0
++compress/rdo_quality_loss=0.0
++compress/hdr_compression=1
++compress/normal_map=0
++compress/channel_pack=0
++mipmaps/generate=false
++mipmaps/limit=-1
++roughness/mode=0
++roughness/src_normal=""
++process/channel_remap/red=0
++process/channel_remap/green=1
++process/channel_remap/blue=2
++process/channel_remap/alpha=3
++process/fix_alpha_border=true
++process/premult_alpha=false
++process/normal_map_invert_y=false
++process/hdr_as_srgb=false
++process/hdr_clamp_exposure=false
++process/size_limit=0
++detect_3d/compress_to=1
+diff --git a/game/scenes/world/movement_lab.tscn b/game/scenes/world/movement_lab.tscn
+new file mode 100644
+index 0000000..c3d5ffa
+--- /dev/null
++++ b/game/scenes/world/movement_lab.tscn
+@@ -0,0 +1,6 @@
++[gd_scene load_steps=2 format=3]
++
++[ext_resource type="Script" path="res://scripts/core/movement_lab.gd" id="1"]
++
++[node name="MovementLab" type="Node2D"]
++script = ExtResource("1")
+diff --git a/game/scripts/actors/yakuza_actor.gd b/game/scripts/actors/yakuza_actor.gd
+new file mode 100644
+index 0000000..0ca67b3
+--- /dev/null
++++ b/game/scripts/actors/yakuza_actor.gd
+@@ -0,0 +1,62 @@
++extends CharacterBody2D
++## Responsive low-speed movement; no random stumbling or unearned combat power.
++
++const SHEET_PATH := "res://assets/art/yakuza/world_sheet.png"
++const DIRECTIONS: Array[StringName] = [&"down", &"left", &"right", &"up"]
++const FRAME_SIZE := Vector2(48, 64)
++const FRAME_PIVOT := Vector2(24, 58)
++
++@export var move_speed := 82.0
++var facing: StringName = &"down"
++var sprite: AnimatedSprite2D
++
++
++func _ready() -> void:
++	collision_layer = 2
++	collision_mask = 1
++	var shape := CollisionShape2D.new()
++	var rectangle := RectangleShape2D.new()
++	rectangle.size = Vector2(16, 12)
++	shape.shape = rectangle
++	shape.position = Vector2(0, -6)
++	add_child(shape)
++	assert(ResourceLoader.exists(SHEET_PATH), "Actual P01 character art required")
++	var texture: Texture2D = load(SHEET_PATH)
++	var frames := SpriteFrames.new()
++	frames.remove_animation(&"default")
++	for row in DIRECTIONS.size():
++		for state in ["idle", "walk"]:
++			var animation := StringName(state + "_" + String(DIRECTIONS[row]))
++			frames.add_animation(animation)
++			frames.set_animation_speed(animation, 3.0 if state == "idle" else 8.0)
++			var first := 0 if state == "idle" else 2
++			var count := 2 if state == "idle" else 6
++			for column in range(first, first + count):
++				var atlas := AtlasTexture.new()
++				atlas.atlas = texture
++				atlas.region = Rect2(Vector2(column, row) * FRAME_SIZE, FRAME_SIZE)
++				frames.add_frame(animation, atlas)
++	sprite = AnimatedSprite2D.new()
++	sprite.sprite_frames = frames
++	sprite.position = FRAME_SIZE * 0.5 - FRAME_PIVOT
++	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
++	add_child(sprite)
++	sprite.play(&"idle_down")
++
++
++func _physics_process(_delta: float) -> void:
++	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
++	velocity = direction * move_speed
++	move_and_slide()
++	if direction.length_squared() > 0.0:
++		if absf(direction.x) > absf(direction.y):
++			facing = &"right" if direction.x > 0.0 else &"left"
++		else:
++			facing = &"down" if direction.y > 0.0 else &"up"
++		var animation := StringName("walk_" + String(facing))
++		if sprite.animation != animation:
++			sprite.play(animation)
++	else:
++		var animation := StringName("idle_" + String(facing))
++		if sprite.animation != animation:
++			sprite.play(animation)
+diff --git a/game/scripts/actors/yakuza_actor.gd.uid b/game/scripts/actors/yakuza_actor.gd.uid
+new file mode 100644
+index 0000000..870eb9e
+--- /dev/null
++++ b/game/scripts/actors/yakuza_actor.gd.uid
+@@ -0,0 +1 @@
++uid://ctt2xc617m8t4
+diff --git a/game/scripts/core/bootstrap.gd b/game/scripts/core/bootstrap.gd
+index 1fafe5b..2062f66 100644
+--- a/game/scripts/core/bootstrap.gd
++++ b/game/scripts/core/bootstrap.gd
+@@ -5,16 +5,19 @@ const DISCLAIMER := "Вымышленная криминальная сатир
+ 
+ 
+ func _ready() -> void:
++	if "--open-lab" in OS.get_cmdline_user_args():
++		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/movement_lab.tscn")
++		return
+ 	var panel := VBoxContainer.new()
+ 	panel.position = Vector2(36, 32)
+ 	panel.size = Vector2(568, 296)
+ 	panel.add_theme_constant_override("separation", 18)
+ 	add_child(panel)
+ 	_add_label(panel, "АЫАЫ: ПОСЛЕДНИЙ СКУФ", 28, Color("ff477e"))
+-	_add_label(panel, "P00 / ПРОВЕРКА ПРОЕКТА", 16, Color("66e5cc"))
+-	_add_label(panel, "Godot 4 · Windows / Linux\nИгровой прототип ещё не реализован.", 17, Color("e5e6ef"))
++	_add_label(panel, "P01 / АРТ И ДВИЖЕНИЕ", 16, Color("66e5cc"))
++	_add_label(panel, "Godot 4 · Windows / Linux\nПолная игра ещё не реализована.", 17, Color("e5e6ef"))
+ 	_add_label(panel, DISCLAIMER, 15, Color("b9b9cc"))
+-	_add_label(panel, "Esc — выход", 14, Color("b9b9cc"))
++	_add_label(panel, "Enter — лаборатория движения · Esc — выход", 14, Color("b9b9cc"))
+ 	if "--capture-bootstrap" in OS.get_cmdline_user_args():
+ 		await RenderingServer.frame_post_draw
+ 		var output := OS.get_environment("AYAY_CAPTURE_PATH")
+@@ -39,3 +42,5 @@ func _add_label(parent: Control, text: String, font_size: int, color: Color) ->
+ func _unhandled_input(event: InputEvent) -> void:
+ 	if event.is_action_pressed("ui_cancel"):
+ 		get_tree().quit()
++	elif event.is_action_pressed("ui_accept"):
++		get_tree().change_scene_to_file("res://scenes/world/movement_lab.tscn")
+diff --git a/game/scripts/core/input_bindings.gd b/game/scripts/core/input_bindings.gd
+new file mode 100644
+index 0000000..5bdf73d
+--- /dev/null
++++ b/game/scripts/core/input_bindings.gd
+@@ -0,0 +1,19 @@
++extends RefCounted
++## Initial keyboard bindings. Full persistent remapping belongs to a later gate.
++
++
++static func install() -> void:
++	var bindings := {
++		"move_left": [KEY_A, KEY_LEFT],
++		"move_right": [KEY_D, KEY_RIGHT],
++		"move_up": [KEY_W, KEY_UP],
++		"move_down": [KEY_S, KEY_DOWN],
++	}
++	for action: String in bindings:
++		if InputMap.has_action(action):
++			continue
++		InputMap.add_action(action, 0.2)
++		for key: int in bindings[action]:
++			var event := InputEventKey.new()
++			event.physical_keycode = key
++			InputMap.action_add_event(action, event)
+diff --git a/game/scripts/core/input_bindings.gd.uid b/game/scripts/core/input_bindings.gd.uid
+new file mode 100644
+index 0000000..4d4e552
+--- /dev/null
++++ b/game/scripts/core/input_bindings.gd.uid
+@@ -0,0 +1 @@
++uid://djpt3pmiee1ud
+diff --git a/game/scripts/core/movement_lab.gd b/game/scripts/core/movement_lab.gd
+new file mode 100644
+index 0000000..a011523
+--- /dev/null
++++ b/game/scripts/core/movement_lab.gd
+@@ -0,0 +1,121 @@
++extends Node2D
++## Deliberately labelled technical lab. Environment geometry is not mission art.
++
++const InputBindings = preload("res://scripts/core/input_bindings.gd")
++const Actor = preload("res://scripts/actors/yakuza_actor.gd")
++const EXPRESSIONS := ["СПОКОЕН", "ЗЛИТСЯ", "УДИВЛЁН", "РАНЕН", "АЫАЫ"]
++var actor: CharacterBody2D
++var portrait: TextureRect
++var emotion_label: Label
++var expression := 0
++var past_version := false
++
++
++func _ready() -> void:
++	InputBindings.install()
++	for wall in [Rect2(12, 46, 428, 8), Rect2(12, 314, 428, 8), Rect2(12, 46, 8, 276),
++			Rect2(432, 46, 8, 276), Rect2(186, 148, 32, 98), Rect2(292, 96, 68, 32)]:
++		_add_wall(wall)
++	actor = Actor.new()
++	actor.position = Vector2(106, 188)
++	add_child(actor)
++	_add_label("P01 / ЛАБОРАТОРИЯ ДВИЖЕНИЯ", Vector2(18, 12), 18, Color("66e5cc"))
++	_add_label("WASD/стрелки · 1–5: эмоции · Tab: эпоха · Esc", Vector2(18, 334), 12, Color("b9b9cc"))
++	_add_label("ЯКУДЗА", Vector2(458, 14), 22, Color("ff477e"))
++	portrait = TextureRect.new()
++	portrait.position = Vector2(458, 54)
++	portrait.size = Vector2(160, 160)
++	portrait.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
++	add_child(portrait)
++	emotion_label = _add_label("", Vector2(458, 224), 12, Color("66e5cc"))
++	_add_label("АРТ-КАНДИДАТ\nСходство не утверждено.\n\nТехнический стенд.\nЭто ещё не миссия.", Vector2(458, 250), 12, Color("b9b9cc"))
++	set_expression(0)
++	if OS.get_environment("AYAY_LAB_PAST") == "1":
++		set_past_version(true)
++	if "--lab-replay" in OS.get_cmdline_user_args():
++		call_deferred("_replay")
++	if "--capture-lab" in OS.get_cmdline_user_args():
++		await RenderingServer.frame_post_draw
++		var output := OS.get_environment("AYAY_CAPTURE_PATH")
++		if output.is_empty():
++			get_tree().quit(1)
++			return
++		get_tree().quit(get_viewport().get_texture().get_image().save_png(output))
++
++
++func _draw() -> void:
++	draw_rect(Rect2(20, 54, 412, 260), Color("141622"))
++	for x in range(20, 433, 16):
++		draw_line(Vector2(x, 54), Vector2(x, 314), Color("202333"))
++	for y in range(54, 315, 16):
++		draw_line(Vector2(20, y), Vector2(432, y), Color("202333"))
++	draw_line(Vector2(448, 12), Vector2(448, 324), Color("49465b"), 1.0)
++
++
++func _add_wall(rectangle: Rect2) -> void:
++	var body := StaticBody2D.new()
++	body.position = rectangle.get_center()
++	body.collision_layer = 1
++	body.collision_mask = 2
++	var shape := CollisionShape2D.new()
++	var bounds := RectangleShape2D.new()
++	bounds.size = rectangle.size
++	shape.shape = bounds
++	body.add_child(shape)
++	var visual := Polygon2D.new()
++	var half := rectangle.size * 0.5
++	visual.polygon = PackedVector2Array([-half, Vector2(half.x, -half.y), half, Vector2(-half.x, half.y)])
++	visual.color = Color("4e475c")
++	body.add_child(visual)
++	add_child(body)
++
++
++func _add_label(text: String, at: Vector2, font_size: int, color: Color) -> Label:
++	var label := Label.new()
++	label.text = text
++	label.position = at
++	label.add_theme_font_size_override("font_size", font_size)
++	label.add_theme_color_override("font_color", color)
++	add_child(label)
++	return label
++
++
++func set_expression(index: int) -> void:
++	expression = clampi(index, 0, 4)
++	var atlas := AtlasTexture.new()
++	var filename := "portraits_past.png" if past_version else "portraits.png"
++	atlas.atlas = load("res://assets/art/yakuza/" + filename)
++	atlas.region = Rect2(expression * 160, 0, 160, 160)
++	portrait.texture = atlas
++	emotion_label.text = ("ТОГДА · " if past_version else "СЕЙЧАС · ") + EXPRESSIONS[expression]
++
++
++func set_past_version(value: bool) -> void:
++	past_version = value
++	set_expression(expression)
++
++
++func _unhandled_input(event: InputEvent) -> void:
++	if event.is_action_pressed("ui_cancel"):
++		get_tree().quit()
++	if event is InputEventKey and event.pressed and not event.echo:
++		if event.keycode >= KEY_1 and event.keycode <= KEY_5:
++			set_expression(event.keycode - KEY_1)
++		elif event.keycode == KEY_TAB:
++			set_past_version(not past_version)
++
++
++func _replay() -> void:
++	# Genuine engine input and animation playback for repeatable visual evidence.
++	for action in ["move_down", "move_right", "move_up", "move_left"]:
++		Input.action_press(action)
++		for frame in 48:
++			await get_tree().physics_frame
++		Input.action_release(action)
++		for frame in 30:
++			await get_tree().physics_frame
++	for index in 5:
++		set_expression(index)
++		for frame in 36:
++			await get_tree().physics_frame
++	get_tree().quit()
+diff --git a/game/scripts/core/movement_lab.gd.uid b/game/scripts/core/movement_lab.gd.uid
+new file mode 100644
+index 0000000..909ccce
+--- /dev/null
++++ b/game/scripts/core/movement_lab.gd.uid
+@@ -0,0 +1 @@
++uid://lvmeq18e8mvj
+diff --git a/game/tests/art_structure_test.gd b/game/tests/art_structure_test.gd
+new file mode 100644
+index 0000000..6f48153
+--- /dev/null
++++ b/game/tests/art_structure_test.gd
+@@ -0,0 +1,72 @@
++extends SceneTree
++## Structural checks only. Passing this never certifies likeness or artistic quality.
++
++var passed := 0
++var failed := 0
++
++
++func _initialize() -> void:
++	call_deferred("_run")
++
++
++func _check(condition: bool, title: String) -> void:
++	if condition:
++		passed += 1
++		print("PASS ", title)
++	else:
++		failed += 1
++		push_error("FAIL " + title)
++
++
++func _pixel_structure(image: Image, label: String) -> void:
++	var colors := {}
++	var partial_alpha := 0
++	var transparent := 0
++	for y in image.get_height():
++		for x in image.get_width():
++			var pixel := image.get_pixel(x, y)
++			if pixel.a == 0.0:
++				transparent += 1
++			elif pixel.a == 1.0:
++				colors[pixel.to_rgba32()] = true
++			else:
++				partial_alpha += 1
++	_check(partial_alpha == 0, label + " binary alpha without baked smooth fringe")
++	_check(transparent > image.get_width() * image.get_height() * 0.05, label + " meaningful transparency")
++	_check(colors.size() <= 64, label + " controlled palette <=64 colors")
++	print(label, " colors=", colors.size(), " transparent=", transparent)
++
++
++func _run() -> void:
++	var sheet := (load("res://assets/art/yakuza/world_sheet.png") as Texture2D).get_image()
++	var portraits := (load("res://assets/art/yakuza/portraits.png") as Texture2D).get_image()
++	var past := (load("res://assets/art/yakuza/portraits_past.png") as Texture2D).get_image()
++	_check(not sheet.is_empty() and sheet.get_size() == Vector2i(384, 256), "world sheet native 48x64 x 8 x 4")
++	_check(not portraits.is_empty() and portraits.get_size() == Vector2i(800, 160), "five native 160px portraits")
++	_check(not past.is_empty() and past.get_size() == Vector2i(800, 160), "five native flashback portraits")
++	if sheet.is_empty() or portraits.is_empty():
++		quit(1)
++		return
++	_pixel_structure(sheet, "world")
++	_pixel_structure(portraits, "portraits")
++	_pixel_structure(past, "flashback")
++	_check(hash(past.get_data()) != hash(portraits.get_data()), "separate authored eras")
++	for row in 4:
++		var walk_hashes := {}
++		var bottoms: Array[int] = []
++		for column in 8:
++			var frame := sheet.get_region(Rect2i(column * 48, row * 64, 48, 64))
++			var bounds := frame.get_used_rect()
++			_check(bounds.has_area(), "nonempty frame %d/%d" % [row, column])
++			_check(bounds.position.x > 0 and bounds.end.x < 48 and bounds.position.y > 0 and bounds.end.y <= 62,
++				"unclipped frame %d/%d" % [row, column])
++			bottoms.append(bounds.end.y)
++			if column >= 2:
++				walk_hashes[hash(frame.get_data())] = true
++		_check(walk_hashes.size() >= 4, "distinct walk poses row " + str(row))
++		_check(bottoms.max() - bottoms.min() <= 3, "stable foot anchor row " + str(row))
++	for index in 5:
++		var frame := portraits.get_region(Rect2i(index * 160, 0, 160, 160))
++		_check(frame.get_used_rect().size.y > 100, "portrait filled " + str(index))
++	print("RESULT passed=%d failed=%d" % [passed, failed])
++	quit(1 if failed else 0)
+diff --git a/game/tests/art_structure_test.gd.uid b/game/tests/art_structure_test.gd.uid
+new file mode 100644
+index 0000000..8465adb
+--- /dev/null
++++ b/game/tests/art_structure_test.gd.uid
+@@ -0,0 +1 @@
++uid://bp3ifnqwgx1u1
+diff --git a/game/tests/movement_test.gd b/game/tests/movement_test.gd
+new file mode 100644
+index 0000000..9c5ac32
+--- /dev/null
++++ b/game/tests/movement_test.gd
+@@ -0,0 +1,88 @@
++extends SceneTree
++## Exercise native physics, input and the actual generated SpriteFrames.
++
++const Bindings = preload("res://scripts/core/input_bindings.gd")
++var passed := 0
++var failed := 0
++
++
++func _initialize() -> void:
++	call_deferred("_run")
++
++
++func _check(condition: bool, title: String) -> void:
++	if condition:
++		passed += 1
++		print("PASS ", title)
++	else:
++		failed += 1
++		push_error("FAIL " + title)
++
++
++func _frames(count: int) -> void:
++	for index in count:
++		await physics_frame
++
++
++func _run() -> void:
++	Bindings.install()
++	var lab: Node2D = load("res://scenes/world/movement_lab.tscn").instantiate()
++	root.add_child(lab)
++	await _frames(2)
++	var actor: CharacterBody2D = lab.actor
++	for action in ["move_left", "move_right", "move_up", "move_down"]:
++		_check(InputMap.action_get_events(action).size() == 2, action + " WASD + arrow binding")
++	actor.position = Vector2(80, 110)
++	var start := actor.position
++	Input.action_press("move_right")
++	await _frames(30)
++	Input.action_release("move_right")
++	await _frames(2)
++	var horizontal := actor.position.distance_to(start)
++	_check(horizontal > 36.0 and horizontal < 45.0, "fixed-step movement speed")
++	_check(actor.facing == &"right", "right facing follows input")
++	_check(actor.sprite.animation == &"idle_right", "release restores idle facing")
++	actor.position = start
++	Input.action_press("move_right")
++	Input.action_press("move_down")
++	await _frames(30)
++	Input.action_release("move_right")
++	Input.action_release("move_down")
++	await _frames(2)
++	_check(absf(actor.position.distance_to(start) - horizontal) < 3.0, "diagonal speed normalized")
++	for direction in ["down", "left", "right", "up"]:
++		actor.position = Vector2(90, 180)
++		Input.action_press("move_" + direction)
++		await _frames(3)
++		_check(actor.sprite.animation == StringName("walk_" + direction), "directional walk " + direction)
++		var old_frame: int = actor.sprite.frame
++		await _frames(10)
++		_check(actor.sprite.frame != old_frame, "actual animation advances " + direction)
++		Input.action_release("move_" + direction)
++		await _frames(2)
++		_check(actor.sprite.animation == StringName("idle_" + direction), "directional idle " + direction)
++	actor.position = Vector2(412, 210)
++	Input.action_press("move_right")
++	await _frames(30)
++	Input.action_release("move_right")
++	await _frames(2)
++	_check(actor.position.x <= 424.1, "solid wall prevents crossing")
++	actor.position = Vector2(160, 194)
++	Input.action_press("move_right")
++	await _frames(30)
++	Input.action_release("move_right")
++	await _frames(2)
++	_check(actor.position.x <= 178.1, "interior prop blocks actor")
++	for index in 5:
++		lab.set_expression(index)
++		_check(lab.portrait.texture.region.position.x == index * 160, "portrait expression " + str(index))
++	var present_texture: Texture2D = lab.portrait.texture.atlas
++	lab.set_past_version(true)
++	_check(lab.portrait.texture.atlas != present_texture, "flashback switches actual portrait source")
++	for index in 5:
++		lab.set_expression(index)
++		_check(lab.portrait.texture.region.position.x == index * 160, "flashback expression " + str(index))
++	lab.set_past_version(false)
++	_check(lab.portrait.texture.atlas == present_texture, "return to present source")
++	print("RESULT passed=%d failed=%d" % [passed, failed])
++	quit(1 if failed else 0)
+diff --git a/game/tests/movement_test.gd.uid b/game/tests/movement_test.gd.uid
+new file mode 100644
+index 0000000..6f526c6
+--- /dev/null
++++ b/game/tests/movement_test.gd.uid
+@@ -0,0 +1 @@
++uid://bi4tvcew4qew3
+diff --git a/licenses/ASSET_LICENSES.csv b/licenses/ASSET_LICENSES.csv
+index b7c33d3..da96de4 100644
+--- a/licenses/ASSET_LICENSES.csv
++++ b/licenses/ASSET_LICENSES.csv
+@@ -1 +1,4 @@
+-asset_id,category,creator,source_uri,license,attribution_required,commercial_game_use,redistribution_allowed,evidence_path,status
++asset_id,category,creator,source_uri,license,attribution_required,commercial_game_use,redistribution_allowed,evidence_path,status
++yakuza_portraits_present,pixel_portraits,Codex with built-in image_gen; project owner provided authorized identity reference,local:assets/source_art/yakuza/README.md,Original AI-assisted draft; owner rights and public likeness clearance pending,UNVERIFIED,UNVERIFIED,NOT_CLEARED,reports/phases/P01/art_inventory.json,DRAFT_REQUIRES_LIKENESS_REVIEW
++yakuza_portraits_past,pixel_portraits,Codex with built-in image_gen; project owner provided authorized identity reference,local:assets/source_art/yakuza/README.md,Original AI-assisted draft; owner rights and public likeness clearance pending,UNVERIFIED,UNVERIFIED,NOT_CLEARED,reports/phases/P01/art_inventory.json,DRAFT_REQUIRES_LIKENESS_REVIEW
++yakuza_world_p01,pixel_sprite,Codex with built-in image_gen; project owner provided authorized identity reference,local:assets/source_art/yakuza/README.md,Original AI-assisted draft; owner rights and public likeness clearance pending,UNVERIFIED,UNVERIFIED,NOT_CLEARED,reports/phases/P01/art_inventory.json,DRAFT_REQUIRES_LIKENESS_REVIEW
+diff --git a/planning/P01_TASKS.md b/planning/P01_TASKS.md
+new file mode 100644
+index 0000000..8ab7de0
+--- /dev/null
++++ b/planning/P01_TASKS.md
+@@ -0,0 +1,12 @@
++# P01 — арт и первое движение
++
++Prerequisite: P00 independent PASS, attempt2, `/root/lead_reviewer`.
++
++| Задача | Deliverable | Evidence |
++|---|---|---|
++| P01-01 / VIS-01 | Якудза: 5 выражений, 4-way idle/walk, masters+provenance | T-VIS-001 dimensions/alpha/palette/frame bounds; сравнение с правильным фото |
++| P01-02 / GP-02 | CharacterBody2D, фиксированный timestep, ограниченная скорость, коллизии | T-GP-001 input/cardinal/diagonal/wall tests; реальное управление |
++| P01-03 / TEC-01 | Нативная art/movement lab, выбор expressions | screenshots и animation recording в Godot, Linux/Windows sandbox exports |
++| P01-04 / OPS-01 | Независимый Lead review и человеческий likeness QA | decision.json; отсутствие человеческого evaluator = BLOCKED |
++
++Lab — технический стенд, не карта P04 и не миссия. Боевой код, сюжет и музыка не входят в P01. До PASS не начинать P02. Raw references никогда не входят в exports/Git; разрешён только image_gen reference input в рамках явно полученного разрешения владельца.
+diff --git a/tools/package_evidence.py b/tools/package_evidence.py
+index ae02d25..d320345 100644
+--- a/tools/package_evidence.py
++++ b/tools/package_evidence.py
+@@ -15,9 +15,10 @@ def main():
+     args = parser.parse_args()
+     directory = ROOT / 'reports/phases' / args.phase
+     files = [p for p in directory.rglob('*') if p.is_file()
+-             and p.name not in {'artifacts.json', 'review.md', 'decision.json'}
+-             and 'private' not in p.parts and 'reviewer' not in p.parts]
+-    files += [p for p in (ROOT / 'build').rglob('*') if p.is_file()]
++             and not p.name.startswith(('artifacts', 'review', 'decision'))
++             and 'private' not in p.parts and not any(part.startswith('reviewer') for part in p.parts)]
++    build_roots = [ROOT / 'build/linux', ROOT / 'build/windows'] if args.phase == 'P00' else [ROOT / 'build' / args.phase]
++    files += [p for folder in build_roots for p in folder.rglob('*') if p.is_file()]
+     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+     inventory = {'phase': args.phase, 'implementation_commit': commit,
+                  'evidence': [{'path': str(p.relative_to(ROOT)), 'bytes': p.stat().st_size,
+diff --git a/tools/verify.py b/tools/verify.py
+index 3787ae7..3bd526c 100644
+--- a/tools/verify.py
++++ b/tools/verify.py
+@@ -33,6 +33,11 @@ def main():
+                 ('integration', base + ['--script', 'res://tests/bootstrap_test.gd'])]
+     if args.references:
+         commands.insert(0, ('references', [sys.executable, 'tools/validate_pack.py']))
++    if (ROOT / 'game/assets/art/yakuza/world_sheet.png').is_file():
++        commands.extend([
++            ('art_structure', base + ['--script', 'res://tests/art_structure_test.gd']),
++            ('movement', base + ['--script', 'res://tests/movement_test.gd']),
++        ])
+     env = dict(os.environ)
+     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
+     if args.capture:
+diff --git a/tools/verify_p01.py b/tools/verify_p01.py
+new file mode 100644
+index 0000000..c52a61f
+--- /dev/null
++++ b/tools/verify_p01.py
+@@ -0,0 +1,77 @@
++#!/usr/bin/env python3
++"""P01 native art/movement tests, live render/replay and separate platform builds."""
++import hashlib
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++
++ROOT = Path(__file__).resolve().parents[1]
++OUTPUT = ROOT / 'reports/phases/P01'
++BUILD = ROOT / 'build/P01'
++LOCK = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
++GODOT = str(ROOT / '.tools/godot' / f'Godot_v{LOCK["release"]}_linux.x86_64')
++
++
++def main():
++    (OUTPUT / 'logs').mkdir(parents=True, exist_ok=True)
++    BUILD.mkdir(parents=True, exist_ok=True)
++    assert hashlib.sha256(Path(GODOT).read_bytes()).hexdigest() == LOCK['linux_binary_sha256']
++    results = []
++
++    def run(name, command, env=None, timeout=90):
++        try:
++            result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=timeout)
++            text, code = result.stdout + result.stderr, result.returncode
++        except subprocess.TimeoutExpired as error:
++            text, code = str(error), 124
++        ok = code == 0 and not any(x in text for x in ['SCRIPT ERROR:', 'ERROR:', 'FAIL:'])
++        (OUTPUT / 'logs' / (name + '.log')).write_text('$ ' + ' '.join(command) + '\n' + text + f'\nexit_code={code}\n')
++        results.append({'name': name, 'passed': ok, 'exit_code': code})
++        print(name, 'PASS' if ok else 'FAIL', flush=True)
++        return ok
++
++    base = [GODOT, '--headless', '--path', 'game']
++    run('references', [sys.executable, 'tools/validate_pack.py'])
++    run('privacy', [sys.executable, 'tools/check_privacy.py'])
++    run('import', base + ['--editor', '--quit'])
++    for test in ['bootstrap', 'art_structure', 'movement']:
++        run(test, base + ['--script', f'res://tests/{test}_test.gd'])
++    if all(r['passed'] for r in results):
++        scene = 'res://scenes/world/movement_lab.tscn'
++        env = dict(os.environ, AYAY_CAPTURE_PATH=str(OUTPUT / 'movement_lab.png'))
++        run('render_lab', [GODOT, '--path', 'game', scene, '--', '--capture-lab'], env)
++        past_env = dict(env, AYAY_CAPTURE_PATH=str(OUTPUT / 'movement_lab_past.png'), AYAY_LAB_PAST='1')
++        run('render_lab_past', [GODOT, '--path', 'game', scene, '--', '--capture-lab'], past_env)
++        run('replay', [GODOT, '--path', 'game', '--write-movie', str(BUILD / 'movement.avi'),
++                       '--fixed-fps', '60', scene, '--', '--lab-replay'], timeout=120)
++        if (BUILD / 'movement.avi').exists():
++            run('encode_replay', ['ffmpeg', '-y', '-i', str(BUILD / 'movement.avi'), '-an', '-c:v', 'libx264',
++                                  '-crf', '18', '-pix_fmt', 'yuv420p', str(OUTPUT / 'movement_replay.mp4')])
++            run('replay_contact_sheet', ['ffmpeg', '-y', '-i', str(OUTPUT / 'movement_replay.mp4'),
++                                        '-vf', 'fps=2,scale=640:360,tile=4x4', '-frames:v', '1', str(OUTPUT / 'animation_contact_sheet.png')])
++        exports = []
++        for preset, directory, filename, magic in [('Linux', 'linux', 'last-skuf.x86_64', b'\x7fELF'),
++                                                   ('Windows', 'windows', 'last-skuf.exe', b'MZ')]:
++            target = BUILD / directory / filename
++            target.parent.mkdir(exist_ok=True)
++            ok = run('export_' + directory, base + ['--export-release', preset, str(target)], timeout=120)
++            record = {'platform': preset, 'export_passed': ok, 'path': str(target.relative_to(ROOT)),
++                      'runtime': 'BLOCKED: Windows/Wine unavailable' if preset == 'Windows' else 'not tested'}
++            if ok and target.is_file():
++                assert target.read_bytes().startswith(magic)
++                record['sha256'] = hashlib.sha256(target.read_bytes()).hexdigest()
++                if preset == 'Linux':
++                    target.chmod(0o755)
++                    record['runtime'] = 'PASS' if run('linux_smoke', [str(target), '--headless', '--quit']) else 'FAIL'
++                    env['AYAY_CAPTURE_PATH'] = str(OUTPUT / 'export_linux_lab.png')
++                    record['lab_render_passed'] = run('linux_lab_render', [str(target), '--', '--open-lab', '--capture-lab'], env)
++            exports.append(record)
++        (OUTPUT / 'exports.json').write_text(json.dumps(exports, indent=2) + '\n')
++    (OUTPUT / 'validation.json').write_text(json.dumps(results, indent=2) + '\n')
++    return not all(r['passed'] for r in results)
++
++
++if __name__ == '__main__':
++    sys.exit(main())

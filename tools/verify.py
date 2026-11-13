@@ -33,6 +33,11 @@ def main():
                 ('integration', base + ['--script', 'res://tests/bootstrap_test.gd'])]
     if args.references:
         commands.insert(0, ('references', [sys.executable, 'tools/validate_pack.py']))
+    if (ROOT / 'game/assets/art/yakuza/world_sheet.png').is_file():
+        commands.extend([
+            ('art_structure', base + ['--script', 'res://tests/art_structure_test.gd']),
+            ('movement', base + ['--script', 'res://tests/movement_test.gd']),
+        ])
     env = dict(os.environ)
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:

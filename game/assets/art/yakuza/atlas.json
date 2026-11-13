@@ -1,0 +1,1633 @@
+{
+  "asset_id": "yakuza_p01_v1",
+  "version": 1,
+  "status": "DRAFT_REQUIRES_LIKENESS_REVIEW",
+  "author": "Codex art production using built-in image_gen; technical packing by Pillow13",
+  "source": {
+    "reference_id": "yakuza",
+    "reference_private_path": "assets/references/characters/yakuza_ref01.png",
+    "generation": "built-in image_gen",
+    "authorization": "Owner explicitly authorized image_gen with supplied photographs in the active session. No public distribution approval implied.",
+    "masters": [
+      {
+        "path": "assets/source_art/yakuza/portraits_master_v1.png",
+        "sha256": "0f47d96410232b3779cfde1042b5c76f8ce5401fd5deab39bf33f20b991fae83"
+      },
+      {
+        "path": "assets/source_art/yakuza/world_master_v1.png",
+        "sha256": "a53af6e3da4a7ecb47d104fbd4b566ca1c64f67649b39ba7eab7b2585d885949"
+      }
+    ],
+    "prompts": [
+      "assets/source_art/yakuza/portrait_prompt.txt",
+      "assets/source_art/yakuza/world_prompt.txt"
+    ],
+    "recipe": "assets/source_art/yakuza/build_assets.py"
+  },
+  "palette": {
+    "opaque_colors": 31,
+    "transparent_colors": 1,
+    "rgb_hex": [
+      "#0b090e",
+      "#15101a",
+      "#15151e",
+      "#211b29",
+      "#222936",
+      "#252332",
+      "#2b1a1e",
+      "#344255",
+      "#352b3d",
+      "#353244",
+      "#3e94b4",
+      "#4c3c56",
+      "#4c6076",
+      "#4e202c",
+      "#562d37",
+      "#6c9aaf",
+      "#6d354b",
+      "#75455f",
+      "#7bd2df",
+      "#873e3c",
+      "#8b3146",
+      "#994a63",
+      "#a75c49",
+      "#bc5260",
+      "#bc6573",
+      "#c47755",
+      "#dc956f",
+      "#e8878c",
+      "#ece3d5",
+      "#efb08b",
+      "#f6c59f"
+    ]
+  },
+  "portraits": {
+    "file": "portraits.png",
+    "dimensions": [
+      800,
+      160
+    ],
+    "frame_size": [
+      160,
+      160
+    ],
+    "columns": 5,
+    "rows": 1,
+    "expressions": [
+      "neutral",
+      "angry",
+      "surprised",
+      "hurt",
+      "catchphrase"
+    ],
+    "fps": 0,
+    "frames": [
+      {
+        "rect": [
+          0,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "8816259d95687dc4869f6a66664581f103fb098ece7ccd1a021eb23290eef151",
+        "id": "neutral",
+        "expression": "neutral",
+        "index": 0
+      },
+      {
+        "rect": [
+          160,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "dbb5a0448e92783fd3a3fd384bb69c814d7f73685aacb70b83787ba24a304d18",
+        "id": "angry",
+        "expression": "angry",
+        "index": 1
+      },
+      {
+        "rect": [
+          320,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "2c5b10cf916309bc6a90b4b862517068d9308620981802f68fbbfc8da9751a21",
+        "id": "surprised",
+        "expression": "surprised",
+        "index": 2
+      },
+      {
+        "rect": [
+          480,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "b3b5000149eb547587e0cfcca06b92cb099cbc47820e42e93795e8aced79e924",
+        "id": "hurt",
+        "expression": "hurt",
+        "index": 3
+      },
+      {
+        "rect": [
+          640,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "773b3fdef453584a16d41f8ba37b8df003ade5e47c09aff111213d87f492b49b",
+        "id": "catchphrase",
+        "expression": "catchphrase",
+        "index": 4
+      }
+    ],
+    "sha256": "e4ab5075660c214fb34999e69bf160d67fbab5afcf2453d82ba46fbb466251ab",
+    "native_size_rationale": "160px preserves hair silhouette, eye relationships, jaw and moles while fitting a 640x360 dialogue UI. 2px transparent cell inset prevents edge clipping."
+  },
+  "world": {
+    "file": "world_sheet.png",
+    "dimensions": [
+      384,
+      256
+    ],
+    "frame_size": [
+      48,
+      64
+    ],
+    "columns": 8,
+    "rows": 4,
+    "directions": [
+      "down",
+      "left",
+      "right",
+      "up"
+    ],
+    "pivot": [
+      24,
+      58
+    ],
+    "animations": {
+      "idle": {
+        "columns": [
+          0,
+          1
+        ],
+        "fps": 3,
+        "loop": true
+      },
+      "walk": {
+        "columns": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fps": 8,
+        "loop": true
+      }
+    },
+    "frames": [
+      {
+        "rect": [
+          0,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          7,
+          45,
+          58
+        ],
+        "rgba_sha256": "ac8cd5e9043a2230b80b5077d7b549c5ebab922b500f6ccd133119630b9ddb17",
+        "id": "down_0",
+        "direction": "down",
+        "column": 0,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          48,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          9,
+          45,
+          58
+        ],
+        "rgba_sha256": "c6bf352030ab3f9487431ce623f7ed6a9a807ed6f2b32dca90b5e9adc712b925",
+        "id": "down_1",
+        "direction": "down",
+        "column": 1,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          96,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          5,
+          44,
+          58
+        ],
+        "rgba_sha256": "3a5c736edef509a0f2f37841f967aa7bd0c6de20c5cd801ee40935ba088d11e6",
+        "id": "down_2",
+        "direction": "down",
+        "column": 2,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          144,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          5,
+          44,
+          58
+        ],
+        "rgba_sha256": "6a104a4257bcbd09e7b3ec819f53c651310f5b4327d688717a7822bd753d49e1",
+        "id": "down_3",
+        "direction": "down",
+        "column": 3,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          192,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          5,
+          45,
+          58
+        ],
+        "rgba_sha256": "9bd03aeb1509591683742141dd0b26606e47bebc7c460663c6751ff13492cd53",
+        "id": "down_4",
+        "direction": "down",
+        "column": 4,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          240,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          3,
+          45,
+          58
+        ],
+        "rgba_sha256": "a4bd9cd0a52fee28199c6427f1a2577aab46345c3082a7b5dc2fd11a4be10949",
+        "id": "down_5",
+        "direction": "down",
+        "column": 5,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          288,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          6,
+          44,
+          58
+        ],
+        "rgba_sha256": "21c5b840669299f034e52cd740d58846767aaa9ad4af9d670f662d6dc0355177",
+        "id": "down_6",
+        "direction": "down",
+        "column": 6,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          336,
+          0,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          6,
+          44,
+          58
+        ],
+        "rgba_sha256": "fcb0a627fad94d290b6421f5a483a10ed98f83c43e812886d0e09769f85e2608",
+        "id": "down_7",
+        "direction": "down",
+        "column": 7,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          0,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          7,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "243f009eab0cb6e89dc45630e43aa8f16ab2024a829287fa86869f708caf672f",
+        "id": "left_0",
+        "direction": "left",
+        "column": 0,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          48,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          6,
+          42,
+          58
+        ],
+        "rgba_sha256": "27b7bed6e2ebbff60b51a229e3a1ddc9ab40fab3552914c9c7de359fee05eb26",
+        "id": "left_1",
+        "direction": "left",
+        "column": 1,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          96,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          4,
+          43,
+          58
+        ],
+        "rgba_sha256": "5f64abef9ab716e6a75f5e1f4317bbd70f561ede7857f57001f35f76a1df0dea",
+        "id": "left_2",
+        "direction": "left",
+        "column": 2,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          144,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "4013c6197f7e50a489af24bceea5746170690ddb75e1580e89a013dd65992796",
+        "id": "left_3",
+        "direction": "left",
+        "column": 3,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          192,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          7,
+          4,
+          42,
+          58
+        ],
+        "rgba_sha256": "309a6c39f9b1f86f9f12d753ba6034dae0bb2ad238dd7d09919bcec3a045af5f",
+        "id": "left_4",
+        "direction": "left",
+        "column": 4,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          240,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          4,
+          42,
+          58
+        ],
+        "rgba_sha256": "3a5a45d54dbf7c029f4f5c3349a5ca1d3a1d89a3ad857279a76a23bef5cff9ae",
+        "id": "left_5",
+        "direction": "left",
+        "column": 5,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          288,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "801362c01a1389be70f9270d9bf77866e354844d640bc3333ec8d92a495e8eaf",
+        "id": "left_6",
+        "direction": "left",
+        "column": 6,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          336,
+          64,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          4,
+          42,
+          58
+        ],
+        "rgba_sha256": "514b6d7b4acde934b01dba611e80dbc4dbcf080a14582479fc3202e2412d6368",
+        "id": "left_7",
+        "direction": "left",
+        "column": 7,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          0,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          4,
+          42,
+          58
+        ],
+        "rgba_sha256": "e7a8680ae426b622776f57c10949d373f039592915c0944fa5a0bfeff90cc5ae",
+        "id": "right_0",
+        "direction": "right",
+        "column": 0,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          48,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "f3aa8dc78148c8d80417314e253fa4f78396a50376d3420d11763f1af4bcca3d",
+        "id": "right_1",
+        "direction": "right",
+        "column": 1,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          96,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "ed36267238256b615cbc9e3cab923daf8f8dd561bc713bbf7c64e0c1cf793250",
+        "id": "right_2",
+        "direction": "right",
+        "column": 2,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          144,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "55b924f291ae516ed51bc4d5aa212d0e1d550e91a2148caa4416c84993280e61",
+        "id": "right_3",
+        "direction": "right",
+        "column": 3,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          192,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "d46bccc67f9d8a5fa054cdd6f5b7e67d60037c4fe491e77dd4d8918ce0ac95ee",
+        "id": "right_4",
+        "direction": "right",
+        "column": 4,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          240,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          3,
+          42,
+          58
+        ],
+        "rgba_sha256": "f5e97f87728bbd6b6bcfc9400b6b36aa5f42c62a8709b7b32bcebb50af8177aa",
+        "id": "right_5",
+        "direction": "right",
+        "column": 5,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          288,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "04d28a8d055097424d8548aae65ded2859e3774ecb2b7cd6d6fbbf03d34a1d57",
+        "id": "right_6",
+        "direction": "right",
+        "column": 6,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          336,
+          128,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          6,
+          5,
+          42,
+          58
+        ],
+        "rgba_sha256": "e1d72a68c2c62e462f0c5417a4d5c56aab5e288348b7243454f2d9d61b8d7fd1",
+        "id": "right_7",
+        "direction": "right",
+        "column": 7,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          0,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          6,
+          44,
+          58
+        ],
+        "rgba_sha256": "5ef4829a86ad5573cee1c88a704a73d4463a22a9c08b270e6ef58f70f46e7b31",
+        "id": "up_0",
+        "direction": "up",
+        "column": 0,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          48,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          9,
+          45,
+          58
+        ],
+        "rgba_sha256": "746fd4dd73bc40323afc77a4b101e5498dbc30ed1c82969972e57b946ac46de9",
+        "id": "up_1",
+        "direction": "up",
+        "column": 1,
+        "animation": "idle"
+      },
+      {
+        "rect": [
+          96,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          4,
+          44,
+          58
+        ],
+        "rgba_sha256": "e94e9bc6dac8c8ffb0c24a1528764d5aaea6d1814a4da9f9cb84d4a8e74b2f9f",
+        "id": "up_2",
+        "direction": "up",
+        "column": 2,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          144,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          5,
+          44,
+          58
+        ],
+        "rgba_sha256": "86e17ed42fda06a2a9a933f642bb6c06c0c417f8041f94cf0203f88088cdf089",
+        "id": "up_3",
+        "direction": "up",
+        "column": 3,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          192,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          6,
+          44,
+          58
+        ],
+        "rgba_sha256": "d99f6974c32f1bf3b182b3ef048fb62d2365526844e6394aa8de04f3f5724d65",
+        "id": "up_4",
+        "direction": "up",
+        "column": 4,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          240,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          4,
+          44,
+          58
+        ],
+        "rgba_sha256": "1716d22a342da260c90af0630d3349527d0b16e870c9cdf9b246b18a03f0c088",
+        "id": "up_5",
+        "direction": "up",
+        "column": 5,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          288,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          7,
+          44,
+          58
+        ],
+        "rgba_sha256": "252556609ca73ef913799fb44ab53b45a1c765e712b0de5797b84a3ef48f15eb",
+        "id": "up_6",
+        "direction": "up",
+        "column": 6,
+        "animation": "walk"
+      },
+      {
+        "rect": [
+          336,
+          192,
+          48,
+          64
+        ],
+        "origin": [
+          24,
+          58
+        ],
+        "bounds": [
+          4,
+          6,
+          44,
+          58
+        ],
+        "rgba_sha256": "b9f8176c0a1c48da3f8e3905c1285428df184d0133de5718455120f7b11d18cc",
+        "id": "up_7",
+        "direction": "up",
+        "column": 7,
+        "animation": "walk"
+      }
+    ],
+    "sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8"
+  },
+  "packing": {
+    "alpha_threshold": 128,
+    "resize_filter": "NEAREST",
+    "shared_palette_method": "31 intentionally selected opaque colors; nearest RGB, no dither",
+    "up_row_mirrored_for_phone_hand": true,
+    "world_frame_adjustments": [
+      {
+        "direction": "down",
+        "column": 0,
+        "source_rect": [
+          0,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 1,
+        "source_rect": [
+          192,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 2,
+        "source_rect": [
+          384,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          -1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 3,
+        "source_rect": [
+          576,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          -1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 4,
+        "source_rect": [
+          768,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          -1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 5,
+        "source_rect": [
+          960,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          -1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 6,
+        "source_rect": [
+          1152,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 7,
+        "source_rect": [
+          1344,
+          0,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 0,
+        "source_rect": [
+          0,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 1,
+        "source_rect": [
+          192,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 2,
+        "source_rect": [
+          384,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          2,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 3,
+        "source_rect": [
+          576,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 4,
+        "source_rect": [
+          768,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 5,
+        "source_rect": [
+          960,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          1,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 6,
+        "source_rect": [
+          1152,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 7,
+        "source_rect": [
+          1344,
+          256,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 0,
+        "source_rect": [
+          0,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          -1
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 1,
+        "source_rect": [
+          192,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          -1
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 2,
+        "source_rect": [
+          384,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 3,
+        "source_rect": [
+          576,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 4,
+        "source_rect": [
+          768,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 5,
+        "source_rect": [
+          960,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          -1
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 6,
+        "source_rect": [
+          1152,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 7,
+        "source_rect": [
+          1344,
+          512,
+          192,
+          256
+        ],
+        "mirror_x": false,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 0,
+        "source_rect": [
+          0,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 1,
+        "source_rect": [
+          192,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 2,
+        "source_rect": [
+          384,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 3,
+        "source_rect": [
+          576,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 4,
+        "source_rect": [
+          768,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 5,
+        "source_rect": [
+          960,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 6,
+        "source_rect": [
+          1152,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          3
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 7,
+        "source_rect": [
+          1344,
+          768,
+          192,
+          256
+        ],
+        "mirror_x": true,
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "review": {
+    "human_likeness": "PENDING",
+    "independent_art_review": "PENDING",
+    "in_engine": "PENDING root integration",
+    "known_limitations": [
+      "Image generation masters have soft alpha fringe and off-grid color variation; native exports clean alpha and use one fixed pixel grid and shared palette.",
+      "Generated walk poses may show hair/volume jitter; require animation and likeness inspection.",
+      "No talk frames; five required expressions are included."
+    ]
+  },
+  "portraits_past": {
+    "file": "portraits_past.png",
+    "era": "past_flashback",
+    "dimensions": [
+      800,
+      160
+    ],
+    "frame_size": [
+      160,
+      160
+    ],
+    "columns": 5,
+    "rows": 1,
+    "expressions": [
+      "neutral",
+      "angry",
+      "surprised",
+      "hurt",
+      "catchphrase"
+    ],
+    "fps": 0,
+    "frames": [
+      {
+        "id": "neutral",
+        "expression": "neutral",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "9220ba92e073b9d1ed85bc4284baeaa6aa882548b17627f251fd5f6a40d18492"
+      },
+      {
+        "id": "angry",
+        "expression": "angry",
+        "index": 1,
+        "rect": [
+          160,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "e7c1f7cffd7687f1003af9c41c5d6b096fe8a9d6696f9b8c08701112dc26ba20"
+      },
+      {
+        "id": "surprised",
+        "expression": "surprised",
+        "index": 2,
+        "rect": [
+          320,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "d384c58beab463e9062278b2433b58c2a3a6a586b4a94c40e82761c66c33b644"
+      },
+      {
+        "id": "hurt",
+        "expression": "hurt",
+        "index": 3,
+        "rect": [
+          480,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "bc28bc4871410ca82eed9cd20293c55be0b76436fdfb099a7f5544b7f39f68bd"
+      },
+      {
+        "id": "catchphrase",
+        "expression": "catchphrase",
+        "index": 4,
+        "rect": [
+          640,
+          0,
+          160,
+          160
+        ],
+        "origin": [
+          80,
+          160
+        ],
+        "bounds": [
+          2,
+          4,
+          158,
+          158
+        ],
+        "rgba_sha256": "f76d6fe0bb4aedff056f4e964ef8fabd818fe229aed7dca45f9d656728f1d09f"
+      }
+    ],
+    "sha256": "40e7865392d6d73af895c27bb51f9d0e9bf4d497c3aa49b187dfc26c18d01d02",
+    "status": "DRAFT_REQUIRES_LIKENESS_REVIEW",
+    "source": {
+      "master": "assets/source_art/yakuza/portraits_past_master_v2.png",
+      "master_sha256": "9b3bd9e256c0ac26fb01690478792a5401f3557234681c6cf9d28dd430a4731c",
+      "prompt": "assets/source_art/yakuza/past_portrait_prompt.txt",
+      "metadata": "assets/source_art/yakuza/past_portrait_generation_metadata.json",
+      "cleanup_prompt": "assets/source_art/yakuza/past_cleanup_prompt.txt",
+      "cleanup_metadata": "assets/source_art/yakuza/past_cleanup_generation_metadata.json",
+      "previous_master": "assets/source_art/yakuza/portraits_past_master_v1.png",
+      "recipe": "assets/source_art/yakuza/build_past_assets.py",
+      "identity_reference_id": "yakuza",
+      "style_reference": "assets/source_art/yakuza/portraits_master_v1.png",
+      "mode": "built-in image_gen",
+      "alpha_threshold": 128,
+      "resize": "NEAREST",
+      "palette": "same31 opaque colors as present/world"
+    }
+  }
+}

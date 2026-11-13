@@ -1,0 +1,48 @@
+{
+  "artifacts.json": {
+    "entries": 34,
+    "mismatches": []
+  },
+  "art_inventory.json": {
+    "entries": 22,
+    "mismatches": []
+  },
+  "provider_original_copies": [
+    {
+      "master": "portraits_master_v1.png",
+      "provider_original_exists": true,
+      "sha256_matches": true
+    },
+    {
+      "master": "world_master_v1.png",
+      "provider_original_exists": true,
+      "sha256_matches": true
+    },
+    {
+      "master": "portraits_past_master_v1.png",
+      "provider_original_exists": true,
+      "sha256_matches": true
+    },
+    {
+      "master": "portraits_past_master_v2.png",
+      "provider_original_exists": true,
+      "sha256_matches": true
+    }
+  ],
+  "packing_commands": [
+    {
+      "script": "build_assets.py",
+      "exit_code": 0
+    },
+    {
+      "script": "build_past_assets.py",
+      "exit_code": 0
+    }
+  ],
+  "reproduced_runtime_matches": {
+    "portraits.png": true,
+    "portraits_past.png": true,
+    "world_sheet.png": true,
+    "atlas.json": false
+  }
+}

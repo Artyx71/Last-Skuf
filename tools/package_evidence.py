@@ -15,9 +15,10 @@ def main():
     args = parser.parse_args()
     directory = ROOT / 'reports/phases' / args.phase
     files = [p for p in directory.rglob('*') if p.is_file()
-             and p.name not in {'artifacts.json', 'review.md', 'decision.json'}
-             and 'private' not in p.parts and 'reviewer' not in p.parts]
-    files += [p for p in (ROOT / 'build').rglob('*') if p.is_file()]
+             and not p.name.startswith(('artifacts', 'review', 'decision'))
+             and 'private' not in p.parts and not any(part.startswith('reviewer') for part in p.parts)]
+    build_roots = [ROOT / 'build/linux', ROOT / 'build/windows'] if args.phase == 'P00' else [ROOT / 'build' / args.phase]
+    files += [p for folder in build_roots for p in folder.rglob('*') if p.is_file()]
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     inventory = {'phase': args.phase, 'implementation_commit': commit,
                  'evidence': [{'path': str(p.relative_to(ROOT)), 'bytes': p.stat().st_size,

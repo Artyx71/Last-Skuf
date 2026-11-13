@@ -1,15 +1,24 @@
 {
-  "active_phase": "P01",
+  "active_phase": "P02",
   "status": "IN_PROGRESS",
   "attempts": 0,
-  "last_pass": "P00",
-  "last_decision": "reports/phases/P00/decision-attempt2.json",
-  "last_commit": "d2f3fd9a751a268ea621c30b9cb12bffac9f360c",
-  "blocked": [
-    "Windows runtime unavailable",
-    "Default hosted CI billing; temporary local runner required per active session"
+  "last_pass": "P01",
+  "last_decision": "reports/phases/P01/decision-attempt2.json",
+  "last_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
+  "blocked": [],
+  "next_action": "Execute P02_HANDOFF: deterministic combat/hit detection, three enemy FSMs, instant restart and viable zero-kill Yakuza escape; independent review with real replay/builds.",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/2",
+  "persistent_runner": false,
+  "phase_work": {
+    "P01": "PASS attempt2 with owner human art approval; P02 begins"
+  },
+  "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
+  "limitations": [
+    "Windows runtime unavailable; Linux runtime/render verified",
+    "Default hosted CI account billing restricted; temporary per-session local runners used, none active"
   ],
-  "next_action": "Generate real Yakuza pixel art from authorized local reference, integrate native movement sandbox, inspect animations and seek independent + human art QA",
-  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/1",
-  "persistent_runner": false
+  "nonblocking_findings": [
+    "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
+    "META-P01-01 LOW: atlas known_limitations sentence differs after source recipe"
+  ]
 }
