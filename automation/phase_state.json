@@ -8,15 +8,16 @@
   "blocked": [
     {
       "id": "AU-P03-01",
-      "scope": "human perceptual listening only",
+      "scope": "Awaiting independent verification of owner actual listening; signal QA PASS",
       "decision": "reports/phases/P03/decision-attempt1.json",
       "reason": "Root and independent Lead actual MP3 input both returned: audio content omitted because you do not support audio input",
       "request": "reports/phases/P03/listening_request.json",
       "question_sent": true,
-      "answer_received": false
+      "answer_received": true,
+      "response": "reports/autopilot/P03/human_listening.json"
     }
   ],
-  "next_action": "Await actual listening result for LISTENING.md clips; independent reviewer resolves AU-P03-01 before P03 PASS/P04. No technical work remains required for this candidate.",
+  "next_action": "Sequential independent review of P03 owner listening + audio signal QA + AUTOPILOT integration; then current-SHA CI/review/merge chain in main, prepare P04/P04G without resetting progress.",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/4",
   "persistent_runner": false,
   "phase_work": {
@@ -35,5 +36,137 @@
     "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
     "META-P01-01 LOW: atlas known_limitations sentence differs after source recipe",
     "TEC-P03-01 LOW: artificial forced --quit CI smokes can leak2 audio references; normal app paths clean; replace CLI at next workflow change."
-  ]
+  ],
+  "autopilot": {
+    "schema": 2,
+    "paused": false,
+    "phases": {
+      "P00": {
+        "status": "PASS",
+        "attempts": 2,
+        "decision": "reports/phases/P00/decision.json",
+        "decision_sha256": "b4045244095e9ae3c3398675deff7ab667e04d0796bc1ef5e28f0cc370a6fd97",
+        "reviewer": "/root/lead_reviewer",
+        "pull_request_number": 1,
+        "merge": {
+          "status": "INSPECTED",
+          "snapshot": {
+            "number": 1,
+            "repository": "Artyx71/Last-Skuf",
+            "private": false,
+            "permissions": {
+              "admin": true,
+              "maintain": true,
+              "push": true,
+              "triage": true,
+              "pull": true
+            },
+            "squash_allowed": true,
+            "head_sha": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+            "head_repo": "Artyx71/Last-Skuf",
+            "base": "main",
+            "base_sha": "5c66c28be71205cafb86f46e839a11c70d5c8ad7",
+            "state": "open",
+            "draft": false,
+            "merged": false,
+            "merge_commit_sha": "d8b2354e6b15251930548160ca756463f86437cf",
+            "mergeable": true,
+            "merge_state": "CLEAN",
+            "review_decision": null,
+            "threads_complete": true,
+            "unresolved_threads": 0,
+            "required_checks": [
+              "bootstrap"
+            ],
+            "integration_ids": {},
+            "checks": {},
+            "approvals_required": 0,
+            "queue_required": false,
+            "protection_inspected": true
+          }
+        }
+      },
+      "P01": {
+        "status": "PASS",
+        "attempts": 2,
+        "decision": "reports/phases/P01/decision.json",
+        "decision_sha256": "d940b5ffecc4ab3082a0dde3c75e29a544d8186be0fb1a5dd58c09644d7bfd13",
+        "reviewer": "/root/lead_reviewer"
+      },
+      "P02": {
+        "status": "PASS",
+        "attempts": 2,
+        "decision": "reports/phases/P02/decision.json",
+        "decision_sha256": "622f1cbde150b186da86578261f579698d4fd927bf01c1132f10a01ad68378b2",
+        "reviewer": "/root/lead_reviewer"
+      },
+      "P03": {
+        "status": "BLOCKED",
+        "attempts": 1,
+        "decision": "reports/phases/P03/decision.json",
+        "decision_sha256": "dc8b4f5956d01ed835e66f83f5dbe8f02f66d12a05c3506478fd3e40f17cea3f",
+        "reviewer": "/root/lead_reviewer_p03"
+      },
+      "P04": {
+        "status": "PENDING",
+        "attempts": 0
+      },
+      "P04G": {
+        "status": "PENDING",
+        "attempts": 0
+      },
+      "P05": {
+        "status": "PENDING",
+        "attempts": 0
+      },
+      "P06": {
+        "status": "PENDING",
+        "attempts": 0
+      },
+      "P07": {
+        "status": "PENDING",
+        "attempts": 0
+      },
+      "P08": {
+        "status": "PENDING",
+        "attempts": 0
+      }
+    },
+    "tasks": {
+      "P03/audio-qa": {
+        "status": "PASS",
+        "report": "reports/autopilot/P03/audio_qa/report.json",
+        "sha256": "c65158616f3096772d5bbd5e66e114e51c5c40134705c34f97136dfa272ca034",
+        "scope": "Technical audio signal/runtime only; never clears artistic gate"
+      }
+    },
+    "history": [],
+    "operation": {
+      "id": "e90fff16c06f41c78a9caa1e2a94b87d",
+      "task": "P03/audio-qa",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/audio_qa.py",
+        "--capture-engine",
+        "--output",
+        "reports/autopilot/P03/audio_qa"
+      ],
+      "argv_sha256": "a59526134cd99d89fcd9a024a908d5010a15de68334d3268258de4649a909ac6",
+      "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
+      "timeout": 180,
+      "stdin": "",
+      "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/e90fff16c06f41c78a9caa1e2a94b87d/output.log",
+      "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/e90fff16c06f41c78a9caa1e2a94b87d/receipt.json",
+      "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/e90fff16c06f41c78a9caa1e2a94b87d/started.json",
+      "status": "COMPLETED",
+      "consumed": true,
+      "input_sha256": "aad31b97c9930709267676f65bc97862145f6f5e0f9bbe72fd0980452e3350f5",
+      "safe_retry": true,
+      "created_at": "2026-11-13T10:28:27+00:00",
+      "exit_code": 0
+    },
+    "authority": "automation/phase_state.json"
+  },
+  "repository_visibility": "public",
+  "authorization": "automation/AUTHORIZATIONS.json"
 }

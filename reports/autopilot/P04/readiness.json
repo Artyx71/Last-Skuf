@@ -1,0 +1,53 @@
+{
+  "status": "PREPARED",
+  "implementation_allowed": false,
+  "blockers": [
+    "P03 independent PASS required",
+    "P03 exact-SHA protected squash merge required"
+  ],
+  "active_phase_unchanged": "P03",
+  "inputs": [
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "exists": true,
+      "sha256": "c62eeac19c5a963705926a6c6bf3a8147671a3c02302a2132cbb84957af72f19"
+    },
+    {
+      "path": "game/scripts/actors/combat_player.gd",
+      "exists": true,
+      "sha256": "bdd0810bd50a31820ccf80ad2190da5ae46551e65f97d970783ab4f412f6102a"
+    },
+    {
+      "path": "game/scripts/ai/enemy_actor.gd",
+      "exists": true,
+      "sha256": "316fca6b0155b69cf498945eb8997115b3288df5c381099423b3eca59091a7b9"
+    },
+    {
+      "path": "game/scripts/systems/dialogue_director.gd",
+      "exists": true,
+      "sha256": "db6c18256b769052598f4338ef80041f99a010bc3a8f4e7d4c620ad9f73dcda7"
+    },
+    {
+      "path": "game/scripts/systems/audio_director.gd",
+      "exists": true,
+      "sha256": "84675e23cc04eea7f6ab5cc2196f982893d4540d44f8a680e456af695a6867cb"
+    },
+    {
+      "path": "game/scripts/core/options_store.gd",
+      "exists": true,
+      "sha256": "a86eb79909482cbb8f83f3d37eaac59a5c1e3b5d060f6a09137605699bec75a2"
+    },
+    {
+      "path": "specs/COMBAT_GORE_POLISH_SPEC.md",
+      "exists": true,
+      "sha256": "17c0e20e940a81b34b8cce15ba11fce8b5623be8b265e33dc8119aab6fed47a5"
+    },
+    {
+      "path": "autopilot/queue.json",
+      "exists": true,
+      "sha256": "292769fcacd70bc93f18725a3a99fd4321a28f792a4bf90e818b35b8697ac246"
+    }
+  ],
+  "scope": "Preparation only. No mission, final art or new finisher is claimed.",
+  "campaign_gate": "P04G PASS required before P07"
+}
