@@ -34,6 +34,7 @@ var status_label: Label
 var kit_label: Label
 var hint_label: Label
 var gallery_mode := false
+var qa_hide_indicators := false # Replay-only visual inspection; never changes combat queries/clocks.
 var replay_running := false
 var baseline_snapshot: Dictionary
 var last_reset_snapshot: Dictionary
@@ -92,7 +93,7 @@ func _ready() -> void:
 		var bench_sprite := Sprite2D.new()
 		bench_sprite.texture = load("res://assets/art/combat_polish/training_bench.png")
 		bench_sprite.position = Vector2(0,-26)
-		bench_sprite.z_index = 1
+		bench_sprite.z_index = 0 # Low work surface stays below complete actor silhouettes.
 		training_bench.add_child(bench_sprite)
 		add_child(training_bench)
 		combat.register_environment("training_bench",training_bench)

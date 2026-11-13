@@ -91,6 +91,9 @@ def main():
    return finish()
  def replay(name,command,wine=False,reduced=False,movie=False):
   e=env(name,wine,reduced);convert=winpath if wine else str
+  # Complement ordinary Full/Reduced captures with a real MovieMaker inspection
+  # pass without HUD hit/telegraph geometry; sprites still follow actual clocks.
+  if movie:e['AYAY_P04G_CLEAN_INDICATORS']='1'
   captures=output/(name+'_frames');captures.mkdir()
   result=output/(name+'.json');pcm=output/(name+'.wav')
   for key,path in [('AYAY_P04G_CAPTURE_DIR',captures),('AYAY_P04G_RESULT_PATH',result),('AYAY_P04G_AUDIO_PATH',pcm)]:e[key]=convert(path)
@@ -99,7 +102,7 @@ def main():
   finishes=data.get('finishers',[]);perf=data.get('performance',{})
   checks={'engine_passed':data.get('passed') is True,'twenty_category_direction_cases':len(finishes)==20,'all_earned_stun':data.get('earned_stun_input') is True,'each_two_hits_one_kill_score':bool(finishes) and all(f['hits']==2 and f['kills']==1 and f['score']==100 for f in finishes),'twelve_ai_direction_cases':len(data.get('ai',[]))==12,'stress_600_measured_samples':perf.get('samples',0)>=590,'single_music_player':data.get('audio',{}).get('music_players')==1,'no_audio_leak':data.get('audio',{}).get('active_voices',100)<=12,'movie_diagnostic_exact':perf.get('movie_maker') is movie}
   if not args.headless:
-   checks.update(actual_frames=len(list(captures.glob('*.png')))>=195,render_backend=perf.get('rendered') is True,actual_audio_driver=data.get('audio',{}).get('audio_driver')=='Dummy' if movie else data.get('audio',{}).get('audio_driver') not in [None,'Dummy'])
+   checks.update(actual_frames=len(list(captures.glob('*.png')))>=215,clear_corpse_matrix=all((captures/(category+'_'+direction+'_corpse_clear.png')).is_file() for category in ['unarmed','blunt','sharp','firearm','environmental'] for direction in ['down','left','right','up']),render_backend=perf.get('rendered') is True,actual_audio_driver=data.get('audio',{}).get('audio_driver')=='Dummy' if movie else data.get('audio',{}).get('audio_driver') not in [None,'Dummy'])
   check(name+'_acceptance',checks)
   signal=waveform(pcm);signal['scope']='actual runtime PCM; numerical only, not listening'+('; accelerated Dummy headless not native audio proof' if args.headless else '')
   write(output/(name+'_signal.json'),signal)

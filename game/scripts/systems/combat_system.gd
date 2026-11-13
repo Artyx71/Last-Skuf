@@ -230,6 +230,7 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 
 
 func _draw() -> void:
+	if lab.qa_hide_indicators: return
 	for attack in attacks:
 		if is_instance_valid(attack.source) and _melee_phase(attack) == "contact":
 			var center: Vector2 = attack.source.global_position + Vector2(0, -7)

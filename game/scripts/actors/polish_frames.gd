@@ -3,6 +3,21 @@ extends RefCounted
 const DIRECTIONS := ["down", "left", "right", "up"]
 const STATES := ["telegraph", "attack", "recovery", "hurt", "stun", "knockdown", "death", "finisher_reaction"]
 const CATEGORIES := ["unarmed", "blunt", "sharp", "firearm", "environmental"]
+static var socket_atlas: Dictionary = {}
+
+static func clothing_offset(sprite: AnimatedSprite2D) -> Vector2:
+	if socket_atlas.is_empty():
+		socket_atlas = JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/combat_polish/atlas.json")).get("clothing_sockets",{})
+	var texture := sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame)
+	if texture is AtlasTexture and texture.has_meta("full_atlas"):
+		var name: String = texture.get_meta("full_atlas").resource_path.get_file()
+		var row := str(int(texture.region.position.y/64))
+		var column := str(int(texture.region.position.x/48))
+		var point: Array = socket_atlas.get(name,{}).get(row,{}).get(column,[])
+		if point.size()==2:
+			return sprite.position-Vector2(24,32)+Vector2(point[0],point[1])
+	return Vector2(0,-24)
+
 static func append(frames: SpriteFrames, path: String, states: Array, prefix := "") -> void:
 	assert(ResourceLoader.exists(path), "P04G authored sheet required: " + path)
 	var texture: Texture2D = load(path)

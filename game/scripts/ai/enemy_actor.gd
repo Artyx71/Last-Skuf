@@ -293,7 +293,7 @@ func begin_finisher(category: String, duration: float) -> void:
 
 
 func _draw() -> void:
-	if health <= 0:
+	if health <= 0 or lab.qa_hide_indicators:
 		return
 	var color := Color("a8a9bb")
 	if state in ["alert", "pursue"]:

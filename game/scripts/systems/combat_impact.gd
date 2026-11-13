@@ -60,7 +60,8 @@ func on_contact(event: Dictionary) -> void:
 			if not is_instance_valid(actor) or actor.get_instance_id() in held_ids or not actor.sprite.visible: continue
 			held_ids[actor.get_instance_id()] = true
 			held_poses.append({"sprite": actor.sprite, "texture": actor.sprite.sprite_frames.get_frame_texture(actor.sprite.animation, actor.sprite.frame),
-				"position": actor.global_position + actor.sprite.position - Vector2(24,32), "color": actor.sprite.modulate})
+				"position": actor.global_position + actor.sprite.position - Vector2(24,32), "color": actor.sprite.modulate,
+				"actor_id": actor.get_instance_id(), "clothing_at": actor.global_position+preload("res://scripts/actors/polish_frames.gd").clothing_offset(actor.sprite)})
 			actor.sprite.self_modulate.a = 0
 	if flashes_enabled(): flash_remaining = float(cfg.flash_seconds)
 	var direction: Vector2 = event.direction
@@ -97,7 +98,10 @@ func _process(delta: float) -> void:
 	applied_shake = shake_offset
 	for pool in [particles, decals]:
 		for entry in pool.duplicate():
-			if entry.has("actor") and is_instance_valid(entry.actor): entry.at = entry.actor.global_position+Vector2(0,-24)
+			if entry.has("actor") and is_instance_valid(entry.actor):
+				entry.at = entry.actor.global_position+preload("res://scripts/actors/polish_frames.gd").clothing_offset(entry.actor.sprite)
+				for held in held_poses:
+					if held.actor_id==entry.actor.get_instance_id(): entry.at=held.clothing_at
 			entry.ttl -= delta
 			if entry.ttl <= 0: pool.erase(entry)
 	queue_redraw()
@@ -106,7 +110,9 @@ func _draw() -> void:
 	if texture:
 		if options == null or options.values.get("decals", true):
 			for decal in decals:
-				if not reduced(): _draw_cell(decal.at, decal.column, decal.row)
+				if not reduced():
+					# Clothing's authored mask is centred at source(24,32), unlike floor stains.
+					_draw_cell(decal.at, decal.column, decal.row)
 		for particle in particles:
 			var frame := mini(3, int((float(combat.polish.particle_ttl) - particle.ttl) * 4 / float(combat.polish.particle_ttl)))
 			_draw_cell(particle.at, 11 if reduced() else frame, particle.row)

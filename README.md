@@ -1,6 +1,6 @@
 # АЫАЫ: Последний скуф — SDD v1.0
 
-**Статус исполнения:** P00–P03 PASS и merged. Кандидат P04 THE MISSED FIGHT реализован и реально проверен с графикой/звуком на Linux и в Windows EXE под Wine. Владелец прослушал новую музыку и принял прототип P04; независимый Lead и CI текущего коммита ещё обязательны. Отчёт: [reports/phases/P04/implementation-host.md](reports/phases/P04/implementation-host.md). Полная игра ещё не готова.
+**Статус исполнения:** P00–P04 PASS и merged; P04 PR7/8. P04G Combat/Gore реализована как кандидат: независимый Lead attempt1 FAIL, исправления attempt2 в работе. Новые рисунки, добивания и технические проверки не означают художественную или итоговую приёмку. Полная игра ещё не готова.
 **Цель:** качественный Godot 4 / GDScript single-player Windows/Linux top-down action с собственным pixel-art, сильным саундтреком, драматургией и локальными шутками. Репозиторий: `Artyx71/Last-Skuf` (доступ/существование проверяет Codex, без самовольной публикации).
 
 ## С чего начать
@@ -34,4 +34,4 @@
 
 ## Последовательный AUTOPILOT
 
-Команды/state/recovery/защищённый squash workflow: [docs/AUTOPILOT.md](docs/AUTOPILOT.md). Репозиторий публичный по явному разрешению владельца; rawphotos исключены. Авторизация merge условная: независимый exact-SHA PASS + mandatory CI + GitHub approval/rules без bypass. Combat & Gore запланирован как [P04G](specs/COMBAT_GORE_POLISH_SPEC.md) после vertical slice и обязателен до P07. Не заявлен реализованным.
+Команды/state/recovery/защищённый squash workflow: [docs/AUTOPILOT.md](docs/AUTOPILOT.md). Репозиторий публичный по явному разрешению владельца; rawphotos исключены. Авторизация merge условная: независимый exact-SHA PASS + mandatory CI + GitHub approval/rules без bypass. Combat & Gore запланирован как [P04G](specs/COMBAT_GORE_POLISH_SPEC.md) после vertical slice и обязателен до P07. Кандидат в реализации; phase PASS не заявлен.

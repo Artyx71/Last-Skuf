@@ -86,8 +86,15 @@ func _run() -> void:
 		for i in 4: lab.combat._apply_hit(target,definition,id,lab.player)
 		check(target.hits_received == 2 and lab.kills == 1 and lab.score == 100 and lab.combat.damage_events == 2,category+" callback/reentry cannot double hit/kill")
 		check(not lab.player.try_finisher() and not lab.player.attack_melee(),category+" committed recovery rejects reentry")
+		target.set_physics_process(true) # Dead actor advances only its actual collapse presentation.
 		await frames(50)
 		check(lab.combat.finishers.is_empty() and target.state == "dead",category+" exits and dead priority retained")
+		var socket := preload("res://scripts/actors/polish_frames.gd").clothing_offset(target.sprite)
+		var attached := false
+		for decal in lab.combat.impact.decals:
+			if decal.get("actor")==target:
+				attached = decal.at.distance_to(target.global_position+socket)<0.01
+		check(target.sprite.frame==2 and socket.y>-20 and attached,category+" clothing wound follows actual settled corpse torso instead of standing height")
 		target.transition("attack",1)
 		target.hear_noise(Vector2.ZERO)
 		check(target.state == "dead",category+" dead cannot be overridden by attack/noise")

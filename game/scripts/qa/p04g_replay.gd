@@ -2,7 +2,7 @@ extends Node
 ## Sequential actual scene replay. Initial placements are declared fixtures, never
 ## injected stun/kill state. Setup stun and finishers use real Input and action clocks.
 var lab: Node2D
-var report := {"schema":1,"passed":true,"checks":[],"captures":[],"finishers":[],"ai":[],"fixture_initial_placements":true,"earned_stun_input":true,"scope":"NOT_SET"}
+var report := {"schema":1,"passed":true,"checks":[],"captures":[],"finishers":[],"ai":[],"fixture_initial_placements":true,"earned_stun_input":true,"scope":"NOT_SET","direction_semantics":"finisher directions are player aim; AI filenames also use fixture player aim, enemy faces opposite"}
 var output := ""
 var headless := false
 var timings: Array[float] = []
@@ -49,23 +49,26 @@ func capture(name: String) -> void:
 	report.captures.append({"name":name,"path":path,"code":code,"tick":Engine.get_physics_frames(),"draw_frame":Engine.get_frames_drawn()})
 	check(code==OK,"actual frame "+name)
 
-func fixture(index: int, direction: Vector2, health := 1) -> CharacterBody2D:
+func fixture(index: int, direction: Vector2, health := 1, environment := false) -> CharacterBody2D:
 	lab.reset_encounter()
 	lab.auto_retry = false
 	lab.gallery_mode = true
-	lab.player.position = Vector2(280,270)-direction*30
+	lab.qa_hide_indicators = OS.get_environment("AYAY_P04G_CLEAN_INDICATORS")=="1"
+	lab.player.position = Vector2(280,240)-direction*30
 	lab.player.set_aim(direction)
 	lab.player.health = 100 # QA durability only, declared fixture; all incoming contacts remain real.
 	for enemy in lab.enemies:
 		enemy.set_physics_process(false)
 		enemy.position = Vector2(500,90)
 	var target: CharacterBody2D = lab.enemies[index]
-	target.position = Vector2(280,270)
+	target.position = Vector2(280,240)
 	target.health = health
 	target.locked_aim = -direction
 	target.set_physics_process(true)
-	lab.training_bench.position = target.position + direction * 22
-	lab.training_bench.set_meta("finisher_enabled",true)
+	# Only the environmental category needs this real collider/registered surface.
+	# The diagonal placement retains distance eligibility and exposes the actor.
+	lab.training_bench.position = target.position + direction*22+direction.orthogonal()*26 if environment else Vector2(450,270)
+	lab.training_bench.set_meta("finisher_enabled",environment)
 	await frames(2)
 	return target
 
@@ -82,7 +85,7 @@ func run() -> void:
 	for ci in CATEGORIES.size():
 		for di in DIRECTIONS.size():
 			var category: String = CATEGORIES[ci]
-			var target: CharacterBody2D = await fixture(ci%3,DIRECTIONS[di])
+			var target: CharacterBody2D = await fixture(ci%3,DIRECTIONS[di],1,category=="environmental")
 			lab.select_equipment(ci)
 			await tap("attack_melee")
 			var wait := 0
@@ -104,6 +107,14 @@ func run() -> void:
 			await capture(category+"_"+NAMES[di]+"_recovery")
 			await frames(40)
 			check(lab.combat.finishers.is_empty(),"finisher exit "+category+NAMES[di])
+			# Ordinary movement AFTER committed recovery opens the sightline; no warp,
+			# injected death, or changed hitboxes. Corpse and floor marks remain real.
+			var retreat: String = ["move_up","move_right","move_left","move_down"][di]
+			Input.action_press(retreat)
+			await frames(22)
+			Input.action_release(retreat)
+			await capture(category+"_"+NAMES[di]+"_corpse_clear")
+			check(target.state=="dead" and target.health==0 and lab.kills==1 and lab.score==100,"settled corpse remains exactly once "+category+NAMES[di])
 	# All three actual AI warnings/contact/recovery and each directional reaction.
 	for index in 3:
 		for di in DIRECTIONS.size():
@@ -122,7 +133,7 @@ func run() -> void:
 				await frames(1);wait+=1
 			check(target.state=="recover","AI actual recovery "+prefix)
 			await capture(prefix+"_recovery")
-			report.ai.append({"kind":target.kind,"direction":NAMES[di],"transitions":target.transitions.duplicate(),"player_hits":lab.player.hits_received})
+			report.ai.append({"kind":target.kind,"direction":NAMES[di],"transitions":target.transitions.duplicate(),"player_hits":lab.player.hits_received,"target_facing":target.facing,"target_animation":String(target.sprite.animation),"target_frame":target.sprite.frame})
 			# State modifiers travel through existing native melee query and contact clock.
 			for action in ["hurt","stun","knockdown","death"]:
 				target = await fixture(index,DIRECTIONS[di],20 if action != "death" else 1)
@@ -138,7 +149,7 @@ func run() -> void:
 					await frames(1);wait+=1
 				check(target.state=={"hurt":"hurt","stun":"stunned","knockdown":"knockdown","death":"dead"}[action],"AI receive "+prefix+action)
 				await capture(prefix+"_"+action+"_contact")
-				await frames(7)
+				await frames(16 if action in ["death","knockdown"] else 7)
 				await capture(prefix+"_"+action+"_settled")
 				lab.config.attacks.shove.erase("knockdown")
 	# Actual portrait overlay through ordinary incoming hit, then reduced baseline.
