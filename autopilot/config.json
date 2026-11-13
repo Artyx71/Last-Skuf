@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "codex_binary": "codex",
+  "godot_binary": ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+  "project_directory": "game",
+  "max_attempts_per_phase": 3,
+  "phase_timeout_seconds": 7200,
+  "review_timeout_seconds": 3600,
+  "godot_timeout_seconds": 180,
+  "stop_after_phase": "P04G",
+  "repository": "Artyx71/Last-Skuf",
+  "main_branch": "main",
+  "merge_method": "squash",
+  "required_ci_checks": [
+    "bootstrap"
+  ],
+  "require_at_least_one_ci": true,
+  "automatic_merge": true,
+  "phase_order": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P04G",
+    "P05",
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "repository_visibility": "public"
+}

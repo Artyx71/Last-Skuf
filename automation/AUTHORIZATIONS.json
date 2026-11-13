@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "repository": "Artyx71/Last-Skuf",
+  "authorizations": [
+    {
+      "action": "public_repository",
+      "quote": "разрешаю сделать репо публичным",
+      "source": "actual user message in active session",
+      "recorded_at": "2026-11-13T10:15:08.822608+00:00",
+      "scope": "Repository code, reports and generated assets; raw personal photographs remain excluded. No storefront/game release or real voice cloning authorization."
+    },
+    {
+      "action": "conditional_squash_merge",
+      "quote": "После успешного независимого Lead Review и прохождения всех обязательных CI-проверок автоматически выполняй squash merge PR в основную ветку.",
+      "source": "actual user message in active session",
+      "conditions": [
+        "exact current head SHA independently reviewed",
+        "required CI success",
+        "no unresolved CRITICAL/HIGH",
+        "GitHub rules/manual approvals respected",
+        "no admin override/force push"
+      ]
+    }
+  ]
+}

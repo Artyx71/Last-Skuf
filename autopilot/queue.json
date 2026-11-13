@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "tasks": [
+    {
+      "id": "P03/audio-qa",
+      "phase": "P03",
+      "kind": "technical",
+      "depends_on": [],
+      "independent_of_artistic_audio": true
+    },
+    {
+      "id": "prepare-p04",
+      "phase": "P03",
+      "kind": "preparation_only",
+      "depends_on": [],
+      "independent_of_artistic_audio": true
+    },
+    {
+      "id": "P04/vertical-slice",
+      "phase": "P04",
+      "kind": "implementation",
+      "depends_on": [
+        "P03:PASS",
+        "P03:MERGED"
+      ],
+      "spec": "planning/P04_READINESS.md"
+    },
+    {
+      "id": "P04G/impact",
+      "phase": "P04G",
+      "kind": "implementation",
+      "depends_on": [
+        "P02:PASS",
+        "P03:PASS",
+        "P04:PASS"
+      ],
+      "requirements": [
+        "IMP-01",
+        "IMP-02"
+      ]
+    },
+    {
+      "id": "P04G/art-reactions",
+      "phase": "P04G",
+      "kind": "art",
+      "depends_on": [
+        "P04G/impact"
+      ],
+      "requirements": [
+        "ART-G01",
+        "ART-G02",
+        "AI-G01"
+      ]
+    },
+    {
+      "id": "P04G/finishers",
+      "phase": "P04G",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G/art-reactions"
+      ],
+      "requirements": [
+        "FIN-01",
+        "FIN-02",
+        "FIN-03",
+        "OPT-G01"
+      ]
+    },
+    {
+      "id": "P04G/verification",
+      "phase": "P04G",
+      "kind": "verification",
+      "depends_on": [
+        "P04G/finishers"
+      ],
+      "requirements": [
+        "QA-G01",
+        "PERF-G01",
+        "REV-G01"
+      ]
+    },
+    {
+      "id": "P06/character-finishers",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G:PASS",
+        "P06:CHARACTER_ABILITY_ART_GATES"
+      ]
+    },
+    {
+      "id": "P07/campaign",
+      "phase": "P07",
+      "kind": "implementation",
+      "depends_on": [
+        "P04:PASS",
+        "P04G:PASS",
+        "P05:PASS",
+        "P06:PASS"
+      ]
+    },
+    {
+      "id": "P06/reconcile-timka-reference",
+      "phase": "P06",
+      "kind": "reference_integrity",
+      "depends_on": [],
+      "status": "BLOCKED",
+      "reason": "Local private timka_ref01.png SHA256 differs from saved manifest; do not modify source/manifest or use until reconciled."
+    }
+  ]
+}
