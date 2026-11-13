@@ -1,0 +1,685 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS ordinary headless run never claims MovieMaker
+PASS standing target ineligible
+PASS earned knockdown eligible
+PASS wrong facing rejected
+PASS out of range rejected
+PASS unequipped sharp rejected
+PASS wall blocks otherwise eligible target
+PASS environmental earned ordinary damage0/stun1.15 contact
+PASS disabled registered environment rejected
+PASS distant registered environment rejected
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS unarmed real loadout starts after earned stun
+PASS unarmed long >.58s windup deals no hidden damage
+PASS unarmed one actual lethal contact
+PASS unarmed authored action remains during recovery
+PASS unarmed typed synced contact cue
+PASS unarmed callback/reentry cannot double hit/kill
+PASS unarmed committed recovery rejects reentry
+PASS unarmed exits and dead priority retained
+PASS unarmed dead cannot be overridden by attack/noise
+PASS stale pre-reset stamped contact rejected unarmed
+PASS blunt earned ordinary damage0/stun1.15 contact
+PASS blunt real loadout starts after earned stun
+PASS blunt long >.58s windup deals no hidden damage
+PASS blunt one actual lethal contact
+PASS blunt authored action remains during recovery
+PASS blunt typed synced contact cue
+PASS blunt callback/reentry cannot double hit/kill
+PASS blunt committed recovery rejects reentry
+PASS blunt exits and dead priority retained
+PASS blunt dead cannot be overridden by attack/noise
+PASS stale pre-reset stamped contact rejected blunt
+PASS sharp earned ordinary damage0/stun1.15 contact
+PASS sharp real loadout starts after earned stun
+PASS sharp long >.58s windup deals no hidden damage
+PASS sharp one actual lethal contact
+PASS sharp authored action remains during recovery
+PASS sharp typed synced contact cue
+PASS sharp callback/reentry cannot double hit/kill
+PASS sharp committed recovery rejects reentry
+PASS sharp exits and dead priority retained
+PASS sharp dead cannot be overridden by attack/noise
+PASS stale pre-reset stamped contact rejected sharp
+PASS firearm earned ordinary damage0/stun1.15 contact
+PASS firearm real loadout starts after earned stun
+PASS firearm long >.58s windup deals no hidden damage
+PASS firearm one actual lethal contact
+PASS firearm authored action remains during recovery
+PASS firearm typed synced contact cue
+PASS firearm callback/reentry cannot double hit/kill
+PASS firearm committed recovery rejects reentry
+PASS firearm exits and dead priority retained
+PASS firearm dead cannot be overridden by attack/noise
+PASS stale pre-reset stamped contact rejected firearm
+PASS environmental earned ordinary damage0/stun1.15 contact
+PASS environmental real loadout starts after earned stun
+PASS environmental long >.58s windup deals no hidden damage
+PASS environmental one actual lethal contact
+PASS environmental authored action remains during recovery
+PASS environmental typed synced contact cue
+PASS environmental callback/reentry cannot double hit/kill
+PASS environmental committed recovery rejects reentry
+PASS environmental exits and dead priority retained
+PASS environmental dead cannot be overridden by attack/noise
+PASS stale pre-reset stamped contact rejected environmental
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS settings GUI input cannot attack or advance paused finisher contact
+PASS closing settings resumes the same once-only contact clock
+PASS fall priority rejects lower hurt/attack and stale attack bind
+PASS weaker stun cannot overwrite active knockdown
+PASS death dominates hurt/fall and forced stale recovery
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS receipt rejects repeated callbacks even while contacted target is still alive
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS input cancellation fixture starts
+PASS input cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS movement cancellation fixture starts
+PASS movement cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS range cancellation fixture starts
+PASS range cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS weapon cancellation fixture starts
+PASS weapon cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS target_hit cancellation fixture starts
+PASS target_hit cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS target_loss cancellation fixture starts
+PASS target_loss cancels before contact, no kill
+PASS environmental earned ordinary damage0/stun1.15 contact
+PASS environment cancellation fixture starts
+PASS environment cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS source_attack cancellation fixture starts
+PASS source_attack cancels before contact, no kill
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS reset before contact destroys finisher authority
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS live AI target can be finished after earned shove
+PASS cancel after contact preserves exactly one score and kill
+PASS death interrupts committed recovery without refund or repeated contact
+PASS native sharp wall contact exactly once on concrete
+PASS weapon+registered surface routes distinct actual cue concrete
+PASS native sharp wall contact exactly once on metal
+PASS weapon+registered surface routes distinct actual cue metal
+PASS strong hit presents bounded held poses
+PASS physics clock advances through presentation hitstop exactly once
+PASS hitstop .045s releases held sprites
+PASS burst cooldown prevents unbounded continuous hitstop
+PASS capped camera shake preserves authored chapter camera position and base offset
+PASS shake0 restores original camera offset
+PASS knockback cannot tunnel through boundary wall
+PASS bounded 48 particles / 40 decals under overload
+PASS cosmetic RNG cannot consume encounter RNG
+PASS particles and decals TTL expires
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS unarmed earned ordinary damage0/stun1.15 contact
+PASS shake0 and flashesOff honored
+PASS Full/Reduced/decals/shake/flashes/VHS preserve actual gameplay outcome and RNG
+PASS reset clears all transient reservations and effects
+PASS patrol coverage reaction_telegraph_down
+PASS nonempty patrol reaction_telegraph_down0
+PASS nonempty patrol reaction_telegraph_down1
+PASS nonempty patrol reaction_telegraph_down2
+PASS authored articulation patrol reaction_telegraph_down
+PASS patrol coverage reaction_telegraph_left
+PASS nonempty patrol reaction_telegraph_left0
+PASS nonempty patrol reaction_telegraph_left1
+PASS nonempty patrol reaction_telegraph_left2
+PASS authored articulation patrol reaction_telegraph_left
+PASS patrol coverage reaction_telegraph_right
+PASS nonempty patrol reaction_telegraph_right0
+PASS nonempty patrol reaction_telegraph_right1
+PASS nonempty patrol reaction_telegraph_right2
+PASS authored articulation patrol reaction_telegraph_right
+PASS patrol coverage reaction_telegraph_up
+PASS nonempty patrol reaction_telegraph_up0
+PASS nonempty patrol reaction_telegraph_up1
+PASS nonempty patrol reaction_telegraph_up2
+PASS authored articulation patrol reaction_telegraph_up
+PASS patrol coverage reaction_attack_down
+PASS nonempty patrol reaction_attack_down0
+PASS nonempty patrol reaction_attack_down1
+PASS nonempty patrol reaction_attack_down2
+PASS authored articulation patrol reaction_attack_down
+PASS patrol coverage reaction_attack_left
+PASS nonempty patrol reaction_attack_left0
+PASS nonempty patrol reaction_attack_left1
+PASS nonempty patrol reaction_attack_left2
+PASS authored articulation patrol reaction_attack_left
+PASS patrol coverage reaction_attack_right
+PASS nonempty patrol reaction_attack_right0
+PASS nonempty patrol reaction_attack_right1
+PASS nonempty patrol reaction_attack_right2
+PASS authored articulation patrol reaction_attack_right
+PASS patrol coverage reaction_attack_up
+PASS nonempty patrol reaction_attack_up0
+PASS nonempty patrol reaction_attack_up1
+PASS nonempty patrol reaction_attack_up2
+PASS authored articulation patrol reaction_attack_up
+PASS patrol coverage reaction_recovery_down
+PASS nonempty patrol reaction_recovery_down0
+PASS nonempty patrol reaction_recovery_down1
+PASS nonempty patrol reaction_recovery_down2
+PASS authored articulation patrol reaction_recovery_down
+PASS patrol coverage reaction_recovery_left
+PASS nonempty patrol reaction_recovery_left0
+PASS nonempty patrol reaction_recovery_left1
+PASS nonempty patrol reaction_recovery_left2
+PASS authored articulation patrol reaction_recovery_left
+PASS patrol coverage reaction_recovery_right
+PASS nonempty patrol reaction_recovery_right0
+PASS nonempty patrol reaction_recovery_right1
+PASS nonempty patrol reaction_recovery_right2
+PASS authored articulation patrol reaction_recovery_right
+PASS patrol coverage reaction_recovery_up
+PASS nonempty patrol reaction_recovery_up0
+PASS nonempty patrol reaction_recovery_up1
+PASS nonempty patrol reaction_recovery_up2
+PASS authored articulation patrol reaction_recovery_up
+PASS patrol coverage reaction_hurt_down
+PASS nonempty patrol reaction_hurt_down0
+PASS nonempty patrol reaction_hurt_down1
+PASS nonempty patrol reaction_hurt_down2
+PASS authored articulation patrol reaction_hurt_down
+PASS patrol coverage reaction_hurt_left
+PASS nonempty patrol reaction_hurt_left0
+PASS nonempty patrol reaction_hurt_left1
+PASS nonempty patrol reaction_hurt_left2
+PASS authored articulation patrol reaction_hurt_left
+PASS patrol coverage reaction_hurt_right
+PASS nonempty patrol reaction_hurt_right0
+PASS nonempty patrol reaction_hurt_right1
+PASS nonempty patrol reaction_hurt_right2
+PASS authored articulation patrol reaction_hurt_right
+PASS patrol coverage reaction_hurt_up
+PASS nonempty patrol reaction_hurt_up0
+PASS nonempty patrol reaction_hurt_up1
+PASS nonempty patrol reaction_hurt_up2
+PASS authored articulation patrol reaction_hurt_up
+PASS patrol coverage reaction_stun_down
+PASS nonempty patrol reaction_stun_down0
+PASS nonempty patrol reaction_stun_down1
+PASS nonempty patrol reaction_stun_down2
+PASS authored articulation patrol reaction_stun_down
+PASS patrol coverage reaction_stun_left
+PASS nonempty patrol reaction_stun_left0
+PASS nonempty patrol reaction_stun_left1
+PASS nonempty patrol reaction_stun_left2
+PASS authored articulation patrol reaction_stun_left
+PASS patrol coverage reaction_stun_right
+PASS nonempty patrol reaction_stun_right0
+PASS nonempty patrol reaction_stun_right1
+PASS nonempty patrol reaction_stun_right2
+PASS authored articulation patrol reaction_stun_right
+PASS patrol coverage reaction_stun_up
+PASS nonempty patrol reaction_stun_up0
+PASS nonempty patrol reaction_stun_up1
+PASS nonempty patrol reaction_stun_up2
+PASS authored articulation patrol reaction_stun_up
+PASS patrol coverage reaction_knockdown_down
+PASS nonempty patrol reaction_knockdown_down0
+PASS nonempty patrol reaction_knockdown_down1
+PASS nonempty patrol reaction_knockdown_down2
+PASS authored articulation patrol reaction_knockdown_down
+PASS patrol coverage reaction_knockdown_left
+PASS nonempty patrol reaction_knockdown_left0
+PASS nonempty patrol reaction_knockdown_left1
+PASS nonempty patrol reaction_knockdown_left2
+PASS authored articulation patrol reaction_knockdown_left
+PASS patrol coverage reaction_knockdown_right
+PASS nonempty patrol reaction_knockdown_right0
+PASS nonempty patrol reaction_knockdown_right1
+PASS nonempty patrol reaction_knockdown_right2
+PASS authored articulation patrol reaction_knockdown_right
+PASS patrol coverage reaction_knockdown_up
+PASS nonempty patrol reaction_knockdown_up0
+PASS nonempty patrol reaction_knockdown_up1
+PASS nonempty patrol reaction_knockdown_up2
+PASS authored articulation patrol reaction_knockdown_up
+PASS patrol coverage reaction_death_down
+PASS nonempty patrol reaction_death_down0
+PASS nonempty patrol reaction_death_down1
+PASS nonempty patrol reaction_death_down2
+PASS authored articulation patrol reaction_death_down
+PASS patrol coverage reaction_death_left
+PASS nonempty patrol reaction_death_left0
+PASS nonempty patrol reaction_death_left1
+PASS nonempty patrol reaction_death_left2
+PASS authored articulation patrol reaction_death_left
+PASS patrol coverage reaction_death_right
+PASS nonempty patrol reaction_death_right0
+PASS nonempty patrol reaction_death_right1
+PASS nonempty patrol reaction_death_right2
+PASS authored articulation patrol reaction_death_right
+PASS patrol coverage reaction_death_up
+PASS nonempty patrol reaction_death_up0
+PASS nonempty patrol reaction_death_up1
+PASS nonempty patrol reaction_death_up2
+PASS authored articulation patrol reaction_death_up
+PASS patrol coverage reaction_finisher_reaction_down
+PASS nonempty patrol reaction_finisher_reaction_down0
+PASS nonempty patrol reaction_finisher_reaction_down1
+PASS nonempty patrol reaction_finisher_reaction_down2
+PASS authored articulation patrol reaction_finisher_reaction_down
+PASS patrol coverage reaction_finisher_reaction_left
+PASS nonempty patrol reaction_finisher_reaction_left0
+PASS nonempty patrol reaction_finisher_reaction_left1
+PASS nonempty patrol reaction_finisher_reaction_left2
+PASS authored articulation patrol reaction_finisher_reaction_left
+PASS patrol coverage reaction_finisher_reaction_right
+PASS nonempty patrol reaction_finisher_reaction_right0
+PASS nonempty patrol reaction_finisher_reaction_right1
+PASS nonempty patrol reaction_finisher_reaction_right2
+PASS authored articulation patrol reaction_finisher_reaction_right
+PASS patrol coverage reaction_finisher_reaction_up
+PASS nonempty patrol reaction_finisher_reaction_up0
+PASS nonempty patrol reaction_finisher_reaction_up1
+PASS nonempty patrol reaction_finisher_reaction_up2
+PASS authored articulation patrol reaction_finisher_reaction_up
+PASS rusher coverage reaction_telegraph_down
+PASS nonempty rusher reaction_telegraph_down0
+PASS nonempty rusher reaction_telegraph_down1
+PASS nonempty rusher reaction_telegraph_down2
+PASS authored articulation rusher reaction_telegraph_down
+PASS rusher coverage reaction_telegraph_left
+PASS nonempty rusher reaction_telegraph_left0
+PASS nonempty rusher reaction_telegraph_left1
+PASS nonempty rusher reaction_telegraph_left2
+PASS authored articulation rusher reaction_telegraph_left
+PASS rusher coverage reaction_telegraph_right
+PASS nonempty rusher reaction_telegraph_right0
+PASS nonempty rusher reaction_telegraph_right1
+PASS nonempty rusher reaction_telegraph_right2
+PASS authored articulation rusher reaction_telegraph_right
+PASS rusher coverage reaction_telegraph_up
+PASS nonempty rusher reaction_telegraph_up0
+PASS nonempty rusher reaction_telegraph_up1
+PASS nonempty rusher reaction_telegraph_up2
+PASS authored articulation rusher reaction_telegraph_up
+PASS rusher coverage reaction_attack_down
+PASS nonempty rusher reaction_attack_down0
+PASS nonempty rusher reaction_attack_down1
+PASS nonempty rusher reaction_attack_down2
+PASS authored articulation rusher reaction_attack_down
+PASS rusher coverage reaction_attack_left
+PASS nonempty rusher reaction_attack_left0
+PASS nonempty rusher reaction_attack_left1
+PASS nonempty rusher reaction_attack_left2
+PASS authored articulation rusher reaction_attack_left
+PASS rusher coverage reaction_attack_right
+PASS nonempty rusher reaction_attack_right0
+PASS nonempty rusher reaction_attack_right1
+PASS nonempty rusher reaction_attack_right2
+PASS authored articulation rusher reaction_attack_right
+PASS rusher coverage reaction_attack_up
+PASS nonempty rusher reaction_attack_up0
+PASS nonempty rusher reaction_attack_up1
+PASS nonempty rusher reaction_attack_up2
+PASS authored articulation rusher reaction_attack_up
+PASS rusher coverage reaction_recovery_down
+PASS nonempty rusher reaction_recovery_down0
+PASS nonempty rusher reaction_recovery_down1
+PASS nonempty rusher reaction_recovery_down2
+PASS authored articulation rusher reaction_recovery_down
+PASS rusher coverage reaction_recovery_left
+PASS nonempty rusher reaction_recovery_left0
+PASS nonempty rusher reaction_recovery_left1
+PASS nonempty rusher reaction_recovery_left2
+PASS authored articulation rusher reaction_recovery_left
+PASS rusher coverage reaction_recovery_right
+PASS nonempty rusher reaction_recovery_right0
+PASS nonempty rusher reaction_recovery_right1
+PASS nonempty rusher reaction_recovery_right2
+PASS authored articulation rusher reaction_recovery_right
+PASS rusher coverage reaction_recovery_up
+PASS nonempty rusher reaction_recovery_up0
+PASS nonempty rusher reaction_recovery_up1
+PASS nonempty rusher reaction_recovery_up2
+PASS authored articulation rusher reaction_recovery_up
+PASS rusher coverage reaction_hurt_down
+PASS nonempty rusher reaction_hurt_down0
+PASS nonempty rusher reaction_hurt_down1
+PASS nonempty rusher reaction_hurt_down2
+PASS authored articulation rusher reaction_hurt_down
+PASS rusher coverage reaction_hurt_left
+PASS nonempty rusher reaction_hurt_left0
+PASS nonempty rusher reaction_hurt_left1
+PASS nonempty rusher reaction_hurt_left2
+PASS authored articulation rusher reaction_hurt_left
+PASS rusher coverage reaction_hurt_right
+PASS nonempty rusher reaction_hurt_right0
+PASS nonempty rusher reaction_hurt_right1
+PASS nonempty rusher reaction_hurt_right2
+PASS authored articulation rusher reaction_hurt_right
+PASS rusher coverage reaction_hurt_up
+PASS nonempty rusher reaction_hurt_up0
+PASS nonempty rusher reaction_hurt_up1
+PASS nonempty rusher reaction_hurt_up2
+PASS authored articulation rusher reaction_hurt_up
+PASS rusher coverage reaction_stun_down
+PASS nonempty rusher reaction_stun_down0
+PASS nonempty rusher reaction_stun_down1
+PASS nonempty rusher reaction_stun_down2
+PASS authored articulation rusher reaction_stun_down
+PASS rusher coverage reaction_stun_left
+PASS nonempty rusher reaction_stun_left0
+PASS nonempty rusher reaction_stun_left1
+PASS nonempty rusher reaction_stun_left2
+PASS authored articulation rusher reaction_stun_left
+PASS rusher coverage reaction_stun_right
+PASS nonempty rusher reaction_stun_right0
+PASS nonempty rusher reaction_stun_right1
+PASS nonempty rusher reaction_stun_right2
+PASS authored articulation rusher reaction_stun_right
+PASS rusher coverage reaction_stun_up
+PASS nonempty rusher reaction_stun_up0
+PASS nonempty rusher reaction_stun_up1
+PASS nonempty rusher reaction_stun_up2
+PASS authored articulation rusher reaction_stun_up
+PASS rusher coverage reaction_knockdown_down
+PASS nonempty rusher reaction_knockdown_down0
+PASS nonempty rusher reaction_knockdown_down1
+PASS nonempty rusher reaction_knockdown_down2
+PASS authored articulation rusher reaction_knockdown_down
+PASS rusher coverage reaction_knockdown_left
+PASS nonempty rusher reaction_knockdown_left0
+PASS nonempty rusher reaction_knockdown_left1
+PASS nonempty rusher reaction_knockdown_left2
+PASS authored articulation rusher reaction_knockdown_left
+PASS rusher coverage reaction_knockdown_right
+PASS nonempty rusher reaction_knockdown_right0
+PASS nonempty rusher reaction_knockdown_right1
+PASS nonempty rusher reaction_knockdown_right2
+PASS authored articulation rusher reaction_knockdown_right
+PASS rusher coverage reaction_knockdown_up
+PASS nonempty rusher reaction_knockdown_up0
+PASS nonempty rusher reaction_knockdown_up1
+PASS nonempty rusher reaction_knockdown_up2
+PASS authored articulation rusher reaction_knockdown_up
+PASS rusher coverage reaction_death_down
+PASS nonempty rusher reaction_death_down0
+PASS nonempty rusher reaction_death_down1
+PASS nonempty rusher reaction_death_down2
+PASS authored articulation rusher reaction_death_down
+PASS rusher coverage reaction_death_left
+PASS nonempty rusher reaction_death_left0
+PASS nonempty rusher reaction_death_left1
+PASS nonempty rusher reaction_death_left2
+PASS authored articulation rusher reaction_death_left
+PASS rusher coverage reaction_death_right
+PASS nonempty rusher reaction_death_right0
+PASS nonempty rusher reaction_death_right1
+PASS nonempty rusher reaction_death_right2
+PASS authored articulation rusher reaction_death_right
+PASS rusher coverage reaction_death_up
+PASS nonempty rusher reaction_death_up0
+PASS nonempty rusher reaction_death_up1
+PASS nonempty rusher reaction_death_up2
+PASS authored articulation rusher reaction_death_up
+PASS rusher coverage reaction_finisher_reaction_down
+PASS nonempty rusher reaction_finisher_reaction_down0
+PASS nonempty rusher reaction_finisher_reaction_down1
+PASS nonempty rusher reaction_finisher_reaction_down2
+PASS authored articulation rusher reaction_finisher_reaction_down
+PASS rusher coverage reaction_finisher_reaction_left
+PASS nonempty rusher reaction_finisher_reaction_left0
+PASS nonempty rusher reaction_finisher_reaction_left1
+PASS nonempty rusher reaction_finisher_reaction_left2
+PASS authored articulation rusher reaction_finisher_reaction_left
+PASS rusher coverage reaction_finisher_reaction_right
+PASS nonempty rusher reaction_finisher_reaction_right0
+PASS nonempty rusher reaction_finisher_reaction_right1
+PASS nonempty rusher reaction_finisher_reaction_right2
+PASS authored articulation rusher reaction_finisher_reaction_right
+PASS rusher coverage reaction_finisher_reaction_up
+PASS nonempty rusher reaction_finisher_reaction_up0
+PASS nonempty rusher reaction_finisher_reaction_up1
+PASS nonempty rusher reaction_finisher_reaction_up2
+PASS authored articulation rusher reaction_finisher_reaction_up
+PASS shooter coverage reaction_telegraph_down
+PASS nonempty shooter reaction_telegraph_down0
+PASS nonempty shooter reaction_telegraph_down1
+PASS nonempty shooter reaction_telegraph_down2
+PASS authored articulation shooter reaction_telegraph_down
+PASS shooter coverage reaction_telegraph_left
+PASS nonempty shooter reaction_telegraph_left0
+PASS nonempty shooter reaction_telegraph_left1
+PASS nonempty shooter reaction_telegraph_left2
+PASS authored articulation shooter reaction_telegraph_left
+PASS shooter coverage reaction_telegraph_right
+PASS nonempty shooter reaction_telegraph_right0
+PASS nonempty shooter reaction_telegraph_right1
+PASS nonempty shooter reaction_telegraph_right2
+PASS authored articulation shooter reaction_telegraph_right
+PASS shooter coverage reaction_telegraph_up
+PASS nonempty shooter reaction_telegraph_up0
+PASS nonempty shooter reaction_telegraph_up1
+PASS nonempty shooter reaction_telegraph_up2
+PASS authored articulation shooter reaction_telegraph_up
+PASS shooter coverage reaction_attack_down
+PASS nonempty shooter reaction_attack_down0
+PASS nonempty shooter reaction_attack_down1
+PASS nonempty shooter reaction_attack_down2
+PASS authored articulation shooter reaction_attack_down
+PASS shooter coverage reaction_attack_left
+PASS nonempty shooter reaction_attack_left0
+PASS nonempty shooter reaction_attack_left1
+PASS nonempty shooter reaction_attack_left2
+PASS authored articulation shooter reaction_attack_left
+PASS shooter coverage reaction_attack_right
+PASS nonempty shooter reaction_attack_right0
+PASS nonempty shooter reaction_attack_right1
+PASS nonempty shooter reaction_attack_right2
+PASS authored articulation shooter reaction_attack_right
+PASS shooter coverage reaction_attack_up
+PASS nonempty shooter reaction_attack_up0
+PASS nonempty shooter reaction_attack_up1
+PASS nonempty shooter reaction_attack_up2
+PASS authored articulation shooter reaction_attack_up
+PASS shooter coverage reaction_recovery_down
+PASS nonempty shooter reaction_recovery_down0
+PASS nonempty shooter reaction_recovery_down1
+PASS nonempty shooter reaction_recovery_down2
+PASS authored articulation shooter reaction_recovery_down
+PASS shooter coverage reaction_recovery_left
+PASS nonempty shooter reaction_recovery_left0
+PASS nonempty shooter reaction_recovery_left1
+PASS nonempty shooter reaction_recovery_left2
+PASS authored articulation shooter reaction_recovery_left
+PASS shooter coverage reaction_recovery_right
+PASS nonempty shooter reaction_recovery_right0
+PASS nonempty shooter reaction_recovery_right1
+PASS nonempty shooter reaction_recovery_right2
+PASS authored articulation shooter reaction_recovery_right
+PASS shooter coverage reaction_recovery_up
+PASS nonempty shooter reaction_recovery_up0
+PASS nonempty shooter reaction_recovery_up1
+PASS nonempty shooter reaction_recovery_up2
+PASS authored articulation shooter reaction_recovery_up
+PASS shooter coverage reaction_hurt_down
+PASS nonempty shooter reaction_hurt_down0
+PASS nonempty shooter reaction_hurt_down1
+PASS nonempty shooter reaction_hurt_down2
+PASS authored articulation shooter reaction_hurt_down
+PASS shooter coverage reaction_hurt_left
+PASS nonempty shooter reaction_hurt_left0
+PASS nonempty shooter reaction_hurt_left1
+PASS nonempty shooter reaction_hurt_left2
+PASS authored articulation shooter reaction_hurt_left
+PASS shooter coverage reaction_hurt_right
+PASS nonempty shooter reaction_hurt_right0
+PASS nonempty shooter reaction_hurt_right1
+PASS nonempty shooter reaction_hurt_right2
+PASS authored articulation shooter reaction_hurt_right
+PASS shooter coverage reaction_hurt_up
+PASS nonempty shooter reaction_hurt_up0
+PASS nonempty shooter reaction_hurt_up1
+PASS nonempty shooter reaction_hurt_up2
+PASS authored articulation shooter reaction_hurt_up
+PASS shooter coverage reaction_stun_down
+PASS nonempty shooter reaction_stun_down0
+PASS nonempty shooter reaction_stun_down1
+PASS nonempty shooter reaction_stun_down2
+PASS authored articulation shooter reaction_stun_down
+PASS shooter coverage reaction_stun_left
+PASS nonempty shooter reaction_stun_left0
+PASS nonempty shooter reaction_stun_left1
+PASS nonempty shooter reaction_stun_left2
+PASS authored articulation shooter reaction_stun_left
+PASS shooter coverage reaction_stun_right
+PASS nonempty shooter reaction_stun_right0
+PASS nonempty shooter reaction_stun_right1
+PASS nonempty shooter reaction_stun_right2
+PASS authored articulation shooter reaction_stun_right
+PASS shooter coverage reaction_stun_up
+PASS nonempty shooter reaction_stun_up0
+PASS nonempty shooter reaction_stun_up1
+PASS nonempty shooter reaction_stun_up2
+PASS authored articulation shooter reaction_stun_up
+PASS shooter coverage reaction_knockdown_down
+PASS nonempty shooter reaction_knockdown_down0
+PASS nonempty shooter reaction_knockdown_down1
+PASS nonempty shooter reaction_knockdown_down2
+PASS authored articulation shooter reaction_knockdown_down
+PASS shooter coverage reaction_knockdown_left
+PASS nonempty shooter reaction_knockdown_left0
+PASS nonempty shooter reaction_knockdown_left1
+PASS nonempty shooter reaction_knockdown_left2
+PASS authored articulation shooter reaction_knockdown_left
+PASS shooter coverage reaction_knockdown_right
+PASS nonempty shooter reaction_knockdown_right0
+PASS nonempty shooter reaction_knockdown_right1
+PASS nonempty shooter reaction_knockdown_right2
+PASS authored articulation shooter reaction_knockdown_right
+PASS shooter coverage reaction_knockdown_up
+PASS nonempty shooter reaction_knockdown_up0
+PASS nonempty shooter reaction_knockdown_up1
+PASS nonempty shooter reaction_knockdown_up2
+PASS authored articulation shooter reaction_knockdown_up
+PASS shooter coverage reaction_death_down
+PASS nonempty shooter reaction_death_down0
+PASS nonempty shooter reaction_death_down1
+PASS nonempty shooter reaction_death_down2
+PASS authored articulation shooter reaction_death_down
+PASS shooter coverage reaction_death_left
+PASS nonempty shooter reaction_death_left0
+PASS nonempty shooter reaction_death_left1
+PASS nonempty shooter reaction_death_left2
+PASS authored articulation shooter reaction_death_left
+PASS shooter coverage reaction_death_right
+PASS nonempty shooter reaction_death_right0
+PASS nonempty shooter reaction_death_right1
+PASS nonempty shooter reaction_death_right2
+PASS authored articulation shooter reaction_death_right
+PASS shooter coverage reaction_death_up
+PASS nonempty shooter reaction_death_up0
+PASS nonempty shooter reaction_death_up1
+PASS nonempty shooter reaction_death_up2
+PASS authored articulation shooter reaction_death_up
+PASS shooter coverage reaction_finisher_reaction_down
+PASS nonempty shooter reaction_finisher_reaction_down0
+PASS nonempty shooter reaction_finisher_reaction_down1
+PASS nonempty shooter reaction_finisher_reaction_down2
+PASS authored articulation shooter reaction_finisher_reaction_down
+PASS shooter coverage reaction_finisher_reaction_left
+PASS nonempty shooter reaction_finisher_reaction_left0
+PASS nonempty shooter reaction_finisher_reaction_left1
+PASS nonempty shooter reaction_finisher_reaction_left2
+PASS authored articulation shooter reaction_finisher_reaction_left
+PASS shooter coverage reaction_finisher_reaction_right
+PASS nonempty shooter reaction_finisher_reaction_right0
+PASS nonempty shooter reaction_finisher_reaction_right1
+PASS nonempty shooter reaction_finisher_reaction_right2
+PASS authored articulation shooter reaction_finisher_reaction_right
+PASS shooter coverage reaction_finisher_reaction_up
+PASS nonempty shooter reaction_finisher_reaction_up0
+PASS nonempty shooter reaction_finisher_reaction_up1
+PASS nonempty shooter reaction_finisher_reaction_up2
+PASS authored articulation shooter reaction_finisher_reaction_up
+PASS finisher frame coverage unarmed down
+PASS finisher frame coverage unarmed left
+PASS finisher frame coverage unarmed right
+PASS finisher frame coverage unarmed up
+PASS finisher frame coverage blunt down
+PASS finisher frame coverage blunt left
+PASS finisher frame coverage blunt right
+PASS finisher frame coverage blunt up
+PASS finisher frame coverage sharp down
+PASS finisher frame coverage sharp left
+PASS finisher frame coverage sharp right
+PASS finisher frame coverage sharp up
+PASS finisher frame coverage firearm down
+PASS finisher frame coverage firearm left
+PASS finisher frame coverage firearm right
+PASS finisher frame coverage firearm up
+PASS finisher frame coverage environmental down
+PASS finisher frame coverage environmental left
+PASS finisher frame coverage environmental right
+PASS finisher frame coverage environmental up
+PASS finisher frame coverage unarmed down
+PASS finisher frame coverage unarmed left
+PASS finisher frame coverage unarmed right
+PASS finisher frame coverage unarmed up
+PASS finisher frame coverage blunt down
+PASS finisher frame coverage blunt left
+PASS finisher frame coverage blunt right
+PASS finisher frame coverage blunt up
+PASS finisher frame coverage sharp down
+PASS finisher frame coverage sharp left
+PASS finisher frame coverage sharp right
+PASS finisher frame coverage sharp up
+PASS finisher frame coverage firearm down
+PASS finisher frame coverage firearm left
+PASS finisher frame coverage firearm right
+PASS finisher frame coverage firearm up
+PASS finisher frame coverage environmental down
+PASS finisher frame coverage environmental left
+PASS finisher frame coverage environmental right
+PASS finisher frame coverage environmental up
+PASS finisher frame coverage unarmed down
+PASS finisher frame coverage unarmed left
+PASS finisher frame coverage unarmed right
+PASS finisher frame coverage unarmed up
+PASS finisher frame coverage blunt down
+PASS finisher frame coverage blunt left
+PASS finisher frame coverage blunt right
+PASS finisher frame coverage blunt up
+PASS finisher frame coverage sharp down
+PASS finisher frame coverage sharp left
+PASS finisher frame coverage sharp right
+PASS finisher frame coverage sharp up
+PASS finisher frame coverage firearm down
+PASS finisher frame coverage firearm left
+PASS finisher frame coverage firearm right
+PASS finisher frame coverage firearm up
+PASS finisher frame coverage environmental down
+PASS finisher frame coverage environmental left
+PASS finisher frame coverage environmental right
+PASS finisher frame coverage environmental up
+PASS finisher frame coverage unarmed down
+PASS finisher frame coverage unarmed left
+PASS finisher frame coverage unarmed right
+PASS finisher frame coverage unarmed up
+PASS finisher frame coverage blunt down
+PASS finisher frame coverage blunt left
+PASS finisher frame coverage blunt right
+PASS finisher frame coverage blunt up
+PASS finisher frame coverage sharp down
+PASS finisher frame coverage sharp left
+PASS finisher frame coverage sharp right
+PASS finisher frame coverage sharp up
+PASS finisher frame coverage firearm down
+PASS finisher frame coverage firearm left
+PASS finisher frame coverage firearm right
+PASS finisher frame coverage firearm up
+PASS finisher frame coverage environmental down
+PASS finisher frame coverage environmental left
+PASS finisher frame coverage environmental right
+PASS finisher frame coverage environmental up
+RESULT passed=682 failed=0
