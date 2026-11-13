@@ -1,5 +1,5 @@
 # STORY_SPEC — АЫАЫ: ПОСЛЕДНИЙ СКУФ
-Version: 1.0-draft | Status: requirements approved, narrative implementation pending | 2026-11-13
+Version: 1.0-draft | Status: requirements approved; P05 infrastructure candidate, full campaign narrative production pending | 2026-11-13
 
 ## 1. Contract
 - Desktop single-player nonlinear top-down pixel-art action comedy set in a recognisable, *fictionalised* Vladikavkaz (2026).

@@ -106,6 +106,22 @@
       "depends_on": [],
       "status": "BLOCKED",
       "reason": "Local private timka_ref01.png SHA256 differs from saved manifest; do not modify source/manifest or use until reconciled."
+    },
+    {
+      "id": "P05/story-infrastructure",
+      "phase": "P05",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G:PASS",
+        "P04G:MERGED"
+      ],
+      "spec": "specs/STORY_SPEC.md",
+      "brief": "planning/P05_EXECUTION_BRIEF.md",
+      "boundaries": [
+        "No fake campaign levels",
+        "P06 character/art gates unchanged",
+        "Canonical saves survive migration and replay"
+      ]
     }
   ]
 }

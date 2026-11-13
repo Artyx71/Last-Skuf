@@ -1,3 +1,11 @@
+# Текущий checkpoint P05 (авторская передача, без решения о фазе)
+
+P00–P04G PASS и merged. P04G accepted reviewed9128605, PR9 squash7560546; canonical decision и human evidence в reports/phases/P04G/ сохранены. Base P05 — b774a1a. Один автор; ROOT automation/phase_state.json не изменяется. P05 реализует story registry/ledger/D01–D06/route plans/journal/CH01; другие20slots и финальные scenes ещё не playable.
+
+Текущая реализация и следующий запуск: reports/phases/P05/attempt1/implementation.md, design.md, inventory/freeze и реальные test logs. Native renderer/audio/Linux/Wine, exact-head CI и независимые Narrative/QA/Lead выполняет хост после автора. Автор не создаёт phase decision/PR/push/merge/release и не переходит P06/P07. P06 privateTimka drift остаётся изолированным. Коммиты через ignored alternate git-dir из-за read-only linked index; bundle/adoption должны проверяться хостом byte-for-byte.
+
+Ниже сохранён исторический статус после P04; он не задаёт текущий Controller checkpoint.
+
 # Статус
 
 Последняя независимая PASS-фаза — **P04**. P00–P04 в main. [PR7](https://github.com/Artyx71/Last-Skuf/pull/7) guarded squash подтверждён: 798d32bf6309fd86fad3e3fe915b065fb82eebda; проверенный head8ef79945984a256f43ddae5abbc4dfde3f93b8de. Полный отдельный Lead PASS: reports/phases/P04/decision.json; обязательный [CI43440519792](https://github.com/Artyx71/Last-Skuf/actions/runs/43440519792) SUCCESS. Head/base/rules/checks/threads повторно сверены перед merge, серверный SHA precondition и single-parent squash проверены. Force/admin/approval bypass не применялись.

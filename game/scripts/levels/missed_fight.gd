@@ -1,6 +1,8 @@
 extends "res://scripts/core/combat_lab.gd"
 ## First authored chapter. Combat, contact clock and enemy AI are inherited unchanged.
 const Progress = preload("res://scripts/levels/chapter_progress.gd")
+var story: Node
+var requested_replay := false
 var progress: RefCounted
 var director: Node
 var audio: Node
@@ -22,8 +24,12 @@ var resume_lock_ticks := 0
 
 func _ready() -> void:
  config_path = "res://resources/chapters/missed_fight.json"
+ story = get_node("/root/StoryState")
+ requested_replay = story.pending_replay
+ story.begin_chapter("CH01_THE_MISSED_FIGHT")
  progress = Progress.new()
  save_ok = progress.load_progress()
+ if requested_replay and save_ok: save_ok = progress.checkpoint("start")
  checkpoint = progress.data.checkpoint
  if checkpoint == "complete": checkpoint = "start"
  super._ready()
@@ -63,6 +69,7 @@ func _ready() -> void:
  director = get_node("/root/DialogueDirector")
  director.restore()
  director.active = false
+ save_ok = story.resume_progress(progress,director) and save_ok
  director.finished.connect(_dialogue_finished)
  audio = get_node("/root/AudioDirector")
  audio.select_music("res://resources/chapters/missed_fight_music.json")
@@ -75,7 +82,7 @@ func _ready() -> void:
  if progress.data.checkpoint == "complete":
   state = "complete"
   score = int(progress.data.best_score)
- elif checkpoint == "start" and not director.seen.get("CH01_INTRO", false):
+ elif checkpoint == "start" and (requested_replay or not director.seen.get("CH01_INTRO", false)):
   start_dialogue("intro")
  if "--p04-replay" in OS.get_cmdline_user_args():
   call_deferred("_run_evidence")
@@ -126,6 +133,7 @@ func _physics_process(delta: float) -> void:
  if Input.is_action_just_pressed("restart") and state in ["playing","dead","complete"]:
   if state == "complete":
    if save_ok and progress.checkpoint("start"):
+    story.pending_replay = true; story.begin_chapter("CH01_THE_MISSED_FIGHT")
     checkpoint = "start"; reset_encounter(); start_dialogue("intro")
    else: _notice("Не удалось сохранить повтор. Проверьте доступ к файлу.")
   else: reset_encounter()
@@ -213,7 +221,7 @@ func _dialogue_finished(_id: StringName) -> void:
  if dialogue_kind == "phone": phone_seen = true
  if dialogue_kind == "outro":
   score = 1000 if kills == 0 else 0
-  if save_ok and progress.complete(score):
+  if save_ok and progress.complete(score) and story.complete_ch01(director):
    state = "complete"
    combat.reset(); audio.request_state(&"CLEAR"); audio.play_cue(&"clear")
   else:
@@ -248,8 +256,8 @@ func _unhandled_input(event: InputEvent) -> void:
  if not scene_ready: return
  if event is InputEventKey and event.pressed and not event.echo:
   if (event.keycode == KEY_ESCAPE and state == "complete") or (event.keycode == KEY_Q and state == "paused"):
-   get_tree().change_scene_to_file("res://scenes/bootstrap/bootstrap.tscn")
    get_viewport().set_input_as_handled()
+   get_tree().change_scene_to_file("res://scenes/bootstrap/bootstrap.tscn")
   elif event.keycode == KEY_O or event.keycode == KEY_ESCAPE:
    if state == "paused":
     state = resume_state; ui.settings_panel.hide(); director.set_process(true)

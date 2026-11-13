@@ -1,5 +1,6 @@
 extends RefCounted
 ## Executes the authored scene through its real input/controller/AI, never warps route actors.
+var quit_on_finish := true
 var mission: Node
 var report := {"schema":1,"actual_input":true,"route_warps":0,"checks":{},"captures":[],"events":[]}
 var directory := ""
@@ -213,4 +214,4 @@ func run(world: Node) -> void:
   var file := FileAccess.open(path,FileAccess.WRITE)
   file.store_string(JSON.stringify(report,"  "))
  print("P04_REPLAY ", JSON.stringify(report))
- preload("res://scripts/core/runtime_shutdown.gd").quit_clean(mission.get_tree(),0 if success else 1)
+ if quit_on_finish: preload("res://scripts/core/runtime_shutdown.gd").quit_clean(mission.get_tree(),0 if success else 1)

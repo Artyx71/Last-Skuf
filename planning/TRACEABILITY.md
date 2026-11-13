@@ -20,4 +20,7 @@ At kickoff derive atomic test IDs `T-REQ-###` for each and reference them in pha
 
 ## Дополнение Combat & Gore
 
-COMBAT_GORE_POLISH_SPEC IDs IMP/ART-G/AI-G/FIN/OPT-G/QA-G/PERF-G/REV-G → AUTOPILOT queue P04G → reports/phases/P04G/ (будущая реализация/evidence). FIN-02/AI-G01/IMP-01 являются hard prerequisite P07; character variants связаны с P06.
+COMBAT_GORE_POLISH_SPEC IDs IMP/ART-G/AI-G/FIN/OPT-G/QA-G/PERF-G/REV-G → AUTOPILOT queue P04G → reports/phases/P04G/ (P04G PASS и merged; исторические evidence сохранены). FIN-02/AI-G01/IMP-01 являются hard prerequisite P07; character variants связаны с P06.
+
+
+P05 ST-01/ST-02/TEC-01: `story_registry_test` — IDs/DAG/POV/availability; `story_state_test` — schema/migration/rollback/replay; `story_graph_test` —6344paths/declared partitions/D01–D06/routes; `story_integration_test` —recoverable CH01 completion failure; `--p05-replay` — actual Input UI/CH01/retry/checkpoint/skip, отдельный process reload. Trace/defaults: reports/phases/P05/attempt1/design.md. Ни одна будущая scene/концовка не объявляется готовой.

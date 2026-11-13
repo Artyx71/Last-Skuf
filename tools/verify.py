@@ -51,6 +51,9 @@ def main():
     if (ROOT / 'game/tests/p04g_test.gd').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['p04g', 'p04g_art'])
+    if (ROOT / 'game/tests/story_graph_test.gd').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder
@@ -65,13 +68,15 @@ def main():
         # Distinct paths also prevent one test or capture from masking another's defaults.
         saves = output / 'isolated_saves' / name
         saves.mkdir(parents=True, exist_ok=True)
-        for filename in ['options.json', 'dialogue.json', 'chapter.json']:
+        for filename in ['options.json', 'dialogue.json', 'chapter.json', 'story.json']:
             path = saves / filename
             path.unlink(missing_ok=True)
             path.with_suffix(path.suffix + '.tmp').unlink(missing_ok=True)
         env['AYAY_OPTIONS_PATH'] = str(saves / 'options.json')
         env['AYAY_DIALOGUE_SAVE_PATH'] = str(saves / 'dialogue.json')
         env['AYAY_CHAPTER_SAVE_PATH'] = str(saves / 'chapter.json')
+        env['AYAY_STORY_SAVE_PATH'] = str(saves / 'story.json')
+        env['AYAY_STORY_GRAPH_PATH'] = str(output / 'story_graph.json')
         env['AYAY_P04_RESULT_PATH'] = str(saves / 'replay.json')
         env['AYAY_P04_AUDIO_PATH'] = str(saves / 'replay.wav')
         try:

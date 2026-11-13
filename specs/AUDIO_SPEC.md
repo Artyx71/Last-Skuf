@@ -1,7 +1,7 @@
 # AUDIO_SPEC.md — АЫАЫ: Последний скуф
 
 Version: 0.1 (approved creative direction; implementation parameters provisional)
-Status: audio design decisions approved by project owner, production assets pending.
+Status: direction approved; original P03 demo, P04 CH01 score and P04G combat SFX accepted for the prototype. Other character themes/full campaign soundtrack pending.
 
 ## 1. Approved requirements
 
@@ -27,7 +27,7 @@ Status: audio design decisions approved by project owner, production assets pend
 | Эля | HOME AT 19:30 | Gentle intimate minimal synth texture, not an antagonist cue |
 | Жинька / Эллана | INCOMING CALL | Short recognisable ringtone motif that can interrupt other tracks; avoid presenting her as responsible for criminal actions |
 
-Character tracks are creative briefs only: no audio masters exist yet.
+Character themes above remain creative briefs; existing original demo/CH01/P04G assets do not constitute a full set of per-character masters.
 
 ## 3. Adaptive music state machine
 

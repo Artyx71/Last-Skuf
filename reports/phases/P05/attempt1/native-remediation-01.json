@@ -1,0 +1,29 @@
+{
+  "phase": "P05",
+  "status": "REMEDIATION_SOURCE_READY_NOT_ACCEPTED",
+  "attempt": 1,
+  "prior_head": "5923b5a3f8d8f21f3af598e5867eb3b406ce0cc3",
+  "failed_operation": "6c965077730d4877b86dc29dfbe73254",
+  "exit_code": 130,
+  "source_writes_during_native": false,
+  "worker_receipt_verified": true,
+  "quiescence": "worker and all verified child processes exited before edit",
+  "changed_files": [
+    "game/scripts/qa/story_replay.gd",
+    "game/scripts/ui/story_journal.gd"
+  ],
+  "findings": [
+    {
+      "id": "QA-001",
+      "severity": "MEDIUM",
+      "fix": "Bound recap inside vertical ScrollContainer; retain both visible controls; actual replay checks global button bounds."
+    },
+    {
+      "id": "QA-002",
+      "severity": "HIGH",
+      "fix": "Bound process-frame wait for expected ready bootstrap/journal and mission scenes at every scene return/launch; fail clean on timeout; actual native evidence rerun required."
+    }
+  ],
+  "no_gameplay_or_story_logic_change": true,
+  "phase_pass": false
+}
