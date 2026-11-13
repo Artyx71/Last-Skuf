@@ -53,13 +53,19 @@ def validate_review(root,review,head,phase):
             if not isinstance(item,dict): errors.append('Malformed finding'); continue
             if item.get('severity') in ['CRITICAL','HIGH'] and item.get('status') not in ['CLOSED','RESOLVED']:
                 errors.append('Unresolved CRITICAL/HIGH finding')
-        if phase=='P03':
+        if phase in ['P03','P04']:
             acceptance=review.get('artistic_audio_acceptance') or {}
             if acceptance.get('status')!='PASS' or acceptance.get('method') not in ['human_listening','actual_listening_tool']:
-                errors.append('P03 artistic acceptance cannot be replaced by signal metrics')
+                errors.append(phase+' artistic acceptance cannot be replaced by signal metrics')
             proof=acceptance.get('evidence')
             if not isinstance(proof,dict) or proof not in evidence:
                 errors.append('Actual listening acceptance must be hash-bound review evidence')
+            elif phase=='P04':
+                try:
+                    listening=json.loads((Path(root)/proof['path']).read_text())
+                    if listening.get('phase')!='P04': errors.append('P03/other-phase listening does not accept new P04 audio')
+                except (OSError,ValueError,AttributeError):
+                    errors.append('P04 listening proof must identify this phase in structured evidence')
     return errors
 
 

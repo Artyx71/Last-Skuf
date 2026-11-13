@@ -208,11 +208,52 @@ class ControllerTests(unittest.TestCase):
                 publish.assert_not_called()
 
 
+    def test_author_command_allows_only_matching_common_gitdir(self):
+        def git(directory,*args):
+            return subprocess.run(['git',*args],cwd=directory,check=True,capture_output=True,text=True)
+        git(self.root,'init','-b','main')
+        git(self.root,'-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','--allow-empty','-m','fixture')
+        work=self.root/'phase';git(self.root,'worktree','add','-b','phase/p04-fixture',str(work))
+        argv=self.controller.author_command(work)
+        self.assertEqual(argv[argv.index('--add-dir')+1],str(self.root/'.git'))
+        self.assertIn('workspace-write',argv);self.assertNotIn('read-only',argv)
+        foreign=self.root/'foreign';foreign.mkdir();git(foreign,'init')
+        with self.assertRaises(Blocked):self.controller.author_command(foreign)
+    def p04_native_fixture(self):
+        state=self.controller.state()
+        state['autopilot']['phases']['P03'].update(status='PASS',merge={'status':'MERGED'})
+        state['autopilot']['phases']['P04'].update(status='VALIDATING',attempts=1,workspace=str(self.root),branch='phase/p04-fixture',checkpoint='native-validation')
+        state['active_phase']='P04';self.controller.persist(state)
+    def test_native_failure_cannot_publish_or_replay_author(self):
+        with self.controller.exclusive():
+            self.p04_native_fixture()
+            with patch.object(self.controller,'stage',return_value=1) as stage,patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage') as manage:
+                with self.assertRaises(Blocked):self.controller.run_phase('P04')
+                manage.assert_not_called();self.assertEqual(stage.call_count,1)
+                self.assertFalse(stage.call_args.kwargs['safe_retry'])
+        item=self.controller.state()['autopilot']['phases']['P04']
+        self.assertEqual(item['checkpoint'],'recovery-review');self.assertEqual(item['attempts'],1)
+    def test_native_success_precedes_publication(self):
+        events=[]
+        def stage(*args,**kwargs):events.append('native');return 0
+        def manage(*args,**kwargs):events.append('publication');return 4
+        with self.controller.exclusive():
+            self.p04_native_fixture()
+            with patch.object(self.controller,'stage',side_effect=stage) as run,patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage',side_effect=manage):
+                self.assertEqual(self.controller.run_phase('P04'),4)
+                argv=run.call_args.args[1];self.assertIn('--movie',argv);self.assertIn('--exports',argv)
+        self.assertEqual(events,['native','publication'])
+
+
 class MergeTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
         evidence=self.root/'evidence.txt';evidence.write_text('fixture independent evidence')
         self.review={'phase':'P04','status':'PASS','reviewed_commit':'a'*40,'base_branch':'main','base_sha':'b'*40,'independent_review':True,'reviewer':'independent-test-context','evidence':[{'path':'evidence.txt','sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}],'findings':[]}
+        listening=self.root/'listening.json';listening.write_text(json.dumps({'phase':'P04','source':'unit fixture only'}))
+        proof={'path':'listening.json','sha256':hashlib.sha256(listening.read_bytes()).hexdigest()}
+        self.review['evidence'].append(proof)
+        self.review['artistic_audio_acceptance']={'status':'PASS','method':'human_listening','evidence':proof}
         self.view={'number':4,'repository':'Artyx71/Last-Skuf','private':False,'head_repo':'Artyx71/Last-Skuf','head_sha':'a'*40,'base':'main','base_sha':'b'*40,'state':'open','draft':False,'squash_allowed':True,'permissions':{'push':True},'protection_inspected':True,'mergeable':True,'merge_state':'CLEAN','threads_complete':True,'unresolved_threads':0,'review_decision':'APPROVED','approvals_required':1,'queue_required':False,'required_checks':['bootstrap'],'integration_ids':{},'checks':{'bootstrap':{'status':'completed','conclusion':'success','head_sha':'a'*40,'app_id':1,'app_slug':'github-actions'}}}
     def tearDown(self):self.temp.cleanup()
     def test_exact_review_and_ci_pass(self):self.assertEqual(gate(self.root,self.view,self.review,'P04'),[])
@@ -279,6 +320,16 @@ class MergeTests(unittest.TestCase):
     def test_signal_metrics_cannot_close_artistic_gate(self):
         r=copy.deepcopy(self.review);r['phase']='P03';r['artistic_audio_acceptance']={'status':'PASS','method':'waveform'}
         self.assertTrue(validate_review(self.root,r,'a'*40,'P03'))
+    def test_new_p04_audio_cannot_use_p03_listening(self):
+        listening=self.root/'listening.json';listening.write_text(json.dumps({'phase':'P03'}))
+        r=copy.deepcopy(self.review)
+        r['evidence'][1]['sha256']=hashlib.sha256(listening.read_bytes()).hexdigest()
+        r['artistic_audio_acceptance']['evidence']=r['evidence'][1]
+        self.assertTrue(validate_review(self.root,r,'a'*40,'P04'))
+    def test_p04_metrics_or_missing_listening_cannot_pass(self):
+        for acceptance in [None,{'status':'PASS','method':'waveform','evidence':self.review['evidence'][1]}]:
+            r=copy.deepcopy(self.review);r['artistic_audio_acceptance']=acceptance
+            self.assertTrue(validate_review(self.root,r,'a'*40,'P04'))
     def test_mutated_evidence_rejected(self):
         (self.root/'evidence.txt').write_text('changed')
         self.assertTrue(validate_review(self.root,self.review,'a'*40,'P04'))
