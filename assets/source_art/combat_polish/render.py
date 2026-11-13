@@ -100,7 +100,7 @@ for name in [kind+'_'+suffix+'.png' for kind in ['patrol','rusher','shooter'] fo
  im.putdata([replacements.get(pixel,pixel) for pixel in im.get_flattened_data()])
  reduced_name=name.replace('.png','_reduced.png');im.save(OUT/reduced_name)
  reduced_sheets[name]=reduced_name
-atlas={'schema':1,'frame_size':[48,64],'pivot':[24,58],'directions':DIRECTIONS,'states':STATES,'categories':CATEGORIES,'frames':frames,'effects_columns':['spray0','spray1','spray2','spray3','floor0','floor1','clothing0','clothing1','finish0','finish1','wall','reduced'],'portrait_variants':['baseline','bruised','wounded'],'reduced_sheets':reduced_sheets,'clothing_sockets':SOCKETS,'drawing_scope':'528 actor atlas slots; generated key drawings and intentional reaction/corpse reuse, not528 unique poses'}
+atlas={'schema':1,'frame_size':[48,64],'pivot':[24,58],'directions':DIRECTIONS,'states':STATES,'categories':CATEGORIES,'frames':frames,'effects_columns':['spray0','spray1','spray2','spray3','floor0','floor1','clothing0','clothing1','finish0','finish1','wall','reduced'],'portrait_variants':['baseline','bruised','wounded'],'reduced_sheets':reduced_sheets,'clothing_sockets':SOCKETS,'effect_pivots':{'floor':[24,58],'finisher':[24,58],'wall':[24,32],'clothing':[24,32],'particle':[24,32]},'drawing_scope':'528 actor atlas slots; generated key drawings and intentional reaction/corpse reuse, not528 unique poses'}
 (OUT/'atlas.json').write_text(json.dumps(atlas,indent=2)+'\n')
 # A real native source copy of each newly authored raster, not a fake layered project.
 for p in OUT.glob('*.png'):(SRC/(p.stem+'_native_source.png')).write_bytes(p.read_bytes())

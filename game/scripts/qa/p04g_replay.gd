@@ -46,7 +46,7 @@ func capture(name: String) -> void:
 	await RenderingServer.frame_post_draw
 	var path := output.path_join(name+".png")
 	var code := get_viewport().get_texture().get_image().save_png(path)
-	report.captures.append({"name":name,"path":path,"code":code,"tick":Engine.get_physics_frames(),"draw_frame":Engine.get_frames_drawn()})
+	report.captures.append({"name":name,"path":path,"code":code,"tick":Engine.get_physics_frames(),"draw_frame":Engine.get_frames_drawn(),"player_at":[lab.player.position.x,lab.player.position.y]})
 	check(code==OK,"actual frame "+name)
 
 func fixture(index: int, direction: Vector2, health := 1, environment := false) -> CharacterBody2D:
@@ -115,6 +115,35 @@ func run() -> void:
 			Input.action_release(retreat)
 			await capture(category+"_"+NAMES[di]+"_corpse_clear")
 			check(target.state=="dead" and target.health==0 and lab.kills==1 and lab.score==100,"settled corpse remains exactly once "+category+NAMES[di])
+	# Walk through the actual last finisher's pool using ordinary Input. No new
+	# cosmetic event, injected stain, target movement or player teleport is used.
+	var damage_before: int = lab.combat.damage_events
+	var walk_positions: Array = []
+	var walk_limit := 0
+	Input.action_press("move_left")
+	while lab.player.position.x>236 and walk_limit<90:
+		await frames(1);walk_limit+=1
+	Input.action_release("move_left")
+	check(lab.player.position.x<=236,"floor walk reaches west approach")
+	walk_limit=0
+	Input.action_press("move_up")
+	while lab.player.position.y>236 and walk_limit<90:
+		await frames(1);walk_limit+=1
+	Input.action_release("move_up")
+	check(lab.player.position.y<=236,"floor walk reaches real pool lane")
+	await capture("floor_walk_before")
+	walk_positions.append([lab.player.position.x,lab.player.position.y])
+	Input.action_press("move_right")
+	for destination in [280,324]:
+		walk_limit=0
+		while lab.player.position.x<destination and walk_limit<90:
+			await frames(1);walk_limit+=1
+		check(lab.player.position.x>=destination,"floor walk reaches "+str(destination))
+		await capture("floor_walk_overlap" if destination==280 else "floor_walk_after")
+		walk_positions.append([lab.player.position.x,lab.player.position.y])
+	Input.action_release("move_right")
+	check(lab.kills==1 and lab.score==100 and lab.combat.damage_events==damage_before,"walking over earned finisher pool adds no damage or score")
+	report.surface_walk={"fixture":"ordinary Input through previous environmental-up finisher pool; no state/effect injection or teleport","positions":walk_positions,"damage_before":damage_before,"damage_after":lab.combat.damage_events}
 	# All three actual AI warnings/contact/recovery and each directional reaction.
 	for index in 3:
 		for di in DIRECTIONS.size():

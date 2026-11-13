@@ -16,6 +16,8 @@ var held_poses: Array[Dictionary] = []
 var held_ids: Dictionary = {}
 var texture: Texture2D
 var options: Node
+var ground_layer: Node2D
+var effect_pivots: Dictionary = {}
 
 func _ready() -> void:
 	z_index = 2
@@ -23,6 +25,16 @@ func _ready() -> void:
 	cosmetic_rng.seed = 407
 	if ResourceLoader.exists("res://assets/art/combat_polish/effects.png"):
 		texture = load("res://assets/art/combat_polish/effects.png")
+	var atlas: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/combat_polish/atlas.json"))
+	for surface in atlas.effect_pivots:
+		var point: Array = atlas.effect_pivots[surface]
+		effect_pivots[surface]=Vector2(point[0],point[1])
+	ground_layer=preload("res://scripts/systems/combat_ground_decals.gd").new()
+	ground_layer.impact=self
+	# Parent impact remains above actors for clothing, airborne particles and held
+	# contact poses. This child has effective z0, above floor art and below actors1.
+	ground_layer.z_index=int(combat.lab.visual_config.render_planes.floor)-z_index
+	add_child(ground_layer)
 
 func flashes_enabled() -> bool:
 	return options == null or bool(options.values.get("flashes", true))
@@ -41,6 +53,7 @@ func reset() -> void:
 	flash_remaining = 0
 	shake_offset = Vector2.ZERO
 	cosmetic_rng.seed = 407
+	if is_instance_valid(ground_layer): ground_layer.queue_redraw()
 	queue_redraw()
 
 func _release_poses() -> void:
@@ -110,8 +123,7 @@ func _draw() -> void:
 	if texture:
 		if options == null or options.values.get("decals", true):
 			for decal in decals:
-				if not reduced():
-					# Clothing's authored mask is centred at source(24,32), unlike floor stains.
+				if decal.column in [6,7] and not reduced():
 					_draw_cell(decal.at, decal.column, decal.row)
 		for particle in particles:
 			var frame := mini(3, int((float(combat.polish.particle_ttl) - particle.ttl) * 4 / float(combat.polish.particle_ttl)))
@@ -120,7 +132,8 @@ func _draw() -> void:
 		draw_texture(row.texture, row.position, row.color)
 
 func _draw_cell(at: Vector2, column: int, row: int) -> void:
-	draw_texture_rect_region(texture, Rect2(at - Vector2(24,32), Vector2(48,64)), Rect2(column*48,row*64,48,64))
+	var pivot: Vector2 = effect_pivots["clothing" if column in [6,7] else "particle"]
+	draw_texture_rect_region(texture, Rect2(at - pivot, Vector2(48,64)), Rect2(column*48,row*64,48,64))
 
 func _clear_shake() -> void:
 	if is_instance_valid(shake_camera): shake_camera.offset -= applied_shake

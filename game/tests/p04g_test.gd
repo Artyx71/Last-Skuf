@@ -48,6 +48,14 @@ func _run() -> void:
 	store = root.get_node("OptionsStore")
 	await frames(2)
 	check(Engine.get_write_movie_path().is_empty(),"ordinary headless run never claims MovieMaker")
+	var impact: Node2D = lab.combat.impact
+	var ground_z: int = impact.ground_layer.z_index+impact.z_index+lab.combat.z_index
+	check(ground_z<lab.player.z_index and impact.z_index>lab.player.z_index,"ground stains below actors while clothing/held contact poses remain above")
+	var effects: Image = impact.texture.get_image()
+	for column in [4,5,8,9]:
+		var mask := effects.get_region(Rect2i(column*48,0,48,64)).get_used_rect()
+		var pivot: Vector2 = impact.effect_pivots["finisher" if column>=8 else "floor"]
+		check(mask.position.y-pivot.y>=-20 and mask.end.y-pivot.y<=0,"actual ground stain pixels align near contact feet instead of south of body "+str(column))
 	await fixture("unarmed",false)
 	check(not lab.combat.eligible(lab.player,target,"unarmed"),"standing target ineligible")
 	target.transition("knockdown",1.2)
