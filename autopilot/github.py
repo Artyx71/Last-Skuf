@@ -153,7 +153,7 @@ def gate(root,view,review,phase):
     return errors
 
 
-def guarded_merge(root,number,config,review,phase,get_snapshot=snapshot,request=api):
+def guarded_merge(root,number,config,review,phase,get_snapshot=snapshot,request=api,before_request=None):
     first=get_snapshot(number,config); problems=gate(root,first,review,phase)
     if problems: return {'status':'BLOCKED','blockers':problems,'snapshot':first}
     # Fresh remote read immediately before atomic server-side SHA precondition.
@@ -162,12 +162,17 @@ def guarded_merge(root,number,config,review,phase,get_snapshot=snapshot,request=
         return {'status':'BLOCKED','blockers':['Head/base SHA changed immediately before merge']}
     problems=gate(root,fresh,review,phase)
     if problems: return {'status':'BLOCKED','blockers':problems,'snapshot':fresh}
+    if before_request: before_request(fresh)
     response=request(f'repos/{REPO}/pulls/{number}/merge','PUT',{'sha':fresh['head_sha'],'merge_method':'squash'})
     if not response.get('merged'):
         return {'status':'BLOCKED','blockers':[response.get('message','GitHub did not confirm merge')],'response':response}
     confirmation=request(f'repos/{REPO}/pulls/{number}')
     if not confirmation.get('merged') or confirmation['head']['sha']!=fresh['head_sha'] or confirmation['base']['ref']!='main':
         return {'status':'BLOCKED','blockers':['Merge response not independently confirmed; reconcile before continuing']}
+    commit=request(f'repos/{REPO}/git/commits/{response["sha"]}')
+    if [p['sha'] for p in commit.get('parents',[])]!=[fresh['base_sha']]:
+        return {'status':'BLOCKED','blockers':['Merged base changed or merge is not a single-parent squash; independent reconciliation required'],
+                'actual_merge_sha':response['sha'],'merge_sent':True}
     return {'status':'MERGED','reviewed_head':fresh['head_sha'],'merge_sha':response['sha'],'number':number,'method':'squash','base':'main'}
 
 
@@ -221,26 +226,45 @@ def manage(controller,phase,action,review=None):
                 if current['merged']:
                     # Reconcile a lost merge response only with exact-head independent evidence.
                     problems=validate_review(work,review,head,phase)
-                    if problems or review.get('status')!='PASS' or current['base']['ref']!='main':
+                    intent=record.get('merge_intent',{})
+                    if problems or review.get('status')!='PASS' or current['base']['ref']!='main' or intent.get('head_sha')!=head or intent.get('method')!='squash' or not intent.get('snapshot'):
                         raise GitHubBlocked('Already-merged PR lacks matching independent proof; manual reconciliation required')
+                    if intent.get('review_sha256')!=hashlib.sha256(json.dumps(review,sort_keys=True).encode()).hexdigest():
+                        raise GitHubBlocked('Independent review changed after persisted merge intent')
+                    if gate(work,intent.get('snapshot',{}),review,phase):
+                        raise GitHubBlocked('Persisted merge intent does not prove review/CI gates')
+                    commit=api(f'repos/{REPO}/git/commits/{current["merge_commit_sha"]}')
+                    if [p['sha'] for p in commit.get('parents',[])]!=[intent['snapshot']['base_sha']]:
+                        raise GitHubBlocked('Merged commit parent differs from the verified main base')
                     result={'status':'MERGED','reviewed_head':head,'merge_sha':current['merge_commit_sha'],'number':number,'method':'squash','base':'main','recovered':True}
                 else:
                     if current['draft'] and not validate_review(work,review,head,phase) and review.get('status')=='PASS':
                         gh(['pr','ready',str(number),'--repo',REPO],json_output=False)
-                    result=guarded_merge(work,number,controller.config,review,phase)
-    except (GitHubBlocked,subprocess.SubprocessError,OSError) as exc:
+                    def remember_intent(view):
+                        latest=controller.state()
+                        latest['autopilot']['phases'][phase]['merge_intent']={
+                            'head_sha':view['head_sha'],'method':'squash','snapshot':view,
+                            'review_sha256':hashlib.sha256(json.dumps(review,sort_keys=True).encode()).hexdigest()}
+                        controller.persist(latest)
+                    result=guarded_merge(work,number,controller.config,review,phase,before_request=remember_intent)
+    except (GitHubBlocked,subprocess.SubprocessError,OSError,ValueError,KeyError,TypeError) as exc:
         result={'status':'BLOCKED','blockers':[str(exc)],'number':number,
                 'merge_confirmation':'UNKNOWN_AFTER_ERROR' if action=='merge' else 'NOT_REQUESTED'}
     state=controller.state(); record=state['autopilot']['phases'][phase]
     if number: record['pull_request_number']=number
     record['merge']=result
     if result['status']=='MERGED':
-        state['last_pass']=phase
+        previous_pass=state.get('last_pass')
+        if previous_pass not in controller.phases or controller.phases.index(phase)>controller.phases.index(previous_pass):
+            state['last_pass']=phase
         index=controller.phases.index(phase)
-        if index+1<len(controller.phases):
+        active_index=controller.phases.index(state['active_phase'])
+        if index+1<len(controller.phases) and index+1>active_index:
             state['active_phase']=controller.phases[index+1]; state['status']='READY'
+        state['autopilot']['delivery_next']=next((p for p in controller.phases if state['autopilot']['phases'][p].get('merge',{}).get('status')!='MERGED'),None)
         state['autopilot']['history'].append({'event':'SQUASH_MERGE_CONFIRMED','phase':phase,**result})
     elif result['status']=='BLOCKED':
+        record['remediation']=result['blockers']
         state['autopilot']['history'].append({'event':'MERGE_BLOCKED','phase':phase,'findings':result['blockers']})
     controller.persist(state)
     destination=controller.root/f'reports/autopilot/{phase}/pull_request.json'; save(destination,result)

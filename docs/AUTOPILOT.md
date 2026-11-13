@@ -46,3 +46,5 @@ Merge требует: independent PASS на **точный текущий head S
 ### CI media dependency and receipt ordering
 
 Hosted Ubuntu image не содержит ffprobe/ffmpeg. tools/install_ci_media.py извлекает pinned SHA256-verified ImageIO0.6.0 wheel из PyPI в .tools/ci-media (FFmpeg7.0.2 static), без pip/system/sudo; licenses/provenance сохраняются вне game. AudioQA декодирует floatWAV и читает rate/channels из реального потока, отдельный ffprobe не нужен. Первый failedCI43410070643 сохранён в reports/autopilot/CI/attempt1; forced-kill test теперь ожидает реального освобождения lease после durable receipt, не подменяет эти события.
+
+Merge intent (head/base/checked snapshot/review hash) fsync-сохраняется перед HTTP-запросом. После потери ответа допустима только сверка уже merged PR с этим intent, неизменным review и single-parent commit на проверенной main base. Старые confirmed merges обновляют отдельный delivery_next и не откатывают active_phase/last_pass. Текущая фаза переходит дальше только после её собственного confirmed merge. Tests теперь37, включая обе эти state/race регрессии.

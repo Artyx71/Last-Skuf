@@ -8,6 +8,8 @@ test_silent_file_fails_energy (test_audio_qa.SignalTests.test_silent_file_fails_
 test_cannot_downgrade_pass_automatically (test_autopilot.ControllerTests.test_cannot_downgrade_pass_automatically) ... ok
 test_changed_script_after_completed_stage_requires_reconciliation (test_autopilot.ControllerTests.test_changed_script_after_completed_stage_requires_reconciliation) ... ok
 test_changed_stage_inputs_not_adopted (test_autopilot.ControllerTests.test_changed_stage_inputs_not_adopted) ... ok
+test_current_phase_merge_advances_after_confirmation (test_autopilot.ControllerTests.test_current_phase_merge_advances_after_confirmation) ... ok
+test_historical_merge_never_regresses_authoring_progress (test_autopilot.ControllerTests.test_historical_merge_never_regresses_authoring_progress) ... ok
 test_invalid_decision_does_not_reset_state (test_autopilot.ControllerTests.test_invalid_decision_does_not_reset_state) ... ok
 test_killed_parent_worker_finishes_and_is_adopted_once (test_autopilot.ControllerTests.test_killed_parent_worker_finishes_and_is_adopted_once) ... ok
 test_legacy_live_process_lock_is_not_deleted (test_autopilot.ControllerTests.test_legacy_live_process_lock_is_not_deleted) ... ok
@@ -25,14 +27,16 @@ test_ci_changes_immediately_before_merge_block (test_autopilot.MergeTests.test_c
 test_exact_review_and_ci_pass (test_autopilot.MergeTests.test_exact_review_and_ci_pass) ... ok
 test_fail_blocked_and_unresolved_critical_forbid_merge (test_autopilot.MergeTests.test_fail_blocked_and_unresolved_critical_forbid_merge) ... ok
 test_manual_approval_threads_protection_and_draft_block (test_autopilot.MergeTests.test_manual_approval_threads_protection_and_draft_block) ... ok
+test_merge_intent_is_persisted_before_request (test_autopilot.MergeTests.test_merge_intent_is_persisted_before_request) ... ok
 test_missing_pending_failed_wrong_sha_ci_all_block (test_autopilot.MergeTests.test_missing_pending_failed_wrong_sha_ci_all_block) ... ok
 test_mutated_evidence_rejected (test_autopilot.MergeTests.test_mutated_evidence_rejected) ... ok
 test_old_head_and_old_base_review_rejected (test_autopilot.MergeTests.test_old_head_and_old_base_review_rejected) ... ok
 test_signal_metrics_cannot_close_artistic_gate (test_autopilot.MergeTests.test_signal_metrics_cannot_close_artistic_gate) ... ok
 test_toctou_head_change_never_sends_merge (test_autopilot.MergeTests.test_toctou_head_change_never_sends_merge) ... ok
+test_unverified_merged_parent_blocks_progress (test_autopilot.MergeTests.test_unverified_merged_parent_blocks_progress) ... ok
 test_original_reference_hash_catches_renamed_blob_after_local_replacement (test_privacy.PrivacyTests.test_original_reference_hash_catches_renamed_blob_after_local_replacement) ... ok
 
 ----------------------------------------------------------------------
-Ran 33 tests in 2.765s
+Ran 37 tests in 2.813s
 
 OK

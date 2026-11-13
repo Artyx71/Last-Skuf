@@ -1,4 +1,6 @@
 import copy
+import contextlib
+import io
 import hashlib
 import json
 import os
@@ -124,6 +126,26 @@ class ControllerTests(unittest.TestCase):
         script.write_text('print("changed")')
         with self.controller.exclusive():
             with self.assertRaises(Blocked):self.controller.stage('script-fixture',argv,3)
+    def test_historical_merge_never_regresses_authoring_progress(self):
+        from github import manage
+        with self.controller.exclusive():
+            st=self.controller.state();st['autopilot']['phases']['P00']['pull_request_number']=1;self.controller.persist(st)
+            with patch('github.api',return_value={'head':{'sha':'a'*40},'merged':False,'draft':False}), patch('github.guarded_merge',return_value={'status':'MERGED','merge_sha':'d'*40}), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P00','merge',{}),0)
+        state=self.controller.state()
+        self.assertEqual(state['active_phase'],'P03');self.assertEqual(state['last_pass'],'P02')
+        self.assertEqual(state['attempts'],1);self.assertEqual(state['autopilot']['delivery_next'],'P01')
+    def test_current_phase_merge_advances_after_confirmation(self):
+        from github import manage
+        with self.controller.exclusive():
+            st=self.controller.state()
+            for p in ['P00','P01','P02']:st['autopilot']['phases'][p]['merge']={'status':'MERGED'}
+            st['autopilot']['phases']['P03'].update(status='PASS',pull_request_number=4)
+            self.controller.persist(st)
+            with patch('github.api',return_value={'head':{'sha':'a'*40},'merged':False,'draft':False}), patch('github.guarded_merge',return_value={'status':'MERGED','merge_sha':'d'*40}), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(manage(self.controller,'P03','merge',{}),0)
+        state=self.controller.state();self.assertEqual(state['active_phase'],'P04')
+        self.assertEqual(state['last_pass'],'P03');self.assertEqual(state['status'],'READY')
     def test_success_checkpoint_is_atomic_with_receipt_consumption(self):
         argv=[sys.executable,'-c','print("ok")']
         with self.controller.exclusive():
@@ -178,10 +200,30 @@ class MergeTests(unittest.TestCase):
         calls=[]
         def request(endpoint,method='GET',payload=None):
             calls.append((endpoint,method,payload))
-            return {'merged':True,'sha':'d'*40} if method=='PUT' else {'merged':True,'head':{'sha':'a'*40},'base':{'ref':'main'}}
+            if method=='PUT':return {'merged':True,'sha':'d'*40}
+            if '/git/commits/' in endpoint:return {'parents':[{'sha':'b'*40}]}
+            return {'merged':True,'head':{'sha':'a'*40},'base':{'ref':'main'}}
         result=guarded_merge(self.root,4,{},self.review,'P04',lambda *_:copy.deepcopy(self.view),request)
         self.assertEqual(result['status'],'MERGED')
         self.assertEqual(calls[0][2],{'sha':'a'*40,'merge_method':'squash'})
+    def test_merge_intent_is_persisted_before_request(self):
+        events=[]
+        def intent(view):events.append(('intent',view['head_sha']))
+        def request(endpoint,method='GET',payload=None):
+            if method=='PUT':
+                self.assertEqual(events,[('intent','a'*40)]);events.append(('merge',payload['sha']))
+                return {'merged':True,'sha':'d'*40}
+            if '/git/commits/' in endpoint:return {'parents':[{'sha':'b'*40}]}
+            return {'merged':True,'head':{'sha':'a'*40},'base':{'ref':'main'}}
+        result=guarded_merge(self.root,4,{},self.review,'P04',lambda *_:copy.deepcopy(self.view),request,before_request=intent)
+        self.assertEqual(result['status'],'MERGED')
+    def test_unverified_merged_parent_blocks_progress(self):
+        def request(endpoint,method='GET',payload=None):
+            if method=='PUT':return {'merged':True,'sha':'d'*40}
+            if '/git/commits/' in endpoint:return {'parents':[{'sha':'e'*40}]}
+            return {'merged':True,'head':{'sha':'a'*40},'base':{'ref':'main'}}
+        result=guarded_merge(self.root,4,{},self.review,'P04',lambda *_:copy.deepcopy(self.view),request)
+        self.assertEqual(result['status'],'BLOCKED')
     def test_signal_metrics_cannot_close_artistic_gate(self):
         r=copy.deepcopy(self.review);r['phase']='P03';r['artistic_audio_acceptance']={'status':'PASS','method':'waveform'}
         self.assertTrue(validate_review(self.root,r,'a'*40,'P03'))

@@ -340,6 +340,13 @@ def main():
                 controller.pause_path.unlink(missing_ok=True); state['autopilot']['paused']=False; controller.persist(state)
                 print('Resumed; run is explicit, phase/merge gates remain enforced.'); return 0
             phase=args.phase or state['active_phase']
+            if args.command=='run' and not args.phase and not args.task:
+                # Historical PASS phases can have open stacked PRs. Reconcile their
+                # delivery first, without resetting them or redoing implementation.
+                for candidate in controller.phases:
+                    record=state['autopilot']['phases'][candidate]
+                    if record['status']!='PASS' or record.get('merge',{}).get('status')!='MERGED':
+                        phase=candidate; break
             if phase not in controller.phases: raise Blocked('Unknown phase')
             if args.command=='pr':
                 from github import manage
@@ -351,6 +358,8 @@ def main():
                 return code
             # A completed merge is the only event that advances the autonomous phase loop.
             while True:
+                if controller.phases.index(phase)>controller.phases.index(controller.config['stop_after_phase']):
+                    raise Blocked('Configured phase limit reached; later work remains queued')
                 code=controller.run_phase(phase)
                 if code or phase==controller.config['stop_after_phase']: return code
                 state=controller.state()
