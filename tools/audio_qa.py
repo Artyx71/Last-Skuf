@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import struct
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,13 +34,26 @@ def command(argv, timeout=60):
 
 
 def decode(path):
-    metadata = json.loads(command(['ffprobe', '-v', 'error', '-select_streams', 'a:0',
-        '-show_entries', 'stream=sample_rate,channels', '-of', 'json', path]).stdout)['streams'][0]
-    rate, channels = int(metadata['sample_rate']), int(metadata['channels'])
-    if channels != 2:
-        raise ValueError(f'Expected stereo input, got {channels}: {path}')
-    raw = command(['ffmpeg', '-v', 'error', '-i', path, '-map', '0:a:0',
-                   '-f', 'f32le', '-acodec', 'pcm_f32le', 'pipe:1']).stdout
+    # Decode to float WAV at the source's native rate/channels; parse the actual
+    # output stream, eliminating a separate ffprobe dependency.
+    decoded = command(['ffmpeg', '-v', 'error', '-i', path, '-map', '0:a:0',
+                       '-acodec', 'pcm_f32le', '-f', 'wav', 'pipe:1']).stdout
+    if decoded[:4] != b'RIFF' or decoded[8:12] != b'WAVE':
+        raise ValueError('Decoder did not produce WAV')
+    offset=12; rate=None; channels=None; raw=None
+    while offset+8 <= len(decoded):
+        kind=decoded[offset:offset+4]; size=struct.unpack_from('<I',decoded,offset+4)[0]; offset+=8
+        if kind==b'fmt ':
+            tag,channels,rate=struct.unpack_from('<HHI',decoded,offset)
+            bits=struct.unpack_from('<H',decoded,offset+14)[0]
+            subtype=struct.unpack_from('<H',decoded,offset+24)[0] if tag==65534 and size>=40 else tag
+            if bits!=32 or subtype!=3:raise ValueError('Expected actual IEEEfloat32 decoded samples')
+        if kind==b'data':
+            raw=decoded[offset:offset+size] if size!=0xffffffff else decoded[offset:]
+            break
+        offset+=size+(size%2)
+    if channels!=2 or rate is None or raw is None:
+        raise ValueError(f'Expected complete stereo decoded stream: {path}')
     signal = array('f')
     signal.frombytes(raw)
     if sys.byteorder != 'little':

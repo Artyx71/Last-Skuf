@@ -42,3 +42,7 @@ Merge требует: independent PASS на **точный текущий head S
 ## Combat/Gore очередь
 
 `autopilot/queue.json` и specs/COMBAT_GORE_POLISH_SPEC.md: подфаза **P04G после P04**, обязательная до P07. Существующие CombatSystem/action IDs/physics clock/AI/AudioDirector переиспользуются. Реальные original effects/animation/finishers, exactly-once damage/score, settings invariance, cap/lifetime/performance, ART/GAMEPLAY/QA/Lead evidence обязательны. Пока это очередь, не готовые finishers. Проверка изменённого приватного reference Тимки отдельно блокирует его P06 asset use, не reset P03.
+
+### CI media dependency and receipt ordering
+
+Hosted Ubuntu image не содержит ffprobe/ffmpeg. tools/install_ci_media.py извлекает pinned SHA256-verified ImageIO0.6.0 wheel из PyPI в .tools/ci-media (FFmpeg7.0.2 static), без pip/system/sudo; licenses/provenance сохраняются вне game. AudioQA декодирует floatWAV и читает rate/channels из реального потока, отдельный ffprobe не нужен. Первый failedCI43410070643 сохранён в reports/autopilot/CI/attempt1; forced-kill test теперь ожидает реального освобождения lease после durable receipt, не подменяет эти события.

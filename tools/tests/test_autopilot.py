@@ -93,7 +93,16 @@ class ControllerTests(unittest.TestCase):
         deadline=time.monotonic()+5
         while not Path(job['receipt']).exists() and time.monotonic()<deadline:time.sleep(.02)
         self.assertTrue(Path(job['receipt']).exists())
-        with self.controller.exclusive():self.assertEqual(self.controller.stage('recovery-fixture',argv,5),0)
+        # Receipt is durable before worker teardown. Do not confuse receipt visibility
+        # with lease release; a second executor must remain blocked until both occur.
+        deadline=time.monotonic()+5
+        while True:
+            try:
+                with self.controller.exclusive():self.assertEqual(self.controller.stage('recovery-fixture',argv,5),0)
+                break
+            except Busy:
+                if time.monotonic()>=deadline:raise
+                time.sleep(.02)
         self.assertEqual(counter.read_text(),'x')
         self.assertEqual(self.controller.state()['autopilot']['phases']['P02']['status'],'PASS')
     def test_phase_gate_pass_does_not_bypass_missing_merge(self):
