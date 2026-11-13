@@ -1,0 +1,124 @@
+{
+  "pr": {
+    "baseRefName": "phase/p01-art-movement",
+    "headRefOid": "021c126dc97bf365b95c094236ca34b4fae9b3c2",
+    "isDraft": true,
+    "url": "https://github.com/Artyx71/Last-Skuf/pull/3"
+  },
+  "run": {
+    "conclusion": "success",
+    "headSha": "1786633e2d4f366a267ae884e1b2cf6029fbc546",
+    "jobs": [
+      {
+        "completedAt": "2026-11-13T07:44:55Z",
+        "conclusion": "success",
+        "databaseId": 131760221191,
+        "name": "bootstrap",
+        "startedAt": "2026-11-13T07:43:29Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-13T07:43:35Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-13T07:43:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:43:39Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "startedAt": "2026-11-13T07:43:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:43:48Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/install_deps.py --templates",
+            "number": 3,
+            "startedAt": "2026-11-13T07:43:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:44:32Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "number": 4,
+            "startedAt": "2026-11-13T07:43:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:44:37Z",
+            "conclusion": "success",
+            "name": "Export native bootstrap binaries",
+            "number": 5,
+            "startedAt": "2026-11-13T07:44:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:44:50Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "number": 6,
+            "startedAt": "2026-11-13T07:44:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:44:51Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 12,
+            "startedAt": "2026-11-13T07:44:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T07:44:51Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "startedAt": "2026-11-13T07:44:51Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43387775768/job/131760221191"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43387775768"
+  },
+  "artifacts": {
+    "total_count": 1,
+    "artifacts": [
+      {
+        "id": 14019361649,
+        "node_id": "MDg6QXJ0aWZhY3QxNDAxOTM2MTY0OQ==",
+        "name": "bootstrap-validation",
+        "size_in_bytes": 68510176,
+        "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14019361649",
+        "archive_download_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14019361649/zip",
+        "expired": false,
+        "digest": "sha256:fc5f1d196e7258f1fe1610fc5fd2588bf785fd7df891542690321a418aca537f",
+        "created_at": "2026-11-13T07:44:50Z",
+        "updated_at": "2026-11-13T07:44:50Z",
+        "expires_at": "2026-11-20T07:44:37Z",
+        "workflow_run": {
+          "id": 43387775768,
+          "repository_id": 1455873586,
+          "head_repository_id": 1455873586,
+          "head_branch": "phase/p02-combat",
+          "head_sha": "1786633e2d4f366a267ae884e1b2cf6029fbc546"
+        }
+      }
+    ]
+  },
+  "runners": {
+    "total_count": 0,
+    "runners": []
+  },
+  "variables": {
+    "variables": [],
+    "total_count": 0
+  }
+}

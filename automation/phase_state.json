@@ -1,16 +1,17 @@
 {
   "active_phase": "P02",
-  "status": "IN_REVIEW",
+  "status": "FIXING",
   "attempts": 1,
   "last_pass": "P01",
-  "last_decision": "reports/phases/P01/decision-attempt2.json",
+  "last_decision": "reports/phases/P02/decision-attempt1.json",
   "last_commit": "1786633",
   "blocked": [],
-  "next_action": "P02 independent attempt1: await actual GitHub CI, inspect native/art/replay/build evidence, fix reviewer tickets before PASS; P03 forbidden until PASS.",
+  "next_action": "Fix HIGH CMB-P02-01 and3MEDIUM ART-P02-01/02/03; generate attempt2 evidence separately, rerun actual CI then independent review. P03 forbidden.",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/3",
   "persistent_runner": false,
   "phase_work": {
-    "P01": "PASS attempt2 with owner human art approval; P02 begins"
+    "P01": "PASS attempt2 with owner human art approval; P02 begins",
+    "P02": "FAIL attempt1; timing/weapon/defeated-guard/shooter remediation underway"
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [
