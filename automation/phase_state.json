@@ -1,25 +1,16 @@
 {
-  "active_phase": "P01",
-  "status": "REVIEW_PENDING",
-  "attempts": 1,
-  "last_pass": "P00",
-  "last_decision": "reports/phases/P01/decision-attempt1.json",
+  "active_phase": "P02",
+  "status": "IN_PROGRESS",
+  "attempts": 0,
+  "last_pass": "P01",
+  "last_decision": "reports/phases/P01/decision-attempt2.json",
   "last_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
   "blocked": [],
-  "next_action": "Owner accepted shown P01 art; independent Lead Reviewer attempt2 verifies response + exact unchanged hashes. Only PASS advances P02.",
+  "next_action": "Execute P02_HANDOFF: deterministic combat/hit detection, three enemy FSMs, instant restart and viable zero-kill Yakuza escape; independent review with real replay/builds.",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/2",
   "persistent_runner": false,
   "phase_work": {
-    "native_commands_passed": 15,
-    "bootstrap_assertions_passed": 6,
-    "art_assertions_passed": 90,
-    "movement_assertions_passed": 34,
-    "human_likeness": "OWNER_APPROVED: топ продолжаем если можем",
-    "independent_review": "P01 attempt2 pending",
-    "ci_run": 43319881768,
-    "ci_status": "SUCCESS",
-    "ephemeral_runner_active": false,
-    "review_evidence_hashes_checked": 103
+    "P01": "PASS attempt2 with owner human art approval; P02 begins"
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [

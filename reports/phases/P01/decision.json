@@ -1,14 +1,12 @@
 {
   "phase": "P01",
-  "status": "BLOCKED",
-  "attempt": 1,
+  "status": "PASS",
+  "attempt": 2,
   "reviewer": "/root/lead_reviewer",
   "author": "/root; /root/art_production",
-  "subreviewers": [
-    "/root/lead_reviewer/p01_art_subreview"
-  ],
-  "reviewed_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
-  "base_commit": "7cded8bb4bfd7826a8833eaaebeadfc33298bbda",
+  "reviewed_commit": "6ccf4afbc5e81972596529ccc1d5e8f9f367f5b0",
+  "tested_implementation_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
+  "previous_decision": "reports/phases/P01/decision-attempt1.json",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/2",
   "ci_run": "https://github.com/Artyx71/Last-Skuf/actions/runs/43319881768",
   "evidence": [
@@ -423,19 +421,37 @@
     {
       "path": "reports/phases/P01/reviewer/build/ci-artifact/build/windows/last-skuf.exe",
       "sha256": "da00d56e08ab52fe725e545b23833e27acb37449badc1d46b0816c80f78fdf95"
+    },
+    {
+      "path": "reports/phases/P01/decision-attempt1.json",
+      "sha256": "88e320b0699abdfb3291b7c53b490b8c0374cfbda4463f07dac0c0bd4d00d7aa"
+    },
+    {
+      "path": "reports/phases/P01/human_art_review_response.json",
+      "sha256": "74b26488077c7a096326312778ce64e121eefcaa86e73b922bbbe0ea45b1bffb"
+    },
+    {
+      "path": "reports/phases/P01/review-attempt2.md",
+      "sha256": "13abdd96763ef282a384c0d7133227a912c70a06fd32b9a854b9699f43b00624"
+    },
+    {
+      "path": "reports/phases/P01/reviewer-attempt2/P02_HANDOFF.md",
+      "sha256": "86dd65f322713d0a9cda0ec5fb09971da498043e1061213d465cafc3a975bfcc"
+    },
+    {
+      "path": "reports/phases/P01/reviewer-attempt2/acceptance_integrity.json",
+      "sha256": "b4e3d7c31406e152370b197d8ff599371b6e52ca15fe9cdb7eb7c0f717d010b1"
+    },
+    {
+      "path": "reports/phases/P01/reviewer-attempt2/owner_context_verified.json",
+      "sha256": "bdc2ae7df0d7982c9c1c738ab034c2c3645e2e4badb3c9d1d9d18dcaa4d02e2c"
+    },
+    {
+      "path": "reports/phases/P01/reviewer-attempt2/reviewed.diff",
+      "sha256": "8eced3e3f57aab8e757397230c9e6f222bb003b14e559cac69c28c3207333ef2"
     }
   ],
   "findings": [
-    {
-      "id": "HUMAN-P01-01",
-      "severity": "HIGH",
-      "classification": "external_evidence_dependency",
-      "file": "planning/P01_TASKS.md:10; docs/ART_BIBLE.md visual acceptance5",
-      "repro": "Read reports/phases/P01/human_art_review_request.json: status PENDING, response_received_at_checkpoint=false; no owner/authorized-human approval record exists.",
-      "observed": "Author and independent AI visual assessments exist, required human likeness/grotesque signoff does not.",
-      "fix": "Obtain and record authorized human decision for exact present/past portraits and world sprite hashes, or implement specified corrections within P01 and review again. Preserve request checkpoint. Do not begin P02.",
-      "blocking": true
-    },
     {
       "id": "ART-P01-01",
       "severity": "MEDIUM",
@@ -455,54 +471,49 @@
       "blocking": false
     }
   ],
+  "closed_findings": [
+    {
+      "id": "HUMAN-P01-01",
+      "resolution": "Reviewer independently read actual user-role session record and immediately preceding final request linking present/past/world previews. Owner positive reply “топ продолжаем если можем” directly responds to that likeness/grotesque question; unchanged shown P01 art accepted in context. Actual quote/context match response record, all7 response hashes and103 prior evidence hashes valid.",
+      "user_timestamp": "2026-11-13T07:12:19.162Z",
+      "scope": "P01 shown present/past portraits and world preview; no claim of movie viewing, public/voice/merge/release rights."
+    }
+  ],
   "tests": {
-    "passed": 23,
+    "passed": 6,
     "failed": 0,
-    "blocked": 1,
-    "counting": "9 local verify commands +4 fresh local runtime/capture commands +2 isolated packing commands +7 executed CI verify checks +1 reviewer downloaded-CI-Linux smoke. Counts are command exits/checks; do not add assertions again.",
-    "native_assertions_local": {
-      "bootstrap": 6,
-      "art": 90,
-      "movement": 34,
-      "failed": 0
-    },
-    "native_assertions_ci": {
-      "bootstrap": 6,
-      "art": 90,
-      "movement": 34,
-      "failed": 0
-    },
-    "original_artifact_entries_checked": 34,
-    "source_inventory_entries_checked": 22,
-    "evidence_hash_mismatches": 0,
-    "provider_original_master_hash_matches": 4,
-    "runtime_png_reproduction_matches": 3,
-    "nonblocking_atlas_review_metadata_mismatches": 1,
-    "human_likeness": "BLOCKED_PENDING"
+    "blocked": 0,
+    "counting": "Attempt2 acceptance/integrity checks: actual user quote matches; preceding3-preview request confirmed; prior103 evidence hashes; response7 hashes; source43 hashes; empty production diff. No native/CI rerun.",
+    "previous_technical_command_checks_passed": 23,
+    "previous_native_assertions_local_passed": 130,
+    "previous_native_assertions_ci_passed": 130,
+    "previous_evidence_entries_checked": 103,
+    "previous_evidence_hash_mismatches": 0,
+    "response_hashes_checked": 7,
+    "response_hash_mismatches": 0,
+    "source_hashes_checked": 43,
+    "source_hash_mismatches": 0
   },
   "scorecard": {
-    "privacy": "PASS",
-    "source_provenance_and_asset_inventory": "PASS; public distribution rights pending, no raw photos committed/exported",
-    "native_pixel_structure": "PASS",
-    "ai_visual_assessment": "Candidate coherent with correct reference; not human signoff",
-    "human_likeness_and_grotesque_approval": "BLOCKED_PENDING",
-    "animation_visual_quality": "MEDIUM jitter polish finding; no HIGH/CRITICAL visual defect",
-    "movement_and_collision": "PASS",
-    "linux_runtime_and_render": "PASS",
-    "linux_windows_exports": "PASS",
+    "source_art_and_runtime_integrity": "PASS; unchanged tested implementation",
+    "human_likeness_and_grotesque_approval": "PASS; contextual owner approval independently verified from actual chat",
+    "native_pixel_structure": "PASS carried from attempt1",
+    "movement_and_collision": "PASS carried from attempt1",
+    "linux_runtime_and_render": "PASS carried from attempt1",
+    "linux_windows_exports": "PASS carried from attempt1",
     "windows_runtime": "NOT_TESTED_UNAVAILABLE; no runtime claim",
-    "ci": "PASS; actual ephemeral self-hosted Linux runner, not hosted Ubuntu",
-    "runner_cleanup": "PASS",
-    "independent_review": "PASS",
-    "combat_audio_full_gameplay": "NOT_APPLICABLE_P01"
+    "ci": "PASS actual previous self-hosted Linux run, not rerun for docs/approval-only change",
+    "privacy_and_runner_cleanup": "PASS carried from attempt1",
+    "animation_polish": "MEDIUM jitter remains nonblocking",
+    "atlas_metadata_reproducibility": "LOW review-note discrepancy remains nonblocking",
+    "independent_review": "PASS"
   },
   "limitations": [
-    "Required authorized human visual approval has not arrived; image_gen authorization does not substitute for likeness or public release consent.",
-    "Windows runtime not tested; Windows PE export only.",
-    "Movie covers four directions and five present expressions; past switching tested separately by screenshot/native tests.",
-    "Replay recording FPS is not gameplay performance benchmarking.",
-    "Hosted billing remains a limitation for future default runs; ephemeral runner and variable removed."
+    "Human acceptance applies to shown unchanged P01 art; no claim owner viewed movie or approved public likeness/voice distribution.",
+    "Windows runtime not tested; PE export only.",
+    "Hosted billing remains a limitation for future default jobs; no persistent runner.",
+    "ART-P01-01 MEDIUM jitter and META-P01-01 LOW atlas metadata discrepancy remain open."
   ],
-  "next_action": "Remain in P01. Record authorized human likeness/grotesque approval or concrete corrections against exact final asset hashes, preserve request checkpoint. Handle ART-P01-01/META-P01-01 within phase as appropriate, update affected evidence after edits, then independent attempt2. No P02/merge/release.",
-  "next_phase": "none"
+  "next_action": "Executor may persist P01 PASS and begin bounded P02 planning/tasks from reports/phases/P01/reviewer-attempt2/P02_HANDOFF.md; implement combat contracts, melee/ranged test kits,3 enemy archetypes, deterministic instant retry and viable weak-Yakudza escape prototype, then independent P02 review. No P03/content expansion/public release/merge authorization.",
+  "next_phase": "P02"
 }
