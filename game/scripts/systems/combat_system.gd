@@ -9,10 +9,27 @@ var damage_events := 0
 var wall_impacts := 0
 var last_hit_position := Vector2.ZERO
 var hit_flash := 0.0
+signal contact_committed(event: Dictionary)
+var encounter_epoch := 0
+var receipts: Dictionary = {}
+var contact_events: Array[Dictionary] = []
+var impact: Node2D
+var polish: Dictionary
+
+func _stamp(definition: Dictionary) -> Dictionary:
+	var result := definition.duplicate(true)
+	result["_epoch"] = encounter_epoch
+	return result
+
 
 
 func _ready() -> void:
 	process_physics_priority = 10
+	polish = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/polish.json"))
+	impact = preload("res://scripts/systems/combat_impact.gd").new()
+	impact.combat = self
+	add_child(impact)
+	contact_committed.connect(impact.on_contact)
 
 
 func cancel_melee(source: CharacterBody2D) -> void:
@@ -32,6 +49,10 @@ func _melee_phase(attack: Dictionary) -> String:
 
 
 func reset() -> void:
+	encounter_epoch += 1
+	receipts.clear()
+	contact_events.clear()
+	if impact: impact.reset()
 	attacks.clear()
 	projectiles.clear()
 	next_attack_id = 0
@@ -46,12 +67,13 @@ func start_melee(source: CharacterBody2D, team: String, direction: Vector2, defi
 	lab.audio_event.emit(&"weapon_melee", source.global_position)
 	next_attack_id += 1
 	attacks.append({"id": next_attack_id, "source": source, "team": team,
-		"direction": direction.normalized(), "definition": definition, "time": 0.0, "hit": []})
+		"direction": direction.normalized(), "definition": _stamp(definition), "time": 0.0, "hit": []})
 	queue_redraw()
 	return next_attack_id
 
 
 func fire(source: CharacterBody2D, team: String, direction: Vector2, definition: Dictionary) -> int:
+	definition = _stamp(definition)
 	lab.audio_event.emit(&"weapon_fire", source.global_position)
 	next_attack_id += 1
 	var aim := direction.normalized()
@@ -66,7 +88,7 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 	if not obstruction.is_empty():
 		if obstruction.collider.collision_layer & 1:
 			wall_impacts += 1
-			lab.audio_event.emit(&"impact_wall", obstruction.position)
+			_wall_contact(obstruction.position, definition)
 			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
@@ -132,7 +154,7 @@ func _physics_process(delta: float) -> void:
 		if not contact.is_empty():
 			if contact.collider.collision_layer & 1:
 				wall_impacts += 1
-				lab.audio_event.emit(&"impact_wall", contact.position)
+				_wall_contact(contact.position, bullet.definition)
 				last_hit_position = contact.position + bullet.visual_offset
 				hit_flash = 0.15
 			else:
@@ -146,14 +168,39 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 
-func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D) -> void:
-	if target.health <= 0:
-		return
+func _wall_contact(at: Vector2, definition: Dictionary) -> void:
+	var weapon := String(definition.get("category", "firearm"))
+	var surface := "metal" if at.x > 430 else "concrete"
+	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
+
+
+func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D) -> bool:
+	if not is_instance_valid(target) or not is_instance_valid(source) or target.health <= 0:
+		return false
+	if int(definition.get("_epoch", encounter_epoch)) != encounter_epoch:
+		return false
+	var token := str(attack_id) + ":" + str(target.get_instance_id())
+	if receipts.has(token): return false
+	receipts[token] = true
 	damage_events += 1
-	lab.audio_event.emit(&"impact_body", target.global_position)
+	var category := String(definition.get("category", "unarmed"))
+	var strong := bool(definition.get("strong", int(definition.damage) > 0))
+	var direction := (target.global_position - source.global_position).normalized()
 	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
+	if target.has_method("apply_impulse"):
+		target.apply_impulse(direction * (float(polish.knockback_strong) if strong else float(polish.knockback_weak)))
+	var cue := String(definition.get("cue", "impact_" + category + "_body"))
+	lab.audio_event.emit(StringName(cue), target.global_position)
+	var event := {"epoch": encounter_epoch, "id": attack_id, "target": target.get_instance_id(),
+		"tick": Engine.get_physics_frames(), "at": target.global_position, "direction": direction,
+		"category": category, "strong": strong, "damage": int(definition.damage),
+		"lethal": target.health <= 0, "finisher": bool(definition.get("finisher", false)), "cue": cue}
+	contact_events.append(event)
+	if contact_events.size() > 512: contact_events.pop_front()
+	contact_committed.emit(event)
+	return true
 
 
 func _draw() -> void:
@@ -167,5 +214,5 @@ func _draw() -> void:
 		var position: Vector2 = bullet.position + bullet.visual_offset
 		var tail: Vector2 = position - bullet.velocity.normalized() * 8
 		draw_line(tail, position, Color("ffe587") if bullet.team == "player" else Color("ff687e"), 2)
-	if hit_flash > 0:
+	if hit_flash > 0 and impact.flashes_enabled():
 		draw_arc(last_hit_position, 9, 0, TAU, 12, Color("ffffff"), 2)

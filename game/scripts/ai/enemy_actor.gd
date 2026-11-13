@@ -1,6 +1,7 @@
 extends CharacterBody2D
 ## Observable deterministic FSM: patrol→alert→pursue→telegraph→recover.
 
+var impulse := Vector2.ZERO
 var lab: Node2D
 var kind := "patrol"
 var definition: Dictionary
@@ -71,6 +72,7 @@ func _load_art() -> void:
 
 
 func reset() -> void:
+	impulse = Vector2.ZERO
 	position = spawn_position
 	patrol_target = patrol_end
 	velocity = Vector2.ZERO
@@ -142,6 +144,7 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) -> 
 
 
 func _physics_process(delta: float) -> void:
+	_move_impulse(delta)
 	if health <= 0:
 		velocity = Vector2.ZERO
 		var fade := float(lab.visual_config.enemy_defeat.fade_seconds)
@@ -245,3 +248,12 @@ func _draw() -> void:
 		draw_arc(Vector2(0, -37), 7, -PI / 2, -PI / 2 + TAU * progress, 20, color, 2)
 	elif state == "alert":
 		draw_line(Vector2(0, -43), Vector2(0, -35), color, 3)
+
+
+func apply_impulse(value: Vector2) -> void:
+	impulse = value.limit_length(100)
+
+func _move_impulse(delta: float) -> void:
+	if impulse.length_squared() > 0.01:
+		move_and_collide(impulse * delta)
+		impulse = impulse.move_toward(Vector2.ZERO, 700 * delta)

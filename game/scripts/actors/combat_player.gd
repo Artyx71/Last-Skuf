@@ -2,6 +2,7 @@ extends "res://scripts/actors/yakuza_actor.gd"
 ## P01 movement stays intact. Actions and contact share one fixed-physics pose clock.
 
 const WeaponVisual = preload("res://scripts/actors/combat_weapon_visual.gd")
+var impulse := Vector2.ZERO
 var lab: Node2D
 var health := 1
 var kit := "escape"
@@ -154,6 +155,7 @@ func visual_muzzle() -> Vector2:
 
 func reset(at: Vector2) -> void:
 	audio_step_distance = 0.0
+	impulse = Vector2.ZERO
 	cancel_action()
 	position = at
 	velocity = Vector2.ZERO
@@ -201,6 +203,7 @@ func aim_direction() -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
+	_move_impulse(delta)
 	_advance_action(delta)
 	if lab.state != "playing" or health <= 0:
 		velocity = Vector2.ZERO
@@ -305,3 +308,12 @@ func _draw() -> void:
 		draw_arc(Vector2(0, -5), 12, -0.3, PI + 0.3, 16, Color("66e5cc"), 1)
 		var aim := aim_direction()
 		draw_line(Vector2(0, -7) + aim * 16, Vector2(0, -7) + aim * 23, Color("66e5cc"), 2)
+
+
+func apply_impulse(value: Vector2) -> void:
+	impulse = value.limit_length(100)
+
+func _move_impulse(delta: float) -> void:
+	if impulse.length_squared() > 0.01:
+		move_and_collide(impulse * delta)
+		impulse = impulse.move_toward(Vector2.ZERO, 700 * delta)
