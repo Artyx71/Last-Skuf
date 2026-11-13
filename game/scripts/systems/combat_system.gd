@@ -302,7 +302,7 @@ func cancel_finisher(source: CharacterBody2D, reason: String, force := false) ->
 	if is_instance_valid(job.target) and job.target.health > 0 and job.target.state == "finisher_reaction":
 		job.target.reaction_category = ""
 		job.target.stun_remaining = maxf(0,float(job.vulnerability)-float(job.elapsed))
-		job.target.transition("stunned",job.target.stun_remaining)
+		job.target.transition("stunned",job.target.stun_remaining,true)
 	finishers.erase(job)
 	return true
 

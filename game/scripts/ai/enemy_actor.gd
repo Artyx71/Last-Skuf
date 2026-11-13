@@ -114,8 +114,12 @@ func reset() -> void:
 	queue_redraw()
 
 
-func transition(next: String, duration := 0.0) -> void:
+const STATE_PRIORITY := {"dead":100,"finisher_reaction":80,"knockdown":70,"stunned":60,"hurt":50,"attack":40,"telegraph":30,"recover":20}
+
+func transition(next: String, duration := 0.0, force := false) -> void:
 	if state == "dead" and next != "dead": return
+	if not force and state in ["finisher_reaction","knockdown","stunned","hurt"] and timer > 0.00001:
+		if int(STATE_PRIORITY.get(next,10)) < int(STATE_PRIORITY.get(state,10)): return
 	state_elapsed = 0.0
 	state_duration = duration
 	state = next
@@ -159,9 +163,9 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) -> 
 		lab.kills += 1
 	elif stun > 0:
 		stun_remaining = stun
-		transition("stunned", stun)
+		transition("stunned", stun, state == "finisher_reaction")
 	else:
-		transition("hurt", 0.2)
+		transition("hurt", 0.2, state == "finisher_reaction")
 	_update_animation()
 	queue_redraw()
 
@@ -317,7 +321,7 @@ func _move_impulse(delta: float) -> void:
 
 
 func bind_melee(id: int, attack: Dictionary) -> void:
-	if health <= 0: return
+	if health <= 0 or (state in ["finisher_reaction","knockdown","stunned","hurt"] and timer > 0): return
 	attack_id = id
 	transition("attack",float(attack.get("windup",0))+float(attack.active))
 	_update_animation()
