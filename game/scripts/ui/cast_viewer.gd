@@ -25,7 +25,7 @@ func _ready() -> void:
  for id in Characters.entries():
   if id == "yakuza": continue
   ids.append(id)
-  selector.add_item(Characters.actor(id).display_name)
+  selector.add_item(str(ids.size()) + ". " + Characters.actor(id).display_name)
  selector.item_selected.connect(func(index: int): open_actor(ids[index]))
  vhs = preload("res://scripts/ui/vhs_overlay.gd").new()
  vhs.z_index = 12
@@ -33,6 +33,16 @@ func _ready() -> void:
  get_node("/root/OptionsStore").changed.connect(_options_changed)
  _options_changed(&"", null)
  open_actor(selected_actor)
+ if "--p06-cast-replay" in OS.get_cmdline_user_args():
+  var replay := preload("res://scripts/qa/cast_replay.gd").new()
+  get_tree().root.add_child.call_deferred(replay)
+  replay.call_deferred("run", self)
+ elif "--p06-cast-smoke" in OS.get_cmdline_user_args(): call_deferred("_smoke")
+
+func _smoke() -> void:
+ for i in 5: await get_tree().process_frame
+ print("P06_CAST_SMOKE ready=", portrait.texture != null)
+ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0 if portrait.texture != null else 1)
 
 func _label(value: String, at: Vector2, bounds: Vector2, font_size := 16) -> Label:
  var node := Label.new();node.text = value;node.position = at;node.size = bounds
@@ -114,10 +124,16 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
  if event is InputEventKey and event.pressed and not event.echo:
+  if event.keycode >= KEY_1 and event.keycode <= KEY_9:
+   var index := int(event.keycode - KEY_1)
+   if index < ids.size(): open_actor(ids[index])
+   get_viewport().set_input_as_handled()
+   return
   match event.keycode:
    KEY_SPACE: _advance()
    KEY_H: _history()
    KEY_K: _skip()
+   KEY_R: _repeat()
    KEY_ESCAPE: _close()
   get_viewport().set_input_as_handled()
 

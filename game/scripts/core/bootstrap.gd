@@ -7,7 +7,8 @@ const DISCLAIMER := "Вымышленная криминальная сатир�
 
 
 func _ready() -> void:
-	if "--open-cast" in OS.get_cmdline_user_args():
+	if "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
+		get_tree().set_meta("p06_cast_startup_route", true)
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/cast_viewer.tscn")
 		return
 	if "--open-mission" in OS.get_cmdline_user_args():
