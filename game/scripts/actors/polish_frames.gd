@@ -34,5 +34,9 @@ static func connect_options(sprite: AnimatedSprite2D, store: Node) -> void:
 	var handler := func(key: StringName,value: Variant):
 		if key == &"reduced_gore" and is_instance_valid(sprite): apply_gore(sprite,bool(value))
 	store.changed.connect(handler)
+	sprite.tree_entered.connect(func():
+		if is_instance_valid(store):
+			if not store.changed.is_connected(handler): store.changed.connect(handler)
+			apply_gore(sprite,store.values.reduced_gore))
 	sprite.tree_exiting.connect(func():
 		if is_instance_valid(store) and store.changed.is_connected(handler): store.changed.disconnect(handler))
