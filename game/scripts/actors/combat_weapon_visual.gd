@@ -6,6 +6,8 @@ var player: CharacterBody2D
 func _draw() -> void:
 	if player.health <= 0 or player.weapon_kind.is_empty() or player.action_timer <= 0:
 		return
+	if not player.weapon_socket_visible():
+		return
 	var grip: Vector2 = player.weapon_socket()
 	var aim: Vector2 = player.action_aim
 	var sideways := Vector2(-aim.y, aim.x)

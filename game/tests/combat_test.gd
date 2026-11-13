@@ -167,4 +167,4 @@ func _run() -> void:
 		and lab.enemies[0].defeat_elapsed == 0 and not lab.enemies[0].defeat_visual.visible,
 		"restart restores visible live art and clears all defeat presentation state")
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

@@ -45,7 +45,7 @@ func _run() -> void:
 	_check(not portraits.is_empty() and portraits.get_size() == Vector2i(800, 160), "five native 160px portraits")
 	_check(not past.is_empty() and past.get_size() == Vector2i(800, 160), "five native flashback portraits")
 	if sheet.is_empty() or portraits.is_empty():
-		quit(1)
+		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1)
 		return
 	_pixel_structure(sheet, "world")
 	_pixel_structure(portraits, "portraits")
@@ -69,4 +69,4 @@ func _run() -> void:
 		var frame := portraits.get_region(Rect2i(index * 160, 0, 160, 160))
 		_check(frame.get_used_rect().size.y > 100, "portrait filled " + str(index))
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

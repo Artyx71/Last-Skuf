@@ -116,4 +116,4 @@ func _run() -> void:
 	await _frames(140)
 	_check("alert" in distracted.transitions and distracted.investigate_remaining == 0, "finite distraction returns to detection loop")
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)

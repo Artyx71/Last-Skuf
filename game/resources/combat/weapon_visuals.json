@@ -22,7 +22,7 @@
         ],
         [
           8,
-          37
+          40
         ]
       ],
       "fire": [
@@ -31,13 +31,23 @@
           36
         ]
       ],
-      "layer": 1
+      "layer": 1,
+      "shove_layers": [
+        1,
+        1,
+        1
+      ],
+      "shove_visible": [
+        true,
+        true,
+        true
+      ]
     },
     "left": {
       "shove": [
         [
-          12,
-          36
+          14,
+          29
         ],
         [
           9,
@@ -54,21 +64,31 @@
           27
         ]
       ],
-      "layer": 1
+      "layer": 1,
+      "shove_layers": [
+        -1,
+        1,
+        1
+      ],
+      "shove_visible": [
+        false,
+        true,
+        true
+      ]
     },
     "right": {
       "shove": [
         [
-          38,
-          29
+          28,
+          35
         ],
         [
           39,
           28
         ],
         [
-          38,
-          30
+          24,
+          43
         ]
       ],
       "fire": [
@@ -77,13 +97,23 @@
           28
         ]
       ],
-      "layer": 1
+      "layer": 1,
+      "shove_layers": [
+        1,
+        1,
+        1
+      ],
+      "shove_visible": [
+        true,
+        true,
+        true
+      ]
     },
     "up": {
       "shove": [
         [
-          42,
-          28
+          41,
+          31
         ],
         [
           42,
@@ -91,7 +121,7 @@
         ],
         [
           42,
-          37
+          40
         ]
       ],
       "fire": [
@@ -100,7 +130,17 @@
           27
         ]
       ],
-      "layer": -1
+      "layer": -1,
+      "shove_layers": [
+        -1,
+        -1,
+        -1
+      ],
+      "shove_visible": [
+        true,
+        true,
+        true
+      ]
     }
   },
   "knife": {
@@ -115,7 +155,7 @@
     "fade_seconds": 0.18,
     "cue_seconds": 0.65
   },
-  "review": "Sockets sampled from actual action_sheet native hand pixels; up weapon draws behind body. These are visual sockets, not hurtboxes. No approved P01 artwork changed.",
+  "review": "P03 carryforward ART-P02-01: free right palm sockets inspected across all12 actual poses; phone-hand excluded. Left wind-up palm is occluded: [14,29] is a projected rear location, not a pixel-confirmed wrist, so weapon is hidden until the visible contact pose. Up remains behind body; no approved artwork changed.",
   "render_planes": {
     "floor": 0,
     "actor_body": 1,

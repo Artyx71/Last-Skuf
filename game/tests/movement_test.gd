@@ -85,4 +85,4 @@ func _run() -> void:
 	lab.set_past_version(false)
 	_check(lab.portrait.texture.atlas == present_texture, "return to present source")
 	print("RESULT passed=%d failed=%d" % [passed, failed])
-	quit(1 if failed else 0)
+	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self, 1 if failed else 0)
