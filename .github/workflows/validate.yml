@@ -23,12 +23,14 @@ jobs:
         run: python3 -m unittest discover -s tools/tests -v
       - name: Decode and analyze actual audio signals
         run: python3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa
+      - name: Analyze original P04 audio signals
+        run: python3 tools/analyze_p04_audio.py --output reports/ci/p04_audio.json
       - name: Export native bootstrap binaries
         run: |
           mkdir -p build/linux build/windows
           .tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Linux
           .tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Windows
-          build/linux/last-skuf.x86_64 --headless --quit
+          build/linux/last-skuf.x86_64 --headless -- --smoke-bootstrap
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

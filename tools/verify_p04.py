@@ -128,7 +128,7 @@ def main():
     else:
      command=[ROOT/'.tools/wine/usr/bin/wine',target]+(['--headless'] if args.headless else [])
      # Probe before long replay: Wine's server requires sockets unavailable in restricted executors.
-     probe=run('windows_wine_probe',command+['--quit'],environment('windows_probe',True),30)
+     probe=run('windows_wine_probe',command+['--','--smoke-bootstrap'],environment('windows_probe',True),30)
      row['wine_probe_passed']=probe
      if probe:replay('windows_export_replay',command,wine=True)
    exports.append(row);write(output/'exports.json',exports)

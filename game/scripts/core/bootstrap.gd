@@ -27,6 +27,10 @@ func _ready() -> void:
 	_add_label(panel, "Godot 4 · Windows / Linux\nПолная игра ещё не реализована.", 17, Color("e5e6ef"))
 	_add_label(panel, DISCLAIMER, 15, Color("b9b9cc"))
 	_add_label(panel, "Enter — история · F1 — арт · F2 — бой · F3 — диалог · Esc — выход", 14, Color("b9b9cc"))
+	if "--smoke-bootstrap" in OS.get_cmdline_user_args():
+		print("BOOTSTRAP_SMOKE ready=true")
+		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0)
+		return
 	if "--capture-bootstrap" in OS.get_cmdline_user_args():
 		await RenderingServer.frame_post_draw
 		var output := OS.get_environment("AYAY_CAPTURE_PATH")

@@ -1,10 +1,13 @@
 """Real Git index/worktree fixtures; never contact GitHub or push a branch."""
 from contextlib import contextmanager
+import contextlib
+import io
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -57,6 +60,23 @@ class PublicationTests(unittest.TestCase):
         (self.work/'reports/escape').symlink_to(self.work/'game/mission.gd');self.forbidden()
     def test_wrong_current_branch_cannot_push(self):
         self.git('switch','-c','phase/p03-fixture');self.forbidden()
+    def test_dirty_prepare_never_pushes_or_creates_pull_request(self):
+        from github import manage
+        (self.work/'game/new.gd').write_text('uncommitted implementation\n')
+        state={'active_phase':'P04','autopilot':{'history':[],'phases':{'P04':{
+            'status':'VALIDATING','workspace':str(self.work),'branch':'phase/p04-fixture'}}}}
+        controller=SimpleNamespace(root=self.work,config={'repository_visibility':'public'},
+            state=lambda:state,persist=lambda value:None)
+        calls=[]
+        def api(endpoint,method='GET',payload=None):
+            calls.append((endpoint,method))
+            if '/pulls?' in endpoint:return []
+            if endpoint=='repos/Artyx71/Last-Skuf':return {'private':False}
+            raise AssertionError('Unexpected API mutation: '+method+' '+endpoint)
+        with self.mutations() as mutations,patch('github.api',side_effect=api),contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(manage(controller,'P04','prepare'),4)
+            self.assertEqual(mutations,[])
+        self.assertTrue(calls);self.assertTrue(all(method=='GET' for _,method in calls))
     def test_clean_and_generated_reports_push_verified_object(self):
         for reports in [False,True]:
             with self.subTest(reports=reports):
