@@ -2,6 +2,7 @@ extends "res://scripts/actors/yakuza_actor.gd"
 ## P01 movement stays intact. Actions and contact share one fixed-physics pose clock.
 
 const WeaponVisual = preload("res://scripts/actors/combat_weapon_visual.gd")
+var impulse := Vector2.ZERO
 var lab: Node2D
 var health := 1
 var kit := "escape"
@@ -25,6 +26,8 @@ var action_recovery := 0.0
 var melee_attack_id := 0
 var weapon_kind := ""
 var audio_step_distance := 0.0
+var finisher_weapon := "unarmed"
+var finisher_category := "unarmed"
 var actions_ready := false
 var weapon_visual: Node2D
 
@@ -50,6 +53,9 @@ func _ready() -> void:
 				atlas.atlas = texture
 				atlas.region = Rect2(Vector2(column, row) * FRAME_SIZE, FRAME_SIZE)
 				sprite.sprite_frames.add_frame(animation, atlas)
+	preload("res://scripts/actors/polish_frames.gd").append(sprite.sprite_frames,
+		"res://assets/art/combat_polish/yakuza_finishers.png", ["unarmed","blunt","sharp","firearm","environmental"], "finish_")
+	preload("res://scripts/actors/polish_frames.gd").connect_options(sprite,get_node("/root/OptionsStore"))
 	actions_ready = true
 	weapon_visual = WeaponVisual.new()
 	weapon_visual.player = self
@@ -76,7 +82,7 @@ func _present_action() -> void:
 	var phase := action_elapsed * fps
 	var progress: float = phase - floor(phase + 0.00001)
 	action_frame = mini(int(floor(phase + 0.00001)), count - 1)
-	if action_kind == "shove":
+	if action_kind == "shove" or action_kind.begins_with("finish_"):
 		if action_elapsed + 0.00001 < action_windup:
 			action_frame = 0
 			progress = action_elapsed / action_windup
@@ -116,6 +122,9 @@ func _advance_action(delta: float) -> void:
 
 
 func cancel_action() -> void:
+	var job: Dictionary = lab.combat.finisher_for(self)
+	if not job.is_empty() and job.committed and health > 0 and action_timer > 0.00001: return
+	lab.combat.cancel_finisher(self,"action_cancel",health <= 0)
 	lab.combat.cancel_melee(self)
 	action_timer = 0.0
 	action_elapsed = 0.0
@@ -154,6 +163,7 @@ func visual_muzzle() -> Vector2:
 
 func reset(at: Vector2) -> void:
 	audio_step_distance = 0.0
+	impulse = Vector2.ZERO
 	cancel_action()
 	position = at
 	velocity = Vector2.ZERO
@@ -161,6 +171,8 @@ func reset(at: Vector2) -> void:
 	move_speed = float(lab.config.player.speed)
 	facing = &"right"
 	kit = "escape"
+	finisher_weapon = "unarmed"
+	finisher_category = "unarmed"
 	melee_cooldown = 0.0
 	ranged_cooldown = 0.0
 	distract_cooldown = 0.0
@@ -201,6 +213,7 @@ func aim_direction() -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
+	if lab.state == "playing": _move_impulse(delta)
 	_advance_action(delta)
 	if lab.state != "playing" or health <= 0:
 		velocity = Vector2.ZERO
@@ -211,6 +224,18 @@ func _physics_process(delta: float) -> void:
 		queue_redraw()
 		return
 	var audio_previous := position
+	var job: Dictionary = lab.combat.finisher_for(self)
+	if not job.is_empty():
+		if Input.is_action_just_pressed("cancel_finisher"):
+			if lab.combat.cancel_finisher(self,"cancel_input"): cancel_action()
+		if Input.is_action_just_pressed("attack_melee") and not job.committed:
+			cancel_action()
+		elif not Input.get_vector("move_left","move_right","move_up","move_down").is_zero_approx() and not job.committed:
+			cancel_action()
+		else:
+			velocity = Vector2.ZERO
+			_present_action()
+			return
 	super._physics_process(delta)
 	audio_step_distance += position.distance_to(audio_previous)
 	if audio_step_distance >= 24.0:
@@ -224,6 +249,8 @@ func _physics_process(delta: float) -> void:
 		attack_melee()
 	if Input.is_action_just_pressed("attack_ranged"):
 		attack_ranged()
+	if Input.is_action_just_pressed("finisher"):
+		try_finisher()
 	if Input.is_action_just_pressed("distract"):
 		distract()
 	if not action_animation.is_empty():
@@ -239,7 +266,14 @@ func _face_aim() -> void:
 		facing = &"down" if direction.y > 0 else &"up"
 
 
+func try_finisher() -> bool:
+	for enemy in lab.enemies:
+		if lab.combat.start_finisher(self,enemy,finisher_category): return true
+	return false
+
 func attack_melee() -> bool:
+	var job: Dictionary = lab.combat.finisher_for(self)
+	if not job.is_empty() and job.committed: return false
 	if lab.state != "playing" or health <= 0 or melee_cooldown > 0:
 		return false
 	cancel_action()
@@ -257,6 +291,8 @@ func attack_melee() -> bool:
 
 
 func attack_ranged() -> bool:
+	var job: Dictionary = lab.combat.finisher_for(self)
+	if not job.is_empty() and job.committed: return false
 	var weapon: String = lab.config.kits[kit].ranged
 	if weapon.is_empty() or lab.state != "playing" or health <= 0 or ranged_cooldown > 0:
 		return false
@@ -288,9 +324,10 @@ func distract() -> bool:
 func receive_hit(damage: int, _stun: float, _attack_id: int, _source: Node2D) -> void:
 	if health <= 0:
 		return
+	health = maxi(0, health - damage)
+	lab.combat.cancel_finisher(self,"attack",true)
 	cancel_action()
 	hits_received += 1
-	health = maxi(0, health - damage)
 	if health == 0:
 		modulate = Color("a66f80")
 		_play_action("fall", 0.25)
@@ -305,3 +342,12 @@ func _draw() -> void:
 		draw_arc(Vector2(0, -5), 12, -0.3, PI + 0.3, 16, Color("66e5cc"), 1)
 		var aim := aim_direction()
 		draw_line(Vector2(0, -7) + aim * 16, Vector2(0, -7) + aim * 23, Color("66e5cc"), 2)
+
+
+func apply_impulse(value: Vector2) -> void:
+	impulse = value.limit_length(100)
+
+func _move_impulse(delta: float) -> void:
+	if impulse.length_squared() > 0.01:
+		move_and_collide(impulse * delta)
+		impulse = impulse.move_toward(Vector2.ZERO, 700 * delta)

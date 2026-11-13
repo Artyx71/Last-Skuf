@@ -1,0 +1,39 @@
+{
+  "phase": "P04G",
+  "attempt": 1,
+  "status": "PENDING_ACTUAL_LISTENING",
+  "scope": "20 new original impact/finisher SFX; P04 music remains accepted and unchanged",
+  "source_directory": "assets/source_audio/combat_polish",
+  "runtime_directory": "game/assets/audio/combat_polish",
+  "cue_ids": [
+    "impact_unarmed_body",
+    "impact_unarmed_concrete",
+    "impact_unarmed_metal",
+    "finish_unarmed",
+    "impact_blunt_body",
+    "impact_blunt_concrete",
+    "impact_blunt_metal",
+    "finish_blunt",
+    "impact_sharp_body",
+    "impact_sharp_concrete",
+    "impact_sharp_metal",
+    "finish_sharp",
+    "impact_firearm_body",
+    "impact_firearm_concrete",
+    "impact_firearm_metal",
+    "finish_firearm",
+    "impact_environmental_body",
+    "impact_environmental_concrete",
+    "impact_environmental_metal",
+    "finish_environmental"
+  ],
+  "source_provenance": "assets/source_audio/combat_polish/provenance.json",
+  "numeric_analysis_is_not_listening": true,
+  "requested_checks": [
+    "Прослушать сухие SFX body/concrete/metal и пять finishers: различимость и неприятные транзиенты",
+    "На host прослушать actual full/reduced mixer capture и видео: contact/SFX sync, intelligibility over accepted music",
+    "Проверить массовые попадания и 10 resets: отсутствие щелчков/зависших голосов/резких обрезаний"
+  ],
+  "required_host_runtime": "reports/phases/P04G/attempt1/native-host-01/{full_replay,reduced_replay,movie_replay}.wav",
+  "human_response": "Отдельное фактическое listening evidence с указанием прослушанных файлов/их SHA; автор не утверждает художественное принятие"
+}

@@ -1,0 +1,49 @@
+{
+  "phase": "P04G",
+  "author_stage": "IMPLEMENTED_AWAITING_HOST_QA_AND_INDEPENDENT_REVIEW",
+  "phase_decision": "NOT_WRITTEN_BY_AUTHOR",
+  "blockers": [
+    {
+      "id": "P04G-NATIVE-SANDBOX",
+      "scope": "rendered frames/video/actual realtime audio/native performance",
+      "evidence": "reports/phases/P04G/attempt1/native-sandbox-01/logs/native_probe.log",
+      "observed": "X11 Display is not available; Wayland display server could not be created",
+      "next": "Run tools/verify_p04g.py --exports --movie on authorized host with display/audio sockets"
+    },
+    {
+      "id": "P04G-GIT-COMMON-DIR",
+      "scope": "install local author commits into controller-owned assigned branch ref/index",
+      "evidence": "reports/phases/P04G/attempt1/logs/git_common_dir_denial.log",
+      "observed": "fatal: Unable to create .git/worktrees/P04G/index.lock: Read-only file system; exit128",
+      "preserved_commits": "ignored .tools/p04g-author-git; base3de67a00; branch phase/p04g-implementation",
+      "next": "Controller imports verified bundle/local commits on host; no user changes may be overwritten"
+    },
+    {
+      "id": "P04G-EDITOR-SOCKET",
+      "scope": "clean editor import/export diagnostic gate in restricted executor",
+      "evidence": "reports/phases/P04G/attempt1/regression-final-04/logs/import.log",
+      "observed": "NetSocketUnix _inet_open / TCPServer listen ERR_CANT_CREATE; actual engine export artifacts may still exist",
+      "next": "Fresh host import/export; do not ignore ERROR to declare this check green"
+    },
+    {
+      "id": "P04G-WINE-SOCKET",
+      "scope": "Wine runtime",
+      "evidence": "reports/phases/P04G/attempt1/technical-exports-sandbox-02/logs/wine_probe.log",
+      "observed": "sock_init: ERROR in sock_check_pollhup(); wineserver: bind: Operation not permitted; exit1",
+      "next": "One fresh Wine runtime on host after final export; native Windows remains NOT_TESTED"
+    },
+    {
+      "id": "P04G-LISTENING",
+      "scope": "new SFX artistic audio acceptance",
+      "evidence": "reports/phases/P04G/listening_request.json",
+      "next": "Actual human listening; do not substitute numeric metrics"
+    },
+    {
+      "id": "P04G-INDEPENDENT-REVIEW",
+      "scope": "ART / GAMEPLAY / QA / Lead exact source/build/evidence review",
+      "observed": "No subagents or independent reviewer run by author, as requested",
+      "next": "Controller schedules separate read-only contexts; author gives no PASS/scorecard"
+    }
+  ],
+  "source_commit": "bc9f7e6ba9fa9780b5456b3b5a07fc8051ba7444"
+}

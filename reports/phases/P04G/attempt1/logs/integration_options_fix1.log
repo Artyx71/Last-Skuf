@@ -1,0 +1,37 @@
+$ .tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --fixed-fps 60 --disable-vsync --max-fps 0 --script res://tests/options_test.gd
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS accept option master
+PASS accept option music
+PASS accept option sfx
+PASS accept option voice_ui
+PASS accept option text_speed
+PASS accept option instant_text
+PASS accept option vhs
+PASS accept option reduced_motion
+PASS accept option reduced_impact
+PASS accept option subtitles
+PASS accept option text_scale
+PASS accept option reduced_gore
+PASS accept option decals
+PASS accept option shake
+PASS accept option flashes
+PASS versioned preferences persist
+PASS read saved preferences
+PASS all previous and P04G options round trip
+PASS actual bus gain Master
+PASS actual bus gain Music
+PASS actual bus gain SFX
+PASS actual bus gain SFX_UI
+PASS actual bus gain Speech_Cues
+PASS ambient bus follows Music volume
+PASS zero volume actually mutes
+PASS reject wrong boolean type
+PASS reject nonfinite gain
+PASS reject unknown preference
+PASS clamp volume range
+PASS P03 preferences retain values and gain default gore option
+PASS reject unsupported settings version
+RESULT passed=31 failed=0
+
+exit_code=0

@@ -244,6 +244,25 @@ class ControllerTests(unittest.TestCase):
                 argv=run.call_args.args[1];self.assertIn('--movie',argv);self.assertIn('--exports',argv)
         self.assertEqual(events,['native','publication'])
 
+    def test_p04g_native_failure_preserves_attempt_and_blocks_publication(self):
+        with self.controller.exclusive():
+            state=self.controller.state()
+            for phase in ['P03','P04']:
+                state['autopilot']['phases'][phase].update(status='PASS',merge={'status':'MERGED'})
+            state['autopilot']['phases']['P04G'].update(status='VALIDATING',attempts=1,workspace=str(self.root),branch='phase/p04g-fixture',checkpoint='validation')
+            self.controller.persist(state)
+            def stage(name,argv,*args,**kwargs):return 0 if name.endswith('/validation') else 1
+            with patch.object(self.controller,'stage',side_effect=stage) as run,patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage') as manage:
+                with self.assertRaises(Blocked):self.controller.run_phase('P04G')
+                self.assertEqual(run.call_count,2)
+                argv=run.call_args.args[1]
+                self.assertIn('tools/verify_p04g.py',argv)
+                self.assertIn('--movie',argv);self.assertIn('--exports',argv)
+                self.assertFalse(run.call_args.kwargs['safe_retry'])
+                manage.assert_not_called()
+        item=self.controller.state()['autopilot']['phases']['P04G']
+        self.assertEqual(item['checkpoint'],'recovery-review');self.assertEqual(item['attempts'],1)
+
 
 class MergeTests(unittest.TestCase):
     def setUp(self):
@@ -330,6 +349,19 @@ class MergeTests(unittest.TestCase):
         for acceptance in [None,{'status':'PASS','method':'waveform','evidence':self.review['evidence'][1]}]:
             r=copy.deepcopy(self.review);r['artistic_audio_acceptance']=acceptance
             self.assertTrue(validate_review(self.root,r,'a'*40,'P04'))
+    def test_p04g_old_listening_prevents_any_merge_request(self):
+        r=copy.deepcopy(self.review);r['phase']='P04G'
+        sent=[]
+        result=guarded_merge(self.root,9,{},r,'P04G',lambda *_:copy.deepcopy(self.view),lambda *a:sent.append(a))
+        self.assertEqual(result['status'],'BLOCKED');self.assertFalse(sent)
+        proof=self.root/'listening.json';proof.write_text(json.dumps({'phase':'P04G'}))
+        r['evidence'][1]['sha256']=hashlib.sha256(proof.read_bytes()).hexdigest()
+        r['artistic_audio_acceptance']['evidence']=r['evidence'][1]
+        self.assertEqual(gate(self.root,self.view,r,'P04G'),[])
+    def test_p04g_signal_metrics_never_accept_new_sfx(self):
+        r=copy.deepcopy(self.review);r['phase']='P04G'
+        r['artistic_audio_acceptance']['method']='waveform'
+        self.assertTrue(validate_review(self.root,r,'a'*40,'P04G'))
     def test_mutated_evidence_rejected(self):
         (self.root/'evidence.txt').write_text('changed')
         self.assertTrue(validate_review(self.root,self.review,'a'*40,'P04'))

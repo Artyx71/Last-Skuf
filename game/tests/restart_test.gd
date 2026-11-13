@@ -44,8 +44,9 @@ func _run() -> void:
 		lab.enemies[0].set_physics_process(true)
 		await _frames(13)
 		lab.enemies[0].set_physics_process(false)
-		_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
-			"cycle %d taints defeat timer, sprite visibility and cue before reset" % cycle)
+		_check(lab.enemies[0].sprite.visible and lab.enemies[0].sprite.animation.begins_with("reaction_death_")
+			and lab.enemies[0].sprite.frame == 2 and lab.enemies[0].defeat_elapsed > 0,
+			"cycle %d taints authored corpse frame and defeat timer before reset" % cycle)
 		lab.player.set_aim(Vector2.UP)
 		lab.player.attack_ranged()
 		lab.player.distract()

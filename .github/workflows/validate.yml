@@ -25,6 +25,10 @@ jobs:
         run: python3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa
       - name: Analyze original P04 audio signals
         run: python3 tools/analyze_p04_audio.py --output reports/ci/p04_audio.json
+      - name: Verify sequential P04G technical replay (no rendered/listening claim)
+        run: python3 tools/verify_p04g.py --headless --output reports/ci/p04g --build-output build/P04G/ci
+      - name: Decode all original P04G SFX (signal only)
+        run: python3 tools/analyze_p04g_audio.py --output reports/ci/p04g_audio.json
       - name: Export native bootstrap binaries
         run: |
           mkdir -p build/linux build/windows

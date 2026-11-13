@@ -89,25 +89,25 @@ func panel(at: Vector2, bounds: Vector2) -> Panel:
  return node
 
 func _settings() -> void:
- settings_panel = panel(Vector2(88, 56), Vector2(464, 251))
+ settings_panel = panel(Vector2(88, 34), Vector2(464, 293))
  label("ПАУЗА · O / Esc: вернуться · Q: меню", Vector2(102, 66), Vector2(430, 22), 15, settings_panel, true)
  var y := 35
- for key in ["master", "music", "sfx", "voice_ui", "text_scale"]:
-  var title: String = {"master":"Общая", "music":"Музыка", "sfx":"Эффекты", "voice_ui":"Реплики / UI", "text_scale":"Размер текста"}[key]
+ for key in ["master", "music", "sfx", "voice_ui", "text_scale", "shake"]:
+  var title: String = {"shake":"Тряска %", "master":"Общая", "music":"Музыка", "sfx":"Эффекты", "voice_ui":"Реплики / UI", "text_scale":"Размер текста"}[key]
   label(title, Vector2(102, 56+y), Vector2(145, 22), 12, settings_panel, true)
   var slider := HSlider.new()
   slider.position = Vector2(168, y+3); slider.size = Vector2(275, 15)
   slider.min_value = 1.0 if key == "text_scale" else 0.0
-  slider.max_value = 1.25 if key == "text_scale" else 1.0
-  slider.step = .05; slider.value = options.values[key]
+  slider.max_value = 100.0 if key == "shake" else (1.25 if key == "text_scale" else 1.0)
+  slider.step = 1 if key == "shake" else .05; slider.value = options.values[key]
   slider.value_changed.connect(func(value: float): options.set_value(StringName(key), value))
   settings_panel.add_child(slider); option_controls[key] = slider
   y += 23
  var i := 0
- for key in ["vhs", "reduced_motion", "reduced_gore", "reduced_impact", "instant_text", "subtitles"]:
+ for key in ["vhs", "reduced_motion", "reduced_gore", "reduced_impact", "instant_text", "subtitles", "decals", "flashes"]:
   var control := CheckButton.new()
-  control.position = Vector2(10+(i%2)*224, 157+(i/2)*27)
-  control.text = {"vhs":"VHS", "reduced_motion":"Меньше движения", "reduced_gore":"Меньше насилия", "reduced_impact":"Мягче звук", "instant_text":"Текст сразу", "subtitles":"Подписи звуков"}[key]
+  control.position = Vector2(10+(i%2)*224, 180+(i/2)*25)
+  control.text = {"decals":"Следы", "flashes":"Вспышки", "vhs":"VHS", "reduced_motion":"Меньше движения", "reduced_gore":"Меньше насилия", "reduced_impact":"Мягче звук", "instant_text":"Текст сразу", "subtitles":"Подписи звуков"}[key]
   control.add_theme_font_size_override("font_size", 12)
   control.button_pressed = options.values[key]
   control.toggled.connect(func(value: bool): options.set_value(StringName(key), value))

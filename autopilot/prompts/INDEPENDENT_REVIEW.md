@@ -9,3 +9,5 @@
 Не выдавай silent WAV/metadata за soundtrack. Native Windows и Wine подписывай отдельно. При P04G нужны настоящие impact/gore/finisher assets, кадры всех действий, exactly-once damage/score, state/reset/performance проверки и ART/GAMEPLAY/QA выводы. Не подписывай итог по одному авторскому отчёту.
 
 PASS разрешает только проверенный SHA: после любого source/head/base изменения требуется новая привязка. Никаких merge/push/правок implementation из review.
+
+P04G добавляет новые SFX: нужен отдельный hash-bound actual listening proof с phase=P04G. Прежнее принятие P04 музыки сохраняется для неизменённых stems, но не принимает новые эффекты. tools/analyze_p04g_audio.py проверяет все20dryPCM и пять actual runtime captures отдельно от художественной оценки. Нет фактического слушателя — BLOCKED только artistic audio; техническое и ART/GAMEPLAY/QA продолжать без выдачи полного PASS.

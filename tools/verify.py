@@ -48,7 +48,14 @@ def main():
         commands.append(('mission', base + ['--script', 'res://tests/mission_test.gd']))
         commands.append(('mission_normal_exit', base + ['--verbose', '--', '--open-mission', '--p04-replay']))
         commands.append(('mission_fast_exit', base + ['--verbose', '--fixed-fps', '60', '--disable-vsync', '--max-fps', '0', '--', '--open-mission', '--p04-replay']))
+    if (ROOT / 'game/tests/p04g_test.gd').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['p04g', 'p04g_art'])
     env = dict(os.environ)
+    for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
+        isolated = output / 'isolated_saves' / folder
+        isolated.mkdir(parents=True, exist_ok=True)
+        env[key] = str(isolated.resolve())
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:
         commands.append(('render', [str(binary), '--path', 'game', '--', '--capture-bootstrap']))

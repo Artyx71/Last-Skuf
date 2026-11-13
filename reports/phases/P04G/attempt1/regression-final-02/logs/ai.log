@@ -1,0 +1,38 @@
+$ /home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P04G/.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --script res://tests/ai_test.gd
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS patrol sees actual visible player
+PASS patrol visible reaction precedes pursuit
+PASS patrol reaction is not instantaneous
+PASS patrol alert enters pursuit
+PASS patrol pursuit physically closes distance
+PASS patrol cannot damage during reaction
+PASS rusher sees actual visible player
+PASS rusher visible reaction precedes pursuit
+PASS rusher reaction is not instantaneous
+PASS rusher alert enters pursuit
+PASS rusher pursuit physically closes distance
+PASS rusher cannot damage during reaction
+PASS shooter sees actual visible player
+PASS shooter visible reaction precedes pursuit
+PASS shooter reaction is not instantaneous
+PASS shooter alert enters pursuit
+PASS shooter warns at ranged distance
+PASS shooter cannot damage during reaction
+PASS wall prevents AI detection
+PASS occluded player does not aggro patrol
+PASS patrol moves while player remains occluded
+PASS rusher commits visible melee warning
+PASS rusher warning leaves reaction window
+PASS warning is not a hidden live hitbox
+PASS leaving committed melee volume avoids lethal hit
+PASS rusher telegraph resolves to real lethal damage
+PASS lethal damage cannot repeat on dead player
+PASS shooter telegraph precedes bullet creation
+PASS shooter projectile reaches actual player physics body
+PASS wall blocks even an already-committed enemy shot
+PASS distraction diverts active rusher to real noise
+PASS finite distraction returns to detection loop
+RESULT passed=32 failed=0
+
+exit_code=0

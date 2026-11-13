@@ -1,0 +1,75 @@
+{
+  "source_commit": "bc9f7e6ba9fa9780b5456b3b5a07fc8051ba7444",
+  "phase_decision": "NOT_DECIDED_BY_AUTHOR",
+  "regression_commands": 21,
+  "regression_successful": 20,
+  "regression_failed": [
+    {
+      "name": "import",
+      "exit_code": 0,
+      "passed": false,
+      "log": "reports/phases/P04G/attempt1/regression-final-04/logs/import.log"
+    }
+  ],
+  "godot_assertions": {
+    "p04g": {
+      "passed": 685,
+      "failed": 0
+    },
+    "p04g_art": {
+      "passed": 1676,
+      "failed": 0
+    },
+    "contact_timing": {
+      "passed": 48,
+      "failed": 0
+    },
+    "restart": {
+      "passed": 68,
+      "failed": 0
+    },
+    "combat": {
+      "passed": 43,
+      "failed": 0
+    },
+    "ai": {
+      "passed": 32,
+      "failed": 0
+    },
+    "options": {
+      "passed": 31,
+      "failed": 0
+    }
+  },
+  "python_tests": 67,
+  "python_success": true,
+  "technical_replays": {
+    "full_replay": {
+      "passed": true,
+      "checks": 170,
+      "finishers": 20,
+      "ai_direction_cases": 12,
+      "captures": 0,
+      "scope": "HEADLESS_TECHNICAL_NO_RENDER_EVIDENCE",
+      "performance_scope": "HEADLESS_ONLY"
+    },
+    "reduced_replay": {
+      "passed": true,
+      "checks": 170,
+      "finishers": 20,
+      "ai_direction_cases": 12,
+      "captures": 0,
+      "scope": "HEADLESS_TECHNICAL_NO_RENDER_EVIDENCE",
+      "performance_scope": "HEADLESS_ONLY"
+    }
+  },
+  "rendered_native": "BLOCKED_DISPLAY",
+  "movie_capture_and_p04_flag_actual_proof": "PENDING_HOST",
+  "native_frame_performance": "PENDING_HOST; headless values not accepted",
+  "audio_listening": "PENDING_ACTUAL_LISTENING",
+  "native_windows": "NOT_TESTED",
+  "wine": "BLOCKED_SOCKET; not rerun after unchanged environment denial",
+  "linux_export_replay": true,
+  "frozen_source_unchanged": true,
+  "changed_sources": []
+}

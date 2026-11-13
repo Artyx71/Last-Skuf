@@ -1,0 +1,5119 @@
+{
+  "ai": [
+    {
+      "direction": "down",
+      "kind": "patrol",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "left",
+      "kind": "patrol",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "right",
+      "kind": "patrol",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "up",
+      "kind": "patrol",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "down",
+      "kind": "rusher",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "left",
+      "kind": "rusher",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "right",
+      "kind": "rusher",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "up",
+      "kind": "rusher",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "down",
+      "kind": "shooter",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "left",
+      "kind": "shooter",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "right",
+      "kind": "shooter",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "recover"
+      ]
+    },
+    {
+      "direction": "up",
+      "kind": "shooter",
+      "player_hits": 1,
+      "transitions": [
+        "patrol",
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "recover"
+      ]
+    }
+  ],
+  "audio": {
+    "active_voices": 1,
+    "assets_ready": true,
+    "audio_driver": "Dummy",
+    "clock": 1.83907629486847,
+    "dropped_cues": 4789,
+    "events": [
+      {
+        "active": false,
+        "clock": 0.15273,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.15273,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.15273,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 0.15273,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.15273,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.15273,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.15273,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.18496,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.18833,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.20274,
+        "id": "finish_unarmed",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.21526,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.21526,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.21526,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.21625,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.21701,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.21893,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.23318,
+        "id": "finish_unarmed",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.24644,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.24644,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.24644,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.24743,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.24812,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.24992,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.26361,
+        "id": "finish_unarmed",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.27648,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.27648,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.27648,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.27741,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.27814,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.28038,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.29475,
+        "id": "finish_unarmed",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.30815,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.30815,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.30815,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.30918,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.31006,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.31188,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.32627,
+        "id": "finish_blunt",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.33851,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.33851,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.33851,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.3395,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.34023,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.34205,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.35641,
+        "id": "finish_blunt",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.36925,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.36925,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.36925,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.37024,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.37095,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.37277,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.38761,
+        "id": "finish_blunt",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.40026,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.40026,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.40026,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.40125,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.402,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.40418,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.41908,
+        "id": "finish_blunt",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.4319,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.4319,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.4319,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.43304,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.43401,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.43583,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.44969,
+        "id": "finish_sharp",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.46195,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.46195,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.46195,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.46294,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.46376,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.46555,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.47979,
+        "id": "finish_sharp",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.49262,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.49262,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.49262,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.49361,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.49434,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.4962,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.51014,
+        "id": "finish_sharp",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.52312,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.52312,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.52312,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.52413,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.52496,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.52716,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.54126,
+        "id": "finish_sharp",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.5544,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.5544,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.5544,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.55549,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.55641,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.55823,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.57065,
+        "id": "finish_firearm",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.58292,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.58292,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.58292,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.58391,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.58464,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.58643,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.60102,
+        "id": "finish_firearm",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.61393,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.61393,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.61393,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.61491,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.61568,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.6175,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.63227,
+        "id": "finish_firearm",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.64503,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.64503,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.64503,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.64602,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.64682,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.64906,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.66441,
+        "id": "finish_firearm",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.67735,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.67735,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.67735,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.67843,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.67925,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.68106,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.69652,
+        "id": "finish_environmental",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.70876,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.70876,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.70876,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.70975,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.71051,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.7123,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.72776,
+        "id": "finish_environmental",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.74059,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.74059,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.74059,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.74159,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.74232,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.74411,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.76031,
+        "id": "finish_environmental",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.77373,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.77373,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.77373,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.7749,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.77581,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.7781,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.79372,
+        "id": "finish_environmental",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.80618,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.80618,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.80618,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.80736,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.8119,
+        "kind": "request",
+        "scheduled_beat": 2,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 0.82214,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.82214,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.82522,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.82522,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.82522,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.82624,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.82727,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.82913,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.83175,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.83175,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.83175,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.83282,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.83348,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.83539,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.83755,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.83755,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.83755,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.75038,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.83919,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.84103,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.84318,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.84318,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.84318,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.84415,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.84491,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.84676,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.84925,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.84925,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.84925,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.8503,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.85472,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 0.86498,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.86498,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.86807,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.86807,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.86807,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.86909,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.86983,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.87168,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.8743,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.8743,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.8743,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.87545,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.87613,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.87791,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.88003,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.88003,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.88003,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.881,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.88163,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.88342,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.88555,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.88555,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.88555,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.88652,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.88726,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.88907,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.8917,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.8917,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.8917,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.89282,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.89722,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 0.90729,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.90729,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.91032,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.91032,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.91032,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.91133,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.91209,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.91391,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.91647,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.91647,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.91647,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.91759,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.91825,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.92004,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.92215,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.92215,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.92215,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.92311,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.92381,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.92562,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.92775,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.92775,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.92775,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.92873,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.92948,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.83888,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.93532,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.93532,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.93532,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.93643,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.94201,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 0.95604,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.95604,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.95994,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.95994,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.95994,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.96105,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.96184,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.96407,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.96689,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.96689,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.96689,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.96804,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.96872,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.97088,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.97353,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.97353,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.97353,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.97458,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.97525,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.97745,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.98009,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.98009,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.98009,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.98118,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.98199,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.98416,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 0.98687,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 0.98687,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 0.98687,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 0.98799,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 0.99199,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.00189,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.00189,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.00494,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.00494,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.00494,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.00591,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.00667,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.0085,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.01072,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.01072,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.01072,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.01177,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.01241,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.01419,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.01634,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.01634,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.01634,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.01729,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.01792,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.01973,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.02185,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.02185,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.02185,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.02282,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.02356,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 0.93224,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.02829,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.02829,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.02829,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.02935,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.03326,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.04312,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.04312,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.04634,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.04634,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.04634,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.04729,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.04838,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.05038,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.05323,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.05323,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.05323,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.05442,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.05505,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.05686,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.05896,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.05896,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.05896,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.05993,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.06058,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.06237,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.06449,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.06449,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.06449,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.06546,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.06622,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.06801,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.07086,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.07086,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.07086,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.07205,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.076,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.08597,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.08597,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.08902,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.08902,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.08902,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.08998,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.09077,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.09259,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.09517,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.09517,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.09517,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.09633,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.09697,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.09877,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.1009,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.1009,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.1009,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.10187,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.10252,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.10432,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.10646,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.10646,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.10646,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.10742,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.10818,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.11,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.11257,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.11257,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.11257,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.1137,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.02542,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.13011,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.13011,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.13402,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.13402,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.13402,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.13511,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.13595,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.13813,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.14104,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.14104,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.14104,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.14225,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.14297,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.14526,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.14787,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.14787,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.14787,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.14893,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.14962,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.15187,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.1545,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.1545,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.1545,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.15553,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.15633,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.15854,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.16144,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.16144,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.16144,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.16258,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.16701,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.18072,
+        "id": "weapon_fire",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.18191,
+        "id": "impact_firearm_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.18386,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.18386,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.18386,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.18482,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.18561,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.18744,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.18966,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.18966,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.18966,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.19071,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.19134,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.19313,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.19526,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.19526,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.19526,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.19623,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.19686,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.19867,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.2008,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.2008,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.2008,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.20177,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.20251,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.20434,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.20659,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.20659,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.20659,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.20763,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.21278,
+        "kind": "request",
+        "scheduled_beat": 3,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.22665,
+        "id": "weapon_fire",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.22785,
+        "id": "impact_firearm_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.22983,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.22983,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.22983,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.2308,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.23155,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.2336,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.23635,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.23635,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.23635,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.23755,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.23818,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.23998,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.24226,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.24226,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.24226,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.24322,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.24387,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.24566,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.24778,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.24778,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.24778,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.24875,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.24951,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.25132,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.25389,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.25389,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.25389,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.255,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.25968,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.27362,
+        "id": "weapon_fire",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.27465,
+        "id": "impact_firearm_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.27649,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.27649,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.27649,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.27753,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.27843,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.28036,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.28306,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.28306,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.28306,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.2842,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.28488,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.2867,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.28892,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.28892,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.28892,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.28988,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.29051,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.29231,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.29443,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.29443,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.29443,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.29539,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.29613,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.29796,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.30052,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.30052,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.30052,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.30168,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.30796,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "COMBAT"
+      },
+      {
+        "clock": 1.32597,
+        "id": "weapon_fire",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.3277,
+        "id": "impact_firearm_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.32977,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.32977,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.32977,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.33085,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.33166,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.33407,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.33709,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.33709,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.33709,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.33826,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.33893,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.3411,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.34386,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.34386,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.34386,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.34491,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.34567,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.3478,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.35035,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.35035,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.35035,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.35141,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.35218,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.35435,
+        "id": "impact_sharp_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.35703,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.35703,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.35703,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.35814,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.35854,
+        "id": "weapon_melee",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.3593,
+        "id": "impact_unarmed_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.36365,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.36365,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.36365,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "clock": 1.36463,
+        "kind": "request",
+        "scheduled_beat": 4,
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.36498,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.42261,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.45755,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.49216,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.52742,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.56256,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.59694,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.63202,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "beat": 4,
+        "clock": 1.66718,
+        "kind": "commit",
+        "state": "SUSPICION"
+      },
+      {
+        "clock": 1.66718,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.69926,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.73454,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.76931,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "clock": 1.8046,
+        "id": "impact_blunt_body",
+        "kind": "cue",
+        "spatial": true
+      },
+      {
+        "active": false,
+        "clock": 1.82669,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.82669,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.82669,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.82669,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.82841,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.82841,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.82841,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.82841,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83252,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83252,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83252,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83252,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83338,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83338,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83338,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83338,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.8342,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.8342,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.8342,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.8342,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83502,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83502,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83502,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83502,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83582,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83582,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83582,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83582,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83663,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83663,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83663,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83663,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83745,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83745,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83745,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83745,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      },
+      {
+        "active": false,
+        "clock": 1.83826,
+        "kind": "dialogue"
+      },
+      {
+        "clock": 1.83826,
+        "kind": "request",
+        "scheduled_beat": 8,
+        "state": "EXPLORE"
+      },
+      {
+        "clock": 1.83826,
+        "id": "retry",
+        "kind": "cue",
+        "spatial": false
+      },
+      {
+        "clock": 1.83826,
+        "kind": "retry",
+        "music_players": 1,
+        "stem_starts": 1
+      }
+    ],
+    "gains": {
+      "bass": 0.78,
+      "drums": 0.58,
+      "lead": 0.25,
+      "texture": 0.85
+    },
+    "mixer_clock": true,
+    "music_id": "LAST_SKUF_DEMO",
+    "music_players": 1,
+    "pending": "EXPLORE",
+    "pending_beat": 8,
+    "playback_position": 1.76533329486847,
+    "state": "SUSPICION",
+    "stem_starts": 1,
+    "voice_limit": 12
+  },
+  "captures": [],
+  "checks": [
+    {
+      "name": "actual mixer recorder starts",
+      "passed": true
+    },
+    {
+      "name": "20 original cues are actually packaged/imported",
+      "passed": true
+    },
+    {
+      "name": "earned shove unarmeddown",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter unarmeddown",
+      "passed": true
+    },
+    {
+      "name": "one committed kill unarmeddown",
+      "passed": true
+    },
+    {
+      "name": "finisher exit unarmeddown",
+      "passed": true
+    },
+    {
+      "name": "earned shove unarmedleft",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter unarmedleft",
+      "passed": true
+    },
+    {
+      "name": "one committed kill unarmedleft",
+      "passed": true
+    },
+    {
+      "name": "finisher exit unarmedleft",
+      "passed": true
+    },
+    {
+      "name": "earned shove unarmedright",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter unarmedright",
+      "passed": true
+    },
+    {
+      "name": "one committed kill unarmedright",
+      "passed": true
+    },
+    {
+      "name": "finisher exit unarmedright",
+      "passed": true
+    },
+    {
+      "name": "earned shove unarmedup",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter unarmedup",
+      "passed": true
+    },
+    {
+      "name": "one committed kill unarmedup",
+      "passed": true
+    },
+    {
+      "name": "finisher exit unarmedup",
+      "passed": true
+    },
+    {
+      "name": "earned shove bluntdown",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter bluntdown",
+      "passed": true
+    },
+    {
+      "name": "one committed kill bluntdown",
+      "passed": true
+    },
+    {
+      "name": "finisher exit bluntdown",
+      "passed": true
+    },
+    {
+      "name": "earned shove bluntleft",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter bluntleft",
+      "passed": true
+    },
+    {
+      "name": "one committed kill bluntleft",
+      "passed": true
+    },
+    {
+      "name": "finisher exit bluntleft",
+      "passed": true
+    },
+    {
+      "name": "earned shove bluntright",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter bluntright",
+      "passed": true
+    },
+    {
+      "name": "one committed kill bluntright",
+      "passed": true
+    },
+    {
+      "name": "finisher exit bluntright",
+      "passed": true
+    },
+    {
+      "name": "earned shove bluntup",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter bluntup",
+      "passed": true
+    },
+    {
+      "name": "one committed kill bluntup",
+      "passed": true
+    },
+    {
+      "name": "finisher exit bluntup",
+      "passed": true
+    },
+    {
+      "name": "earned shove sharpdown",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter sharpdown",
+      "passed": true
+    },
+    {
+      "name": "one committed kill sharpdown",
+      "passed": true
+    },
+    {
+      "name": "finisher exit sharpdown",
+      "passed": true
+    },
+    {
+      "name": "earned shove sharpleft",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter sharpleft",
+      "passed": true
+    },
+    {
+      "name": "one committed kill sharpleft",
+      "passed": true
+    },
+    {
+      "name": "finisher exit sharpleft",
+      "passed": true
+    },
+    {
+      "name": "earned shove sharpright",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter sharpright",
+      "passed": true
+    },
+    {
+      "name": "one committed kill sharpright",
+      "passed": true
+    },
+    {
+      "name": "finisher exit sharpright",
+      "passed": true
+    },
+    {
+      "name": "earned shove sharpup",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter sharpup",
+      "passed": true
+    },
+    {
+      "name": "one committed kill sharpup",
+      "passed": true
+    },
+    {
+      "name": "finisher exit sharpup",
+      "passed": true
+    },
+    {
+      "name": "earned shove firearmdown",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter firearmdown",
+      "passed": true
+    },
+    {
+      "name": "one committed kill firearmdown",
+      "passed": true
+    },
+    {
+      "name": "finisher exit firearmdown",
+      "passed": true
+    },
+    {
+      "name": "earned shove firearmleft",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter firearmleft",
+      "passed": true
+    },
+    {
+      "name": "one committed kill firearmleft",
+      "passed": true
+    },
+    {
+      "name": "finisher exit firearmleft",
+      "passed": true
+    },
+    {
+      "name": "earned shove firearmright",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter firearmright",
+      "passed": true
+    },
+    {
+      "name": "one committed kill firearmright",
+      "passed": true
+    },
+    {
+      "name": "finisher exit firearmright",
+      "passed": true
+    },
+    {
+      "name": "earned shove firearmup",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter firearmup",
+      "passed": true
+    },
+    {
+      "name": "one committed kill firearmup",
+      "passed": true
+    },
+    {
+      "name": "finisher exit firearmup",
+      "passed": true
+    },
+    {
+      "name": "earned shove environmentaldown",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter environmentaldown",
+      "passed": true
+    },
+    {
+      "name": "one committed kill environmentaldown",
+      "passed": true
+    },
+    {
+      "name": "finisher exit environmentaldown",
+      "passed": true
+    },
+    {
+      "name": "earned shove environmentalleft",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter environmentalleft",
+      "passed": true
+    },
+    {
+      "name": "one committed kill environmentalleft",
+      "passed": true
+    },
+    {
+      "name": "finisher exit environmentalleft",
+      "passed": true
+    },
+    {
+      "name": "earned shove environmentalright",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter environmentalright",
+      "passed": true
+    },
+    {
+      "name": "one committed kill environmentalright",
+      "passed": true
+    },
+    {
+      "name": "finisher exit environmentalright",
+      "passed": true
+    },
+    {
+      "name": "earned shove environmentalup",
+      "passed": true
+    },
+    {
+      "name": "input finisher enter environmentalup",
+      "passed": true
+    },
+    {
+      "name": "one committed kill environmentalup",
+      "passed": true
+    },
+    {
+      "name": "finisher exit environmentalup",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph patrol_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack patrol_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery patrol_down",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_downhurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_downstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_downknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_downdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph patrol_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack patrol_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery patrol_left",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_lefthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_leftstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_leftknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_leftdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph patrol_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack patrol_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery patrol_right",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_righthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_rightstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_rightknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_rightdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph patrol_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack patrol_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery patrol_up",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_uphurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_upstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_upknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive patrol_updeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph rusher_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack rusher_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery rusher_down",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_downhurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_downstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_downknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_downdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph rusher_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack rusher_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery rusher_left",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_lefthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_leftstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_leftknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_leftdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph rusher_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack rusher_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery rusher_right",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_righthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_rightstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_rightknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_rightdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph rusher_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack rusher_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery rusher_up",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_uphurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_upstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_upknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive rusher_updeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph shooter_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack shooter_down",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery shooter_down",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_downhurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_downstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_downknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_downdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph shooter_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack shooter_left",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery shooter_left",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_lefthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_leftstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_leftknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_leftdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph shooter_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack shooter_right",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery shooter_right",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_righthurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_rightstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_rightknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_rightdeath",
+      "passed": true
+    },
+    {
+      "name": "AI telegraph shooter_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual attack shooter_up",
+      "passed": true
+    },
+    {
+      "name": "AI actual recovery shooter_up",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_uphurt",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_upstun",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_upknockdown",
+      "passed": true
+    },
+    {
+      "name": "AI receive shooter_updeath",
+      "passed": true
+    },
+    {
+      "name": "stress bounded pools",
+      "passed": true
+    },
+    {
+      "name": "10 resets clear transient state",
+      "passed": true
+    },
+    {
+      "name": "bounded runtime audio voices",
+      "passed": true
+    },
+    {
+      "name": "actual PCM saved",
+      "passed": true
+    }
+  ],
+  "earned_stun_input": true,
+  "finishers": [
+    {
+      "category": "unarmed",
+      "direction": "down",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, 1.0)",
+          "epoch": 2,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 9
+        },
+        {
+          "at": "(280.0, 271.0167)",
+          "category": "unarmed",
+          "cue": "finish_unarmed",
+          "damage": 1,
+          "direction": "(0.0, 1.0)",
+          "epoch": 2,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 60
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_unarmed_down",
+      "source_frame": 1,
+      "target_animation": "finish_unarmed_up",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "unarmed",
+      "direction": "left",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 3,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 116
+        },
+        {
+          "at": "(278.9833, 270.0)",
+          "category": "unarmed",
+          "cue": "finish_unarmed",
+          "damage": 1,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 3,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 167
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_unarmed_left",
+      "source_frame": 1,
+      "target_animation": "finish_unarmed_right",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "unarmed",
+      "direction": "right",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 223
+        },
+        {
+          "at": "(281.0167, 270.0)",
+          "category": "unarmed",
+          "cue": "finish_unarmed",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 274
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_unarmed_right",
+      "source_frame": 1,
+      "target_animation": "finish_unarmed_left",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "unarmed",
+      "direction": "up",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, -1.0)",
+          "epoch": 5,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 330
+        },
+        {
+          "at": "(280.0, 268.9833)",
+          "category": "unarmed",
+          "cue": "finish_unarmed",
+          "damage": 1,
+          "direction": "(0.0, -1.0)",
+          "epoch": 5,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 381
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_unarmed_up",
+      "source_frame": 1,
+      "target_animation": "finish_unarmed_down",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "blunt",
+      "direction": "down",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, 1.0)",
+          "epoch": 6,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 437
+        },
+        {
+          "at": "(280.0, 271.0167)",
+          "category": "blunt",
+          "cue": "finish_blunt",
+          "damage": 1,
+          "direction": "(0.0, 1.0)",
+          "epoch": 6,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 491
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_blunt_down",
+      "source_frame": 1,
+      "target_animation": "finish_blunt_up",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "blunt",
+      "direction": "left",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 7,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 547
+        },
+        {
+          "at": "(278.9833, 270.0)",
+          "category": "blunt",
+          "cue": "finish_blunt",
+          "damage": 1,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 7,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 601
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_blunt_left",
+      "source_frame": 1,
+      "target_animation": "finish_blunt_right",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "blunt",
+      "direction": "right",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 8,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 657
+        },
+        {
+          "at": "(281.0167, 270.0)",
+          "category": "blunt",
+          "cue": "finish_blunt",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 8,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 711
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_blunt_right",
+      "source_frame": 1,
+      "target_animation": "finish_blunt_left",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "blunt",
+      "direction": "up",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, -1.0)",
+          "epoch": 9,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 767
+        },
+        {
+          "at": "(280.0, 268.9833)",
+          "category": "blunt",
+          "cue": "finish_blunt",
+          "damage": 1,
+          "direction": "(0.0, -1.0)",
+          "epoch": 9,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 821
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_blunt_up",
+      "source_frame": 1,
+      "target_animation": "finish_blunt_down",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "sharp",
+      "direction": "down",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, 1.0)",
+          "epoch": 10,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 48637151359,
+          "tick": 877
+        },
+        {
+          "at": "(280.0, 271.0167)",
+          "category": "sharp",
+          "cue": "finish_sharp",
+          "damage": 1,
+          "direction": "(0.0, 1.0)",
+          "epoch": 10,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 48637151359,
+          "tick": 929
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_sharp_down",
+      "source_frame": 1,
+      "target_animation": "finish_sharp_up",
+      "target_frame": 1,
+      "target_kind": "shooter"
+    },
+    {
+      "category": "sharp",
+      "direction": "left",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 11,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 48637151359,
+          "tick": 985
+        },
+        {
+          "at": "(278.9833, 270.0)",
+          "category": "sharp",
+          "cue": "finish_sharp",
+          "damage": 1,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 11,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 48637151359,
+          "tick": 1037
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_sharp_left",
+      "source_frame": 1,
+      "target_animation": "finish_sharp_right",
+      "target_frame": 1,
+      "target_kind": "shooter"
+    },
+    {
+      "category": "sharp",
+      "direction": "right",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 12,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 48637151359,
+          "tick": 1093
+        },
+        {
+          "at": "(281.0167, 270.0)",
+          "category": "sharp",
+          "cue": "finish_sharp",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 12,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 48637151359,
+          "tick": 1145
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_sharp_right",
+      "source_frame": 1,
+      "target_animation": "finish_sharp_left",
+      "target_frame": 1,
+      "target_kind": "shooter"
+    },
+    {
+      "category": "sharp",
+      "direction": "up",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, -1.0)",
+          "epoch": 13,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 48637151359,
+          "tick": 1201
+        },
+        {
+          "at": "(280.0, 268.9833)",
+          "category": "sharp",
+          "cue": "finish_sharp",
+          "damage": 1,
+          "direction": "(0.0, -1.0)",
+          "epoch": 13,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 48637151359,
+          "tick": 1253
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_sharp_up",
+      "source_frame": 1,
+      "target_animation": "finish_sharp_down",
+      "target_frame": 1,
+      "target_kind": "shooter"
+    },
+    {
+      "category": "firearm",
+      "direction": "down",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, 1.0)",
+          "epoch": 14,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 1309
+        },
+        {
+          "at": "(280.0, 271.0167)",
+          "category": "firearm",
+          "cue": "finish_firearm",
+          "damage": 1,
+          "direction": "(0.0, 1.0)",
+          "epoch": 14,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 1364
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_firearm_down",
+      "source_frame": 1,
+      "target_animation": "finish_firearm_up",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "firearm",
+      "direction": "left",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 15,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 1420
+        },
+        {
+          "at": "(278.9833, 270.0)",
+          "category": "firearm",
+          "cue": "finish_firearm",
+          "damage": 1,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 15,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 1475
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_firearm_left",
+      "source_frame": 1,
+      "target_animation": "finish_firearm_right",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "firearm",
+      "direction": "right",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 16,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 1531
+        },
+        {
+          "at": "(281.0167, 270.0)",
+          "category": "firearm",
+          "cue": "finish_firearm",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 16,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 1586
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_firearm_right",
+      "source_frame": 1,
+      "target_animation": "finish_firearm_left",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "firearm",
+      "direction": "up",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, -1.0)",
+          "epoch": 17,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 39644563175,
+          "tick": 1642
+        },
+        {
+          "at": "(280.0, 268.9833)",
+          "category": "firearm",
+          "cue": "finish_firearm",
+          "damage": 1,
+          "direction": "(0.0, -1.0)",
+          "epoch": 17,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 39644563175,
+          "tick": 1697
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_firearm_up",
+      "source_frame": 1,
+      "target_animation": "finish_firearm_down",
+      "target_frame": 1,
+      "target_kind": "patrol"
+    },
+    {
+      "category": "environmental",
+      "direction": "down",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, 1.0)",
+          "epoch": 18,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 1753
+        },
+        {
+          "at": "(280.0, 271.0167)",
+          "category": "environmental",
+          "cue": "finish_environmental",
+          "damage": 1,
+          "direction": "(0.0, 1.0)",
+          "epoch": 18,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 1810
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_environmental_down",
+      "source_frame": 1,
+      "target_animation": "finish_environmental_up",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "environmental",
+      "direction": "left",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 19,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 1866
+        },
+        {
+          "at": "(278.9833, 270.0)",
+          "category": "environmental",
+          "cue": "finish_environmental",
+          "damage": 1,
+          "direction": "(-1.0, 0.0)",
+          "epoch": 19,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 1923
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_environmental_left",
+      "source_frame": 1,
+      "target_animation": "finish_environmental_right",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "environmental",
+      "direction": "right",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 20,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 1979
+        },
+        {
+          "at": "(281.0167, 270.0)",
+          "category": "environmental",
+          "cue": "finish_environmental",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 20,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 2036
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_environmental_right",
+      "source_frame": 1,
+      "target_animation": "finish_environmental_left",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    },
+    {
+      "category": "environmental",
+      "direction": "up",
+      "events": [
+        {
+          "at": "(280.0, 270.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(0.0, -1.0)",
+          "epoch": 21,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 44140857267,
+          "tick": 2092
+        },
+        {
+          "at": "(280.0, 268.9833)",
+          "category": "environmental",
+          "cue": "finish_environmental",
+          "damage": 1,
+          "direction": "(0.0, -1.0)",
+          "epoch": 21,
+          "finisher": true,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 44140857267,
+          "tick": 2149
+        }
+      ],
+      "hits": 2,
+      "kills": 1,
+      "score": 100,
+      "source_animation": "finish_environmental_up",
+      "source_frame": 1,
+      "target_animation": "finish_environmental_down",
+      "target_frame": 1,
+      "target_kind": "rusher"
+    }
+  ],
+  "fixture_initial_placements": true,
+  "passed": true,
+  "performance": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "display": "headless",
+    "duration_seconds": 0.444432,
+    "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+    "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+    "movie_maker": false,
+    "movie_path": "",
+    "os": "Linux",
+    "p50_ms": 0.724,
+    "p95_ms": 0.793,
+    "p99_ms": 1.056,
+    "rendered": false,
+    "samples": 600,
+    "video_adapter": ""
+  },
+  "schema": 1,
+  "scope": "HEADLESS_TECHNICAL_NO_RENDER_EVIDENCE"
+}

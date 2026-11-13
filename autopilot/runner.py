@@ -291,13 +291,13 @@ class Controller:
                     state=self.state(); item=state['autopilot']['phases'][phase]
                     item['remediation']=[{'severity':'HIGH','message':f'Validation failed; inspect reports/autopilot/{phase}/validation'}]
                     self.persist(state); self.checkpoint(phase,None,'FAIL'); continue
-                checkpoint='native-validation' if phase=='P04' else 'publication'
+                checkpoint='native-validation' if phase in ['P04','P04G'] else 'publication'
                 self.checkpoint(phase,checkpoint)
             if checkpoint=='native-validation':
                 head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip()
                 suffix=f'{head}-a{item["attempts"]}'
-                code=self.stage(phase+'/native-validation',[sys.executable,'tools/verify_p04.py','--exports','--movie',
-                    '--output',f'reports/autopilot/P04/native-{suffix}','--build-output',f'build/P04/autopilot-{suffix}'],
+                code=self.stage(phase+'/native-validation',[sys.executable,f'tools/verify_{phase.lower()}.py','--exports','--movie',
+                    '--output',f'reports/autopilot/{phase}/native-{suffix}','--build-output',f'build/{phase}/autopilot-{suffix}'],
                     self.config.get('native_qa_timeout_seconds',1800),cwd=work,safe_retry=False)
                 if code:
                     self.checkpoint(phase,'recovery-review','BLOCKED')

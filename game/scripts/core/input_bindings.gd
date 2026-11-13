@@ -12,6 +12,10 @@ static func install() -> void:
 		"distract": [KEY_E],
 		"restart": [KEY_R],
 		"switch_kit": [KEY_F2],
+		"finisher": [KEY_V],
+		"cancel_finisher": [KEY_C],
+		"equipment_next": [KEY_TAB],
+		"polish_options": [KEY_O],
 	}
 	for action: String in bindings:
 		if InputMap.has_action(action):
