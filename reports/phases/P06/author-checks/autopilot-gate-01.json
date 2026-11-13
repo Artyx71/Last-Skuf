@@ -1,0 +1,30 @@
+{
+  "scope": "AUTOPILOT_P06_NATIVE_PUBLICATION_GATE_UNIT_ONLY",
+  "phase_approval": false,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools/tests",
+    "-p",
+    "test_autopilot.py"
+  ],
+  "exit_code": 0,
+  "tests_run": 47,
+  "passed": true,
+  "source_head_before_commit": "be9d9f0c99b78fa8ae70ecab8284919fad267962",
+  "source_hashes": {
+    "autopilot/runner.py": "9326c7ed87bc82fe7f4702852ca0b5fad2ff85ad658b0660c74413cc962923b5",
+    "autopilot/worker.py": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5",
+    "autopilot/github.py": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "log_sha256": "11c12a148939564c7f61e76a109873026f1bba90827874deabd9b1a091851fcd",
+  "limitations": [
+    "Mocked GitHub/native success tests are controller routing checks, not native evidence or permission to publish",
+    "Full tools/verify_p06.py and six hero combat assets/abilities remain outstanding; missing full harness must block publication",
+    "Live repository authority/attempts were not modified by temporary test fixtures"
+  ]
+}

@@ -295,6 +295,47 @@ class ControllerTests(unittest.TestCase):
                 self.assertEqual(self.controller.run_phase('P05'),4)
         self.assertEqual(events,['P05/validation','P05/native-validation','prepare'])
 
+    def p06_validation_fixture(self, checkpoint='validation'):
+        state=self.controller.state()
+        for phase in ['P03','P04','P04G','P05']:
+            state['autopilot']['phases'][phase].update(status='PASS',merge={'status':'MERGED'})
+        state['autopilot']['phases']['P06'].update(status='VALIDATING',attempts=1,workspace=str(self.root),branch='phase/p06-fixture',checkpoint=checkpoint)
+        state['active_phase']='P06';self.controller.persist(state)
+
+    def test_p06_requires_full_native_harness_before_publication(self):
+        events=[]
+        def stage(name,argv,*args,**kwargs):
+            events.append(name)
+            if name.endswith('/native-validation'):
+                self.assertIn('tools/verify_p06.py',argv)
+                self.assertNotIn('tools/verify_p06_cast.py',argv)
+                self.assertNotIn('tools/verify_p06_world.py',argv)
+                self.assertIn('--exports',argv);self.assertIn('--movie',argv)
+                self.assertFalse(kwargs['safe_retry'])
+                return 1
+            return 0
+        with self.controller.exclusive():
+            self.p06_validation_fixture()
+            with patch.object(self.controller,'stage',side_effect=stage),patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage') as manage:
+                with self.assertRaises(Blocked):self.controller.run_phase('P06')
+                manage.assert_not_called()
+        self.assertEqual(events,['P06/validation','P06/native-validation'])
+        item=self.controller.state()['autopilot']['phases']['P06']
+        self.assertEqual(item['attempts'],1);self.assertEqual(item['checkpoint'],'recovery-review')
+        self.assertEqual(item['status'],'BLOCKED')
+
+    def test_p06_resume_native_checkpoint_does_not_repeat_author(self):
+        events=[]
+        def stage(name,*args,**kwargs):events.append(name);return 0
+        def manage(controller,phase,action,*args,**kwargs):events.append(action);return 4
+        with self.controller.exclusive():
+            self.p06_validation_fixture('native-validation')
+            with patch.object(self.controller,'stage',side_effect=stage),patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage',side_effect=manage):
+                self.assertEqual(self.controller.run_phase('P06'),4)
+        self.assertEqual(events,['P06/native-validation','prepare'])
+        item=self.controller.state()['autopilot']['phases']['P06']
+        self.assertEqual(item['attempts'],1);self.assertEqual(item['checkpoint'],'publication')
+
 
 class MergeTests(unittest.TestCase):
     def setUp(self):
