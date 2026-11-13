@@ -1,5 +1,7 @@
 # Статус
 
+Актуальное исполнение P04: [implementation.md](phases/P04/implementation.md). Реализована первая миссия; независимый gate не пройден. Renderer/audio sockets, Wine и общий gitdir заблокированы sandbox; actual captures/listening/commit/Lead передаются контроллеру. Не считать старый абзац «P04 READY» ниже новым состоянием — он сохранён как исторический P03 handoff. Authoritative phase_state находится в основном checkout и не редактировался.
+
 Последняя принятая фаза — P03, независимый PASS attempt2. P00–P03 подтверждённо squash merged в main через AUTOPILOT, PR1/2/3/4. P03 reviewed head dbb8d2b87fbdf6e41f55f92938267764a3f44ed8, merge5ed735156fc01d3366367d92bce81d2bb8af544a. Ранее принятые фазы/попытки/история сохранены. Independent exact-head/base receipts и mergeproof: reports/autopilot/delivery/ и reports/autopilot/Pxx/pull_request.json. Старый P03 BLOCKED attempt1 сохранён; текущий decision.json указывает PASS.
 
 AU-P03-01 закрыт проверенной реальной репликой владельца о предварительной приёмке прототипа после прослушивания и hashes3clips. Agent listening и качество финального саундтрека не заявляются. Audio QA71/71:45реальных WAV/OGG, уровни/клиппинг/тишина/циклы/переходы и29s реального Godot/PulseAudio capture. Lead отдельно декодировал5файлов. Все135gamefiles и прежние P03builds неизменны.

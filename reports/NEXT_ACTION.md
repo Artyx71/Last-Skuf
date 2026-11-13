@@ -1,5 +1,7 @@
 # Продолжение
 
+Текущий handoff P04: `reports/phases/P04/implementation.md` и `reports/phases/P04/attempt1/environment/required_followup.md`. Сохранить все предыдущие PASS/attempts. Забрать готовые source/evidence из `phase/p04-implementation`, выполнить недоступные исполнителю captures/listening/Windows runtime, privacy check и commit через контроллер, затем отдельный read-only Lead + CI точного SHA. Не запускать новый runner или P04G из этого worktree. Старый pre-implementation текст ниже сохранён для истории; он не отменяет основной authoritative state.
+
 Не сбрасывать automation/phase_state.json, attempt counters принятых фаз и историю. ActiveP04READY, lastPASSP03. P00–P03 merged в main, точные receipts/mergeproof в reports/autopilot/delivery/ и reports/autopilot/Pxx/pull_request.json. P03phasePASSattempt2 и exacthead dbb deliveryPASS сохранены; owner provisional real listening acceptance закрыла AU-P03-01, oldBLOCKEDimmutable. Не повторять исполнение P00 или merge старых PR.
 
 Перед реальной P04 implementation убедиться, что работа идёт из reviewed main с ранним workspace ownership guard AUTO-PR-OWN-01. Handoff fix проходит43local tests и требует freshcurrentheadCI+separateindependentreview передmerge; его нельзя считать self-approved. Branch принадлежит requested phase до любого discovery/publish/create. Потерянный PRnumber восстанавливается по открытому exactbranch/repo; ambiguity=>BLOCKED. Никакого force/admin/protection/manualselfapproval.
