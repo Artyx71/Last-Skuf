@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_independent_autopilot_native_publication_gate",
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed_without_git_command": "ced53eeedaa71b4fe7532b2063f83f98138fa225",
+  "status": "COMPONENT_GATE_CHANGE_VERIFIED_P06_PENDING",
+  "phase_approval": false,
+  "native_or_subjective_gameplay_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_or_git_commands_performed": false,
+  "repository_authority_mutations": false,
+  "findings": [],
+  "verified": [
+    "P06 normal validation routes through full verify_p06.py --exports --movie safe_retryFalse before publication",
+    "Native failure/timeout/interruption fails closed without author replay or attempt reset",
+    "Resumed native checkpoint executes same full stage before prepare",
+    "Partial cast/world cannot substitute; full absent harness blocks instead of success",
+    "Exact-SHA/main-base/CI/protection/independent review merge logic unchanged"
+  ],
+  "author_unit_evidence": {
+    "tests": 47,
+    "reported_exit_code": 0,
+    "actual_log_read": true,
+    "source_hashes_checked": 4,
+    "source_hash_mismatches": 0,
+    "log_hash_match": true,
+    "routing_native_and_github_mocked": true
+  },
+  "full_verify_p06_exists": false,
+  "remaining_work": "Implement full P06 content and harness; real native/platform evidence and independent complete phase gates remain mandatory. Stay pending/IMPLEMENTING; no phase mutation authorized by this report.",
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/autopilot-review-v1.md",
+    "sha256": "e63edb36cfdf7bb1a77ce6df9d1ad1c5be4888df402a9561126b89df4d3359e8"
+  },
+  "evidence": [
+    {
+      "path": "autopilot/runner.py",
+      "sha256": "9326c7ed87bc82fe7f4702852ca0b5fad2ff85ad658b0660c74413cc962923b5"
+    },
+    {
+      "path": "autopilot/worker.py",
+      "sha256": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5"
+    },
+    {
+      "path": "autopilot/github.py",
+      "sha256": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b"
+    },
+    {
+      "path": "tools/tests/test_autopilot.py",
+      "sha256": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/autopilot-gate-01.json",
+      "sha256": "5581acf7b49725862101cc433740a32aaa0b111f625ebbb254f2d17317daf90d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/autopilot-gate-01.log",
+      "sha256": "11c12a148939564c7f61e76a109873026f1bba90827874deabd9b1a091851fcd"
+    }
+  ]
+}
