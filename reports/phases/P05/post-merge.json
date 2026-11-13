@@ -1,0 +1,46 @@
+{
+  "phase": "P05",
+  "status": "PASS_AND_MERGED",
+  "attempt": 2,
+  "merge": {
+    "status": "MERGED",
+    "reviewed_head": "154de14c90d159c68afdbfe5c7a62755df49f04d",
+    "merge_sha": "be4d59e9f68f32833719c82dee36bf731bb43ad0",
+    "number": 10,
+    "method": "squash",
+    "base": "main"
+  },
+  "main": "be4d59e9f68f32833719c82dee36bf731bb43ad0",
+  "main_tree_equals_reviewed_source": true,
+  "source_freeze": "reports/phases/P05/attempt2/source-freeze.json",
+  "native_checks": "34/34",
+  "python_tests": "77/77",
+  "mandatory_ci": 43498520660,
+  "native_windows": "NOT_TESTED; actual Wine run separate",
+  "exports": [
+    {
+      "platform": "Linux",
+      "path": "build/P05/attempt2/native-host-01/linux/last-skuf.x86_64",
+      "artifact_present": true,
+      "native_windows": null,
+      "sha256": "fb0cb87bacab857173718522977e4d8b0fd58b89aa0c6c1c63dd53b125c9e447",
+      "bytes": 76135952
+    },
+    {
+      "platform": "Windows",
+      "path": "build/P05/attempt2/native-host-01/windows/last-skuf.exe",
+      "artifact_present": true,
+      "native_windows": "NOT_TESTED",
+      "sha256": "59604dac89fbb34833ab337bb7bcd10db39651037888465a7ae3f3efb1553ba5",
+      "bytes": 111885024,
+      "wine_probe": true
+    }
+  ],
+  "backup": ".tools/p05-postmerge-backup",
+  "stash": "17e4b612c7172ebf5f1170a12002c4d1c9d01d71",
+  "next_phase": "P06",
+  "next_phase_started": false,
+  "stop_after_phase": "P05",
+  "queue": "Local runtime metadata synchronized; reviewed PR source remains unchanged",
+  "private_reference_resolved": true
+}

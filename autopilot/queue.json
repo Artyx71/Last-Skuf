@@ -104,8 +104,9 @@
       "phase": "P06",
       "kind": "reference_integrity",
       "depends_on": [],
-      "status": "BLOCKED",
-      "reason": "Local private timka_ref01.png SHA256 differs from saved manifest; do not modify source/manifest or use until reconciled."
+      "status": "RESOLVED",
+      "reason": "Владелец подтвердил намеренную замену фото; локальный приватный manifest обновлён, остальные хеши совпали. Исходник не опубликован.",
+      "evidence": "reports/phases/P06/private/reference-update-2026-11-13/receipt.json"
     },
     {
       "id": "P05/story-infrastructure",
@@ -121,7 +122,22 @@
         "No fake campaign levels",
         "P06 character/art gates unchanged",
         "Canonical saves survive migration and replay"
-      ]
+      ],
+      "status": "PASS",
+      "reviewed_head": "154de14c90d159c68afdbfe5c7a62755df49f04d",
+      "confirmed_merge": "be4d59e9f68f32833719c82dee36bf731bb43ad0"
+    },
+    {
+      "id": "P06/character-expansion",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P05:PASS",
+        "P05:MERGED",
+        "P06/reconcile-timka-reference"
+      ],
+      "spec": "planning/P06_TASKS.md",
+      "scope": "Six additional playable characters, three photographed supporting, original art and per-character abilities/finishers; no campaign chapter production"
     }
   ]
 }
