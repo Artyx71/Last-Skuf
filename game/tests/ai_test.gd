@@ -26,7 +26,7 @@ func _frames(count: int) -> void:
 func _fixture(index: int) -> CharacterBody2D:
 	lab.reset_encounter()
 	lab.auto_retry = false
-	lab.player.set_physics_process(false)
+	lab.player.set_physics_process(true)
 	for enemy in lab.enemies:
 		enemy.set_physics_process(false)
 		enemy.position = Vector2(500, 90)

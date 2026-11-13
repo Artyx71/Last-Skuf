@@ -21,9 +21,12 @@ var detection_count := 0
 var attacks_started := 0
 var hits_received := 0
 var animation_ready := false
+var defeat_elapsed := 0.0
+var defeat_visual: Node2D
 
 
 func _ready() -> void:
+	z_index = int(lab.visual_config.render_planes.actor_body)
 	collision_layer = 4
 	collision_mask = 1
 	var shape := CollisionShape2D.new()
@@ -33,6 +36,11 @@ func _ready() -> void:
 	shape.position = Vector2(0, -6)
 	add_child(shape)
 	_load_art()
+	defeat_visual = preload("res://scripts/ai/enemy_defeat_visual.gd").new()
+	defeat_visual.actor = self
+	defeat_visual.z_index = 1
+	defeat_visual.visible = false
+	add_child(defeat_visual)
 
 
 func _load_art() -> void:
@@ -67,6 +75,9 @@ func reset() -> void:
 	patrol_target = patrol_end
 	velocity = Vector2.ZERO
 	health = 1
+	defeat_elapsed = 0.0
+	defeat_visual.visible = false
+	defeat_visual.queue_redraw()
 	collision_layer = 4
 	state = "patrol"
 	timer = 0.0
@@ -81,6 +92,8 @@ func reset() -> void:
 	hits_received = 0
 	modulate = Color.WHITE
 	if sprite:
+		sprite.visible = true
+		sprite.modulate = Color.WHITE
 		sprite.play(&"idle_down")
 		sprite.set_frame_and_progress(0, 0.0)
 	queue_redraw()
@@ -112,7 +125,10 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) -> 
 	if health <= 0:
 		collision_layer = 0
 		velocity = Vector2.ZERO
-		modulate = Color("6c687b")
+		lab.combat.cancel_melee(self)
+		defeat_elapsed = 0.0
+		defeat_visual.visible = true
+		defeat_visual.queue_redraw()
 		if sprite:
 			sprite.pause()
 		transition("dead")
@@ -124,6 +140,18 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) -> 
 
 
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		velocity = Vector2.ZERO
+		var fade := float(lab.visual_config.enemy_defeat.fade_seconds)
+		var cue := float(lab.visual_config.enemy_defeat.cue_seconds)
+		defeat_elapsed = minf(cue, defeat_elapsed + delta)
+		defeat_visual.visible = defeat_elapsed < cue
+		defeat_visual.queue_redraw()
+		if sprite:
+			sprite.modulate.a = maxf(0.0, 1.0 - defeat_elapsed / fade)
+			sprite.visible = defeat_elapsed < fade
+		queue_redraw()
+		return
 	if lab.state != "playing" or health <= 0:
 		velocity = Vector2.ZERO
 		if health > 0 and sprite and sprite.animation.begins_with("walk_"):

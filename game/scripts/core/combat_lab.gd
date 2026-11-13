@@ -7,6 +7,7 @@ const Enemy = preload("res://scripts/ai/enemy_actor.gd")
 const Combat = preload("res://scripts/systems/combat_system.gd")
 const CONFIG_PATH := "res://resources/combat/prototype.json"
 var config: Dictionary
+var visual_config: Dictionary
 var player: CharacterBody2D
 var enemies: Array[CharacterBody2D] = []
 var combat: Node2D
@@ -37,8 +38,10 @@ var escape_detection_count := 0
 
 
 func _ready() -> void:
+	process_physics_priority = -20
 	Bindings.install()
 	config = JSON.parse_string(FileAccess.get_file_as_string(CONFIG_PATH))
+	visual_config = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/weapon_visuals.json"))
 	assert(config.schema == 1, "P02 combat config schema")
 	for bounds in config.walls:
 		_add_wall(Rect2(bounds[0], bounds[1], bounds[2], bounds[3]))
@@ -98,6 +101,7 @@ func reset_encounter() -> void:
 
 func set_kit(value: String) -> void:
 	assert(value in ["escape", "training"], "Unknown combat kit")
+	player.cancel_action()
 	player.kit = value
 	player.melee_cooldown = 0.0
 	player.ranged_cooldown = 0.0
@@ -206,6 +210,7 @@ func _add_wall(bounds: Rect2) -> void:
 
 func _add_label(value: String, at: Vector2, size: int, color: Color) -> Label:
 	var label := Label.new()
+	label.z_index = 10
 	label.text = value
 	label.position = at
 	label.add_theme_font_size_override("font_size", size)
@@ -229,7 +234,10 @@ func snapshot() -> Dictionary:
 			"detections": enemy.detection_count, "attacks": enemy.attacks_started, "hits": enemy.hits_received,
 			"transitions": enemy.transitions.duplicate(), "layer": enemy.collision_layer,
 			"animation": String(enemy.sprite.animation) if enemy.sprite else "awaiting_art",
-			"frame": enemy.sprite.frame if enemy.sprite else 0})
+			"frame": enemy.sprite.frame if enemy.sprite else 0,
+			"defeat_elapsed": enemy.defeat_elapsed, "sprite_visible": enemy.sprite.visible if enemy.sprite else false,
+			"sprite_alpha": enemy.sprite.modulate.a if enemy.sprite else 0.0,
+			"defeat_cue_visible": enemy.defeat_visual.visible})
 	return {"seed": seed_value, "rng_state": str(rng.state), "state": state,
 		"kills": kills, "shots_fired": shots_fired, "score": score, "time": elapsed, "ticks": encounter_ticks,
 		"player": {"position": _vector(player.position), "velocity": _vector(player.velocity),
@@ -238,6 +246,13 @@ func snapshot() -> Dictionary:
 			"distract_cooldown": player.distract_cooldown, "hits": player.hits_received,
 			"aim": _vector(player.explicit_aim), "mouse_aim": player.mouse_aim,
 			"action_timer": player.action_timer, "action_animation": String(player.action_animation),
+			"action_elapsed": player.action_elapsed, "action_duration": player.action_duration,
+			"action_frame": player.action_frame, "action_kind": player.action_kind,
+			"action_windup": player.action_windup, "action_active": player.action_active,
+			"action_recovery": player.action_recovery,
+			"action_direction": player.action_direction, "action_aim": _vector(player.action_aim),
+			"melee_attack_id": player.melee_attack_id, "weapon_kind": player.weapon_kind,
+			"weapon_z": player.weapon_visual.z_index,
 			"animation": String(player.sprite.animation), "frame": player.sprite.frame},
 		"enemies": enemy_states, "bullets": combat.projectiles.size(), "hitboxes": combat.attacks.size(),
 		"attack_sequence": combat.next_attack_id, "damage_events": combat.damage_events,

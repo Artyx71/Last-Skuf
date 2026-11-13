@@ -16,12 +16,13 @@ GODOT = ROOT / '.tools/godot' / f'Godot_v{LOCK["release"]}_linux.x86_64'
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', default='reports/phases/P02')
+    parser.add_argument('--build-output', default='build/P02')
     parser.add_argument('--references', action='store_true')
     parser.add_argument('--no-render', action='store_true')
     parser.add_argument('--no-exports', action='store_true')
     args = parser.parse_args()
     output = ROOT / args.output
-    build = ROOT / 'build/P02'
+    build = ROOT / args.build_output
     (output / 'logs').mkdir(parents=True, exist_ok=True)
     build.mkdir(parents=True, exist_ok=True)
     assert hashlib.sha256(GODOT.read_bytes()).hexdigest() == LOCK['linux_binary_sha256']
@@ -50,7 +51,7 @@ def main():
         run('references', [sys.executable, 'tools/validate_pack.py'])
     run('privacy', [sys.executable, 'tools/check_privacy.py'])
     run('import', base + ['--editor', '--quit'])
-    for name in ['bootstrap', 'art_structure', 'movement', 'combat_art', 'combat', 'ai', 'restart']:
+    for name in ['bootstrap', 'art_structure', 'movement', 'combat_art', 'combat', 'ai', 'restart', 'contact_timing']:
         run(name, base + ['--script', f'res://tests/{name}_test.gd'])
     if not all(row['passed'] for row in results):
         return 1
@@ -113,6 +114,13 @@ def main():
                     if not args.no_render:
                         env = dict(os.environ, AYAY_CAPTURE_PATH=str(output / 'export_linux_combat.png'))
                         item['combat_render_passed'] = run('linux_combat_render', [target, '--', '--open-combat', '--capture-combat'], env)
+                        env['AYAY_CAPTURE_PATH'] = str(output / 'export_linux_replay_end.png')
+                        metrics = output / 'export_linux_replay.json'
+                        metrics.unlink(missing_ok=True)
+                        env['AYAY_COMBAT_RESULT_PATH'] = str(metrics)
+                        item['combat_replay_passed'] = run('linux_export_replay', [target, '--', '--open-combat', '--combat-replay'], env)
+                        item['combat_replay_passed'] = item['combat_replay_passed'] and metrics.is_file() and json.loads(metrics.read_text()).get('passed') is True
+                        results.append({'name': 'linux_export_replay_report', 'passed': item['combat_replay_passed']})
                 else:
                     wine = ROOT / '.tools/wine/usr/bin/wine'
                     if wine.is_file():
@@ -124,6 +132,13 @@ def main():
                             capture = output / 'export_windows_wine_combat.png'
                             env['AYAY_CAPTURE_PATH'] = 'Z:' + str(capture).replace('/', '\\')
                             item['wine_combat_render_passed'] = run('windows_wine_render', [wine, target, '--', '--open-combat', '--capture-combat'], env)
+                            metrics = output / 'export_windows_replay.json'
+                            metrics.unlink(missing_ok=True)
+                            env['AYAY_CAPTURE_PATH'] = 'Z:' + str(output / 'export_windows_replay_end.png').replace('/', '\\')
+                            env['AYAY_COMBAT_RESULT_PATH'] = 'Z:' + str(metrics).replace('/', '\\')
+                            item['wine_combat_replay_passed'] = run('windows_wine_replay', [wine, target, '--', '--open-combat', '--combat-replay'], env)
+                            item['wine_combat_replay_passed'] = item['wine_combat_replay_passed'] and metrics.is_file() and json.loads(metrics.read_text()).get('passed') is True
+                            results.append({'name': 'windows_wine_replay_report', 'passed': item['wine_combat_replay_passed']})
             exports.append(item)
         (output / 'exports.json').write_text(json.dumps(exports, indent=2) + '\n')
     save_results()

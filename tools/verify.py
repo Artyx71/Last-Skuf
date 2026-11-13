@@ -40,7 +40,7 @@ def main():
         ])
     if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
-                        for name in ['combat_art', 'combat', 'ai', 'restart'])
+                        for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
     env = dict(os.environ)
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:

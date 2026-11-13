@@ -27,7 +27,7 @@ func _fixture() -> void:
 	lab.reset_encounter()
 	lab.auto_retry = false
 	lab.set_kit("training")
-	lab.player.set_physics_process(false)
+	lab.player.set_physics_process(true)
 	for enemy in lab.enemies:
 		enemy.set_physics_process(false)
 		enemy.position = Vector2(500, 90)
@@ -42,6 +42,9 @@ func _run() -> void:
 	root.add_child(lab)
 	await _frames(2)
 	_check(lab.player.actions_ready, "actual P02 shove/hit/fall sheet loaded")
+	for enemy in lab.enemies:
+		_check(enemy.z_index == lab.player.z_index and enemy.z_index > 0,
+			"shared actor body plane preserves actor order and rear weapon visibility " + enemy.kind)
 	for direction in ["down", "left", "right", "up"]:
 		_check(lab.player.sprite.sprite_frames.get_frame_count(StringName("fall_" + direction)) == 3,
 			"three real fall frames " + direction)
@@ -52,7 +55,8 @@ func _run() -> void:
 	await _frames(12)
 	_check(lab.enemies[0].hits_received == 1, "persistent volume hits target once per attack")
 	_check(lab.enemies[0].health == 2 and lab.combat.damage_events == 1, "one damage event rather than every physics tick")
-	_check(lab.combat.attacks.is_empty(), "melee hitbox expires")
+	await _frames(10)
+	_check(lab.combat.attacks.is_empty(), "melee hitbox expires after authored contact window")
 	await _fixture()
 	lab.player.set_aim(Vector2.LEFT)
 	lab.player.attack_melee()
@@ -144,5 +148,23 @@ func _run() -> void:
 	_check(lab.player.aim_direction() == Vector2.UP, "keyboard-only aim falls back to facing")
 	lab.player.set_aim(Vector2(1, 1))
 	_check(is_equal_approx(lab.player.aim_direction().length(), 1), "explicit replay aim is normalized")
+	await _fixture()
+	lab.enemies[0].set_physics_process(true)
+	lab.player.attack_melee()
+	await _frames(8)
+	_check(lab.enemies[0].health == 0 and lab.enemies[0].defeat_visual.visible,
+		"actual defeat produces explicit front-layer cross cue")
+	_check(lab.enemies[0].sprite.modulate.a < 1 and lab.enemies[0].defeat_elapsed > 0,
+		"defeated standing art fades immediately rather than posing as a corpse")
+	await _frames(12)
+	_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
+		"standing guard disappears within .18 seconds while defeat cue remains")
+	await _frames(35)
+	_check(not lab.enemies[0].defeat_visual.visible, "defeat cue expires deterministically")
+	lab.enemies[0].set_physics_process(false)
+	lab.reset_encounter()
+	_check(lab.enemies[0].sprite.visible and lab.enemies[0].sprite.modulate.a == 1
+		and lab.enemies[0].defeat_elapsed == 0 and not lab.enemies[0].defeat_visual.visible,
+		"restart restores visible live art and clears all defeat presentation state")
 	print("RESULT passed=%d failed=%d" % [passed, failed])
 	quit(1 if failed else 0)

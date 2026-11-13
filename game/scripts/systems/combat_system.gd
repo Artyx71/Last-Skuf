@@ -11,6 +11,26 @@ var last_hit_position := Vector2.ZERO
 var hit_flash := 0.0
 
 
+func _ready() -> void:
+	process_physics_priority = 10
+
+
+func cancel_melee(source: CharacterBody2D) -> void:
+	for attack in attacks.duplicate():
+		if attack.source == source:
+			attacks.erase(attack)
+	queue_redraw()
+
+
+func _melee_phase(attack: Dictionary) -> String:
+	if attack.source.has_method("melee_phase"):
+		return attack.source.melee_phase(attack.id)
+	var windup := float(attack.definition.get("windup", 0.0))
+	if attack.time < windup:
+		return "windup"
+	return "contact" if attack.time < windup + float(attack.definition.active) else "finished"
+
+
 func reset() -> void:
 	attacks.clear()
 	projectiles.clear()
@@ -35,6 +55,8 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 	var aim := direction.normalized()
 	var origin := source.global_position + Vector2(0, -7)
 	var muzzle := origin + aim * 12.0
+	var visual_origin: Vector2 = source.visual_muzzle() if source.has_method("visual_muzzle") else source.global_position + Vector2(0, -28) + aim * 18
+	var visual_offset := visual_origin - muzzle
 	var muzzle_query := PhysicsRayQueryParameters2D.create(origin, muzzle, 1 | (4 if team == "player" else 2))
 	muzzle_query.exclude = [source.get_rid()]
 	muzzle_query.hit_from_inside = true
@@ -42,14 +64,15 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 	if not obstruction.is_empty():
 		if obstruction.collider.collision_layer & 1:
 			wall_impacts += 1
-			last_hit_position = obstruction.position
+			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
 			_apply_hit(obstruction.collider, definition, next_attack_id, source)
 		return next_attack_id
 	projectiles.append({"id": next_attack_id, "source": source, "team": team,
 		"position": muzzle,
-		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition})
+		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition,
+		"visual_offset": visual_offset})
 	return next_attack_id
 
 
@@ -66,6 +89,13 @@ func _physics_process(delta: float) -> void:
 		var source: CharacterBody2D = attack.source
 		if not is_instance_valid(source) or source.health <= 0:
 			attacks.erase(attack)
+			continue
+		var phase := _melee_phase(attack)
+		if phase == "finished":
+			attacks.erase(attack)
+			continue
+		if phase == "windup":
+			attack.time += delta
 			continue
 		var definition: Dictionary = attack.definition
 		var center: Vector2 = source.global_position + Vector2(0, -7) + attack.direction * float(definition.reach)
@@ -85,7 +115,7 @@ func _physics_process(delta: float) -> void:
 			attack.hit.append(target.get_instance_id())
 			_apply_hit(target, definition, attack.id, source)
 		attack.time += delta
-		if attack.time >= float(definition.active):
+		if not source.has_method("melee_phase") and attack.time >= float(definition.get("windup", 0.0)) + float(definition.active):
 			attacks.erase(attack)
 	for bullet in projectiles.duplicate():
 		var start: Vector2 = bullet.position
@@ -99,7 +129,7 @@ func _physics_process(delta: float) -> void:
 		if not contact.is_empty():
 			if contact.collider.collision_layer & 1:
 				wall_impacts += 1
-				last_hit_position = contact.position
+				last_hit_position = contact.position + bullet.visual_offset
 				hit_flash = 0.15
 			else:
 				_apply_hit(contact.collider, bullet.definition, bullet.id, bullet.source)
@@ -116,20 +146,21 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	if target.health <= 0:
 		return
 	damage_events += 1
-	last_hit_position = target.global_position + Vector2(0, -12)
+	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
 
 
 func _draw() -> void:
 	for attack in attacks:
-		if is_instance_valid(attack.source):
+		if is_instance_valid(attack.source) and _melee_phase(attack) == "contact":
 			var center: Vector2 = attack.source.global_position + Vector2(0, -7)
 			var tip: Vector2 = center + attack.direction * float(attack.definition.reach)
 			draw_arc(tip, float(attack.definition.radius), 0, TAU, 20, Color("ffe4a3"), 2)
 			draw_line(center, tip, Color("ffe4a3"), 2)
 	for bullet in projectiles:
-		var tail: Vector2 = bullet.position - bullet.velocity.normalized() * 8
-		draw_line(tail, bullet.position, Color("ffe587") if bullet.team == "player" else Color("ff687e"), 2)
+		var position: Vector2 = bullet.position + bullet.visual_offset
+		var tail: Vector2 = position - bullet.velocity.normalized() * 8
+		draw_line(tail, position, Color("ffe587") if bullet.team == "player" else Color("ff687e"), 2)
 	if hit_flash > 0:
 		draw_arc(last_hit_position, 9, 0, TAU, 12, Color("ffffff"), 2)

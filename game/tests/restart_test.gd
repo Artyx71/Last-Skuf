@@ -28,7 +28,7 @@ func _run() -> void:
 	lab = load("res://scenes/world/combat_lab.tscn").instantiate()
 	root.add_child(lab)
 	await _frames(2)
-	lab.player.set_physics_process(false)
+	lab.player.set_physics_process(true)
 	for enemy in lab.enemies:
 		enemy.set_physics_process(false)
 	lab.reset_encounter()
@@ -41,6 +41,11 @@ func _run() -> void:
 		lab.player.attack_melee()
 		await _frames(12)
 		_check(lab.kills == 1, "cycle %d real training kill contaminates encounter" % cycle)
+		lab.enemies[0].set_physics_process(true)
+		await _frames(13)
+		lab.enemies[0].set_physics_process(false)
+		_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
+			"cycle %d taints defeat timer, sprite visibility and cue before reset" % cycle)
 		lab.player.set_aim(Vector2.UP)
 		lab.player.attack_ranged()
 		lab.player.distract()
