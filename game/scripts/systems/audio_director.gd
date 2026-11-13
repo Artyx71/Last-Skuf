@@ -29,6 +29,39 @@ var capture_effect: AudioEffectRecord
 var capture_slot := -1
 var beat_seconds := 60.0 / 144.0
 var options: Node
+var chapter_music_path := ""
+
+func select_music(path: String) -> bool:
+ # Only chapter orchestration changes the score. The existing one-player mixer and SFX pool survive.
+ if shutting_down or not ready_assets or music == null or synchronized == null: return false
+ if path == chapter_music_path: return true
+ var source := MANIFEST_PATH if path.is_empty() else path
+ if not FileAccess.file_exists(source): return false
+ var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(source))
+ if not parsed is Dictionary or parsed.get("schema") != 1: return false
+ var definition: Dictionary = parsed.get("music", {})
+ var streams: Array[AudioStream] = []
+ if definition.get("stems", []).size() != synchronized.stream_count: return false
+ for stem in definition.stems:
+  if not ResourceLoader.exists(stem.path): return false
+  var stream: AudioStream = load(stem.path)
+  if stream is AudioStreamOggVorbis: stream.loop = true
+  streams.append(stream)
+ music.stop()
+ manifest.music = definition
+ for i in streams.size():
+  synchronized.set_sync_stream(i, streams[i])
+  synchronized.set_sync_stream_volume(i, -80.0)
+ current_gains.clear()
+ for stem in definition.stems: current_gains[stem.id] = 0.0
+ beat_seconds = 60.0 / float(definition.bpm)
+ clock = 0.0; previous_music_position = 0.0; completed_loops = 0
+ state = &"EXPLORE"; pending_state = &""; pending_beat = -1
+ pause_duck = 1.0; dialogue_duck = 1.0
+ chapter_music_path = path
+ music.play(); stem_starts += 1
+ _log("score_selected", {"id": definition.id, "music_players": 1})
+ return true
 
 func _ready() -> void:
  process_mode = Node.PROCESS_MODE_ALWAYS
@@ -211,7 +244,7 @@ func diagnostics() -> Dictionary:
  return {"assets_ready": ready_assets, "state": String(state), "pending": String(pending_state),
   "pending_beat": pending_beat, "clock": clock, "mixer_clock": mixer_clock_enabled,
   "playback_position": music.get_playback_position() if music else 0.0, "audio_driver": AudioServer.get_driver_name(), "stem_starts": stem_starts, "music_players": 1 if music else 0,
-  "active_voices": active, "voice_limit": MAX_VOICES, "dropped_cues": dropped_cues,
+  "active_voices": active, "voice_limit": MAX_VOICES, "dropped_cues": dropped_cues, "music_id": manifest.music.id,
   "gains": current_gains.duplicate(), "events": event_log.duplicate(true)}
 
 func begin_capture() -> bool:

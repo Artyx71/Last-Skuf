@@ -8,6 +8,7 @@ const Player = preload("res://scripts/actors/combat_player.gd")
 const Enemy = preload("res://scripts/ai/enemy_actor.gd")
 const Combat = preload("res://scripts/systems/combat_system.gd")
 const CONFIG_PATH := "res://resources/combat/prototype.json"
+var config_path := CONFIG_PATH
 var config: Dictionary
 var visual_config: Dictionary
 var player: CharacterBody2D
@@ -44,7 +45,7 @@ func _ready() -> void:
 	Bindings.install()
 	var audio := get_node_or_null("/root/AudioDirector")
 	if audio: audio_event.connect(audio.on_gameplay_audio)
-	config = JSON.parse_string(FileAccess.get_file_as_string(CONFIG_PATH))
+	config = JSON.parse_string(FileAccess.get_file_as_string(config_path))
 	visual_config = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/weapon_visuals.json"))
 	assert(config.schema == 1, "P02 combat config schema")
 	for bounds in config.walls:

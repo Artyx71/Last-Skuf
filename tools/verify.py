@@ -44,6 +44,8 @@ def main():
     if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['portrait_motion', 'dialogue', 'audio', 'options'])
+    if (ROOT / 'game/scenes/levels/missed_fight.tscn').is_file():
+        commands.append(('mission', base + ['--script', 'res://tests/mission_test.gd']))
     env = dict(os.environ)
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:
@@ -54,12 +56,13 @@ def main():
         # Distinct paths also prevent one test or capture from masking another's defaults.
         saves = output / 'isolated_saves' / name
         saves.mkdir(parents=True, exist_ok=True)
-        for filename in ['options.json', 'dialogue.json']:
+        for filename in ['options.json', 'dialogue.json', 'chapter.json']:
             path = saves / filename
             path.unlink(missing_ok=True)
             path.with_suffix(path.suffix + '.tmp').unlink(missing_ok=True)
         env['AYAY_OPTIONS_PATH'] = str(saves / 'options.json')
         env['AYAY_DIALOGUE_SAVE_PATH'] = str(saves / 'dialogue.json')
+        env['AYAY_CHAPTER_SAVE_PATH'] = str(saves / 'chapter.json')
         try:
             result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=90)
             text = result.stdout + result.stderr

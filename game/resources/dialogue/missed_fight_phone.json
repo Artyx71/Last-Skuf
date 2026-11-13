@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "scene_id": "CH01_PHONE",
+  "event_id": "EV_CH01_PHONE",
+  "pov": "YAKUZA",
+  "lines": [
+    {
+      "line_id": "CH01_PHONE_001",
+      "loc_key": "dialogue.ch01.phone.001",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Да, Жинь. Не, я уже выхожу.",
+      "caption_ru": "ТЕЛЕФОН · ЖИНЬКА",
+      "cue": "phone_ring",
+      "hold_seconds": 0.8
+    },
+    {
+      "line_id": "CH01_PHONE_002",
+      "loc_key": "dialogue.ch01.phone.002",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "angry",
+      "text_ru": "Какое молоко? А... Да, куплю.",
+      "caption_ru": ""
+    },
+    {
+      "line_id": "CH01_PHONE_003",
+      "loc_key": "dialogue.ch01.phone.003",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Я не дрался. Ну и хорошо.",
+      "caption_ru": ""
+    }
+  ],
+  "entry_conditions": [],
+  "exit_actions": [
+    {
+      "type": "set_flag",
+      "name": "ch01_phone_seen",
+      "value": true
+    }
+  ]
+}

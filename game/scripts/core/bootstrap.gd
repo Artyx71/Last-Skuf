@@ -5,6 +5,9 @@ const DISCLAIMER := "Вымышленная криминальная сатир�
 
 
 func _ready() -> void:
+	if "--open-mission" in OS.get_cmdline_user_args():
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/missed_fight.tscn")
+		return
 	if "--open-dialogue" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/dialogue_audio_lab.tscn")
 		return
@@ -20,10 +23,10 @@ func _ready() -> void:
 	panel.add_theme_constant_override("separation", 18)
 	add_child(panel)
 	_add_label(panel, "АЫАЫ: ПОСЛЕДНИЙ СКУФ", 28, Color("ff477e"))
-	_add_label(panel, "P03 / ДИАЛОГ И ЗВУК", 16, Color("66e5cc"))
+	_add_label(panel, "ГЛАВА 01 / ПРОПУЩЕННАЯ ДРАКА", 16, Color("66e5cc"))
 	_add_label(panel, "Godot 4 · Windows / Linux\nПолная игра ещё не реализована.", 17, Color("e5e6ef"))
 	_add_label(panel, DISCLAIMER, 15, Color("b9b9cc"))
-	_add_label(panel, "Enter — бой · F1 — арт · F3 — диалог и звук · Esc — выход", 14, Color("b9b9cc"))
+	_add_label(panel, "Enter — история · F1 — арт · F2 — бой · F3 — диалог · Esc — выход", 14, Color("b9b9cc"))
 	if "--capture-bootstrap" in OS.get_cmdline_user_args():
 		await RenderingServer.frame_post_draw
 		var output := OS.get_environment("AYAY_CAPTURE_PATH")
@@ -49,6 +52,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0)
 	elif event.is_action_pressed("ui_accept"):
+		get_tree().change_scene_to_file("res://scenes/levels/missed_fight.tscn")
+	elif event is InputEventKey and event.pressed and event.keycode == KEY_F2:
 		get_tree().change_scene_to_file("res://scenes/world/combat_lab.tscn")
 	elif event is InputEventKey and event.pressed and event.keycode == KEY_F1:
 		get_tree().change_scene_to_file("res://scenes/world/movement_lab.tscn")

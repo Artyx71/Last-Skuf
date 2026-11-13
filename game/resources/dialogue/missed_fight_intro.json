@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scene_id": "CH01_INTRO",
+  "event_id": "EV_CH01_INTRO",
+  "pov": "YAKUZA",
+  "lines": [
+    {
+      "line_id": "CH01_INTRO_001",
+      "loc_key": "dialogue.ch01.intro.001",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Я бы вышел. Просто руки мокрые.",
+      "caption_ru": "ГУЛ ДРАКИ ЗА ДВЕРЬЮ"
+    },
+    {
+      "line_id": "CH01_INTRO_002",
+      "loc_key": "dialogue.ch01.intro.002",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "angry",
+      "text_ru": "Там трое. А я один. Нахер эту драку.",
+      "caption_ru": ""
+    },
+    {
+      "line_id": "CH01_INTRO_003",
+      "loc_key": "dialogue.ch01.intro.003",
+      "speaker": "YAKUZA",
+      "speaker_ru": "Якудза",
+      "emotion": "neutral",
+      "text_ru": "Куртка у раковины. В ней ключ от служебки.",
+      "caption_ru": ""
+    }
+  ],
+  "entry_conditions": [],
+  "exit_actions": [
+    {
+      "type": "set_flag",
+      "name": "ch01_intro_seen",
+      "value": true
+    }
+  ]
+}
