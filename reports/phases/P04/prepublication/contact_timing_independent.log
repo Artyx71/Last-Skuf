@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS escape (0.0, 1.0) frame0 wind-up has no damage or stun
+PASS escape (0.0, 1.0) first actual hit coincides with authored contact1
+PASS escape (0.0, 1.0) recovery adds no second hit
+PASS escape (0.0, 1.0) preserves full .14/.16 second contact window
+PASS escape (0.0, 1.0) correct nonlethal/lethal damage amount
+PASS escape (-1.0, 0.0) frame0 wind-up has no damage or stun
+PASS escape (-1.0, 0.0) first actual hit coincides with authored contact1
+PASS escape (-1.0, 0.0) recovery adds no second hit
+PASS escape (-1.0, 0.0) preserves full .14/.16 second contact window
+PASS escape (-1.0, 0.0) correct nonlethal/lethal damage amount
+PASS escape (1.0, 0.0) frame0 wind-up has no damage or stun
+PASS escape (1.0, 0.0) first actual hit coincides with authored contact1
+PASS escape (1.0, 0.0) recovery adds no second hit
+PASS escape (1.0, 0.0) preserves full .14/.16 second contact window
+PASS escape (1.0, 0.0) correct nonlethal/lethal damage amount
+PASS escape (0.0, -1.0) frame0 wind-up has no damage or stun
+PASS escape (0.0, -1.0) first actual hit coincides with authored contact1
+PASS escape (0.0, -1.0) recovery adds no second hit
+PASS escape (0.0, -1.0) preserves full .14/.16 second contact window
+PASS escape (0.0, -1.0) correct nonlethal/lethal damage amount
+PASS training (0.0, 1.0) frame0 wind-up has no damage or stun
+PASS training (0.0, 1.0) first actual hit coincides with authored contact1
+PASS training (0.0, 1.0) recovery adds no second hit
+PASS training (0.0, 1.0) preserves full .14/.16 second contact window
+PASS training (0.0, 1.0) correct nonlethal/lethal damage amount
+PASS training (-1.0, 0.0) frame0 wind-up has no damage or stun
+PASS training (-1.0, 0.0) first actual hit coincides with authored contact1
+PASS training (-1.0, 0.0) recovery adds no second hit
+PASS training (-1.0, 0.0) preserves full .14/.16 second contact window
+PASS training (-1.0, 0.0) correct nonlethal/lethal damage amount
+PASS training (1.0, 0.0) frame0 wind-up has no damage or stun
+PASS training (1.0, 0.0) first actual hit coincides with authored contact1
+PASS training (1.0, 0.0) recovery adds no second hit
+PASS training (1.0, 0.0) preserves full .14/.16 second contact window
+PASS training (1.0, 0.0) correct nonlethal/lethal damage amount
+PASS training (0.0, -1.0) frame0 wind-up has no damage or stun
+PASS training (0.0, -1.0) first actual hit coincides with authored contact1
+PASS training (0.0, -1.0) recovery adds no second hit
+PASS training (0.0, -1.0) preserves full .14/.16 second contact window
+PASS training (0.0, -1.0) correct nonlethal/lethal damage amount
+PASS target escaping during wind-up is not hit by an early volume
+PASS restart during wind-up cancels pending contact
+PASS actual player death cancels pending melee before contact
+PASS actual enemy death cancels its pending attack
+PASS already defeated target receives no later contact damage
+PASS target entering late in original .16 second active window still receives actual contact
+PASS new target entering recovery frame2 cannot receive damage
+PASS movement cannot rotate a locked action socket
+RESULT passed=48 failed=0
+
+exit_code=0
