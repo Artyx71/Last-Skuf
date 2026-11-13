@@ -55,6 +55,7 @@ func _ready() -> void:
 				sprite.sprite_frames.add_frame(animation, atlas)
 	preload("res://scripts/actors/polish_frames.gd").append(sprite.sprite_frames,
 		"res://assets/art/combat_polish/yakuza_finishers.png", ["unarmed","blunt","sharp","firearm","environmental"], "finish_")
+	preload("res://scripts/actors/polish_frames.gd").connect_options(sprite,get_node("/root/OptionsStore"))
 	actions_ready = true
 	weapon_visual = WeaponVisual.new()
 	weapon_visual.player = self

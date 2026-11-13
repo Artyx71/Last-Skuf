@@ -454,9 +454,12 @@ func _build_polish_options() -> void:
 	var vhs := preload("res://scripts/ui/vhs_overlay.gd").new()
 	layer.add_child(vhs)
 	var store := get_node("/root/OptionsStore")
-	store.changed.connect(func(_key: StringName,_value: Variant):
+	var update_vhs := func(_key: StringName,_value: Variant):
 		vhs.enabled = store.values.vhs
-		vhs.reduced_motion = store.values.reduced_motion)
+		vhs.reduced_motion = store.values.reduced_motion
+	store.changed.connect(update_vhs)
+	vhs.tree_exiting.connect(func():
+		if is_instance_valid(store) and store.changed.is_connected(update_vhs): store.changed.disconnect(update_vhs))
 	vhs.enabled = store.values.vhs
 	vhs.reduced_motion = store.values.reduced_motion
 	options_panel = PanelContainer.new()

@@ -7,3 +7,5 @@
 `effects.png`: четыре временных spray keys на четыре направления, floor/clothing/finisher variants, wall drips и не-кровавый reduced cue. Источник не использует RNG; runtime cosmetic RNG выбирает только готовые варианты. `yakuza_damage.png` добавляет bruised/wounded overlays к исходному neutral portrait, сохраняя лицо; исходник неизменён. Новые герои P06 не создавались.
 
 Запуск: `<root>/.tools/art-venv/bin/python assets/source_art/combat_polish/render.py` (Pillow уже установлен на host; в worktree возможен абсолютный путь к тому же venv). `provenance.json` содержит входные/выходные SHA256. `author_board.png` — реальный авторский inspection board, не engine evidence. Независимое сравнение лица и фактических native кадров выполняет ART reviewer.
+
+`*_reduced.png` — производные neutral palette variants тех же поз: три blood-цвета заменены неброскими серыми scuff-цветами. Это не дополнительные уникальные позы. Runtime меняет только atlas texture, сохраняя animation/frame/anchors и contact clock. Все новые import settings отключают alpha-border RGB dilation; actual imported pixels проходят clean-alpha check.

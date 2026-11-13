@@ -21,6 +21,8 @@ func run() -> void:
 		var bounds := cell.get_used_rect()
 		check(bounds.has_area(),"nonempty authored frame "+frame.sheet+frame.state)
 		check(bounds.position.x>0 and bounds.position.y>0 and bounds.end.x<48 and bounds.end.y<64,"unclipped authored frame "+frame.sheet+frame.state)
+	for name in atlas.reduced_sheets.values():
+		sheets[name] = (load(root_path+name) as Texture2D).get_image()
 	for file in ["effects.png","yakuza_damage.png","training_bench.png"]:
 		sheets[file] = (load(root_path+file) as Texture2D).get_image()
 	for name in sheets:
@@ -35,6 +37,8 @@ func run() -> void:
 				else: partial+=1
 		check(partial==0 and dirty_alpha==0,"binary clean alpha "+name)
 		check(colors.size()<=64,"limited palette "+name)
+		if "_reduced" in name:
+			check(not colors.has(Color("9d3047").to_rgba32()) and not colors.has(Color("cf5260").to_rgba32()) and not colors.has(Color("542838").to_rgba32()),"neutral reduced raster has no authored blood colors "+name)
 		print("RASTER ",name," ",image.get_size()," colors=",colors.size())
 	check(atlas.frames.size()==528,"528 real actor key poses")
 	for row in 4:

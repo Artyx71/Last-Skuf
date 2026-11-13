@@ -72,6 +72,7 @@ func _load_art() -> void:
 	PolishFrames.append(frames, "res://assets/art/combat_polish/" + kind + "_finishers.png", PolishFrames.CATEGORIES, "finish_")
 	sprite = AnimatedSprite2D.new()
 	sprite.sprite_frames = frames
+	PolishFrames.connect_options(sprite,get_node("/root/OptionsStore"))
 	sprite.position = Vector2(0, -26)
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(sprite)

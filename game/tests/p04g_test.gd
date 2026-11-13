@@ -229,6 +229,8 @@ func _run() -> void:
 		lab.player.try_finisher()
 		await frames(62)
 		outcomes.append({"kills":lab.kills,"score":lab.score,"health":target.health,"hits":target.hits_received,"events":lab.combat.damage_events,"rng":str(lab.rng.state),"player":lab.player.position})
+		var current_texture: AtlasTexture = target.sprite.sprite_frames.get_frame_texture(&"finish_unarmed_right",1)
+		check(current_texture.atlas.resource_path.ends_with("_reduced.png") == reduced,"gore mode selects actual neutral/full reaction raster without changing action clock")
 		if reduced:
 			check(lab.combat.impact.shake_offset == Vector2.ZERO and not lab.combat.impact.flashes_enabled(),"shake0 and flashesOff honored")
 	check(outcomes[0] == outcomes[1],"Full/Reduced/decals/shake/flashes/VHS preserve actual gameplay outcome and RNG")
@@ -251,6 +253,13 @@ func _run() -> void:
 		for category in loader.CATEGORIES:
 			for direction in loader.DIRECTIONS:
 				check(actor.sprite.sprite_frames.get_frame_count(StringName("finish_"+category+"_"+direction))==3,"finisher frame coverage "+category+" "+direction)
+	var connections_before: int = store.get_signal_connection_list("changed").size()
+	var temporary_lab: Node2D = load("res://scenes/world/combat_lab.tscn").instantiate()
+	root.add_child(temporary_lab)
+	await frames(2)
+	temporary_lab.queue_free()
+	await frames(2)
+	check(store.get_signal_connection_list("changed").size()==connections_before,"scene teardown disconnects all gore/VHS option listeners")
 	var result := {"passed":failed==0,"assertions":passed,"failed":failed,"outcomes":outcomes}
 	var path := OS.get_environment("AYAY_P04G_TEST_RESULT")
 	if not path.is_empty():

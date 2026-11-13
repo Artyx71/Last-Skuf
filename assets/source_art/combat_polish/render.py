@@ -171,7 +171,16 @@ d.rectangle((5,22,42,50),fill='#252a39');d.rectangle((7,24,40,44),fill='#706578'
 for x in [13,25,37]:d.line([(x,30),(x,42)],fill='#4a4256',width=1)
 d.rectangle((9,49,14,58),fill='#393c50');d.rectangle((34,49,39,58),fill='#393c50');d.line([(10,50),(38,50)],fill='#b4a4a3',width=2)
 prop.save(OUT/'training_bench.png')
-atlas={'schema':1,'frame_size':[48,64],'pivot':[24,58],'directions':DIRECTIONS,'states':STATES,'categories':CATEGORIES,'frames':frames,'effects_columns':['spray0','spray1','spray2','spray3','floor0','floor1','clothing0','clothing1','finish0','finish1','wall','reduced'],'portrait_variants':['baseline','bruised','wounded']}
+# Reduced artwork uses the identical poses/anchors and neutral contact scuffs.
+# This is a derived palette variant, not additional independently authored poses.
+reduced_sheets={}
+for name in [kind+'_'+suffix+'.png' for kind in ['patrol','rusher','shooter'] for suffix in ['reactions','finishers']]+['yakuza_finishers.png']:
+ im=Image.open(OUT/name).convert('RGBA')
+ replacements={(157,48,71,255):(74,80,97,255),(207,82,96,255):(153,166,181,255),(84,40,56,255):(38,43,57,255)}
+ im.putdata([replacements.get(pixel,pixel) for pixel in im.getdata()])
+ reduced_name=name.replace('.png','_reduced.png');im.save(OUT/reduced_name)
+ reduced_sheets[name]=reduced_name
+atlas={'schema':1,'frame_size':[48,64],'pivot':[24,58],'directions':DIRECTIONS,'states':STATES,'categories':CATEGORIES,'frames':frames,'effects_columns':['spray0','spray1','spray2','spray3','floor0','floor1','clothing0','clothing1','finish0','finish1','wall','reduced'],'portrait_variants':['baseline','bruised','wounded'],'reduced_sheets':reduced_sheets}
 (OUT/'atlas.json').write_text(json.dumps(atlas,indent=2)+'\n')
 # A real native source copy of each newly authored raster, not a fake layered project.
 for p in OUT.glob('*.png'):(SRC/(p.stem+'_native_source.png')).write_bytes(p.read_bytes())

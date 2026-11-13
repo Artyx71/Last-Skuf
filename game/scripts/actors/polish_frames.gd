@@ -6,6 +6,7 @@ const CATEGORIES := ["unarmed", "blunt", "sharp", "firearm", "environmental"]
 static func append(frames: SpriteFrames, path: String, states: Array, prefix := "") -> void:
 	assert(ResourceLoader.exists(path), "P04G authored sheet required: " + path)
 	var texture: Texture2D = load(path)
+	var reduced: Texture2D = load(path.replace(".png","_reduced.png"))
 	for row in 4:
 		for column in states.size():
 			var name := StringName(prefix + states[column] + "_" + DIRECTIONS[row])
@@ -15,5 +16,23 @@ static func append(frames: SpriteFrames, path: String, states: Array, prefix := 
 			for frame in 3:
 				var atlas := AtlasTexture.new()
 				atlas.atlas = texture
+				atlas.set_meta("full_atlas",texture)
+				atlas.set_meta("reduced_atlas",reduced)
 				atlas.region = Rect2((column*3+frame)*48, row*64, 48,64)
 				frames.add_frame(name, atlas)
+
+
+static func apply_gore(sprite: AnimatedSprite2D, reduced: bool) -> void:
+	for animation in sprite.sprite_frames.get_animation_names():
+		for frame in sprite.sprite_frames.get_frame_count(animation):
+			var texture: Texture2D = sprite.sprite_frames.get_frame_texture(animation,frame)
+			if texture is AtlasTexture and texture.has_meta("full_atlas"):
+				texture.atlas = texture.get_meta("reduced_atlas" if reduced else "full_atlas")
+
+static func connect_options(sprite: AnimatedSprite2D, store: Node) -> void:
+	apply_gore(sprite,store.values.reduced_gore)
+	var handler := func(key: StringName,value: Variant):
+		if key == &"reduced_gore" and is_instance_valid(sprite): apply_gore(sprite,bool(value))
+	store.changed.connect(handler)
+	sprite.tree_exiting.connect(func():
+		if is_instance_valid(store) and store.changed.is_connected(handler): store.changed.disconnect(handler))
