@@ -1,4 +1,4 @@
-# P05 — атомарный план, статус IMPLEMENTING (автор, без phase decision)
+# P05 — атомарный план, статус AUTHOR_HANDOFF (без phase decision)
 
 Основание: независимый P04G PASS и подтверждённый squashPR9 `756054674383f92f67c7f5f4944c1a5ee8c384f1`, новое «давай дальше». Один автор, без сброса прогресса; следующий checkpoint P05. Полная кампания не реализуется.
 
@@ -18,7 +18,9 @@
 - [x] Подключение CH01 и русский журнал, сохранение Enter/F1–F4.
 - [x] Исчерпывающие ternary D01–D06 + optional evidence/secret exploration, реальные Input fixtures.
 - [x] verify_p05/CI и P04G Full/Reduced regression.
-- [ ] Финальный неизменный hash run, source freeze/inventory/bundle.
+- [x] Финальный неизменный hash run (14/14); source freeze/inventory и alternate Git bundle для host adoption.
 - [ ] Native host renderer/audio/Linux/Wine и отдельные Lead/Narrative/QA (после автора).
 
 Общий index недоступен (read-only index.lock); коммиты создаются в ignored `.tools/p05-author-git`, base `b774a1abfc18ef41f263259dc5c99cd4f26bc4c9`. ROOT controller не изменяется. Никаких runner/subagents/push/merge.
+
+Итог авторских проверок: `technical-final`14/14, `p04g-regression-01`7/7, Python73/73. Общий regression24/25: import возвращает0, но лог фиксирует sandbox TCP socket errors; host обязан повторить clean import. 6344paths,171366successful transitions,177710state visits,22828unique observed states; это declared partitions, не full campaign/interleavings. Список реальных команд/ограничений — implementation.md. Новых media assets нет;1225protected files совпадают с базой.
