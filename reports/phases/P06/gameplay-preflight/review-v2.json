@@ -1,0 +1,141 @@
+{
+  "phase": "P06",
+  "version": 2,
+  "review_kind": "independent_incremental_gameplay_architecture_followup",
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed": "6f73a6749fa7673d303dea79864f687c0b656892",
+  "previous_source": "68809cadc11f54c5f6596035bb11a2d9795951c3",
+  "status": "SCOPED_REMEDIATIONS_VERIFIED_PRODUCTION_GAMEPLAY_PENDING",
+  "phase_approval": false,
+  "production_character_ability_approval": false,
+  "native_gameplay_review": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "source_mutations": false,
+  "controller_or_git_mutations": false,
+  "closed_scoped_findings": [
+    {
+      "id": "GP-PF-01",
+      "resolution": "Mandatory live policy and copied authority snapshot recheck, pinned clocks, single resolve plus postcancel reauthorization; production registry remains pending."
+    },
+    {
+      "id": "GP-PF-02",
+      "resolution": "Per-hero/context equipment matrix replaces universal grants; actual scene availability remains mandatory."
+    },
+    {
+      "id": "GP-PF-03",
+      "resolution": "45-check test-only policy actor now exercises actual production CombatSystem hooks/contact/score; production actor and native Input remain pending."
+    }
+  ],
+  "new_high_findings": [],
+  "author_headless_results_read_not_rerun": {
+    "character_combat_profile_test": 61,
+    "character_policy_integration_test": 45,
+    "combat_test": 43,
+    "contact_timing_test": 48,
+    "p04g_test": 695,
+    "character_dialogue_test": 22,
+    "total_passed": 914,
+    "total_failed": 0,
+    "reported_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "independent_inventory_verification": {
+    "source_entries_checked": 141,
+    "mismatches": 0,
+    "operation": "SHA256 current WORK files vs policy-regression-03.json source_hashes"
+  },
+  "remaining_constraints": [
+    "Registered trusted production fixtures and safe save/UI boundary, mandatory resolver actor factory, switch/reset lifecycle",
+    "Actual six distinct controlled abilities and personal finishers, costs/cancel/ammo/prerequisites",
+    "Production art/frame mapping, four-direction native Input/contact/cancel captures and gameplay readability",
+    "Per-action once receipt on living targets and reset/reload/process restart evidence; exports/platform runtime and full independent phase gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/review-v2.md",
+    "sha256": "3bf120f5f4c8b703e7502319a31d8ab3b3daceb108e2327b4b93a10eac8bc1e1"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "sha256": "4ef3fc2717b3c6442c105b4708190b5914921aab8c61adf6e166c1bc9ae9804b"
+    },
+    {
+      "path": "game/scripts/systems/character_catalog.gd",
+      "sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb"
+    },
+    {
+      "path": "game/scripts/systems/character_combat_profile.gd",
+      "sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686"
+    },
+    {
+      "path": "game/scripts/core/combat_lab.gd",
+      "sha256": "231e73cecab166db756996a647fbe8864e0f98c735bf360a1919c3ef07aebdfb"
+    },
+    {
+      "path": "game/scripts/actors/combat_player.gd",
+      "sha256": "42c2f9e0897d9543df04d6137059e0639d041b7f0cd07cb42544fcf63f31fd8e"
+    },
+    {
+      "path": "game/resources/characters/catalog.json",
+      "sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507"
+    },
+    {
+      "path": "game/resources/characters/combat_profiles.json",
+      "sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93"
+    },
+    {
+      "path": "game/resources/combat/finishers.json",
+      "sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab"
+    },
+    {
+      "path": "game/tests/character_combat_profile_test.gd",
+      "sha256": "516022d3042b5ec2f91be73076325198381394f2b7017d34740d011e8f77c4df"
+    },
+    {
+      "path": "game/tests/character_policy_integration_test.gd",
+      "sha256": "10a278defa433907ef1d087266f40a4b720bfbb747de385481e4bae5071cb666"
+    },
+    {
+      "path": "game/tests/fixtures/character_policy_lab.gd",
+      "sha256": "c6d5753dfe4e12db0cf60db3f639576c9359a29ba12deb88b4dbec7d470b58d8"
+    },
+    {
+      "path": "game/tests/p04g_test.gd",
+      "sha256": "61841bbecad203c5a54dd4ed934e3ede038574502fbb7efaed25a4e378e7d3ad"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_combat_profile_test-policy-03.log",
+      "sha256": "e9f295566acbe5353048463496afbd25990ff866e349575d31ac63a59b26bf1e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_policy_integration_test-policy-03.log",
+      "sha256": "9718584d73db9862cfc1523184b40e7df6d7ffb158c85b62a26ab1f4df8ec266"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/combat_test-policy-03.log",
+      "sha256": "69f06b1bde5f4ee2120a954aa6b85687830084c45d74dd0d358e9eb8cea14c57"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/contact_timing_test-policy-03.log",
+      "sha256": "1ae59db96c83c8d972cf81b7f14d032b0d4ad54f486ffaec0fc967c5c1990a06"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/p04g_test-policy-03.log",
+      "sha256": "0ff8d8c2cf5d1293be68594b1ab30b5bff10f2e1deb5c4ef9db7ca3619c25106"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_dialogue_test-policy-03.log",
+      "sha256": "a4efc92f02428727253de5c57c8331bd6893bb1d2451a5eb98f1677aba3965a3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/policy-regression-03.json",
+      "sha256": "b17564036ce65a993f61fb960f5fd3003c0f4489bcce67083b734c461f40be5f"
+    }
+  ]
+}

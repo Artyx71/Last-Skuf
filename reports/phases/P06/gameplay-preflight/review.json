@@ -1,0 +1,153 @@
+{
+  "phase": "P06",
+  "review_kind": "independent_gameplay_architecture_preflight",
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed": "68809cadc11f54c5f6596035bb11a2d9795951c3",
+  "status": "INCREMENTAL_SOURCE_REVIEW_WITH_INTEGRATION_CONSTRAINTS",
+  "phase_approval": false,
+  "new_hero_gameplay_approval": false,
+  "native_gameplay_feel_review": false,
+  "runtime_tests_performed": false,
+  "source_mutations": false,
+  "controller_or_git_mutations": false,
+  "author_log_counts_read_not_rerun": {
+    "character_combat_profile": {
+      "passed": 49,
+      "failed": 0
+    },
+    "combat_test": {
+      "passed": 43,
+      "failed": 0
+    },
+    "contact_timing_test": {
+      "passed": 48,
+      "failed": 0
+    },
+    "p04g_test": {
+      "passed": 695,
+      "failed": 0
+    }
+  },
+  "findings": [
+    {
+      "id": "GP-PF-01",
+      "severity": "HIGH",
+      "classification": "integration_constraint_before_new_actor_enablement",
+      "file": "game/scripts/systems/combat_system.gd",
+      "line": 254,
+      "finding": "Pinned jobs bypass resolver; context authorization is only rechecked if optional can_use_finisher exists. Require live trusted fixture policy and switch/reset cancellation before integrating new actors."
+    },
+    {
+      "id": "GP-PF-02",
+      "severity": "HIGH",
+      "classification": "incomplete_current_data_before_phase_acceptance",
+      "file": "game/resources/characters/catalog.json",
+      "finding": "All six new playable entries grant every equipment category; tests reinforce full cross-product. Separate art coverage from explicit per-hero/context mechanical grants."
+    },
+    {
+      "id": "GP-PF-03",
+      "severity": "MEDIUM",
+      "classification": "missing_new_hook_integration_evidence",
+      "file": "game/tests/character_combat_profile_test.gd",
+      "line": 9,
+      "finding": "49 pure profile checks and baseline actor regressions do not execute new resolver/can_use hook integration, context recheck or new actor once-hit/score path."
+    }
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/review.md",
+    "sha256": "ae77f278c17f4a5b6c1209818b7a924b15ec3fb763b70c9ae1d79cfb660b4c0a"
+  },
+  "evidence": [
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/core/combat_lab.gd",
+      "sha256": "231e73cecab166db756996a647fbe8864e0f98c735bf360a1919c3ef07aebdfb",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/systems/combat_system.gd",
+      "sha256": "b0cbf019f86cf8bfd4274f9954c3b9d32678e36434de1464f716fc0390f13d40",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/systems/character_combat_profile.gd",
+      "sha256": "10a01150faf3abac00aa9aec32c9e43d5d5f8920bb08e4d4e348600e769d44dc",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/systems/character_catalog.gd",
+      "sha256": "ed4c1a730769bfe28d3a4e6d466e021693f2ec66afd4d83350390a5f36298c30",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/resources/characters/combat_profiles.json",
+      "sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/resources/characters/catalog.json",
+      "sha256": "f6fda80e0ff708ce85d5830fc522fe1b1342efde532ffa4c8affb3e377f2ab45",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/tests/character_combat_profile_test.gd",
+      "sha256": "e080c5258eacdf6ac38fe65f8b47dca2a22af4f6af3882a5ed760c901d5dfcee",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/actors/combat_player.gd",
+      "sha256": "42c2f9e0897d9543df04d6137059e0639d041b7f0cd07cb42544fcf63f31fd8e",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/scripts/ai/enemy_actor.gd",
+      "sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/resources/combat/finishers.json",
+      "sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game/tests/p04g_test.gd",
+      "sha256": "61841bbecad203c5a54dd4ed934e3ede038574502fbb7efaed25a4e378e7d3ad",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/specs/CHARACTER_EXPANSION_SPEC.md",
+      "sha256": "070338cb8c97d280436ebd278ef799e04c02266af48d958dbb0aee1e9ce08e07",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/planning/P06_TASKS.md",
+      "sha256": "24a1cbc35cf0581f712ef6d42cc6582a8c14589a756a236c6158305fa715adf6",
+      "type": "source_inspected"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/author-checks/character-combat-profile.log",
+      "sha256": "625a6a91647f74e8316ad23310cab76e16f11920bf7fbe5fc144ab112d1855b0",
+      "type": "author_evidence_read_not_independently_rerun"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/author-checks/combat_test-profile-hooks.log",
+      "sha256": "69f06b1bde5f4ee2120a954aa6b85687830084c45d74dd0d358e9eb8cea14c57",
+      "type": "author_evidence_read_not_independently_rerun"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/author-checks/contact_timing_test-profile-hooks.log",
+      "sha256": "1ae59db96c83c8d972cf81b7f14d032b0d4ad54f486ffaec0fc967c5c1990a06",
+      "type": "author_evidence_read_not_independently_rerun"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/author-checks/p04g_test-profile-hooks.log",
+      "sha256": "0ff8d8c2cf5d1293be68594b1ab30b5bff10f2e1deb5c4ef9db7ca3619c25106",
+      "type": "author_evidence_read_not_independently_rerun"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/author-checks/profile-hooks-regression.json",
+      "sha256": "acf2ab97e6c5c81f1a336bb24780d673e56e59eeb43b4bc52d1a43b9d1304b3f",
+      "type": "author_evidence_read_not_independently_rerun"
+    }
+  ],
+  "next_action": "Implement trusted scene fixtures, restricted mechanical equipment matrix, real CharacterPlayer abilities and hook integration tests; then provide actual native evidence for full independent GAMEPLAY review."
+}
