@@ -1,0 +1,15 @@
+{
+  "active_phase": "P00",
+  "status": "BLOCKED",
+  "attempts": 1,
+  "last_commit": "d2f3fd9a751a268ea621c30b9cb12bffac9f360c",
+  "last_decision": "reports/phases/P00/decision-attempt1.json",
+  "blocked": [
+    "B-P00-01: hosted CI billing; ephemeral local CI run 43316247166 in progress",
+    "Windows runtime unavailable; not a P00 blocker"
+  ],
+  "next_action": "Wait real ephemeral CI result, remove session runner/variable, collect logs/artifacts and request independent attempt 2. P01 forbidden until PASS.",
+  "author": "/root",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/1",
+  "persistent_runner": false
+}

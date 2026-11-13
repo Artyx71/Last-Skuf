@@ -1,0 +1,33 @@
+name: Native Godot validation
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bootstrap:
+    runs-on: ${{ vars.AYAY_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - run: python3 tools/install_deps.py --templates
+      - run: python3 tools/verify.py --output reports/ci
+      - name: Export native bootstrap binaries
+        run: |
+          mkdir -p build/linux build/windows
+          .tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Linux
+          .tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Windows
+          build/linux/last-skuf.x86_64 --headless --quit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: bootstrap-validation
+          path: |
+            reports/ci/
+            build/
+          retention-days: 7
