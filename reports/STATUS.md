@@ -1,13 +1,9 @@
 # Статус
 
-Последняя PASS-фаза: **P00**, attempt 2, независимый `/root/lead_reviewer`. P00 [PR #1](https://github.com/Artyx71/Last-Skuf/pull/1) ready, без merge. Decision: reports/phases/P00/decision-attempt 2.json.
+Последняя независимая PASS-фаза: **P01**, attempt2; reports/phases/P01/decision-attempt2.json. P00 также PASS. P01 PR#2 ready, без merge.
 
-**P01 BLOCKED**, attempt 1: независимый Lead Reviewer завершил проверку; обязательный человеческий art signoff PENDING. Решение: `reports/phases/P01/decision-attempt1.json`. Все 103 evidence-хеша подтверждены. Технических HIGH/CRITICAL дефектов нет. [Draft PR #2](https://github.com/Artyx71/Last-Skuf/pull/2), stacked на P00. Реальный image_gen арт: present/past по 5 портретов 160×160 и 32 кадра 48×64; source masters/prompts/recipes/atlas включены. Фотографии/ZIP вне Git. Native Godot movement lab работает: Enter, WASD/стрелки, 1–5 — эмоции, Tab — эпоха, Esc — выход. Это технический прототип, не готовая миссия/игра.
+P02 implementation1786633 готова к независимому review, PASS пока нет. Native555/555 assertions, actual no-kill escape replay773frames12.883s, ten cached reset max269ms. New original guards/action art интегрированы, approvedP01PNG неизменны. Linux и Windows builds build/P02; Linux smoke/renderPASS, Windows PE smoke/renderPASS подWine11.17 наLinux, nativeWindows NOT_TESTED. Evidence reports/phases/P02, draft PR#3.
 
-Локально15 команд PASS и 130 assertions (6 bootstrap + 90 art + 34 movement). Реальные screenshots, видео Godot длительностью 8,2 с и exported Linux lab render в reports/phases/P01. Сборки: build/P01/linux/last-skuf.x86_64 — runtime/render PASS; build/P01/windows/last-skuf.exe — export PASS, runtime не проверен. Аудио и боевая система ещё не реализованы (P03/P02 не начаты).
+Lead Reviewer работает независимо; actual GitHub CI43387775768 SUCCESS, artifact скачан. Temporary runner завершён и удалён: API runners0/variables0, local credentials отсутствуют. Постоянного runner нет; hosted billing не менялся. P03/P04 ещё не начаты.
 
-CI [43319881768](https://github.com/Artyx71/Last-Skuf/actions/runs/43319881768) SUCCESS, включает native art/movement tests. P00 CI также SUCCESS. Оба исполнились настоящими GitHub Actions на временных single-job local runners. Runner регистрации/credentials/variable удалены; сервиса/постоянного runner нет. Default hosted account billing restricted; платежи не менялись.
-
-По ART_BIBLE требуется человеческое утверждение сходства/гротеска. Вопрос по всем готовым previews отправлен владельцу, ответа пока нет. Independent art subreview отметил MEDIUM hair/body jitter 2–3 px, без HIGH/CRITICAL. До P01 PASS P02 запрещён. Resume: automation/phase_state.json и reports/NEXT_ACTION.md.
-
-Nonblocking tickets: ART-P01-01 — MEDIUM, jitter головы/волос idle down/up; META-P01-01 — LOW, служебная строка atlas отличается при повторной упаковке. Полные воспроизведения и исправления: reports/phases/P01/review-attempt1.md. Последняя PASS-фаза остаётся P00.
+Raw фото ignored, не отправлены вGit/game; image_gen разрешён для всех фото, publicrelease/voices/merge не разрешены. Private repo. Resume automation/phase_state.json, reports/NEXT_ACTION.md. P01 nonblocking ART-P01-01/META-P01-01 сохраняются.

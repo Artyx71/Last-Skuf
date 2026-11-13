@@ -1,0 +1,7 @@
+# P02 platform evidence
+
+Native host: Arch/Omarchy Linux, pinned Godot4.7.2-stable, NVIDIA GTX1050Ti/OpenGL3.3, user desktop. User-local Wine11.17-1 package extracted in ignored .tools/wine, no pacman install/sudo/system update. Package URL/hash/signing fingerprint tools/wine.lock.json; official locally installed Arch keyring dearmored, gpgv good package signature logs/wine_package_signature.log. SHA256 d251b09f2c7a46b5c434b3b3830c8e0632aeadfff4de9ce7aa0ea0a887f89285 checked before extraction. This optional compatibility runtime depends on host libraries and is not a portable universal installer.
+
+Reproduce with .tools/wine/usr/bin/wine after verifying package: WINEPREFIX=$PWD/.tools/wine-prefix, WINEARCH=win64,WINEDEBUG=-all,WINEDLLOVERRIDES='winemenubuilder.exe=d;mscoree,mshtml='. Prefix disables desktop integration and Mono/Gecko downloads. Headless target build/P02/windows/last-skuf.exe --headless --quit; rendered target args -- --open-combat --capture-combat and AYAY_CAPTURE_PATH=Z:\absolute\path.png. Actual commands/driver/warnings/exit codes in logs/windows_wine_*.log. This proves execution under Wine, not native Windows.
+
+CI archive cache optimization AYAY_ARCHIVE_CACHE verifies every SHA512 from official Godot lock before copying. Isolated valid-cache and corrupt-cache rejection evidence logs/tool_cache_probe.log. CI must still verify fresh imports/tests/exports, no reuse of generated .godot or builds.

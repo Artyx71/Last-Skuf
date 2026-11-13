@@ -1,21 +1,21 @@
 {
   "active_phase": "P02",
-  "status": "IN_PROGRESS",
-  "attempts": 0,
+  "status": "IN_REVIEW",
+  "attempts": 1,
   "last_pass": "P01",
   "last_decision": "reports/phases/P01/decision-attempt2.json",
-  "last_commit": "fcf399967c563cb77b0cf1fe0f6cdff532d798dd",
+  "last_commit": "1786633",
   "blocked": [],
-  "next_action": "Execute P02_HANDOFF: deterministic combat/hit detection, three enemy FSMs, instant restart and viable zero-kill Yakuza escape; independent review with real replay/builds.",
-  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/2",
+  "next_action": "P02 independent attempt1: await actual GitHub CI, inspect native/art/replay/build evidence, fix reviewer tickets before PASS; P03 forbidden until PASS.",
+  "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/3",
   "persistent_runner": false,
   "phase_work": {
     "P01": "PASS attempt2 with owner human art approval; P02 begins"
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [
-    "Windows runtime unavailable; Linux runtime/render verified",
-    "Default hosted CI account billing restricted; temporary per-session local runners used, none active"
+    "Native Windows unavailable; Windows PE actual smoke/render/replay passed under Wine11.17 on Linux",
+    "Hosted billing restricted; ephemeral P02CI runner cleaned up, none active"
   ],
   "nonblocking_findings": [
     "ART-P01-01 MEDIUM: idle down/up hair/head jitter",
