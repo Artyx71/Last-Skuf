@@ -1,0 +1,68 @@
+{
+  "scope": "P04_DRAFT_PUBLICATION",
+  "phase": "P04",
+  "status": "SAFE_TO_PUBLISH_DRAFT",
+  "publication_allowed": true,
+  "phase_acceptance": "NOT_GRANTED",
+  "merge_allowed": false,
+  "reviewer": "/root/lead_autopilot_p03",
+  "independent": true,
+  "reviewed_commit": "8ef79945984a256f43ddae5abbc4dfde3f93b8de",
+  "base_branch": "main",
+  "base_sha": "465bfcd6e53927072d1ca59a2055b4a8ef950d0a",
+  "timestamp_utc": "2026-11-13T14:08:01.795664+00:00",
+  "supersedes_recovery_publication_restriction": {
+    "allowed_for": "this exact clean committed candidate through guarded draft preparation only",
+    "preserve_recovery_attempt": 1,
+    "phase_PASS_not_granted": true
+  },
+  "findings": [
+    {
+      "id": "REC-PUB-01",
+      "severity": "HIGH",
+      "status": "CLOSED",
+      "resolution": "Dirty/index/source/branch and source/head race guards verified including zero push/POST; active root controller matches candidate."
+    },
+    {
+      "id": "REC-QA-01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "resolution": "Ordinary and accelerated clean shutdown evidence verified; independent bounded Godot subset clean."
+    },
+    {
+      "id": "P04-QA-MOVIE-FLAG",
+      "severity": "LOW",
+      "status": "OPEN",
+      "detail": "MovieMaker metadata false despite actual --write-movie capture; actual MP4, command and decoded frames retained. Correct instrumentation in later scoped change."
+    }
+  ],
+  "blocking_findings": [],
+  "artistic_audio_acceptance": {
+    "status": "PROVISIONAL_PROTOTYPE_ACCEPTED",
+    "method": "human_listening",
+    "agent_listening": false,
+    "evidence": {
+      "path": "reports/autopilot/P04/human_listening.json",
+      "sha256": "30e16969773ce16c2e65c954155ffe5f5b952fb594f130f89ccc46c9bb0c97ca"
+    },
+    "independent_verification": {
+      "path": "reports/phases/P04/prepublication/human_tool_records.json",
+      "sha256": "b81cfad2cef9d11db9f650336422cba2a7b61e7707b4366c446ed2ac5c7925ec"
+    }
+  },
+  "remaining_requirements": [
+    "Guarded draft publication of the exact clean candidate; no force/admin/approval bypass.",
+    "Mandatory successful GitHub CI on the published current head.",
+    "Separate full independent P04 phase acceptance and current exact-head/base merge review.",
+    "Native Windows remains unavailable; actual Windows runtime evidence is Wine.",
+    "Retain P04G queue and P06 private-reference restriction."
+  ],
+  "evidence_inventory": {
+    "path": "reports/phases/P04/prepublication/evidence_inventory.json",
+    "sha256": "be21ba4a72489e996ae40135ed46a08fcece0b6661007ac5be491bfcf7499329"
+  },
+  "report": {
+    "path": "reports/phases/P04/prepublication/review.md",
+    "sha256": "92cdba59e486041ee97ed904d9f60aabc78be5dd8081bb9cc7c8511f068bb9c9"
+  }
+}

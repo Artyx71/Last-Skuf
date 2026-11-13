@@ -1,0 +1,129 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 131936627810,
+      "run_id": 43440519792,
+      "workflow_name": "Native Godot validation",
+      "head_branch": "phase/p04-implementation",
+      "run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43440519792",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVsbeMs8AAAAeuAksYg",
+      "head_sha": "8ef79945984a256f43ddae5abbc4dfde3f93b8de",
+      "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/jobs/131936627810",
+      "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43440519792/job/131936627810",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T14:12:26Z",
+      "started_at": "2026-11-13T14:12:29Z",
+      "completed_at": "2026-11-13T14:15:57Z",
+      "name": "bootstrap",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T14:12:30Z",
+          "completed_at": "2026-11-13T14:12:31Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T14:12:31Z",
+          "completed_at": "2026-11-13T14:12:40Z"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T14:12:40Z",
+          "completed_at": "2026-11-13T14:12:48Z"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T14:12:48Z",
+          "completed_at": "2026-11-13T14:14:55Z"
+        },
+        {
+          "name": "Install pinned user-local audio decoder",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T14:14:55Z",
+          "completed_at": "2026-11-13T14:14:56Z"
+        },
+        {
+          "name": "Verify sequential autopilot recovery and merge gates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T14:14:56Z",
+          "completed_at": "2026-11-13T14:15:00Z"
+        },
+        {
+          "name": "Decode and analyze actual audio signals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-13T14:15:00Z",
+          "completed_at": "2026-11-13T14:15:19Z"
+        },
+        {
+          "name": "Analyze original P04 audio signals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-13T14:15:19Z",
+          "completed_at": "2026-11-13T14:15:39Z"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-13T14:15:39Z",
+          "completed_at": "2026-11-13T14:15:46Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-13T14:15:46Z",
+          "completed_at": "2026-11-13T14:15:55Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-13T14:15:55Z",
+          "completed_at": "2026-11-13T14:15:55Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-13T14:15:55Z",
+          "completed_at": "2026-11-13T14:15:55Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/check-runs/131936627810",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000641,
+      "runner_name": "GitHub Actions 1000000641",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

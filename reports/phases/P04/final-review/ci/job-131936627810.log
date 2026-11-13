@@ -1,0 +1,666 @@
+﻿2026-11-13T14:12:30.3637641Z Current runner version: '2.338.2'
+2026-11-13T14:12:30.3663635Z ##[group]Runner Image Provisioner
+2026-11-13T14:12:30.3664422Z Hosted Compute Agent
+2026-11-13T14:12:30.3665045Z Version: 20261103.629
+2026-11-13T14:12:30.3665633Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T14:12:30.3666391Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T14:12:30.3667012Z Worker ID: {f6ce6659-f911-4cfc-b5dc-c78b6ea7b46e}
+2026-11-13T14:12:30.3667644Z Region: westus3
+2026-11-13T14:12:30.3668174Z Cloud: Azure
+2026-11-13T14:12:30.3668675Z ##[endgroup]
+2026-11-13T14:12:30.3670776Z ##[group]Operating System
+2026-11-13T14:12:30.3671450Z Ubuntu
+2026-11-13T14:12:30.3671927Z 24.04.5
+2026-11-13T14:12:30.3672409Z LTS
+2026-11-13T14:12:30.3672876Z ##[endgroup]
+2026-11-13T14:12:30.3673439Z ##[group]Runner Image
+2026-11-13T14:12:30.3673998Z Image: ubuntu-24.04
+2026-11-13T14:12:30.3674514Z Version: 20261111.370.1
+2026-11-13T14:12:30.3675700Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T14:12:30.3677112Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-13T14:12:30.3677977Z ##[endgroup]
+2026-11-13T14:12:30.3678948Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T14:12:30.3681713Z Contents: read
+2026-11-13T14:12:30.3682275Z Metadata: read
+2026-11-13T14:12:30.3682903Z ##[endgroup]
+2026-11-13T14:12:30.3685346Z Secret source: Actions
+2026-11-13T14:12:30.3686300Z Cache mode: write
+2026-11-13T14:12:30.3686934Z Prepare workflow directory
+2026-11-13T14:12:30.4080211Z Prepare all required actions
+2026-11-13T14:12:30.4132191Z Getting action download info
+2026-11-13T14:12:30.7551163Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-13T14:12:30.9143383Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T14:12:31.1210962Z Complete job name: bootstrap
+2026-11-13T14:12:31.2192820Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-13T14:12:31.2193767Z with:
+2026-11-13T14:12:31.2194152Z   fetch-depth: 0
+2026-11-13T14:12:31.2194569Z   persist-credentials: false
+2026-11-13T14:12:31.2195052Z   repository: Artyx71/Last-Skuf
+2026-11-13T14:12:31.2198528Z   token: ***
+2026-11-13T14:12:31.2198914Z   ssh-strict: true
+2026-11-13T14:12:31.2199299Z   ssh-user: git
+2026-11-13T14:12:31.2199828Z   clean: true
+2026-11-13T14:12:31.2200229Z   sparse-checkout-cone-mode: true
+2026-11-13T14:12:31.2200702Z   fetch-tags: false
+2026-11-13T14:12:31.2201117Z   show-progress: true
+2026-11-13T14:12:31.2201527Z   lfs: false
+2026-11-13T14:12:31.2201900Z   submodules: false
+2026-11-13T14:12:31.2202319Z   set-safe-directory: true
+2026-11-13T14:12:31.2203000Z ##[endgroup]
+2026-11-13T14:12:31.6338579Z Syncing repository: Artyx71/Last-Skuf
+2026-11-13T14:12:31.6341728Z ##[group]Getting Git version info
+2026-11-13T14:12:31.6342932Z Working directory is '/home/runner/work/Last-Skuf/Last-Skuf'
+2026-11-13T14:12:31.6345453Z [command]/usr/bin/git version
+2026-11-13T14:12:31.6405704Z git version 2.56.1
+2026-11-13T14:12:31.6437966Z ##[endgroup]
+2026-11-13T14:12:31.6459236Z Temporarily overriding HOME='/home/runner/work/_temp/40b399e4-e780-4769-b45a-e2042aa1c7f4' before making global git config changes
+2026-11-13T14:12:31.6460882Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T14:12:31.6467505Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+2026-11-13T14:12:31.6535959Z Deleting the contents of '/home/runner/work/Last-Skuf/Last-Skuf'
+2026-11-13T14:12:31.6550827Z ##[group]Initializing the repository
+2026-11-13T14:12:31.6553305Z [command]/usr/bin/git init /home/runner/work/Last-Skuf/Last-Skuf
+2026-11-13T14:12:31.6675708Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T14:12:31.6687812Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T14:12:31.6700375Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T14:12:31.6702117Z hint: call:
+2026-11-13T14:12:31.6710955Z hint:
+2026-11-13T14:12:31.6711925Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T14:12:31.6712976Z hint:
+2026-11-13T14:12:31.6714018Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T14:12:31.6715693Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T14:12:31.6717016Z hint:
+2026-11-13T14:12:31.6717738Z hint: 	git branch -m <name>
+2026-11-13T14:12:31.6718598Z hint:
+2026-11-13T14:12:31.6719888Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T14:12:31.6722115Z Initialized empty Git repository in /home/runner/work/Last-Skuf/Last-Skuf/.git/
+2026-11-13T14:12:31.6726221Z [command]/usr/bin/git remote add origin https://github.com/Artyx71/Last-Skuf
+2026-11-13T14:12:31.6802492Z ##[endgroup]
+2026-11-13T14:12:31.6804594Z ##[group]Disabling automatic garbage collection
+2026-11-13T14:12:31.6805733Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T14:12:31.6829498Z ##[endgroup]
+2026-11-13T14:12:31.6830506Z ##[group]Setting up auth
+2026-11-13T14:12:31.6839720Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T14:12:31.6876991Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T14:12:31.7254271Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T14:12:31.7293015Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T14:12:31.7521307Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T14:12:31.7565670Z ##[endgroup]
+2026-11-13T14:12:31.7566755Z ##[group]Fetching the repository
+2026-11-13T14:12:31.7580449Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +6bac80e3245bd99c81317ddc5cb540d912837ea7:refs/remotes/pull/7/merge
+2026-11-13T14:12:38.1680692Z From https://github.com/Artyx71/Last-Skuf
+2026-11-13T14:12:38.1683707Z  * [new branch]      main                                     -> origin/main
+2026-11-13T14:12:38.1686910Z  * [new branch]      phase/p00-bootstrap                      -> origin/phase/p00-bootstrap
+2026-11-13T14:12:38.1690771Z  * [new branch]      phase/p01-art-movement                   -> origin/phase/p01-art-movement
+2026-11-13T14:12:38.1694169Z  * [new branch]      phase/p02-combat                         -> origin/phase/p02-combat
+2026-11-13T14:12:38.1697154Z  * [new branch]      phase/p03-dialogue-audio                 -> origin/phase/p03-dialogue-audio
+2026-11-13T14:12:38.1707855Z  * [new branch]      phase/p03-handoff                        -> origin/phase/p03-handoff
+2026-11-13T14:12:38.1711552Z  * [new branch]      phase/p04-implementation                 -> origin/phase/p04-implementation
+2026-11-13T14:12:38.1714989Z  * [new ref]         6bac80e3245bd99c81317ddc5cb540d912837ea7 -> pull/7/merge
+2026-11-13T14:12:38.1720342Z ##[endgroup]
+2026-11-13T14:12:38.1722570Z ##[group]Determining the checkout info
+2026-11-13T14:12:38.1725097Z ##[endgroup]
+2026-11-13T14:12:38.1726656Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T14:12:38.1764440Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T14:12:38.1794946Z ##[group]Checking out the ref
+2026-11-13T14:12:38.1799363Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/7/merge
+2026-11-13T14:12:39.2480450Z Updating files:  72% (1208/1660)
+2026-11-13T14:12:39.3323112Z Updating files:  73% (1212/1660)
+2026-11-13T14:12:39.4343946Z Updating files:  74% (1229/1660)
+2026-11-13T14:12:39.5391374Z Updating files:  75% (1245/1660)
+2026-11-13T14:12:39.6050846Z Updating files:  76% (1262/1660)
+2026-11-13T14:12:39.6138729Z Updating files:  77% (1279/1660)
+2026-11-13T14:12:39.6225605Z Updating files:  78% (1295/1660)
+2026-11-13T14:12:39.7013553Z Updating files:  79% (1312/1660)
+2026-11-13T14:12:39.7104580Z Updating files:  80% (1328/1660)
+2026-11-13T14:12:39.7890054Z Updating files:  81% (1345/1660)
+2026-11-13T14:12:39.7980191Z Updating files:  82% (1362/1660)
+2026-11-13T14:12:39.8006039Z Updating files:  83% (1378/1660)
+2026-11-13T14:12:39.8230076Z Updating files:  84% (1395/1660)
+2026-11-13T14:12:39.9031277Z Updating files:  85% (1411/1660)
+2026-11-13T14:12:39.9043621Z Updating files:  86% (1428/1660)
+2026-11-13T14:12:39.9047482Z Updating files:  87% (1445/1660)
+2026-11-13T14:12:39.9052203Z Updating files:  88% (1461/1660)
+2026-11-13T14:12:39.9060661Z Updating files:  89% (1478/1660)
+2026-11-13T14:12:39.9888158Z Updating files:  90% (1494/1660)
+2026-11-13T14:12:39.9892672Z Updating files:  91% (1511/1660)
+2026-11-13T14:12:39.9897274Z Updating files:  92% (1528/1660)
+2026-11-13T14:12:40.0541167Z Updating files:  93% (1544/1660)
+2026-11-13T14:12:40.1676621Z Updating files:  94% (1561/1660)
+2026-11-13T14:12:40.2244908Z Updating files:  95% (1577/1660)
+2026-11-13T14:12:40.2821233Z Updating files:  95% (1582/1660)
+2026-11-13T14:12:40.2828828Z Updating files:  96% (1594/1660)
+2026-11-13T14:12:40.2836856Z Updating files:  97% (1611/1660)
+2026-11-13T14:12:40.2848718Z Updating files:  98% (1627/1660)
+2026-11-13T14:12:40.2856735Z Updating files:  99% (1644/1660)
+2026-11-13T14:12:40.2858012Z Updating files: 100% (1660/1660)
+2026-11-13T14:12:40.2858447Z Updating files: 100% (1660/1660), done.
+2026-11-13T14:12:40.2894284Z Note: switching to 'refs/remotes/pull/7/merge'.
+2026-11-13T14:12:40.2895481Z 
+2026-11-13T14:12:40.2895860Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-13T14:12:40.2897870Z changes and commit them, and you can discard any commits you make in this
+2026-11-13T14:12:40.2899498Z state without impacting any branches by switching back to a branch.
+2026-11-13T14:12:40.2900156Z 
+2026-11-13T14:12:40.2902189Z If you want to create a new branch to retain commits you create, you may
+2026-11-13T14:12:40.2903650Z do so (now or later) by using -c with the switch command. Example:
+2026-11-13T14:12:40.2904824Z 
+2026-11-13T14:12:40.2905022Z   git switch -c <new-branch-name>
+2026-11-13T14:12:40.2905359Z 
+2026-11-13T14:12:40.2905528Z Or undo this operation with:
+2026-11-13T14:12:40.2906560Z 
+2026-11-13T14:12:40.2906744Z   git switch -
+2026-11-13T14:12:40.2906960Z 
+2026-11-13T14:12:40.2907310Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-13T14:12:40.2908580Z 
+2026-11-13T14:12:40.2909190Z HEAD is now at 6bac80e Merge 8ef79945984a256f43ddae5abbc4dfde3f93b8de into 465bfcd6e53927072d1ca59a2055b4a8ef950d0a
+2026-11-13T14:12:40.2980370Z ##[endgroup]
+2026-11-13T14:12:40.3028887Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T14:12:40.3056653Z 6bac80e3245bd99c81317ddc5cb540d912837ea7
+2026-11-13T14:12:40.3066655Z ##[group]Removing auth
+2026-11-13T14:12:40.3071474Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T14:12:40.3101798Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T14:12:40.3328277Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T14:12:40.3356611Z http.https://github.com/.extraheader
+2026-11-13T14:12:40.3373922Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T14:12:40.3418442Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T14:12:40.3670639Z ##[endgroup]
+2026-11-13T14:12:40.3878210Z ##[group]Run python3 tools/install_deps.py --templates
+2026-11-13T14:12:40.3878757Z [36;1mpython3 tools/install_deps.py --templates[0m
+2026-11-13T14:12:40.3896167Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:12:40.3896471Z ##[endgroup]
+2026-11-13T14:12:48.4514785Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/Godot_v4.7.2-stable_linux.x86_64
+2026-11-13T14:12:48.4516296Z /home/runner/work/Last-Skuf/Last-Skuf/.tools/godot/templates
+2026-11-13T14:12:48.5092710Z ##[group]Run python3 tools/verify.py --output reports/ci
+2026-11-13T14:12:48.5093139Z [36;1mpython3 tools/verify.py --output reports/ci[0m
+2026-11-13T14:12:48.5107321Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:12:48.5107600Z ##[endgroup]
+2026-11-13T14:14:55.3954600Z privacy PASS exit 0
+2026-11-13T14:14:55.3956362Z version PASS exit 0
+2026-11-13T14:14:55.3956712Z import PASS exit 0
+2026-11-13T14:14:55.3957034Z smoke PASS exit 0
+2026-11-13T14:14:55.3957397Z integration PASS exit 0
+2026-11-13T14:14:55.3957770Z art_structure PASS exit 0
+2026-11-13T14:14:55.3958133Z movement PASS exit 0
+2026-11-13T14:14:55.3958488Z combat_art PASS exit 0
+2026-11-13T14:14:55.3958821Z combat PASS exit 0
+2026-11-13T14:14:55.3959132Z ai PASS exit 0
+2026-11-13T14:14:55.3959450Z restart PASS exit 0
+2026-11-13T14:14:55.3959991Z contact_timing PASS exit 0
+2026-11-13T14:14:55.3960414Z portrait_motion PASS exit 0
+2026-11-13T14:14:55.3960830Z dialogue PASS exit 0
+2026-11-13T14:14:55.3961198Z audio PASS exit 0
+2026-11-13T14:14:55.3961614Z options PASS exit 0
+2026-11-13T14:14:55.3961844Z mission PASS exit 0
+2026-11-13T14:14:55.3962055Z mission_normal_exit PASS exit 0
+2026-11-13T14:14:55.3962302Z mission_fast_exit PASS exit 0
+2026-11-13T14:14:55.4053026Z ##[group]Run python3 tools/install_ci_media.py
+2026-11-13T14:14:55.4053378Z [36;1mpython3 tools/install_ci_media.py[0m
+2026-11-13T14:14:55.4066082Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:14:55.4066336Z ##[endgroup]
+2026-11-13T14:14:56.1388948Z ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers
+2026-11-13T14:14:56.1390065Z Verified user-local media tool: /home/runner/work/Last-Skuf/Last-Skuf/.tools/ci-media/bin
+2026-11-13T14:14:56.1516270Z ##[group]Run python3 -m unittest discover -s tools/tests -v
+2026-11-13T14:14:56.1516703Z [36;1mpython3 -m unittest discover -s tools/tests -v[0m
+2026-11-13T14:14:56.1532976Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:14:56.1533239Z ##[endgroup]
+2026-11-13T14:14:56.2918818Z test_broken_loop_boundary_detected (test_audio_qa.SignalTests.test_broken_loop_boundary_detected) ... ok
+2026-11-13T14:14:56.2932352Z test_clipped_and_dc_signals_fail (test_audio_qa.SignalTests.test_clipped_and_dc_signals_fail) ... ok
+2026-11-13T14:14:56.2954244Z test_corrupt_audio_not_accepted_as_metadata (test_audio_qa.SignalTests.test_corrupt_audio_not_accepted_as_metadata) ... ok
+2026-11-13T14:14:56.3266916Z test_internal_dropout_detected (test_audio_qa.SignalTests.test_internal_dropout_detected) ... ok
+2026-11-13T14:14:56.3545236Z test_nonempty_sine_is_not_clipped (test_audio_qa.SignalTests.test_nonempty_sine_is_not_clipped) ... ok
+2026-11-13T14:14:56.3665113Z test_real_samples_in_event_window_detect_impulse (test_audio_qa.SignalTests.test_real_samples_in_event_window_detect_impulse) ... ok
+2026-11-13T14:14:56.3696986Z test_silent_file_fails_energy (test_audio_qa.SignalTests.test_silent_file_fails_energy) ... ok
+2026-11-13T14:14:56.3857218Z test_ambiguous_existing_prs_block_without_creating_duplicate (test_autopilot.ControllerTests.test_ambiguous_existing_prs_block_without_creating_duplicate) ... ok
+2026-11-13T14:14:56.4161999Z test_author_command_allows_only_matching_common_gitdir (test_autopilot.ControllerTests.test_author_command_allows_only_matching_common_gitdir) ... ok
+2026-11-13T14:14:56.4283360Z test_cannot_downgrade_pass_automatically (test_autopilot.ControllerTests.test_cannot_downgrade_pass_automatically) ... ok
+2026-11-13T14:14:56.6466668Z test_changed_script_after_completed_stage_requires_reconciliation (test_autopilot.ControllerTests.test_changed_script_after_completed_stage_requires_reconciliation) ... ok
+2026-11-13T14:14:56.8653336Z test_changed_stage_inputs_not_adopted (test_autopilot.ControllerTests.test_changed_stage_inputs_not_adopted) ... ok
+2026-11-13T14:14:56.8803937Z test_current_phase_merge_advances_after_confirmation (test_autopilot.ControllerTests.test_current_phase_merge_advances_after_confirmation) ... ok
+2026-11-13T14:14:56.8954149Z test_existing_workspace_cannot_publish_to_different_pr_branch (test_autopilot.ControllerTests.test_existing_workspace_cannot_publish_to_different_pr_branch) ... ok
+2026-11-13T14:14:56.9105637Z test_existing_workspace_pr_publishes_repair_before_ci (test_autopilot.ControllerTests.test_existing_workspace_pr_publishes_repair_before_ci) ... ok
+2026-11-13T14:14:56.9254245Z test_historical_merge_never_regresses_authoring_progress (test_autopilot.ControllerTests.test_historical_merge_never_regresses_authoring_progress) ... ok
+2026-11-13T14:14:56.9367224Z test_invalid_decision_does_not_reset_state (test_autopilot.ControllerTests.test_invalid_decision_does_not_reset_state) ... ok
+2026-11-13T14:14:58.4255956Z test_killed_parent_worker_finishes_and_is_adopted_once (test_autopilot.ControllerTests.test_killed_parent_worker_finishes_and_is_adopted_once) ... ok
+2026-11-13T14:14:58.4371871Z test_legacy_live_process_lock_is_not_deleted (test_autopilot.ControllerTests.test_legacy_live_process_lock_is_not_deleted) ... ok
+2026-11-13T14:14:58.4529356Z test_missing_number_workspace_ownership_blocks_before_any_github_action (test_autopilot.ControllerTests.test_missing_number_workspace_ownership_blocks_before_any_github_action) ... ok
+2026-11-13T14:14:58.4635115Z test_missing_state_is_not_reinitialized (test_autopilot.ControllerTests.test_missing_state_is_not_reinitialized) ... ok
+2026-11-13T14:14:58.4786837Z test_native_failure_cannot_publish_or_replay_author (test_autopilot.ControllerTests.test_native_failure_cannot_publish_or_replay_author) ... ok
+2026-11-13T14:14:58.4931427Z test_native_success_precedes_publication (test_autopilot.ControllerTests.test_native_success_precedes_publication) ... ok
+2026-11-13T14:14:58.5047159Z test_pause_blocks_execution_without_phase_reset (test_autopilot.ControllerTests.test_pause_blocks_execution_without_phase_reset) ... ok
+2026-11-13T14:14:58.5170906Z test_phase_gate_pass_does_not_bypass_missing_merge (test_autopilot.ControllerTests.test_phase_gate_pass_does_not_bypass_missing_merge) ... ok
+2026-11-13T14:14:58.5317674Z test_prepare_recovers_existing_pr_after_decision_loses_number (test_autopilot.ControllerTests.test_prepare_recovers_existing_pr_after_decision_loses_number) ... ok
+2026-11-13T14:14:58.5411042Z test_prerequisite_cannot_skip_blocked_p03 (test_autopilot.ControllerTests.test_prerequisite_cannot_skip_blocked_p03) ... ok
+2026-11-13T14:14:58.7597468Z test_receipt_tampering_fails_closed (test_autopilot.ControllerTests.test_receipt_tampering_fails_closed) ... ok
+2026-11-13T14:14:58.7730241Z test_reconcile_preserves_progress_and_ignores_legacy_reset (test_autopilot.ControllerTests.test_reconcile_preserves_progress_and_ignores_legacy_reset) ... ok
+2026-11-13T14:14:58.9907158Z test_success_checkpoint_is_atomic_with_receipt_consumption (test_autopilot.ControllerTests.test_success_checkpoint_is_atomic_with_receipt_consumption) ... ok
+2026-11-13T14:14:59.3082647Z test_timeout_stops_whole_child_group (test_autopilot.ControllerTests.test_timeout_stops_whole_child_group) ... ok
+2026-11-13T14:14:59.3193168Z test_two_controllers_cannot_hold_lease (test_autopilot.ControllerTests.test_two_controllers_cannot_hold_lease) ... ok
+2026-11-13T14:14:59.3328224Z test_unregistered_wrong_phase_branch_cannot_discover_or_create_pr (test_autopilot.ControllerTests.test_unregistered_wrong_phase_branch_cannot_discover_or_create_pr) ... ok
+2026-11-13T14:14:59.3336356Z test_atomic_sha_squash_and_remote_confirmation (test_autopilot.MergeTests.test_atomic_sha_squash_and_remote_confirmation) ... ok
+2026-11-13T14:14:59.3343744Z test_ci_changes_immediately_before_merge_block (test_autopilot.MergeTests.test_ci_changes_immediately_before_merge_block) ... ok
+2026-11-13T14:14:59.3348220Z test_exact_review_and_ci_pass (test_autopilot.MergeTests.test_exact_review_and_ci_pass) ... ok
+2026-11-13T14:14:59.3356706Z test_fail_blocked_and_unresolved_critical_forbid_merge (test_autopilot.MergeTests.test_fail_blocked_and_unresolved_critical_forbid_merge) ... ok
+2026-11-13T14:14:59.3374755Z test_manual_approval_threads_protection_and_draft_block (test_autopilot.MergeTests.test_manual_approval_threads_protection_and_draft_block) ... ok
+2026-11-13T14:14:59.3381771Z test_merge_intent_is_persisted_before_request (test_autopilot.MergeTests.test_merge_intent_is_persisted_before_request) ... ok
+2026-11-13T14:14:59.3392461Z test_missing_pending_failed_wrong_sha_ci_all_block (test_autopilot.MergeTests.test_missing_pending_failed_wrong_sha_ci_all_block) ... ok
+2026-11-13T14:14:59.3398145Z test_mutated_evidence_rejected (test_autopilot.MergeTests.test_mutated_evidence_rejected) ... ok
+2026-11-13T14:14:59.3406133Z test_new_p04_audio_cannot_use_p03_listening (test_autopilot.MergeTests.test_new_p04_audio_cannot_use_p03_listening) ... ok
+2026-11-13T14:14:59.3414447Z test_old_head_and_old_base_review_rejected (test_autopilot.MergeTests.test_old_head_and_old_base_review_rejected) ... ok
+2026-11-13T14:14:59.3421641Z test_p04_metrics_or_missing_listening_cannot_pass (test_autopilot.MergeTests.test_p04_metrics_or_missing_listening_cannot_pass) ... ok
+2026-11-13T14:14:59.3426610Z test_signal_metrics_cannot_close_artistic_gate (test_autopilot.MergeTests.test_signal_metrics_cannot_close_artistic_gate) ... ok
+2026-11-13T14:14:59.3432624Z test_toctou_head_change_never_sends_merge (test_autopilot.MergeTests.test_toctou_head_change_never_sends_merge) ... ok
+2026-11-13T14:14:59.3440313Z test_unverified_merged_parent_blocks_progress (test_autopilot.MergeTests.test_unverified_merged_parent_blocks_progress) ... ok
+2026-11-13T14:15:00.0701966Z test_idle_input_failure_cannot_reuse_stale_death_evidence (test_mission_input.MissionInputTests.test_idle_input_failure_cannot_reuse_stale_death_evidence) ... ok
+2026-11-13T14:15:00.0884236Z test_original_reference_hash_catches_renamed_blob_after_local_replacement (test_privacy.PrivacyTests.test_original_reference_hash_catches_renamed_blob_after_local_replacement) ... ok
+2026-11-13T14:15:00.1215123Z test_clean_and_generated_reports_push_verified_object (test_publication.PublicationTests.test_clean_and_generated_reports_push_verified_object) ... ok
+2026-11-13T14:15:00.1436778Z test_dirty_prepare_never_pushes_or_creates_pull_request (test_publication.PublicationTests.test_dirty_prepare_never_pushes_or_creates_pull_request) ... ok
+2026-11-13T14:15:00.1694272Z test_head_changed_during_privacy_prevents_push (test_publication.PublicationTests.test_head_changed_during_privacy_prevents_push) ... ok
+2026-11-13T14:15:00.1878103Z test_report_symlink_escape_cannot_push (test_publication.PublicationTests.test_report_symlink_escape_cannot_push) ... ok
+2026-11-13T14:15:00.2111791Z test_source_changed_during_privacy_prevents_push (test_publication.PublicationTests.test_source_changed_during_privacy_prevents_push) ... ok
+2026-11-13T14:15:00.2293709Z test_source_deletion_cannot_push (test_publication.PublicationTests.test_source_deletion_cannot_push) ... ok
+2026-11-13T14:15:00.2498122Z test_source_renamed_into_reports_cannot_push (test_publication.PublicationTests.test_source_renamed_into_reports_cannot_push) ... ok
+2026-11-13T14:15:00.2697217Z test_staged_report_cannot_push (test_publication.PublicationTests.test_staged_report_cannot_push) ... ok
+2026-11-13T14:15:00.2898252Z test_staged_source_cannot_push (test_publication.PublicationTests.test_staged_source_cannot_push) ... ok
+2026-11-13T14:15:00.3100519Z test_staged_then_restored_source_cannot_push (test_publication.PublicationTests.test_staged_then_restored_source_cannot_push) ... ok
+2026-11-13T14:15:00.3286030Z test_unstaged_source_cannot_push (test_publication.PublicationTests.test_unstaged_source_cannot_push) ... ok
+2026-11-13T14:15:00.3470784Z test_untracked_source_cannot_push (test_publication.PublicationTests.test_untracked_source_cannot_push) ... ok
+2026-11-13T14:15:00.3644633Z test_wrong_current_branch_cannot_push (test_publication.PublicationTests.test_wrong_current_branch_cannot_push) ... ok
+2026-11-13T14:15:00.3645533Z 
+2026-11-13T14:15:00.3645787Z ----------------------------------------------------------------------
+2026-11-13T14:15:00.3646292Z Ran 62 tests in 4.099s
+2026-11-13T14:15:00.3646435Z 
+2026-11-13T14:15:00.3646516Z OK
+2026-11-13T14:15:00.3820832Z ##[group]Run python3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa
+2026-11-13T14:15:00.3821394Z [36;1mpython3 tools/audio_qa.py --analysis-only --output reports/ci/audio_qa[0m
+2026-11-13T14:15:00.3833935Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:15:00.3834206Z ##[endgroup]
+2026-11-13T14:15:19.1214807Z {"technical_status": "PASS_SIGNAL_ONLY", "passed_checks": 63, "failed_checks": 0}
+2026-11-13T14:15:19.1336718Z ##[group]Run python3 tools/analyze_p04_audio.py --output reports/ci/p04_audio.json
+2026-11-13T14:15:19.1337420Z [36;1mpython3 tools/analyze_p04_audio.py --output reports/ci/p04_audio.json[0m
+2026-11-13T14:15:19.1352168Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:15:19.1352486Z ##[endgroup]
+2026-11-13T14:15:39.3569236Z {"signal_passed": true, "checks": 28, "files": 11, "mixes": 5, "directed_transitions": 12, "runtimes": 0, "listening": "PENDING_ACTUAL_LISTENER"}
+2026-11-13T14:15:39.3786081Z ##[group]Run mkdir -p build/linux build/windows
+2026-11-13T14:15:39.3786461Z [36;1mmkdir -p build/linux build/windows[0m
+2026-11-13T14:15:39.3786953Z [36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Linux[0m
+2026-11-13T14:15:39.3787577Z [36;1m.tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path game --export-release Windows[0m
+2026-11-13T14:15:39.3788123Z [36;1mbuild/linux/last-skuf.x86_64 --headless -- --smoke-bootstrap[0m
+2026-11-13T14:15:39.3801526Z shell: /usr/bin/bash -e {0}
+2026-11-13T14:15:39.3801811Z ##[endgroup]
+2026-11-13T14:15:39.4038240Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+2026-11-13T14:15:39.4301994Z 
+2026-11-13T14:15:41.5122164Z [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+2026-11-13T14:15:41.5123634Z [   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+2026-11-13T14:15:41.5141319Z [  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+2026-11-13T14:15:41.5172755Z [  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+2026-11-13T14:15:41.5173387Z [  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+2026-11-13T14:15:41.5448196Z [  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+2026-11-13T14:15:41.5448855Z [  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+2026-11-13T14:15:41.5449282Z [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+2026-11-13T14:15:41.5449828Z [0m
+2026-11-13T14:15:41.6448480Z [   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+2026-11-13T14:15:41.6499956Z [   1% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/atlas.json[39m[0m
+2026-11-13T14:15:41.6503111Z [   2% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/patrol_sheet.png-d496d01845e05242f54697af21aa5c9c.ctex[39m[0m
+2026-11-13T14:15:41.6504111Z [   2% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/patrol_sheet.png.import[39m[0m
+2026-11-13T14:15:41.6507709Z [   3% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/rusher_sheet.png-0d53e78c458263a6a077cc0311ff7c39.ctex[39m[0m
+2026-11-13T14:15:41.6509163Z [   3% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/rusher_sheet.png.import[39m[0m
+2026-11-13T14:15:41.6510892Z [   4% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/shooter_sheet.png-f3df25ac9950adf641cc0213a7ff54d7.ctex[39m[0m
+2026-11-13T14:15:41.6512813Z [   4% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/shooter_sheet.png.import[39m[0m
+2026-11-13T14:15:41.6514100Z [   5% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/atlas.json[39m[0m
+2026-11-13T14:15:41.6516245Z [   7% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/doors.png-9d66a2c42ab97dfe6b531570cb9ed34a.ctex[39m[0m
+2026-11-13T14:15:41.6517749Z [   7% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/doors.png.import[39m[0m
+2026-11-13T14:15:41.6519194Z [   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/props.png-347a5bb6126a41228af1915b5e4bac79.ctex[39m[0m
+2026-11-13T14:15:41.6520869Z [   8% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/props.png.import[39m[0m
+2026-11-13T14:15:41.6522710Z [   9% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tiles.png-de22141ac47cb5c4cc4eb01abd43774c.ctex[39m[0m
+2026-11-13T14:15:41.6524178Z [   9% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/tiles.png.import[39m[0m
+2026-11-13T14:15:41.6526640Z [  10% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/world.png-f9012f7824c455f804ca6d677012e68a.ctex[39m[0m
+2026-11-13T14:15:41.6528116Z [  10% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/world.png.import[39m[0m
+2026-11-13T14:15:41.6529880Z [  12% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/actions_atlas.json[39m[0m
+2026-11-13T14:15:41.6533269Z [  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/action_sheet.png-5237e57464a1d501fce0cfbebd076ba3.ctex[39m[0m
+2026-11-13T14:15:41.6534671Z [  13% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/action_sheet.png.import[39m[0m
+2026-11-13T14:15:41.6535790Z [  14% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/atlas.json[39m[0m
+2026-11-13T14:15:41.6539340Z [  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex[39m[0m
+2026-11-13T14:15:41.6540909Z [  15% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portraits.png.import[39m[0m
+2026-11-13T14:15:41.6543077Z [  17% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex[39m[0m
+2026-11-13T14:15:41.6544566Z [  17% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portraits_past.png.import[39m[0m
+2026-11-13T14:15:41.6546911Z [  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portrait_motion.png-8fbff73d48037e3a66a0f67d9b366503.ctex[39m[0m
+2026-11-13T14:15:41.6548376Z [  18% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portrait_motion.png.import[39m[0m
+2026-11-13T14:15:41.6549788Z [  19% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portrait_motion_atlas.json[39m[0m
+2026-11-13T14:15:41.6552880Z [  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex[39m[0m
+2026-11-13T14:15:41.6554347Z [  20% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/world_sheet.png.import[39m[0m
+2026-11-13T14:15:41.6558191Z [  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_bass.ogg-1eeca6f6f17a87b7d9c8e9189f4443a2.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6560050Z [  21% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_bass.ogg.import[39m[0m
+2026-11-13T14:15:41.6566907Z [  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_drums.ogg-972bb64ed78bdffbd1bc422b84007d85.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6568473Z [  23% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_drums.ogg.import[39m[0m
+2026-11-13T14:15:41.6573123Z [  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_lead.ogg-2ba82d1c7255214a63552522c72b29d0.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6574943Z [  24% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_lead.ogg.import[39m[0m
+2026-11-13T14:15:41.6578507Z [  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_texture.ogg-fb2742b114bc4d5f6a643bc84058e547.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6580311Z [  25% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_texture.ogg.import[39m[0m
+2026-11-13T14:15:41.6583587Z [  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_bass.ogg-d761fc0f4bf2ce766954915bf10f2a06.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6585176Z [  26% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_bass.ogg.import[39m[0m
+2026-11-13T14:15:41.6592306Z [  28% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_drums.ogg-c97a6c58bf78b812770495126d9b18ad.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6593903Z [  28% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_drums.ogg.import[39m[0m
+2026-11-13T14:15:41.6598604Z [  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_lead.ogg-e4595127b44d455765e7a6340bf2ab5f.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6600230Z [  29% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_lead.ogg.import[39m[0m
+2026-11-13T14:15:41.6604769Z [  30% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_texture.ogg-360befd567327ba585027363731ef139.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6606303Z [  30% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_texture.ogg.import[39m[0m
+2026-11-13T14:15:41.6607868Z [  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/clear.ogg-93ba053b5fe06a152162d2023cabc599.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6609338Z [  31% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/clear.ogg.import[39m[0m
+2026-11-13T14:15:41.6623530Z [  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/death.ogg-886d56efc7d54658275fbe74ae3e444f.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6630930Z [  33% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/death.ogg.import[39m[0m
+2026-11-13T14:15:41.6632250Z [  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/footstep_metal_1.ogg-af0489d6fc16fa7e60dcf0735ae695aa.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6633425Z [  33% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/footstep_metal_1.ogg.import[39m[0m
+2026-11-13T14:15:41.6634334Z [  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/footstep_metal_2.ogg-3b4dc358b517fe786ffcc93027db43f2.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6635621Z [  34% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/footstep_metal_2.ogg.import[39m[0m
+2026-11-13T14:15:41.6636435Z [  35% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gunshot.ogg-14b19c98f652cca7b221b458f816c62e.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6637636Z [  35% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/gunshot.ogg.import[39m[0m
+2026-11-13T14:15:41.6638488Z [  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/impact_1.ogg-8ab08f9bddf566882e7c1b0ee2491694.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6639457Z [  37% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/impact_1.ogg.import[39m[0m
+2026-11-13T14:15:41.6643328Z [  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/impact_2.ogg-73473df8fbd7bef114cb3508a2008e1c.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6644107Z [  38% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/impact_2.ogg.import[39m[0m
+2026-11-13T14:15:41.6645438Z [  39% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/knife.ogg-39ede5efb5e71cf3421bc5e066d5d541.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6646195Z [  39% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/knife.ogg.import[39m[0m
+2026-11-13T14:15:41.6647944Z [  40% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_door.ogg-5583dcfd7cdbbb0eb254e331c6cf95e6.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6648808Z [  40% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/missed_fight_door.ogg.import[39m[0m
+2026-11-13T14:15:41.6650256Z [  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/noise.ogg-8a6df8f00d51d204311423c1543a21e2.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6651392Z [  41% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/noise.ogg.import[39m[0m
+2026-11-13T14:15:41.6652770Z [  43% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/phone_ring.ogg-2ce505456ff81ad8a7042f9c28ca9eb0.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6654122Z [  43% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/phone_ring.ogg.import[39m[0m
+2026-11-13T14:15:41.6655381Z [  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/retry.ogg-5e3f65c412027a4ca6ed74f04f494f6e.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6656592Z [  44% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/retry.ogg.import[39m[0m
+2026-11-13T14:15:41.6657887Z [  45% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/shove.ogg-885bc2fd73e2f687b6884eb20033b2af.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6659400Z [  45% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/shove.ogg.import[39m[0m
+2026-11-13T14:15:41.6660434Z [  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/speech_yakuza_1.ogg-527dcb1a840d5b0f3dd7f4cfdc73f0c4.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6661248Z [  46% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/speech_yakuza_1.ogg.import[39m[0m
+2026-11-13T14:15:41.6662077Z [  48% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/speech_yakuza_2.ogg-7f45bc36cbc3e97f820fc169ae72f70a.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6662904Z [  48% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/speech_yakuza_2.ogg.import[39m[0m
+2026-11-13T14:15:41.6663738Z [  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/step_concrete_1.ogg-05472e7afecb1eb63a244f62a16eca8a.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6664545Z [  49% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/step_concrete_1.ogg.import[39m[0m
+2026-11-13T14:15:41.6665361Z [  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/step_concrete_2.ogg-0d19f6849d892f8a075fa8b2741d66f0.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6666142Z [  50% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/step_concrete_2.ogg.import[39m[0m
+2026-11-13T14:15:41.6667526Z [  51% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ui_confirm.ogg-835f5ce713a16583ec5b3dfebe9b1659.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6668756Z [  51% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/ui_confirm.ogg.import[39m[0m
+2026-11-13T14:15:41.6670257Z [  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ui_open.ogg-47d1a9beff873fb2fb97d6208b7dc831.oggvorbisstr[39m[0m
+2026-11-13T14:15:41.6671044Z [  53% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/ui_open.ogg.import[39m[0m
+2026-11-13T14:15:41.6671661Z [  54% ] [90m[1msavepack[22m | Storing File: res://assets/audio/manifest.json[39m[0m
+2026-11-13T14:15:41.6672302Z [  55% ] [90m[1msavepack[22m | Storing File: res://resources/chapters/missed_fight.json[39m[0m
+2026-11-13T14:15:41.6672964Z [  56% ] [90m[1msavepack[22m | Storing File: res://resources/chapters/missed_fight_music.json[39m[0m
+2026-11-13T14:15:41.6673600Z [  58% ] [90m[1msavepack[22m | Storing File: res://resources/combat/prototype.json[39m[0m
+2026-11-13T14:15:41.6674270Z [  59% ] [90m[1msavepack[22m | Storing File: res://resources/combat/weapon_visuals.json[39m[0m
+2026-11-13T14:15:41.6674926Z [  60% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_intro.json[39m[0m
+2026-11-13T14:15:41.6675966Z [  61% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_outro.json[39m[0m
+2026-11-13T14:15:41.6676626Z [  62% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_phone.json[39m[0m
+2026-11-13T14:15:41.6677275Z [  64% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/yakuza_phone.json[39m[0m
+2026-11-13T14:15:41.6762187Z [  65% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn[39m[0m
+2026-11-13T14:15:41.8108864Z [  66% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-d4330b4791f3917e295b9499ab03afd1-missed_fight.scn[39m[0m
+2026-11-13T14:15:41.8114151Z [  66% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-7ec123d12220e876e356999a9b337fee-combat_lab.scn[39m[0m
+2026-11-13T14:15:41.8392474Z [  68% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-1f6edd4dd32bc44f1db051deb0ca264a-dialogue_audio_lab.scn[39m[0m
+2026-11-13T14:15:41.8511349Z [  69% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-068f8a3c41af9493c93f0643319ed36a-movement_lab.scn[39m[0m
+2026-11-13T14:15:41.8526951Z [  70% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_player.gdc[39m[0m
+2026-11-13T14:15:41.8531307Z [  71% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_weapon_visual.gdc[39m[0m
+2026-11-13T14:15:41.8535998Z [  73% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/yakuza_actor.gdc[39m[0m
+2026-11-13T14:15:41.8548817Z [  74% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_actor.gdc[39m[0m
+2026-11-13T14:15:41.8551822Z [  75% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gdc[39m[0m
+2026-11-13T14:15:41.8557748Z [  76% ] [90m[1msavepack[22m | Storing File: res://scripts/core/bootstrap.gdc[39m[0m
+2026-11-13T14:15:41.8580762Z [  78% ] [90m[1msavepack[22m | Storing File: res://scripts/core/combat_lab.gdc[39m[0m
+2026-11-13T14:15:41.8603480Z [  79% ] [90m[1msavepack[22m | Storing File: res://scripts/core/dialogue_audio_lab.gdc[39m[0m
+2026-11-13T14:15:41.8606235Z [  80% ] [90m[1msavepack[22m | Storing File: res://scripts/core/input_bindings.gdc[39m[0m
+2026-11-13T14:15:41.8614921Z [  81% ] [90m[1msavepack[22m | Storing File: res://scripts/core/movement_lab.gdc[39m[0m
+2026-11-13T14:15:41.8620527Z [  82% ] [90m[1msavepack[22m | Storing File: res://scripts/core/options_store.gdc[39m[0m
+2026-11-13T14:15:41.8622875Z [  84% ] [90m[1msavepack[22m | Storing File: res://scripts/core/runtime_shutdown.gdc[39m[0m
+2026-11-13T14:15:41.8628365Z [  85% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/chapter_progress.gdc[39m[0m
+2026-11-13T14:15:41.8648216Z [  86% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/missed_fight.gdc[39m[0m
+2026-11-13T14:15:41.8664331Z [  87% ] [90m[1msavepack[22m | Storing File: res://scripts/qa/mission_replay.gdc[39m[0m
+2026-11-13T14:15:41.8681093Z [  89% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/audio_director.gdc[39m[0m
+2026-11-13T14:15:41.8691723Z [  90% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/combat_system.gdc[39m[0m
+2026-11-13T14:15:41.8703219Z [  91% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/dialogue_director.gdc[39m[0m
+2026-11-13T14:15:41.8715917Z [  92% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/mission_ui.gdc[39m[0m
+2026-11-13T14:15:41.8718643Z [  94% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/vhs_overlay.gdc[39m[0m
+2026-11-13T14:15:41.8719704Z [  95% ] [90m[1msavepack[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt[39m[0m
+2026-11-13T14:15:41.8728418Z [  96% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res[39m[0m
+2026-11-13T14:15:41.8732614Z [  97% ] [90m[1msavepack[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt[39m[0m
+2026-11-13T14:15:41.8733765Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap[39m[0m
+2026-11-13T14:15:41.8734982Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/levels/missed_fight.tscn.remap[39m[0m
+2026-11-13T14:15:41.8736164Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/combat_lab.tscn.remap[39m[0m
+2026-11-13T14:15:41.8737400Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/dialogue_audio_lab.tscn.remap[39m[0m
+2026-11-13T14:15:41.8738604Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/movement_lab.tscn.remap[39m[0m
+2026-11-13T14:15:41.8739936Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_player.gd.remap[39m[0m
+2026-11-13T14:15:41.8741182Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_weapon_visual.gd.remap[39m[0m
+2026-11-13T14:15:41.8742423Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/yakuza_actor.gd.remap[39m[0m
+2026-11-13T14:15:41.8743570Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_actor.gd.remap[39m[0m
+2026-11-13T14:15:41.8744643Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gd.remap[39m[0m
+2026-11-13T14:15:41.8745426Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/bootstrap.gd.remap[39m[0m
+2026-11-13T14:15:41.8746024Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/combat_lab.gd.remap[39m[0m
+2026-11-13T14:15:41.8746641Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/dialogue_audio_lab.gd.remap[39m[0m
+2026-11-13T14:15:41.8747275Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/input_bindings.gd.remap[39m[0m
+2026-11-13T14:15:41.8747871Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/movement_lab.gd.remap[39m[0m
+2026-11-13T14:15:41.8748465Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/options_store.gd.remap[39m[0m
+2026-11-13T14:15:41.8749073Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/runtime_shutdown.gd.remap[39m[0m
+2026-11-13T14:15:41.8749895Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/chapter_progress.gd.remap[39m[0m
+2026-11-13T14:15:41.8750530Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/missed_fight.gd.remap[39m[0m
+2026-11-13T14:15:41.8751137Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/qa/mission_replay.gd.remap[39m[0m
+2026-11-13T14:15:41.8751813Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/audio_director.gd.remap[39m[0m
+2026-11-13T14:15:41.8752938Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/combat_system.gd.remap[39m[0m
+2026-11-13T14:15:41.8753572Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/dialogue_director.gd.remap[39m[0m
+2026-11-13T14:15:41.8754203Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/mission_ui.gd.remap[39m[0m
+2026-11-13T14:15:41.8754785Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/vhs_overlay.gd.remap[39m[0m
+2026-11-13T14:15:41.8755368Z [  97% ] [90m[1msavepack[22m | Storing File: res://default_bus_layout.tres.remap[39m[0m
+2026-11-13T14:15:41.8755962Z [  97% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+2026-11-13T14:15:41.8756537Z [  97% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+2026-11-13T14:15:41.8757338Z [  97% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+2026-11-13T14:15:41.8759308Z [92m[ DONE ][39m [1msavepack[22m
+2026-11-13T14:15:41.8759878Z [0m
+2026-11-13T14:15:42.6655792Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+2026-11-13T14:15:42.6918650Z 
+2026-11-13T14:15:44.7895219Z [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+2026-11-13T14:15:44.7896643Z [   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+2026-11-13T14:15:44.7912037Z [  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+2026-11-13T14:15:44.7942012Z [  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+2026-11-13T14:15:44.7943151Z [  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+2026-11-13T14:15:44.8211930Z [  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+2026-11-13T14:15:44.8212799Z [  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+2026-11-13T14:15:44.8213450Z [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+2026-11-13T14:15:44.8213904Z [0m
+2026-11-13T14:15:44.9417086Z [   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+2026-11-13T14:15:44.9469223Z [   1% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/atlas.json[39m[0m
+2026-11-13T14:15:44.9471128Z [   2% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/patrol_sheet.png-d496d01845e05242f54697af21aa5c9c.ctex[39m[0m
+2026-11-13T14:15:44.9472173Z [   2% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/patrol_sheet.png.import[39m[0m
+2026-11-13T14:15:44.9474646Z [   3% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/rusher_sheet.png-0d53e78c458263a6a077cc0311ff7c39.ctex[39m[0m
+2026-11-13T14:15:44.9475463Z [   3% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/rusher_sheet.png.import[39m[0m
+2026-11-13T14:15:44.9476811Z [   4% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/shooter_sheet.png-f3df25ac9950adf641cc0213a7ff54d7.ctex[39m[0m
+2026-11-13T14:15:44.9477666Z [   4% ] [90m[1msavepack[22m | Storing File: res://assets/art/enemies/shooter_sheet.png.import[39m[0m
+2026-11-13T14:15:44.9478599Z [   5% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/atlas.json[39m[0m
+2026-11-13T14:15:44.9481207Z [   7% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/doors.png-9d66a2c42ab97dfe6b531570cb9ed34a.ctex[39m[0m
+2026-11-13T14:15:44.9481967Z [   7% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/doors.png.import[39m[0m
+2026-11-13T14:15:44.9483607Z [   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/props.png-347a5bb6126a41228af1915b5e4bac79.ctex[39m[0m
+2026-11-13T14:15:44.9484398Z [   8% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/props.png.import[39m[0m
+2026-11-13T14:15:44.9486250Z [   9% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tiles.png-de22141ac47cb5c4cc4eb01abd43774c.ctex[39m[0m
+2026-11-13T14:15:44.9487013Z [   9% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/tiles.png.import[39m[0m
+2026-11-13T14:15:44.9489001Z [  10% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/world.png-f9012f7824c455f804ca6d677012e68a.ctex[39m[0m
+2026-11-13T14:15:44.9489965Z [  10% ] [90m[1msavepack[22m | Storing File: res://assets/art/missed_fight/world.png.import[39m[0m
+2026-11-13T14:15:44.9491017Z [  12% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/actions_atlas.json[39m[0m
+2026-11-13T14:15:44.9493990Z [  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/action_sheet.png-5237e57464a1d501fce0cfbebd076ba3.ctex[39m[0m
+2026-11-13T14:15:44.9494789Z [  13% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/action_sheet.png.import[39m[0m
+2026-11-13T14:15:44.9496000Z [  14% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/atlas.json[39m[0m
+2026-11-13T14:15:44.9498785Z [  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portraits.png-7717499903b8d58fcf45e47f7dde9628.ctex[39m[0m
+2026-11-13T14:15:44.9499529Z [  15% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portraits.png.import[39m[0m
+2026-11-13T14:15:44.9502019Z [  17% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portraits_past.png-4ff01ffc0564277ab4f780a7f9f37f0a.ctex[39m[0m
+2026-11-13T14:15:44.9502797Z [  17% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portraits_past.png.import[39m[0m
+2026-11-13T14:15:44.9504501Z [  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/portrait_motion.png-8fbff73d48037e3a66a0f67d9b366503.ctex[39m[0m
+2026-11-13T14:15:44.9505307Z [  18% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portrait_motion.png.import[39m[0m
+2026-11-13T14:15:44.9506174Z [  19% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/portrait_motion_atlas.json[39m[0m
+2026-11-13T14:15:44.9508604Z [  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/world_sheet.png-a6a9182adfb87728b503ba2243893459.ctex[39m[0m
+2026-11-13T14:15:44.9509336Z [  20% ] [90m[1msavepack[22m | Storing File: res://assets/art/yakuza/world_sheet.png.import[39m[0m
+2026-11-13T14:15:44.9513245Z [  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_bass.ogg-1eeca6f6f17a87b7d9c8e9189f4443a2.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9514060Z [  21% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_bass.ogg.import[39m[0m
+2026-11-13T14:15:44.9520280Z [  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_drums.ogg-972bb64ed78bdffbd1bc422b84007d85.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9521119Z [  23% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_drums.ogg.import[39m[0m
+2026-11-13T14:15:44.9525168Z [  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_lead.ogg-2ba82d1c7255214a63552522c72b29d0.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9525997Z [  24% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_lead.ogg.import[39m[0m
+2026-11-13T14:15:44.9529095Z [  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/last_skuf_demo_texture.ogg-fb2742b114bc4d5f6a643bc84058e547.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9530151Z [  25% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/last_skuf_demo_texture.ogg.import[39m[0m
+2026-11-13T14:15:44.9533099Z [  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_bass.ogg-d761fc0f4bf2ce766954915bf10f2a06.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9533906Z [  26% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_bass.ogg.import[39m[0m
+2026-11-13T14:15:44.9539714Z [  28% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_drums.ogg-c97a6c58bf78b812770495126d9b18ad.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9540581Z [  28% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_drums.ogg.import[39m[0m
+2026-11-13T14:15:44.9544683Z [  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_lead.ogg-e4595127b44d455765e7a6340bf2ab5f.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9545480Z [  29% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_lead.ogg.import[39m[0m
+2026-11-13T14:15:44.9548628Z [  30% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_texture.ogg-360befd567327ba585027363731ef139.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9549460Z [  30% ] [90m[1msavepack[22m | Storing File: res://assets/audio/music/missed_fight_texture.ogg.import[39m[0m
+2026-11-13T14:15:44.9551022Z [  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/clear.ogg-93ba053b5fe06a152162d2023cabc599.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9551751Z [  31% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/clear.ogg.import[39m[0m
+2026-11-13T14:15:44.9553373Z [  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/death.ogg-886d56efc7d54658275fbe74ae3e444f.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9554284Z [  33% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/death.ogg.import[39m[0m
+2026-11-13T14:15:44.9555442Z [  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/footstep_metal_1.ogg-af0489d6fc16fa7e60dcf0735ae695aa.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9556267Z [  33% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/footstep_metal_1.ogg.import[39m[0m
+2026-11-13T14:15:44.9557639Z [  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/footstep_metal_2.ogg-3b4dc358b517fe786ffcc93027db43f2.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9558426Z [  34% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/footstep_metal_2.ogg.import[39m[0m
+2026-11-13T14:15:44.9559908Z [  35% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gunshot.ogg-14b19c98f652cca7b221b458f816c62e.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9560656Z [  35% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/gunshot.ogg.import[39m[0m
+2026-11-13T14:15:44.9562308Z [  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/impact_1.ogg-8ab08f9bddf566882e7c1b0ee2491694.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9563040Z [  37% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/impact_1.ogg.import[39m[0m
+2026-11-13T14:15:44.9564495Z [  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/impact_2.ogg-73473df8fbd7bef114cb3508a2008e1c.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9565236Z [  38% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/impact_2.ogg.import[39m[0m
+2026-11-13T14:15:44.9566482Z [  39% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/knife.ogg-39ede5efb5e71cf3421bc5e066d5d541.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9567196Z [  39% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/knife.ogg.import[39m[0m
+2026-11-13T14:15:44.9568995Z [  40% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/missed_fight_door.ogg-5583dcfd7cdbbb0eb254e331c6cf95e6.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9570017Z [  40% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/missed_fight_door.ogg.import[39m[0m
+2026-11-13T14:15:44.9571541Z [  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/noise.ogg-8a6df8f00d51d204311423c1543a21e2.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9572263Z [  41% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/noise.ogg.import[39m[0m
+2026-11-13T14:15:44.9574065Z [  43% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/phone_ring.ogg-2ce505456ff81ad8a7042f9c28ca9eb0.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9574930Z [  43% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/phone_ring.ogg.import[39m[0m
+2026-11-13T14:15:44.9575986Z [  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/retry.ogg-5e3f65c412027a4ca6ed74f04f494f6e.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9576700Z [  44% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/retry.ogg.import[39m[0m
+2026-11-13T14:15:44.9578987Z [  45% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/shove.ogg-885bc2fd73e2f687b6884eb20033b2af.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9580715Z [  45% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/shove.ogg.import[39m[0m
+2026-11-13T14:15:44.9582366Z [  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/speech_yakuza_1.ogg-527dcb1a840d5b0f3dd7f4cfdc73f0c4.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9584015Z [  46% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/speech_yakuza_1.ogg.import[39m[0m
+2026-11-13T14:15:44.9585677Z [  48% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/speech_yakuza_2.ogg-7f45bc36cbc3e97f820fc169ae72f70a.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9587410Z [  48% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/speech_yakuza_2.ogg.import[39m[0m
+2026-11-13T14:15:44.9589042Z [  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/step_concrete_1.ogg-05472e7afecb1eb63a244f62a16eca8a.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9591240Z [  49% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/step_concrete_1.ogg.import[39m[0m
+2026-11-13T14:15:44.9592931Z [  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/step_concrete_2.ogg-0d19f6849d892f8a075fa8b2741d66f0.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9594547Z [  50% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/step_concrete_2.ogg.import[39m[0m
+2026-11-13T14:15:44.9596184Z [  51% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ui_confirm.ogg-835f5ce713a16583ec5b3dfebe9b1659.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9597796Z [  51% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/ui_confirm.ogg.import[39m[0m
+2026-11-13T14:15:44.9599422Z [  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ui_open.ogg-47d1a9beff873fb2fb97d6208b7dc831.oggvorbisstr[39m[0m
+2026-11-13T14:15:44.9601353Z [  53% ] [90m[1msavepack[22m | Storing File: res://assets/audio/sfx/ui_open.ogg.import[39m[0m
+2026-11-13T14:15:44.9602472Z [  54% ] [90m[1msavepack[22m | Storing File: res://assets/audio/manifest.json[39m[0m
+2026-11-13T14:15:44.9603576Z [  55% ] [90m[1msavepack[22m | Storing File: res://resources/chapters/missed_fight.json[39m[0m
+2026-11-13T14:15:44.9604988Z [  56% ] [90m[1msavepack[22m | Storing File: res://resources/chapters/missed_fight_music.json[39m[0m
+2026-11-13T14:15:44.9606123Z [  58% ] [90m[1msavepack[22m | Storing File: res://resources/combat/prototype.json[39m[0m
+2026-11-13T14:15:44.9607249Z [  59% ] [90m[1msavepack[22m | Storing File: res://resources/combat/weapon_visuals.json[39m[0m
+2026-11-13T14:15:44.9608414Z [  60% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_intro.json[39m[0m
+2026-11-13T14:15:44.9609727Z [  61% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_outro.json[39m[0m
+2026-11-13T14:15:44.9611072Z [  62% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/missed_fight_phone.json[39m[0m
+2026-11-13T14:15:44.9612149Z [  64% ] [90m[1msavepack[22m | Storing File: res://resources/dialogue/yakuza_phone.json[39m[0m
+2026-11-13T14:15:44.9613548Z [  65% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-f4e2c9f812ce7a74237ab875d8ca03c9-bootstrap.scn[39m[0m
+2026-11-13T14:15:44.9615256Z [  66% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-d4330b4791f3917e295b9499ab03afd1-missed_fight.scn[39m[0m
+2026-11-13T14:15:44.9616967Z [  66% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-7ec123d12220e876e356999a9b337fee-combat_lab.scn[39m[0m
+2026-11-13T14:15:44.9618771Z [  68% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-1f6edd4dd32bc44f1db051deb0ca264a-dialogue_audio_lab.scn[39m[0m
+2026-11-13T14:15:44.9620720Z [  69% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-068f8a3c41af9493c93f0643319ed36a-movement_lab.scn[39m[0m
+2026-11-13T14:15:44.9631941Z [  70% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_player.gdc[39m[0m
+2026-11-13T14:15:44.9636333Z [  71% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_weapon_visual.gdc[39m[0m
+2026-11-13T14:15:44.9641993Z [  73% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/yakuza_actor.gdc[39m[0m
+2026-11-13T14:15:44.9654632Z [  74% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_actor.gdc[39m[0m
+2026-11-13T14:15:44.9657818Z [  75% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gdc[39m[0m
+2026-11-13T14:15:44.9664384Z [  76% ] [90m[1msavepack[22m | Storing File: res://scripts/core/bootstrap.gdc[39m[0m
+2026-11-13T14:15:44.9686669Z [  78% ] [90m[1msavepack[22m | Storing File: res://scripts/core/combat_lab.gdc[39m[0m
+2026-11-13T14:15:44.9709404Z [  79% ] [90m[1msavepack[22m | Storing File: res://scripts/core/dialogue_audio_lab.gdc[39m[0m
+2026-11-13T14:15:44.9713004Z [  80% ] [90m[1msavepack[22m | Storing File: res://scripts/core/input_bindings.gdc[39m[0m
+2026-11-13T14:15:44.9722799Z [  81% ] [90m[1msavepack[22m | Storing File: res://scripts/core/movement_lab.gdc[39m[0m
+2026-11-13T14:15:44.9728882Z [  82% ] [90m[1msavepack[22m | Storing File: res://scripts/core/options_store.gdc[39m[0m
+2026-11-13T14:15:44.9732003Z [  84% ] [90m[1msavepack[22m | Storing File: res://scripts/core/runtime_shutdown.gdc[39m[0m
+2026-11-13T14:15:44.9737911Z [  85% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/chapter_progress.gdc[39m[0m
+2026-11-13T14:15:44.9757351Z [  86% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/missed_fight.gdc[39m[0m
+2026-11-13T14:15:44.9774106Z [  87% ] [90m[1msavepack[22m | Storing File: res://scripts/qa/mission_replay.gdc[39m[0m
+2026-11-13T14:15:44.9790414Z [  89% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/audio_director.gdc[39m[0m
+2026-11-13T14:15:44.9800686Z [  90% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/combat_system.gdc[39m[0m
+2026-11-13T14:15:44.9812875Z [  91% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/dialogue_director.gdc[39m[0m
+2026-11-13T14:15:44.9825042Z [  92% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/mission_ui.gdc[39m[0m
+2026-11-13T14:15:44.9828437Z [  94% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/vhs_overlay.gdc[39m[0m
+2026-11-13T14:15:44.9829478Z [  95% ] [90m[1msavepack[22m | Storing File: res://LICENSES/GODOT_LICENSE.txt[39m[0m
+2026-11-13T14:15:44.9831181Z [  96% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res[39m[0m
+2026-11-13T14:15:44.9834416Z [  97% ] [90m[1msavepack[22m | Storing File: res://LICENSES/GODOT_COPYRIGHT.txt[39m[0m
+2026-11-13T14:15:44.9836971Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/bootstrap/bootstrap.tscn.remap[39m[0m
+2026-11-13T14:15:44.9838136Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/levels/missed_fight.tscn.remap[39m[0m
+2026-11-13T14:15:44.9839208Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/combat_lab.tscn.remap[39m[0m
+2026-11-13T14:15:44.9840485Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/dialogue_audio_lab.tscn.remap[39m[0m
+2026-11-13T14:15:44.9841577Z [  97% ] [90m[1msavepack[22m | Storing File: res://scenes/world/movement_lab.tscn.remap[39m[0m
+2026-11-13T14:15:44.9842678Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_player.gd.remap[39m[0m
+2026-11-13T14:15:44.9843803Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/combat_weapon_visual.gd.remap[39m[0m
+2026-11-13T14:15:44.9844926Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/actors/yakuza_actor.gd.remap[39m[0m
+2026-11-13T14:15:44.9845966Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_actor.gd.remap[39m[0m
+2026-11-13T14:15:44.9847045Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ai/enemy_defeat_visual.gd.remap[39m[0m
+2026-11-13T14:15:44.9848165Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/bootstrap.gd.remap[39m[0m
+2026-11-13T14:15:44.9849188Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/combat_lab.gd.remap[39m[0m
+2026-11-13T14:15:44.9850502Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/dialogue_audio_lab.gd.remap[39m[0m
+2026-11-13T14:15:44.9851657Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/input_bindings.gd.remap[39m[0m
+2026-11-13T14:15:44.9852797Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/movement_lab.gd.remap[39m[0m
+2026-11-13T14:15:44.9853891Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/options_store.gd.remap[39m[0m
+2026-11-13T14:15:44.9855057Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/core/runtime_shutdown.gd.remap[39m[0m
+2026-11-13T14:15:44.9856522Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/chapter_progress.gd.remap[39m[0m
+2026-11-13T14:15:44.9857639Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/levels/missed_fight.gd.remap[39m[0m
+2026-11-13T14:15:44.9858700Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/qa/mission_replay.gd.remap[39m[0m
+2026-11-13T14:15:44.9859974Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/audio_director.gd.remap[39m[0m
+2026-11-13T14:15:44.9860951Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/combat_system.gd.remap[39m[0m
+2026-11-13T14:15:44.9861890Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/systems/dialogue_director.gd.remap[39m[0m
+2026-11-13T14:15:44.9862874Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/mission_ui.gd.remap[39m[0m
+2026-11-13T14:15:44.9863855Z [  97% ] [90m[1msavepack[22m | Storing File: res://scripts/ui/vhs_overlay.gd.remap[39m[0m
+2026-11-13T14:15:44.9864856Z [  97% ] [90m[1msavepack[22m | Storing File: res://default_bus_layout.tres.remap[39m[0m
+2026-11-13T14:15:44.9865827Z [  97% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+2026-11-13T14:15:44.9866980Z [  97% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+2026-11-13T14:15:44.9867855Z [  97% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+2026-11-13T14:15:44.9868537Z [92m[ DONE ][39m [1msavepack[22m
+2026-11-13T14:15:44.9868980Z [0m
+2026-11-13T14:15:46.1440647Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+2026-11-13T14:15:46.1441040Z 
+2026-11-13T14:15:46.1441167Z BOOTSTRAP_SMOKE ready=true
+2026-11-13T14:15:46.1524424Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-13T14:15:46.1524814Z with:
+2026-11-13T14:15:46.1525028Z   name: bootstrap-validation
+2026-11-13T14:15:46.1525294Z   path: reports/ci/
+build/
+
+2026-11-13T14:15:46.1525526Z   retention-days: 7
+2026-11-13T14:15:46.1525740Z   if-no-files-found: warn
+2026-11-13T14:15:46.1525976Z   compression-level: 6
+2026-11-13T14:15:46.1526188Z   overwrite: false
+2026-11-13T14:15:46.1526398Z   include-hidden-files: false
+2026-11-13T14:15:46.1526636Z ##[endgroup]
+2026-11-13T14:15:46.3236386Z (node:3841) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T14:15:46.3237064Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T14:15:46.3399895Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T14:15:46.3401846Z The least common ancestor is /home/runner/work/Last-Skuf/Last-Skuf. This will be the root directory of the artifact
+2026-11-13T14:15:46.3402953Z With the provided path, there will be 34 files uploaded
+2026-11-13T14:15:46.3403809Z Artifact name is valid!
+2026-11-13T14:15:46.3404264Z Root directory input is valid!
+2026-11-13T14:15:46.7096632Z Beginning upload of artifact content to blob storage
+2026-11-13T14:15:47.0707393Z (node:3841) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T14:15:47.9230135Z Uploaded bytes 8388608
+2026-11-13T14:15:48.3249473Z Uploaded bytes 16777216
+2026-11-13T14:15:49.1518781Z Uploaded bytes 25165824
+2026-11-13T14:15:49.3378880Z Uploaded bytes 33554432
+2026-11-13T14:15:50.5055224Z Uploaded bytes 41943040
+2026-11-13T14:15:50.7111449Z Uploaded bytes 50331648
+2026-11-13T14:15:51.8372134Z Uploaded bytes 58720256
+2026-11-13T14:15:52.4231827Z Uploaded bytes 67108864
+2026-11-13T14:15:52.7917833Z Uploaded bytes 75497472
+2026-11-13T14:15:54.5523933Z Uploaded bytes 81194967
+2026-11-13T14:15:54.6166701Z Finished uploading artifact content to blob storage!
+2026-11-13T14:15:54.6170005Z SHA256 digest of uploaded artifact zip is 5744a22c87f49a401dc68d17e95551353cfae488696edd1389046225da1c69c9
+2026-11-13T14:15:54.6172229Z Finalizing artifact upload
+2026-11-13T14:15:55.1180910Z Artifact bootstrap-validation.zip successfully finalized. Artifact ID 14045113925
+2026-11-13T14:15:55.1182410Z Artifact bootstrap-validation has been successfully uploaded! Final size is 81194967 bytes. Artifact ID is 14045113925
+2026-11-13T14:15:55.1191108Z Artifact download URL: https://github.com/Artyx71/Last-Skuf/actions/runs/43440519792/artifacts/14045113925
+2026-11-13T14:15:55.1441469Z Post job cleanup.
+2026-11-13T14:15:55.2325359Z [command]/usr/bin/git version
+2026-11-13T14:15:55.2368292Z git version 2.56.1
+2026-11-13T14:15:55.2405575Z Temporarily overriding HOME='/home/runner/work/_temp/06319b25-8bf7-4777-b0fc-6156177769c5' before making global git config changes
+2026-11-13T14:15:55.2406959Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T14:15:55.2410928Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Last-Skuf/Last-Skuf
+2026-11-13T14:15:55.2452511Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T14:15:55.2490086Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T14:15:55.2722292Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T14:15:55.2759843Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T14:15:55.3155641Z Cleaning up orphan processes
+2026-11-13T14:15:55.3547879Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
