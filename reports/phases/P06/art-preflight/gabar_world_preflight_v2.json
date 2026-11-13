@@ -1,0 +1,46 @@
+{
+  "phase": "P06",
+  "actor_id": "gabar",
+  "reviewer": "/root/art_review_p06",
+  "review_kind": "independent_world_source_movement_semantics_preflight",
+  "candidate_version": "v2",
+  "status": "FAIL_SOURCE_MOVEMENT_SEMANTICS",
+  "native_sha256": "3b1126fd51712883045fb9ec2b2725c017050e0a00fffdf91dc439f9f2c02571",
+  "v1_failure_preserved": true,
+  "source_changes_by_reviewer": false,
+  "runtime_performed": false,
+  "phase_approval": false,
+  "walk_approval": false,
+  "run_approval": false,
+  "idle_breathing_approval": false,
+  "partially_improved": [
+    "Real narrower side passingposes3/5",
+    "Clearer front/back walkphase spread",
+    "Left run headtop variation reduced3px to1px"
+  ],
+  "findings": [
+    {
+      "id": "GABAR-WORLD-01",
+      "severity": "HIGH",
+      "status": "PARTIALLY_REMEDIATED_NOT_CLOSED",
+      "remaining": "Side contacts2/4 and passings3/5 retain same near/far leg/arm role; author oppositecontact4 and matching passing5."
+    },
+    {
+      "id": "GABAR-WORLD-02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "remaining": "Run6/7 fail visible oppositelead/reciprocalarms, clearest in both side rows; allfourdirection run approval withheld."
+    },
+    {
+      "id": "GABAR-WORLD-03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "remaining": "Eastwatch still on anatomicalright neararm; author leftwatch on fararm or occluded."
+    }
+  ],
+  "next_bounded_strategy": "Four separate direction-specific8pose wholebody sources; same gait and handedness criteria, no anatomical reconstruction/mirroring.",
+  "next_strategy_is_preapproved_art": false,
+  "do_not_propagate_to_other_heroes": true,
+  "report": "gabar_world_preflight_v2.md",
+  "metrics": "gabar_world_preflight_v2_metrics.json"
+}

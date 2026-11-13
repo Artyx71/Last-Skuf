@@ -1,0 +1,30 @@
+{
+  "phase": "P06",
+  "actor_id": "gabar",
+  "direction": "right",
+  "candidate_version": "v4",
+  "reviewer": "/root/art_review_p06",
+  "status": "FAIL_OPPOSITE_LEG_PHASE_READABILITY",
+  "native_sha256": "47010cbd8864fb79fae3e32bc1219b677cfeb4c40a9393b4b3bee0e95f73aad0",
+  "source_camera_consistency": "ACCEPTABLE_CANDIDATE",
+  "source_watch_handedness": "CORRECT_FAR_ANATOMICAL_LEFT_ARM",
+  "source_arm_phase_reversal": "READABLE",
+  "source_passing_pose_width": "READABLY_NARROWER",
+  "source_opposite_leg_phase_approval": false,
+  "blocking_findings": [
+    {
+      "severity": "HIGH",
+      "issue": "Contacts2/4 andrun6/7 exchangearms but near/farleadingleg reversal is not unambiguous atnative48x64.",
+      "required": "Wholepose oppositephaseB4/B7 andmatchingpassingB5 asneeded, clarifynear/farlegocclusion/value roles while preservingcurrentcamera/watch."
+    }
+  ],
+  "source_anchor_blocker_found": false,
+  "runtime_approval": false,
+  "full_world_approval": false,
+  "phase_approval": false,
+  "source_mutations": false,
+  "candidate_in_production": false,
+  "historical_failures_preserved": true,
+  "report": "gabar_world_right_preflight_v4.md",
+  "metrics": "gabar_world_right_preflight_v4_metrics.json"
+}

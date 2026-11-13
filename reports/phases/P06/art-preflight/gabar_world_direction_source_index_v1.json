@@ -1,0 +1,42 @@
+{
+  "status": "FOUR_DIRECTION_SOURCE_CANDIDATES_ACCEPTABLE_FOR_NATIVE_PREVIEW",
+  "runtime_approved": false,
+  "full_world_approved": false,
+  "phase_approved": false,
+  "directions": [
+    {
+      "direction": "left",
+      "native_path": "assets/source_art/characters/gabar/world_left_native_v3b.png",
+      "native_sha256": "fb168cfa677cb28525f65b77635caa1be722a6cfe0da33d511e6a85506b01553",
+      "review": "gabar_world_left_preflight_v3b.md",
+      "review_sha256": "5c400cd4b05ee5c91617ddca84255835dafe5336f0a3f8f4dff859e884565ca1"
+    },
+    {
+      "direction": "right",
+      "native_path": "assets/source_art/characters/gabar/world_right_native_v4b.png",
+      "native_sha256": "663ab5b1f274f696abca552234fa3039988d6111404f9417acb00f9e4e30932c",
+      "review": "gabar_world_right_preflight_v4b.md",
+      "review_sha256": "e203a78d890115ed9debda75885af2e9539048b81ba1c5919d70aa2029418c2c"
+    },
+    {
+      "direction": "down",
+      "native_path": "assets/source_art/characters/gabar/world_down_native_v5a.png",
+      "native_sha256": "dab7e3f2fd1d2451211d2a7536e6ebc20fc5ae657449ccf3def083a49efce060",
+      "review": "gabar_world_down_preflight_v5a.md",
+      "review_sha256": "87dc348a6e5909996ea42f1a4fc6ece92e6a09173071f1137523c9d34a0eb9de"
+    },
+    {
+      "direction": "up",
+      "native_path": "assets/source_art/characters/gabar/world_up_native_v6c.png",
+      "native_sha256": "af761825286d105716b57ca0c248d51c56d4a9e88f1989e19edcd81a71138167",
+      "review": "gabar_world_up_preflight_v6c.md",
+      "review_sha256": "a97724a0536eb125452c3c21ec5d06f17c3d48460d1a6da18fa7f6dba0929caa"
+    }
+  ],
+  "required_runtime_observations": [
+    "floor/root placement and footslide, especially DOWN feet through y63",
+    "loop and state transition stability",
+    "four-direction apparent scale/camera consistency in world",
+    "texture boil and frame cadence"
+  ]
+}
