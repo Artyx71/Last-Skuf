@@ -48,3 +48,7 @@ One Yakuza level with original pixel art assets, top-down navigation, interactab
 ## Out of scope for this stage
 - Exact frame data, combat damage, weapon lists, AI parameters, scores and chapter difficulty curves. Define after prototype playtests.
 - Final rating targets or guaranteed asset quality prior to art review.
+
+## Combat/Gore зависимая подфаза
+
+Утверждённое дополнение владельца: [COMBAT_GORE_POLISH_SPEC.md](COMBAT_GORE_POLISH_SPEC.md), IDs IMP-01/02, ART-G01/02, AI-G01, FIN-01/02/03, OPT-G01, QA-G01, PERF-G01, REV-G01. P04G после stabilised P04, обязательно до полной кампании P07. Сохранить CombatSystem/action IDs/physics contact clock и exactly-once score; текущая фаза не прерывается. Статус QUEUED, не реализовано.

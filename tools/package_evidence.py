@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=[f'P{i:02d}' for i in range(9)])
+    parser.add_argument('phase', choices=[f'P{i:02d}' for i in range(9)]+['P04G'])
     args = parser.parse_args()
     directory = ROOT / 'reports/phases' / args.phase
     files = [p for p in directory.rglob('*') if p.is_file()
