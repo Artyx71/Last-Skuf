@@ -24,7 +24,7 @@ import wave
 ROOT=Path(__file__).resolve().parents[1]
 LOCK=json.loads((ROOT/'tools/toolchain.lock.json').read_text())
 GODOT=ROOT/'.tools/godot'/f'Godot_v{LOCK["release"]}_linux.x86_64'
-ERRORS=re.compile(r'SCRIPT ERROR:|ERROR:|FAIL:|\bFAILED\b')
+ERRORS=re.compile(r'SCRIPT ERROR:|ERROR:|FAIL:|\bFAILED\b|ObjectDB instances were leaked|resources still in use')
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 def write(path,value): path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 def game_sources():
@@ -105,7 +105,7 @@ def main():
   check(name+'_signal',{'pcm16_stereo':signal.get('channels')==2 and signal.get('sample_width')==2,'nonempty':signal.get('duration',0)>40 and signal.get('rms',0)>.001,'no_full_scale_clipping':signal.get('full_scale_samples')==0},signal)
   return ok
  check('pinned_engine',{'sha256':sha(GODOT)==LOCK['linux_binary_sha256']})
- native=[GODOT]+(['--headless'] if args.headless else [])+['--path',ROOT/'game']
+ native=[GODOT,'--verbose']+(['--headless'] if args.headless else [])+['--path',ROOT/'game']
  replay('engine_replay',native)
  replay('reduced_visual_replay',native,preferences={'reduced_gore':True,'vhs':False,'reduced_motion':True,'text_scale':1.25})
  if args.movie:
@@ -133,7 +133,7 @@ def main():
      if probe:replay('windows_export_replay',command,wine=True)
    exports.append(row);write(output/'exports.json',exports)
  check('sources_unchanged',{'hashes_match':before==game_sources()})
- write(output/'environment.json',{'platform':platform.platform(),'scope':'Headless technical execution only' if args.headless else 'Native renderer requested','listening':'PENDING_ACTUAL_HUMAN_LISTENING','independent_lead':'PENDING_CONTROLLER_READ_ONLY_REVIEW','git_base':subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True).stdout.strip(),'uncommitted_sources':True,'phase_gate':'NOT_DECIDED_BY_AUTHOR'})
+ write(output/'environment.json',{'platform':platform.platform(),'scope':'Headless technical execution only' if args.headless else 'Native renderer requested','listening':'PENDING_ACTUAL_HUMAN_LISTENING','independent_lead':'PENDING_CONTROLLER_READ_ONLY_REVIEW','git_base':subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True).stdout.strip(),'uncommitted_sources':bool(subprocess.check_output(['git','status','--porcelain=v1','--untracked-files=all','--','game','tools','assets'],cwd=ROOT).strip()),'phase_gate':'NOT_DECIDED_BY_AUTHOR'})
  write(output/'artifacts.json',[{'path':str(p.relative_to(ROOT)),'sha256':sha(p),'bytes':p.stat().st_size} for p in sorted(output.rglob('*')) if p.is_file() and p.name!='artifacts.json'])
  return 0 if all(r['passed'] for r in results) else 1
 
