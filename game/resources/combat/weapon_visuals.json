@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "units": "native sprite pixels relative to frame top-left; subtract pivot [24,58]",
+  "projection": "Feet positions and hitboxes use ground plane. Held weapons use authored hand height. Projectile display keeps its initial hand-to-ground offset for the complete sweep; gameplay and wall checks stay on ground plane.",
+  "actions": {
+    "fps": 12,
+    "contact_frame": 1,
+    "shove_frames": 3,
+    "fire_hold": 0.2,
+    "timing": "Physics poses: frame0 windup1/12sec; frame1 held for original attack.active (.14 shove/.16 knife); frame2 recovery1/12sec. Contact window is unchanged."
+  },
+  "anchors": {
+    "down": {
+      "shove": [
+        [
+          9,
+          35
+        ],
+        [
+          12,
+          36
+        ],
+        [
+          8,
+          37
+        ]
+      ],
+      "fire": [
+        [
+          12,
+          36
+        ]
+      ],
+      "layer": 1
+    },
+    "left": {
+      "shove": [
+        [
+          12,
+          36
+        ],
+        [
+          9,
+          27
+        ],
+        [
+          9,
+          32
+        ]
+      ],
+      "fire": [
+        [
+          9,
+          27
+        ]
+      ],
+      "layer": 1
+    },
+    "right": {
+      "shove": [
+        [
+          38,
+          29
+        ],
+        [
+          39,
+          28
+        ],
+        [
+          38,
+          30
+        ]
+      ],
+      "fire": [
+        [
+          39,
+          28
+        ]
+      ],
+      "layer": 1
+    },
+    "up": {
+      "shove": [
+        [
+          42,
+          28
+        ],
+        [
+          42,
+          27
+        ],
+        [
+          42,
+          37
+        ]
+      ],
+      "fire": [
+        [
+          42,
+          27
+        ]
+      ],
+      "layer": -1
+    }
+  },
+  "knife": {
+    "grip": 4,
+    "blade": 10
+  },
+  "pistol": {
+    "barrel": 12,
+    "flash_duration": 0.085
+  },
+  "enemy_defeat": {
+    "fade_seconds": 0.18,
+    "cue_seconds": 0.65
+  },
+  "review": "Sockets sampled from actual action_sheet native hand pixels; up weapon draws behind body. These are visual sockets, not hurtboxes. No approved P01 artwork changed.",
+  "render_planes": {
+    "floor": 0,
+    "actor_body": 1,
+    "rear_weapon": 0,
+    "front_weapon": 2
+  }
+}

@@ -4,6 +4,8 @@ import argparse
 import hashlib
 import json
 import pathlib
+import os
+import shutil
 import urllib.request
 import zipfile
 
@@ -17,7 +19,17 @@ def download(name):
     target = CACHE / name
     if not target.exists():
         partial = target.with_suffix('.partial')
-        urllib.request.urlretrieve(spec['url'], partial)
+        external_cache = os.environ.get('AYAY_ARCHIVE_CACHE')
+        source = pathlib.Path(external_cache) / name if external_cache else None
+        if source and source.is_file() and source.resolve() != target.resolve():
+            with source.open('rb') as stream:
+                valid_cache = hashlib.file_digest(stream, 'sha512').hexdigest() == spec['sha512']
+            if not valid_cache:
+                raise SystemExit('External cache checksum mismatch: ' + name)
+            shutil.copyfile(source, partial)
+            print('Verified local archive cache:', name)
+        else:
+            urllib.request.urlretrieve(spec['url'], partial)
         partial.rename(target)
     digest = hashlib.file_digest(target.open('rb'), 'sha512').hexdigest()
     if digest != spec['sha512']:

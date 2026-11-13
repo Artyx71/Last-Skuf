@@ -28,7 +28,7 @@ func _ready() -> void:
 	portrait.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(portrait)
 	emotion_label = _add_label("", Vector2(458, 224), 12, Color("66e5cc"))
-	_add_label("АРТ-КАНДИДАТ\nСходство не утверждено.\n\nТехнический стенд.\nЭто ещё не миссия.", Vector2(458, 250), 12, Color("b9b9cc"))
+	_add_label("ПРОТОТИП АРТА\nСходство принято для P01.\n\nТехнический стенд.\nЭто ещё не миссия.", Vector2(458, 250), 12, Color("b9b9cc"))
 	set_expression(0)
 	if OS.get_environment("AYAY_LAB_PAST") == "1":
 		set_past_version(true)

@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "seed": 20261113,
+  "player": {
+    "speed": 82,
+    "health": 1
+  },
+  "kits": {
+    "escape": {
+      "label": "СЛАБЫЙ ЯКУДЗА / УХОД",
+      "melee": "shove",
+      "ranged": "",
+      "distract_cooldown": 3.2
+    },
+    "training": {
+      "label": "УЧЕБНЫЙ НАБОР / НЕ КАМПАНИЯ",
+      "melee": "knife",
+      "ranged": "pistol",
+      "distract_cooldown": 3.2
+    }
+  },
+  "attacks": {
+    "shove": {
+      "damage": 0,
+      "stun": 1.15,
+      "cooldown": 1.2,
+      "active": 0.14,
+      "reach": 19,
+      "radius": 15,
+      "windup": 0.08333333333333333,
+      "recovery": 0.08333333333333333
+    },
+    "knife": {
+      "damage": 1,
+      "stun": 0,
+      "cooldown": 0.48,
+      "active": 0.16,
+      "reach": 22,
+      "radius": 17,
+      "windup": 0.08333333333333333,
+      "recovery": 0.08333333333333333
+    },
+    "pistol": {
+      "damage": 1,
+      "cooldown": 0.5,
+      "speed": 440,
+      "lifetime": 1.4
+    },
+    "enemy_melee": {
+      "damage": 1,
+      "stun": 0,
+      "cooldown": 0.85,
+      "active": 0.12,
+      "reach": 18,
+      "radius": 14
+    },
+    "enemy_bullet": {
+      "damage": 1,
+      "cooldown": 1.1,
+      "speed": 245,
+      "lifetime": 2.2
+    }
+  },
+  "enemies": {
+    "patrol": {
+      "speed": 36,
+      "chase_speed": 67,
+      "sight": 175,
+      "reaction": 0.24,
+      "range": 28,
+      "telegraph": 0.7,
+      "recovery": 0.85,
+      "attack": "enemy_melee"
+    },
+    "rusher": {
+      "speed": 42,
+      "chase_speed": 94,
+      "sight": 230,
+      "reaction": 0.22,
+      "range": 29,
+      "telegraph": 0.68,
+      "recovery": 0.85,
+      "attack": "enemy_melee"
+    },
+    "shooter": {
+      "speed": 28,
+      "chase_speed": 44,
+      "sight": 240,
+      "reaction": 0.28,
+      "range": 185,
+      "telegraph": 0.95,
+      "recovery": 1.15,
+      "attack": "enemy_bullet"
+    }
+  },
+  "spawns": [
+    {
+      "kind": "patrol",
+      "position": [
+        158,
+        118
+      ],
+      "patrol_end": [
+        260,
+        118
+      ]
+    },
+    {
+      "kind": "rusher",
+      "position": [
+        240,
+        246
+      ],
+      "patrol_end": [
+        270,
+        246
+      ]
+    },
+    {
+      "kind": "shooter",
+      "position": [
+        598,
+        112
+      ],
+      "patrol_end": [
+        598,
+        144
+      ]
+    }
+  ],
+  "walls": [
+    [
+      12,
+      54,
+      616,
+      8
+    ],
+    [
+      12,
+      310,
+      616,
+      8
+    ],
+    [
+      12,
+      54,
+      8,
+      264
+    ],
+    [
+      620,
+      54,
+      8,
+      264
+    ],
+    [
+      112,
+      158,
+      220,
+      14
+    ],
+    [
+      408,
+      162,
+      166,
+      14
+    ],
+    [
+      348,
+      80,
+      18,
+      108
+    ]
+  ],
+  "player_spawn": [
+    58,
+    284
+  ],
+  "exit": [
+    584,
+    254,
+    32,
+    55
+  ]
+}

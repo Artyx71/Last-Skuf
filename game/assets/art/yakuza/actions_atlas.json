@@ -1,0 +1,1519 @@
+{
+  "asset_id": "yakuza_p02_actions_v1",
+  "version": 1,
+  "status": "DRAFT_REQUIRES_INDEPENDENT_ACTION_REVIEW",
+  "file": "action_sheet.png",
+  "dimensions": [
+    384,
+    256
+  ],
+  "frame_size": [
+    48,
+    64
+  ],
+  "columns": 8,
+  "rows": 4,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "pivot": [
+    24,
+    58
+  ],
+  "palette": {
+    "opaque_colors_used": 29,
+    "source": "read-only approved atlas.json shared palette",
+    "rgb_hex": [
+      "#0b090e",
+      "#15101a",
+      "#15151e",
+      "#211b29",
+      "#222936",
+      "#252332",
+      "#2b1a1e",
+      "#344255",
+      "#352b3d",
+      "#353244",
+      "#3e94b4",
+      "#4c3c56",
+      "#4c6076",
+      "#4e202c",
+      "#562d37",
+      "#6c9aaf",
+      "#6d354b",
+      "#75455f",
+      "#7bd2df",
+      "#873e3c",
+      "#8b3146",
+      "#994a63",
+      "#a75c49",
+      "#bc5260",
+      "#bc6573",
+      "#c47755",
+      "#dc956f",
+      "#e8878c",
+      "#ece3d5",
+      "#efb08b",
+      "#f6c59f"
+    ]
+  },
+  "animations": {
+    "melee": {
+      "description": "Weak short right-hand shove, phone held in left hand",
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "fps": 12,
+      "loop": false,
+      "contact_column": 1
+    },
+    "hit": {
+      "columns": [
+        3,
+        4
+      ],
+      "fps": 12,
+      "loop": false
+    },
+    "death": {
+      "description": "Three fall stages; column7 lying still",
+      "columns": [
+        5,
+        6,
+        7
+      ],
+      "fps": 12,
+      "loop": false,
+      "hold_final_column": 7
+    }
+  },
+  "frames": [
+    {
+      "id": "melee_down_0",
+      "direction": "down",
+      "column": 0,
+      "animation": "melee",
+      "rect": [
+        0,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        8,
+        45,
+        58
+      ],
+      "rgba_sha256": "59085598a065b3ba6fce703d85128416b61bb2904ff3a370a94c5e6f5adf168b"
+    },
+    {
+      "id": "melee_down_1",
+      "direction": "down",
+      "column": 1,
+      "animation": "melee",
+      "rect": [
+        48,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        5,
+        8,
+        43,
+        58
+      ],
+      "rgba_sha256": "ccbf18800ce3793f44662b0e5cea225faf59744daa155c8f4582e1545847cef1"
+    },
+    {
+      "id": "melee_down_2",
+      "direction": "down",
+      "column": 2,
+      "animation": "melee",
+      "rect": [
+        96,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        3,
+        8,
+        45,
+        58
+      ],
+      "rgba_sha256": "3f89b2251f453717236edf5e9a80d6a9a77f992a342745972f32a134773db221"
+    },
+    {
+      "id": "hit_down_3",
+      "direction": "down",
+      "column": 3,
+      "animation": "hit",
+      "rect": [
+        144,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        8,
+        45,
+        58
+      ],
+      "rgba_sha256": "5edb6bedead943d765664c1629719ad8e414ad0a781851f199684f895309a219"
+    },
+    {
+      "id": "hit_down_4",
+      "direction": "down",
+      "column": 4,
+      "animation": "hit",
+      "rect": [
+        192,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        13,
+        43,
+        58
+      ],
+      "rgba_sha256": "90c83b56861c34042ef5c6edb2d0b83952ab600d7928c1104cdc784274b628e8"
+    },
+    {
+      "id": "death_down_5",
+      "direction": "down",
+      "column": 5,
+      "animation": "death",
+      "rect": [
+        240,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        3,
+        12,
+        45,
+        58
+      ],
+      "rgba_sha256": "fcfef07e34a612f5f697fb853df1edd3dae4133b262a802e31111171eb4e06a8"
+    },
+    {
+      "id": "death_down_6",
+      "direction": "down",
+      "column": 6,
+      "animation": "death",
+      "rect": [
+        288,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        5,
+        19,
+        44,
+        58
+      ],
+      "rgba_sha256": "bc7e3c2f62805301a0386e9c52969a87c4c85ec6b97a97422fe3995d80bf9d60"
+    },
+    {
+      "id": "death_down_7",
+      "direction": "down",
+      "column": 7,
+      "animation": "death",
+      "rect": [
+        336,
+        0,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        3,
+        28,
+        46,
+        58
+      ],
+      "rgba_sha256": "289299d61853e67ec0d0075c473915599a4f9c37c4bad3cbccda9231aa007f57"
+    },
+    {
+      "id": "melee_left_0",
+      "direction": "left",
+      "column": 0,
+      "animation": "melee",
+      "rect": [
+        0,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        8,
+        7,
+        40,
+        58
+      ],
+      "rgba_sha256": "d446b0e3e8adef44584e88cc676052e3ad6eb34b29325b387e2957a7dfe0b1ab"
+    },
+    {
+      "id": "melee_left_1",
+      "direction": "left",
+      "column": 1,
+      "animation": "melee",
+      "rect": [
+        48,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        7,
+        43,
+        58
+      ],
+      "rgba_sha256": "0975d9a5e5ed228bbf38437034f8618259699c7e5c715b665359f968dc82d7b0"
+    },
+    {
+      "id": "melee_left_2",
+      "direction": "left",
+      "column": 2,
+      "animation": "melee",
+      "rect": [
+        96,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        9,
+        42,
+        58
+      ],
+      "rgba_sha256": "92c0091e64a2e6790776de5c618951d897a6c6c136f8c899f479f58f48da2ab8"
+    },
+    {
+      "id": "hit_left_3",
+      "direction": "left",
+      "column": 3,
+      "animation": "hit",
+      "rect": [
+        144,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        5,
+        9,
+        43,
+        58
+      ],
+      "rgba_sha256": "0bb9baaf80259fd5bf928d010e16ca0939496b2c884deef8fa1ab2931864b9d0"
+    },
+    {
+      "id": "hit_left_4",
+      "direction": "left",
+      "column": 4,
+      "animation": "hit",
+      "rect": [
+        192,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        8,
+        11,
+        40,
+        58
+      ],
+      "rgba_sha256": "da003474c618346cee881f1e9fdc50bf39f4a23b74f5bbcd1c96cbb59a6faf25"
+    },
+    {
+      "id": "death_left_5",
+      "direction": "left",
+      "column": 5,
+      "animation": "death",
+      "rect": [
+        240,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        8,
+        13,
+        40,
+        58
+      ],
+      "rgba_sha256": "ba69f7cfe8698d8b5bafa22fd59ff9b6296f52231ecccde03c174f624227ae05"
+    },
+    {
+      "id": "death_left_6",
+      "direction": "left",
+      "column": 6,
+      "animation": "death",
+      "rect": [
+        288,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        21,
+        42,
+        58
+      ],
+      "rgba_sha256": "ff7b8b468bc00fb35133b67435921b14cfb27c47895a8622c918d5cdb14e63bb"
+    },
+    {
+      "id": "death_left_7",
+      "direction": "left",
+      "column": 7,
+      "animation": "death",
+      "rect": [
+        336,
+        64,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        30,
+        44,
+        58
+      ],
+      "rgba_sha256": "6e24266dc7bce76e893393c08c6951445e0811a9fd207166df8cec5578be4fc4"
+    },
+    {
+      "id": "melee_right_0",
+      "direction": "right",
+      "column": 0,
+      "animation": "melee",
+      "rect": [
+        0,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        8,
+        7,
+        41,
+        58
+      ],
+      "rgba_sha256": "b3e745799fc25561435f9a9736cfae78ac08f3826647cd27ddf6ca50cf2fcbd7"
+    },
+    {
+      "id": "melee_right_1",
+      "direction": "right",
+      "column": 1,
+      "animation": "melee",
+      "rect": [
+        48,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        7,
+        8,
+        42,
+        58
+      ],
+      "rgba_sha256": "242b2e5742ee884df20a7c1580fcb9218371c1d1174638d3993e0a023c5733b0"
+    },
+    {
+      "id": "melee_right_2",
+      "direction": "right",
+      "column": 2,
+      "animation": "melee",
+      "rect": [
+        96,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        7,
+        7,
+        41,
+        58
+      ],
+      "rgba_sha256": "40927606fdc2e71fb27f9dfb317b0c04007ebda6fc8a4bb39b45b605be548ae9"
+    },
+    {
+      "id": "hit_right_3",
+      "direction": "right",
+      "column": 3,
+      "animation": "hit",
+      "rect": [
+        144,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        7,
+        43,
+        58
+      ],
+      "rgba_sha256": "8cffd7a01a458531c9239ed0efd07b05b3ff2cf1bd8b8fb90c578c4698251457"
+    },
+    {
+      "id": "hit_right_4",
+      "direction": "right",
+      "column": 4,
+      "animation": "hit",
+      "rect": [
+        192,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        7,
+        11,
+        42,
+        58
+      ],
+      "rgba_sha256": "6e0ffd01d7bd074e5e80dc23a87b48aaaab7db47589d6baaf21bfabc1fa15d0a"
+    },
+    {
+      "id": "death_right_5",
+      "direction": "right",
+      "column": 5,
+      "animation": "death",
+      "rect": [
+        240,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        6,
+        12,
+        42,
+        58
+      ],
+      "rgba_sha256": "651af1fbe1ee8646d3be3af18727f4ab2f9d60113c44932c2356760482cbad82"
+    },
+    {
+      "id": "death_right_6",
+      "direction": "right",
+      "column": 6,
+      "animation": "death",
+      "rect": [
+        288,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        3,
+        17,
+        46,
+        58
+      ],
+      "rgba_sha256": "6b62e00e5693c8cf22756b87c3ebd8b525e284127aaf58030d7670b418240075"
+    },
+    {
+      "id": "death_right_7",
+      "direction": "right",
+      "column": 7,
+      "animation": "death",
+      "rect": [
+        336,
+        128,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        2,
+        27,
+        46,
+        58
+      ],
+      "rgba_sha256": "d9ae38a884c130ed6875ef444ef306db294d6005c2cffebb259dbb927d39470c"
+    },
+    {
+      "id": "melee_up_0",
+      "direction": "up",
+      "column": 0,
+      "animation": "melee",
+      "rect": [
+        0,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        10,
+        44,
+        58
+      ],
+      "rgba_sha256": "e649f452adaed89bc5c6dda47a3b2f5b9eedeb017a16ef41a4648059656c1c79"
+    },
+    {
+      "id": "melee_up_1",
+      "direction": "up",
+      "column": 1,
+      "animation": "melee",
+      "rect": [
+        48,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        10,
+        44,
+        58
+      ],
+      "rgba_sha256": "aba70d55f6ff15beef0401653296f86998cf2a87cd7559e9b599688d99c63ff2"
+    },
+    {
+      "id": "melee_up_2",
+      "direction": "up",
+      "column": 2,
+      "animation": "melee",
+      "rect": [
+        96,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        10,
+        44,
+        58
+      ],
+      "rgba_sha256": "55979313b9958e0b86972f023a021b1932d3b5507a1c5cdff193ced6de1fec92"
+    },
+    {
+      "id": "hit_up_3",
+      "direction": "up",
+      "column": 3,
+      "animation": "hit",
+      "rect": [
+        144,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        11,
+        45,
+        58
+      ],
+      "rgba_sha256": "4039d5069ef2038d1fb64e025217343c77bf55b60a7100440e27509f03186481"
+    },
+    {
+      "id": "hit_up_4",
+      "direction": "up",
+      "column": 4,
+      "animation": "hit",
+      "rect": [
+        192,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        5,
+        15,
+        43,
+        58
+      ],
+      "rgba_sha256": "399527529a3262bb7dbbfc1b32faa8d003496549ffef87a29ad087bf04be097d"
+    },
+    {
+      "id": "death_up_5",
+      "direction": "up",
+      "column": 5,
+      "animation": "death",
+      "rect": [
+        240,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        16,
+        45,
+        58
+      ],
+      "rgba_sha256": "95251573503e1d527d90edb6111465040623fcb11b6f775d6f7f879b2ec81be6"
+    },
+    {
+      "id": "death_up_6",
+      "direction": "up",
+      "column": 6,
+      "animation": "death",
+      "rect": [
+        288,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        4,
+        24,
+        45,
+        58
+      ],
+      "rgba_sha256": "f623227b8ddc0289d16aab03906c02fffcc7219e4a137a6b168c7daab5bac0ab"
+    },
+    {
+      "id": "death_up_7",
+      "direction": "up",
+      "column": 7,
+      "animation": "death",
+      "rect": [
+        336,
+        192,
+        48,
+        64
+      ],
+      "origin": [
+        24,
+        58
+      ],
+      "bounds": [
+        3,
+        31,
+        45,
+        58
+      ],
+      "rgba_sha256": "ab83058aa2d12ffc01edb3f87a57faaf66564d05bf0522e870176532c4f182d7"
+    }
+  ],
+  "sha256": "d968a578b07b44de359756d4333e63f769ae948f0dd6829bd41dc4aff167c361",
+  "source": {
+    "mode": "built-in image_gen then targeted built-in edit",
+    "master": "assets/source_art/yakuza_actions/actions_master_v2.png",
+    "master_sha256": "36a5d83083e210b9a94720bc3094c719fed559f9db9967bc335f0ea17cbec666",
+    "original_master": "assets/source_art/yakuza_actions/actions_master_v1.png",
+    "prompts": [
+      "assets/source_art/yakuza_actions/action_prompt.txt",
+      "assets/source_art/yakuza_actions/cleanup_prompt.txt"
+    ],
+    "metadata": [
+      "assets/source_art/yakuza_actions/generation_metadata.json",
+      "assets/source_art/yakuza_actions/cleanup_metadata.json"
+    ],
+    "recipe": "assets/source_art/yakuza_actions/build_assets.py",
+    "references": [
+      {
+        "path": "game/assets/art/yakuza/world_sheet.png",
+        "sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8",
+        "role": "approved original project artwork, identity/style/scale"
+      },
+      {
+        "path": "game/assets/art/yakuza/portraits.png",
+        "sha256": "e4ab5075660c214fb34999e69bf160d67fbab5afcf2453d82ba46fbb466251ab",
+        "role": "approved original project artwork, identity/style/scale"
+      }
+    ],
+    "private_photo_input": false
+  },
+  "packing": {
+    "alpha_threshold": 128,
+    "sample": "NEAREST",
+    "palette": "same31 colors as approved P01; nearest RGB, no dithering",
+    "pose_adjustments": [
+      {
+        "direction": "down",
+        "column": 0,
+        "source_rect": [
+          0,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          15,
+          29,
+          179,
+          228
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 1,
+        "source_rect": [
+          192,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          27,
+          29,
+          180,
+          228
+        ],
+        "offset_after_nearest": [
+          -2,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 2,
+        "source_rect": [
+          384,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          13,
+          29,
+          180,
+          228
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 3,
+        "source_rect": [
+          576,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          15,
+          29,
+          180,
+          228
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 4,
+        "source_rect": [
+          768,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          26,
+          48,
+          173,
+          230
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 5,
+        "source_rect": [
+          960,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          12,
+          43,
+          182,
+          230
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 6,
+        "source_rect": [
+          1152,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          12,
+          71,
+          171,
+          227
+        ],
+        "offset_after_nearest": [
+          2,
+          1
+        ]
+      },
+      {
+        "direction": "down",
+        "column": 7,
+        "source_rect": [
+          1344,
+          0,
+          192,
+          256
+        ],
+        "source_bounds": [
+          9,
+          108,
+          181,
+          227
+        ],
+        "offset_after_nearest": [
+          1,
+          1
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 0,
+        "source_rect": [
+          0,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          28,
+          29,
+          156,
+          232
+        ],
+        "offset_after_nearest": [
+          1,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 1,
+        "source_rect": [
+          192,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          11,
+          30,
+          162,
+          232
+        ],
+        "offset_after_nearest": [
+          3,
+          0
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 2,
+        "source_rect": [
+          384,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          14,
+          32,
+          158,
+          228
+        ],
+        "offset_after_nearest": [
+          3,
+          1
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 3,
+        "source_rect": [
+          576,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          8,
+          32,
+          160,
+          230
+        ],
+        "offset_after_nearest": [
+          3,
+          1
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 4,
+        "source_rect": [
+          768,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          28,
+          42,
+          158,
+          230
+        ],
+        "offset_after_nearest": [
+          1,
+          1
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 5,
+        "source_rect": [
+          960,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          24,
+          43,
+          153,
+          225
+        ],
+        "offset_after_nearest": [
+          2,
+          2
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 6,
+        "source_rect": [
+          1152,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          10,
+          73,
+          152,
+          220
+        ],
+        "offset_after_nearest": [
+          4,
+          3
+        ]
+      },
+      {
+        "direction": "left",
+        "column": 7,
+        "source_rect": [
+          1344,
+          256,
+          192,
+          256
+        ],
+        "source_bounds": [
+          9,
+          103,
+          168,
+          216
+        ],
+        "offset_after_nearest": [
+          2,
+          4
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 0,
+        "source_rect": [
+          0,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          31,
+          27,
+          163,
+          233
+        ],
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 1,
+        "source_rect": [
+          192,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          28,
+          31,
+          169,
+          233
+        ],
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 2,
+        "source_rect": [
+          384,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          27,
+          30,
+          166,
+          231
+        ],
+        "offset_after_nearest": [
+          0,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 3,
+        "source_rect": [
+          576,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          22,
+          28,
+          169,
+          232
+        ],
+        "offset_after_nearest": [
+          1,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 4,
+        "source_rect": [
+          768,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          22,
+          44,
+          162,
+          231
+        ],
+        "offset_after_nearest": [
+          2,
+          0
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 5,
+        "source_rect": [
+          960,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          21,
+          41,
+          164,
+          226
+        ],
+        "offset_after_nearest": [
+          1,
+          2
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 6,
+        "source_rect": [
+          1152,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          14,
+          64,
+          184,
+          228
+        ],
+        "offset_after_nearest": [
+          0,
+          1
+        ]
+      },
+      {
+        "direction": "right",
+        "column": 7,
+        "source_rect": [
+          1344,
+          512,
+          192,
+          256
+        ],
+        "source_bounds": [
+          12,
+          106,
+          190,
+          227
+        ],
+        "offset_after_nearest": [
+          -1,
+          1
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 0,
+        "source_rect": [
+          0,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          19,
+          32,
+          179,
+          226
+        ],
+        "offset_after_nearest": [
+          -1,
+          2
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 1,
+        "source_rect": [
+          192,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          20,
+          32,
+          180,
+          225
+        ],
+        "offset_after_nearest": [
+          -1,
+          2
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 2,
+        "source_rect": [
+          384,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          20,
+          32,
+          181,
+          224
+        ],
+        "offset_after_nearest": [
+          -1,
+          2
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 3,
+        "source_rect": [
+          576,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          16,
+          35,
+          181,
+          226
+        ],
+        "offset_after_nearest": [
+          0,
+          2
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 4,
+        "source_rect": [
+          768,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          18,
+          40,
+          170,
+          214
+        ],
+        "offset_after_nearest": [
+          1,
+          5
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 5,
+        "source_rect": [
+          960,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          11,
+          50,
+          176,
+          217
+        ],
+        "offset_after_nearest": [
+          1,
+          4
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 6,
+        "source_rect": [
+          1152,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          11,
+          81,
+          178,
+          217
+        ],
+        "offset_after_nearest": [
+          1,
+          4
+        ]
+      },
+      {
+        "direction": "up",
+        "column": 7,
+        "source_rect": [
+          1344,
+          768,
+          192,
+          256
+        ],
+        "source_bounds": [
+          8,
+          104,
+          178,
+          212
+        ],
+        "offset_after_nearest": [
+          1,
+          5
+        ]
+      }
+    ]
+  },
+  "review": {
+    "independent_art": "PENDING",
+    "actual_animation": "PENDING root/gameplay Godot replay",
+    "known_limitations": [
+      "Phone may be partially occluded behind near arm in right-facing shove contact pose.",
+      "Generator slightly varies body/hair volume; left fall poses were redrawn more compactly to avoid source clipping.",
+      "Fall animation has only3 key poses; code should hold the final lying frame."
+    ]
+  },
+  "animation_timing_rationale": "Matches combat_player.gd runtime12FPS; three fall poses fit automatic retry250ms. Nonloop and final fallen hold until reset."
+}
