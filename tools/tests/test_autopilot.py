@@ -349,6 +349,19 @@ class MergeTests(unittest.TestCase):
         for acceptance in [None,{'status':'PASS','method':'waveform','evidence':self.review['evidence'][1]}]:
             r=copy.deepcopy(self.review);r['artistic_audio_acceptance']=acceptance
             self.assertTrue(validate_review(self.root,r,'a'*40,'P04'))
+    def test_p04g_old_listening_prevents_any_merge_request(self):
+        r=copy.deepcopy(self.review);r['phase']='P04G'
+        sent=[]
+        result=guarded_merge(self.root,9,{},r,'P04G',lambda *_:copy.deepcopy(self.view),lambda *a:sent.append(a))
+        self.assertEqual(result['status'],'BLOCKED');self.assertFalse(sent)
+        proof=self.root/'listening.json';proof.write_text(json.dumps({'phase':'P04G'}))
+        r['evidence'][1]['sha256']=hashlib.sha256(proof.read_bytes()).hexdigest()
+        r['artistic_audio_acceptance']['evidence']=r['evidence'][1]
+        self.assertEqual(gate(self.root,self.view,r,'P04G'),[])
+    def test_p04g_signal_metrics_never_accept_new_sfx(self):
+        r=copy.deepcopy(self.review);r['phase']='P04G'
+        r['artistic_audio_acceptance']['method']='waveform'
+        self.assertTrue(validate_review(self.root,r,'a'*40,'P04G'))
     def test_mutated_evidence_rejected(self):
         (self.root/'evidence.txt').write_text('changed')
         self.assertTrue(validate_review(self.root,self.review,'a'*40,'P04'))

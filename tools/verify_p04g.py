@@ -86,7 +86,7 @@ def main():
  # One actual native probe. If display/audio sockets are denied, persist exact failure
  # and STOP native stages. Caller can run the separate --headless technical scope.
  if not args.headless:
-  if not run('native_probe',[GODOT,'--path',ROOT/'game','--quit-after','3'],env('native_probe'),20):
+  if not run('native_probe',[GODOT,'--path',ROOT/'game','--','--smoke-bootstrap'],env('native_probe'),20):
    write(output/'blocker.json',{'scope':'native renderer/audio; exports/movie/Wine deferred to authorized host','next_command':f'python3 tools/verify_p04g.py --exports --movie --output reports/phases/P04G/attempt1/native-host-01 --build-output build/P04G/native-host-01','headless_command':'python3 tools/verify_p04g.py --headless --output reports/phases/P04G/attempt1/technical-host-01 --build-output build/P04G/technical-host-01','phase_gate':'NOT_DECIDED'})
    return finish()
  def replay(name,command,wine=False,reduced=False,movie=False):
@@ -153,5 +153,7 @@ def main():
    metadata=output/'p04_regression/movie_replay.json'
    data=json.loads(metadata.read_text()) if metadata.is_file() else {}
    check('p04_actual_movie_flag',{'actual_movie_metadata':data.get('frame_timings',{}).get('movie_maker') is True,'actual_mp4':(output/'p04_regression/mission.mp4').is_file()})
+ if not args.headless:
+  run('detailed_audio',[sys.executable,ROOT/'tools/analyze_p04g_audio.py','--runtime-dir',output,'--output',output/'audio_detailed.json'],env('audio_detailed'),300)
  return finish()
 if __name__=='__main__':raise SystemExit(main())

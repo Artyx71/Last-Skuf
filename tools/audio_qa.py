@@ -33,11 +33,13 @@ def command(argv, timeout=60):
     return proc
 
 
-def decode(path):
+def decode(path, *, mono_to_stereo=False):
     # Decode to float WAV at the source's native rate/channels; parse the actual
     # output stream, eliminating a separate ffprobe dependency.
+    # Duplicate a mono cue at unity; the default rematrix would attenuate it.
+    conversion = ['-af', 'pan=stereo|c0=c0|c1=c0'] if mono_to_stereo else []
     decoded = command(['ffmpeg', '-v', 'error', '-i', path, '-map', '0:a:0',
-                       '-acodec', 'pcm_f32le', '-f', 'wav', 'pipe:1']).stdout
+                       *conversion, '-acodec', 'pcm_f32le', '-f', 'wav', 'pipe:1']).stdout
     if decoded[:4] != b'RIFF' or decoded[8:12] != b'WAVE':
         raise ValueError('Decoder did not produce WAV')
     offset=12; rate=None; channels=None; raw=None
