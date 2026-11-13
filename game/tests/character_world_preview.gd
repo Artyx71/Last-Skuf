@@ -13,6 +13,8 @@ var trace: Array[Dictionary] = []
 var captures: Dictionary = {}
 var headless := true
 var capture_images := true
+var sequence := "grid"
+var maximum_visual_grid_error := 0.0
 
 class PreviewActor:
  extends CharacterBody2D
@@ -20,11 +22,14 @@ class PreviewActor:
  var facing := "down"
  var speed := 110.0
  var running := false
+ func _process(_delta: float) -> void:
+  preload("res://scripts/actors/pixel_presentation.gd").align(sprite,self,Vector2(0,-26))
  func _physics_process(_delta: float) -> void:
   var direction := Input.get_vector("move_left","move_right","move_up","move_down")
   running = Input.is_action_pressed("p06_preview_run")
   velocity = direction*speed*(1.44 if running else 1.0)
   move_and_slide()
+  preload("res://scripts/actors/pixel_presentation.gd").align(sprite,self,Vector2(0,-26))
   if direction.length_squared()>0:
    facing = ("right" if direction.x>0 else "left") if absf(direction.x)>absf(direction.y) else ("down" if direction.y>0 else "up")
   var state := "idle" if direction.length_squared()==0 else ("run" if running else "walk")
@@ -57,7 +62,9 @@ func sample() -> void:
  var sprite: AnimatedSprite2D = actor.sprite
  var state := String(sprite.animation)
  var phase := sprite.frame
- var at := {"animation":state,"frame":phase,"physics_tick":Engine.get_physics_frames(),"wall_usec":Time.get_ticks_usec(),"position":[actor.position.x,actor.position.y],"velocity":[actor.velocity.x,actor.velocity.y]}
+ var visual_origin: Vector2=sprite.get_global_transform_with_canvas().origin
+ maximum_visual_grid_error=maxf(maximum_visual_grid_error,visual_origin.distance_to(visual_origin.round()))
+ var at := {"sequence":sequence,"visual_origin":[visual_origin.x,visual_origin.y],"animation":state,"frame":phase,"physics_tick":Engine.get_physics_frames(),"wall_usec":Time.get_ticks_usec(),"position":[actor.position.x,actor.position.y],"velocity":[actor.velocity.x,actor.velocity.y]}
  trace.append(at)
  var id := state+"_"+str(phase)
  if not captures.has(id):
@@ -120,10 +127,42 @@ func run() -> void:
    var columns: Array=Frames.WORLD_COLUMNS[state]
    for index in columns.size():
     record("actual_animation_phase:"+String(expected)+":"+str(index),captures.has(String(expected)+"_"+str(index)))
+ # A separate uninterrupted Input path checks real transitions; unlike the grid
+ # fixture above, it never resets position/facing between these segments.
+ sequence="continuous"
+ actor.position=Vector2(320,180)
+ var continuous_start:=trace.size()
+ var previous_key: Key=KEY_NONE
+ for step in [{"key":KEY_NONE,"run":false,"direction":"up"},{"key":KEY_D,"run":false,"direction":"right"},{"key":KEY_D,"run":true,"direction":"right"},{"key":KEY_NONE,"run":false,"direction":"right"},{"key":KEY_S,"run":false,"direction":"down"},{"key":KEY_A,"run":true,"direction":"left"},{"key":KEY_W,"run":false,"direction":"up"},{"key":KEY_NONE,"run":false,"direction":"up"}]:
+  if previous_key!=KEY_NONE: key(previous_key,false)
+  key(KEY_SHIFT,step.run)
+  if step.key!=KEY_NONE: key(step.key,true)
+  previous_key=step.key
+  label.text=Catalog.actor(actor_id).display_name+" / НЕПРЕРЫВНЫЙ Input / "+step.direction
+  await frames(2)
+  var state: String="idle" if step.key==KEY_NONE else ("run" if step.run else "walk")
+  record("continuous_Input_transition:"+state+"_"+step.direction,actor.sprite.animation==StringName(state+"_"+step.direction))
+  for i in 24: await sample()
+  if not headless and capture_images: record("transition_capture:"+str(step.direction)+":"+state,get_root().get_texture().get_image().save_png(output.path_join("transition_"+str(trace.size())+"_"+state+"_"+step.direction+".png"))==OK)
+ key(KEY_SHIFT,false)
+ if previous_key!=KEY_NONE:key(previous_key,false)
+ var bounded:=true
+ for i in range(continuous_start+1,trace.size()):
+  var a: Dictionary=trace[i-1];var b: Dictionary=trace[i]
+  var delta_ticks:=int(b.physics_tick)-int(a.physics_tick)
+  var distance:=Vector2(b.position[0],b.position[1]).distance_to(Vector2(a.position[0],a.position[1]))
+  if distance>actor.speed*1.44*delta_ticks/60.0+0.001:bounded=false
+ record("continuous_path_no_fixture_teleports",bounded)
+ record("render_only_transform_stays_on_pixel_grid",maximum_visual_grid_error<0.0001,{"maximum_grid_error":maximum_visual_grid_error})
+ var fractional_physics:=false
+ for sample_point in trace:
+  var p:=Vector2(sample_point.position[0],sample_point.position[1])
+  if p.distance_to(p.round())>0.1:fractional_physics=true
+ record("visual_snap_preserves_fractional_physics_positions",fractional_physics)
  var failed:=0
  for check in checks:
   if not check.passed: failed+=1
- var result:={"phase":"P06","scope":"WORLD_ART_MOVEMENT_PREVIEW_ONLY","phase_approval":false,"actual_input":true,"actor_id":actor_id,"renderer":DisplayServer.get_name(),"headless":headless,"movie":Engine.get_write_movie_path(),"checks":checks,"passed":failed==0,"captures":captures,"trace":trace,"audio":"muted art fixture; no audio acceptance","combat_abilities":"NOT_IMPLEMENTED_IN_THIS_PREVIEW"}
+ var result:={"phase":"P06","scope":"WORLD_ART_MOVEMENT_PREVIEW_ONLY","phase_approval":false,"actual_input":true,"actor_id":actor_id,"renderer":DisplayServer.get_name(),"headless":headless,"movie":Engine.get_write_movie_path(),"checks":checks,"passed":failed==0,"captures":captures,"trace":trace,"continuous_trace_start":continuous_start,"continuous_input_transitions":true,"maximum_visual_grid_error":maximum_visual_grid_error,"audio":"muted art fixture; no audio acceptance","combat_abilities":"NOT_IMPLEMENTED_IN_THIS_PREVIEW"}
  var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify(result,"  "));file.close()
  print("RESULT P06_WORLD passed=%d failed=%d" % [checks.size()-failed,failed])
  preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)

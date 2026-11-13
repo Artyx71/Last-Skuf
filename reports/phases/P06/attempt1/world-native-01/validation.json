@@ -1,0 +1,264 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "e6c32921d9f419cc54f807992fe65dbccca3f4d5",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 91,
+  "checks_total": 91,
+  "actual_captures": 32,
+  "actual_input": true,
+  "movie_recorded": true,
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/world-native-01/world.mp4",
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 9.685,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/world-native-01/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 16.398,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/world-native-01/world.avi",
+        "-an",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 1.052,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.048,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/commands.json",
+      "sha256": "489c99b4963bbc59ad2e0f1f8bdfac817d2d7c6977c8611d4da3e459c09efb9f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_down_0.png",
+      "sha256": "69f49065832ff4a3c7698a1ae46ad329f732fed842895cd1c0c9bdbe07547b63"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_down_1.png",
+      "sha256": "73575070d9650bcfbf39cc75bb43845a748757f5f84dd5782e42f86b184a3e64"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_left_0.png",
+      "sha256": "c71db5f3276f72f8162948a9d02e1394b4a83da6f819662f61b52c7a726bb337"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_left_1.png",
+      "sha256": "dbb2c93a81ceb52e0f41dde65bc8b9b74c0fce7f87d4f8d0b4ed5e7561fe0786"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_right_0.png",
+      "sha256": "e0f75fa91128cc4ff45a53051edd172a0756d9af33700977451482a54ec67ac6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_right_1.png",
+      "sha256": "f8926c02bff4fb1571363873fce982f729df14262b9a73741ca9b5830246d9f9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_up_0.png",
+      "sha256": "7316ea037dc2e34e72168aec37e8fb6c0f55bfb8209bf7b3e6416f971ef6aed7"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/idle_up_1.png",
+      "sha256": "16fb09812ae145fb9532108025c27cb0b3972c32fefad2ec524c3cf09e04cf47"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/result.json",
+      "sha256": "51fe480b0583fce03415ce31a2f4ef0e64279185723ca43b35a5bf64ab1c4bac"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_down_0.png",
+      "sha256": "f49fa19489a03dad279e1ad459c1b60b8e847e813b9e8e0d440a6c361d5b205d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_down_1.png",
+      "sha256": "49262576a71475d319751948c8f2408680ec0bfa356c7b78b73e209745db1eac"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_left_0.png",
+      "sha256": "78ccf48bf6264db7f33f4e57392ad6f6b7a80597514422785a4970d613e8d39f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_left_1.png",
+      "sha256": "f5d60007f5addedd81af06186a5fac1e2ea48da8ed9dbbd518e943ad5af686dc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_right_0.png",
+      "sha256": "e635d47f0fc851959c811715060775bdc8f60d9fd06b27266c50aaf46ebbf07c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_right_1.png",
+      "sha256": "d31ddd91fe04e6c534b21da84ab5993a9c5212d8902835e93ba698dd120f5793"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_up_0.png",
+      "sha256": "e5c01e1b3713637c5c7c39f466763fa66f5bf242d119657c057c5c5b7580768c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/run_up_1.png",
+      "sha256": "63488890f29803f6b0c7faf962b5a0131bb1d367939b8e4dad1bf2ed2cfea5bd"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_down_0.png",
+      "sha256": "2a8473e33b5f3275fe4634995257cdfcb28225936f128754c6fd5c0499b5ce52"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_down_1.png",
+      "sha256": "c90be52a101f03478432c1eea3a0566902878abf9058592ffe62dc53f4e35056"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_down_2.png",
+      "sha256": "02c1bf492030b1af76055317d2ac061835654a099928106957b419db1fe3a3f5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_down_3.png",
+      "sha256": "e80326c5cc0ad3b0f25c5402398617fa11d198b1bfe4db93d6ebe6fa26c81127"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_left_0.png",
+      "sha256": "b056fee779ed9f1ac431c50fdb01e8579440d5f68eff59ee196afcc6dd7d900d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_left_1.png",
+      "sha256": "57e63499b3c1e2e181e2c0db65a80794461ba79155616e79bbb0266a1743579b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_left_2.png",
+      "sha256": "0937bd3ab97f68dc4dba688163286ef3397bf79858cd1ad6c2a4185d90add4e3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_left_3.png",
+      "sha256": "572dd4edf2b9017dfb047ee7e2ca0610bf22b9bb9c7b81f39cef40edc6e0d064"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_right_0.png",
+      "sha256": "86bcd682fbfd337bdf09e7575458b66bb8e3fc3f12f7e019cb0241b97bfa5307"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_right_1.png",
+      "sha256": "ec433724fb5a551781c9a6c49ca839262ff82a899cff9bf8ed669ec846f10ff6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_right_2.png",
+      "sha256": "5285f6d478253d5103a8105106e5e3cbfdc11e46acf0953247a95099fd9caa58"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_right_3.png",
+      "sha256": "5416bfa37803266f5f4e4d6f62b74648d66e839f23a0507c07476a2d21ce7d33"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_up_0.png",
+      "sha256": "59d16b035d08e47056abf379bd9ad1fb868e804744cdfccc383aeb824c111e41"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_up_1.png",
+      "sha256": "055ca8c5159d3a4daadd22e93fcab53b0b377b771fbaa4d9a36c23bc753db802"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_up_2.png",
+      "sha256": "96c781d3b19dedf8b20b58e4e6166362b9a5957bdc861fc76bdc2eb82e19f200"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live/walk_up_3.png",
+      "sha256": "ccf8c50185c090bcea767306ebcf15b9ce63effefa2d63060a0f6388937846c3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/live.log",
+      "sha256": "459b6ceae3a1cc0d404bb022575dedf1f147df5126f499b175823a053f876cd9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/movie/result.json",
+      "sha256": "67298a8c4874deb37e7a698c349e4f5c3cd21397a502249363091765a42001aa"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/movie.log",
+      "sha256": "b3819424f592dc6a4c81e0237d2ff54a71337c00f68b819778532ef81df1e174"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/movie_probe.json",
+      "sha256": "860ffef1d2c7dbd2b8b93eace6a6397d98983c04e35ebf759d76c93f42360844"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/probe_movie.log",
+      "sha256": "190ea3c63fe6f0e16716e89fb98b07498c60d9d7df5390f5e009aa815fbf040f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/world-native-01/source_hashes.json",
+      "sha256": "cfe1038b4081d4175375e0bcf33ae902c99f0340eb234f42a48e703a3fcf2a14"
+    }
+  ]
+}
