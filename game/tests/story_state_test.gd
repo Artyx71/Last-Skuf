@@ -27,6 +27,9 @@ func run() -> void:
  expect(not sandbox.record("EV_CH01_INTRO",false) and sandbox.state == before,"locked_replay_fact")
  expect(sandbox.complete_chapter(store.registry.CH01) and fresh.state == before,"replay_reward_once")
  expect(fresh.state.completion_rewards == 1,"one_reward")
+ var blank := Store.new(); blank.path = store.path+".blank"
+ var isolated: RefCounted = blank.fork_replay()
+ expect(isolated.record("EV_CH01_PHONE") and blank.state.history.is_empty() and not FileAccess.file_exists(blank.path),"replay_new_fact_never_persists")
  for fault in ["newer","partial","range","bool","extra","duplicate","order"]:
   var invalid: Dictionary = fresh.state.duplicate(true)
   match fault:
@@ -38,6 +41,10 @@ func run() -> void:
    "duplicate": invalid.history.append(invalid.history[0])
    "order": invalid.history.push_front({"id":"EV_D01","value":true})
   expect(not fresh.validate(invalid),"reject_save_"+fault)
+  var invalid_bytes := JSON.stringify(invalid)
+  FileAccess.open(store.path,FileAccess.WRITE).store_string(invalid_bytes)
+  var disk_invalid := Store.new(); disk_invalid.path = store.path
+  expect(not disk_invalid.load_save() and not disk_invalid.writable and FileAccess.get_file_as_string(store.path) == invalid_bytes,"reject_disk_preserve_"+fault)
  var file := FileAccess.open(store.path,FileAccess.WRITE); file.store_string("{"); file.close()
  var broken := Store.new(); broken.path = store.path
  expect(not broken.load_save() and not broken.record("EV_CH01_INTRO") and FileAccess.get_file_as_string(store.path) == "{", "corrupt_preserved_write_disabled")
@@ -60,6 +67,8 @@ func run() -> void:
  var migrated := Store.new(); migrated.path = store.path
  expect(migrated.load_save(chapter_path,dialogue_path) and migrated.status == "MIGRATED", "migrate_legacy")
  expect(migrated.state.ledger.has("EV_CH01_PHONE") and migrated.state.chapter_complete.has(store.registry.CH01) and migrated.state.completion_rewards == 1,"migrated_facts")
+ var failed_migration := Store.new(); failed_migration.path = store.path+"/missing/story.json"
+ expect(not failed_migration.load_save(chapter_path,dialogue_path) and failed_migration.state.history.is_empty() and not failed_migration.writable,"migration_write_rollback")
  expect(chapter_bytes == FileAccess.get_file_as_string(chapter_path) and dialogue_bytes == FileAccess.get_file_as_string(dialogue_path),"legacy_bytes_untouched")
  var again := Store.new(); again.path = store.path
  expect(again.load_save(chapter_path,dialogue_path) and again.state == migrated.state,"migration_once")

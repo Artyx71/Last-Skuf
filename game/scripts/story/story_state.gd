@@ -11,9 +11,9 @@ var writable := true
 var simulation := false
 var replay := false
 
-func _init(planned := false) -> void:
+func _init(planned := false, shared_registry: RefCounted = null) -> void:
  simulation = planned
- registry = Registry.new()
+ registry = Registry.new() if shared_registry == null else shared_registry
  state = fresh()
 
 func fresh() -> Dictionary:
@@ -175,7 +175,7 @@ func finish_overlay() -> bool:
  return record("EV_REAL_PRIME_OVERLAY")
 
 func fork_replay() -> RefCounted:
- var sandbox: RefCounted = get_script().new(simulation)
+ var sandbox: RefCounted = get_script().new(simulation,registry)
  sandbox.state = state.duplicate(true)
  sandbox.replay = true
  sandbox.path = ""
@@ -221,7 +221,8 @@ func migrate_legacy(chapter_path: String, dialogue_path: String) -> bool:
     if not _apply(candidate,"EV_CH01_"+suffix,true): return false
   if completed and not _apply(candidate,"EV_CH01_SERVICE_ESCAPE",true): return false
  if has_legacy:
-  if not _write(candidate): status = "MIGRATION_WRITE_FAILED"; return false
+  if not _write(candidate):
+   writable = false; status = "MIGRATION_WRITE_FAILED"; return false
   state = candidate; status = "MIGRATED"
  return true
 

@@ -23,6 +23,9 @@ func run() -> void:
    "effect": source.decisions[0].accept = {"relationships.yakuza_olezhka":3}
   var invalid := Registry.new(source)
   expect(not invalid.errors.is_empty(), "reject_"+fault)
+ var nonlinear: Dictionary = r.data.duplicate(true)
+ nonlinear.chapters[1].presentation = 3; nonlinear.chapters[2].presentation = 2
+ expect(Registry.new(nonlinear).errors.is_empty(),"presentation_independent_of_chronology")
  expect(not r.meets({"eq":["choices.D01",false]}, {"choices":{}}), "absent_not_refused")
  expect(r.meets({"all":[{"any":[{"eq":["choices.D01",false]}]},{"not":{"eq":["choices.D02",true]}}]}, {"choices":{"D01":false}}), "composed_conditions")
  print("STORY_REGISTRY_TEST checks=",checks," failures=",failures)
