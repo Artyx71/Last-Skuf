@@ -1,7 +1,9 @@
 # Возобновление
 
-Последний independentPASS P02attempt2, source4202a74/evidence6dc34ad; decision/review и325immutablehashes сохранены. Scope successor: reports/phases/P02/reviewer-attempt2/P03_HANDOFF.md. Контроллер activeP03 IN_PROGRESS.
+Рабочая ветка phase/p03-dialogue-audio. Последний независимый PASS P02attempt2; текущий runtime a2c09cb, original assets d99c501. P03 план planning/P03_TASKS.md. Все утверждённые P01 PNG неизменны. Не перезаписывать старые P02 evidence/builds.
 
-Создать branch phase/p03-dialogue-audio от P02PASSreportcommit, planning/P03_TASKS.md. Первым закрыть ART-P02-01 socketcarryforward: right0/2 phone-hand иleft0 hiddenhand; read-only candidatepixelmap .tools/hand-socket-readonly/, art author already inspected12poses, verify actualfullphasecaptures. ApprovedP01PNG untouched. Затем bounded structuredYakuza dialogue+genuineblink/talksheet+VHS/accessibility + oneoriginaladaptivecue/SFX/nonverbalbleeps + buses/options. Новыйhumanlikenessgate длятехжеapprovedPNG не придумывать; audio listening mustbe real, otherwise scopedBLOCKED.
+Довести текущие frozen-source проверки: tools/verify.py --references --output reports/phases/P03/regression; tools/verify_p03.py native/MovieMaker/16weaponphases/exports в reports/phases/P03 и build/P03. BuildQA /root/p03_build_qa, независимый Lead /root/lead_reviewer_p03. Root добавляет actualCI/PR/implementation/artifacts после проверок. Lead должен сам проверить файлы и написать решение. FAIL→fix→review; PASS→P04.
 
-Preserve P00/P01/P02evidence/builds; new reports/builds P03 separate. PRstacked private безmerge/release/rawphotos; image_gen allowed, voices/publicrights/billing/systemsudo notauthorized. CItemporarysinglejoblocalrunner permitted withcleanup; noneactive, persistentserviceabsent. TestWindowsPEunderWine separatelyfromnativeWindows.
+Единственный известный внешний gate — реальные loop/transition/death/SFX listening: audio input эмпирически не поддержан Root и Lead. Дождаться конкретного проверяемого пакета, затем спросить владельца одним вопросом с actualpreview/enginecapture links; не выдавать waveform/ffplay за прослушивание. Без результата P03 scoped BLOCKED, не PASS. Техническую работу внутри P03 продолжать.
+
+Privatepush/PR разрешены без rawphotos. Не merge/release/publish/billing/sudo; Windows Wine обозначать отдельно от native Windows. CI runner single-job ephemeral user-local разрешён с обязательным удалением variable/runner/credentials; постоянного сервиса нет.

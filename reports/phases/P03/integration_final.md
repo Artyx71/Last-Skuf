@@ -1,0 +1,9 @@
+# Final candidate provenance
+
+Source candidate `348e2235c0a8e06eabf2a5a9b7a75eedaa88ee41`. Game implementation is a2c09cb/assetsd99c501 and exactly the135 game file hashes in native_source_hashes.json == export_source_hashes.json == current files. Tool348e223 only replaces artificial forcedquit smoke with actual rendered bootstrap capture; actual local57/57 validation covers it. The real CI run43398074747 tested92c8e96:785 assertions, Linux/Windows exports, artifact digest465f742fe9fd0b97c049ccf006e1c609a4eabda4e69460377ca9a8df313401a4 independently matches downloaded ZIP. CI does not run tools/verify_p03.py, and runtime/tests/workflow are unchanged after that CI. This is not an exact-current-head CI claim.
+
+Final technical57/57 includes native PulseAudio, offline MovieMaker(default+reduced), Linux executable and actual Windows PE/Wine WASAPI runs,10deaths per replay, full16 weapon phases, normal bootstrap teardown. Actual media/build hashes are in exports.json/technical_artifacts.json. Source files remained frozen; no rebuild altered P02.
+
+Known limits: nativeWindows NOT_TESTED, Wine Mesa/SDR adapter warnings, forced engine --headless--quit bypassing clean app shutdown yields2ObjectDB warnings in diagnostic/CI smoke contexts. Actual unit suites and normal rendered application paths are clean. Those warnings remain visible in stored logs; no global zero-warning claim. CI runner registered for one job only and removed itself; routing variable/credentials/process cleanup recorded in ci_cleanup.json. user systemctl service enumeration exit1 is recorded as unavailable, not a successful service listing. No service was installed.
+
+Only known hardgate is AU-P03-01 actual listening; LISTENING.md links the concrete unchanged files for a human. Independent Lead owns decision, no P04 until PASS.

@@ -1,0 +1,97 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 131793804210,
+      "run_id": 43398074747,
+      "workflow_name": "Native Godot validation",
+      "head_branch": "phase/p03-dialogue-audio",
+      "run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43398074747",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVsbeMs8AAAAer4Xbsg",
+      "head_sha": "92c8e96912f4db1731dbe3da46c3f99f097e59de",
+      "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/jobs/131793804210",
+      "html_url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43398074747/job/131793804210",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T09:03:03Z",
+      "started_at": "2026-11-13T09:03:07Z",
+      "completed_at": "2026-11-13T09:04:53Z",
+      "name": "bootstrap",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T09:03:08Z",
+          "completed_at": "2026-11-13T09:03:13Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T09:03:13Z",
+          "completed_at": "2026-11-13T09:03:17Z"
+        },
+        {
+          "name": "Run python3 tools/install_deps.py --templates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T09:03:17Z",
+          "completed_at": "2026-11-13T09:03:40Z"
+        },
+        {
+          "name": "Run python3 tools/verify.py --output reports/ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T09:03:40Z",
+          "completed_at": "2026-11-13T09:04:30Z"
+        },
+        {
+          "name": "Export native bootstrap binaries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T09:04:30Z",
+          "completed_at": "2026-11-13T09:04:35Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T09:04:35Z",
+          "completed_at": "2026-11-13T09:04:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-13T09:04:49Z",
+          "completed_at": "2026-11-13T09:04:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-13T09:04:49Z",
+          "completed_at": "2026-11-13T09:04:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Artyx71/Last-Skuf/check-runs/131793804210",
+      "labels": [
+        "last-skuf-session"
+      ],
+      "runner_id": 25,
+      "runner_name": "last-skuf-session-p03",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    }
+  ]
+}

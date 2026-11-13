@@ -4,14 +4,22 @@
   "attempts": 0,
   "last_pass": "P02",
   "last_decision": "reports/phases/P02/decision-attempt2.json",
-  "last_commit": "4202a74f82498b1656de9a7b24bef765c606659c",
-  "blocked": [],
-  "next_action": "Execute bounded P03_HANDOFF: carryforward sockets, genuine portrait motion, structured dialogue, original adaptive score/SFX, AudioDirector/settings, listening and independent review.",
+  "last_commit": "a2c09cb",
+  "blocked": [
+    {
+      "id": "AU-P03-LISTEN",
+      "scope": "perceptual listening only",
+      "reason": "Root and independent Lead actual MP3 input returned: audio content omitted because you do not support audio input",
+      "unblocks": "Owner listens to actual original previews + Godot mixer replay and reports acceptance or specific defects."
+    }
+  ],
+  "next_action": "Finish frozen-source native/export/CI evidence and independent P03 review; obtain one concrete human listening result before P03 PASS.",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/3",
   "persistent_runner": false,
   "phase_work": {
     "P01": "PASS attempt2 with owner human art approval; P02 begins",
-    "P02": "PASSattempt2; ART-P02-01 MEDIUM socket carryforward remains until P03fix/review"
+    "P02": "PASSattempt2; ART-P02-01 MEDIUM socket carryforward remains until P03fix/review",
+    "P03": "Original 4stems/18SFX +6portraitframes +dialogue/audio/options implemented; exact-source regression/export/CI/review running."
   },
   "last_commit_semantics": "reviewed implementation; latest report commit is git HEAD",
   "limitations": [
