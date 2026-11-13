@@ -1,5 +1,9 @@
 # P02 — оригинальные вымышленные охранники
 
+> **Актуальный shooter после ART-P02-02:** см. [README_shooter_attempt2.md](README_shooter_attempt2.md). Из корня проекта: `.tools/art-venv/bin/python assets/source_art/enemies/build_shooter_attempt2.py`.
+>
+> `build_assets.py` — исторический recipe первого набора из source `1786633`. Запускать его только в отдельном scratch checkout этого source: он возвращает прежний shooter и перезаписывает старые P02 author reports. Для текущего shooter используйте только команду выше. Сам legacy recipe и frozen reports сохранены.
+
 Статус: **DRAFT_REQUIRES_INDEPENDENT_ART_REVIEW**. Этот набор создан для боевого технического прототипа P02. Самостоятельный PASS фазы или утверждение качества анимации не присваивались.
 
 Три отдельных встроенных `image_gen` вызова создали три оригинальных рисованных дизайна. Входной reference — только утверждённый оригинальный `game/assets/art/yakuza/world_sheet.png`, как ориентир камеры, масштаба и кластерного pixel-art. Приватные фотографии людей не передавались и в этот source-каталог не копировались. Идентичность Якудзы намеренно исключена из дизайна врагов. Нет реальных организаций, символов, брендов или заимствованных game assets.

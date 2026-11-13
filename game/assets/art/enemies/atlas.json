@@ -2560,7 +2560,7 @@
         58
       ],
       "design": "Angular compact helmet and shoulder armor, crimson chest/back plates, red visor, pistol held with both hands.",
-      "sha256": "3859ffc9d40ab161f05beca5a997e482ed85225aafb3539a8b2a4ac9cb7b4f32",
+      "sha256": "c56e165d27bb923770d107e12959c6c2575d9414171e3be309c639cfd38b50ec",
       "opaque_colors_used": 25,
       "frames": [
         {
@@ -2580,11 +2580,11 @@
           ],
           "bounds": [
             6,
-            12,
+            6,
             42,
             58
           ],
-          "rgba_sha256": "c1edcb66f3f77e99e72f1157fb08e81abb54b90ec484ed0514bcea4852b74105"
+          "rgba_sha256": "26ae4cdd5aee0ec6d435eaa9a24df0a0862ac70bd8b4fb3118f9ca9f29b64b64"
         },
         {
           "id": "down_1",
@@ -2603,11 +2603,11 @@
           ],
           "bounds": [
             6,
-            12,
+            6,
             42,
             58
           ],
-          "rgba_sha256": "e56f02a2f487b9117d5ee7fe11119d3b5239e12dbefd6966024a527f2344615a"
+          "rgba_sha256": "ceba8a482ed0bf6d457234559894a921219553829dd80d2835e3b6d43b2740d6"
         },
         {
           "id": "down_2",
@@ -3132,11 +3132,11 @@
           ],
           "bounds": [
             6,
-            11,
-            42,
+            6,
+            43,
             58
           ],
-          "rgba_sha256": "61e4b2d3f3c6b8d0ba880bf82e04048dfaa06c109fe3a0a17f2376dd321888b9"
+          "rgba_sha256": "6828579eea7170c4aedd4d1762f33c3d0e25da5614f32db062df8b0a4cf9d246"
         },
         {
           "id": "up_1",
@@ -3154,12 +3154,12 @@
             58
           ],
           "bounds": [
-            7,
-            11,
+            6,
+            6,
             42,
             58
           ],
-          "rgba_sha256": "a9d3cbf79411e6b7aae92c8464635647cfbc4e19dc7b6441b1419877b055fded"
+          "rgba_sha256": "c114de1b4cafe6e4e7d79bd553f0d1fa8712a356f476802414712628656de7f5"
         },
         {
           "id": "up_2",
@@ -3301,16 +3301,20 @@
         }
       ],
       "source": {
-        "master": "assets/source_art/enemies/shooter_master_v1.png",
+        "master": "assets/source_art/enemies/shooter_master_v2.png",
         "master_dimensions": [
           1536,
           1024
         ],
-        "master_sha256": "28a3ca4846839f28d43466b401eff7f7ea422eb57a1fbb63395417df96a78912",
-        "prompt": "assets/source_art/enemies/shooter_prompt.txt",
-        "metadata": "assets/source_art/enemies/shooter_generation_metadata.json",
-        "mode": "built-in image_gen",
-        "input_reference": "approved original Yakudza pixel sheet only; no photographs"
+        "master_sha256": "d4138b1c004cd9401c30d5c4747b6b7406b2cb002f7548632d27b94f80a70699",
+        "prompt": "assets/source_art/enemies/shooter_continuity_prompt.txt",
+        "metadata": "assets/source_art/enemies/shooter_continuity_generation_metadata.json",
+        "mode": "built-in precise image_gen edit + selected4cells + native anatomical lower-leg redraw",
+        "input_reference": "approved original Yakudza pixel sheet only; no photographs",
+        "original_master": "assets/source_art/enemies/shooter_master_v1.png",
+        "recipe": "assets/source_art/enemies/build_shooter_attempt2.py",
+        "recipe_scope": "four down/up idle cells only; other28 native frames byte-identical to FAIL source1786633",
+        "redraw_native": "assets/source_art/enemies/shooter_pose_redraw_attempt2.png"
       },
       "packing_adjustments": [
         {
@@ -3324,8 +3328,10 @@
           ],
           "offset_after_nearest": [
             -1,
-            2
-          ]
+            -2
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
+          "lower_leg_redraw": null
         },
         {
           "direction": "down",
@@ -3338,8 +3344,10 @@
           ],
           "offset_after_nearest": [
             -1,
-            2
-          ]
+            -2
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
+          "lower_leg_redraw": null
         },
         {
           "direction": "down",
@@ -3353,7 +3361,8 @@
           "offset_after_nearest": [
             -1,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "down",
@@ -3367,7 +3376,8 @@
           "offset_after_nearest": [
             -1,
             -1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "down",
@@ -3381,7 +3391,8 @@
           "offset_after_nearest": [
             -1,
             -1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "down",
@@ -3395,7 +3406,8 @@
           "offset_after_nearest": [
             0,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "down",
@@ -3409,7 +3421,8 @@
           "offset_after_nearest": [
             -1,
             -1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "down",
@@ -3423,7 +3436,8 @@
           "offset_after_nearest": [
             -1,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3437,7 +3451,8 @@
           "offset_after_nearest": [
             2,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3451,7 +3466,8 @@
           "offset_after_nearest": [
             2,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3465,7 +3481,8 @@
           "offset_after_nearest": [
             3,
             2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3479,7 +3496,8 @@
           "offset_after_nearest": [
             2,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3493,7 +3511,8 @@
           "offset_after_nearest": [
             2,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3507,7 +3526,8 @@
           "offset_after_nearest": [
             2,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3521,7 +3541,8 @@
           "offset_after_nearest": [
             2,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "left",
@@ -3535,7 +3556,8 @@
           "offset_after_nearest": [
             2,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3549,7 +3571,8 @@
           "offset_after_nearest": [
             -1,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3563,7 +3586,8 @@
           "offset_after_nearest": [
             -1,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3577,7 +3601,8 @@
           "offset_after_nearest": [
             -1,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3591,7 +3616,8 @@
           "offset_after_nearest": [
             -1,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3605,7 +3631,8 @@
           "offset_after_nearest": [
             -1,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3619,7 +3646,8 @@
           "offset_after_nearest": [
             -1,
             2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3633,7 +3661,8 @@
           "offset_after_nearest": [
             -1,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "right",
@@ -3647,7 +3676,8 @@
           "offset_after_nearest": [
             -1,
             1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3659,9 +3689,25 @@
             256
           ],
           "offset_after_nearest": [
-            0,
-            1
-          ]
+            -1,
+            -2
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
+          "lower_leg_redraw": {
+            "deleted_excess_shin_rows": [
+              46,
+              47,
+              48
+            ],
+            "intact_upper_hierarchy_shift": [
+              0,
+              3
+            ],
+            "boots_preserved_rows": [
+              49,
+              63
+            ]
+          }
         },
         {
           "direction": "up",
@@ -3673,9 +3719,25 @@
             256
           ],
           "offset_after_nearest": [
-            0,
-            1
-          ]
+            -1,
+            -2
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
+          "lower_leg_redraw": {
+            "deleted_excess_shin_rows": [
+              46,
+              47,
+              48
+            ],
+            "intact_upper_hierarchy_shift": [
+              0,
+              3
+            ],
+            "boots_preserved_rows": [
+              49,
+              63
+            ]
+          }
         },
         {
           "direction": "up",
@@ -3689,7 +3751,8 @@
           "offset_after_nearest": [
             0,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3703,7 +3766,8 @@
           "offset_after_nearest": [
             0,
             0
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3717,7 +3781,8 @@
           "offset_after_nearest": [
             0,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3731,7 +3796,8 @@
           "offset_after_nearest": [
             0,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3745,7 +3811,8 @@
           "offset_after_nearest": [
             -1,
             -1
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         },
         {
           "direction": "up",
@@ -3759,9 +3826,106 @@
           "offset_after_nearest": [
             0,
             -2
-          ]
+          ],
+          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
         }
-      ]
+      ],
+      "continuity_fix": {
+        "ticket": "ART-P02-02",
+        "status": "DRAFT_REQUIRES_INDEPENDENT_REVIEW",
+        "redraws": [
+          {
+            "direction": "down",
+            "column": 0,
+            "generated_source_rect": [
+              0,
+              0,
+              192,
+              256
+            ],
+            "offset_after_nearest": [
+              -1,
+              -2
+            ],
+            "lower_leg_redraw": null
+          },
+          {
+            "direction": "down",
+            "column": 1,
+            "generated_source_rect": [
+              192,
+              0,
+              192,
+              256
+            ],
+            "offset_after_nearest": [
+              -1,
+              -2
+            ],
+            "lower_leg_redraw": null
+          },
+          {
+            "direction": "up",
+            "column": 0,
+            "generated_source_rect": [
+              0,
+              768,
+              192,
+              256
+            ],
+            "offset_after_nearest": [
+              -1,
+              -2
+            ],
+            "lower_leg_redraw": {
+              "deleted_excess_shin_rows": [
+                46,
+                47,
+                48
+              ],
+              "intact_upper_hierarchy_shift": [
+                0,
+                3
+              ],
+              "boots_preserved_rows": [
+                49,
+                63
+              ]
+            }
+          },
+          {
+            "direction": "up",
+            "column": 1,
+            "generated_source_rect": [
+              192,
+              768,
+              192,
+              256
+            ],
+            "offset_after_nearest": [
+              -1,
+              -2
+            ],
+            "lower_leg_redraw": {
+              "deleted_excess_shin_rows": [
+                46,
+                47,
+                48
+              ],
+              "intact_upper_hierarchy_shift": [
+                0,
+                3
+              ],
+              "boots_preserved_rows": [
+                49,
+                63
+              ]
+            }
+          }
+        ],
+        "whole_figure_resize": false,
+        "unchanged_frames": 28
+      }
     }
   }
 }
