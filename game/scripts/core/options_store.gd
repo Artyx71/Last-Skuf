@@ -3,7 +3,7 @@ extends Node
 signal changed(key: StringName, value: Variant)
 const DEFAULTS := {"master": 0.8, "music": 0.7, "sfx": 0.8, "voice_ui": 0.8,
  "text_speed": 36.0, "instant_text": false, "vhs": true, "reduced_motion": false,
- "reduced_impact": false, "subtitles": true, "text_scale": 1.0, "reduced_gore": false}
+ "reduced_impact": false, "subtitles": true, "text_scale": 1.0, "reduced_gore": false, "decals": true, "shake": 100.0, "flashes": true}
 var values: Dictionary = DEFAULTS.duplicate()
 var storage_path := "user://options_v1.json"
 var last_error := OK
@@ -22,6 +22,7 @@ func set_value(key: StringName, value: Variant, persist := true) -> bool:
  elif original is float:
   if not (value is float or value is int) or not is_finite(float(value)): return false
   var limits := Vector2(0, 1)
+  if key == &"shake": limits = Vector2(0, 100)
   if key == &"text_speed": limits = Vector2(8, 90)
   if key == &"text_scale": limits = Vector2(1, 1.25)
   value = clampf(float(value), limits.x, limits.y)
@@ -46,7 +47,7 @@ func save_options() -> Error:
  if file == null:
   last_error = FileAccess.get_open_error()
   return last_error
- file.store_string(JSON.stringify({"schema": 1, "values": values}, "  "))
+ file.store_string(JSON.stringify({"schema": 2, "values": values}, "  "))
  file.close()
  last_error = DirAccess.rename_absolute(temporary, storage_path)
  return last_error
@@ -54,7 +55,7 @@ func save_options() -> Error:
 func load_options() -> bool:
  if not FileAccess.file_exists(storage_path): return false
  var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(storage_path))
- if not data is Dictionary or data.get("schema") != 1 or not data.get("values") is Dictionary: return false
+ if not data is Dictionary or (data.get("schema") != 1 and data.get("schema") != 2) or not data.get("values") is Dictionary: return false
  for key in data.values:
   set_value(StringName(key), data.values[key], false)
  return true

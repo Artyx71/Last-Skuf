@@ -38,6 +38,11 @@ var replay_running := false
 var baseline_snapshot: Dictionary
 var last_reset_snapshot: Dictionary
 var escape_detection_count := 0
+var equipment_index := 0
+var training_bench: Node2D
+var equipment_label: Label
+var options_panel: Control
+var damage_portrait: Sprite2D
 
 
 func _ready() -> void:
@@ -69,9 +74,33 @@ func _ready() -> void:
 	kit_label = _add_label("", Vector2(17, 30), 12, Color("ffcc71"))
 	status_label = _add_label("", Vector2(17, 321), 12, Color("d8d6e8"))
 	hint_label = _add_label("", Vector2(17, 341), 11, Color("a7a6bd"))
+	if config_path == CONFIG_PATH:
+		training_bench = Sprite2D.new()
+		training_bench.texture = load("res://assets/art/combat_polish/training_bench.png")
+		training_bench.position = Vector2(302,270)
+		training_bench.z_index = 1
+		training_bench.set_meta("finisher_enabled",true)
+		add_child(training_bench)
+		combat.register_environment("training_bench",training_bench)
+		equipment_label = _add_label("",Vector2(17,47),10,Color("edcf82"))
+		damage_portrait = Sprite2D.new()
+		damage_portrait.texture = load("res://assets/art/combat_polish/yakuza_damage.png")
+		damage_portrait.region_enabled = true
+		damage_portrait.region_rect = Rect2(0,0,160,160)
+		damage_portrait.position = Vector2(530,120)
+		damage_portrait.scale = Vector2(0.5,0.5)
+		damage_portrait.z_index = 8
+		damage_portrait.visible = false
+		add_child(damage_portrait)
+		_build_polish_options()
 	reset_encounter()
 	baseline_snapshot = snapshot()
-	if "--combat-replay" in OS.get_cmdline_user_args():
+	if "--p04g-replay" in OS.get_cmdline_user_args():
+		replay_running = true
+		var replay := preload("res://scripts/qa/p04g_replay.gd").new()
+		replay.lab = self
+		add_child(replay)
+	elif "--combat-replay" in OS.get_cmdline_user_args():
 		replay_running = true
 		call_deferred("_replay")
 	elif "--capture-combat" in OS.get_cmdline_user_args():
@@ -95,6 +124,7 @@ func reset_encounter() -> void:
 	noise_position = Vector2.ZERO
 	gallery_mode = false
 	escape_detection_count = 0
+	equipment_index = 0
 	combat.reset()
 	player.reset(Vector2(config.player_spawn[0], config.player_spawn[1]))
 	for enemy in enemies:
@@ -135,6 +165,10 @@ func player_died() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		reset_encounter()
+	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("equipment_next") and state == "playing":
+		select_equipment((equipment_index + 1) % 5)
+	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("polish_options"):
+		options_panel.visible = not options_panel.visible
 	elif Input.is_action_just_pressed("switch_kit") and state == "playing":
 		set_kit("training" if player.kit == "escape" else "escape")
 	if state == "dead":
@@ -159,6 +193,12 @@ func _physics_process(delta: float) -> void:
 func _update_hud() -> void:
 	if not kit_label:
 		return
+	if damage_portrait:
+		damage_portrait.visible = player.hits_received > 0
+		damage_portrait.region_rect.position.x = (0 if get_node("/root/OptionsStore").values.reduced_gore else mini(2,player.hits_received)) * 160
+	if equipment_label:
+		var names := ["Кулаки","Труба","Нож","Пистолет","Верстак"]
+		equipment_label.text = "Tab: " + names[equipment_index] + " · F: добивание после толчка · C/WASD: отмена · O: эффекты"
 	kit_label.text = String(config.kits[player.kit].label) + (" · ОРУЖЕЙНЫЙ СТЕНД" if gallery_mode else " · ЦЕЛЬ: ВЫХОД БЕЗ УБИЙСТВ")
 	hint_label.text = "WASD · Space/ЛКМ: нож · ПКМ: пистолет · F2: уход · R: заново · Esc: меню" if player.kit == "training" else "WASD · E: отвлечь · Space/ЛКМ: толчок · F2: учебный · R: заново · Esc: меню"
 	if state == "dead":
@@ -368,3 +408,61 @@ func _replay() -> void:
 		file.store_string(JSON.stringify(result, "  "))
 	print("COMBAT_REPLAY ", JSON.stringify(result))
 	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0 if result.passed else 1)
+
+
+func select_equipment(index: int) -> bool:
+	if config_path != CONFIG_PATH or not index in range(5): return false
+	if not combat.finisher_for(player).is_empty(): return false
+	equipment_index = index
+	var categories := ["unarmed","blunt","sharp","firearm","environmental"]
+	player.finisher_category = categories[index]
+	player.finisher_weapon = "unarmed" if index == 4 else categories[index]
+	# Keep the normal Space attack as the earned nonlethal stun setup. A selected
+	# training finisher tool never grants the campaign a ranged/knife attack kit.
+	set_kit("escape")
+	_update_hud()
+	return true
+
+
+func _build_polish_options() -> void:
+	var layer := CanvasLayer.new()
+	layer.layer = 30
+	add_child(layer)
+	var vhs := preload("res://scripts/ui/vhs_overlay.gd").new()
+	layer.add_child(vhs)
+	var store := get_node("/root/OptionsStore")
+	store.changed.connect(func(_key: StringName,_value: Variant):
+		vhs.enabled = store.values.vhs
+		vhs.reduced_motion = store.values.reduced_motion)
+	vhs.enabled = store.values.vhs
+	vhs.reduced_motion = store.values.reduced_motion
+	options_panel = PanelContainer.new()
+	options_panel.position = Vector2(195,70)
+	options_panel.custom_minimum_size = Vector2(250,230)
+	layer.add_child(options_panel)
+	var box := VBoxContainer.new()
+	options_panel.add_child(box)
+	var title := Label.new()
+	title.text = "ЭФФЕКТЫ · O: закрыть"
+	box.add_child(title)
+	var gore := OptionButton.new()
+	gore.add_item("Насилие: Full")
+	gore.add_item("Насилие: Reduced")
+	gore.selected = 1 if store.values.reduced_gore else 0
+	gore.item_selected.connect(func(index: int): store.set_value(&"reduced_gore",index == 1))
+	box.add_child(gore)
+	for key in ["decals","flashes","vhs","reduced_motion"]:
+		var control := CheckButton.new()
+		control.text = {"decals":"Следы на поверхностях","flashes":"Вспышки попаданий","vhs":"VHS","reduced_motion":"Меньше движения"}[key]
+		control.button_pressed = store.values[key]
+		control.toggled.connect(func(value: bool): store.set_value(StringName(key),value))
+		box.add_child(control)
+	var label := Label.new()
+	label.text = "Тряска 0–100%"
+	box.add_child(label)
+	var slider := HSlider.new()
+	slider.min_value = 0; slider.max_value = 100; slider.step = 1
+	slider.value = store.values.shake
+	slider.value_changed.connect(func(value: float): store.set_value(&"shake",value))
+	box.add_child(slider)
+	options_panel.hide()

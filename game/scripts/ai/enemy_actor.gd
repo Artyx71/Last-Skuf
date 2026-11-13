@@ -267,7 +267,7 @@ func _update_animation() -> void:
 		if state == "attack": frame = 1 # The actual active pose, no hidden strike during windup.
 		elif state == "stunned": frame = int(state_elapsed*5) % 3
 		elif state == "finisher_reaction": frame = 0
-		elif state == "dead" and not reaction_category.is_empty(): frame = 2
+		elif state == "dead" and not reaction_category.is_empty(): frame = 1 if defeat_elapsed < 0.10 else 2
 		sprite.set_frame_and_progress(frame, 0)
 	else:
 		var animation := StringName(("walk_" if velocity.length_squared() > 1 else "idle_") + facing)
@@ -329,3 +329,11 @@ func bind_melee(id: int, attack: Dictionary) -> void:
 func present_melee_contact(id: int) -> void:
 	if state == "attack" and id == attack_id and health > 0:
 		_update_animation()
+
+
+func receive_knockdown(duration: float) -> void:
+	if health <= 0: return
+	lab.combat.cancel_melee(self)
+	attack_id = 0
+	transition("knockdown",duration)
+	_update_animation()

@@ -323,9 +323,10 @@ func distract() -> bool:
 func receive_hit(damage: int, _stun: float, _attack_id: int, _source: Node2D) -> void:
 	if health <= 0:
 		return
+	health = maxi(0, health - damage)
+	lab.combat.cancel_finisher(self,"attack",true)
 	cancel_action()
 	hits_received += 1
-	health = maxi(0, health - damage)
 	if health == 0:
 		modulate = Color("a66f80")
 		_play_action("fall", 0.25)

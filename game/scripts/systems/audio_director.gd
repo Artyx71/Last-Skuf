@@ -73,6 +73,10 @@ func load_assets() -> bool:
  if ready_assets: return true
  if not FileAccess.file_exists(MANIFEST_PATH): return false
  manifest = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
+ var polish_path := "res://assets/audio/combat_polish.json"
+ if FileAccess.file_exists(polish_path):
+  var polish: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(polish_path))
+  manifest.sfx.merge(polish.sfx)
  if manifest.get("schema") != 1: return false
  synchronized = AudioStreamSynchronized.new()
  synchronized.stream_count = manifest.music.stems.size()
@@ -222,6 +226,12 @@ func stop_speech() -> void:
 
 func reset_for_retry() -> void:
  pending_state = &""
+ # Reset retires transient combat voices, preserving the single accepted music clock.
+ for voice in voices:
+  voice.stop()
+ for voice in spatial_voices:
+  voice.stop()
+ last_cue.clear()
  pause_duck = 1.0
  dialogue_active(false)
  request_state(&"EXPLORE")

@@ -51,7 +51,7 @@ func on_contact(event: Dictionary) -> void:
 		shake_remaining = float(cfg.shake_seconds)
 		# Snapshot the exact committed pose; no hit query or damage in render callbacks.
 		for actor in [combat.lab.player] + combat.lab.enemies:
-			if actor.get_instance_id() in held_ids or not actor.sprite.visible: continue
+			if not is_instance_valid(actor) or actor.get_instance_id() in held_ids or not actor.sprite.visible: continue
 			held_ids[actor.get_instance_id()] = true
 			held_poses.append({"sprite": actor.sprite, "texture": actor.sprite.sprite_frames.get_frame_texture(actor.sprite.animation, actor.sprite.frame),
 				"position": actor.global_position + actor.sprite.position - Vector2(24,32), "color": actor.sprite.modulate})

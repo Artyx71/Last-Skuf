@@ -204,8 +204,12 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
+	if target.health > 0 and float(definition.get("knockdown",0)) > 0 and target.has_method("receive_knockdown"):
+		target.receive_knockdown(float(definition.knockdown))
 	if target.has_method("apply_impulse"):
 		target.apply_impulse(direction * (float(polish.knockback_strong) if strong else float(polish.knockback_weak)))
+	if target.health <= 0 and definition.get("finisher",false) and lab.config_path == lab.CONFIG_PATH:
+		lab.score += 100
 	var cue := String(definition.get("cue", "impact_" + category + "_body"))
 	lab.audio_event.emit(StringName(cue), target.global_position)
 	var event := {"epoch": encounter_epoch, "id": attack_id, "target": target.get_instance_id(),
@@ -238,7 +242,7 @@ func register_environment(id: String, object: Node2D) -> void:
 
 func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String, job: Dictionary = {}) -> bool:
 	if not finisher_definitions.has(category) or not is_instance_valid(target) or not is_instance_valid(source): return false
-	if lab.state != "playing" or source.health <= 0 or target.health <= 0: return false
+	if lab.state != "playing" or source.health <= 0 or target.health <= 0 or not source.is_inside_tree() or not target.is_inside_tree(): return false
 	var definition: Dictionary = finisher_definitions[category]
 	if source.finisher_weapon != definition.weapon: return false
 	var reserved: bool = not job.is_empty() and target.state == "finisher_reaction" and job.target == target
@@ -252,6 +256,7 @@ func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String
 		var object: Node2D = environments.get(definition.environment)
 		if not is_instance_valid(object) or not object.is_inside_tree() or not object.get_meta("finisher_enabled",false): return false
 		if object.global_position.distance_to(target.global_position) > float(definition.environment_range): return false
+		if offset.normalized().dot((object.global_position-target.global_position).normalized()) < 0.3: return false
 		if not clear_line(target.global_position + Vector2(0,-7), object.global_position + Vector2(0,-7)): return false
 	return true
 
