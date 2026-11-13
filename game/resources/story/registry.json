@@ -1,0 +1,812 @@
+{
+  "schema": 1,
+  "chapters": [
+    {
+      "id": "CH01_THE_MISSED_FIGHT",
+      "event_id": "EV_CH01_SERVICE_ESCAPE",
+      "title_ru": "Пропущенная драка",
+      "presentation": 1,
+      "chronology": 1,
+      "period": "past",
+      "timestamp": "2023-10-14T22:18:00+03:00",
+      "timestamp_status": "locked",
+      "povs": [
+        "YAKUZA"
+      ],
+      "location": "washroom_service_street",
+      "prerequisites": [],
+      "availability": "playable",
+      "scene": "res://scenes/levels/missed_fight.tscn"
+    },
+    {
+      "id": "CH02_THE_TITAN",
+      "event_id": "EV_CH02_COMPLETE",
+      "title_ru": "Титан",
+      "presentation": 2,
+      "chronology": 2,
+      "period": "past",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "location": "planned_ch02",
+      "prerequisites": [
+        "EV_CH01_SERVICE_ESCAPE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH03_THE_LAST_ARMRESTLER",
+      "event_id": "EV_CH03_COMPLETE",
+      "title_ru": "Последний армрестлер",
+      "presentation": 3,
+      "chronology": 3,
+      "period": "past",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TEGA"
+      ],
+      "location": "planned_ch03",
+      "prerequisites": [
+        "EV_CH02_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH04_THE_FINAL_SKUF",
+      "event_id": "EV_CH04_COMPLETE",
+      "title_ru": "Последний скуф",
+      "presentation": 4,
+      "chronology": 4,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "location": "planned_ch04",
+      "prerequisites": [
+        "EV_CH03_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH05_THE_ORIGINAL_PRIME",
+      "event_id": "EV_CH05_COMPLETE",
+      "title_ru": "Настоящий прайм",
+      "presentation": 5,
+      "chronology": 5,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR",
+        "OLEZHKA"
+      ],
+      "location": "planned_ch05",
+      "prerequisites": [
+        "EV_CH04_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH06_THE_BREAKER",
+      "event_id": "EV_CH06_COMPLETE",
+      "title_ru": "Брейкер",
+      "presentation": 6,
+      "chronology": 6,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "RYZHIK"
+      ],
+      "location": "planned_ch06",
+      "prerequisites": [
+        "EV_CH05_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH07_THE_AMERICAN_PROGRAM",
+      "event_id": "EV_CH07_COMPLETE",
+      "title_ru": "Американская программа",
+      "presentation": 7,
+      "chronology": 7,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA"
+      ],
+      "location": "planned_ch07",
+      "prerequisites": [
+        "EV_CH06_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH08_WIFE_APPROVAL",
+      "event_id": "EV_CH08_COMPLETE",
+      "title_ru": "Одобрение жены",
+      "presentation": 8,
+      "chronology": 8,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "location": "planned_ch08",
+      "prerequisites": [
+        "EV_CH07_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH09_THE_NIGHT_SHIFT",
+      "event_id": "EV_CH09_COMPLETE",
+      "title_ru": "Ночная смена",
+      "presentation": 9,
+      "chronology": 9,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TEGA"
+      ],
+      "location": "planned_ch09",
+      "prerequisites": [
+        "EV_CH08_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH10_THE_KIMONO",
+      "event_id": "EV_CH10_COMPLETE",
+      "title_ru": "Кимоно",
+      "presentation": 10,
+      "chronology": 10,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "OLEZHKA",
+        "YAKUZA"
+      ],
+      "location": "planned_ch10",
+      "prerequisites": [
+        "EV_CH09_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH11_THE_DOG_WALKER",
+      "event_id": "EV_CH11_COMPLETE",
+      "title_ru": "Собачник",
+      "presentation": 11,
+      "chronology": 11,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "location": "planned_ch11",
+      "prerequisites": [
+        "EV_CH10_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH12_CYBERX",
+      "event_id": "EV_CH12_COMPLETE",
+      "title_ru": "Киберикс",
+      "presentation": 12,
+      "chronology": 12,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA",
+        "GABAR"
+      ],
+      "location": "planned_ch12",
+      "prerequisites": [
+        "EV_CH11_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH13_NO_REFUNDS",
+      "event_id": "EV_CH13_COMPLETE",
+      "title_ru": "Без возврата",
+      "presentation": 13,
+      "chronology": 13,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "RYZHIK"
+      ],
+      "location": "planned_ch13",
+      "prerequisites": [
+        "EV_CH12_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH14_AGENT_SWARM",
+      "event_id": "EV_CH14_COMPLETE",
+      "title_ru": "Рой агентов",
+      "presentation": 14,
+      "chronology": 14,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR"
+      ],
+      "location": "planned_ch14",
+      "prerequisites": [
+        "EV_CH13_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH15_THE_SUPERSUIT",
+      "event_id": "EV_CH15_COMPLETE",
+      "title_ru": "Суперкостюм",
+      "presentation": 15,
+      "chronology": 15,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "location": "planned_ch15",
+      "prerequisites": [
+        "EV_CH14_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH16_THE_AMERICAN_NIGHTMARE",
+      "event_id": "EV_CH16_COMPLETE",
+      "title_ru": "Американский кошмар",
+      "presentation": 16,
+      "chronology": 16,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA"
+      ],
+      "location": "planned_ch16",
+      "prerequisites": [
+        "EV_CH15_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH17_BROTHERHOOD",
+      "event_id": "EV_CH17_COMPLETE",
+      "title_ru": "Братство",
+      "presentation": 17,
+      "chronology": 17,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "OLEZHKA",
+        "YAKUZA"
+      ],
+      "location": "planned_ch17",
+      "prerequisites": [
+        "EV_CH16_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH18_THE_BETRAYAL",
+      "event_id": "EV_CH18_COMPLETE",
+      "title_ru": "Предательство",
+      "presentation": 18,
+      "chronology": 18,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR",
+        "PASHA"
+      ],
+      "location": "planned_ch18",
+      "prerequisites": [
+        "EV_CH17_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH19_FOUNDING_INVESTOR",
+      "event_id": "EV_CH19_COMPLETE",
+      "title_ru": "Первый инвестор",
+      "presentation": 19,
+      "chronology": 19,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "location": "planned_ch19",
+      "prerequisites": [
+        "EV_CH18_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH20_THE_ARCHITECT",
+      "event_id": "EV_CH20_COMPLETE",
+      "title_ru": "Архитектор",
+      "presentation": 20,
+      "chronology": 20,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA",
+        "OLEZHKA"
+      ],
+      "location": "planned_ch20",
+      "prerequisites": [
+        "EV_CH19_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH21_THE_LAST_CALL",
+      "event_id": "EV_CH21_COMPLETE",
+      "title_ru": "Последний звонок",
+      "presentation": 21,
+      "chronology": 21,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA",
+        "GABAR",
+        "OLEZHKA",
+        "TIMKA",
+        "RYZHIK",
+        "TEGA",
+        "PASHA"
+      ],
+      "location": "planned_ch21",
+      "prerequisites": [
+        "EV_CH20_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    }
+  ],
+  "events": [
+    {
+      "id": "EV_CH01_INTRO",
+      "chapter": "CH01_THE_MISSED_FIGHT",
+      "kind": "dialogue",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_CH01_PHONE",
+      "chapter": "CH01_THE_MISSED_FIGHT",
+      "kind": "dialogue",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_CH01_OUTRO",
+      "chapter": "CH01_THE_MISSED_FIGHT",
+      "kind": "dialogue",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D01",
+      "chapter": "CH10_THE_KIMONO",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D02",
+      "chapter": "CH12_CYBERX",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D03",
+      "chapter": "CH06_THE_BREAKER",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D04",
+      "chapter": "CH14_AGENT_SWARM",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D05",
+      "chapter": "CH09_THE_NIGHT_SHIFT",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_D06",
+      "chapter": "CH17_BROTHERHOOD",
+      "kind": "decision",
+      "effects": {},
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_PHONE_DECODED",
+      "chapter": "CH14_AGENT_SWARM",
+      "kind": "record",
+      "effects": {
+        "flags.phone_decoded": true,
+        "evidence.illegal_operations": true
+      },
+      "condition": {
+        "all": [
+          {
+            "eq": [
+              "evidence.tegas_phone",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "evidence.open_source_origin",
+              true
+            ]
+          }
+        ]
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_FOUNDING_RECORDS",
+      "chapter": "CH19_FOUNDING_INVESTOR",
+      "kind": "record",
+      "effects": {
+        "evidence.founding_records": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_WITNESS_TRANSFER",
+      "chapter": "CH11_THE_DOG_WALKER",
+      "kind": "record",
+      "effects": {
+        "flags.witness_transfer": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_VERIFIED_OPERATIONS",
+      "chapter": "CH20_THE_ARCHITECT",
+      "kind": "record",
+      "effects": {
+        "evidence.illegal_operations": true
+      },
+      "condition": {
+        "all": [
+          {
+            "eq": [
+              "evidence.founding_records",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "flags.witness_transfer",
+              true
+            ]
+          }
+        ]
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_KIMONO_RECORD",
+      "chapter": "CH10_THE_KIMONO",
+      "kind": "record",
+      "effects": {
+        "flags.kimono_record": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_MEMORABILIA_1",
+      "chapter": "CH03_THE_LAST_ARMRESTLER",
+      "kind": "record",
+      "effects": {
+        "flags.memorabilia_1": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_MEMORABILIA_2",
+      "chapter": "CH09_THE_NIGHT_SHIFT",
+      "kind": "record",
+      "effects": {
+        "flags.memorabilia_2": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_MEMORABILIA_3",
+      "chapter": "CH14_AGENT_SWARM",
+      "kind": "record",
+      "effects": {
+        "flags.memorabilia_3": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_SECRET_SUPPOSITORY_CANNON",
+      "chapter": "CH14_AGENT_SWARM",
+      "kind": "record",
+      "effects": {
+        "secrets.SECRET_SUPPOSITORY_CANNON": true
+      },
+      "condition": {
+        "all": [
+          {
+            "eq": [
+              "flags.memorabilia_1",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "flags.memorabilia_2",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "flags.memorabilia_3",
+              true
+            ]
+          }
+        ]
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_SECRET_BROKEN_TOOTH",
+      "chapter": "CH06_THE_BREAKER",
+      "kind": "record",
+      "effects": {
+        "secrets.SECRET_BROKEN_TOOTH": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_SECRET_BATHROOM_INCIDENT",
+      "chapter": "CH12_CYBERX",
+      "kind": "record",
+      "effects": {
+        "secrets.SECRET_BATHROOM_INCIDENT": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_SECRET_JACK_REVENGE",
+      "chapter": "CH11_THE_DOG_WALKER",
+      "kind": "record",
+      "effects": {
+        "secrets.SECRET_JACK_REVENGE": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    },
+    {
+      "id": "EV_SECRET_PRIME_PHOTOS",
+      "chapter": "CH15_THE_SUPERSUIT",
+      "kind": "record",
+      "effects": {
+        "secrets.SECRET_PRIME_PHOTOS": true
+      },
+      "condition": {
+        "all": []
+      },
+      "prerequisites": []
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D01",
+      "name": "KIMONO_TRUTH",
+      "chapter": "CH10_THE_KIMONO",
+      "accept": {
+        "flags.kimono_truth": true,
+        "relationships.yakuza_olezhka": 1
+      },
+      "refuse": {
+        "flags.kimono_truth": false,
+        "relationships.yakuza_olezhka": -1
+      }
+    },
+    {
+      "id": "D02",
+      "name": "PASHAS_BACKUP",
+      "chapter": "CH12_CYBERX",
+      "accept": {
+        "flags.pasha_shared_evidence": true,
+        "evidence.pashas_backup": true,
+        "relationships.gabar_pasha": 1
+      },
+      "refuse": {
+        "flags.pasha_shared_evidence": false,
+        "relationships.gabar_pasha": -1
+      }
+    },
+    {
+      "id": "D03",
+      "name": "RYZHIK_WARNING",
+      "chapter": "CH06_THE_BREAKER",
+      "accept": {
+        "flags.ryzhik_warned": true,
+        "relationships.yakuza_ryzhik": 1
+      },
+      "refuse": {
+        "flags.ryzhik_warned": false,
+        "relationships.yakuza_ryzhik": -1
+      }
+    },
+    {
+      "id": "D04",
+      "name": "OPEN_SOURCE_PROOF",
+      "chapter": "CH14_AGENT_SWARM",
+      "accept": {
+        "evidence.open_source_origin": true,
+        "flags.gabar_exonerated": true
+      },
+      "refuse": {}
+    },
+    {
+      "id": "D05",
+      "name": "TEGA_PHONE",
+      "chapter": "CH09_THE_NIGHT_SHIFT",
+      "accept": {
+        "evidence.tegas_phone": true
+      },
+      "refuse": {}
+    },
+    {
+      "id": "D06",
+      "name": "YAKUZA_RESPONSIBILITY",
+      "chapter": "CH17_BROTHERHOOD",
+      "accept": {
+        "flags.yakuza_accepted_responsibility": true
+      },
+      "refuse": {
+        "flags.yakuza_accepted_responsibility": false
+      }
+    }
+  ],
+  "flags": [
+    "kimono_truth",
+    "pasha_shared_evidence",
+    "ryzhik_warned",
+    "gabar_exonerated",
+    "yakuza_accepted_responsibility",
+    "phone_decoded",
+    "witness_transfer",
+    "kimono_record",
+    "memorabilia_1",
+    "memorabilia_2",
+    "memorabilia_3"
+  ],
+  "evidence": [
+    "open_source_origin",
+    "founding_records",
+    "illegal_operations",
+    "tegas_phone",
+    "pashas_backup"
+  ],
+  "secrets": [
+    "SECRET_SUPPOSITORY_CANNON",
+    "SECRET_BROKEN_TOOTH",
+    "SECRET_BATHROOM_INCIDENT",
+    "SECRET_JACK_REVENGE",
+    "SECRET_PRIME_PHOTOS"
+  ],
+  "relationships": [
+    "yakuza_olezhka",
+    "yakuza_ryzhik",
+    "gabar_pasha"
+  ]
+}

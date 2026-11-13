@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "primary": {
+    "ENDING_WIFE_CALLING": {
+      "condition": {
+        "all": []
+      },
+      "entry": "21B_EVIDENCE_ESCAPE",
+      "dialogue": "wife_call_departure",
+      "relationship": "yakuza_olezhka_distance",
+      "epilogues": [
+        "yakuza_home_unresolved",
+        "olezhka_handles_aftermath"
+      ]
+    },
+    "ENDING_BROTHERHOOD": {
+      "condition": {
+        "all": [
+          {
+            "eq": [
+              "flags.kimono_truth",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "flags.yakuza_accepted_responsibility",
+              true
+            ]
+          },
+          {
+            "eq": [
+              "evidence.illegal_operations",
+              true
+            ]
+          }
+        ]
+      },
+      "entry": "21A_BROTHERS_EXPOSURE",
+      "dialogue": "brothers_confront_father",
+      "relationship": "yakuza_olezhka_accountability",
+      "epilogues": [
+        "yakuza_accepts_debt",
+        "olezhka_supports_truth"
+      ]
+    },
+    "ENDING_FAMILY_BUSINESS": {
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "eq": [
+                      "choices.D01",
+                      false
+                    ]
+                  },
+                  {
+                    "eq": [
+                      "choices.D03",
+                      false
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "eq": [
+                      "choices.D01",
+                      false
+                    ]
+                  },
+                  {
+                    "eq": [
+                      "choices.D06",
+                      false
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "eq": [
+                      "choices.D03",
+                      false
+                    ]
+                  },
+                  {
+                    "eq": [
+                      "choices.D06",
+                      false
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "not": {
+              "eq": [
+                "evidence.illegal_operations",
+                true
+              ]
+            }
+          },
+          {
+            "not": {
+              "eq": [
+                "evidence.founding_records",
+                true
+              ]
+            }
+          }
+        ]
+      },
+      "entry": "21C_COVER_UP_ESCAPE",
+      "dialogue": "father_pact_condemned",
+      "relationship": "yakuza_friends_estranged",
+      "epilogues": [
+        "yakuza_complicit_isolation",
+        "olezhka_breaks_contact"
+      ]
+    }
+  },
+  "overlay": {
+    "id": "ENDING_REAL_PRIME",
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "evidence.open_source_origin",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.founding_records",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.illegal_operations",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.tegas_phone",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.pashas_backup",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "secrets.SECRET_SUPPOSITORY_CANNON",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "secrets.SECRET_BROKEN_TOOTH",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "secrets.SECRET_BATHROOM_INCIDENT",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "secrets.SECRET_JACK_REVENGE",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "secrets.SECRET_PRIME_PHOTOS",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.kimono_record",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.phone_decoded",
+            true
+          ]
+        }
+      ]
+    },
+    "entry": "POST_STORY_RESCUE",
+    "dialogue": "mutual_accountability",
+    "epilogues": [
+      "tega_dream_recontextualized",
+      "friends_optional_rescue"
+    ]
+  }
+}
