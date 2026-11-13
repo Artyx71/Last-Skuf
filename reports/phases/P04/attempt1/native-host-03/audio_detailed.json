@@ -1,0 +1,3100 @@
+{
+  "scope": "Decoded numerical analysis only; actual runtime PCM is separately identified. No listening or musical-quality verdict.",
+  "policy": {
+    "schema": 1,
+    "silence_dbfs": -70.0,
+    "dc_limit": 0.025,
+    "loop_join_limit": 0.025,
+    "mix_peak_limit": 0.95,
+    "mix_internal_silence_limit_seconds": 0.2,
+    "music_loudness_guard_lufs": [
+      -50,
+      -5
+    ],
+    "note": "Broad technical guards, not artistic loudness targets or proof of inaudibility."
+  },
+  "listening": "PENDING_ACTUAL_LISTENER",
+  "checks": [
+    {
+      "name": "game/assets/audio/music/missed_fight_bass.ogg",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "game/assets/audio/music/missed_fight_texture.ogg",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "game/assets/audio/music/missed_fight_drums.ogg",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "game/assets/audio/music/missed_fight_lead.ogg",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "game/assets/audio/sfx/missed_fight_door.ogg",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/masters/missed_fight_bass.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/masters/missed_fight_drums.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/masters/missed_fight_lead.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/masters/missed_fight_texture.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/masters/missed_fight_unity.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "exact_loop_frames": true,
+        "bounded_loop_join": true,
+        "broad_loudness_guard": true
+      },
+      "details": null
+    },
+    {
+      "name": "assets/source_audio/missed_fight/sfx/door_open.wav",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "native_stereo_48k": true,
+        "true_peak_below_full_scale": true,
+        "bounded_cue_duration": true
+      },
+      "details": null
+    },
+    {
+      "name": "profile_EXPLORE",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_loop_join": true,
+        "no_internal_dropout": true
+      },
+      "details": null
+    },
+    {
+      "name": "profile_SUSPICION",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_loop_join": true,
+        "no_internal_dropout": true
+      },
+      "details": null
+    },
+    {
+      "name": "profile_COMBAT",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_loop_join": true,
+        "no_internal_dropout": true
+      },
+      "details": null
+    },
+    {
+      "name": "profile_CLEAR",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_loop_join": true,
+        "no_internal_dropout": true
+      },
+      "details": null
+    },
+    {
+      "name": "profile_UNITY",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "headroom": true,
+        "bounded_loop_join": true,
+        "no_internal_dropout": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_EXPLORE_SUSPICION",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_EXPLORE_COMBAT",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_EXPLORE_CLEAR",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_SUSPICION_EXPLORE",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_SUSPICION_COMBAT",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_SUSPICION_CLEAR",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_COMBAT_EXPLORE",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_COMBAT_SUSPICION",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_COMBAT_CLEAR",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_CLEAR_EXPLORE",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_CLEAR_SUSPICION",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "transition_CLEAR_COMBAT",
+      "passed": true,
+      "checks": {
+        "headroom": true,
+        "bounded_step": true,
+        "nonempty": true
+      },
+      "details": null
+    },
+    {
+      "name": "engine_replay",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "real_replay": true,
+        "nonempty_duration": true,
+        "no_internal_dropout": true,
+        "runtime_transition_windows": true,
+        "runtime_loop_windows": true
+      },
+      "details": null
+    },
+    {
+      "name": "reduced_visual_replay",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "real_replay": true,
+        "nonempty_duration": true,
+        "no_internal_dropout": true,
+        "runtime_transition_windows": true,
+        "runtime_loop_windows": true
+      },
+      "details": null
+    },
+    {
+      "name": "movie_replay",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "real_replay": true,
+        "nonempty_duration": true,
+        "no_internal_dropout": true,
+        "runtime_transition_windows": true,
+        "runtime_loop_windows": true
+      },
+      "details": null
+    },
+    {
+      "name": "linux_export_replay",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "real_replay": true,
+        "nonempty_duration": true,
+        "no_internal_dropout": true,
+        "runtime_transition_windows": true,
+        "runtime_loop_windows": true
+      },
+      "details": null
+    },
+    {
+      "name": "windows_export_replay",
+      "passed": true,
+      "checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true,
+        "real_replay": true,
+        "nonempty_duration": true,
+        "no_internal_dropout": true,
+        "runtime_transition_windows": true,
+        "runtime_loop_windows": true
+      },
+      "details": null
+    }
+  ],
+  "files": [
+    {
+      "path": "game/assets/audio/music/missed_fight_bass.ogg",
+      "sha256": "3f99f440b73c700c533d390b9db60d3c130e7189dd65ec1c36f8a601b98027e2",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.21322683990001678,
+        "sample_peak_dbfs": -13.423162588892783,
+        "rms_dbfs": -21.150638386101214,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001723624493548536,
+          0.001723624493548536
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.25,
+            0.4
+          ],
+          [
+            0.52,
+            0.72
+          ],
+          [
+            0.83,
+            1.03
+          ],
+          [
+            1.25,
+            1.33
+          ],
+          [
+            1.45,
+            1.56
+          ],
+          [
+            1.93,
+            2.08
+          ],
+          [
+            2.18,
+            2.39
+          ],
+          [
+            2.5,
+            2.69
+          ],
+          [
+            2.92,
+            3.0
+          ],
+          [
+            3.11,
+            3.22
+          ],
+          [
+            3.59,
+            3.74
+          ],
+          [
+            3.85,
+            4.06
+          ],
+          [
+            4.16,
+            4.37
+          ],
+          [
+            4.58,
+            4.66
+          ],
+          [
+            4.78,
+            4.89
+          ],
+          [
+            5.25,
+            5.41
+          ],
+          [
+            5.52,
+            5.72
+          ],
+          [
+            5.84,
+            6.03
+          ],
+          [
+            6.25,
+            6.33
+          ],
+          [
+            6.46,
+            6.56
+          ],
+          [
+            6.82,
+            6.97
+          ],
+          [
+            7.07,
+            7.29
+          ],
+          [
+            7.39,
+            7.6
+          ],
+          [
+            7.77,
+            7.9
+          ],
+          [
+            8.0,
+            8.12
+          ],
+          [
+            8.22,
+            8.32
+          ],
+          [
+            8.49,
+            8.64
+          ],
+          [
+            8.73,
+            8.95
+          ],
+          [
+            9.05,
+            9.26
+          ],
+          [
+            9.43,
+            9.56
+          ],
+          [
+            9.67,
+            9.79
+          ],
+          [
+            9.88,
+            9.99
+          ],
+          [
+            10.25,
+            10.26
+          ],
+          [
+            10.27,
+            10.39
+          ],
+          [
+            10.52,
+            10.72
+          ],
+          [
+            10.84,
+            11.03
+          ],
+          [
+            11.25,
+            11.34
+          ],
+          [
+            11.45,
+            11.56
+          ],
+          [
+            11.93,
+            12.08
+          ],
+          [
+            12.19,
+            12.39
+          ],
+          [
+            12.51,
+            12.69
+          ],
+          [
+            12.91,
+            12.99
+          ],
+          [
+            13.12,
+            13.22
+          ],
+          [
+            13.31,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.21999999999999975,
+        "boundary_step": 7.818656507652122e-05,
+        "max_sample_step": 0.01660827547311783,
+        "sample_step_p9999": 0.01093444786965847
+      },
+      "loudness": {
+        "integrated_lufs": -22.6,
+        "true_peak_dbfs": -13.4,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/missed_fight_texture.ogg",
+      "sha256": "546d20c9e222e2e6c95b4124cb93ffc20ccfda40eb29f003cbdcb57dfca42659",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.0679948702454567,
+        "sample_peak_dbfs": -23.350477012971368,
+        "rms_dbfs": -36.37280221141846,
+        "clipped_samples": 0,
+        "dc_channels": [
+          1.0103233524440425e-06,
+          -1.316290690427202e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.002351229079067707,
+        "max_sample_step": 0.004455260932445526,
+        "sample_step_p9999": 0.002963522099889815
+      },
+      "loudness": {
+        "integrated_lufs": -34.3,
+        "true_peak_dbfs": -23.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/missed_fight_drums.ogg",
+      "sha256": "97410277de5bc27c3da5113430c791240f7bb63a095ea9d6925893b4fa2258e5",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.5103771090507507,
+        "sample_peak_dbfs": -5.842176248272465,
+        "rms_dbfs": -19.748968264235355,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0011962927089870447,
+          0.0012050060069110787
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.71,
+            0.83
+          ],
+          [
+            2.38,
+            2.49
+          ],
+          [
+            4.05,
+            4.16
+          ],
+          [
+            4.57,
+            4.58
+          ],
+          [
+            5.4,
+            5.41
+          ],
+          [
+            5.7,
+            5.72
+          ],
+          [
+            7.07,
+            7.08
+          ],
+          [
+            10.71,
+            10.83
+          ],
+          [
+            12.07,
+            12.08
+          ],
+          [
+            12.37,
+            12.39
+          ]
+        ],
+        "max_internal_silence_seconds": 0.12,
+        "boundary_step": 0.004096299409866333,
+        "max_sample_step": 0.4888771027326584,
+        "sample_step_p9999": 0.3522298038005829
+      },
+      "loudness": {
+        "integrated_lufs": -19.2,
+        "true_peak_dbfs": -5.7,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/music/missed_fight_lead.ogg",
+      "sha256": "e8f71d2f63c6c23a4d5b7a2abfc0a7d8859899bdbe0c8adfdbb07c4eb542f147",
+      "kind": "stem",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.0876031368970871,
+        "sample_peak_dbfs": -21.149606846340756,
+        "rms_dbfs": -32.50874299397417,
+        "clipped_samples": 0,
+        "dc_channels": [
+          1.0925861912892327e-06,
+          1.2232009025527634e-06
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            1.28,
+            1.35
+          ],
+          [
+            1.61,
+            1.66
+          ],
+          [
+            2.95,
+            3.02
+          ],
+          [
+            3.28,
+            3.33
+          ],
+          [
+            4.61,
+            4.68
+          ],
+          [
+            4.95,
+            5.0
+          ],
+          [
+            6.28,
+            6.35
+          ],
+          [
+            6.65,
+            6.66
+          ],
+          [
+            7.95,
+            8.02
+          ],
+          [
+            8.28,
+            8.33
+          ],
+          [
+            9.61,
+            9.68
+          ],
+          [
+            9.95,
+            10.0
+          ],
+          [
+            11.28,
+            11.35
+          ],
+          [
+            11.61,
+            11.66
+          ],
+          [
+            12.95,
+            13.02
+          ],
+          [
+            13.32,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.07000000000000028,
+        "boundary_step": 7.644670745321491e-05,
+        "max_sample_step": 0.036580055952072144,
+        "sample_step_p9999": 0.03024006262421608
+      },
+      "loudness": {
+        "integrated_lufs": -29.4,
+        "true_peak_dbfs": -21.1,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "game/assets/audio/sfx/missed_fight_door.ogg",
+      "sha256": "ff0d2550b09cc29bebf24520374f88ca583c283596ed39c2c872c7d59d050d66",
+      "kind": "cue",
+      "signal": {
+        "frames": 26272,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.5473333333333333,
+        "sample_peak": 0.43684375286102295,
+        "sample_peak_dbfs": -7.193477411812391,
+        "rms_dbfs": -25.291029725378177,
+        "clipped_samples": 0,
+        "dc_channels": [
+          3.429910600090211e-05,
+          3.429910600090211e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0002631019742693752,
+        "max_sample_step": 0.14349371194839478,
+        "sample_step_p9999": 0.12111243605613708
+      },
+      "loudness": {
+        "integrated_lufs": -21.7,
+        "true_peak_dbfs": -7.2,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/masters/missed_fight_bass.wav",
+      "sha256": "704392c25b5b220c52b468130a7204fee39ad7ab515f8c618056254c9f076479",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.20694029331207275,
+        "sample_peak_dbfs": -13.683098793804636,
+        "rms_dbfs": -21.204311251447336,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0017093237645924091,
+          0.0017093237645924091
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.25,
+            0.41
+          ],
+          [
+            0.51,
+            0.72
+          ],
+          [
+            0.83,
+            1.04
+          ],
+          [
+            1.25,
+            1.35
+          ],
+          [
+            1.45,
+            1.56
+          ],
+          [
+            1.64,
+            1.66
+          ],
+          [
+            1.92,
+            2.08
+          ],
+          [
+            2.18,
+            2.39
+          ],
+          [
+            2.5,
+            2.7
+          ],
+          [
+            2.91,
+            3.02
+          ],
+          [
+            3.11,
+            3.22
+          ],
+          [
+            3.31,
+            3.33
+          ],
+          [
+            3.59,
+            3.75
+          ],
+          [
+            3.85,
+            4.06
+          ],
+          [
+            4.16,
+            4.37
+          ],
+          [
+            4.58,
+            4.68
+          ],
+          [
+            4.78,
+            4.89
+          ],
+          [
+            4.97,
+            5.0
+          ],
+          [
+            5.25,
+            5.41
+          ],
+          [
+            5.51,
+            5.72
+          ],
+          [
+            5.83,
+            6.04
+          ],
+          [
+            6.25,
+            6.35
+          ],
+          [
+            6.45,
+            6.56
+          ],
+          [
+            6.64,
+            6.66
+          ],
+          [
+            6.82,
+            6.97
+          ],
+          [
+            7.07,
+            7.29
+          ],
+          [
+            7.39,
+            7.6
+          ],
+          [
+            7.77,
+            7.91
+          ],
+          [
+            8.0,
+            8.12
+          ],
+          [
+            8.21,
+            8.33
+          ],
+          [
+            8.48,
+            8.64
+          ],
+          [
+            8.73,
+            8.95
+          ],
+          [
+            9.05,
+            9.27
+          ],
+          [
+            9.43,
+            9.58
+          ],
+          [
+            9.66,
+            9.79
+          ],
+          [
+            9.88,
+            10.0
+          ],
+          [
+            10.25,
+            10.41
+          ],
+          [
+            10.51,
+            10.72
+          ],
+          [
+            10.83,
+            11.04
+          ],
+          [
+            11.25,
+            11.35
+          ],
+          [
+            11.45,
+            11.56
+          ],
+          [
+            11.64,
+            11.66
+          ],
+          [
+            11.92,
+            12.08
+          ],
+          [
+            12.18,
+            12.39
+          ],
+          [
+            12.5,
+            12.7
+          ],
+          [
+            12.91,
+            13.02
+          ],
+          [
+            13.11,
+            13.22
+          ],
+          [
+            13.31,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.21999999999999975,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.016849040985107422,
+        "sample_step_p9999": 0.011162400245666504
+      },
+      "loudness": {
+        "integrated_lufs": -22.6,
+        "true_peak_dbfs": -13.7,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/masters/missed_fight_drums.wav",
+      "sha256": "8ed76741bb838f0e8a2b62cec55a5b3217ac7969322d035694eee1badac32e65",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.5069752931594849,
+        "sample_peak_dbfs": -5.900264099564238,
+        "rms_dbfs": -19.781010630553848,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0011425445402041077,
+          0.001141693047620356
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            0.71,
+            0.83
+          ],
+          [
+            1.24,
+            1.25
+          ],
+          [
+            2.38,
+            2.5
+          ],
+          [
+            4.04,
+            4.16
+          ],
+          [
+            4.57,
+            4.58
+          ],
+          [
+            5.4,
+            5.41
+          ],
+          [
+            5.7,
+            5.72
+          ],
+          [
+            7.07,
+            7.08
+          ],
+          [
+            8.74,
+            8.75
+          ],
+          [
+            10.71,
+            10.83
+          ],
+          [
+            11.24,
+            11.25
+          ],
+          [
+            12.07,
+            12.08
+          ],
+          [
+            12.37,
+            12.39
+          ]
+        ],
+        "max_internal_silence_seconds": 0.1200000000000001,
+        "boundary_step": 3.2782554626464844e-05,
+        "max_sample_step": 0.5165207386016846,
+        "sample_step_p9999": 0.35960662364959717
+      },
+      "loudness": {
+        "integrated_lufs": -19.1,
+        "true_peak_dbfs": -5.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/masters/missed_fight_lead.wav",
+      "sha256": "3a1e8824338931b355558ffc441675fff2af1ae8e5af0e8f66d31bf8ee3aa467",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.08758783340454102,
+        "sample_peak_dbfs": -21.15112432692142,
+        "rms_dbfs": -32.577030891326864,
+        "clipped_samples": 0,
+        "dc_channels": [
+          7.54600390791893e-07,
+          7.161453366279602e-07
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [
+          [
+            1.28,
+            1.35
+          ],
+          [
+            1.61,
+            1.66
+          ],
+          [
+            2.94,
+            3.02
+          ],
+          [
+            3.28,
+            3.33
+          ],
+          [
+            4.61,
+            4.68
+          ],
+          [
+            4.95,
+            5.0
+          ],
+          [
+            6.28,
+            6.35
+          ],
+          [
+            6.65,
+            6.66
+          ],
+          [
+            7.95,
+            8.02
+          ],
+          [
+            8.28,
+            8.33
+          ],
+          [
+            9.61,
+            9.68
+          ],
+          [
+            9.95,
+            10.0
+          ],
+          [
+            11.28,
+            11.35
+          ],
+          [
+            11.61,
+            11.66
+          ],
+          [
+            12.95,
+            13.02
+          ],
+          [
+            13.32,
+            13.333333333333334
+          ]
+        ],
+        "max_internal_silence_seconds": 0.08000000000000007,
+        "boundary_step": 0.0,
+        "max_sample_step": 0.036615610122680664,
+        "sample_step_p9999": 0.03016829490661621
+      },
+      "loudness": {
+        "integrated_lufs": -29.5,
+        "true_peak_dbfs": -21.2,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/masters/missed_fight_texture.wav",
+      "sha256": "459d2d55e5d0aa0858630a7f3cf9282e45ff4a84777d390f1b8c1015878c30da",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.06856465339660645,
+        "sample_peak_dbfs": -23.27799430130998,
+        "rms_dbfs": -36.403747824190866,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.552628144621849e-06,
+          8.282152935862541e-07
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.0027849674224853516,
+        "max_sample_step": 0.006395220756530762,
+        "sample_step_p9999": 0.0029914379119873047
+      },
+      "loudness": {
+        "integrated_lufs": -34.3,
+        "true_peak_dbfs": -23.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/masters/missed_fight_unity.wav",
+      "sha256": "c1f4a8c1fb5243708175fbb6ef6e8996a5bbcaba74815063bcaa527184b6826a",
+      "kind": "source",
+      "signal": {
+        "frames": 640000,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 13.333333333333334,
+        "sample_peak": 0.6000000238418579,
+        "sample_peak_dbfs": -4.4369746471808895,
+        "rms_dbfs": -17.287106202878434,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0028551756614819167,
+          0.0028525611938908695
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.002801656723022461,
+        "max_sample_step": 0.5158040523529053,
+        "sample_step_p9999": 0.35932111740112305
+      },
+      "loudness": {
+        "integrated_lufs": -17.2,
+        "true_peak_dbfs": -4.4,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "path": "assets/source_audio/missed_fight/sfx/door_open.wav",
+      "sha256": "736c39f5bf8ee06481f1bf9d76c8f9de54efe530dbc7b29887d272c983523f44",
+      "kind": "source",
+      "signal": {
+        "frames": 26400,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 0.55,
+        "sample_peak": 0.4513818025588989,
+        "sample_peak_dbfs": -6.909119069434447,
+        "rms_dbfs": -25.10127520476461,
+        "clipped_samples": 0,
+        "dc_channels": [
+          2.93609770861539e-05,
+          2.93609770861539e-05
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 2.6226043701171875e-06,
+        "max_sample_step": 0.14023816585540771,
+        "sample_step_p9999": 0.11978936195373535
+      },
+      "loudness": {
+        "integrated_lufs": -21.4,
+        "true_peak_dbfs": -6.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    }
+  ],
+  "mixes": {
+    "EXPLORE": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.1966143399477005,
+      "sample_peak_dbfs": -14.127696206879023,
+      "rms_dbfs": -25.09269128076501,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0012396679765045782,
+        0.0012397820023786557
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0008704410865902901,
+      "max_sample_step": 0.09805533289909363,
+      "sample_step_p9999": 0.07039803406223655
+    },
+    "SUSPICION": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.3816877603530884,
+      "sample_peak_dbfs": -8.36583532846584,
+      "rms_dbfs": -20.7880273183995,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0020394087964915562,
+        0.002042517536978547
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0021802689880132675,
+      "max_sample_step": 0.2838507443666458,
+      "sample_step_p9999": 0.2043970450758934
+    },
+    "COMBAT": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.5767291784286499,
+      "sample_peak_dbfs": -4.780561515912791,
+      "rms_dbfs": -17.315465983288313,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.002921540559009199,
+        0.0029286857955007823
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0039127543568611145,
+      "max_sample_step": 0.48904062807559967,
+      "sample_step_p9999": 0.3521544709801674
+    },
+    "CLEAR": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.15626083314418793,
+      "sample_peak_dbfs": -16.122997289386028,
+      "rms_dbfs": -27.93211549733501,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0008357388744027425,
+        0.0008351231039507658
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0014533884823322296,
+      "max_sample_step": 0.0736084021627903,
+      "sample_step_p9999": 0.05277146946173161
+    },
+    "UNITY": {
+      "frames": 640000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_seconds": 13.333333333333334,
+      "sample_peak": 0.579698383808136,
+      "sample_peak_dbfs": -4.735958208702789,
+      "rms_dbfs": -17.244310967278913,
+      "clipped_samples": 0,
+      "dc_channels": [
+        0.0029220201101431103,
+        0.0029285374087021795
+      ],
+      "silence_threshold_dbfs": -70.0,
+      "silence_runs_seconds": [],
+      "max_internal_silence_seconds": 0,
+      "boundary_step": 0.0038211047649383545,
+      "max_sample_step": 0.48912566900253296,
+      "sample_step_p9999": 0.3521432653069496
+    }
+  },
+  "transitions": [
+    {
+      "from": "EXPLORE",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.34984749256167563,
+          "max_step": 0.261165479007177,
+          "rms": 0.10062482401779402
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.37311260161921384,
+          "max_step": 0.1285722105624154,
+          "rms": 0.09256074336699983
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.2313159157354113,
+          "max_step": 0.22753388704744792,
+          "rms": 0.07243287797974136
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "EXPLORE",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5530972345680027,
+          "max_step": 0.4479528095321531,
+          "rms": 0.12575017243393039
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5764562549442053,
+          "max_step": 0.22026849374275093,
+          "rms": 0.12324714243617517
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.36653989491673705,
+          "max_step": 0.39087862827385544,
+          "rms": 0.08410488517763519
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "EXPLORE",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.1735922832285403,
+          "max_step": 0.06780782642774283,
+          "rms": 0.052704857772550275
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.14227014180272818,
+          "max_step": 0.0829364418453655,
+          "rms": 0.04242426278512903
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.17862495575504725,
+          "max_step": 0.05865882637945105,
+          "rms": 0.045030723418347386
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.3569998436236987,
+          "max_step": 0.09520885511874874,
+          "rms": 0.08470255446635401
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.21473815367512505,
+          "max_step": 0.24420514441652064,
+          "rms": 0.061750730238196126
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3634618743002938,
+          "max_step": 0.11259815304073004,
+          "rms": 0.07434329840336613
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5531647876556963,
+          "max_step": 0.4495831004437059,
+          "rms": 0.15163959049539935
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.5764562549442053,
+          "max_step": 0.24668489986978703,
+          "rms": 0.13846573517048763
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3988005330214219,
+          "max_step": 0.3922203778705807,
+          "rms": 0.10983232072010966
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "SUSPICION",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.356637848293595,
+          "max_step": 0.09520636174467484,
+          "rms": 0.07888149311648203
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.21489981276432735,
+          "max_step": 0.2442017261172103,
+          "rms": 0.04990230793321853
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.36314182282096585,
+          "max_step": 0.1125997250112576,
+          "rms": 0.07194703459109177
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "COMBAT",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5577391944048926,
+          "max_step": 0.1648868697147416,
+          "rms": 0.12355923576182876
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.35058931325430387,
+          "max_step": 0.42277140258014856,
+          "rms": 0.08050723138849875
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5587061316552863,
+          "max_step": 0.19410205635473562,
+          "rms": 0.11200808425311956
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "COMBAT",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5578711749920389,
+          "max_step": 0.261165479007177,
+          "rms": 0.13623809034138318
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.37311260161921384,
+          "max_step": 0.4227645136376039,
+          "rms": 0.0991334062190259
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5596164117114676,
+          "max_step": 0.22753388704744792,
+          "rms": 0.1166885750021445
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "COMBAT",
+      "to": "CLEAR",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5578711749920389,
+          "max_step": 0.1648858768878948,
+          "rms": 0.12199504729494837
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.35084456304612904,
+          "max_step": 0.4227645136376039,
+          "rms": 0.07287493743676884
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.5596164117114676,
+          "max_step": 0.19410293767906378,
+          "rms": 0.11027982411514571
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "CLEAR",
+      "to": "EXPLORE",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.17209877997636794,
+          "max_step": 0.09054425090551377,
+          "rms": 0.06460078878270466
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.19451749891042708,
+          "max_step": 0.06437091058564717,
+          "rms": 0.059298665274846736
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.16482787954723074,
+          "max_step": 0.07845662289002575,
+          "rms": 0.050436863945332894
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "CLEAR",
+      "to": "SUSPICION",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.34984749256167563,
+          "max_step": 0.261165479007177,
+          "rms": 0.09071363131489513
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.37311260161921384,
+          "max_step": 0.1285722105624154,
+          "rms": 0.08965574340209043
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.21419427852619263,
+          "max_step": 0.22753388704744792,
+          "rms": 0.061996169519662726
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    },
+    {
+      "from": "CLEAR",
+      "to": "COMBAT",
+      "signal_probes": [
+        {
+          "beat_offset": 0,
+          "peak": 0.5354802395438776,
+          "max_step": 0.4255213821792975,
+          "rms": 0.1129123787468836
+        },
+        {
+          "beat_offset": 7,
+          "peak": 0.566250975528794,
+          "max_step": 0.20922838548474632,
+          "rms": 0.11938764779932237
+        },
+        {
+          "beat_offset": 16,
+          "peak": 0.3479409921701784,
+          "max_step": 0.3712406079826813,
+          "rms": 0.07621510006977031
+        }
+      ],
+      "scope": "Offline continuous-gain probes, not actual listening or runtime proof"
+    }
+  ],
+  "runtimes": [
+    {
+      "name": "engine_replay",
+      "report_sha256": "3ef6931cd218a6e9f9f0a9f6c411fec57a7f8c9575f80d2e0697f76fe60db6c1",
+      "pcm_sha256": "51debf0ff95ccb597ddefbe95bb4ce78456efb4dd580489e22d4ddc4318cb5fa",
+      "audio_driver": "PulseAudio",
+      "signal": {
+        "frames": 2952192,
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_seconds": 66.94312925170068,
+        "sample_peak": 0.509002685546875,
+        "sample_peak_dbfs": -5.865598525559053,
+        "rms_dbfs": -20.31820604189918,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001974360772482521,
+          0.0019769167221961154
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.008544921875,
+        "max_sample_step": 0.438079833984375,
+        "sample_step_p9999": 0.2694091796875
+      },
+      "loudness": {
+        "integrated_lufs": -20.2,
+        "true_peak_dbfs": -5.6,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "clock_to_pcm_origin_estimate": 0.005251095540415918,
+      "alignment_limit": "Approximate mix clock/record duration; not sample-accurate acoustic latency",
+      "transition_windows": [
+        {
+          "sample_time_seconds": 17.923838904459583,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.08135986328125,
+          "max_step": 0.0755615234375,
+          "rms_dbfs": -32.07538987522134
+        },
+        {
+          "sample_time_seconds": 21.665908904459585,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.467681884765625,
+          "max_step": 0.17431640625,
+          "rms_dbfs": -15.444999598563722
+        },
+        {
+          "sample_time_seconds": 22.085858904459585,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.172088623046875,
+          "max_step": 0.196746826171875,
+          "rms_dbfs": -26.55410535969367
+        },
+        {
+          "sample_time_seconds": 25.004658904459586,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.503387451171875,
+          "max_step": 0.17193603515625,
+          "rms_dbfs": -14.690941952949363
+        },
+        {
+          "sample_time_seconds": 25.423548904459583,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.279510498046875,
+          "max_step": 0.249847412109375,
+          "rms_dbfs": -21.57438609560796
+        },
+        {
+          "sample_time_seconds": 26.668698904459585,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.294097900390625,
+          "max_step": 0.089691162109375,
+          "rms_dbfs": -19.231703494090677
+        },
+        {
+          "sample_time_seconds": 27.085148904459583,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.337890625,
+          "max_step": 0.256378173828125,
+          "rms_dbfs": -19.42628954165202
+        },
+        {
+          "sample_time_seconds": 30.004388904459585,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.492828369140625,
+          "max_step": 0.153167724609375,
+          "rms_dbfs": -15.579789613732718
+        },
+        {
+          "sample_time_seconds": 30.426998904459584,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.302276611328125,
+          "max_step": 0.191162109375,
+          "rms_dbfs": -19.989072591303216
+        },
+        {
+          "sample_time_seconds": 33.34274890445958,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.476898193359375,
+          "max_step": 0.17889404296875,
+          "rms_dbfs": -14.739152937852758
+        },
+        {
+          "sample_time_seconds": 33.75250890445958,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.200042724609375,
+          "max_step": 0.20587158203125,
+          "rms_dbfs": -26.472146339700792
+        },
+        {
+          "sample_time_seconds": 36.668508904459586,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.455047607421875,
+          "max_step": 0.181854248046875,
+          "rms_dbfs": -14.60889968381261
+        },
+        {
+          "sample_time_seconds": 37.08767890445959,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.30279541015625,
+          "max_step": 0.24542236328125,
+          "rms_dbfs": -21.84261090928552
+        },
+        {
+          "sample_time_seconds": 40.00743890445958,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.475189208984375,
+          "max_step": 0.146575927734375,
+          "rms_dbfs": -15.025362043559849
+        },
+        {
+          "sample_time_seconds": 40.426588904459585,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.3209228515625,
+          "max_step": 0.2369384765625,
+          "rms_dbfs": -18.751391097805158
+        },
+        {
+          "sample_time_seconds": 41.671038904459586,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.476959228515625,
+          "max_step": 0.160186767578125,
+          "rms_dbfs": -16.14302879315463
+        },
+        {
+          "sample_time_seconds": 42.087288904459584,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.343231201171875,
+          "max_step": 0.271331787109375,
+          "rms_dbfs": -19.204430724344064
+        },
+        {
+          "sample_time_seconds": 45.007198904459585,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.480712890625,
+          "max_step": 0.166351318359375,
+          "rms_dbfs": -14.800146583410294
+        },
+        {
+          "sample_time_seconds": 45.416048904459586,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.312957763671875,
+          "max_step": 0.24371337890625,
+          "rms_dbfs": -21.90549255789655
+        },
+        {
+          "sample_time_seconds": 48.33517890445958,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.47271728515625,
+          "max_step": 0.143585205078125,
+          "rms_dbfs": -14.905415663913562
+        },
+        {
+          "sample_time_seconds": 50.00988890445959,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.34222412109375,
+          "max_step": 0.12274169921875,
+          "rms_dbfs": -16.433737000229613
+        },
+        {
+          "sample_time_seconds": 53.33514890445959,
+          "state": "EXPLORE",
+          "in_capture": true,
+          "peak": 0.165069580078125,
+          "max_step": 0.043426513671875,
+          "rms_dbfs": -25.91132076722169
+        },
+        {
+          "sample_time_seconds": 54.17343890445959,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.09649658203125,
+          "max_step": 0.033935546875,
+          "rms_dbfs": -27.104146675994095
+        },
+        {
+          "sample_time_seconds": 65.00156890445959,
+          "state": "CLEAR",
+          "in_capture": true,
+          "peak": 0.482330322265625,
+          "max_step": 0.1759033203125,
+          "rms_dbfs": -14.954910634146747
+        }
+      ],
+      "loop_windows": [
+        {
+          "sample_time_seconds": 13.328082237792918,
+          "in_capture": true,
+          "peak": 0.165252685546875,
+          "max_step": 0.029632568359375,
+          "rms_dbfs": -24.81531259075698
+        },
+        {
+          "sample_time_seconds": 26.661415571126252,
+          "in_capture": true,
+          "peak": 0.294097900390625,
+          "max_step": 0.089691162109375,
+          "rms_dbfs": -19.636439413896877
+        },
+        {
+          "sample_time_seconds": 39.994748904459584,
+          "in_capture": true,
+          "peak": 0.475189208984375,
+          "max_step": 0.146575927734375,
+          "rms_dbfs": -16.48866570740974
+        },
+        {
+          "sample_time_seconds": 53.32808223779292,
+          "in_capture": true,
+          "peak": 0.140045166015625,
+          "max_step": 0.043426513671875,
+          "rms_dbfs": -27.12053795937382
+        },
+        {
+          "sample_time_seconds": 66.66141557112626,
+          "in_capture": true,
+          "peak": 0.125396728515625,
+          "max_step": 0.021484375,
+          "rms_dbfs": -28.184741139224982
+        }
+      ]
+    },
+    {
+      "name": "reduced_visual_replay",
+      "report_sha256": "b84da3e879b6fa22bd39f6ad0425e63e956c54820185cf90d825313e90ef7a42",
+      "pcm_sha256": "62b791922e0fd59a6201ea111216618bef59a75320eb405bc38d419ae63876d3",
+      "audio_driver": "PulseAudio",
+      "signal": {
+        "frames": 2951168,
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_seconds": 66.91990929705216,
+        "sample_peak": 0.511932373046875,
+        "sample_peak_dbfs": -5.8157481223737655,
+        "rms_dbfs": -20.321373646704686,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001987112346082657,
+          0.0019894244148034672
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.073577880859375,
+        "max_sample_step": 0.438079833984375,
+        "sample_step_p9999": 0.2703857421875
+      },
+      "loudness": {
+        "integrated_lufs": -20.2,
+        "true_peak_dbfs": -5.6,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "clock_to_pcm_origin_estimate": 0.0009336997689359805,
+      "alignment_limit": "Approximate mix clock/record duration; not sample-accurate acoustic latency",
+      "transition_windows": [
+        {
+          "sample_time_seconds": 17.917986300231064,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.09014892578125,
+          "max_step": 0.09942626953125,
+          "rms_dbfs": -30.808192989947244
+        },
+        {
+          "sample_time_seconds": 21.673296300231065,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.467681884765625,
+          "max_step": 0.17431640625,
+          "rms_dbfs": -14.76560912769003
+        },
+        {
+          "sample_time_seconds": 22.092976300231065,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.167236328125,
+          "max_step": 0.196746826171875,
+          "rms_dbfs": -26.517072114341357
+        },
+        {
+          "sample_time_seconds": 25.001406300231064,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4871826171875,
+          "max_step": 0.166534423828125,
+          "rms_dbfs": -14.986043238233203
+        },
+        {
+          "sample_time_seconds": 25.418296300231063,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.279510498046875,
+          "max_step": 0.249847412109375,
+          "rms_dbfs": -21.860889434291543
+        },
+        {
+          "sample_time_seconds": 26.675496300231064,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.450836181640625,
+          "max_step": 0.091888427734375,
+          "rms_dbfs": -15.776065509117071
+        },
+        {
+          "sample_time_seconds": 27.092936300231063,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.337890625,
+          "max_step": 0.256378173828125,
+          "rms_dbfs": -18.706431136902857
+        },
+        {
+          "sample_time_seconds": 30.001416300231064,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.492828369140625,
+          "max_step": 0.153167724609375,
+          "rms_dbfs": -15.727701183420422
+        },
+        {
+          "sample_time_seconds": 30.421076300231064,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.332305908203125,
+          "max_step": 0.21197509765625,
+          "rms_dbfs": -20.123192764414405
+        },
+        {
+          "sample_time_seconds": 33.34014630023106,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.476898193359375,
+          "max_step": 0.17889404296875,
+          "rms_dbfs": -15.148611624099646
+        },
+        {
+          "sample_time_seconds": 33.759076300231065,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.200042724609375,
+          "max_step": 0.20587158203125,
+          "rms_dbfs": -26.471654233272673
+        },
+        {
+          "sample_time_seconds": 36.67872630023106,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.467742919921875,
+          "max_step": 0.187774658203125,
+          "rms_dbfs": -14.180897622310374
+        },
+        {
+          "sample_time_seconds": 37.095726300231064,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.30279541015625,
+          "max_step": 0.24542236328125,
+          "rms_dbfs": -21.682203064473946
+        },
+        {
+          "sample_time_seconds": 40.00398630023106,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4910888671875,
+          "max_step": 0.141937255859375,
+          "rms_dbfs": -15.735151725041884
+        },
+        {
+          "sample_time_seconds": 40.42082630023106,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.3209228515625,
+          "max_step": 0.2369384765625,
+          "rms_dbfs": -19.071298675247494
+        },
+        {
+          "sample_time_seconds": 41.67818630023106,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.45489501953125,
+          "max_step": 0.169830322265625,
+          "rms_dbfs": -15.172828362265617
+        },
+        {
+          "sample_time_seconds": 42.08749630023107,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.343231201171875,
+          "max_step": 0.285369873046875,
+          "rms_dbfs": -19.016106539825866
+        },
+        {
+          "sample_time_seconds": 45.00373630023106,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.480712890625,
+          "max_step": 0.166351318359375,
+          "rms_dbfs": -15.329314242784847
+        },
+        {
+          "sample_time_seconds": 45.42335630023106,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.300079345703125,
+          "max_step": 0.23175048828125,
+          "rms_dbfs": -21.734219796599618
+        },
+        {
+          "sample_time_seconds": 48.34253630023107,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.473785400390625,
+          "max_step": 0.1573486328125,
+          "rms_dbfs": -14.588163524804633
+        },
+        {
+          "sample_time_seconds": 50.00648630023107,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.34222412109375,
+          "max_step": 0.12274169921875,
+          "rms_dbfs": -16.75965909362218
+        },
+        {
+          "sample_time_seconds": 53.34274630023106,
+          "state": "EXPLORE",
+          "in_capture": true,
+          "peak": 0.218658447265625,
+          "max_step": 0.043426513671875,
+          "rms_dbfs": -23.860816337569805
+        },
+        {
+          "sample_time_seconds": 54.17034630023107,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.0965576171875,
+          "max_step": 0.039398193359375,
+          "rms_dbfs": -26.522472031167425
+        },
+        {
+          "sample_time_seconds": 65.00928630023107,
+          "state": "CLEAR",
+          "in_capture": true,
+          "peak": 0.482330322265625,
+          "max_step": 0.1759033203125,
+          "rms_dbfs": -13.933558926255404
+        }
+      ],
+      "loop_windows": [
+        {
+          "sample_time_seconds": 13.332399633564398,
+          "in_capture": true,
+          "peak": 0.165252685546875,
+          "max_step": 0.029632568359375,
+          "rms_dbfs": -24.491604419784455
+        },
+        {
+          "sample_time_seconds": 26.665732966897732,
+          "in_capture": true,
+          "peak": 0.3876953125,
+          "max_step": 0.091888427734375,
+          "rms_dbfs": -17.215541936040207
+        },
+        {
+          "sample_time_seconds": 39.999066300231064,
+          "in_capture": true,
+          "peak": 0.4910888671875,
+          "max_step": 0.141937255859375,
+          "rms_dbfs": -15.929956085521425
+        },
+        {
+          "sample_time_seconds": 53.3323996335644,
+          "in_capture": true,
+          "peak": 0.212310791015625,
+          "max_step": 0.043426513671875,
+          "rms_dbfs": -25.265945246641685
+        },
+        {
+          "sample_time_seconds": 66.66573296689774,
+          "in_capture": true,
+          "peak": 0.125396728515625,
+          "max_step": 0.021484375,
+          "rms_dbfs": -27.796436390251777
+        }
+      ]
+    },
+    {
+      "name": "movie_replay",
+      "report_sha256": "3df28a2564e98efc90deeb7b8f23dc2892868485c3edc3c71a63a563ea4bc97f",
+      "pcm_sha256": "56f8e1fd6fe8769a7e9cd5739a9d7314c1437a747e3443e4f8cc775b6f434cee",
+      "audio_driver": "Dummy",
+      "signal": {
+        "frames": 3215360,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 66.98666666666666,
+        "sample_peak": 0.5411376953125,
+        "sample_peak_dbfs": -5.33384424664842,
+        "rms_dbfs": -20.31237624337155,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001988513036897987,
+          0.0019911764723480126
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.040374755859375,
+        "max_sample_step": 0.430938720703125,
+        "sample_step_p9999": 0.273223876953125
+      },
+      "loudness": {
+        "integrated_lufs": -20.2,
+        "true_peak_dbfs": -5.3,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "clock_to_pcm_origin_estimate": 0.0041340064373400764,
+      "alignment_limit": "Approximate mix clock/record duration; not sample-accurate acoustic latency",
+      "transition_windows": [
+        {
+          "sample_time_seconds": 17.92054599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.083251953125,
+          "max_step": 0.08544921875,
+          "rms_dbfs": -31.526046435331416
+        },
+        {
+          "sample_time_seconds": 21.66419599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.460052490234375,
+          "max_step": 0.172821044921875,
+          "rms_dbfs": -15.930108723416044
+        },
+        {
+          "sample_time_seconds": 22.08031599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.178466796875,
+          "max_step": 0.212677001953125,
+          "rms_dbfs": -26.149380176921007
+        },
+        {
+          "sample_time_seconds": 25.00324599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.483734130859375,
+          "max_step": 0.156280517578125,
+          "rms_dbfs": -15.025843645229704
+        },
+        {
+          "sample_time_seconds": 25.41905599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.29571533203125,
+          "max_step": 0.254486083984375,
+          "rms_dbfs": -21.62496589594561
+        },
+        {
+          "sample_time_seconds": 26.66761599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.348907470703125,
+          "max_step": 0.080841064453125,
+          "rms_dbfs": -19.364523911275043
+        },
+        {
+          "sample_time_seconds": 27.08297599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.335784912109375,
+          "max_step": 0.242645263671875,
+          "rms_dbfs": -19.292152685936045
+        },
+        {
+          "sample_time_seconds": 30.01641599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.50244140625,
+          "max_step": 0.19500732421875,
+          "rms_dbfs": -15.39893086682536
+        },
+        {
+          "sample_time_seconds": 30.43234599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.325592041015625,
+          "max_step": 0.195953369140625,
+          "rms_dbfs": -19.905712928276948
+        },
+        {
+          "sample_time_seconds": 33.33376599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.477874755859375,
+          "max_step": 0.160552978515625,
+          "rms_dbfs": -16.13432638483853
+        },
+        {
+          "sample_time_seconds": 33.74971599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.19903564453125,
+          "max_step": 0.21142578125,
+          "rms_dbfs": -26.159766427022625
+        },
+        {
+          "sample_time_seconds": 36.68320599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.47515869140625,
+          "max_step": 0.176849365234375,
+          "rms_dbfs": -13.815351964211997
+        },
+        {
+          "sample_time_seconds": 37.09902599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.2982177734375,
+          "max_step": 0.237823486328125,
+          "rms_dbfs": -21.717345515111912
+        },
+        {
+          "sample_time_seconds": 40.00033599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.476104736328125,
+          "max_step": 0.136505126953125,
+          "rms_dbfs": -16.089334648577246
+        },
+        {
+          "sample_time_seconds": 40.41671599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.335784912109375,
+          "max_step": 0.242645263671875,
+          "rms_dbfs": -19.27926360484466
+        },
+        {
+          "sample_time_seconds": 41.66429599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.367919921875,
+          "max_step": 0.132904052734375,
+          "rms_dbfs": -17.56822873694738
+        },
+        {
+          "sample_time_seconds": 42.08018599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.361968994140625,
+          "max_step": 0.25811767578125,
+          "rms_dbfs": -19.292322593199177
+        },
+        {
+          "sample_time_seconds": 45.00298599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.47894287109375,
+          "max_step": 0.180328369140625,
+          "rms_dbfs": -15.497371440593408
+        },
+        {
+          "sample_time_seconds": 45.41910599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.313140869140625,
+          "max_step": 0.252105712890625,
+          "rms_dbfs": -21.627490192593616
+        },
+        {
+          "sample_time_seconds": 48.33095599356266,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.460052490234375,
+          "max_step": 0.172821044921875,
+          "rms_dbfs": -15.905728210099635
+        },
+        {
+          "sample_time_seconds": 50.01630599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.326751708984375,
+          "max_step": 0.111785888671875,
+          "rms_dbfs": -16.47958110464828
+        },
+        {
+          "sample_time_seconds": 53.33360599356266,
+          "state": "EXPLORE",
+          "in_capture": true,
+          "peak": 0.130523681640625,
+          "max_step": 0.03741455078125,
+          "rms_dbfs": -27.42517856653157
+        },
+        {
+          "sample_time_seconds": 54.16550599356266,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.101470947265625,
+          "max_step": 0.041595458984375,
+          "rms_dbfs": -26.274708841782125
+        },
+        {
+          "sample_time_seconds": 65.00261599356266,
+          "state": "CLEAR",
+          "in_capture": true,
+          "peak": 0.483734130859375,
+          "max_step": 0.156280517578125,
+          "rms_dbfs": -15.045946022740967
+        }
+      ],
+      "loop_windows": [
+        {
+          "sample_time_seconds": 13.329199326895994,
+          "in_capture": true,
+          "peak": 0.180328369140625,
+          "max_step": 0.038238525390625,
+          "rms_dbfs": -24.627481893452206
+        },
+        {
+          "sample_time_seconds": 26.662532660229328,
+          "in_capture": true,
+          "peak": 0.348907470703125,
+          "max_step": 0.080841064453125,
+          "rms_dbfs": -19.64613467095304
+        },
+        {
+          "sample_time_seconds": 39.99586599356266,
+          "in_capture": true,
+          "peak": 0.476104736328125,
+          "max_step": 0.136505126953125,
+          "rms_dbfs": -16.470299683385228
+        },
+        {
+          "sample_time_seconds": 53.329199326895996,
+          "in_capture": true,
+          "peak": 0.130523681640625,
+          "max_step": 0.03741455078125,
+          "rms_dbfs": -27.677770810159643
+        },
+        {
+          "sample_time_seconds": 66.66253266022933,
+          "in_capture": true,
+          "peak": 0.12542724609375,
+          "max_step": 0.021881103515625,
+          "rms_dbfs": -27.978371618672647
+        }
+      ]
+    },
+    {
+      "name": "linux_export_replay",
+      "report_sha256": "b4da52102372b337319804efa68b5076b2df1272f0d5fcef28c8e89cfef76e05",
+      "pcm_sha256": "c38ea94fe35633ebe3dd3eec6a50922142dee020ad5ed9174ec4763cc8e1d613",
+      "audio_driver": "PulseAudio",
+      "signal": {
+        "frames": 2949120,
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_seconds": 66.87346938775511,
+        "sample_peak": 0.58685302734375,
+        "sample_peak_dbfs": -4.6294130144247605,
+        "rms_dbfs": -20.3316360157188,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0020054045961134964,
+          0.0020077517049180136
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.02899169921875,
+        "max_sample_step": 0.438079833984375,
+        "sample_step_p9999": 0.26959228515625
+      },
+      "loudness": {
+        "integrated_lufs": -20.2,
+        "true_peak_dbfs": -4.5,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "clock_to_pcm_origin_estimate": -0.005421720730808488,
+      "alignment_limit": "Approximate mix clock/record duration; not sample-accurate acoustic latency",
+      "transition_windows": [
+        {
+          "sample_time_seconds": 17.926731720730807,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.080841064453125,
+          "max_step": 0.087493896484375,
+          "rms_dbfs": -32.1062751891338
+        },
+        {
+          "sample_time_seconds": 21.67425172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.467681884765625,
+          "max_step": 0.16864013671875,
+          "rms_dbfs": -14.806826681712753
+        },
+        {
+          "sample_time_seconds": 22.091301720730808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.175384521484375,
+          "max_step": 0.196746826171875,
+          "rms_dbfs": -26.46541228943139
+        },
+        {
+          "sample_time_seconds": 25.010441720730807,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4871826171875,
+          "max_step": 0.166534423828125,
+          "rms_dbfs": -13.970520682870596
+        },
+        {
+          "sample_time_seconds": 25.426901720730807,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.279510498046875,
+          "max_step": 0.249847412109375,
+          "rms_dbfs": -21.107587134321935
+        },
+        {
+          "sample_time_seconds": 26.67395172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.409027099609375,
+          "max_step": 0.102783203125,
+          "rms_dbfs": -16.819665773574815
+        },
+        {
+          "sample_time_seconds": 27.090481720730807,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.34552001953125,
+          "max_step": 0.26959228515625,
+          "rms_dbfs": -18.64740558926417
+        },
+        {
+          "sample_time_seconds": 30.00974172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.492828369140625,
+          "max_step": 0.153167724609375,
+          "rms_dbfs": -15.735933017480633
+        },
+        {
+          "sample_time_seconds": 30.42969172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.317291259765625,
+          "max_step": 0.2015380859375,
+          "rms_dbfs": -19.829453836663728
+        },
+        {
+          "sample_time_seconds": 33.34870172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.476898193359375,
+          "max_step": 0.17889404296875,
+          "rms_dbfs": -14.296682029424732
+        },
+        {
+          "sample_time_seconds": 33.77383172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.189666748046875,
+          "max_step": 0.19525146484375,
+          "rms_dbfs": -26.46663523386121
+        },
+        {
+          "sample_time_seconds": 36.673771720730805,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.43951416015625,
+          "max_step": 0.1759033203125,
+          "rms_dbfs": -14.6110044830794
+        },
+        {
+          "sample_time_seconds": 37.09303172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.30279541015625,
+          "max_step": 0.24542236328125,
+          "rms_dbfs": -21.629477640184007
+        },
+        {
+          "sample_time_seconds": 40.01308172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4910888671875,
+          "max_step": 0.141937255859375,
+          "rms_dbfs": -14.51070948996339
+        },
+        {
+          "sample_time_seconds": 40.42913172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.3209228515625,
+          "max_step": 0.2369384765625,
+          "rms_dbfs": -18.572100779388382
+        },
+        {
+          "sample_time_seconds": 41.676681720730805,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.458343505859375,
+          "max_step": 0.1800537109375,
+          "rms_dbfs": -14.861106923894244
+        },
+        {
+          "sample_time_seconds": 42.09658172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.343231201171875,
+          "max_step": 0.285369873046875,
+          "rms_dbfs": -18.572052728752105
+        },
+        {
+          "sample_time_seconds": 45.01306172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.480712890625,
+          "max_step": 0.166351318359375,
+          "rms_dbfs": -14.279623877937322
+        },
+        {
+          "sample_time_seconds": 45.43185172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.300079345703125,
+          "max_step": 0.23175048828125,
+          "rms_dbfs": -20.539684530827568
+        },
+        {
+          "sample_time_seconds": 48.34002172073081,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.46978759765625,
+          "max_step": 0.1380615234375,
+          "rms_dbfs": -14.86576775531427
+        },
+        {
+          "sample_time_seconds": 50.01532172073081,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.357635498046875,
+          "max_step": 0.116729736328125,
+          "rms_dbfs": -16.092336086544346
+        },
+        {
+          "sample_time_seconds": 53.340251720730805,
+          "state": "EXPLORE",
+          "in_capture": true,
+          "peak": 0.255462646484375,
+          "max_step": 0.040771484375,
+          "rms_dbfs": -21.938561800501457
+        },
+        {
+          "sample_time_seconds": 54.178901720730806,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.100250244140625,
+          "max_step": 0.0394287109375,
+          "rms_dbfs": -26.848574696054893
+        },
+        {
+          "sample_time_seconds": 65.00752172073081,
+          "state": "CLEAR",
+          "in_capture": true,
+          "peak": 0.466796875,
+          "max_step": 0.17041015625,
+          "rms_dbfs": -14.350303912402895
+        }
+      ],
+      "loop_windows": [
+        {
+          "sample_time_seconds": 0.005421720730808488,
+          "in_capture": true,
+          "peak": 0.143096923828125,
+          "max_step": 0.008636474609375,
+          "rms_dbfs": -23.48301386513245
+        },
+        {
+          "sample_time_seconds": 13.338755054064142,
+          "in_capture": true,
+          "peak": 0.1683349609375,
+          "max_step": 0.02935791015625,
+          "rms_dbfs": -23.747523333753477
+        },
+        {
+          "sample_time_seconds": 26.672088387397476,
+          "in_capture": true,
+          "peak": 0.409027099609375,
+          "max_step": 0.102783203125,
+          "rms_dbfs": -17.073726303047604
+        },
+        {
+          "sample_time_seconds": 40.00542172073081,
+          "in_capture": true,
+          "peak": 0.4910888671875,
+          "max_step": 0.141937255859375,
+          "rms_dbfs": -15.329563090057405
+        },
+        {
+          "sample_time_seconds": 53.338755054064144,
+          "in_capture": true,
+          "peak": 0.240203857421875,
+          "max_step": 0.040771484375,
+          "rms_dbfs": -22.33911042164565
+        },
+        {
+          "sample_time_seconds": 66.67208838739748,
+          "in_capture": true,
+          "peak": 0.12542724609375,
+          "max_step": 0.021484375,
+          "rms_dbfs": -27.150629607112172
+        }
+      ]
+    },
+    {
+      "name": "windows_export_replay",
+      "report_sha256": "9ac663adf185a246ba23e12ddbabf10630eecc68e14c1fd3348f5511716dc288",
+      "pcm_sha256": "43940e999d2f3cfa09a76ff24f8a929ea1223484656194775be757ad05f5e853",
+      "audio_driver": "WASAPI",
+      "signal": {
+        "frames": 3212288,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 66.92266666666667,
+        "sample_peak": 0.563140869140625,
+        "sample_peak_dbfs": -4.987659064326154,
+        "rms_dbfs": -20.294899947920698,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0019912062308421207,
+          0.001993965258976818
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.027862548828125,
+        "max_sample_step": 0.430938720703125,
+        "sample_step_p9999": 0.273406982421875
+      },
+      "loudness": {
+        "integrated_lufs": -20.2,
+        "true_peak_dbfs": -4.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "clock_to_pcm_origin_estimate": 0.0056506643619229635,
+      "alignment_limit": "Approximate mix clock/record duration; not sample-accurate acoustic latency",
+      "transition_windows": [
+        {
+          "sample_time_seconds": 17.923239335638076,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.07452392578125,
+          "max_step": 0.07379150390625,
+          "rms_dbfs": -33.69539309044826
+        },
+        {
+          "sample_time_seconds": 21.679379335638078,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.475677490234375,
+          "max_step": 0.178497314453125,
+          "rms_dbfs": -13.799191948125625
+        },
+        {
+          "sample_time_seconds": 22.090109335638076,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.170135498046875,
+          "max_step": 0.201629638671875,
+          "rms_dbfs": -26.272601910109756
+        },
+        {
+          "sample_time_seconds": 25.007519335638076,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.49981689453125,
+          "max_step": 0.161407470703125,
+          "rms_dbfs": -12.458789819658808
+        },
+        {
+          "sample_time_seconds": 25.422179335638077,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.282012939453125,
+          "max_step": 0.241943359375,
+          "rms_dbfs": -20.183409500035268
+        },
+        {
+          "sample_time_seconds": 26.669199335638076,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.445281982421875,
+          "max_step": 0.08599853515625,
+          "rms_dbfs": -15.15298094974037
+        },
+        {
+          "sample_time_seconds": 27.094489335638077,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.323883056640625,
+          "max_step": 0.242645263671875,
+          "rms_dbfs": -18.187121775006368
+        },
+        {
+          "sample_time_seconds": 29.99646933563808,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4881591796875,
+          "max_step": 0.1888427734375,
+          "rms_dbfs": -15.744143124513869
+        },
+        {
+          "sample_time_seconds": 30.423569335638078,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.325592041015625,
+          "max_step": 0.195953369140625,
+          "rms_dbfs": -19.453925079777374
+        },
+        {
+          "sample_time_seconds": 33.34141933563808,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.4930419921875,
+          "max_step": 0.17138671875,
+          "rms_dbfs": -12.855784470168466
+        },
+        {
+          "sample_time_seconds": 33.75294933563808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.19903564453125,
+          "max_step": 0.21142578125,
+          "rms_dbfs": -26.144022675619915
+        },
+        {
+          "sample_time_seconds": 36.67318933563808,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.47515869140625,
+          "max_step": 0.176849365234375,
+          "rms_dbfs": -13.187007787639713
+        },
+        {
+          "sample_time_seconds": 37.08895933563808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.2982177734375,
+          "max_step": 0.237823486328125,
+          "rms_dbfs": -21.41405560694399
+        },
+        {
+          "sample_time_seconds": 40.00889933563808,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.492034912109375,
+          "max_step": 0.145751953125,
+          "rms_dbfs": -12.77459273441653
+        },
+        {
+          "sample_time_seconds": 40.413729335638074,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.3394775390625,
+          "max_step": 0.25518798828125,
+          "rms_dbfs": -17.888949096345755
+        },
+        {
+          "sample_time_seconds": 41.661379335638074,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.49005126953125,
+          "max_step": 0.15185546875,
+          "rms_dbfs": -14.88808332293873
+        },
+        {
+          "sample_time_seconds": 42.087849335638076,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.34716796875,
+          "max_step": 0.244781494140625,
+          "rms_dbfs": -18.282174636592046
+        },
+        {
+          "sample_time_seconds": 45.011689335638074,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.494964599609375,
+          "max_step": 0.186187744140625,
+          "rms_dbfs": -13.679430501631414
+        },
+        {
+          "sample_time_seconds": 45.42274933563808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.300445556640625,
+          "max_step": 0.23968505859375,
+          "rms_dbfs": -20.137245674566095
+        },
+        {
+          "sample_time_seconds": 48.34044933563808,
+          "state": "SUSPICION",
+          "in_capture": true,
+          "peak": 0.500732421875,
+          "max_step": 0.178497314453125,
+          "rms_dbfs": -14.122180456605395
+        },
+        {
+          "sample_time_seconds": 50.01196933563808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.342193603515625,
+          "max_step": 0.11175537109375,
+          "rms_dbfs": -15.286419365512728
+        },
+        {
+          "sample_time_seconds": 53.34448933563808,
+          "state": "EXPLORE",
+          "in_capture": true,
+          "peak": 0.214508056640625,
+          "max_step": 0.046630859375,
+          "rms_dbfs": -22.24049444890457
+        },
+        {
+          "sample_time_seconds": 54.17748933563808,
+          "state": "COMBAT",
+          "in_capture": true,
+          "peak": 0.0921630859375,
+          "max_step": 0.035430908203125,
+          "rms_dbfs": -26.361003437540994
+        },
+        {
+          "sample_time_seconds": 65.01053933563807,
+          "state": "CLEAR",
+          "in_capture": true,
+          "peak": 0.49981689453125,
+          "max_step": 0.161407470703125,
+          "rms_dbfs": -12.351365479509727
+        }
+      ],
+      "loop_windows": [
+        {
+          "sample_time_seconds": 13.327682668971411,
+          "in_capture": true,
+          "peak": 0.173187255859375,
+          "max_step": 0.029571533203125,
+          "rms_dbfs": -22.21783875269173
+        },
+        {
+          "sample_time_seconds": 26.661016002304745,
+          "in_capture": true,
+          "peak": 0.41070556640625,
+          "max_step": 0.08599853515625,
+          "rms_dbfs": -16.114323262969627
+        },
+        {
+          "sample_time_seconds": 39.99434933563808,
+          "in_capture": true,
+          "peak": 0.492034912109375,
+          "max_step": 0.145751953125,
+          "rms_dbfs": -13.878073047055572
+        },
+        {
+          "sample_time_seconds": 53.32768266897141,
+          "in_capture": true,
+          "peak": 0.214508056640625,
+          "max_step": 0.046630859375,
+          "rms_dbfs": -23.491020614070145
+        },
+        {
+          "sample_time_seconds": 66.66101600230475,
+          "in_capture": true,
+          "peak": 0.125457763671875,
+          "max_step": 0.021881103515625,
+          "rms_dbfs": -25.526036357911988
+        }
+      ]
+    }
+  ],
+  "passed": true
+}
