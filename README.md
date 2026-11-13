@@ -38,3 +38,5 @@
 
 
 P05: `python3 tools/verify_p05.py --headless --output <новая-папка>` — story/schema/migration/graph и реальные Input replay, без rendered/listening claims. Хост: `python3 tools/verify_p05.py --exports --movie --output reports/phases/P05/attempt1/native-host-01 --build-output build/P05/native-host-01`. Детальные границы и conservative defaults: [P05 design](reports/phases/P05/attempt1/design.md). Три primary routes + REAL_PRIME post-story overlay — eligibility/production plans, не готовые финальные уровни.
+
+Для каждого повторного прогона нужна новая папка evidence. Native P05 QA задаёт `--disable-vsync --max-fps 60` для воспроизводимого темпа отображения, сохраняя реальные часы физики и лимит retry <1000 мс. MovieMaker отдельно записывает при fixed-fps60; он не заменяет live-проверки. P04-процентили physics delta не доказывают wall-frame FPS. Перед `--exports` подключите существующий разрешённый `.tools/wine/usr/bin/wine`; проверка наличия не заменяет фактический запуск PE. Условия и история FAIL сохранены в [attempt2 remediation](reports/phases/P05/attempt2/remediation.md).

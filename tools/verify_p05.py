@@ -153,15 +153,20 @@ def main():
         write(output / 'environment.json', {
             'platform': platform.platform(), 'scope': 'HEADLESS_TECHNICAL_ONLY' if args.headless else 'RENDERER_REQUESTED',
             'native_windows': 'NOT_TESTED; Wine runtime is recorded separately',
-            'listening': 'NOT_CLAIMED; unchanged approved P04G audio, host regression pending',
+            'listening': 'NOT_CLAIMED; unchanged approved P04G audio, runtime signal evidence is separate from subjective listening',
             'phase_decision': 'NOT_DECIDED_BY_AUTHOR', 'independent_review': 'HOST_PENDING',
             'exports_requested': args.exports, 'movie_requested': args.movie,
+            'live_qa_pacing': 'Explicit --disable-vsync --max-fps 60; real-time physics, no fixed-fps substitution' if not args.headless else 'Headless technical execution only',
+            'timing_limits': 'Live retry gate remains <1000ms monotonic wall time. Existing P04 frame percentiles use physics delta, not measured wall-frame FPS. One host run does not prove all compositor/default-vsync conditions.',
             'linked_worktree_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()})
         write(output / 'artifacts.json', [{'path': str(p.relative_to(ROOT)), 'bytes': p.stat().st_size, 'sha256': sha(p)}
                                         for p in sorted(output.rglob('*')) if p.is_file() and p.name != 'artifacts.json'])
         return 0 if all(row['passed'] for row in results) else 1
 
     if not check('pinned_engine', {'sha256': GODOT.is_file() and sha(GODOT) == LOCK['linux_binary_sha256']}):
+        return finish()
+    if args.exports and not check('export_runtime_preflight', {
+            'existing_wine_runtime': (ROOT / '.tools/wine/usr/bin/wine').is_file()}):
         return finish()
     base = [GODOT, '--headless', '--path', ROOT / 'game']
     for suite in ['story_registry', 'story_state', 'story_graph', 'story_integration']:
@@ -178,6 +183,9 @@ def main():
     if args.headless:
         command += ['--headless', '--fixed-fps', '60', '--disable-vsync', '--max-fps', '0']
     else:
+        # Keep renderer pacing explicit for unattended QA; preserve real-time physics
+        # and the unchanged <1000ms wall-clock retry gate in mission_replay.gd.
+        command += ['--disable-vsync', '--max-fps', '60']
         if not run('native_probe', command + ['--', '--smoke-bootstrap'], environment('native_probe'), 20):
             write(output / 'host_pending.json', {'reason': 'Renderer/audio probe failed; no native evidence claim',
                                                'command': 'python3 tools/verify_p05.py --exports --movie --output reports/phases/P05/attempt1/native-host-01 --build-output build/P05/native-host-01'})
@@ -189,7 +197,7 @@ def main():
     check('full_reduced_story_invariance', {'same_story': bool(full.get('story')) and full.get('story') == reduced.get('story')})
     if args.movie:
         movie = build / 'story.avi'
-        replay('movie', [GODOT, '--path', ROOT / 'game', '--write-movie', movie, '--fixed-fps', '60'], environment('movie'), movie=True)
+        replay('movie', [GODOT, '--path', ROOT / 'game', '--disable-vsync', '--max-fps', '60', '--write-movie', movie, '--fixed-fps', '60'], environment('movie'), movie=True)
         ffmpeg = shutil.which('ffmpeg')
         if not ffmpeg:
             pinned = ROOT / '.tools/ci-media/bin/ffmpeg'
@@ -212,12 +220,12 @@ def main():
                 row.update(sha256=sha(target), bytes=target.stat().st_size)
                 if folder == 'linux':
                     target.chmod(0o755)
-                    runtime = [target] + (['--headless', '--fixed-fps', '60', '--max-fps', '0'] if args.headless else [])
+                    runtime = [target] + (['--headless', '--fixed-fps', '60', '--max-fps', '0'] if args.headless else ['--disable-vsync', '--max-fps', '60'])
                     replay('linux_input', runtime, environment('linux_input'))
                 else:
                     wine = ROOT / '.tools/wine/usr/bin/wine'
                     env = environment('windows_input', wine=True)
-                    runtime = [wine, target] + (['--headless', '--fixed-fps', '60', '--max-fps', '0'] if args.headless else [])
+                    runtime = [wine, target] + (['--headless', '--fixed-fps', '60', '--max-fps', '0'] if args.headless else ['--disable-vsync', '--max-fps', '60'])
                     row['wine_probe'] = run('wine_probe', runtime + ['--', '--smoke-bootstrap'], env, 30)
                     if row['wine_probe']:
                         replay('wine_input', runtime, env, wine=True)
