@@ -1,7 +1,7 @@
 {
   "phase": "P02",
-  "status": "FAIL",
-  "attempt": 1,
+  "status": "PASS",
+  "attempt": 2,
   "reviewer": "/root/lead_reviewer",
   "subreviewers": [
     "/root/lead_reviewer/p01_art_subreview"
@@ -11,10 +11,10 @@
     "/root/gameplay_p02",
     "/root/art_production"
   ],
-  "reviewed_commit": "1786633e2d4f366a267ae884e1b2cf6029fbc546",
-  "evidence_commit": "021c126dc97bf365b95c094236ca34b4fae9b3c2",
+  "reviewed_commit": "4202a74f82498b1656de9a7b24bef765c606659c",
+  "evidence_commit": "6dc34ad72933da5bbbb57e90ce1a8988734faf8b",
   "pull_request": "https://github.com/Artyx71/Last-Skuf/pull/3",
-  "ci_run": "https://github.com/Artyx71/Last-Skuf/actions/runs/43387775768",
+  "ci_run": "https://github.com/Artyx71/Last-Skuf/actions/runs/43391598620",
   "evidence": [
     {
       "path": "reports/phases/P02/reviewer-attempt1/actions_inspection_4x.png",
@@ -447,71 +447,936 @@
     {
       "path": "reports/phases/P02/review-attempt1.md",
       "sha256": "7b350d76e43163f18d23fd997c244649d46f199989e63ad8151562be19d0b1f5"
+    },
+    {
+      "path": "build/P02/attempt2/combat.avi",
+      "sha256": "f3eef89355db6caad9d9095960f2c553a673a75a0e7fa8c5bc42b1a5d2b07baf"
+    },
+    {
+      "path": "build/P02/attempt2/linux/last-skuf.x86_64",
+      "sha256": "1f359c20a3d662ff59e1c1f80c45b7d588838f7a778205628603334c963db3e5"
+    },
+    {
+      "path": "build/P02/attempt2/shooter_transition.avi",
+      "sha256": "00f2dcc32ab7e986cdc1cd4b7e2b2d59b74b43e30c7ec1536259185747478d3f"
+    },
+    {
+      "path": "build/P02/attempt2/windows/last-skuf.exe",
+      "sha256": "5d2aff3db1622e0938690b9ddc13b58eae554f4f5adcecd77c960cbabe06d537"
+    },
+    {
+      "path": "build/P02/combat.avi",
+      "sha256": "65c4de52b12c32eb1e4af93e960b399df3bfe7427cec2aeb148c89ac9bbc6f38"
+    },
+    {
+      "path": "build/P02/linux/last-skuf.x86_64",
+      "sha256": "045a8edcb842496fb53b77cd002fb7b40714cc2d0b5c70370a4cb23ff7bf900f"
+    },
+    {
+      "path": "build/P02/windows/last-skuf.exe",
+      "sha256": "d617b12677d96adb2ce4e2a41be0f185fbb184690b462c3885221e652f1b7f3b"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/acceptance_summary.json",
+      "sha256": "abf49083ab65a1733d6f0d51457a381074d3f7c879da7433253d58b4aa99199f"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/combat_contact_sheet.png",
+      "sha256": "44def2ba65f3f7f8cce88fbf115602d488a773c6a7e7bac00c5fd3b4a09d544d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/combat_lab.png",
+      "sha256": "b6d341b6a06f7342e7252b4d56534096e83aa74774b8a49603210178533c1ee3"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/combat_replay.json",
+      "sha256": "afaa8a5c67d62adc7e421d55e1255331787aad2f08bc692358258f2aa286cbbf"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/combat_replay.mp4",
+      "sha256": "f36b8314be0ac3a1e94aa49ea9ba2e5101e790172230a0b162b5da7b50cfa17a"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/combat_replay_end.png",
+      "sha256": "9ac2076ff75ecbe65976548ea56020b9b39002da02b6443847456880a4c4fa4d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_linux_combat.png",
+      "sha256": "baead39f7eb78e2100a043eb59a0112ca2467a49c0f60244b6314b2c3d7462c5"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_linux_replay.json",
+      "sha256": "653b0c82949c4c76d4ad144459ab4f8e55d7c4e4042938aad29b97ffafe66026"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_linux_replay_end.png",
+      "sha256": "9ac2076ff75ecbe65976548ea56020b9b39002da02b6443847456880a4c4fa4d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_windows_replay.json",
+      "sha256": "1591ee83eec717fb9349da1128585322a06f191ed61f3dc8239976ce1640c19e"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_windows_replay_end.png",
+      "sha256": "9ac2076ff75ecbe65976548ea56020b9b39002da02b6443847456880a4c4fa4d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/export_windows_wine_combat.png",
+      "sha256": "baead39f7eb78e2100a043eb59a0112ca2467a49c0f60244b6314b2c3d7462c5"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/exports.json",
+      "sha256": "071342513769a953c817a899c191a67580b17fd7c7742a3136f4d7ca7608cda1"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_contact.json",
+      "sha256": "ce6e5b958b760dc66b4d571274214fcde7ecbc0a0a0fe6c287dd54fb1b27e886"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_contact.log",
+      "sha256": "1ae59db96c83c8d972cf81b7f14d032b0d4ad54f486ffaec0fc967c5c1990a06"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_independent-probe.json",
+      "sha256": "d39bca39c075e75f378fec62af3844fe2d775d840adc07ebd49aa26d469763f2"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_independent-probe.log",
+      "sha256": "421b624a76c2f798e65cf30ecb99d1e69834b2381dd5c3719fdd0c99f0e6067c"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_replay-headless.json",
+      "sha256": "00053e31da33fde8d74462b019c5f2e06c18d5e979e34f7c31cefef67face744"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_test-summary.json",
+      "sha256": "66a3b94d7b72f0b3822bec4816ce9ed68a06f5268c5a554130bde3769ef7bd96"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_weapon-capture.log",
+      "sha256": "94dfe2f26db195fa2b5ee2aabe3f0aa194c01aa995234e96d3097a59354de624"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/gameplay_weapon_hand_sheet.png",
+      "sha256": "7573847f20be3b55ab8fcd5eb3fdedad361527f8342c019dde439cc48180cf92"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/implementation.md",
+      "sha256": "5c927983addfa85a3938a5e86166d205feca19aa4a5994d61c2dc2e952808175"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/ai.log",
+      "sha256": "6f630d9e59add1a4ad6a17f5261dac13b7cd28111b4cc2c595bdfe396065dee9"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/art_structure.log",
+      "sha256": "6649c0e2c284af44fe31efc100b7ae3e2f65059e589eb21521df2e60f91d69ec"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/bootstrap.log",
+      "sha256": "8ee895c676c88fda4cad35f541762e091bee75ff1fdef1d118bc3130915c3e7d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/combat.log",
+      "sha256": "1e5f7687e27dd748e33db5bd2e4548cb55455e9ce02ccc8e89203871525cc516"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/combat_art.log",
+      "sha256": "1af720057ce6374a72e38056a77ce1e239be73eb3a5317e1afde60f94a76c320"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/combat_render.log",
+      "sha256": "6beaa8c45bd52c6e9890b22894ea99fcf86ef57fb70ac2f510dd081c0fcf631d"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/combat_replay.log",
+      "sha256": "9031739cbf8f59e94f841ec339f83343e1ceec2a378645fb823e3250ef2cb26b"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/contact_timing.log",
+      "sha256": "ad8166b6d9ab162bcddd22704cba623788d5e2be20e4a3a84dea4cd3fa33a7d4"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/encode_replay.log",
+      "sha256": "a2773ad9a6900503f19afc58e1580fdc4c8a90c81e96d170399f1a04c7cdeb88"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/export_linux.log",
+      "sha256": "dac51ce438af2249f47893d6e1876c9e0e5551e35ff4c14a4bbbdf88069db3aa"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/export_windows.log",
+      "sha256": "362ed7a7bb9fec4bb4bfe6678839996f8c74e5f90bf890f072f8c4fa79e735c1"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/import.log",
+      "sha256": "a382e967ea94b8fa928bece6d946df23a89efa5b742882252f8e0c490e10b0c9"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/linux_combat_render.log",
+      "sha256": "699f692dc05f38ad2fbe87e2f676cbd5df57025380eb056c19e2ae55b712b3fe"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/linux_export_replay.log",
+      "sha256": "53ae14acb4484ea33a1b9470aa5148855073501fa136567b5582d4d49e303047"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/linux_smoke.log",
+      "sha256": "a01b815c01472eda7102f0e65f1815f5cbc25489f526df1df0879c5e51154662"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/movement.log",
+      "sha256": "a68380b68b89ada53fa263801d9491f750a7058261031394deef94400f9abcdc"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/privacy.log",
+      "sha256": "ab148094f5f457864921f4c910e39c6e4b593b59a646095c34e13d0670b4ae97"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/references.log",
+      "sha256": "8dabe5224102016f27bbb243416cb9f463fc1d048a90d518c92b720231fce493"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/replay_contact_sheet.log",
+      "sha256": "c4a5e37199670ecf7ad14f9f374f39c7f29432b71e887ceb93af69643f265636"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/restart.log",
+      "sha256": "66f20ef7d188047ffcd6be0a9812c303c061c8770a4cd4cd98bdb71446ff0da0"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/session_ci.log",
+      "sha256": "1953ba24b36707d0230c7e1d13a3d8e7894202c17c3b7773a7dbfe8edc78a5be"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/session_runner_config.log",
+      "sha256": "8ef283e0c47dbc963c79faa59d6fc204ba5fdaaf3ecc1b2dc7dc89e0e02912c7"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/windows_wine_render.log",
+      "sha256": "524fe994cc13852c82b91093f50eb417cb0dbbb8162fba446b831c88f758f96a"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/windows_wine_replay.log",
+      "sha256": "4a763284bc3af00fee51af7f25d0b6058f102144cc7916810fdf16ff4300780f"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/logs/windows_wine_smoke.log",
+      "sha256": "6b92fb1c2a55f95361feea65a68f09cc0ae52587b6d293926da3d0e9322378c8"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/remediation.diff",
+      "sha256": "2ef4bd85a0b16298ea785e2e5458ee93faaf62f391dfe97de84c90418cf87df7"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/replay_acceptance.json",
+      "sha256": "83ca0643e9a0de79bffe163e7337fde214b6e24caed7792d1e2bf46505629360"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/session_ci_result.json",
+      "sha256": "31584ae6ba24712266908bb2e731d2c49c959378b6b4d9868d2ffcd4cfdbfb20"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_after.png",
+      "sha256": "c56e165d27bb923770d107e12959c6c2575d9414171e3be309c639cfd38b50ec"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_author_review.md",
+      "sha256": "2ff336d487bb3b713295d85cfbc3b7ddc137e308bb11343abb74be93a3bcb7b4"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_before.png",
+      "sha256": "3859ffc9d40ab161f05beca5a997e482ed85225aafb3539a8b2a4ac9cb7b4f32"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_before_after_4x.png",
+      "sha256": "a0f740f412524be9b70cd013580b9dd2f4279c8cb4dda4632a41130214087d6f"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_inventory.json",
+      "sha256": "ce337430d46f28a8c9c874b3baf8b99f742c1d83c5492e811fc875d280975656"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_movie_frame030.png",
+      "sha256": "d22d18083ec780e3ffa0ef787f508df4d166f90e944cdae8346dcd745d1993eb"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_structure.json",
+      "sha256": "f78d62d1606b09430f42a44f273d6cc894c26dd6009a2f58a3efa3e642484048"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition.mp4",
+      "sha256": "03b522c309e5792e6734a0bf0dd42a292457da85c0affbc8cc99c7c925908098"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_030.png",
+      "sha256": "7141747cfea2e4cbec20062a508d1f8c05c201a5968d74c09349c4aa39805263"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_040.png",
+      "sha256": "a824c3f5164da7a0b662e80b0cf6038e91a9d77294c555e09626a36bca41fd6f"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_075.png",
+      "sha256": "d37c318bf543bf4d16f76b0daec57dbb34b7f5dc863e7a03014014e0152478c6"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_100.png",
+      "sha256": "f917e08b279cf0d0da51d9c9de4402907803d710ac207c7f06a852c7d4f5bd4b"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_contact_sheet.png",
+      "sha256": "3c1fbc982ddd5875f370606aac610a1b3fece58a001e7283e740a62b4d281d66"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_probe.gd",
+      "sha256": "c3a75ed928a21f1d09e2815c798923948fd63404539fcb65364629bc51306637"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_probe.json",
+      "sha256": "e6b9033444dc7b713f94ddd5789285ad134dcb84afb0387e5a03e9b6aee12cc6"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_probe.log",
+      "sha256": "a917c9654a765a3f60fc0493979f32b3f3a723d7db816b548836f0ef4ac9d6f3"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_transition_probe_failed_relative_path.log",
+      "sha256": "a2d73866af45478c67711c34c15ac626c35de93632b1412ea9bdf59f05fa7504"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/shooter_validation.json",
+      "sha256": "01b54c37b213926888f2f6f467be8155287694c97cfb2ac8442f140e71fd2da8"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/validation.json",
+      "sha256": "1fbe1cd1d897d0264c95be71008e451d79d5876b2608f9e4a079bb52a024364f"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/defeat_cleared.png",
+      "sha256": "105d138def30e22c81f98be56e7fece5fd87b0ac9481cdcbb28d374e2a2bcec0"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/defeat_cue.png",
+      "sha256": "a6e0ec13a0947944faa994c0fe4330691fcbd030dd4f545beb5129fd001dd05c"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/defeat_fade.png",
+      "sha256": "0c167abef2e2cce8eb2a66ee50f19e207a005a9d49d8297b685b5b1f4e43bfb1"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/hud_upper_edge.png",
+      "sha256": "526bfa84f64186619a054953e2754a5af1c6ce7f83d58d70357360532308b222"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/melee_down.png",
+      "sha256": "cfff821434faa32f9e12cb89725333ed65093dffc6d8290d109f12090361ae28"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/melee_left.png",
+      "sha256": "e6173b7905c5b5837a3b1f0a8b214da13ee8a2944a568d9cc9daa04ea9840456"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/melee_right.png",
+      "sha256": "ecdb0fe267225c875747740c4c3aa061f4c405132014d289f64fa7af242721c9"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/melee_up.png",
+      "sha256": "1a19596917dad6de1ef1533499ec954d1467ddf0e027c972926d4d5b9b238dc1"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/ranged_down.png",
+      "sha256": "faece4d387f186f2267d9760b2fd2ba28650824beab2e3c591afd82ba40ab289"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/ranged_left.png",
+      "sha256": "d0f21e7495ee28894f8cb412bc197e831ffb5884df9141555d592baafc7af04e"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/ranged_right.png",
+      "sha256": "f80ed99d9a2a98636deb5966011230aecd9f3b692eebb642148585c5ce8eaa4c"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/ranged_up.png",
+      "sha256": "10a2e2e544261b936478cccc4c2f8299201d6e1d426d317962e384a370534fc8"
+    },
+    {
+      "path": "reports/phases/P02/attempt2/weapon/weapon_captures.json",
+      "sha256": "7a07b0c5fc3a08786b85c29b5ea8ad040225252c4b6def53d1c4ed7ad9248b09"
+    },
+    {
+      "path": "reports/phases/P02/combat_contact_sheet.png",
+      "sha256": "d00e048e3d6e0c411a2dcc09d37e5adf6225387f20c0eec8280920081ffabb0d"
+    },
+    {
+      "path": "reports/phases/P02/combat_fall.png",
+      "sha256": "e73045b6201df2fb2a2ffeb7b145dba1b7c0b8ea9389e7fe6b2a8fb39606bdd6"
+    },
+    {
+      "path": "reports/phases/P02/combat_lab.png",
+      "sha256": "b6d341b6a06f7342e7252b4d56534096e83aa74774b8a49603210178533c1ee3"
+    },
+    {
+      "path": "reports/phases/P02/combat_melee.png",
+      "sha256": "b53fa9de13fe24e11b6ac4bdabb3e346dfb8fe9f3c4966da594f5179bc9089a0"
+    },
+    {
+      "path": "reports/phases/P02/combat_movie_metadata.json",
+      "sha256": "c8def409f15c93f9e753382f60dc67d9b9c2ba3f04f9e71005ed0833fd369da7"
+    },
+    {
+      "path": "reports/phases/P02/combat_replay.json",
+      "sha256": "cbcbe798b0b14fb2ec50a92bd7dab684e4d58f6e79fbd0f34ae0b0c68f5e0d7f"
+    },
+    {
+      "path": "reports/phases/P02/combat_replay.mp4",
+      "sha256": "5026267b0d1d2354c07ac4c2244deb171daf9b3b4f142971c4d98c3ce552562b"
+    },
+    {
+      "path": "reports/phases/P02/combat_replay_end.png",
+      "sha256": "ed9d3bcfcb14640b9ef1e238b13695cdb144266ac26d8c96c6a10066276f84da"
+    },
+    {
+      "path": "reports/phases/P02/enemy_art_author_review.md",
+      "sha256": "a134dc7c2d1a8778e5a8f4efa2c47ea602eb75c23a6615d6fa91c5abe69c7729"
+    },
+    {
+      "path": "reports/phases/P02/enemy_art_inventory.json",
+      "sha256": "0a8009c6d45833daf1af7f0f4f4df5f3aeafb12badec1a94c44a69d548d6c7f1"
+    },
+    {
+      "path": "reports/phases/P02/enemy_art_structural_check.json",
+      "sha256": "39b03a5a642750bd336294496b6cf0cc177fda6a547c583b1e6aca851164ba14"
+    },
+    {
+      "path": "reports/phases/P02/environment.md",
+      "sha256": "e6fdd57b6bfd014a1b5e1e69d7fac1f60abc669063d264322d8e5cae79a1f265"
+    },
+    {
+      "path": "reports/phases/P02/export_linux_combat.png",
+      "sha256": "baead39f7eb78e2100a043eb59a0112ca2467a49c0f60244b6314b2c3d7462c5"
+    },
+    {
+      "path": "reports/phases/P02/export_linux_replay.json",
+      "sha256": "058786e3785673685ec83ce0a08cafe43132d046322e04891af3fbc56f86a39a"
+    },
+    {
+      "path": "reports/phases/P02/export_linux_replay_end.png",
+      "sha256": "ed9d3bcfcb14640b9ef1e238b13695cdb144266ac26d8c96c6a10066276f84da"
+    },
+    {
+      "path": "reports/phases/P02/export_replay_acceptance.json",
+      "sha256": "905acfddcaa99965e5d67c577cfe388beac4dd42df572cf79b877d6a3ed13f08"
+    },
+    {
+      "path": "reports/phases/P02/export_windows_replay.json",
+      "sha256": "a10db533a599d9c3b1de1d344ca8292c9d069a022a4d69daf168a9e7abcd93af"
+    },
+    {
+      "path": "reports/phases/P02/export_windows_replay_end.png",
+      "sha256": "ed9d3bcfcb14640b9ef1e238b13695cdb144266ac26d8c96c6a10066276f84da"
+    },
+    {
+      "path": "reports/phases/P02/export_windows_wine_combat.png",
+      "sha256": "b6d341b6a06f7342e7252b4d56534096e83aa74774b8a49603210178533c1ee3"
+    },
+    {
+      "path": "reports/phases/P02/exports.json",
+      "sha256": "6b1e22d2b0aadf6f9ffbb0a27af773ba70e5cc13688f98eabbf58d649a2fd42c"
+    },
+    {
+      "path": "reports/phases/P02/implementation.diff",
+      "sha256": "0add89b36d89ae5545df79ea99b92f5ce7eb80cf3a25262de15177a84a5cabdc"
+    },
+    {
+      "path": "reports/phases/P02/implementation.md",
+      "sha256": "6958d65bfa68c41065742ad7089d889aca8e38cd608b929c62cebb652b89fda4"
+    },
+    {
+      "path": "reports/phases/P02/logs/ai.log",
+      "sha256": "6f630d9e59add1a4ad6a17f5261dac13b7cd28111b4cc2c595bdfe396065dee9"
+    },
+    {
+      "path": "reports/phases/P02/logs/art_structure.log",
+      "sha256": "6649c0e2c284af44fe31efc100b7ae3e2f65059e589eb21521df2e60f91d69ec"
+    },
+    {
+      "path": "reports/phases/P02/logs/bootstrap.log",
+      "sha256": "8ee895c676c88fda4cad35f541762e091bee75ff1fdef1d118bc3130915c3e7d"
+    },
+    {
+      "path": "reports/phases/P02/logs/combat.log",
+      "sha256": "9fd5c0b12da6fcb09cea1fbfad09e25a2a9e77d8911e64e4d364bcf922b189c3"
+    },
+    {
+      "path": "reports/phases/P02/logs/combat_art.log",
+      "sha256": "53fbc8c6090ac5f351b9c562c2db57d8274740745ed89647d7a7986b544799fa"
+    },
+    {
+      "path": "reports/phases/P02/logs/combat_render.log",
+      "sha256": "6beaa8c45bd52c6e9890b22894ea99fcf86ef57fb70ac2f510dd081c0fcf631d"
+    },
+    {
+      "path": "reports/phases/P02/logs/combat_replay.log",
+      "sha256": "b1b39f97e28d698419e529ed2c3c65f4e4ea3e29948fea56ecd8b2246790b596"
+    },
+    {
+      "path": "reports/phases/P02/logs/encode_replay.log",
+      "sha256": "28ef4e640353efa49c4a259d401ea4c3e8820c267996b146cf41e864e44adb66"
+    },
+    {
+      "path": "reports/phases/P02/logs/export_linux.log",
+      "sha256": "cba3306a629c4192735a107259be74696fd1953dc1b7a62a81a291b2815f3f7d"
+    },
+    {
+      "path": "reports/phases/P02/logs/export_linux_replay.log",
+      "sha256": "9fbe055619096968958e7276d32a6741621fe04ab4bf9f89bb96f4707f8fc8f8"
+    },
+    {
+      "path": "reports/phases/P02/logs/export_windows.log",
+      "sha256": "9a80ac3db9045be28be30737e06a231d6d0f0c81e7bd719affcc6cef3bd6cb70"
+    },
+    {
+      "path": "reports/phases/P02/logs/export_windows_replay.log",
+      "sha256": "8f57409066fceacfe8fc20af7f733085f8d4084aad490129eeabe7f4e7bccf43"
+    },
+    {
+      "path": "reports/phases/P02/logs/final_privacy.log",
+      "sha256": "f607763e247e8a99093fcc77b60959d8391eaa1e14fe6eaf7813a30358e55474"
+    },
+    {
+      "path": "reports/phases/P02/logs/import.log",
+      "sha256": "df113416de8ab80208d1f6382b32a083ab5b824fdc88b98ec10cabcf1b42a222"
+    },
+    {
+      "path": "reports/phases/P02/logs/linux_combat_render.log",
+      "sha256": "48f9c3b15222e1ac4097b3a760121314acb52541f3b9cbcfe25f0af886d21db0"
+    },
+    {
+      "path": "reports/phases/P02/logs/linux_smoke.log",
+      "sha256": "861f81a5950733ca1ddbf18e3d64258df4e7a334c32c0b6cb9e3efb22de7f209"
+    },
+    {
+      "path": "reports/phases/P02/logs/movement.log",
+      "sha256": "a68380b68b89ada53fa263801d9491f750a7058261031394deef94400f9abcdc"
+    },
+    {
+      "path": "reports/phases/P02/logs/privacy.log",
+      "sha256": "96143b47b0e8ad445c957e5f7fcdf71d4c62ceedf956b11768718ea32bb8c524"
+    },
+    {
+      "path": "reports/phases/P02/logs/references.log",
+      "sha256": "8dabe5224102016f27bbb243416cb9f463fc1d048a90d518c92b720231fce493"
+    },
+    {
+      "path": "reports/phases/P02/logs/replay_contact_sheet.log",
+      "sha256": "d71452e8c03c770c872801d907f218a60cf6740cac31b597a561153415e56c3c"
+    },
+    {
+      "path": "reports/phases/P02/logs/replay_fall_frame.log",
+      "sha256": "6a767e58a577205784d8d9a849619ae3d015793ab259419149d130dff3a87783"
+    },
+    {
+      "path": "reports/phases/P02/logs/replay_melee_frame.log",
+      "sha256": "ef906104d3e0049c271793afd0338fee02b633fb0470fd0fba02a3bf40bef17b"
+    },
+    {
+      "path": "reports/phases/P02/logs/restart.log",
+      "sha256": "679f9ca8e7bcb5d6f25a56c28f21980f022015d65e43805177ee903083356378"
+    },
+    {
+      "path": "reports/phases/P02/logs/session_ci.log",
+      "sha256": "e3dd5832c968eb92d751745a70be2d11cf1f92717d3c545242b7766202998f38"
+    },
+    {
+      "path": "reports/phases/P02/logs/session_runner_config.log",
+      "sha256": "8ef283e0c47dbc963c79faa59d6fc204ba5fdaaf3ecc1b2dc7dc89e0e02912c7"
+    },
+    {
+      "path": "reports/phases/P02/logs/tool_cache_probe.log",
+      "sha256": "933229a8c283e614f59b9412b5da84559ac9d1d68dba367a9c36b27cec943ba1"
+    },
+    {
+      "path": "reports/phases/P02/logs/windows_wine_render.log",
+      "sha256": "473c303d6f8554e510426211d5f2a902680a79310c63521c201452408619ca14"
+    },
+    {
+      "path": "reports/phases/P02/logs/windows_wine_smoke.log",
+      "sha256": "09ce9f76d890735ab94bc35126662a93b0f0e66d26636c33deee71530456900d"
+    },
+    {
+      "path": "reports/phases/P02/logs/wine_environment_probe.log",
+      "sha256": "123ac1746fa8eef7ae9d42f404671d645608be4f0677d67a007e2f0e79f38f3a"
+    },
+    {
+      "path": "reports/phases/P02/logs/wine_package_signature.log",
+      "sha256": "145a9f2e35b83c03da1399bb81905c22e441b8b44f659f07833cf2ffbeebf363"
+    },
+    {
+      "path": "reports/phases/P02/patrol_preview_3x.png",
+      "sha256": "a11403b49b68486d0121445d8c1db801cadb5692234b891c61d0fec267e334fe"
+    },
+    {
+      "path": "reports/phases/P02/replay_acceptance.json",
+      "sha256": "83ca0643e9a0de79bffe163e7337fde214b6e24caed7792d1e2bf46505629360"
+    },
+    {
+      "path": "reports/phases/P02/rusher_preview_3x.png",
+      "sha256": "1c7cf23d77c4cbf201838c881a7ab42368abd12dd46c12e9796f581af28fb859"
+    },
+    {
+      "path": "reports/phases/P02/session_ci_result.json",
+      "sha256": "2ac8f4efbaae82cb1cf88ab2a5390cfeeb559fb0cc67c20bcc4e9f4471aa04ce"
+    },
+    {
+      "path": "reports/phases/P02/shooter_preview_3x.png",
+      "sha256": "6809441273cb214eb55eb9419f39ed6ea38e2cc6c7949d832a032ed7918345bb"
+    },
+    {
+      "path": "reports/phases/P02/validation.json",
+      "sha256": "9a1fc2fdc05f2d4bfae180858420143b6e73e9cc7d8362e49d421a169b8abb0e"
+    },
+    {
+      "path": "reports/phases/P02/wine_environment_probe.json",
+      "sha256": "d11a751a4f6adbf69a4863ffd21e3070a3af180f76f7cd6870c313a8358dc387"
+    },
+    {
+      "path": "reports/phases/P02/yakuza_action_author_review.md",
+      "sha256": "75d711832443ec3df4e47b6ad84e5699de7f4aef4018669c434ac8ad65fe2c03"
+    },
+    {
+      "path": "reports/phases/P02/yakuza_action_inventory.json",
+      "sha256": "82cbece0a955eb12678cb7c39b0712db53b4bcfa5360cf1361bd5e343287fac7"
+    },
+    {
+      "path": "reports/phases/P02/yakuza_action_preview_3x.png",
+      "sha256": "e5af8ba924274fd916b1cdf475d0f9b253213923fdfd1d0e77db3f78f7808e4e"
+    },
+    {
+      "path": "reports/phases/P02/yakuza_action_structural_check.json",
+      "sha256": "073dcfe83c040336b4ac6d1a43eaa50d14b954f751b8e7789bb5b11fe6d06ed3"
+    },
+    {
+      "path": "reports/phases/P02/artifacts.json",
+      "sha256": "647b213423597ab0165da2fa451f22d4d69600670775fb5d421a9372c7e0a8bc"
+    },
+    {
+      "path": "reports/phases/P02/decision-attempt1.json",
+      "sha256": "add522ee1af7626153eebdae6c221abec3fde17e70d2bfe808a3ff19b98733e0"
+    },
+    {
+      "path": "reports/phases/P02/review-attempt2.md",
+      "sha256": "905e0b43ec00c23852f13677192bfe9cdf7f0677c11b717254e2c59f2d8c9a96"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/P03_HANDOFF.md",
+      "sha256": "06c700749993673454e5073d600e6df5d14dd8054b887922a3a9141b29b3ede0"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/actual_windup_recovery_4x.png",
+      "sha256": "e4a786b197f0bd03ce8cc35f1a78c11e90d31bab1ad0fc13020583d5ac122a37"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/art_subreview.md",
+      "sha256": "413331f5829ea664a52631365499b77abfdf1271d5aea0d50e39967defcd4be4"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/bootstrap.png",
+      "sha256": "6ea4469eb3b34f2690624a04ebe0232bff408f29b832db4df27c73809ebca5fd"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/ci_artifact_verified.json",
+      "sha256": "656447e7d4bfdf2c3627331f9f080ac0572c074ff7bd6738e44217724425ee77"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/ci_job.log",
+      "sha256": "1953ba24b36707d0230c7e1d13a3d8e7894202c17c3b7773a7dbfe8edc78a5be"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/hand_socket_phase_inspection.png",
+      "sha256": "83c9dd5382b4cb201d859531e899013cd6af2703ad4bc714b9e5fad7f7db6911"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/integrity_attempt2.json",
+      "sha256": "31a0f48bedcd45c5412653d9ce516e689f16b253e036789c2eeb31380b136241"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/linux_export_replay.json",
+      "sha256": "a13b716feb3f37664330b5da726e0cdec81140535817101711b20c413c757387"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/linux_export_replay_end.png",
+      "sha256": "9ac2076ff75ecbe65976548ea56020b9b39002da02b6443847456880a4c4fa4d"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/ai.log",
+      "sha256": "6f630d9e59add1a4ad6a17f5261dac13b7cd28111b4cc2c595bdfe396065dee9"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/art_structure.log",
+      "sha256": "6649c0e2c284af44fe31efc100b7ae3e2f65059e589eb21521df2e60f91d69ec"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/combat.log",
+      "sha256": "1e5f7687e27dd748e33db5bd2e4548cb55455e9ce02ccc8e89203871525cc516"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/combat_art.log",
+      "sha256": "1af720057ce6374a72e38056a77ce1e239be73eb3a5317e1afde60f94a76c320"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/contact_timing.log",
+      "sha256": "ad8166b6d9ab162bcddd22704cba623788d5e2be20e4a3a84dea4cd3fa33a7d4"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/import.log",
+      "sha256": "55af3a316a3f4a316d079c41c2a1d49e70c475ee3545dbcf8ad28b2833cdb7fe"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/integration.log",
+      "sha256": "8ee895c676c88fda4cad35f541762e091bee75ff1fdef1d118bc3130915c3e7d"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/linux_export_replay.log",
+      "sha256": "d45af20aa24900e557599f196cefd371b92faf057524cb697368b1f9731f0af8"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/movement.log",
+      "sha256": "a68380b68b89ada53fa263801d9491f750a7058261031394deef94400f9abcdc"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/original_timing_probe.log",
+      "sha256": "80eabba6eda8795aba66e5c0905531eacc8c34cf93f7de81bb1b3ff6366c921f"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/phase_capture.log",
+      "sha256": "146ff51ca0ae20c42023e30965583591ffed35e4f99fa965551db4f49ce52a31"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/privacy.log",
+      "sha256": "4f3144332d446e3171251d6998faca60409ff3c49fd00db1897443fd476fc2e6"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/references.log",
+      "sha256": "8dabe5224102016f27bbb243416cb9f463fc1d048a90d518c92b720231fce493"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/render.log",
+      "sha256": "fe1d42fbfd5756e8eaff00c6222aea8c1bd68e489ee6892b901e6c3eb8895f03"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/restart.log",
+      "sha256": "a99154a6bf273a2ef79aec7e6a72fd7f3623acffa858b650a78e1ba8f4e8e9c9"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/smoke.log",
+      "sha256": "bc2762afe2370b2856ced02bc94cd5a14a6c745f67a8df56837b6dd1acc6f6d7"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/version.log",
+      "sha256": "d12d4f32f8e963a6c029dc20de89ef9c6676165d809dc55b92aa4c3469c74d5e"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/weapon_capture.log",
+      "sha256": "146ff51ca0ae20c42023e30965583591ffed35e4f99fa965551db4f49ce52a31"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/logs/wine_capture.log",
+      "sha256": "45a1e2b22aa9a3b04676c4a954ab4fc3de057a049ad3ba82aa128afde9ceda15"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_down_phase0.png",
+      "sha256": "eb7da22341e82e58acf7d351615796a00312b824145387653586c41faf3add37"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_down_phase2.png",
+      "sha256": "e834ddf07ddc56ccdab5d3035043d2e4afa55310b3abccf30bee4650b2c96221"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_left_phase0.png",
+      "sha256": "13200c2577e13c252624246bcab8ce3dc0cd6bde1a492a2f5882c0ecc2d90c48"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_left_phase2.png",
+      "sha256": "60d3e20c7b3e292ec702b2ddfd1fad3f0091284d5aa274b16d0503429fb92a1b"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_right_phase0.png",
+      "sha256": "ee3b5bd7a33649cb46c23dadecc37673c4436ed25390f76a392311b39f4758a5"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_right_phase2.png",
+      "sha256": "9b67dcc1dac49e5ac1c69467c7168af14b0deb722d066f339a1ebcaeedaf2eaf"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_up_phase0.png",
+      "sha256": "1ac96cdf7a260d6df8684c6d04accd61c6cadf8d29617de9360f93e70253c833"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/phases/melee_up_phase2.png",
+      "sha256": "f157748f132c6428031b80c27b0d168ac73cd845eedf06ea374159cc9840644c"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/remote_ci_audit.json",
+      "sha256": "7b03700f5c7c140e154db2c6467660fd8e4e47097ff7b5bb91d3f4f4d9551ed8"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/reviewed.diff",
+      "sha256": "2ef4bd85a0b16298ea785e2e5458ee93faaf62f391dfe97de84c90418cf87df7"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/runtime_checks.json",
+      "sha256": "b48e72cf9667dfb867123c8eee2c96e07b811405d796747f8f9d78cd3816393b"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/shooter_first_cycle_8fps.png",
+      "sha256": "2502ce07ba2c8828d2d1541722a20af16a90a641f3ea4269074652ecd7ec9bcb"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/shooter_second_cycle_8fps.png",
+      "sha256": "0313a3daaa7ab483803641a77e003dd2512f0b41d0e2dcdc1050dfd0e4d2bc3b"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/shooter_third_cycle_8fps.png",
+      "sha256": "bdde944389f07ba1146c69942ce7b5c544d97e33c83f9c05cdfec1dc833e28a0"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/source_snapshot_hashes.json",
+      "sha256": "193df2ad2ba1d2a0d806ec1d3f7bdac8e039842e47a49513a52b20fd868f0a53"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/timing_probe.json",
+      "sha256": "72f151fde0e2776ef14fc0f5ceef430e9572e62c2b20ce318694f893e8ba6ad1"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/validation.json",
+      "sha256": "db47d41ab422ee38dd598390bebedd04c0dd8f36d362739f273248329c819d43"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/defeat_cleared.png",
+      "sha256": "105d138def30e22c81f98be56e7fece5fd87b0ac9481cdcbb28d374e2a2bcec0"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/defeat_cue.png",
+      "sha256": "a6e0ec13a0947944faa994c0fe4330691fcbd030dd4f545beb5129fd001dd05c"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/defeat_fade.png",
+      "sha256": "0c167abef2e2cce8eb2a66ee50f19e207a005a9d49d8297b685b5b1f4e43bfb1"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/hud_upper_edge.png",
+      "sha256": "526bfa84f64186619a054953e2754a5af1c6ce7f83d58d70357360532308b222"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/melee_down.png",
+      "sha256": "cfff821434faa32f9e12cb89725333ed65093dffc6d8290d109f12090361ae28"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/melee_left.png",
+      "sha256": "e6173b7905c5b5837a3b1f0a8b214da13ee8a2944a568d9cc9daa04ea9840456"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/melee_right.png",
+      "sha256": "ecdb0fe267225c875747740c4c3aa061f4c405132014d289f64fa7af242721c9"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/melee_up.png",
+      "sha256": "1a19596917dad6de1ef1533499ec954d1467ddf0e027c972926d4d5b9b238dc1"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/ranged_down.png",
+      "sha256": "faece4d387f186f2267d9760b2fd2ba28650824beab2e3c591afd82ba40ab289"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/ranged_left.png",
+      "sha256": "d0f21e7495ee28894f8cb412bc197e831ffb5884df9141555d592baafc7af04e"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/ranged_right.png",
+      "sha256": "f80ed99d9a2a98636deb5966011230aecd9f3b692eebb642148585c5ce8eaa4c"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/ranged_up.png",
+      "sha256": "10a2e2e544261b936478cccc4c2f8299201d6e1d426d317962e384a370534fc8"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon/weapon_captures.json",
+      "sha256": "7a07b0c5fc3a08786b85c29b5ea8ad040225252c4b6def53d1c4ed7ad9248b09"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/weapon_phase_replay_11p20.png",
+      "sha256": "6ad0dcfa2d276448f0eac27847667723a6c8504123e2c811bde2d9a6d5c6a7ec"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/wine_runtime.png",
+      "sha256": "baead39f7eb78e2100a043eb59a0112ca2467a49c0f60244b6314b2c3d7462c5"
+    },
+    {
+      "path": "reports/phases/P02/reviewer-attempt2/build/ci-artifact.zip",
+      "sha256": "1b050a15531766a8f21d5b1439e01ae95b5f604fab4570d4fd7dd3810111c4c8"
     }
   ],
   "findings": [
     {
-      "id": "CMB-P02-01",
-      "severity": "HIGH",
-      "file": "game/scripts/actors/combat_player.gd:137; game/scripts/systems/combat_system.gd:65; game/assets/art/yakuza/actions_atlas.json:73",
-      "observed": "Actual Input timing probe: tick1 at27.729ms already hits1/health2 while shove_right frame0; authored contact_column1 first sampled at117.509ms. Damage occurs in wind-up.",
-      "repro": "Run reviewer-attempt1/timing_probe.gd with pinned Godot --headless --path game and AYAY_TIMING_RESULT pointing to a new output. See timing_probe.json/logs/timing_probe.log; exit1.",
-      "fix": "Gate melee live window on authored contact phase/physics wind-up; preserve responsive animation start, once-per-target, active duration, wall LOS and restart clearing. Add regression asserting no damage during frame0 and damage in contact phase.",
-      "blocking": true
-    },
-    {
       "id": "ART-P02-01",
       "severity": "MEDIUM",
-      "file": "game/scripts/actors/combat_player.gd:188; game/scripts/actors/combat_player.gd:192",
-      "observed": "Knife/gun overlays at local y=-9 appear near feet, detached from action wrist around y=-31; actual movie frame and crop confirm.",
-      "repro": "combat_melee.png and reviewer-attempt1/combat_melee_inspection.png; F2, aim, melee/ranged in four directions.",
-      "fix": "Use directional/per-action frame hand and muzzle sockets plus correct draw order/projection. Verify held weapon follows hand and visual projectile origin stays coherent; capture melee/ranged all4 directions.",
-      "blocking": false
+      "blocking": false,
+      "status": "OPEN_PARTIALLY_REMEDIATED",
+      "file": "game/resources/combat/weapon_visuals.json anchors.right.shove[0/2], anchors.left.shove[0]",
+      "repro": "Fresh reviewer-attempt2/phases melee_right_phase0/phase2 and melee_left_phase0; actual_windup_recovery_4x.png; all contact/fire held correctly.",
+      "observed": "Former foot-level weapon defect fixed at contact/fire, but wind-up/recovery sockets still choose phone-hand rather than free right wrist.",
+      "fix": "Choose actual free-hand phase sockets/layer/visibility using native pixels; capture all3melee phases×4directions and fire4. Carry into P03, mandatory before P04, preserve accepted P01 art."
+    }
+  ],
+  "closed_findings": [
+    {
+      "id": "CMB-P02-01",
+      "resolution": "Unchanged independent failing probe now passes, damage/contact share fixed physics clock;48meaningful native timing regressions independently rerun; original active windows preserved."
     },
     {
       "id": "ART-P02-02",
-      "severity": "MEDIUM",
-      "file": "game/assets/art/enemies/shooter_sheet.png",
-      "observed": "Idle→walk top jumps down12→6px and up11→6px with fixed sole58: helmet/torso apparent scale changes5–6px.",
-      "repro": "Compare down_0/1 with down_2 and up_0/1 with up_2 on common pivot; shooter_inspection_4x.png.",
-      "fix": "Align head/torso mass between idle/walk with deliberate small bob; update native/source/atlas hashes and actual animation captures. Preserve accepted P01 assets.",
-      "blocking": false
+      "resolution": "Independent4changed/28unchanged shooter audit and actual3start-stop8FPS cycles show continuity restored."
     },
     {
       "id": "ART-P02-03",
-      "severity": "MEDIUM",
-      "file": "game/scripts/ai/enemy_actor.gd:112",
-      "observed": "Killed guards keep tinted paused standing idle/walk pose, including raised-leg rusher; defeat is ambiguous without HUD.",
-      "repro": "Kill patrol and rusher on training bench; combat_melee.png and combat_replay.json training dead snapshots show idle_right/walk_left.",
-      "fix": "Add unmistakable defeated presentation: compact original prone/static pose or explicit disappearance transition with clear defeat cue. A full action pack is unnecessary; do not present frozen walk as fallen.",
-      "blocking": false
+      "resolution": "Actual native fade/cross cue/clear plus reset tests restore unambiguous defeated presentation."
     }
   ],
   "tests": {
-    "passed": 27,
-    "failed": 1,
-    "counting": "13 independent local verify commands +3 original-build runtime commands +11 executed CI verify checks; one additional independent timing probe failed. Assertions are not added again.",
-    "local_native_assertions_passed": 555,
+    "passed": 31,
+    "failed": 0,
+    "counting": "14local verify commands +1unchanged reviewer timing probe +2fresh native capture fixtures +1Linux export replay +1Wine PE render +12actual CI verify checks. Native assertions counted separately.",
+    "local_native_assertions_passed": 621,
     "local_native_assertions_failed": 0,
-    "ci_native_assertions_passed": 555,
-    "independent_timing_probe": "FAIL damage_during_windup_observed=true",
-    "author_artifacts_checked": 66,
-    "author_artifact_hash_mismatches": 0,
-    "independent_art_inventory_entries_checked": 33
+    "ci_native_assertions_passed": 621,
+    "original_timing_probe": "PASS unchanged",
+    "author_artifacts_checked": 152,
+    "author_hash_mismatches": 0,
+    "previous_attempt_evidence_checked": 108,
+    "previous_attempt_evidence_hash_mismatches": 0,
+    "independent_shooter_inventory_checked": 28
   },
   "scorecard": {
-    "combat_physics_core": "PASS hit/miss/LOS/muzzle/swept query checks",
-    "action_contact_timing": "FAIL runtime-confirmed HIGH",
-    "weak_yakuza_escape": "PASS native active-AI no-kill route",
-    "deterministic_reset": "PASS tested snapshots/cached latency",
-    "pixel_assets_and_base_design": "PASS structural/base art;3MEDIUM integration/polish findings remain",
-    "linux_runtime": "PASS reviewer smoke/render",
-    "windows_wine_runtime": "PASS reviewer actual Windows PE render under Wine11.17",
-    "native_windows_runtime": "NOT_TESTED unavailable; no false claim",
-    "actual_ci": "PASS current suite misses timing contract",
-    "privacy": "PASS local manifest/index/history checker; no raw upload by reviewer",
-    "independent_review": "FAIL phase gate until fixes; reviewer separation valid"
+    "contact_timing": "PASS HIGH closed",
+    "hit_miss_wall_los_muzzle_sweeps": "PASS regressions retained",
+    "weak_yakuza_escape_and_deterministic_reset": "PASS actual native/export replay",
+    "pixel_art_and_shooter_continuity": "PASS",
+    "defeated_state_readability": "PASS fade/cue transition, no corpse claim",
+    "held_weapons": "MEDIUM phase0/2 phone-hand sockets remain; contact/fire corrected",
+    "linux_export_runtime": "PASS independently executed full replay",
+    "windows_wine_compatibility": "PASS independently rendered PE under Wine11.17",
+    "native_windows_runtime": "NOT_TESTED_UNAVAILABLE",
+    "actual_ci": "PASS current source on ephemeral self-hosted Linux runner",
+    "privacy_and_prior_evidence": "PASS",
+    "independent_review": "PASS with explicit nonblocking carryforward"
   },
-  "next_action": "Fix CMB-P02-01 and concrete ART-P02-01/02/03 tickets within P02, preserve attempt1 snapshots, update affected source/inventories/replay/builds and actual CI, then independent attempt2. No P03/merge/release.",
-  "next_phase": "none"
+  "limitations": [
+    "ART-P02-01 residual MEDIUM is not fully closed; mandatory bounded carryforward before P04.",
+    "Native Windows host unavailable; Wine compatibility and Windows PE export do not prove native Windows QA.",
+    "Hosted billing may limit future default jobs; no persistent runner, API registrations/variables cleared.",
+    "P01 earlier nonblocking art jitter/atlas-note backlog remains; no public/voice/merge/release authorization."
+  ],
+  "next_action": "Executor may persist P02 PASS and begin bounded P03 from reports/phases/P02/reviewer-attempt2/P03_HANDOFF.md, carrying ART-P02-01 phase-socket fix explicitly. Deliver real dialogue/audio/assets/listening evidence and independent gate; do not advance P04 or merge/release.",
+  "next_phase": "P03"
 }

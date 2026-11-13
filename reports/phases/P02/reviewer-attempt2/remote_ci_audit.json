@@ -1,0 +1,124 @@
+{
+  "run": {
+    "conclusion": "success",
+    "headSha": "4202a74f82498b1656de9a7b24bef765c606659c",
+    "jobs": [
+      {
+        "completedAt": "2026-11-13T08:15:25Z",
+        "conclusion": "success",
+        "databaseId": 131772601414,
+        "name": "bootstrap",
+        "startedAt": "2026-11-13T08:13:58Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-13T08:14:04Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-13T08:14:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:14:08Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "startedAt": "2026-11-13T08:14:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:14:17Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/install_deps.py --templates",
+            "number": 3,
+            "startedAt": "2026-11-13T08:14:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:15:01Z",
+            "conclusion": "success",
+            "name": "Run python3 tools/verify.py --output reports/ci",
+            "number": 4,
+            "startedAt": "2026-11-13T08:14:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:15:06Z",
+            "conclusion": "success",
+            "name": "Export native bootstrap binaries",
+            "number": 5,
+            "startedAt": "2026-11-13T08:15:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:15:20Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "number": 6,
+            "startedAt": "2026-11-13T08:15:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:15:20Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 12,
+            "startedAt": "2026-11-13T08:15:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T08:15:20Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "startedAt": "2026-11-13T08:15:20Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43391598620/job/131772601414"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43391598620"
+  },
+  "artifacts": {
+    "total_count": 1,
+    "artifacts": [
+      {
+        "id": 14020732966,
+        "node_id": "MDg6QXJ0aWZhY3QxNDAyMDczMjk2Ng==",
+        "name": "bootstrap-validation",
+        "size_in_bytes": 68526185,
+        "url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14020732966",
+        "archive_download_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/artifacts/14020732966/zip",
+        "expired": false,
+        "digest": "sha256:1b050a15531766a8f21d5b1439e01ae95b5f604fab4570d4fd7dd3810111c4c8",
+        "created_at": "2026-11-13T08:15:19Z",
+        "updated_at": "2026-11-13T08:15:19Z",
+        "expires_at": "2026-11-20T08:15:06Z",
+        "workflow_run": {
+          "id": 43391598620,
+          "repository_id": 1455873586,
+          "head_repository_id": 1455873586,
+          "head_branch": "phase/p02-combat",
+          "head_sha": "4202a74f82498b1656de9a7b24bef765c606659c"
+        }
+      }
+    ]
+  },
+  "runners": {
+    "total_count": 0,
+    "runners": []
+  },
+  "variables": {
+    "variables": [],
+    "total_count": 0
+  },
+  "pr": {
+    "baseRefName": "phase/p01-art-movement",
+    "headRefOid": "6dc34ad72933da5bbbb57e90ce1a8988734faf8b",
+    "isDraft": true,
+    "url": "https://github.com/Artyx71/Last-Skuf/pull/3"
+  }
+}
