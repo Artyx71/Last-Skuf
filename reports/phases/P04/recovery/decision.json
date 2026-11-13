@@ -1,0 +1,183 @@
+{
+  "scope": "P04_RECOVERY",
+  "phase": "P04",
+  "attempt": 1,
+  "status": "SAFE_TO_CONTINUE",
+  "reviewer": "/root/lead_autopilot_p03",
+  "independent_review": true,
+  "created_at": "2026-11-13T12:48:50.600364+00:00",
+  "phase_acceptance": "NOT_GRANTED",
+  "phase_decision_created": false,
+  "source_kind": "UNCOMMITTED_WORKTREE; HEAD is preflight only, not accepted implementation SHA",
+  "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P04",
+  "branch": "phase/p04-implementation",
+  "preflight_HEAD": "5ad9251eadbd90654123c6e197f8b370cadc45c3",
+  "canonical_status_preserved": "P04 BLOCKED/recovery-review, paused true, per-phase attempt1, last PASS P03",
+  "publication_allowed": false,
+  "merge_allowed": false,
+  "blind_author_retry_allowed": false,
+  "allowed_actions": [
+    "Preserve178 reviewed manifest files and old immutable receipt/history.",
+    "Host normal-user atomic source/evidence commits after branch/index/privacy/hash checks; no force/admin/escalation.",
+    "Fix actual controller dirty-source publication precondition with regressions; commit all intended changes.",
+    "Resume bounded validation and fresh host native QA within P04 without resetting attempts or replaying author blindly."
+  ],
+  "findings": [
+    {
+      "id": "REC-PUB-01",
+      "severity": "HIGH",
+      "status": "OPEN_PUBLICATION_BLOCKER",
+      "blocking_scope": "Any publication/PR creation, not local preservation/commit/QA recovery",
+      "file": "autopilot/github.py publish_branch; controller implementation-to-publication boundary",
+      "observed": "Actual dirty/uncommitted P04 files are omitted from HEAD; mocked publish_branch still reaches git push.",
+      "required_fix": "Reject staged/tracked modifications and nonignored untracked deliverables before push/POST, bind committed expected HEAD/branch, add zero-push/POST negative regressions and clean positive tests; handle failed CLI commit explicitly via controlled host commits."
+    },
+    {
+      "id": "REC-QA-01",
+      "severity": "MEDIUM",
+      "status": "OPEN_HOST_QA_FOLLOWUP",
+      "file": "attempt1/technical-final/logs/{engine_replay,reduced_visual_replay}.log",
+      "observed": "Normal source headless replays retain2ObjectDB leaks each; final Linux ELF replay clean.",
+      "required_fix": "Investigate verbose normal replay shutdown on host; preserve old logs and rerun affected paths. Do not classify solely as prior forcedquit warning."
+    },
+    {
+      "id": "REC-ENV-01",
+      "severity": "HIGH",
+      "status": "OPEN_PHASE_ACCEPTANCE_DEPENDENCIES",
+      "blocking_scope": "Full P04 acceptance only",
+      "observed": "No actual rendered captures/video, no real-device listening, new P04 music unaccepted, native Windows unavailable/Wine probe blocked, import/exports not log-clean.",
+      "required_fix": "Fresh host native/reduced/movie/ELF/Wine checks and real mixer/performance evidence; actual listener for new music/game mix; full separate phase Lead and exact committed-SHA CI."
+    }
+  ],
+  "tests": {
+    "independent_assertions_passed": 104,
+    "independent_assertions_failed": 0,
+    "author_assertions_verified": 815,
+    "author_regression_commands": "16/17",
+    "author_technical_checks": "13/16",
+    "manifest_files_verified": 178,
+    "artifact_hashes_sizes_verified": 179,
+    "technical_source_hashes_verified": 170,
+    "reused_files_verified": 33,
+    "raw_reference_or_secret_hits": 0
+  },
+  "evidence": [
+    {
+      "path": "reports/phases/P04/recovery/art_structural_subset.json",
+      "sha256": "2ca7c0fda5ddfb380f4faaebd46ce9efbab380d1dbf6d640ed325c06aad5e54c"
+    },
+    {
+      "path": "reports/phases/P04/recovery/artifact_inventory_verified.json",
+      "sha256": "b482beb168ec11bcf46fc9d33b332605f77a440b56dd447ca6e5e96400992968"
+    },
+    {
+      "path": "reports/phases/P04/recovery/audio_decode_subset.json",
+      "sha256": "c6aaebc18603b554b0236877e40a5d68ce7f158aef0d8dd9d8d31023efd3c5b9"
+    },
+    {
+      "path": "reports/phases/P04/recovery/contact_timing_independent.log",
+      "sha256": "4a93c16e666579f3f58ad534570c00573c4fac64825213206c1094722155a20a"
+    },
+    {
+      "path": "reports/phases/P04/recovery/final_stability_check.json",
+      "sha256": "af59c9fbc4009f20547589c346c06b4e1fd69202dd660e51c12fab7d6a69d194"
+    },
+    {
+      "path": "reports/phases/P04/recovery/independent_tests.json",
+      "sha256": "b66f78307d353e52cf6aa048f1b2608225e519765033d76b0c8333cc9bc6f673"
+    },
+    {
+      "path": "reports/phases/P04/recovery/isolated_saves/mission/chapter.json",
+      "sha256": "4216d4ac3dcfbefce2bef2e6f09e5b802309b247493a3eb452eeb83efdd5711d"
+    },
+    {
+      "path": "reports/phases/P04/recovery/isolated_saves/mission/dialogue.json",
+      "sha256": "fdb0ccbd38be66f7f0e6f5501153e81cc02d6d81292f3deaf40b6cefd58385d0"
+    },
+    {
+      "path": "reports/phases/P04/recovery/manifest_inventory_initial.json",
+      "sha256": "ceaec257e047d28d3e08fb4abbf4c059c6857d43b7d27f4878f038332faee3fa"
+    },
+    {
+      "path": "reports/phases/P04/recovery/mission_independent.log",
+      "sha256": "1ddc5126c29262f45137b16f569bed2a5f5a1e3e62d0d74d5ef8a8859892d3d7"
+    },
+    {
+      "path": "reports/phases/P04/recovery/options_independent.log",
+      "sha256": "8d64980cc102a81b72518daccc9e28cafc7e982fcb81d31784ab6f3f8e4cd2c0"
+    },
+    {
+      "path": "reports/phases/P04/recovery/pending_privacy_verified.json",
+      "sha256": "59c8b2772ce59d591b1ac297edbe3572b3ac7fd49a78407a3d4921ab46a20478"
+    },
+    {
+      "path": "reports/phases/P04/recovery/publication_dirty_precondition_probe.json",
+      "sha256": "a41dfd015e62206c8b688a745d4662cab59a05d46d455b55cb6f7dc42dd3c330"
+    },
+    {
+      "path": "reports/phases/P04/recovery/receipt_and_quiescence.json",
+      "sha256": "363488722ba9c9cc8b0435ed579741882dda6e8ae67ed541c0fe64dd935c16bd"
+    },
+    {
+      "path": "reports/phases/P04/recovery/reported_validation_independent_audit.json",
+      "sha256": "e6613d720dba52b67070694e42882a4e086aacdaa7c2e7a13c18d2ad00a26456"
+    },
+    {
+      "path": "reports/phases/P04/recovery/reused_sources_verified.json",
+      "sha256": "49115d6fed7b48a8d53af32d1671f7145d2f08a282544cd1a9bc0d792dc279cc"
+    },
+    {
+      "path": "reports/phases/P04/recovery/review.md",
+      "sha256": "e15158808dce0389a4309a502cfcde233542be3bcb4c5ae41b20418d2312b967"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshot_manifest.json",
+      "sha256": "c5dfa1929ca514c9cb760a72d8626484f9345df619054428c93f60b52a88fe09"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/publication_helper_source.txt",
+      "sha256": "79281ea3cebc8232198fdbee78065dbc2f24559d617cd81ad0a3ae8ccaedc0e4"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__artifacts.json.txt",
+      "sha256": "99677d01da2c831432c3e6bc9831b5d261fc14a0eab93c536feb4d060da3a355"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__attempt1__handoff_status.json.txt",
+      "sha256": "c967cf799132bdf274d0c145cf9af1364e1a176a4a399612b518d1bf68f6cc0d"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__attempt1__regression-final__validation.json.txt",
+      "sha256": "c6da9125fc6ec91893dabd2ba9dd9d53c5b00ffa1c52f5cfe7b2d45ae90d8963"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__attempt1__technical-final__validation.json.txt",
+      "sha256": "aab56fdfee19f020baa89009361fcf1b3a9c76484880c007dc2abaa2bf49bca3"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__implementation.md.txt",
+      "sha256": "abdb605b063fb40c273b67c439012568cc1daa1225017571e7b02fc5e47f84ce"
+    },
+    {
+      "path": "reports/phases/P04/recovery/snapshots/reports__phases__P04__staging_manifest.json.txt",
+      "sha256": "81539b70fce8069ddbcfb3de11a604c86afa1d69eb036133f87ba6e718d73a83"
+    },
+    {
+      "path": "reports/phases/P04/recovery/technical_log_diagnostics.json",
+      "sha256": "41d84b205eae50356536317f47ed031e33760ba5d06feb8c31b537c158216ef3"
+    },
+    {
+      "path": "reports/phases/P04/recovery/technical_source_verified.json",
+      "sha256": "86a1af72206623fd2963bfb17797f5b79b8662b8b74c2e92a9577a9af1f2702a"
+    },
+    {
+      "path": "reports/phases/P04/recovery/tracked_privacy.log",
+      "sha256": "788b7aba40dd415e1b1b30c93456c263afbfddd2093b4074ac0abfa8898eed47"
+    },
+    {
+      "path": "reports/phases/P04/recovery/evidence_inventory.json",
+      "sha256": "44c5f07f819a1869d7b8e77dd3bc3d677ab71af212baa408ad39da22b44be553"
+    }
+  ],
+  "next_action": "Root may continue host commit/guard fix/native QA locally within existing P04 attempt1. Keep publication disabled until dirty-source guard, complete commits, full fresh QA, new-music listening, separate P04 phase acceptance and current-SHA CI are satisfied. Preserve all state/history; no blind author replay or attempt reset."
+}
