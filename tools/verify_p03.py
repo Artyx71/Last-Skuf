@@ -236,7 +236,11 @@ def main():
                     command = [ROOT / '.tools/wine/usr/bin/wine', target]
                     item['scope'] = 'actual Wine compatibility runtime on Linux; native Windows NOT_TESTED_UNAVAILABLE'
                 env = environment(folder + '_smoke', folder == 'windows')
-                run(folder + '_smoke', command + ['--headless', '--quit'], env)
+                bootstrap = output / ('export_' + folder + '_bootstrap.png')
+                bootstrap.unlink(missing_ok=True)
+                env['AYAY_CAPTURE_PATH'] = windows_path(bootstrap) if folder == 'windows' else str(bootstrap)
+                run(folder + '_smoke', command + ['--', '--capture-bootstrap'], env)
+                png_check(folder + '_smoke_image', bootstrap)
                 capture('export_' + folder + '_dialogue', command, wine=folder == 'windows')
                 capture('export_' + folder + '_options', command, ['--capture-options'], wine=folder == 'windows')
                 capture('export_' + folder + '_large_text', command, ['--capture-large-text'], wine=folder == 'windows')
