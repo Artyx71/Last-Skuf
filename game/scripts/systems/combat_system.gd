@@ -248,10 +248,21 @@ func _draw() -> void:
 func register_environment(id: String, object: Node2D) -> void:
 	environments[id] = object
 
+func _finisher_definition(source: CharacterBody2D, category: String, job: Dictionary = {}) -> Dictionary:
+	# A running contact uses its original stamped definition. Context authorization
+	# is independently rechecked by eligible(), so a fixture reset cannot grant power.
+	if not job.is_empty(): return job.definition
+	var base: Dictionary = finisher_definitions.get(category,{})
+	if source.has_method("resolve_finisher"):
+		return source.resolve_finisher(category,base.duplicate(true))
+	return base
+
 func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String, job: Dictionary = {}) -> bool:
 	if not finisher_definitions.has(category) or not is_instance_valid(target) or not is_instance_valid(source): return false
 	if lab.state != "playing" or source.health <= 0 or target.health <= 0 or not source.is_inside_tree() or not target.is_inside_tree(): return false
-	var definition: Dictionary = finisher_definitions[category]
+	if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+	var definition: Dictionary = _finisher_definition(source,category,job)
+	if definition.is_empty(): return false
 	if source.finisher_weapon != definition.weapon: return false
 	var reserved: bool = not job.is_empty() and target.state == "finisher_reaction" and job.target == target
 	if not target.state in ["stunned", "knockdown"] and not reserved: return false
@@ -280,7 +291,7 @@ func start_finisher(source: CharacterBody2D, target: CharacterBody2D, category: 
 	for job in finishers:
 		if job.target == target: return false
 	source.cancel_action()
-	var definition := _stamp(finisher_definitions[category])
+	var definition := _stamp(_finisher_definition(source,category))
 	next_attack_id += 1
 	var duration := float(definition.windup) + float(definition.active) + float(definition.recovery)
 	var vulnerability: float = target.stun_remaining if target.state == "stunned" else target.timer

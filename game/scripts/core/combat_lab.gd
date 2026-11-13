@@ -61,7 +61,7 @@ func _ready() -> void:
 	combat = Combat.new()
 	combat.lab = self
 	add_child(combat)
-	player = Player.new()
+	player = _create_player()
 	player.lab = self
 	add_child(player)
 	for spawn in config.spawns:
@@ -120,6 +120,10 @@ func _ready() -> void:
 		call_deferred("_replay")
 	elif "--capture-combat" in OS.get_cmdline_user_args():
 		call_deferred("_capture_and_quit")
+
+
+func _create_player() -> CharacterBody2D:
+	return Player.new()
 
 
 func reset_encounter() -> void:
