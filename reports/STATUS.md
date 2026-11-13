@@ -1,9 +1,9 @@
 # Статус
 
-Последняя независимая PASS-фаза: **P01**, attempt2; reports/phases/P01/decision-attempt2.json. P00 также PASS. P01 PR#2 ready, без merge.
+Последняя независимая PASS-фаза: **P01**, attempt2. P00 также PASS. P01 PR#2 ready, без merge.
 
-P02 **FAIL attempt1**: independent decision reports/phases/P02/decision-attempt1.json. HIGH CMB-P02-01 ранний hit во время wind-up; MEDIUM weaponanchors/shooterjump/guarddefeat. Исправления в работе, P03 запрещён. Historical implementation1786633: Native555/555 assertions, actual no-kill escape replay773frames12.883s, ten cached reset max269ms. New original guards/action art интегрированы, approvedP01PNG неизменны. Linux и Windows builds build/P02; Linux smoke/renderPASS, Windows PE smoke/renderPASS подWine11.17 наLinux, nativeWindows NOT_TESTED. Evidence reports/phases/P02, draft PR#3.
+P02 attempt1 был FAIL: HIGH ранний hit во время замаха и3MEDIUM по оружию/шутеру/поражению охраны. Все четыре tickets исправлены в source4202a74; attempt2 **IN_REVIEW**, PASS пока нет. Evidence reports/phases/P02/attempt2/implementation.md. Native621/621 и26acceptancePASS; cached10reset max269.05ms, no-kill route6.43s, actual exported Linux/Wine fullreplaysPASS. New guards/actionart integrated; approvedP01assets unchanged.
 
-Lead Reviewer работает независимо; actual GitHub CI43387775768 SUCCESS, artifact скачан. Temporary runner завершён и удалён: API runners0/variables0, local credentials отсутствуют. Постоянного runner нет; hosted billing не менялся. P03/P04 ещё не начаты.
+Живые сборки: build/P02/attempt2/linux/last-skuf.x86_64 и windows/last-skuf.exe. Linux runtime/render/replayPASS; Windows PE подWine11.17PASS, nativeWindows NOT_TESTED. Original P00/P01/P02attempt1 builds/evidence сохранены. Actual CI43391598620 SUCCESS, artifactbuild/ci-P02-attempt2 downloaded,621assertions confirmed. Temporary runner completed/removed: API0runners/0vars, credentials absent, persistent service нет.
 
-Raw фото ignored, не отправлены вGit/game; image_gen разрешён для всех фото, publicrelease/voices/merge не разрешены. Private repo. Resume automation/phase_state.json, reports/NEXT_ACTION.md. P01 nonblocking ART-P01-01/META-P01-01 сохраняются.
+Lead Reviewer работает независимо; до PASS P03/P04 не начаты. Repo private, rawphotos ignored/excluded. User image_gen permission иP01humanart acceptance сохранены; publicrelease/realvoices/merge/billing/sudo не разрешены. Resume automation/phase_state.json и reports/NEXT_ACTION.md. P01nonblocking ART-P01-01/META-P01-01 остаются.

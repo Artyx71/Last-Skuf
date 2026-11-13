@@ -1,0 +1,2009 @@
+diff --git a/assets/source_art/enemies/README.md b/assets/source_art/enemies/README.md
+index 2e16e0f..45c0138 100644
+--- a/assets/source_art/enemies/README.md
++++ b/assets/source_art/enemies/README.md
+@@ -1,5 +1,9 @@
+ # P02 — оригинальные вымышленные охранники
+ 
++> **Актуальный shooter после ART-P02-02:** см. [README_shooter_attempt2.md](README_shooter_attempt2.md). Из корня проекта: `.tools/art-venv/bin/python assets/source_art/enemies/build_shooter_attempt2.py`.
++>
++> `build_assets.py` — исторический recipe первого набора из source `1786633`. Запускать его только в отдельном scratch checkout этого source: он возвращает прежний shooter и перезаписывает старые P02 author reports. Для текущего shooter используйте только команду выше. Сам legacy recipe и frozen reports сохранены.
++
+ Статус: **DRAFT_REQUIRES_INDEPENDENT_ART_REVIEW**. Этот набор создан для боевого технического прототипа P02. Самостоятельный PASS фазы или утверждение качества анимации не присваивались.
+ 
+ Три отдельных встроенных `image_gen` вызова создали три оригинальных рисованных дизайна. Входной reference — только утверждённый оригинальный `game/assets/art/yakuza/world_sheet.png`, как ориентир камеры, масштаба и кластерного pixel-art. Приватные фотографии людей не передавались и в этот source-каталог не копировались. Идентичность Якудзы намеренно исключена из дизайна врагов. Нет реальных организаций, символов, брендов или заимствованных game assets.
+diff --git a/assets/source_art/enemies/README_shooter_attempt2.md b/assets/source_art/enemies/README_shooter_attempt2.md
+new file mode 100644
+index 0000000..e6bf92a
+--- /dev/null
++++ b/assets/source_art/enemies/README_shooter_attempt2.md
+@@ -0,0 +1,25 @@
++# ART-P02-02 — shooter posture continuity, attempt2
++
++Только исправление MEDIUM shooter idle→walk. Статус **DRAFT_REQUIRES_INDEPENDENT_REVIEW**. Frozen attempt1 source `1786633` и его author/reviewer reports/inventories не перезаписывались; исходный shooter_master_v1 сохранён.
++
++## Реальный redraw
++
++Встроенный image_gen precise edit создал `shooter_master_v2.png` из нашего оригинального anonymous fictional shooter masterv1. Raw фото/новая чужая графика не использовались. Точный prompt: `shooter_continuity_prompt.txt`; настоящий output_hint и keys без base64: `shooter_continuity_generation_metadata.json`. Задача — переавторить down/up idle posture с нормальной длиной ног и прежней массой каски/брони, не растянуть фигуру целиком.
++
++Генератор изменил не только запрошенные4cells, поэтому production recipe берёт из нового master ТОЛЬКО down/up idle0/1. Остальные28native кадров сохранены byte-identical frozen FAIL source. Ни один patrol/rusher/Yakudza sprite не затронут.
++
++Новый down idle — реально сгенерированные прямее стоящие ноги/таз/корпус. Новый up idle первоначально имел чрезмерно длинные голени; выполнена намеренная локальная native pixel правка нижней части ноги: убраны3избыточные строки46–48, целые каска/броня/торс/бедро0–45 перенесены вниз3px, ботинки/подошвы49–63 сохранены. Масштаб каски, торса и ботинок не меняется. Это документированная анатомическая сборка пиксельной позы, НЕ uniform scaling всей фигуры и НЕ утверждение о человеческой ручной оценке. Результат открыт и проверен на реальных render frames.
++
++Рецепт `build_shooter_attempt2.py` читает сохранённый before PNG в новом attempt2 и generated masterv2; заменяет ровно4cells, применяет прежнюю35-color available palette/NEAREST/hardalpha/anchor. Записывает только shooter PNG/native source и shooter entry shared atlas, плюс новые attempt2 evidence. `shooter_pose_redraw_attempt2.png` — фактический native pixel source. Другие28frame RGBA hashes не изменились; patrol/rusher entries и глобальные atlas поля сохраняются. Оригинальный общий build_assets.py остаётся историей первого набора и не должен запускаться для этого fix: актуальный shooter recipe указан в shooter source metadata.
++
++Запуск: `.tools/art-venv/bin/python assets/source_art/enemies/build_shooter_attempt2.py`. Не запускает внешние API, не меняет CSV, gameplay или P01.
++
++## Actual view и пределы проверки
++
++Head top: down idle12→walk6 заменено на6→6; up11→6 заменено на6→6. Прежние walk poses сохраняют естественный bob6–8. Это сопровождается новой иерархией ног/таза/корпуса; один bound не был единственным критерием.
++
++`reports/phases/P02/attempt2/shooter_transition_probe.gd` создал настоящий Godot AnimatedSprite2D before/after render: три цикла idle3FPS→walk8FPS→stop, кадры анимации sampled в JSON; все6walk frames реально проигрывались в каждом цикле. Logical viewport640×360, native1× и2× evidence. MovieMaker записывает physical1280×720 из настроек проекта; MP4 приведён к logical640×360 через nearest. Runtime screenshots непосредственно640×360. Первичная попытка относительного movie пути закончилась ERR_CANT_OPEN; failed log сохранён. Исправленный absolute-path run exit0 и безERROR, AVI/MP4 реально существуют.
++
++Автор открыл before/after4×comparison, runtime idle/start/stop screenshots и contact sheet с chronological8FPS extraction из реального MP4. Наблюдение: прежнее сильное вытягивание исчезло; контур/масса каски и бронепластины устойчивы,2px шагающий bob и небольшие различия разворота корпуса остаются. Автор не выдаёт просмотр кадров за human continuous playback signoff или independent art PASS. Root/reviewer получают сам MP4 для повторного просмотра.
++
++Evidence/inventory только в `reports/phases/P02/attempt2/shooter_*`. Отдельный screenshot/structural check не объявлен доказательством фазового PASS. Commit/push не выполнялись.
+diff --git a/assets/source_art/enemies/build_shooter_attempt2.py b/assets/source_art/enemies/build_shooter_attempt2.py
+new file mode 100644
+index 0000000..428d8bb
+--- /dev/null
++++ b/assets/source_art/enemies/build_shooter_attempt2.py
+@@ -0,0 +1,107 @@
++#!/usr/bin/env python3
++"""ART-P02-02: replace four generated idle poses, preserve other28 frames exactly.
++No whole-figure resize. Lower-leg pixel redraw shortens new UP idle shins3rows;
++helmet/upper torso/armor masses and boot pixels are translated intact, never scaled.
++"""
++from pathlib import Path
++from PIL import Image,ImageOps
++import hashlib,json
++ROOT=Path(__file__).resolve().parents[3]
++SOURCE=ROOT/'assets/source_art/enemies'
++DEST=ROOT/'game/assets/art/enemies'
++REPORT=ROOT/'reports/phases/P02/attempt2'
++DIRECTIONS=['down','left','right','up']
++def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
++atlas_path=DEST/'atlas.json'
++atlas=json.loads(atlas_path.read_text())
++before_path=REPORT/'shooter_before.png'
++before=Image.open(before_path).convert('RGBA')
++master_path=SOURCE/'shooter_master_v2.png'
++master=Image.open(master_path).convert('RGBA')
++assert master.size==(1536,1024)
++colors=[tuple(bytes.fromhex(c[1:])) for c in atlas['palette']['rgb_hex']]
++palette=Image.new('P',(1,1));palette.putpalette([v for rgb in colors for v in rgb]+list(colors[0])*(256-len(colors)))
++after=before.copy()
++patches=[]
++for row in [0,3]:
++ for col in [0,1]:
++  sx,sy=col*192,row*256
++  frame=master.crop((sx,sy,sx+192,sy+256))
++  frame.putalpha(frame.getchannel('A').point(lambda a:255 if a>=128 else 0))
++  frame.paste((0,0,0,0),(0,0),ImageOps.invert(frame.getchannel('A')))
++  frame=frame.resize((48,64),Image.Resampling.NEAREST)
++  bounds=frame.getbbox();offset=(24-(bounds[0]+bounds[2])//2,58-bounds[3])
++  aligned=Image.new('RGBA',(48,64));aligned.paste(frame,offset)
++  assert sum(aligned.getchannel('A').get_flattened_data())==sum(frame.getchannel('A').get_flattened_data())
++  if row==3:
++   # Deliberate anatomical correction at the shins/knees, not uniform scaling:
++   # preserve boot/sole rows49..63 and shift intact torso/thigh rows0..45 down3.
++   # The3removed rows46..48 are excess lower-leg height in the generated pose.
++   redrawn=Image.new('RGBA',(48,64))
++   redrawn.paste(aligned.crop((0,0,48,46)),(0,3))
++   redrawn.paste(aligned.crop((0,49,48,64)),(0,49))
++   aligned=redrawn
++  limited=aligned.convert('RGB').quantize(palette=palette,dither=Image.Dither.NONE).convert('RGBA')
++  limited.putalpha(aligned.getchannel('A'));limited.paste((0,0,0,0),(0,0),ImageOps.invert(limited.getchannel('A')))
++  after.paste(limited,(col*48,row*64))
++  patches.append({'direction':DIRECTIONS[row],'column':col,'generated_source_rect':[sx,sy,192,256],'offset_after_nearest':list(offset),'lower_leg_redraw':{'deleted_excess_shin_rows':[46,47,48],'intact_upper_hierarchy_shift':[0,3],'boots_preserved_rows':[49,63]} if row==3 else None})
++frames=[];changed=[]
++for row,direction in enumerate(DIRECTIONS):
++ for col in range(8):
++  rect=[col*48,row*64,48,64]
++  f=after.crop((rect[0],rect[1],rect[0]+48,rect[1]+64))
++  old=before.crop((rect[0],rect[1],rect[0]+48,rect[1]+64))
++  if f.tobytes()!=old.tobytes():changed.append([row,col])
++  b=f.getbbox();assert b and 0<b[0]<b[2]<48 and 0<b[1]<b[3]==58
++  frames.append({'id':f'{direction}_{col}','direction':direction,'column':col,'animation':'idle' if col<2 else 'walk','rect':rect,'origin':[24,58],'bounds':list(b),'rgba_sha256':hashlib.sha256(f.tobytes()).hexdigest()})
++assert changed==[[0,0],[0,1],[3,0],[3,1]],changed
++assert set(after.getchannel('A').get_flattened_data())=={0,255}
++assert all(p==(0,0,0,0) for p in after.get_flattened_data() if not p[3])
++assert len({p[:3] for p in after.get_flattened_data() if p[3]})<=64
++out=DEST/'shooter_sheet.png';after.save(out)
++after.save(SOURCE/'shooter_native_source.png')
++after.save(SOURCE/'shooter_pose_redraw_attempt2.png')
++after.save(REPORT/'shooter_after.png')
++old_shooter=atlas['archetypes']['shooter']
++old_shooter['sha256']=sha(out)
++old_shooter['frames']=frames
++old_shooter['opaque_colors_used']=len({p[:3] for p in after.get_flattened_data() if p[3]})
++old_shooter['source']['master']='assets/source_art/enemies/shooter_master_v2.png'
++old_shooter['source']['master_sha256']=sha(master_path)
++old_shooter['source']['original_master']='assets/source_art/enemies/shooter_master_v1.png'
++old_shooter['source']['mode']='built-in precise image_gen edit + selected4cells + native anatomical lower-leg redraw'
++old_shooter['source']['prompt']='assets/source_art/enemies/shooter_continuity_prompt.txt'
++old_shooter['source']['metadata']='assets/source_art/enemies/shooter_continuity_generation_metadata.json'
++old_shooter['source']['recipe']='assets/source_art/enemies/build_shooter_attempt2.py'
++old_shooter['source']['recipe_scope']='four down/up idle cells only; other28 native frames byte-identical to FAIL source1786633'
++old_shooter['source']['redraw_native']='assets/source_art/enemies/shooter_pose_redraw_attempt2.png'
++old_shooter['continuity_fix']={'ticket':'ART-P02-02','status':'DRAFT_REQUIRES_INDEPENDENT_REVIEW','redraws':patches,'whole_figure_resize':False,'unchanged_frames':28}
++patch_by_key={(p['direction'],p['column']):p for p in patches}
++for adjustment in old_shooter['packing_adjustments']:
++ key=(adjustment['direction'],adjustment['column'])
++ adjustment['source_master']='assets/source_art/enemies/shooter_master_v2.png' if key in patch_by_key else 'assets/source_art/enemies/shooter_master_v1.png'
++ if key in patch_by_key:
++  patch=patch_by_key[key]
++  adjustment['offset_after_nearest']=patch['offset_after_nearest']
++  adjustment['lower_leg_redraw']=patch['lower_leg_redraw']
++atlas_path.write_text(json.dumps(atlas,ensure_ascii=False,indent=2)+'\n')
++checks={}
++for row in [0,3]:
++ direction=DIRECTIONS[row]
++ oldtop=[];newtop=[]
++ for col in range(8):
++  oldtop.append(before.crop((col*48,row*64,col*48+48,row*64+64)).getbbox()[1])
++  newtop.append(after.crop((col*48,row*64,col*48+48,row*64+64)).getbbox()[1])
++ assert abs(newtop[0]-newtop[2])<=2
++ checks[direction]={'before_top_y':oldtop,'after_top_y':newtop,'before_idle_to_walk_jump':abs(oldtop[0]-oldtop[2]),'after_idle_to_walk_jump':abs(newtop[0]-newtop[2])}
++report={'ticket':'ART-P02-02','status':'STRUCTURAL_CHECK_ONLY_PENDING_REAL_ANIMATION_REVIEW','sha256':sha(out),'dimensions':[384,256],'alpha':[0,255],'colors':old_shooter['opaque_colors_used'],'changed_cells':changed,'unchanged_native_frames':28,'whole_figure_resize':False,'head_top_metrics':checks}
++(REPORT/'shooter_structure.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
++# Before/after4x comparison: down idle0/walk2; up idle0/walk2, exact same anchor.
++preview=Image.new('RGBA',(192,256),(36,40,53,255))
++for version,image in enumerate([before,after]):
++ for row_index,row in enumerate([0,3]):
++  for col_index,col in enumerate([0,2]):
++   f=image.crop((col*48,row*64,col*48+48,row*64+64))
++   preview.alpha_composite(f,((version*2+col_index)*48,row_index*128))
++preview.resize((768,1024),Image.Resampling.NEAREST).convert('RGB').save(REPORT/'shooter_before_after_4x.png')
++print(json.dumps(report,indent=2))
+diff --git a/assets/source_art/enemies/shooter_continuity_generation_metadata.json b/assets/source_art/enemies/shooter_continuity_generation_metadata.json
+new file mode 100644
+index 0000000..bea20f5
+--- /dev/null
++++ b/assets/source_art/enemies/shooter_continuity_generation_metadata.json
+@@ -0,0 +1,13 @@
++{
++  "tool": "image_gen__imagegen",
++  "mode": "built-in precise edit",
++  "transparent_background": true,
++  "result_keys": [
++    "image_url",
++    "output_hint"
++  ],
++  "output_hint": "Generated images are saved to /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b as /home/artyx/.codex/generated_images/01a1d1d2-7706-7642-ac55-8c4c7dda699b/exec-dea44899-8105-4a60-b872-e34552cc5c9a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
++  "image_payload_recorded": false,
++  "input_image": "assets/source_art/enemies/shooter_master_v1.png",
++  "input_role": "original anonymous fictional game art; no photographs"
++}
+diff --git a/assets/source_art/enemies/shooter_continuity_prompt.txt b/assets/source_art/enemies/shooter_continuity_prompt.txt
+new file mode 100644
+index 0000000..9051213
+--- /dev/null
++++ b/assets/source_art/enemies/shooter_continuity_prompt.txt
+@@ -0,0 +1,6 @@
++Use case: precise-object-edit
++Edit target image1: our original fictional masked shooter32-frame pixel-art sprite atlas,1536x1024 RGBA,8columns4rows,192x256 cells. This is our own original game art, no real person or real organization.
++SPECIFIC CONTINUITY REPAIR ONLY: FOUR IDLE CELLS, first TWO cells in TOP row(DOWN) and first TWO cells in BOTTOM row(UP). These idles crouch6native pixels shorter than walking counterparts; beginning to walk looks like the whole figure suddenly grows. Re-author ONLY those4idle poses with NATURAL STRAIGHTER LEGS, PELVIS/SHOULDER/HEAD hierarchy matching standing/walking body proportions in columns2–7 of the SAME row. Keep body mass, helmet size/shape and armor plate size identical to walking frames. Draw proper legs/knee armor/shins and posture; do NOT uniformly resize/stretch the whole character, helmet or torso as a shortcut.
++In the192x256 master cells, use head top aroundy30–34 and sole bottom aroundy237–241 for these four idle figures, consistent with walkcol2–7. At48x64 native after foot anchory58 this should put helmet top aroundy6–8 both idle and walk, with only1–2pixel natural bob, not5–6pixel growth. Chest armor, shoulder pads and gun height should line up across transition, not merely the top pixel. Two idles remain still/braced with a subtle one-pixel breathing change. Legs are under the same weight, not a new running pose.
++Preserve all other28frames EXACTLY, including LEFT and RIGHT rows and existing DOWN/UP walk cycles. Preserve exact8×4grid/cell placement, cyan-grey pistol silhouette in both hands, closed angular darkhelmet, opaque redvisor, charcoal trousers/boots, crimson/magenta chest/back armor, compact medium build, steep overhead camera, fully anonymous maskedidentity. This is a posture/anatomy redraw of4cells only, NOT a new design.
++Style: same genuine low-resolution pixel-art square clusters (logical48x64 displayed4x nearest), hard edges, shared controlled colors, no antialiasing, no smooth gradients, no real/painterly textures. All poses completely inside their own cells with transparent margin. Actual zero-alpha background, no glow, floor shadow, matte, text, grid lines, labels or other objects. Preserve original composition and colors.
+diff --git a/assets/source_art/enemies/shooter_master_v2.png b/assets/source_art/enemies/shooter_master_v2.png
+new file mode 100644
+index 0000000..d34560a
+Binary files /dev/null and b/assets/source_art/enemies/shooter_master_v2.png differ
+diff --git a/assets/source_art/enemies/shooter_native_source.png b/assets/source_art/enemies/shooter_native_source.png
+index 32a71e4..c7bac7a 100644
+Binary files a/assets/source_art/enemies/shooter_native_source.png and b/assets/source_art/enemies/shooter_native_source.png differ
+diff --git a/assets/source_art/enemies/shooter_pose_redraw_attempt2.png b/assets/source_art/enemies/shooter_pose_redraw_attempt2.png
+new file mode 100644
+index 0000000..c7bac7a
+Binary files /dev/null and b/assets/source_art/enemies/shooter_pose_redraw_attempt2.png differ
+diff --git a/game/assets/art/enemies/atlas.json b/game/assets/art/enemies/atlas.json
+index a707565..7870f5d 100644
+--- a/game/assets/art/enemies/atlas.json
++++ b/game/assets/art/enemies/atlas.json
+@@ -2560,7 +2560,7 @@
+         58
+       ],
+       "design": "Angular compact helmet and shoulder armor, crimson chest/back plates, red visor, pistol held with both hands.",
+-      "sha256": "3859ffc9d40ab161f05beca5a997e482ed85225aafb3539a8b2a4ac9cb7b4f32",
++      "sha256": "c56e165d27bb923770d107e12959c6c2575d9414171e3be309c639cfd38b50ec",
+       "opaque_colors_used": 25,
+       "frames": [
+         {
+@@ -2580,11 +2580,11 @@
+           ],
+           "bounds": [
+             6,
+-            12,
++            6,
+             42,
+             58
+           ],
+-          "rgba_sha256": "c1edcb66f3f77e99e72f1157fb08e81abb54b90ec484ed0514bcea4852b74105"
++          "rgba_sha256": "26ae4cdd5aee0ec6d435eaa9a24df0a0862ac70bd8b4fb3118f9ca9f29b64b64"
+         },
+         {
+           "id": "down_1",
+@@ -2603,11 +2603,11 @@
+           ],
+           "bounds": [
+             6,
+-            12,
++            6,
+             42,
+             58
+           ],
+-          "rgba_sha256": "e56f02a2f487b9117d5ee7fe11119d3b5239e12dbefd6966024a527f2344615a"
++          "rgba_sha256": "ceba8a482ed0bf6d457234559894a921219553829dd80d2835e3b6d43b2740d6"
+         },
+         {
+           "id": "down_2",
+@@ -3132,11 +3132,11 @@
+           ],
+           "bounds": [
+             6,
+-            11,
+-            42,
++            6,
++            43,
+             58
+           ],
+-          "rgba_sha256": "61e4b2d3f3c6b8d0ba880bf82e04048dfaa06c109fe3a0a17f2376dd321888b9"
++          "rgba_sha256": "6828579eea7170c4aedd4d1762f33c3d0e25da5614f32db062df8b0a4cf9d246"
+         },
+         {
+           "id": "up_1",
+@@ -3154,12 +3154,12 @@
+             58
+           ],
+           "bounds": [
+-            7,
+-            11,
++            6,
++            6,
+             42,
+             58
+           ],
+-          "rgba_sha256": "a9d3cbf79411e6b7aae92c8464635647cfbc4e19dc7b6441b1419877b055fded"
++          "rgba_sha256": "c114de1b4cafe6e4e7d79bd553f0d1fa8712a356f476802414712628656de7f5"
+         },
+         {
+           "id": "up_2",
+@@ -3301,16 +3301,20 @@
+         }
+       ],
+       "source": {
+-        "master": "assets/source_art/enemies/shooter_master_v1.png",
++        "master": "assets/source_art/enemies/shooter_master_v2.png",
+         "master_dimensions": [
+           1536,
+           1024
+         ],
+-        "master_sha256": "28a3ca4846839f28d43466b401eff7f7ea422eb57a1fbb63395417df96a78912",
+-        "prompt": "assets/source_art/enemies/shooter_prompt.txt",
+-        "metadata": "assets/source_art/enemies/shooter_generation_metadata.json",
+-        "mode": "built-in image_gen",
+-        "input_reference": "approved original Yakudza pixel sheet only; no photographs"
++        "master_sha256": "d4138b1c004cd9401c30d5c4747b6b7406b2cb002f7548632d27b94f80a70699",
++        "prompt": "assets/source_art/enemies/shooter_continuity_prompt.txt",
++        "metadata": "assets/source_art/enemies/shooter_continuity_generation_metadata.json",
++        "mode": "built-in precise image_gen edit + selected4cells + native anatomical lower-leg redraw",
++        "input_reference": "approved original Yakudza pixel sheet only; no photographs",
++        "original_master": "assets/source_art/enemies/shooter_master_v1.png",
++        "recipe": "assets/source_art/enemies/build_shooter_attempt2.py",
++        "recipe_scope": "four down/up idle cells only; other28 native frames byte-identical to FAIL source1786633",
++        "redraw_native": "assets/source_art/enemies/shooter_pose_redraw_attempt2.png"
+       },
+       "packing_adjustments": [
+         {
+@@ -3324,8 +3328,10 @@
+           ],
+           "offset_after_nearest": [
+             -1,
+-            2
+-          ]
++            -2
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
++          "lower_leg_redraw": null
+         },
+         {
+           "direction": "down",
+@@ -3338,8 +3344,10 @@
+           ],
+           "offset_after_nearest": [
+             -1,
+-            2
+-          ]
++            -2
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
++          "lower_leg_redraw": null
+         },
+         {
+           "direction": "down",
+@@ -3353,7 +3361,8 @@
+           "offset_after_nearest": [
+             -1,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "down",
+@@ -3367,7 +3376,8 @@
+           "offset_after_nearest": [
+             -1,
+             -1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "down",
+@@ -3381,7 +3391,8 @@
+           "offset_after_nearest": [
+             -1,
+             -1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "down",
+@@ -3395,7 +3406,8 @@
+           "offset_after_nearest": [
+             0,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "down",
+@@ -3409,7 +3421,8 @@
+           "offset_after_nearest": [
+             -1,
+             -1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "down",
+@@ -3423,7 +3436,8 @@
+           "offset_after_nearest": [
+             -1,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3437,7 +3451,8 @@
+           "offset_after_nearest": [
+             2,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3451,7 +3466,8 @@
+           "offset_after_nearest": [
+             2,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3465,7 +3481,8 @@
+           "offset_after_nearest": [
+             3,
+             2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3479,7 +3496,8 @@
+           "offset_after_nearest": [
+             2,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3493,7 +3511,8 @@
+           "offset_after_nearest": [
+             2,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3507,7 +3526,8 @@
+           "offset_after_nearest": [
+             2,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3521,7 +3541,8 @@
+           "offset_after_nearest": [
+             2,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "left",
+@@ -3535,7 +3556,8 @@
+           "offset_after_nearest": [
+             2,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3549,7 +3571,8 @@
+           "offset_after_nearest": [
+             -1,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3563,7 +3586,8 @@
+           "offset_after_nearest": [
+             -1,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3577,7 +3601,8 @@
+           "offset_after_nearest": [
+             -1,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3591,7 +3616,8 @@
+           "offset_after_nearest": [
+             -1,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3605,7 +3631,8 @@
+           "offset_after_nearest": [
+             -1,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3619,7 +3646,8 @@
+           "offset_after_nearest": [
+             -1,
+             2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3633,7 +3661,8 @@
+           "offset_after_nearest": [
+             -1,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "right",
+@@ -3647,7 +3676,8 @@
+           "offset_after_nearest": [
+             -1,
+             1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3659,9 +3689,25 @@
+             256
+           ],
+           "offset_after_nearest": [
+-            0,
+-            1
+-          ]
++            -1,
++            -2
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
++          "lower_leg_redraw": {
++            "deleted_excess_shin_rows": [
++              46,
++              47,
++              48
++            ],
++            "intact_upper_hierarchy_shift": [
++              0,
++              3
++            ],
++            "boots_preserved_rows": [
++              49,
++              63
++            ]
++          }
+         },
+         {
+           "direction": "up",
+@@ -3673,9 +3719,25 @@
+             256
+           ],
+           "offset_after_nearest": [
+-            0,
+-            1
+-          ]
++            -1,
++            -2
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v2.png",
++          "lower_leg_redraw": {
++            "deleted_excess_shin_rows": [
++              46,
++              47,
++              48
++            ],
++            "intact_upper_hierarchy_shift": [
++              0,
++              3
++            ],
++            "boots_preserved_rows": [
++              49,
++              63
++            ]
++          }
+         },
+         {
+           "direction": "up",
+@@ -3689,7 +3751,8 @@
+           "offset_after_nearest": [
+             0,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3703,7 +3766,8 @@
+           "offset_after_nearest": [
+             0,
+             0
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3717,7 +3781,8 @@
+           "offset_after_nearest": [
+             0,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3731,7 +3796,8 @@
+           "offset_after_nearest": [
+             0,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3745,7 +3811,8 @@
+           "offset_after_nearest": [
+             -1,
+             -1
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         },
+         {
+           "direction": "up",
+@@ -3759,9 +3826,106 @@
+           "offset_after_nearest": [
+             0,
+             -2
+-          ]
++          ],
++          "source_master": "assets/source_art/enemies/shooter_master_v1.png"
+         }
+-      ]
++      ],
++      "continuity_fix": {
++        "ticket": "ART-P02-02",
++        "status": "DRAFT_REQUIRES_INDEPENDENT_REVIEW",
++        "redraws": [
++          {
++            "direction": "down",
++            "column": 0,
++            "generated_source_rect": [
++              0,
++              0,
++              192,
++              256
++            ],
++            "offset_after_nearest": [
++              -1,
++              -2
++            ],
++            "lower_leg_redraw": null
++          },
++          {
++            "direction": "down",
++            "column": 1,
++            "generated_source_rect": [
++              192,
++              0,
++              192,
++              256
++            ],
++            "offset_after_nearest": [
++              -1,
++              -2
++            ],
++            "lower_leg_redraw": null
++          },
++          {
++            "direction": "up",
++            "column": 0,
++            "generated_source_rect": [
++              0,
++              768,
++              192,
++              256
++            ],
++            "offset_after_nearest": [
++              -1,
++              -2
++            ],
++            "lower_leg_redraw": {
++              "deleted_excess_shin_rows": [
++                46,
++                47,
++                48
++              ],
++              "intact_upper_hierarchy_shift": [
++                0,
++                3
++              ],
++              "boots_preserved_rows": [
++                49,
++                63
++              ]
++            }
++          },
++          {
++            "direction": "up",
++            "column": 1,
++            "generated_source_rect": [
++              192,
++              768,
++              192,
++              256
++            ],
++            "offset_after_nearest": [
++              -1,
++              -2
++            ],
++            "lower_leg_redraw": {
++              "deleted_excess_shin_rows": [
++                46,
++                47,
++                48
++              ],
++              "intact_upper_hierarchy_shift": [
++                0,
++                3
++              ],
++              "boots_preserved_rows": [
++                49,
++                63
++              ]
++            }
++          }
++        ],
++        "whole_figure_resize": false,
++        "unchanged_frames": 28
++      }
+     }
+   }
+ }
+diff --git a/game/assets/art/enemies/shooter_sheet.png b/game/assets/art/enemies/shooter_sheet.png
+index 32a71e4..c7bac7a 100644
+Binary files a/game/assets/art/enemies/shooter_sheet.png and b/game/assets/art/enemies/shooter_sheet.png differ
+diff --git a/game/resources/combat/prototype.json b/game/resources/combat/prototype.json
+index 5644541..c78f6bd 100644
+--- a/game/resources/combat/prototype.json
++++ b/game/resources/combat/prototype.json
+@@ -26,7 +26,9 @@
+       "cooldown": 1.2,
+       "active": 0.14,
+       "reach": 19,
+-      "radius": 15
++      "radius": 15,
++      "windup": 0.08333333333333333,
++      "recovery": 0.08333333333333333
+     },
+     "knife": {
+       "damage": 1,
+@@ -34,7 +36,9 @@
+       "cooldown": 0.48,
+       "active": 0.16,
+       "reach": 22,
+-      "radius": 17
++      "radius": 17,
++      "windup": 0.08333333333333333,
++      "recovery": 0.08333333333333333
+     },
+     "pistol": {
+       "damage": 1,
+diff --git a/game/resources/combat/weapon_visuals.json b/game/resources/combat/weapon_visuals.json
+new file mode 100644
+index 0000000..8caf4a3
+--- /dev/null
++++ b/game/resources/combat/weapon_visuals.json
+@@ -0,0 +1,125 @@
++{
++  "schema": 1,
++  "units": "native sprite pixels relative to frame top-left; subtract pivot [24,58]",
++  "projection": "Feet positions and hitboxes use ground plane. Held weapons use authored hand height. Projectile display keeps its initial hand-to-ground offset for the complete sweep; gameplay and wall checks stay on ground plane.",
++  "actions": {
++    "fps": 12,
++    "contact_frame": 1,
++    "shove_frames": 3,
++    "fire_hold": 0.2,
++    "timing": "Physics poses: frame0 windup1/12sec; frame1 held for original attack.active (.14 shove/.16 knife); frame2 recovery1/12sec. Contact window is unchanged."
++  },
++  "anchors": {
++    "down": {
++      "shove": [
++        [
++          9,
++          35
++        ],
++        [
++          12,
++          36
++        ],
++        [
++          8,
++          37
++        ]
++      ],
++      "fire": [
++        [
++          12,
++          36
++        ]
++      ],
++      "layer": 1
++    },
++    "left": {
++      "shove": [
++        [
++          12,
++          36
++        ],
++        [
++          9,
++          27
++        ],
++        [
++          9,
++          32
++        ]
++      ],
++      "fire": [
++        [
++          9,
++          27
++        ]
++      ],
++      "layer": 1
++    },
++    "right": {
++      "shove": [
++        [
++          38,
++          29
++        ],
++        [
++          39,
++          28
++        ],
++        [
++          38,
++          30
++        ]
++      ],
++      "fire": [
++        [
++          39,
++          28
++        ]
++      ],
++      "layer": 1
++    },
++    "up": {
++      "shove": [
++        [
++          42,
++          28
++        ],
++        [
++          42,
++          27
++        ],
++        [
++          42,
++          37
++        ]
++      ],
++      "fire": [
++        [
++          42,
++          27
++        ]
++      ],
++      "layer": -1
++    }
++  },
++  "knife": {
++    "grip": 4,
++    "blade": 10
++  },
++  "pistol": {
++    "barrel": 12,
++    "flash_duration": 0.085
++  },
++  "enemy_defeat": {
++    "fade_seconds": 0.18,
++    "cue_seconds": 0.65
++  },
++  "review": "Sockets sampled from actual action_sheet native hand pixels; up weapon draws behind body. These are visual sockets, not hurtboxes. No approved P01 artwork changed.",
++  "render_planes": {
++    "floor": 0,
++    "actor_body": 1,
++    "rear_weapon": 0,
++    "front_weapon": 2
++  }
++}
+diff --git a/game/scripts/actors/combat_player.gd b/game/scripts/actors/combat_player.gd
+index 9dcc157..f0839a9 100644
+--- a/game/scripts/actors/combat_player.gd
++++ b/game/scripts/actors/combat_player.gd
+@@ -1,6 +1,7 @@
+ extends "res://scripts/actors/yakuza_actor.gd"
+-## Escape inventory is canonical for this lab; weapons belong only to the explicit test kit.
++## P01 movement stays intact. Actions and contact share one fixed-physics pose clock.
+ 
++const WeaponVisual = preload("res://scripts/actors/combat_weapon_visual.gd")
+ var lab: Node2D
+ var health := 1
+ var kit := "escape"
+@@ -11,22 +12,37 @@ var hits_received := 0
+ var explicit_aim := Vector2.ZERO
+ var mouse_aim := false
+ var action_timer := 0.0
++var action_elapsed := 0.0
++var action_duration := 0.0
+ var action_animation: StringName = &""
++var action_direction := "right"
++var action_aim := Vector2.RIGHT
++var action_kind := ""
++var action_frame := 0
++var action_windup := 0.0
++var action_active := 0.0
++var action_recovery := 0.0
++var melee_attack_id := 0
++var weapon_kind := ""
+ var actions_ready := false
++var weapon_visual: Node2D
+ 
+ 
+ func _ready() -> void:
+ 	super._ready()
++	process_physics_priority = -10
++	# Keep a rear hand layer above the arena floor even when its relative z is -1.
++	z_index = int(lab.visual_config.render_planes.actor_body)
+ 	var path := "res://assets/art/yakuza/action_sheet.png"
+-	if not ResourceLoader.exists(path):
+-		return
++	assert(ResourceLoader.exists(path), "P02 authored action art required")
+ 	var texture: Texture2D = load(path)
+ 	for row in DIRECTIONS.size():
+ 		for action in [{"name": "shove", "first": 0, "count": 3},
+-				{"name": "hit", "first": 3, "count": 2}, {"name": "fall", "first": 5, "count": 3}]:
++				{"name": "hit", "first": 3, "count": 2}, {"name": "fall", "first": 5, "count": 3},
++				{"name": "fire", "first": 1, "count": 1}]:
+ 			var animation := StringName(action.name + "_" + String(DIRECTIONS[row]))
+ 			sprite.sprite_frames.add_animation(animation)
+-			sprite.sprite_frames.set_animation_speed(animation, 12.0)
++			sprite.sprite_frames.set_animation_speed(animation, float(lab.visual_config.actions.fps))
+ 			sprite.sprite_frames.set_animation_loop(animation, false)
+ 			for column in range(action.first, action.first + action.count):
+ 				var atlas := AtlasTexture.new()
+@@ -34,18 +50,101 @@ func _ready() -> void:
+ 				atlas.region = Rect2(Vector2(column, row) * FRAME_SIZE, FRAME_SIZE)
+ 				sprite.sprite_frames.add_frame(animation, atlas)
+ 	actions_ready = true
++	weapon_visual = WeaponVisual.new()
++	weapon_visual.player = self
++	add_child(weapon_visual)
+ 
+ 
+ func _play_action(action: String, duration: float) -> void:
+-	if not actions_ready:
+-		return
+-	action_animation = StringName(action + "_" + String(facing))
++	action_kind = action
++	action_direction = String(facing)
++	action_aim = aim_direction()
++	action_animation = StringName(action + "_" + action_direction)
++	action_duration = duration
++	action_elapsed = 0.0
+ 	action_timer = duration
++	action_frame = 0
++	_present_action()
++
++
++func _present_action() -> void:
++	if action_animation.is_empty():
++		return
++	var fps := float(lab.visual_config.actions.fps)
++	var count := sprite.sprite_frames.get_frame_count(action_animation)
++	var phase := action_elapsed * fps
++	var progress: float = phase - floor(phase + 0.00001)
++	action_frame = mini(int(floor(phase + 0.00001)), count - 1)
++	if action_kind == "shove":
++		if action_elapsed + 0.00001 < action_windup:
++			action_frame = 0
++			progress = action_elapsed / action_windup
++		elif action_elapsed + 0.00001 < action_windup + action_active:
++			action_frame = 1
++			progress = (action_elapsed - action_windup) / action_active
++		else:
++			action_frame = 2
++			progress = (action_elapsed - action_windup - action_active) / action_recovery
+ 	sprite.play(action_animation)
+-	sprite.set_frame_and_progress(0, 0.0)
++	sprite.pause()
++	sprite.set_frame_and_progress(action_frame, clampf(progress, 0.0, 1.0))
++	weapon_visual_update()
++
++
++func weapon_visual_update() -> void:
++	if weapon_visual:
++		weapon_visual.z_index = int(lab.visual_config.anchors[action_direction].layer)
++		weapon_visual.queue_redraw()
++
++
++func _advance_action(delta: float) -> void:
++	if action_animation.is_empty():
++		return
++	action_elapsed = minf(action_duration, action_elapsed + delta)
++	action_timer = maxf(0.0, action_duration - action_elapsed)
++	if action_timer <= 0.00001 and action_kind != "fall":
++		cancel_action()
++
++
++func cancel_action() -> void:
++	lab.combat.cancel_melee(self)
++	action_timer = 0.0
++	action_elapsed = 0.0
++	action_duration = 0.0
++	action_animation = &""
++	action_kind = ""
++	action_frame = 0
++	action_windup = 0.0
++	action_active = 0.0
++	action_recovery = 0.0
++	melee_attack_id = 0
++	weapon_kind = ""
++	weapon_visual_update()
++
++
++func melee_phase(attack_id: int) -> String:
++	if health <= 0 or attack_id != melee_attack_id or action_kind != "shove":
++		return "finished"
++	var contact := int(lab.visual_config.actions.contact_frame)
++	if action_frame < contact:
++		return "windup"
++	return "contact" if action_frame == contact else "finished"
++
++
++func weapon_socket() -> Vector2:
++	if not action_kind in ["shove", "fire"]:
++		return Vector2.ZERO
++	var points: Array = lab.visual_config.anchors[action_direction][action_kind]
++	var point: Array = points[mini(action_frame, points.size() - 1)]
++	return Vector2(point[0], point[1]) - FRAME_PIVOT
++
++
++func visual_muzzle() -> Vector2:
++	return global_position + weapon_socket() + action_aim * float(lab.visual_config.pistol.barrel)
+ 
+ 
+ func reset(at: Vector2) -> void:
++	cancel_action()
+ 	position = at
+ 	velocity = Vector2.ZERO
+ 	health = int(lab.config.player.health)
+@@ -58,11 +157,13 @@ func reset(at: Vector2) -> void:
+ 	hits_received = 0
+ 	explicit_aim = Vector2.ZERO
+ 	mouse_aim = false
+-	action_timer = 0.0
+-	action_animation = &""
++	action_direction = "right"
++	action_aim = Vector2.RIGHT
+ 	modulate = Color.WHITE
+ 	sprite.play(&"idle_right")
+ 	sprite.set_frame_and_progress(0, 0.0)
++	weapon_visual_update()
++	queue_redraw()
+ 
+ 
+ func _input(event: InputEvent) -> void:
+@@ -90,16 +191,15 @@ func aim_direction() -> Vector2:
+ 
+ 
+ func _physics_process(delta: float) -> void:
++	_advance_action(delta)
+ 	if lab.state != "playing" or health <= 0:
+ 		velocity = Vector2.ZERO
+-		action_timer = maxf(0.0, action_timer - delta)
+-		if health > 0 and sprite.animation.begins_with("walk_"):
++		if not action_animation.is_empty():
++			_present_action()
++		elif sprite.animation.begins_with("walk_"):
+ 			sprite.play(StringName("idle_" + String(facing)))
++		queue_redraw()
+ 		return
+-	# Preserve action playback while the P01 controller keeps movement responsive.
+-	var previous_action: StringName = action_animation if action_timer > 0 else &""
+-	var previous_frame := sprite.frame
+-	var previous_progress := sprite.frame_progress
+ 	super._physics_process(delta)
+ 	melee_cooldown = maxf(0.0, melee_cooldown - delta)
+ 	ranged_cooldown = maxf(0.0, ranged_cooldown - delta)
+@@ -110,13 +210,8 @@ func _physics_process(delta: float) -> void:
+ 		attack_ranged()
+ 	if Input.is_action_just_pressed("distract"):
+ 		distract()
+-	if action_timer > 0:
+-		sprite.play(action_animation)
+-		if action_animation == previous_action:
+-			sprite.set_frame_and_progress(previous_frame, previous_progress)
+-		action_timer = maxf(0.0, action_timer - delta)
+-	else:
+-		action_animation = &""
++	if not action_animation.is_empty():
++		_present_action()
+ 	queue_redraw()
+ 
+ 
+@@ -131,11 +226,17 @@ func _face_aim() -> void:
+ func attack_melee() -> bool:
+ 	if lab.state != "playing" or health <= 0 or melee_cooldown > 0:
+ 		return false
++	cancel_action()
+ 	var definition: Dictionary = lab.config.attacks[lab.config.kits[kit].melee]
+ 	melee_cooldown = float(definition.cooldown)
+ 	_face_aim()
+-	lab.combat.start_melee(self, "player", aim_direction(), definition)
+-	_play_action("shove", 0.25)
++	action_windup = float(definition.windup)
++	action_active = float(definition.active)
++	action_recovery = float(definition.recovery)
++	_play_action("shove", action_windup + action_active + action_recovery)
++	weapon_kind = "knife" if kit == "training" else ""
++	melee_attack_id = lab.combat.start_melee(self, "player", action_aim, definition)
++	weapon_visual_update()
+ 	return true
+ 
+ 
+@@ -143,11 +244,15 @@ func attack_ranged() -> bool:
+ 	var weapon: String = lab.config.kits[kit].ranged
+ 	if weapon.is_empty() or lab.state != "playing" or health <= 0 or ranged_cooldown > 0:
+ 		return false
++	cancel_action()
+ 	var definition: Dictionary = lab.config.attacks[weapon]
+ 	ranged_cooldown = float(definition.cooldown)
+ 	_face_aim()
++	_play_action("fire", float(lab.visual_config.actions.fire_hold))
++	weapon_kind = "pistol"
++	weapon_visual_update()
+ 	lab.shots_fired += 1
+-	lab.combat.fire(self, "player", aim_direction(), definition)
++	lab.combat.fire(self, "player", action_aim, definition)
+ 	return true
+ 
+ 
+@@ -156,7 +261,6 @@ func distract() -> bool:
+ 		return false
+ 	distract_cooldown = float(lab.config.kits[kit].distract_cooldown)
+ 	var point := global_position + aim_direction() * 110.0
+-	# A thrown improvised noise stops at actual walls, rather than crossing them.
+ 	var ray := PhysicsRayQueryParameters2D.create(global_position + Vector2(0, -7), point, 1)
+ 	var obstruction := get_world_2d().direct_space_state.intersect_ray(ray)
+ 	if not obstruction.is_empty():
+@@ -168,6 +272,7 @@ func distract() -> bool:
+ func receive_hit(damage: int, _stun: float, _attack_id: int, _source: Node2D) -> void:
+ 	if health <= 0:
+ 		return
++	cancel_action()
+ 	hits_received += 1
+ 	health = maxi(0, health - damage)
+ 	if health == 0:
+@@ -175,7 +280,7 @@ func receive_hit(damage: int, _stun: float, _attack_id: int, _source: Node2D) ->
+ 		_play_action("fall", 0.25)
+ 		lab.player_died()
+ 	else:
+-		_play_action("hit", 0.167)
++		_play_action("hit", 2.0 / float(lab.visual_config.actions.fps))
+ 	queue_redraw()
+ 
+ 
+@@ -184,11 +289,3 @@ func _draw() -> void:
+ 		draw_arc(Vector2(0, -5), 12, -0.3, PI + 0.3, 16, Color("66e5cc"), 1)
+ 		var aim := aim_direction()
+ 		draw_line(Vector2(0, -7) + aim * 16, Vector2(0, -7) + aim * 23, Color("66e5cc"), 2)
+-		if kit == "training" and ranged_cooldown > 0.25:
+-			var muzzle := Vector2(0, -9) + aim * 14
+-			draw_line(muzzle, muzzle + aim * 12, Color("8b9fb5"), 4)
+-			draw_line(muzzle + aim * 7, muzzle + aim * 12, Color("e9edf2"), 2)
+-		elif kit == "training" and action_timer > 0:
+-			var blade := Vector2(0, -9) + aim * 21
+-			draw_line(blade - aim * 5, blade, Color("896b4d"), 3)
+-			draw_line(blade, blade + aim * 10, Color("e9edf2"), 2)
+diff --git a/game/scripts/actors/combat_weapon_visual.gd b/game/scripts/actors/combat_weapon_visual.gd
+new file mode 100644
+index 0000000..c7dbba7
+--- /dev/null
++++ b/game/scripts/actors/combat_weapon_visual.gd
+@@ -0,0 +1,25 @@
++extends Node2D
++## Visual hand sockets only; damage uses the corresponding ground-plane volume.
++var player: CharacterBody2D
++
++
++func _draw() -> void:
++	if player.health <= 0 or player.weapon_kind.is_empty() or player.action_timer <= 0:
++		return
++	var grip: Vector2 = player.weapon_socket()
++	var aim: Vector2 = player.action_aim
++	var sideways := Vector2(-aim.y, aim.x)
++	var data: Dictionary = player.lab.visual_config
++	if player.weapon_kind == "knife":
++		var handle := float(data.knife.grip)
++		var blade := float(data.knife.blade)
++		draw_line(grip, grip + aim * handle, Color("896b4d"), 3)
++		draw_line(grip + aim * handle - sideways * 2, grip + aim * handle + sideways * 2, Color("c5bca2"), 2)
++		draw_line(grip + aim * handle, grip + aim * (handle + blade), Color("e9edf2"), 2)
++	elif player.weapon_kind == "pistol":
++		var muzzle := grip + aim * float(data.pistol.barrel)
++		draw_line(grip - aim * 2, muzzle, Color("738ba3"), 4)
++		draw_line(grip + sideways * 4, grip + aim * 3, Color("3b424e"), 3)
++		draw_line(muzzle - aim * 4, muzzle, Color("e9edf2"), 2)
++		if player.action_elapsed < float(data.pistol.flash_duration):
++			draw_line(muzzle + aim * 2, muzzle + aim * 7, Color("ffe7a0"), 3)
+diff --git a/game/scripts/actors/combat_weapon_visual.gd.uid b/game/scripts/actors/combat_weapon_visual.gd.uid
+new file mode 100644
+index 0000000..2efccd5
+--- /dev/null
++++ b/game/scripts/actors/combat_weapon_visual.gd.uid
+@@ -0,0 +1 @@
++uid://bfj7mgx8efxjd
+diff --git a/game/scripts/ai/enemy_actor.gd b/game/scripts/ai/enemy_actor.gd
+index 75e856a..89d9d20 100644
+--- a/game/scripts/ai/enemy_actor.gd
++++ b/game/scripts/ai/enemy_actor.gd
+@@ -21,9 +21,12 @@ var detection_count := 0
+ var attacks_started := 0
+ var hits_received := 0
+ var animation_ready := false
++var defeat_elapsed := 0.0
++var defeat_visual: Node2D
+ 
+ 
+ func _ready() -> void:
++	z_index = int(lab.visual_config.render_planes.actor_body)
+ 	collision_layer = 4
+ 	collision_mask = 1
+ 	var shape := CollisionShape2D.new()
+@@ -33,6 +36,11 @@ func _ready() -> void:
+ 	shape.position = Vector2(0, -6)
+ 	add_child(shape)
+ 	_load_art()
++	defeat_visual = preload("res://scripts/ai/enemy_defeat_visual.gd").new()
++	defeat_visual.actor = self
++	defeat_visual.z_index = 1
++	defeat_visual.visible = false
++	add_child(defeat_visual)
+ 
+ 
+ func _load_art() -> void:
+@@ -67,6 +75,9 @@ func reset() -> void:
+ 	patrol_target = patrol_end
+ 	velocity = Vector2.ZERO
+ 	health = 1
++	defeat_elapsed = 0.0
++	defeat_visual.visible = false
++	defeat_visual.queue_redraw()
+ 	collision_layer = 4
+ 	state = "patrol"
+ 	timer = 0.0
+@@ -81,6 +92,8 @@ func reset() -> void:
+ 	hits_received = 0
+ 	modulate = Color.WHITE
+ 	if sprite:
++		sprite.visible = true
++		sprite.modulate = Color.WHITE
+ 		sprite.play(&"idle_down")
+ 		sprite.set_frame_and_progress(0, 0.0)
+ 	queue_redraw()
+@@ -112,7 +125,10 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) ->
+ 	if health <= 0:
+ 		collision_layer = 0
+ 		velocity = Vector2.ZERO
+-		modulate = Color("6c687b")
++		lab.combat.cancel_melee(self)
++		defeat_elapsed = 0.0
++		defeat_visual.visible = true
++		defeat_visual.queue_redraw()
+ 		if sprite:
+ 			sprite.pause()
+ 		transition("dead")
+@@ -124,6 +140,18 @@ func receive_hit(damage: int, stun: float, _attack_id: int, _source: Node2D) ->
+ 
+ 
+ func _physics_process(delta: float) -> void:
++	if health <= 0:
++		velocity = Vector2.ZERO
++		var fade := float(lab.visual_config.enemy_defeat.fade_seconds)
++		var cue := float(lab.visual_config.enemy_defeat.cue_seconds)
++		defeat_elapsed = minf(cue, defeat_elapsed + delta)
++		defeat_visual.visible = defeat_elapsed < cue
++		defeat_visual.queue_redraw()
++		if sprite:
++			sprite.modulate.a = maxf(0.0, 1.0 - defeat_elapsed / fade)
++			sprite.visible = defeat_elapsed < fade
++		queue_redraw()
++		return
+ 	if lab.state != "playing" or health <= 0:
+ 		velocity = Vector2.ZERO
+ 		if health > 0 and sprite and sprite.animation.begins_with("walk_"):
+diff --git a/game/scripts/ai/enemy_defeat_visual.gd b/game/scripts/ai/enemy_defeat_visual.gd
+new file mode 100644
+index 0000000..ad11549
+--- /dev/null
++++ b/game/scripts/ai/enemy_defeat_visual.gd
+@@ -0,0 +1,17 @@
++extends Node2D
++## Explicit transient defeat mark; stands in for neither a corpse nor a fall animation.
++var actor: CharacterBody2D
++
++
++func _draw() -> void:
++	if actor.health > 0:
++		return
++	var duration := float(actor.lab.visual_config.enemy_defeat.cue_seconds)
++	if actor.defeat_elapsed >= duration:
++		return
++	var center := Vector2(0, -25)
++	var color := Color("ffddad")
++	color.a = 1.0 - actor.defeat_elapsed / duration
++	draw_arc(center, 9 + actor.defeat_elapsed * 11, 0, TAU, 16, color, 1.5)
++	draw_line(center + Vector2(-5, -5), center + Vector2(5, 5), color, 2)
++	draw_line(center + Vector2(5, -5), center + Vector2(-5, 5), color, 2)
+diff --git a/game/scripts/ai/enemy_defeat_visual.gd.uid b/game/scripts/ai/enemy_defeat_visual.gd.uid
+new file mode 100644
+index 0000000..0bc42c0
+--- /dev/null
++++ b/game/scripts/ai/enemy_defeat_visual.gd.uid
+@@ -0,0 +1 @@
++uid://dldmx7bn8cato
+diff --git a/game/scripts/core/combat_lab.gd b/game/scripts/core/combat_lab.gd
+index d6cef8e..f8e7f01 100644
+--- a/game/scripts/core/combat_lab.gd
++++ b/game/scripts/core/combat_lab.gd
+@@ -7,6 +7,7 @@ const Enemy = preload("res://scripts/ai/enemy_actor.gd")
+ const Combat = preload("res://scripts/systems/combat_system.gd")
+ const CONFIG_PATH := "res://resources/combat/prototype.json"
+ var config: Dictionary
++var visual_config: Dictionary
+ var player: CharacterBody2D
+ var enemies: Array[CharacterBody2D] = []
+ var combat: Node2D
+@@ -37,8 +38,10 @@ var escape_detection_count := 0
+ 
+ 
+ func _ready() -> void:
++	process_physics_priority = -20
+ 	Bindings.install()
+ 	config = JSON.parse_string(FileAccess.get_file_as_string(CONFIG_PATH))
++	visual_config = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/weapon_visuals.json"))
+ 	assert(config.schema == 1, "P02 combat config schema")
+ 	for bounds in config.walls:
+ 		_add_wall(Rect2(bounds[0], bounds[1], bounds[2], bounds[3]))
+@@ -98,6 +101,7 @@ func reset_encounter() -> void:
+ 
+ func set_kit(value: String) -> void:
+ 	assert(value in ["escape", "training"], "Unknown combat kit")
++	player.cancel_action()
+ 	player.kit = value
+ 	player.melee_cooldown = 0.0
+ 	player.ranged_cooldown = 0.0
+@@ -206,6 +210,7 @@ func _add_wall(bounds: Rect2) -> void:
+ 
+ func _add_label(value: String, at: Vector2, size: int, color: Color) -> Label:
+ 	var label := Label.new()
++	label.z_index = 10
+ 	label.text = value
+ 	label.position = at
+ 	label.add_theme_font_size_override("font_size", size)
+@@ -229,7 +234,10 @@ func snapshot() -> Dictionary:
+ 			"detections": enemy.detection_count, "attacks": enemy.attacks_started, "hits": enemy.hits_received,
+ 			"transitions": enemy.transitions.duplicate(), "layer": enemy.collision_layer,
+ 			"animation": String(enemy.sprite.animation) if enemy.sprite else "awaiting_art",
+-			"frame": enemy.sprite.frame if enemy.sprite else 0})
++			"frame": enemy.sprite.frame if enemy.sprite else 0,
++			"defeat_elapsed": enemy.defeat_elapsed, "sprite_visible": enemy.sprite.visible if enemy.sprite else false,
++			"sprite_alpha": enemy.sprite.modulate.a if enemy.sprite else 0.0,
++			"defeat_cue_visible": enemy.defeat_visual.visible})
+ 	return {"seed": seed_value, "rng_state": str(rng.state), "state": state,
+ 		"kills": kills, "shots_fired": shots_fired, "score": score, "time": elapsed, "ticks": encounter_ticks,
+ 		"player": {"position": _vector(player.position), "velocity": _vector(player.velocity),
+@@ -238,6 +246,13 @@ func snapshot() -> Dictionary:
+ 			"distract_cooldown": player.distract_cooldown, "hits": player.hits_received,
+ 			"aim": _vector(player.explicit_aim), "mouse_aim": player.mouse_aim,
+ 			"action_timer": player.action_timer, "action_animation": String(player.action_animation),
++			"action_elapsed": player.action_elapsed, "action_duration": player.action_duration,
++			"action_frame": player.action_frame, "action_kind": player.action_kind,
++			"action_windup": player.action_windup, "action_active": player.action_active,
++			"action_recovery": player.action_recovery,
++			"action_direction": player.action_direction, "action_aim": _vector(player.action_aim),
++			"melee_attack_id": player.melee_attack_id, "weapon_kind": player.weapon_kind,
++			"weapon_z": player.weapon_visual.z_index,
+ 			"animation": String(player.sprite.animation), "frame": player.sprite.frame},
+ 		"enemies": enemy_states, "bullets": combat.projectiles.size(), "hitboxes": combat.attacks.size(),
+ 		"attack_sequence": combat.next_attack_id, "damage_events": combat.damage_events,
+diff --git a/game/scripts/systems/combat_system.gd b/game/scripts/systems/combat_system.gd
+index 5210e24..4328ef6 100644
+--- a/game/scripts/systems/combat_system.gd
++++ b/game/scripts/systems/combat_system.gd
+@@ -11,6 +11,26 @@ var last_hit_position := Vector2.ZERO
+ var hit_flash := 0.0
+ 
+ 
++func _ready() -> void:
++	process_physics_priority = 10
++
++
++func cancel_melee(source: CharacterBody2D) -> void:
++	for attack in attacks.duplicate():
++		if attack.source == source:
++			attacks.erase(attack)
++	queue_redraw()
++
++
++func _melee_phase(attack: Dictionary) -> String:
++	if attack.source.has_method("melee_phase"):
++		return attack.source.melee_phase(attack.id)
++	var windup := float(attack.definition.get("windup", 0.0))
++	if attack.time < windup:
++		return "windup"
++	return "contact" if attack.time < windup + float(attack.definition.active) else "finished"
++
++
+ func reset() -> void:
+ 	attacks.clear()
+ 	projectiles.clear()
+@@ -35,6 +55,8 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
+ 	var aim := direction.normalized()
+ 	var origin := source.global_position + Vector2(0, -7)
+ 	var muzzle := origin + aim * 12.0
++	var visual_origin: Vector2 = source.visual_muzzle() if source.has_method("visual_muzzle") else source.global_position + Vector2(0, -28) + aim * 18
++	var visual_offset := visual_origin - muzzle
+ 	var muzzle_query := PhysicsRayQueryParameters2D.create(origin, muzzle, 1 | (4 if team == "player" else 2))
+ 	muzzle_query.exclude = [source.get_rid()]
+ 	muzzle_query.hit_from_inside = true
+@@ -42,14 +64,15 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
+ 	if not obstruction.is_empty():
+ 		if obstruction.collider.collision_layer & 1:
+ 			wall_impacts += 1
+-			last_hit_position = obstruction.position
++			last_hit_position = obstruction.position + visual_offset
+ 			hit_flash = 0.15
+ 		else:
+ 			_apply_hit(obstruction.collider, definition, next_attack_id, source)
+ 		return next_attack_id
+ 	projectiles.append({"id": next_attack_id, "source": source, "team": team,
+ 		"position": muzzle,
+-		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition})
++		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition,
++		"visual_offset": visual_offset})
+ 	return next_attack_id
+ 
+ 
+@@ -67,6 +90,13 @@ func _physics_process(delta: float) -> void:
+ 		if not is_instance_valid(source) or source.health <= 0:
+ 			attacks.erase(attack)
+ 			continue
++		var phase := _melee_phase(attack)
++		if phase == "finished":
++			attacks.erase(attack)
++			continue
++		if phase == "windup":
++			attack.time += delta
++			continue
+ 		var definition: Dictionary = attack.definition
+ 		var center: Vector2 = source.global_position + Vector2(0, -7) + attack.direction * float(definition.reach)
+ 		var sphere := CircleShape2D.new()
+@@ -85,7 +115,7 @@ func _physics_process(delta: float) -> void:
+ 			attack.hit.append(target.get_instance_id())
+ 			_apply_hit(target, definition, attack.id, source)
+ 		attack.time += delta
+-		if attack.time >= float(definition.active):
++		if not source.has_method("melee_phase") and attack.time >= float(definition.get("windup", 0.0)) + float(definition.active):
+ 			attacks.erase(attack)
+ 	for bullet in projectiles.duplicate():
+ 		var start: Vector2 = bullet.position
+@@ -99,7 +129,7 @@ func _physics_process(delta: float) -> void:
+ 		if not contact.is_empty():
+ 			if contact.collider.collision_layer & 1:
+ 				wall_impacts += 1
+-				last_hit_position = contact.position
++				last_hit_position = contact.position + bullet.visual_offset
+ 				hit_flash = 0.15
+ 			else:
+ 				_apply_hit(contact.collider, bullet.definition, bullet.id, bullet.source)
+@@ -116,20 +146,21 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source:
+ 	if target.health <= 0:
+ 		return
+ 	damage_events += 1
+-	last_hit_position = target.global_position + Vector2(0, -12)
++	last_hit_position = target.global_position + Vector2(0, -28)
+ 	hit_flash = 0.16
+ 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
+ 
+ 
+ func _draw() -> void:
+ 	for attack in attacks:
+-		if is_instance_valid(attack.source):
++		if is_instance_valid(attack.source) and _melee_phase(attack) == "contact":
+ 			var center: Vector2 = attack.source.global_position + Vector2(0, -7)
+ 			var tip: Vector2 = center + attack.direction * float(attack.definition.reach)
+ 			draw_arc(tip, float(attack.definition.radius), 0, TAU, 20, Color("ffe4a3"), 2)
+ 			draw_line(center, tip, Color("ffe4a3"), 2)
+ 	for bullet in projectiles:
+-		var tail: Vector2 = bullet.position - bullet.velocity.normalized() * 8
+-		draw_line(tail, bullet.position, Color("ffe587") if bullet.team == "player" else Color("ff687e"), 2)
++		var position: Vector2 = bullet.position + bullet.visual_offset
++		var tail: Vector2 = position - bullet.velocity.normalized() * 8
++		draw_line(tail, position, Color("ffe587") if bullet.team == "player" else Color("ff687e"), 2)
+ 	if hit_flash > 0:
+ 		draw_arc(last_hit_position, 9, 0, TAU, 12, Color("ffffff"), 2)
+diff --git a/game/tests/ai_test.gd b/game/tests/ai_test.gd
+index ef85b2e..1fd4865 100644
+--- a/game/tests/ai_test.gd
++++ b/game/tests/ai_test.gd
+@@ -26,7 +26,7 @@ func _frames(count: int) -> void:
+ func _fixture(index: int) -> CharacterBody2D:
+ 	lab.reset_encounter()
+ 	lab.auto_retry = false
+-	lab.player.set_physics_process(false)
++	lab.player.set_physics_process(true)
+ 	for enemy in lab.enemies:
+ 		enemy.set_physics_process(false)
+ 		enemy.position = Vector2(500, 90)
+diff --git a/game/tests/combat_test.gd b/game/tests/combat_test.gd
+index a3cd3c7..5d45897 100644
+--- a/game/tests/combat_test.gd
++++ b/game/tests/combat_test.gd
+@@ -27,7 +27,7 @@ func _fixture() -> void:
+ 	lab.reset_encounter()
+ 	lab.auto_retry = false
+ 	lab.set_kit("training")
+-	lab.player.set_physics_process(false)
++	lab.player.set_physics_process(true)
+ 	for enemy in lab.enemies:
+ 		enemy.set_physics_process(false)
+ 		enemy.position = Vector2(500, 90)
+@@ -42,6 +42,9 @@ func _run() -> void:
+ 	root.add_child(lab)
+ 	await _frames(2)
+ 	_check(lab.player.actions_ready, "actual P02 shove/hit/fall sheet loaded")
++	for enemy in lab.enemies:
++		_check(enemy.z_index == lab.player.z_index and enemy.z_index > 0,
++			"shared actor body plane preserves actor order and rear weapon visibility " + enemy.kind)
+ 	for direction in ["down", "left", "right", "up"]:
+ 		_check(lab.player.sprite.sprite_frames.get_frame_count(StringName("fall_" + direction)) == 3,
+ 			"three real fall frames " + direction)
+@@ -52,7 +55,8 @@ func _run() -> void:
+ 	await _frames(12)
+ 	_check(lab.enemies[0].hits_received == 1, "persistent volume hits target once per attack")
+ 	_check(lab.enemies[0].health == 2 and lab.combat.damage_events == 1, "one damage event rather than every physics tick")
+-	_check(lab.combat.attacks.is_empty(), "melee hitbox expires")
++	await _frames(10)
++	_check(lab.combat.attacks.is_empty(), "melee hitbox expires after authored contact window")
+ 	await _fixture()
+ 	lab.player.set_aim(Vector2.LEFT)
+ 	lab.player.attack_melee()
+@@ -144,5 +148,23 @@ func _run() -> void:
+ 	_check(lab.player.aim_direction() == Vector2.UP, "keyboard-only aim falls back to facing")
+ 	lab.player.set_aim(Vector2(1, 1))
+ 	_check(is_equal_approx(lab.player.aim_direction().length(), 1), "explicit replay aim is normalized")
++	await _fixture()
++	lab.enemies[0].set_physics_process(true)
++	lab.player.attack_melee()
++	await _frames(8)
++	_check(lab.enemies[0].health == 0 and lab.enemies[0].defeat_visual.visible,
++		"actual defeat produces explicit front-layer cross cue")
++	_check(lab.enemies[0].sprite.modulate.a < 1 and lab.enemies[0].defeat_elapsed > 0,
++		"defeated standing art fades immediately rather than posing as a corpse")
++	await _frames(12)
++	_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
++		"standing guard disappears within .18 seconds while defeat cue remains")
++	await _frames(35)
++	_check(not lab.enemies[0].defeat_visual.visible, "defeat cue expires deterministically")
++	lab.enemies[0].set_physics_process(false)
++	lab.reset_encounter()
++	_check(lab.enemies[0].sprite.visible and lab.enemies[0].sprite.modulate.a == 1
++		and lab.enemies[0].defeat_elapsed == 0 and not lab.enemies[0].defeat_visual.visible,
++		"restart restores visible live art and clears all defeat presentation state")
+ 	print("RESULT passed=%d failed=%d" % [passed, failed])
+ 	quit(1 if failed else 0)
+diff --git a/game/tests/contact_timing_test.gd b/game/tests/contact_timing_test.gd
+new file mode 100644
+index 0000000..471ea85
+--- /dev/null
++++ b/game/tests/contact_timing_test.gd
+@@ -0,0 +1,181 @@
++extends SceneTree
++## Native input regression for CMB-P02-01. Observe the presented pose after physics damage.
++var passed := 0
++var failed := 0
++var lab: Node2D
++var evidence: Array[Dictionary] = []
++
++
++func _initialize() -> void:
++	call_deferred("_run")
++
++
++func _check(condition: bool, title: String) -> void:
++	if condition:
++		passed += 1
++		print("PASS ", title)
++	else:
++		failed += 1
++		push_error("FAIL " + title)
++
++
++func _frames(count: int) -> void:
++	for tick in count:
++		await physics_frame
++
++
++func _fixture(kit := "training", direction := Vector2.RIGHT) -> void:
++	Input.action_release("attack_melee")
++	Input.action_release("move_left")
++	Input.action_release("move_down")
++	lab.reset_encounter()
++	lab.auto_retry = false
++	lab.set_kit(kit)
++	lab.player.position = Vector2(250, 260)
++	lab.player.set_aim(direction)
++	for enemy in lab.enemies:
++		enemy.set_physics_process(false)
++		enemy.position = Vector2(500, 90)
++	lab.enemies[0].position = lab.player.position + direction * 30
++	lab.enemies[0].health = 3
++	await _frames(2)
++
++
++func _run() -> void:
++	lab = load("res://scenes/world/combat_lab.tscn").instantiate()
++	root.add_child(lab)
++	await _frames(2)
++	for kit in ["escape", "training"]:
++		for direction in [Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.UP]:
++			await _fixture(kit, direction)
++			var rows: Array[Dictionary] = []
++			var first_hit_frame := -1
++			var early := false
++			var saw_windup := false
++			var saw_contact := false
++			var recovered_hits := -1
++			var contact_ticks := 0
++			Input.action_press("attack_melee")
++			for tick in 20:
++				await physics_frame
++				await process_frame
++				var frame: int = lab.player.sprite.frame
++				var animation: String = String(lab.player.sprite.animation)
++				var hits: int = lab.enemies[0].hits_received
++				if animation.begins_with("shove_"):
++					if frame == 0:
++						saw_windup = true
++						early = early or hits > 0
++					if frame == 1:
++						saw_contact = true
++						contact_ticks += 1
++					if hits > 0 and first_hit_frame < 0:
++						first_hit_frame = frame
++					if frame == 2 and recovered_hits < 0:
++						recovered_hits = hits
++				rows.append({"tick": tick, "animation": animation, "frame": frame,
++					"elapsed": lab.player.action_elapsed, "hits": hits,
++					"health": lab.enemies[0].health, "stun": lab.enemies[0].stun_remaining})
++				if tick == 1:
++					Input.action_release("attack_melee")
++			var title: String = kit + " " + str(direction)
++			_check(saw_windup and not early, title + " frame0 wind-up has no damage or stun")
++			_check(saw_contact and first_hit_frame == 1, title + " first actual hit coincides with authored contact1")
++			_check(lab.enemies[0].hits_received == 1 and recovered_hits == 1, title + " recovery adds no second hit")
++			var definition: Dictionary = lab.config.attacks["shove" if kit == "escape" else "knife"]
++			_check(contact_ticks >= ceili(float(definition.active) * 60), title + " preserves full .14/.16 second contact window")
++			_check(lab.enemies[0].health == (3 if kit == "escape" else 2), title + " correct nonlethal/lethal damage amount")
++			evidence.append({"kit": kit, "direction": [direction.x, direction.y], "rows": rows})
++	await _fixture()
++	# Target starts in range but walks out during wind-up. An immediate hidden volume would hit.
++	lab.enemies[0].position = lab.player.position + Vector2(45, 0)
++	await _frames(2)
++	lab.enemies[0].set_physics_process(true)
++	lab.enemies[0].hear_noise(Vector2(400, 260))
++	Input.action_press("attack_melee")
++	await _frames(20)
++	Input.action_release("attack_melee")
++	_check(lab.enemies[0].hits_received == 0, "target escaping during wind-up is not hit by an early volume")
++	await _fixture()
++	Input.action_press("attack_melee")
++	await _frames(2)
++	Input.action_release("attack_melee")
++	lab.reset_encounter()
++	await _frames(15)
++	_check(lab.combat.attacks.is_empty() and lab.kills == 0 and lab.combat.damage_events == 0,
++		"restart during wind-up cancels pending contact")
++	await _fixture()
++	Input.action_press("attack_melee")
++	await _frames(2)
++	Input.action_release("attack_melee")
++	lab.enemies[1].position = lab.player.position + Vector2(24, 0)
++	await _frames(1)
++	lab.combat.start_melee(lab.enemies[1], "enemy", Vector2.LEFT, lab.config.attacks.enemy_melee)
++	await _frames(2)
++	var player_pending := false
++	for attack in lab.combat.attacks:
++		player_pending = player_pending or attack.source == lab.player
++	_check(lab.state == "dead" and lab.enemies[0].hits_received == 0 and not player_pending,
++		"actual player death cancels pending melee before contact")
++	await _fixture()
++	var pending: Dictionary = lab.config.attacks.enemy_melee.duplicate()
++	pending.windup = 0.2
++	lab.enemies[0].position = lab.player.position + Vector2(24, 0)
++	await _frames(2)
++	lab.combat.start_melee(lab.enemies[0], "enemy", Vector2.LEFT, pending)
++	lab.enemies[0].health = 1
++	lab.player.attack_ranged()
++	await _frames(24)
++	_check(lab.enemies[0].health == 0 and lab.player.health == 1 and lab.combat.attacks.is_empty(),
++		"actual enemy death cancels its pending attack")
++	await _fixture()
++	Input.action_press("attack_melee")
++	await _frames(2)
++	Input.action_release("attack_melee")
++	lab.enemies[0].health = 1
++	lab.combat.fire(lab.player, "player", Vector2.RIGHT, lab.config.attacks.pistol)
++	await _frames(18)
++	_check(lab.enemies[0].health == 0 and lab.enemies[0].hits_received == 1 and lab.kills == 1,
++		"already defeated target receives no later contact damage")
++	await _fixture()
++	lab.enemies[0].position = Vector2(350, 260)
++	await _frames(2)
++	Input.action_press("attack_melee")
++	var late_wait := 0
++	while (lab.player.action_kind != "shove" or lab.player.action_elapsed < 0.183) and late_wait < 30:
++		await _frames(1)
++		late_wait += 1
++	Input.action_release("attack_melee")
++	lab.enemies[0].position = Vector2(280, 260)
++	await _frames(2)
++	_check(lab.player.action_frame == 1 and lab.enemies[0].hits_received == 1,
++		"target entering late in original .16 second active window still receives actual contact")
++	await _fixture()
++	lab.enemies[0].position = Vector2(350, 260)
++	await _frames(2)
++	Input.action_press("attack_melee")
++	var recovery_wait := 0
++	while (lab.player.action_kind != "shove" or lab.player.action_frame != 2) and recovery_wait < 30:
++		await _frames(1)
++		recovery_wait += 1
++	Input.action_release("attack_melee")
++	lab.enemies[0].position = Vector2(280, 260)
++	await _frames(4)
++	_check(lab.enemies[0].hits_received == 0, "new target entering recovery frame2 cannot receive damage")
++	# Locked action pose must keep its socket when movement changes current facing.
++	await _fixture()
++	Input.action_press("attack_melee")
++	await _frames(2)
++	Input.action_release("attack_melee")
++	Input.action_press("move_down")
++	await _frames(4)
++	_check(lab.player.facing == &"down" and lab.player.action_direction == "right"
++		and lab.player.sprite.animation == &"shove_right", "movement cannot rotate a locked action socket")
++	Input.action_release("move_down")
++	var result := {"passed": failed == 0, "assertions": passed, "failed": failed, "samples": evidence}
++	var output := OS.get_environment("AYAY_TIMING_RESULT")
++	if not output.is_empty():
++		var file := FileAccess.open(output, FileAccess.WRITE)
++		file.store_string(JSON.stringify(result, "  "))
++	print("RESULT passed=%d failed=%d" % [passed, failed])
++	quit(1 if failed else 0)
+diff --git a/game/tests/contact_timing_test.gd.uid b/game/tests/contact_timing_test.gd.uid
+new file mode 100644
+index 0000000..c4bcafa
+--- /dev/null
++++ b/game/tests/contact_timing_test.gd.uid
+@@ -0,0 +1 @@
++uid://reh2vlgjga3v
+diff --git a/game/tests/restart_test.gd b/game/tests/restart_test.gd
+index 5fd2f32..2726a88 100644
+--- a/game/tests/restart_test.gd
++++ b/game/tests/restart_test.gd
+@@ -28,7 +28,7 @@ func _run() -> void:
+ 	lab = load("res://scenes/world/combat_lab.tscn").instantiate()
+ 	root.add_child(lab)
+ 	await _frames(2)
+-	lab.player.set_physics_process(false)
++	lab.player.set_physics_process(true)
+ 	for enemy in lab.enemies:
+ 		enemy.set_physics_process(false)
+ 	lab.reset_encounter()
+@@ -41,6 +41,11 @@ func _run() -> void:
+ 		lab.player.attack_melee()
+ 		await _frames(12)
+ 		_check(lab.kills == 1, "cycle %d real training kill contaminates encounter" % cycle)
++		lab.enemies[0].set_physics_process(true)
++		await _frames(13)
++		lab.enemies[0].set_physics_process(false)
++		_check(not lab.enemies[0].sprite.visible and lab.enemies[0].defeat_visual.visible,
++			"cycle %d taints defeat timer, sprite visibility and cue before reset" % cycle)
+ 		lab.player.set_aim(Vector2.UP)
+ 		lab.player.attack_ranged()
+ 		lab.player.distract()
+diff --git a/game/tests/weapon_pose_capture.gd b/game/tests/weapon_pose_capture.gd
+new file mode 100644
+index 0000000..7df16c8
+--- /dev/null
++++ b/game/tests/weapon_pose_capture.gd
+@@ -0,0 +1,80 @@
++extends SceneTree
++## Actual-draw evidence fixture; no alternate combat or altered P01 artwork.
++var lab: Node2D
++
++
++func _initialize() -> void:
++	call_deferred("_run")
++
++
++func _frames(count: int) -> void:
++	for tick in count:
++		await physics_frame
++
++
++func _run() -> void:
++	var output := OS.get_environment("AYAY_WEAPON_CAPTURE_DIR")
++	if output.is_empty():
++		quit(1)
++		return
++	DirAccess.make_dir_recursive_absolute(output)
++	lab = load("res://scenes/world/combat_lab.tscn").instantiate()
++	root.add_child(lab)
++	await _frames(2)
++	var rows: Array[Dictionary] = []
++	var directions := {"down": Vector2.DOWN, "left": Vector2.LEFT, "right": Vector2.RIGHT, "up": Vector2.UP}
++	for weapon in ["melee", "ranged"]:
++		for direction in directions:
++			lab.reset_encounter()
++			lab.gallery_mode = true
++			lab.set_kit("training")
++			lab.player.position = Vector2(310, 260)
++			lab.player.set_aim(directions[direction])
++			for enemy in lab.enemies:
++				enemy.set_physics_process(false)
++				enemy.position = Vector2(540, 100)
++			await _frames(2)
++			var action := "attack_melee" if weapon == "melee" else "attack_ranged"
++			Input.action_press(action)
++			await _frames(2)
++			Input.action_release(action)
++			var ticks := 0
++			while weapon == "melee" and lab.player.action_frame != 1 and ticks < 20:
++				await _frames(1)
++				ticks += 1
++			await RenderingServer.frame_post_draw
++			var filename: String = weapon + "_" + direction + ".png"
++			var code := root.get_texture().get_image().save_png(output.path_join(filename))
++			var hand: Vector2 = lab.player.weapon_socket()
++			var muzzle: Vector2 = lab.player.visual_muzzle()
++			rows.append({"weapon": weapon, "direction": direction, "animation": String(lab.player.sprite.animation),
++				"frame": lab.player.sprite.frame, "hand_local": [hand.x, hand.y], "muzzle_global": [muzzle.x, muzzle.y],
++				"layer": lab.player.weapon_visual.z_index, "player_body_z": lab.player.z_index,
++				"enemy_body_z": lab.enemies[0].z_index, "saved": code == OK, "file": filename,
++				"projectile_visual_offsets": lab.combat.projectiles.map(func(bullet): return [bullet.visual_offset.x, bullet.visual_offset.y])})
++			await _frames(22)
++	# Separate actual defeat presentation samples from native melee, with AI/timers enabled.
++	for enemy in lab.enemies:
++		enemy.set_physics_process(true)
++	lab.training_fixture()
++	await _frames(2)
++	Input.action_press("attack_melee")
++	await _frames(2)
++	Input.action_release("attack_melee")
++	await _frames(7)
++	var defeat_rows: Array[Dictionary] = []
++	for sample in [{"name": "defeat_fade", "wait": 0}, {"name": "defeat_cue", "wait": 12}, {"name": "defeat_cleared", "wait": 40}]:
++		await _frames(sample.wait)
++		await RenderingServer.frame_post_draw
++		root.get_texture().get_image().save_png(output.path_join(sample.name + ".png"))
++		defeat_rows.append({"file": sample.name + ".png", "snapshot": lab.snapshot()})
++	lab.reset_encounter()
++	for enemy in lab.enemies:
++		enemy.set_physics_process(false)
++	lab.player.position = Vector2(80, 75)
++	await _frames(2)
++	await RenderingServer.frame_post_draw
++	root.get_texture().get_image().save_png(output.path_join("hud_upper_edge.png"))
++	var file := FileAccess.open(output.path_join("weapon_captures.json"), FileAccess.WRITE)
++	file.store_string(JSON.stringify({"schema": 1, "real_draw": true, "real_input": true, "captures": rows, "defeat": defeat_rows}, "  "))
++	quit(0)
+diff --git a/game/tests/weapon_pose_capture.gd.uid b/game/tests/weapon_pose_capture.gd.uid
+new file mode 100644
+index 0000000..a7e8598
+--- /dev/null
++++ b/game/tests/weapon_pose_capture.gd.uid
+@@ -0,0 +1 @@
++uid://6gerhje3qjx2
+diff --git a/planning/P02_REMEDIATION.md b/planning/P02_REMEDIATION.md
+new file mode 100644
+index 0000000..c3b4b2a
+--- /dev/null
++++ b/planning/P02_REMEDIATION.md
+@@ -0,0 +1,13 @@
++# P02 attempt2 — fixes after independent FAIL
++
++Authority: reports/phases/P02/decision-attempt1.json, source1786633/evidence021c126. Reviewer-owned immutable snapshots contain66originaloutputs and65sourcehashes. No P03 until independent PASS.
++
++| Ticket | Owner | Concrete change | Acceptance |
++|---|---|---|---|
++| CMB-P02-01 HIGH | gameplay | One physics pose/contact clock; frame0 wind-up,1contact,2recovery; cancel on death/reset | Native Input bothkits×4directions, damage/stun absent on0, present on1, onehit; original reviewer probe; wall/miss/restart regressions |
++| ART-P02-01 MEDIUM | gameplay | Per-frame/directional real hand+visual muzzle sockets, layer ordering/projection | Actual melee/ranged screenshots all4directions, held weapon at wrist; projectile begins at visualmuzzle |
++| ART-P02-02 MEDIUM | art | Reauthor shooter idle head/torso alignment, no uniformscale disguise | NativePNG/sourcehashes, actual8FPSstartstop oncommonpivot640×360; P01PNG untouched |
++| ART-P02-03 MEDIUM | gameplay | Clear defeated cue/disappearance instead of tint-frozenwalk | Real killcapture, deadstate unambiguous, reset restores fullvisualstate deterministically |
++| OPS attempt2 | root | Separate validation/buildpaths, fresh exports/replay/actualCI and independent rereview | tools/verify_p02.py --references --output reports/phases/P02/attempt2 --build-output build/P02/attempt2; CI + artifactdownload + ephemeralcleanup; reviewer decisionattempt2 |
++
++Original reports/P02 files and build/P02/{linux,windows,combat.avi} are historical attempt1 and remain. New evidence goes under attempt2; latest STATUS/NEXT_ACTION/state link current attempt. Publicrelease/merge/realvoices/billing/systeminstall not authorized. Source photo inputs remain ignored. Owner P01art acceptance remains valid for unchanged approvedPNGs.
+diff --git a/tools/verify.py b/tools/verify.py
+index b417047..c1f41a3 100644
+--- a/tools/verify.py
++++ b/tools/verify.py
+@@ -40,7 +40,7 @@ def main():
+         ])
+     if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
+         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+-                        for name in ['combat_art', 'combat', 'ai', 'restart'])
++                        for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
+     env = dict(os.environ)
+     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
+     if args.capture:
+diff --git a/tools/verify_p02.py b/tools/verify_p02.py
+index c797df9..abe13c7 100644
+--- a/tools/verify_p02.py
++++ b/tools/verify_p02.py
+@@ -16,12 +16,13 @@ GODOT = ROOT / '.tools/godot' / f'Godot_v{LOCK["release"]}_linux.x86_64'
+ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--output', default='reports/phases/P02')
++    parser.add_argument('--build-output', default='build/P02')
+     parser.add_argument('--references', action='store_true')
+     parser.add_argument('--no-render', action='store_true')
+     parser.add_argument('--no-exports', action='store_true')
+     args = parser.parse_args()
+     output = ROOT / args.output
+-    build = ROOT / 'build/P02'
++    build = ROOT / args.build_output
+     (output / 'logs').mkdir(parents=True, exist_ok=True)
+     build.mkdir(parents=True, exist_ok=True)
+     assert hashlib.sha256(GODOT.read_bytes()).hexdigest() == LOCK['linux_binary_sha256']
+@@ -50,7 +51,7 @@ def main():
+         run('references', [sys.executable, 'tools/validate_pack.py'])
+     run('privacy', [sys.executable, 'tools/check_privacy.py'])
+     run('import', base + ['--editor', '--quit'])
+-    for name in ['bootstrap', 'art_structure', 'movement', 'combat_art', 'combat', 'ai', 'restart']:
++    for name in ['bootstrap', 'art_structure', 'movement', 'combat_art', 'combat', 'ai', 'restart', 'contact_timing']:
+         run(name, base + ['--script', f'res://tests/{name}_test.gd'])
+     if not all(row['passed'] for row in results):
+         return 1
+@@ -113,6 +114,13 @@ def main():
+                     if not args.no_render:
+                         env = dict(os.environ, AYAY_CAPTURE_PATH=str(output / 'export_linux_combat.png'))
+                         item['combat_render_passed'] = run('linux_combat_render', [target, '--', '--open-combat', '--capture-combat'], env)
++                        env['AYAY_CAPTURE_PATH'] = str(output / 'export_linux_replay_end.png')
++                        metrics = output / 'export_linux_replay.json'
++                        metrics.unlink(missing_ok=True)
++                        env['AYAY_COMBAT_RESULT_PATH'] = str(metrics)
++                        item['combat_replay_passed'] = run('linux_export_replay', [target, '--', '--open-combat', '--combat-replay'], env)
++                        item['combat_replay_passed'] = item['combat_replay_passed'] and metrics.is_file() and json.loads(metrics.read_text()).get('passed') is True
++                        results.append({'name': 'linux_export_replay_report', 'passed': item['combat_replay_passed']})
+                 else:
+                     wine = ROOT / '.tools/wine/usr/bin/wine'
+                     if wine.is_file():
+@@ -124,6 +132,13 @@ def main():
+                             capture = output / 'export_windows_wine_combat.png'
+                             env['AYAY_CAPTURE_PATH'] = 'Z:' + str(capture).replace('/', '\\')
+                             item['wine_combat_render_passed'] = run('windows_wine_render', [wine, target, '--', '--open-combat', '--capture-combat'], env)
++                            metrics = output / 'export_windows_replay.json'
++                            metrics.unlink(missing_ok=True)
++                            env['AYAY_CAPTURE_PATH'] = 'Z:' + str(output / 'export_windows_replay_end.png').replace('/', '\\')
++                            env['AYAY_COMBAT_RESULT_PATH'] = 'Z:' + str(metrics).replace('/', '\\')
++                            item['wine_combat_replay_passed'] = run('windows_wine_replay', [wine, target, '--', '--open-combat', '--combat-replay'], env)
++                            item['wine_combat_replay_passed'] = item['wine_combat_replay_passed'] and metrics.is_file() and json.loads(metrics.read_text()).get('passed') is True
++                            results.append({'name': 'windows_wine_replay_report', 'passed': item['wine_combat_replay_passed']})
+             exports.append(item)
+         (output / 'exports.json').write_text(json.dumps(exports, indent=2) + '\n')
+     save_results()
