@@ -216,7 +216,8 @@ func variant(prefix: StringName, at: Vector2) -> bool:
  return play_cue(StringName(String(prefix) + "_" + str(n % 2 + 1)), at)
 
 func bleep(speaker: StringName) -> void:
- if speaker != &"YAKUZA": return
+ # Explicit shared fictional bleep profile; no friend voice recording or imitation.
+ if preload("res://scripts/systems/character_catalog.gd").speaker(String(speaker)).is_empty(): return
  variant(&"speech_yakuza", Vector2.ZERO)
 
 func stop_speech() -> void:
