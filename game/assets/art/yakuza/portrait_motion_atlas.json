@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "asset_id": "yakuza_present_portrait_motion_p03_v1",
+  "status": "DRAFT_REQUIRES_INDEPENDENT_FEATURE_MOTION_REVIEW",
+  "file": "portrait_motion.png",
+  "dimensions": [
+    480,
+    320
+  ],
+  "frame_size": [
+    160,
+    160
+  ],
+  "columns": 3,
+  "rows": 2,
+  "emotions": [
+    "neutral",
+    "angry"
+  ],
+  "states": [
+    "rest",
+    "talk",
+    "blink"
+  ],
+  "fps": {
+    "talk": 8,
+    "blink": 8
+  },
+  "blink_duration_seconds": 0.125,
+  "blink_interval_seconds": 4.0,
+  "motion": "No whole-head bob, scale or face swap; only saved mouth/eyelid masks change",
+  "source": {
+    "approved_base": "game/assets/art/yakuza/portraits.png",
+    "approved_base_sha256": "e4ab5075660c214fb34999e69bf160d67fbab5afcf2453d82ba46fbb466251ab",
+    "master": "assets/source_art/yakuza_portrait_motion/feature_master_v1.png",
+    "master_dimensions": [
+      1254,
+      1254
+    ],
+    "generated_cell_dimensions": [
+      627,
+      627
+    ],
+    "master_sha256": "2739b12e03095a070eeb9cf923f9ce715d50454308590aaf24a8c2a5c8b9d1f3",
+    "prompt": "assets/source_art/yakuza_portrait_motion/feature_prompt.txt",
+    "metadata": "assets/source_art/yakuza_portrait_motion/generation_metadata.json",
+    "reference": "assets/source_art/yakuza_portrait_motion/feature_reference_board.png",
+    "masks": "assets/source_art/yakuza_portrait_motion/feature_masks.json",
+    "recipe": "assets/source_art/yakuza_portrait_motion/build_assets.py",
+    "mode": "built-in image_gen precise feature edit; no raw photo"
+  },
+  "palette": {
+    "opaque_colors_available": 31,
+    "rgb_hex": [
+      "#0b090e",
+      "#15101a",
+      "#15151e",
+      "#211b29",
+      "#222936",
+      "#252332",
+      "#2b1a1e",
+      "#344255",
+      "#352b3d",
+      "#353244",
+      "#3e94b4",
+      "#4c3c56",
+      "#4c6076",
+      "#4e202c",
+      "#562d37",
+      "#6c9aaf",
+      "#6d354b",
+      "#75455f",
+      "#7bd2df",
+      "#873e3c",
+      "#8b3146",
+      "#994a63",
+      "#a75c49",
+      "#bc5260",
+      "#bc6573",
+      "#c47755",
+      "#dc956f",
+      "#e8878c",
+      "#ece3d5",
+      "#efb08b",
+      "#f6c59f"
+    ],
+    "opaque_colors_used": 31
+  },
+  "frames": [
+    {
+      "id": "neutral_rest",
+      "emotion": "neutral",
+      "state": "rest",
+      "rect": [
+        0,
+        0,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "8816259d95687dc4869f6a66664581f103fb098ece7ccd1a021eb23290eef151",
+      "changed_pixels": 0,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": null,
+      "mask_sha256": null,
+      "mask_bounds": null
+    },
+    {
+      "id": "neutral_talk",
+      "emotion": "neutral",
+      "state": "talk",
+      "rect": [
+        160,
+        0,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "97b2026e6faa5ff9a8a01f6391e100363cb7ffbd13f95b2a9d718a99a441bca7",
+      "changed_pixels": 226,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": "assets/source_art/yakuza_portrait_motion/neutral_talk_mask.png",
+      "mask_sha256": "5aef52d27318af1a7d763a62c7e8a6ef6d5c9d6e64717f452f43c5367a4e1583",
+      "mask_bounds": [
+        84,
+        84,
+        113,
+        104
+      ]
+    },
+    {
+      "id": "neutral_blink",
+      "emotion": "neutral",
+      "state": "blink",
+      "rect": [
+        320,
+        0,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "b30a02e716a2d2b3edba1c40883740bb8e303da306d579fcb0c0ed0cd1ccda6e",
+      "changed_pixels": 223,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": "assets/source_art/yakuza_portrait_motion/neutral_blink_mask.png",
+      "mask_sha256": "aac559dffaf6b0860d24bfe2727c3c39afde7c50915262b995ba80032b33d379",
+      "mask_bounds": [
+        65,
+        61,
+        114,
+        75
+      ]
+    },
+    {
+      "id": "angry_rest",
+      "emotion": "angry",
+      "state": "rest",
+      "rect": [
+        0,
+        160,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "dbb5a0448e92783fd3a3fd384bb69c814d7f73685aacb70b83787ba24a304d18",
+      "changed_pixels": 0,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": null,
+      "mask_sha256": null,
+      "mask_bounds": null
+    },
+    {
+      "id": "angry_talk",
+      "emotion": "angry",
+      "state": "talk",
+      "rect": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "34ee2b0564dcc31c7ce8f7419b0734060afcf94ae144dc691115ac4ce094616f",
+      "changed_pixels": 232,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": "assets/source_art/yakuza_portrait_motion/angry_talk_mask.png",
+      "mask_sha256": "5aef52d27318af1a7d763a62c7e8a6ef6d5c9d6e64717f452f43c5367a4e1583",
+      "mask_bounds": [
+        84,
+        84,
+        113,
+        104
+      ]
+    },
+    {
+      "id": "angry_blink",
+      "emotion": "angry",
+      "state": "blink",
+      "rect": [
+        320,
+        160,
+        160,
+        160
+      ],
+      "origin": [
+        80,
+        160
+      ],
+      "rgba_sha256": "acdae9c4e32ea24c0f38c381d0ff66604004cf096c582437c2022925c3901100",
+      "changed_pixels": 204,
+      "outside_mask_changed_pixels": 0,
+      "alpha_matches_approved_base": true,
+      "mask": "assets/source_art/yakuza_portrait_motion/angry_blink_mask.png",
+      "mask_sha256": "0122f0186c5b506a0c4361eea96341bda147a7ba44a85f67cf017b52090df183",
+      "mask_bounds": [
+        65,
+        62,
+        114,
+        76
+      ]
+    }
+  ],
+  "animations": {
+    "neutral": {
+      "rest": {
+        "frame": 0,
+        "fps": 0
+      },
+      "talk": {
+        "frames": [
+          0,
+          1
+        ],
+        "fps": 8,
+        "loop": true
+      },
+      "blink": {
+        "frames": [
+          0,
+          2,
+          0
+        ],
+        "fps": 8,
+        "loop": false
+      }
+    },
+    "angry": {
+      "rest": {
+        "frame": 3,
+        "fps": 0
+      },
+      "talk": {
+        "frames": [
+          3,
+          4
+        ],
+        "fps": 8,
+        "loop": true
+      },
+      "blink": {
+        "frames": [
+          3,
+          5,
+          3
+        ],
+        "fps": 8,
+        "loop": false
+      }
+    }
+  },
+  "review": {
+    "independent_art": "PENDING",
+    "actual_dialogue_motion": "PENDING runtime engineer integration",
+    "new_identity_or_global_face_changes": false
+  },
+  "sha256": "d4f63deecbc575249b29fa6c2d2c004b9f12dfcece87ab78becd21305c099217"
+}
