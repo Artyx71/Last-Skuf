@@ -291,7 +291,7 @@ class Controller:
                     state=self.state(); item=state['autopilot']['phases'][phase]
                     item['remediation']=[{'severity':'HIGH','message':f'Validation failed; inspect reports/autopilot/{phase}/validation'}]
                     self.persist(state); self.checkpoint(phase,None,'FAIL'); continue
-                checkpoint='native-validation' if phase in ['P04','P04G'] else 'publication'
+                checkpoint='native-validation' if phase in ['P04','P04G','P05'] else 'publication'
                 self.checkpoint(phase,checkpoint)
             if checkpoint=='native-validation':
                 head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=work,text=True).strip()

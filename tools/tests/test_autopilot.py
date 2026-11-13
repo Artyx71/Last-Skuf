@@ -264,6 +264,38 @@ class ControllerTests(unittest.TestCase):
         self.assertEqual(item['checkpoint'],'recovery-review');self.assertEqual(item['attempts'],1)
 
 
+    def p05_validation_fixture(self):
+        state=self.controller.state()
+        for phase in ['P03','P04','P04G']:
+            state['autopilot']['phases'][phase].update(status='PASS',merge={'status':'MERGED'})
+        state['autopilot']['phases']['P05'].update(status='VALIDATING',attempts=1,workspace=str(self.root),branch='phase/p05-fixture',checkpoint='validation')
+        state['active_phase']='P05';self.controller.persist(state)
+
+    def test_p05_native_failure_cannot_publish_or_restart_author(self):
+        with self.controller.exclusive():
+            self.p05_validation_fixture()
+            def stage(name,argv,*args,**kwargs):return 0 if name.endswith('/validation') else 1
+            with patch.object(self.controller,'stage',side_effect=stage) as run,patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage') as manage:
+                with self.assertRaises(Blocked):self.controller.run_phase('P05')
+                self.assertEqual(run.call_count,2)
+                self.assertEqual(run.call_args.args[0],'P05/native-validation')
+                self.assertIn('tools/verify_p05.py',run.call_args.args[1])
+                self.assertIn('--exports',run.call_args.args[1]);self.assertIn('--movie',run.call_args.args[1])
+                self.assertFalse(run.call_args.kwargs['safe_retry']);manage.assert_not_called()
+        item=self.controller.state()['autopilot']['phases']['P05']
+        self.assertEqual(item['attempts'],1);self.assertEqual(item['checkpoint'],'recovery-review')
+
+    def test_p05_rendered_validation_precedes_draft_publication(self):
+        events=[]
+        def stage(name,*args,**kwargs):events.append(name);return 0
+        def manage(controller,phase,action,*args,**kwargs):events.append(action);return 4
+        with self.controller.exclusive():
+            self.p05_validation_fixture()
+            with patch.object(self.controller,'stage',side_effect=stage),patch('runner.subprocess.check_output',return_value='a'*40),patch('github.manage',side_effect=manage):
+                self.assertEqual(self.controller.run_phase('P05'),4)
+        self.assertEqual(events,['P05/validation','P05/native-validation','prepare'])
+
+
 class MergeTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
