@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproducible P00 validation with per-command exit codes and actual logs."""
+"""Reproducible phase regression checks with actual logs and isolated save files."""
 import argparse
 import hashlib
 import json
@@ -41,12 +41,25 @@ def main():
     if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
+    if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['portrait_motion', 'dialogue', 'audio', 'options'])
     env = dict(os.environ)
     env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
     if args.capture:
         commands.append(('render', [str(binary), '--path', 'game', '--', '--capture-bootstrap']))
     results = []
     for name, command in commands:
+        # Autoloads must never load or overwrite the owner's real settings/seen ledger.
+        # Distinct paths also prevent one test or capture from masking another's defaults.
+        saves = output / 'isolated_saves' / name
+        saves.mkdir(parents=True, exist_ok=True)
+        for filename in ['options.json', 'dialogue.json']:
+            path = saves / filename
+            path.unlink(missing_ok=True)
+            path.with_suffix(path.suffix + '.tmp').unlink(missing_ok=True)
+        env['AYAY_OPTIONS_PATH'] = str(saves / 'options.json')
+        env['AYAY_DIALOGUE_SAVE_PATH'] = str(saves / 'dialogue.json')
         try:
             result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=90)
             text = result.stdout + result.stderr
