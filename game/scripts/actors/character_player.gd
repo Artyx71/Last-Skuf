@@ -2,9 +2,16 @@ extends "res://scripts/actors/combat_player.gd"
 ## Authored P06 body on the existing controller and CombatSystem. No story grants.
 const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
 const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
+const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
+# Add a fixture only with its actual controller handler and gameplay evidence.
+const IMPLEMENTED_FIXTURE_ABILITIES := {
+	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter"
+}
 var actor_id := ""
 var scene_policy: RefCounted
 var authored_frames: SpriteFrames
+var prepared_definition: Dictionary = {}
+var prepared_ability := ""
 var ability_cooldown := 0.0
 var ability_uses := 0
 var ability_distance := 0.0
@@ -15,23 +22,46 @@ var counter_spent := false
 var counter_blocks := 0
 
 func configure(id: String, policy: RefCounted) -> bool:
-	if is_inside_tree() or policy == null or policy.definition().get("actor_id") != id: return false
-	return prepare_art(id) and bind_policy(policy)
+	if is_inside_tree() or not policy is ScenePolicy or policy.definition().get("actor_id") != id: return false
+	return prepare_fixture(String(policy.definition().get("scene_id",""))) and bind_policy(policy)
 
-func prepare_art(id: String) -> bool:
-	# The same complete construction check runs before replacing a live actor.
+func prepare_fixture(scene_id: String) -> bool:
+	# Resolve trusted context and real ability BEFORE loading art or replacing a body.
 	if is_inside_tree(): return false
-	var frames := CharacterFrames.combat_frames(id)
+	actor_id = ""
+	authored_frames = null
+	scene_policy = null
+	prepared_definition.clear()
+	prepared_ability = ""
+	if not IMPLEMENTED_FIXTURE_ABILITIES.has(scene_id): return false
+	var proposed := ScenePolicy.new()
+	if not proposed.open(scene_id) or proposed.ability_id() != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
+	var definition: Dictionary = proposed.definition()
+	var id := String(definition.actor_id)
+	var frames := _load_combat_frames(id)
 	if frames == null: return false
 	for animation in frames.get_animation_names():
 		for frame in frames.get_frame_count(animation):
 			if not frames.get_frame_texture(animation,frame).has_meta("clothing_socket"): return false
 	actor_id = id
 	authored_frames = frames
+	prepared_definition = definition
+	prepared_ability = proposed.ability_id()
 	return true
 
+func _load_combat_frames(id: String) -> SpriteFrames:
+	return CharacterFrames.combat_frames(id)
+
 func bind_policy(policy: RefCounted) -> bool:
-	if is_inside_tree() or authored_frames == null or policy == null or policy.definition().get("actor_id") != actor_id: return false
+	if is_inside_tree(): return false
+	scene_policy = null
+	if authored_frames == null or prepared_definition.is_empty() or not policy is ScenePolicy: return false
+	var definition: Dictionary = policy.definition()
+	if definition != prepared_definition or definition.get("actor_id") != actor_id: return false
+	var scene_id := String(definition.get("scene_id",""))
+	if not IMPLEMENTED_FIXTURE_ABILITIES.has(scene_id): return false
+	if policy.ability_id() != prepared_ability or prepared_ability != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
+	if ScenePolicy.definitions().get(scene_id,{}) != prepared_definition: return false
 	scene_policy = policy
 	return true
 

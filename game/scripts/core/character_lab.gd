@@ -34,9 +34,9 @@ func select_fixture(key: String) -> bool:
 	if key not in fixture_keys: return false
 	var definition: Dictionary = ScenePolicy.definitions().get(key,{})
 	if definition.is_empty(): return false
-	# Prepare exactly the complete production body before touching the fixture.
+	# Prepare the registered context, implemented ability and complete art first.
 	var candidate := CharacterPlayer.new()
-	if not candidate.prepare_art(definition.actor_id):
+	if not candidate.prepare_fixture(key):
 		candidate.free()
 		selection_message = CharacterCatalog.actor(definition.actor_id).display_name+": боевой набор ещё не готов"
 		_update_hud()
