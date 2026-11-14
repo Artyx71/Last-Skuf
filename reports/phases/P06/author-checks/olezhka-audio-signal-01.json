@@ -1,0 +1,88 @@
+{
+  "scope": "ACTUAL_GODOT_MIXER_PCM_SIGNAL_ONLY",
+  "phase_approval": false,
+  "subjective_listening": false,
+  "music_quality_verdict": "NOT_EVALUATED",
+  "new_audio_media": false,
+  "loops_transitions": "No new loop assets/stems; prior audio QA remains historical. This check does not repeat transition/loop acceptance.",
+  "passed": true,
+  "captures": [
+    {
+      "capture": "live",
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/engine_mix.wav",
+      "sha256": "1e6474db5f507945aec5c4fd33c6da324017bd6e23ba451dd457c59c8c6cd460",
+      "signal": {
+        "frames": 1383424,
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_seconds": 31.37015873015873,
+        "sample_peak": 0.407501220703125,
+        "sample_peak_dbfs": -7.797421719150659,
+        "rms_dbfs": -21.93556278829343,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0015109687889178181,
+          0.0015032493035763304
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.12823486328125,
+        "max_sample_step": 0.23834228515625,
+        "sample_step_p9999": 0.146881103515625
+      },
+      "technical_checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      },
+      "loudness": {
+        "integrated_lufs": -21.8,
+        "true_peak_dbfs": -7.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    },
+    {
+      "capture": "movie",
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie/engine_mix.wav",
+      "sha256": "50338fe8d904146a2b4db88c96c8ea7c54ad594e74d1a8e0c459a476c7853e60",
+      "signal": {
+        "frames": 1504768,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 31.349333333333334,
+        "sample_peak": 0.402923583984375,
+        "sample_peak_dbfs": -7.895546233542207,
+        "rms_dbfs": -22.098418547615903,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.0014968353008972459,
+          0.0014894168853110787
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.060546875,
+        "max_sample_step": 0.2364501953125,
+        "sample_step_p9999": 0.140960693359375
+      },
+      "technical_checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      },
+      "loudness": {
+        "integrated_lufs": -21.9,
+        "true_peak_dbfs": -7.8,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      }
+    }
+  ],
+  "wall_sampling": {
+    "scope": "sampled live physics callback wall intervals, includes capture/QA waits; NOT rendered FPS or stress benchmark",
+    "samples": 1826,
+    "median_ms": 16.658,
+    "p95_ms": 17.199,
+    "max_ms": 25.4
+  }
+}
