@@ -42,8 +42,18 @@ func run() -> void:
  record("supporting_cannot_construct_combat",Frames.combat_frames("ellana")==null)
  record("existing_Yakuza_keeps_original_path",Frames.combat_frames("yakuza")==null)
  record("missing_Olezhka_combat_art_never_falls_back",Frames.combat_frames("olezhka")==null)
- # Finisher art is deliberately not substituted while the source task is pending.
- record("Gabar_combat_construction_requires_all_three_sheets",Frames.combat_frames("gabar")==null)
+ check_sheet(Frames.finisher_frames("gabar"),"finisher",Frames.FINISHER_COLUMNS)
+ var combined := Frames.combat_frames("gabar")
+ record("Gabar_combat_contains_all_56_authored_clips",combined!=null and combined.get_animation_names().size()==56)
+ if combined!=null:
+  for kind in Frames.SHEET_COLUMNS:
+   for state in Frames.SHEET_COLUMNS[kind]:
+    for direction in Frames.DIRECTIONS:
+     var name := StringName(state+"_"+direction)
+     record("combined_owns:"+String(name),combined.has_animation(name) and combined.get_frame_count(name)==Frames.SHEET_COLUMNS[kind][state].size())
+     for index in combined.get_frame_count(name):
+      var atlas := combined.get_frame_texture(name,index) as AtlasTexture
+      record("combined_source:"+String(name)+":"+str(index),atlas!=null and atlas.get_meta("source_kind")==kind and atlas.get_meta("character_id")=="gabar")
  for value in [null,42,true,[],{},&"res://assets/art/characters/gabar/world_sheet.png",""]:
   record("malformed_texture_path_rejected:"+str(value),Frames._sheet_texture(value)==null)
  record("script_resource_is_not_a_texture",Frames._sheet_texture("res://scripts/systems/character_catalog.gd")==null)
