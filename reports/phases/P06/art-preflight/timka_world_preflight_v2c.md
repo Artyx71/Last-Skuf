@@ -1,0 +1,19 @@
+# Timka WORLD v2c — independent source re-review
+
+**FAIL — TIMKA-WORLD-SOURCE-GAIT-01 remains open. No source adoption is approved.** Reviewer: `/root/art_timka_recovery`. This is a source-art decision, not a full P06 verdict.
+
+The built-in v2 output and v2a→v2b→v2c assembly chain were independently reconstructed. Each step copies one complete 192×256 RGBA cell byte-for-byte from the generated v2 source. Final changed indices are exactly15 (LEFT7),20 (RIGHT4),23 (RIGHT7); the other29 source AND native cells remain byte-identical to v1. All32 final native cells were freshly inspected on light/dark backgrounds and reconstructed exactly through the recorded NN/palette/alpha/fixed-row-anchor pipeline. There are32 unique RGBA drawings,35 opaque native colors, binary alpha and zero opaque placement loss. Original failed v1/v1r and all intermediate masters/recipes remain preserved.
+
+Identity, black long-sleeved hoodie, overhead camera and nominal body scale remain broadly coherent. The three replacements change contour/shading/hand and shoe detail but still leave the opposing leg ownership insufficiently readable at48×64. The prominent forward shin/foot continues to read as the same lead-family as the unchanged counterpart, rather than clearly showing the near visible leg trailing and the far leg leading. This finding concerns visible phase readability; it does not assert hidden anatomical truth under dark clothing. A darker outline, extra unique pixels or a different trailing shoe alone does not establish the requested opposite half-step.
+
+| Cell remaining open | Compare against unchanged counterpart | Whole-pose correction still needed |
+|---|---|---|
+| LEFT7 (index15,row1,col7) | LEFT6 | Near visible leg clearly trails screenRIGHT/back from near hip; far leg leads screenLEFT/front. Near arm forward, far arm back. |
+| RIGHT4 (index20,row2,col4) | RIGHT2 | Opposite WALK contact: near leg trails screenLEFT/back; far leg leads screenRIGHT/front with a readable planted support foot. Near arm forward, far arm back. |
+| RIGHT7 (index23,row2,col7) | RIGHT6 | Opposite RUN contact: near leg trails screenLEFT/back; far leg leads screenRIGHT/front. Near arm forward, far arm back. |
+
+Do not automatically redraw phase6, LEFTwalk2/4, DOWN/UP or the29 unchanged cells. As in v1r, the old interrupted draft's claim of an unchanged near-arm family is not used: LEFT6 already has near arm back and LEFT7 near arm forward. The remaining issue is the leg/hip ownership and readable opposite half-step.
+
+For a narrower correction, generate one isolated **complete whole-body pose per call**, using the matching independently accepted Olezhka WORLDv2b whole pose as a phase/camera guide (LEFT7, RIGHT4, RIGHT7 respectively), with Timka's own accepted portrait and own idle whole pose to retain his identity and hoodie. Those matching Olezhka cells are suitable layout references; their face, crop, short sleeves and blue training trousers must not transfer to Timka. The comparison artifact shows complete untouched cells, not an anatomy composite. Preserve full-cell gutters and fixed scale/root. Resizing/packing an entire generated canvas and copying an entire sourcecell is acceptable provenance; mirrored bodies, cropped/pasted limbs, manual anatomy painting or baseline tricks are not a remedy.
+
+After correction, independently review the changed poses and all32 final cells again. Later actual Godot continuous idle/walk/run playback is still required for cadence, floor-root joins, pixel alignment and locomotion. Source feet may extend to native y61 versus idle bottom58, so actual joins remain a runtime reservation. No Godot run, input replay, actual listening, native feel, export or fullphase acceptance was performed or granted in this re-review. No source/runtime code, authority, phase budget or Git state was changed by the reviewer.

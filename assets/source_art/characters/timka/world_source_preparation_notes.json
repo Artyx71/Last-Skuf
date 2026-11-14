@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scope": "AUTHOR_SOURCE_PREPARATION_ONLY_NOT_ART_ACCEPTANCE",
+  "phase_approval": false,
+  "notes": [
+    {
+      "stage": "initial isolated LEFT7 packing",
+      "status": "REJECTED_BEFORE_OUTPUT",
+      "reason": "Nonzero-alpha support included alpha1 speckle across padding; reference whole-cell bbox exceeded strictheight224. No composite master created.",
+      "resolution": "Use the same alpha>=128 support as pack_actor_sheet, crop the COMPLETE figure support then uniform NN whole-pose rescale; per-pose placement audit checks all resized RGBA preserved."
+    },
+    {
+      "stage": "RIGHT4 isolated metadata invocation",
+      "status": "FAILED_BEFORE_COPY",
+      "reason": "System Python has no Pillow; reran with pinned .tools/art-venv/bin/python, without repeating generator."
+    },
+    {
+      "stage": "RIGHT7 own-art pose reference",
+      "status": "GUARDED_MISSING_PATH",
+      "reason": "Assumed source master world_master_v2b.png absent; source manifest resolves accepted actual world_master_v2.png and digest verified.",
+      "resolution": "Saved RIGHT4v4 master remained intact; only missing reference generation resumed."
+    }
+  ],
+  "runtime_art_adoption": false
+}

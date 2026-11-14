@@ -1,0 +1,15 @@
+# Timka RIGHT4 v4b — isolated source-cell review
+
+**ACCEPTABLE_ISOLATED_RIGHT4_SOURCE_CANDIDATE.** Reviewer `/root/art_timka_recovery` accepts this one changed source cell for continued preparation. `all32_freshly_reviewed=false`, overall source/runtime/fullphase approval=false. The full WORLD sheet is not accepted: RIGHT7 remains open, and a final fresh32-cell review plus actual Godot movement evidence are still required.
+
+Timka's own complete RIGHT2 source192×256→NN4 reference was independently reconstructed and its hash verified; the second current input is the retained RIGHT4v3 raw pose for leg layout only. No Olezhka or portrait was a generator input in this call. Historical guides may appear only as clearly labelled comparison diagnostics. Current prompt/provenance hashes match.
+
+The raw1086×1448 canvas, alpha>=128 complete-figure bounds[146,161,882,1323], uniform NN whole-figure129×204 resize and placement[31,28] reconstruct the sourcecell exactly. The native cell matches the normal NN/palette/alpha/fixed-row-anchor pipeline byte-for-byte, with bounds[8,7,40,58]. Only index20 changes from v4a in source and native; the other31 cells are byte-identical, including previously accepted LEFT7v4a. Resized opaque placement loss is zero; no body-part crop/painting, mirror or nonuniform stretch was found. Requested versus actual canvas sizes are recorded rather than equated.
+
+Fresh native/source inspection on light and dark backgrounds closes **TIMKA-WORLD-RIGHT4-CAMERA-01 at this candidate's source-cell scope**. Broad crown, tops of hood/shoulders and projected head/body/leg proportions now fit Timka's own overhead RIGHT2/idle family sufficiently for static source acceptance. The previous narrow flatter side-profile/body presentation is resolved here. Both black sleeves remain continuous to wrist cuffs, with small hands; no wardrobe regression was identified.
+
+The intended opposing walking contact remains readable: a lighter near leg trailing toward screenLEFT and darker far leg leading screenRIGHT, coherent hip/leg connections, planted walking stance and opposing arm presentation. This is movement art only; no combat/context power is granted. No new blocking cell issue was found. Acceptance of this cell does not close the complete TIMKA-WORLD-SOURCE-GAIT-01 finding while RIGHT7 is still rejected.
+
+Diagnostics show complete untouched cells: ownRIGHT2; rejectedRIGHT4 in v4a; candidateRIGHT4v4b; ownRIGHTidle; historical acceptedOlezhkaRIGHT4. The last cell is a comparison guide, not a current generation input. The complete generated canvas is also retained at half size; no private raw photo appears in these artifacts.
+
+Actual walk2-3-4-5 cadence, loop continuity, continuous world-state joins, floor roots and fractional-physics pixel alignment remain pending. A source-cell check cannot establish smooth Godot animation, subjective feel, hearing, export readiness or fullphase quality. No runtime execution, authority/phase-budget mutation or Git/source edit was performed by this reviewer.
