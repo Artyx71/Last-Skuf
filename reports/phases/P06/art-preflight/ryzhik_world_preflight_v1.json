@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "phase": "P06",
+  "reviewer": "/root/art_olezhka_recovery",
+  "reviewed_utc": "2026-11-14T16:26:03.564292+00:00",
+  "actor_id": "ryzhik",
+  "kind": "world",
+  "status": "FAIL_SIDE_GAIT_OWNERSHIP",
+  "all32_freshly_reviewed": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "e5cf55c8b4ecc5abd4fcd237d20cf908a3a8fae5086249b14768b67be5624654",
+  "master_sha256": "b0cc12ee95985e42129a023f0c7f0b7735eb5de786ef449f29cbf387d9d16a4b",
+  "report_sha256": "7d46fb8cfeca7b992be5161d8a052dd17b1e32d246e6a1e29e2fa7a6054959a4",
+  "metrics_sha256": "ed22ef6c074be7b55b165084f0ac18436be344bd6309b45168dce4844b1a95e0",
+  "must_fix": [
+    {
+      "id": "RYZHIK-WORLD-SOURCE-GAIT-01",
+      "severity": "HIGH",
+      "scope": "source whole-pose gait ownership",
+      "cells": [
+        {
+          "direction": "left",
+          "column": 4,
+          "index": 12
+        },
+        {
+          "direction": "left",
+          "column": 7,
+          "index": 15
+        },
+        {
+          "direction": "right",
+          "column": 4,
+          "index": 20
+        },
+        {
+          "direction": "right",
+          "column": 7,
+          "index": 23
+        }
+      ],
+      "summary": "SIDE B4/B7 do not establish clear opposite near/far anatomical lead; B-run pairs retain foreground near-leading family",
+      "required_action": "Redraw complete LEFT4/LEFT7/RIGHT4/RIGHT7 with traceable near-trailing/far-leading legs and opposing arms; preserve other28 cells; no anatomy paint/mirroring; freshall32 source review required"
+    }
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/olezhka/world_camera_reference_v2b_4x.png": "0bda7d582e81969b8fc51b7d2eb422ebf90c935d08ca4e94caa324618ecc09df",
+    "assets/source_art/characters/olezhka/world_manifest_v2b.json": "1dabe08e5e830563e67505020a88fe5a106b518807de803a3590d8965968d9c2",
+    "assets/source_art/characters/olezhka/world_native_v2b.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "assets/source_art/characters/ryzhik/portrait_generation_metadata.json": "3b8dd6045967acb86cd4e78ff28ce353195909d70d07262e5ddfaf92869d00a5",
+    "assets/source_art/characters/ryzhik/portrait_prompt.txt": "cb21a9f758639a7beeee70446fcd7cc7139a483d0d0b86c06c758164f44567ee",
+    "assets/source_art/characters/ryzhik/portraits_inspection_2x.png": "e3f13f4054487857a63af4d1a60db29d2c4dd97ddda1102b0ad567912f617fb8",
+    "assets/source_art/characters/ryzhik/portraits_master_v1.png": "42115ed2c2aa169bf989b13e3bbcb3568af9763363a497fe18c5da52f9f319c1",
+    "assets/source_art/characters/ryzhik/portraits_native_source.png": "37f2aaa4bb2654b6290770b7a1e66dafc9f0d17c3c65319c65ed2e98bcde5320",
+    "assets/source_art/characters/ryzhik/world_inspection_v1_3x.png": "979613d5d194a69c719757bdc6aa78832102578193db0fe61dd34a2c98f65415",
+    "assets/source_art/characters/ryzhik/world_manifest_v1.json": "9a0c258d8ee8e9d7f07c490b0670a9d947428f393b5a09e8ac7ad5f04db36493",
+    "assets/source_art/characters/ryzhik/world_master_v1.png": "b0cc12ee95985e42129a023f0c7f0b7735eb5de786ef449f29cbf387d9d16a4b",
+    "assets/source_art/characters/ryzhik/world_native_v1.png": "e5cf55c8b4ecc5abd4fcd237d20cf908a3a8fae5086249b14768b67be5624654",
+    "assets/source_art/characters/ryzhik/world_v1_generation_metadata.json": "2996c561b711c7c5777ae0c74069ba2f806916a627bdd2819eb6e5daa7d9893d",
+    "assets/source_art/characters/ryzhik/world_v1_prompt.txt": "e7e00c69d0dcaac28f87beed33af9f4eafd827efaa08bbe2e39c07ec07dd1ea2",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "game/assets/art/characters/ryzhik/portraits.json": "e604a7cdb18c67871088b398cf8a1c2e68ffc2cf56c7eeab71d45a0a5cb037ab",
+    "game/assets/art/characters/ryzhik/portraits.png": "37f2aaa4bb2654b6290770b7a1e66dafc9f0d17c3c65319c65ed2e98bcde5320",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+  },
+  "review_artifacts_sha256": {
+    "ryzhik_world_preflight_v1_down_light_dark.png": "e205211030031ff7d43dbfeaf753a1a3c45a3eef732da3684f083ea04fa43801",
+    "ryzhik_world_preflight_v1_left_gait_fullcells.png": "cf467048242b75b588f15a4e0dad95efdde9df0c62d73f0466da5bcd84250776",
+    "ryzhik_world_preflight_v1_left_light_dark.png": "17de4ca46f1a355c78b76dae052fe19a5f4be3250202b3c9d3d18f3a612cbece",
+    "ryzhik_world_preflight_v1_right_gait_fullcells.png": "6035faf967b2248b62c6de790ea6b98950b98b2e3e7cb4fb82750932df5283f8",
+    "ryzhik_world_preflight_v1_right_light_dark.png": "9fbe44d7bf3fb29f0466c343855405f03821f45ee2de4fe50794861a1d66330b",
+    "ryzhik_world_preflight_v1_side_walk_comparison.png": "38cab73ebc038d60c8c6215bee8e3337d93fc12a4507c6d0049d754ee56e804d",
+    "ryzhik_world_preflight_v1_up_light_dark.png": "d7e4b439abfba38d2e018ded2cb628437d562f05597c9c837a6df909cf4df277",
+    "ryzhik_world_preflight_v1.md": "7d46fb8cfeca7b992be5161d8a052dd17b1e32d246e6a1e29e2fa7a6054959a4",
+    "ryzhik_world_preflight_v1_metrics.json": "ed22ef6c074be7b55b165084f0ac18436be344bd6309b45168dce4844b1a95e0",
+    "ryzhik_world_preflight_v1_inspect.py": "845844bc4764d6256298edd0f5bcc82b033e2a8ece0a89d68129834c69620094"
+  },
+  "private_photo_reopened": false,
+  "raw_photo_in_diagnostics": false,
+  "runtime_tests_performed": false,
+  "next_action": "Author whole-pose gait corrections; do not adopt source candidate or advance phase"
+}
