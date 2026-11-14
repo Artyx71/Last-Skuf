@@ -1,13 +1,15 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-14T23:52:14.348060+00:00",
+  "updated_utc": "2026-11-14T23:53:10.645261+00:00",
   "phase": "P06",
-  "status": "COMPLETED_CONSUMED_AUTHOR_RESUMED",
+  "status": "COMPLETED_CONSUMED_AUTHOR_RELEASED_SAFE_CHECKPOINT",
   "source_head": "6daa6e473dd4e536e71f10580b53c2bf591047da",
   "active_author": {
     "pid": 91871,
-    "pty_session": 35830
+    "status": "RELEASED_AT_SAFE_SESSION_CHECKPOINT",
+    "ended_at": "2026-11-14T23:52:51+00:00",
+    "canonical_checkpoint_head": "ca1cb40ddef92d6950408d8fcc5fa3792d210241"
   },
   "current_operation": {
     "id": "aa420deba7384c888d188a91b13acef8",
@@ -16,5 +18,6 @@
   },
   "phase_approval": false,
   "merge_allowed": false,
-  "next": "Candidateguard boundedQA/LeadPASS; ownerpreview delivered/consumed. Resume existingP06, finish fullverifier/safehandoff/abilities. FullReadinessFAIL/21MDSmissing: noP07advance. CanonicalRoot state controls lease."
+  "next": "Candidateguard boundedQA/LeadPASS; ownerpreview delivered/consumed. Resume existingP06, finish fullverifier/safehandoff/abilities. FullReadinessFAIL/21MDSmissing: noP07advance. CanonicalRoot state controls lease.",
+  "author_source_head": "e48534065b87ce240aac991f0c892224d3d3af22"
 }
