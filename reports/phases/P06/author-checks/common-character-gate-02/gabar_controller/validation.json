@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "GABAR_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 124,
+  "checks_total": 124,
+  "actual_captures": 0,
+  "contacts": 37,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Gabar only; five other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gabar_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.105,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/gabar_controller/commands.json",
+      "sha256": "f825cd44d6e798a87dcf41f2f33c2d50f072e4acba2dca7517e48188c8d2671a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/gabar_controller/live/result.json",
+      "sha256": "9ea6300ebad665b28333f225d5882b2d8569aeb0d12597c81268537131eb4f63"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/gabar_controller/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/gabar_controller/source_hashes.json",
+      "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+    }
+  ]
+}
