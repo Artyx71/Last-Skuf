@@ -45,6 +45,7 @@ func run() -> void:
  for kind in Frames.SHEET_COLUMNS:
   check_sheet(Frames._sheet_frames("olezhka",kind),kind,Frames.SHEET_COLUMNS[kind],"olezhka")
  record("missing_Timka_combat_art_never_falls_back",Frames.combat_frames("timka")==null)
+ check_sheet(Frames.world_frames("timka"),"world",Frames.WORLD_COLUMNS,"timka")
  check_sheet(Frames.finisher_frames("gabar"),"finisher",Frames.FINISHER_COLUMNS)
  var combined := Frames.combat_frames("gabar")
  record("Gabar_combat_contains_all_56_authored_clips",combined!=null and combined.get_animation_names().size()==56)

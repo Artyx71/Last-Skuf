@@ -1,0 +1,76 @@
+{
+  "scope": "TIMKA_WORLD_ATLAS_AND_EXISTING_COMBAT_READINESS_REGRESSION_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_head": "6d9fb2af36957a8819341eff1b0476a62548b72c",
+  "source_unchanged": true,
+  "commands": [
+    {
+      "name": "frames",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_frames_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.599
+    },
+    {
+      "name": "gabar",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_gabar.py",
+        "--headless",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/timka-world-regression-01/gabar"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.381
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/commands.json",
+      "sha256": "58fa20e0f4c5860bb1e788fc7e0a782d9aaffa4bdc709830074074381747f0bc"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/frames.log",
+      "sha256": "2ef58e1df223e45cf9bac4fde82b79bc14d36d94b8ad4a3013fb99f4330c64b7"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/commands.json",
+      "sha256": "6daa586b742a336f0a186a5e86b759a3591cafe2c9c9c40c2193c37364376a34"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/live/result.json",
+      "sha256": "dfd74928c2fc6b1f61532b9ac09f6a5b4241d1277530132e3923f0ee457dc7fd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/source_hashes.json",
+      "sha256": "10fbc0f03f555d55305e37d6d8c639df9ed8d2fa50bf4f155be66911a5dcdd35"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/validation.json",
+      "sha256": "9c64c97e044095ef2a7bee9f69336c9fa9560019ced8e982808c163fe1b84669"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar.log",
+      "sha256": "dab7d04cd148fdd74614c191fbe360eb64c419a2da2c6786c6f8cafc0c22a5fd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/source_hashes.json",
+      "sha256": "10fbc0f03f555d55305e37d6d8c639df9ed8d2fa50bf4f155be66911a5dcdd35"
+    }
+  ]
+}

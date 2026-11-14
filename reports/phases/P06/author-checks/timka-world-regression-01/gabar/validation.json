@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "GABAR_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "6d9fb2af36957a8819341eff1b0476a62548b72c",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 124,
+  "checks_total": 124,
+  "actual_captures": 0,
+  "contacts": 37,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Gabar only; five other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gabar_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.107,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/commands.json",
+      "sha256": "6daa586b742a336f0a186a5e86b759a3591cafe2c9c9c40c2193c37364376a34"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/live/result.json",
+      "sha256": "dfd74928c2fc6b1f61532b9ac09f6a5b4241d1277530132e3923f0ee457dc7fd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-regression-01/gabar/source_hashes.json",
+      "sha256": "10fbc0f03f555d55305e37d6d8c639df9ed8d2fa50bf4f155be66911a5dcdd35"
+    }
+  ]
+}
