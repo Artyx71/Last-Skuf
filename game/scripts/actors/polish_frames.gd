@@ -9,6 +9,8 @@ static func clothing_offset(sprite: AnimatedSprite2D) -> Vector2:
 	if socket_atlas.is_empty():
 		socket_atlas = JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/combat_polish/atlas.json")).get("clothing_sockets",{})
 	var texture := sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame)
+	if texture is AtlasTexture and texture.has_meta("clothing_socket"):
+		return sprite.position-Vector2(24,32)+Vector2(texture.get_meta("clothing_socket"))
 	if texture is AtlasTexture and texture.has_meta("full_atlas"):
 		var name: String = texture.get_meta("full_atlas").resource_path.get_file()
 		var row := str(int(texture.region.position.y/64))

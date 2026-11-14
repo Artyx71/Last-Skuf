@@ -54,6 +54,12 @@ def main():
     if (ROOT / 'game/tests/story_graph_test.gd').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
+    if (ROOT / 'game/tests/character_frames_test.gd').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['character_combat_profile', 'character_scene_policy',
+                                     'character_policy_integration', 'character_dialogue', 'character_frames'])
+        commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
+                         '--headless', '--output', str(output / 'gabar_controller')]))
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder

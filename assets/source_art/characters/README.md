@@ -83,3 +83,35 @@ with no neighboring figure. The rejected nominal-cell selection v3c and failure
 record remain archived. This differs from the too-wide original punch: no limb
 is cropped, resized separately or reconstructed. Per-cell assembly provenance is
 retained for all direction corrections.
+
+## Gabar FINISHER source assembly v5
+
+`gabar/finisher_assembly_v5.json` copies the four independently accepted direction
+rows exactly: DOWN v3, LEFT v1, RIGHT v2c, UP v4. Source acceptance does not accept
+world/action joins, contact timing, runtime weapon draw/stow or the full phase.
+Columns0/6 are shared preparation/recovery; columns1–5 are category contacts,
+column7 is the signature contact. Close unarmed/blunt/sharp body families are
+reported as shared choreography, not three unique complete movement cycles.
+Only the registered scene's equipment policy grants a usable category.
+
+The UP environmental palm is intact but reaches native x0; its source gutter is
+only4px. The source review records this margin reservation. Source images have
+not been clipped or repainted to conceal it. All original rejected candidates,
+network failure and selected corrections retain their own provenance.
+
+## Clothing anchors for the actual combat actor
+
+`annotate_character_sockets.py` writes metadata candidates and separate diagnostic
+boards; it never changes a character bitmap. Maroon-palette overlap with hair
+makes automatic component selection insufficient as artistic acceptance. One
+explicit manual torso-coordinate correction (finisher source index19) is recorded
+alongside its original palette candidate. The first diagnostic shows that raw
+candidate; actual runtime overlay placement still requires ART review.
+
+Each socket document binds actor, kind, sheet SHA and32 source-frame hashes.
+The loader rejects malformed or wrong-sheet annotations. `CharacterPlayer`
+requires a clothing socket for every referenced frame before it can be installed;
+world-art previews can still inspect a source-only actor without sockets. Full and
+Reduced reuse the same clean character drawings; the existing effects system
+controls clothing blood. No duplicate `_reduced` drawings or new voice/audio media
+are claimed.

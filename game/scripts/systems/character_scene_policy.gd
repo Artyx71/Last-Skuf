@@ -37,6 +37,11 @@ func invalidate() -> void:
 func definition() -> Dictionary:
  return _active.duplicate(true)
 
+func action_authority(actor_id: String) -> Dictionary:
+ if _active.is_empty() or actor_id != _active.actor_id: return {}
+ return {"actor_id":actor_id,"context":_active.context,"fixture_id":_active.scene_id,
+  "generation":_generation,"scene_instance":get_instance_id()}
+
 func finisher_authority(actor_id: String, category: String, equipped_category: String) -> Dictionary:
  if _active.is_empty() or actor_id != _active.actor_id or category != equipped_category: return {}
  if category not in _active.equipment_categories or category not in Catalog.allowed_equipment(actor_id,_active.context): return {}

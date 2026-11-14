@@ -53,6 +53,12 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
  var expected: Dictionary = SHEET_COLUMNS[kind]
  var texture := _sheet_texture(path_value)
  if texture == null: return null
+ var socket_path := path.get_base_dir().path_join(kind+".sockets.json")
+ var sockets: Dictionary = {}
+ if FileAccess.file_exists(socket_path):
+  var socket_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(socket_path))
+  if not _valid_sockets(socket_data,parsed): return null
+  sockets = socket_data
  var frames := SpriteFrames.new()
  frames.remove_animation(&"default")
  for row in DIRECTIONS.size():
@@ -69,8 +75,27 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
     atlas.set_meta("source_kind",kind)
     atlas.set_meta("source_direction",DIRECTIONS[row])
     atlas.set_meta("source_column",column)
+    if not sockets.is_empty():
+     var point: Array = sockets.frames[row*8+column].clothing
+     atlas.set_meta("clothing_socket",Vector2(point[0],point[1]))
     frames.add_frame(animation,atlas)
  return frames
+
+static func _valid_sockets(sockets: Variant, layout: Dictionary) -> bool:
+ if not sockets is Dictionary or sockets.get("schema")!=1: return false
+ if sockets.get("actor_id")!=layout.get("actor_id") or sockets.get("kind")!=layout.get("kind"): return false
+ if sockets.get("sheet_sha256")!=layout.get("sha256"): return false
+ var entries: Variant = sockets.get("frames")
+ if not entries is Array or entries.size()!=32: return false
+ for index in 32:
+  var entry: Variant = entries[index]
+  if not entry is Dictionary or not _matches_numbers([entry.get("index")],[index]): return false
+  var point: Variant = entry.get("clothing")
+  if not point is Array or point.size()!=2: return false
+  for axis in 2:
+   if not (point[axis] is int or point[axis] is float) or point[axis]!=floor(point[axis]): return false
+   if point[axis]<0 or point[axis]>=[48,64][axis]: return false
+ return true
 
 static func _sheet_texture(path_value: Variant) -> Texture2D:
  if not path_value is String or path_value.is_empty() or not ResourceLoader.exists(path_value): return null

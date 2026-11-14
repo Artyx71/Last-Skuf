@@ -1,0 +1,149 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_production_gabar_controller_preflight",
+  "reviewer": "/root/gameplay_review_p06",
+  "status": "HISTORICAL_PREFLIGHT_FINDINGS_REMEDIATION_REVIEW_PENDING",
+  "phase_approval": false,
+  "native_art_feel_fps_exports_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_or_source_mutations": false,
+  "initial_source_snapshot": {
+    "game/scripts/actors/character_player.gd": "0f1fd40759701779a8b546e17c59849b67262e883accddd2ffa06ec27ddf09b0",
+    "game/scripts/core/character_lab.gd": "e01a18067fe1d6800392500d6fdfe13b98165865461c3180a9b7f8dbaf60468b",
+    "game/scripts/actors/yakuza_actor.gd": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/core/combat_lab.gd": "d22ebb17f8a3fcd296e832b32d1e350782f17dfed4ff1e51500324dfbf7b3ec2",
+    "game/scripts/core/bootstrap.gd": "5351c232bd77456588aba701042d5ba4035d54844822e8b042be2f4fe6a83c10",
+    "game/scripts/systems/combat_system.gd": "4ef3fc2717b3c6442c105b4708190b5914921aab8c61adf6e166c1bc9ae9804b",
+    "game/scripts/systems/character_scene_policy.gd": "6066515a552479729c13e118353368ff33a4725007464b2614e7964c035e39ef",
+    "game/tests/gabar_combat_replay.gd": "f642f5efec93ffdecb4b2a3259e8580839b613bc47fc0db5205c54a377f1b7d5"
+  },
+  "ending_source_snapshot": {
+    "game/scripts/actors/character_player.gd": "0dc92bc5822ecb5a5f2fe854fb9afe1666b31beb277a5d32fb3130eaff920a03",
+    "game/scripts/core/character_lab.gd": "b6dc518fb1322f6b470a31094ea4c8f17504df411695b269257638438d1762f7",
+    "game/scripts/actors/yakuza_actor.gd": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/core/combat_lab.gd": "d22ebb17f8a3fcd296e832b32d1e350782f17dfed4ff1e51500324dfbf7b3ec2",
+    "game/scripts/core/bootstrap.gd": "5351c232bd77456588aba701042d5ba4035d54844822e8b042be2f4fe6a83c10",
+    "game/scripts/systems/combat_system.gd": "f99a28e59253306e5cd6dea4862b0e789e07d9224444fd476533da205d881ccb",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/tests/gabar_combat_replay.gd": "f642f5efec93ffdecb4b2a3259e8580839b613bc47fc0db5205c54a377f1b7d5"
+  },
+  "source_changes_during_review": [
+    "game/scripts/actors/character_player.gd",
+    "game/scripts/core/character_lab.gd",
+    "game/scripts/systems/combat_system.gd",
+    "game/scripts/systems/character_scene_policy.gd"
+  ],
+  "findings": [
+    {
+      "id": "GP-GABAR-01",
+      "severity": "HIGH",
+      "file": "game/scripts/actors/character_player.gd",
+      "applies_to": "initial and socket-guard revisions",
+      "finding": "Pending shove/special lacks live scene authority snapshot recheck. Invalidation/reopen can revoke movement/new starts while queued special still contacts.",
+      "fix": "Pin scene/action grant identity/generation/owner at start; cancel pending melee/motion on live mismatch before contact. Test windup/late-target active invalidation/reopen/owner/context loss."
+    },
+    {
+      "id": "GP-GABAR-02",
+      "severity": "MEDIUM",
+      "file": "game/scripts/core/character_lab.gd",
+      "applies_to": "new required socket configure guard revision",
+      "finding": "select_fixture prechecks only frames; full configure may fail after old actor is removed, via assert-only failure handling.",
+      "fix": "Configure complete candidate before destructive reset/remove and install atomically only on success; safely reject unavailable body without changing current fixture."
+    }
+  ],
+  "author_evidence_read_not_rerun": {
+    "checks": 102,
+    "failed": 0,
+    "headless": true,
+    "actual_input": true,
+    "captures": 0,
+    "trace_samples": 1236,
+    "contacts": 32,
+    "reported_exit_code": 0,
+    "run_source_hash_inventory_present": false
+  },
+  "remaining_constraints": [
+    "Fix two actionable lifecycle/authority findings and targeted negative replays",
+    "Native readability/art/socket/real-time feel evidence",
+    "FullReduced/pause, heldInput, living receipt/death/reset/reload and fresh legacy regressions",
+    "Other five heroes/abilities and complete P06/platform/export gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/gabar-controller-preflight-v1.md",
+    "sha256": "c6a8052b902ca69e0a5602a9b33f4f6785462be819d5e55bb43f1b3897c9d770"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "sha256": "0dc92bc5822ecb5a5f2fe854fb9afe1666b31beb277a5d32fb3130eaff920a03"
+    },
+    {
+      "path": "game/scripts/core/character_lab.gd",
+      "sha256": "b6dc518fb1322f6b470a31094ea4c8f17504df411695b269257638438d1762f7"
+    },
+    {
+      "path": "game/scripts/actors/yakuza_actor.gd",
+      "sha256": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a"
+    },
+    {
+      "path": "game/scripts/actors/combat_player.gd",
+      "sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58"
+    },
+    {
+      "path": "game/scripts/core/combat_lab.gd",
+      "sha256": "d22ebb17f8a3fcd296e832b32d1e350782f17dfed4ff1e51500324dfbf7b3ec2"
+    },
+    {
+      "path": "game/scripts/core/bootstrap.gd",
+      "sha256": "5351c232bd77456588aba701042d5ba4035d54844822e8b042be2f4fe6a83c10"
+    },
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "sha256": "f99a28e59253306e5cd6dea4862b0e789e07d9224444fd476533da205d881ccb"
+    },
+    {
+      "path": "game/scripts/systems/character_scene_policy.gd",
+      "sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392"
+    },
+    {
+      "path": "game/tests/gabar_combat_replay.gd",
+      "sha256": "f642f5efec93ffdecb4b2a3259e8580839b613bc47fc0db5205c54a377f1b7d5"
+    },
+    {
+      "path": "game/scripts/actors/character_frames.gd",
+      "sha256": "03e0b8b9f562911c73c2ed87df8a36bc0d82e8af9c7945ce9e253bab31497f0c"
+    },
+    {
+      "path": "game/scripts/actors/polish_frames.gd",
+      "sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36"
+    },
+    {
+      "path": "game/scripts/core/input_bindings.gd",
+      "sha256": "0aebea4af98c797393ec3f22c1a6af8930c57156359e6bfb1448efc14672a6d1"
+    },
+    {
+      "path": "game/scenes/world/character_lab.tscn",
+      "sha256": "068a6b71ddf8fbb76ff9850a1bdca76bb1abf70d6c39d8297fb0f262c3ddeafc"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-01/result.json",
+      "sha256": "8cd9e587f16178af8c352a22d88c206039936a086f74112c6f803ed1132dbc43"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-01/output.log",
+      "sha256": "463ddcb355b18a7304a2d24214a9a38d860ae3b93890da771831bc34ea1755b5"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-01/command.json",
+      "sha256": "9a0b789d2190cd40f08c6bcf8f123c5192c1174721374fad5c8e0185198ee2e6"
+    }
+  ],
+  "reviewed_character_player_revisions": [
+    "0f1fd40759701779a8b546e17c59849b67262e883accddd2ffa06ec27ddf09b0",
+    "6d19e3b6849f729985c73b069b26fe1b8fa48b46871c15d4e71ef9bcecad50b1"
+  ],
+  "ending_source_changes_reviewed": false,
+  "findings_apply_to": "Initial and explicitly identified intermediate revisions, not unreviewed concurrent remediation revisions"
+}

@@ -186,7 +186,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		reset_encounter()
 	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("equipment_next") and state == "playing":
-		select_equipment((equipment_index + 1) % 5)
+		_cycle_equipment()
 	elif config_path == CONFIG_PATH and Input.is_action_just_pressed("polish_options"):
 		_set_options_visible(not options_panel.visible)
 	elif Input.is_action_just_pressed("switch_kit") and state == "playing":
@@ -436,6 +436,10 @@ func _replay() -> void:
 		file.store_string(JSON.stringify(result, "  "))
 	print("COMBAT_REPLAY ", JSON.stringify(result))
 	preload("res://scripts/core/runtime_shutdown.gd").quit_clean(get_tree(), 0 if result.passed else 1)
+
+
+func _cycle_equipment() -> void:
+	select_equipment((equipment_index + 1) % 5)
 
 
 func select_equipment(index: int) -> bool:

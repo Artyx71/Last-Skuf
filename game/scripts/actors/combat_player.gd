@@ -37,6 +37,15 @@ func _ready() -> void:
 	process_physics_priority = -10
 	# Keep a rear hand layer above the arena floor even when its relative z is -1.
 	z_index = int(lab.visual_config.render_planes.actor_body)
+	_configure_action_frames()
+	preload("res://scripts/actors/polish_frames.gd").connect_options(sprite,get_node("/root/OptionsStore"))
+	actions_ready = true
+	weapon_visual = WeaponVisual.new()
+	weapon_visual.player = self
+	add_child(weapon_visual)
+
+
+func _configure_action_frames() -> void:
 	var path := "res://assets/art/yakuza/action_sheet.png"
 	assert(ResourceLoader.exists(path), "P02 authored action art required")
 	var texture: Texture2D = load(path)
@@ -55,11 +64,6 @@ func _ready() -> void:
 				sprite.sprite_frames.add_frame(animation, atlas)
 	preload("res://scripts/actors/polish_frames.gd").append(sprite.sprite_frames,
 		"res://assets/art/combat_polish/yakuza_finishers.png", ["unarmed","blunt","sharp","firearm","environmental"], "finish_")
-	preload("res://scripts/actors/polish_frames.gd").connect_options(sprite,get_node("/root/OptionsStore"))
-	actions_ready = true
-	weapon_visual = WeaponVisual.new()
-	weapon_visual.player = self
-	add_child(weapon_visual)
 
 
 func _play_action(action: String, duration: float) -> void:
@@ -82,7 +86,7 @@ func _present_action() -> void:
 	var phase := action_elapsed * fps
 	var progress: float = phase - floor(phase + 0.00001)
 	action_frame = mini(int(floor(phase + 0.00001)), count - 1)
-	if action_kind == "shove" or action_kind.begins_with("finish_"):
+	if action_kind in ["shove", "special"] or action_kind.begins_with("finish_"):
 		if action_elapsed + 0.00001 < action_windup:
 			action_frame = 0
 			progress = action_elapsed / action_windup

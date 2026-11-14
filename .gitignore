@@ -29,3 +29,8 @@ automation/.executor.lock
 # P05 generated isolated test saves/PCM: local evidence, hashes in phase inventory
 reports/phases/P05/**/isolated_saves/
 reports/phases/P05/**/*.wav
+
+# Generated P06 editor caches and debug signing material are local test artifacts.
+reports/phases/P06/**/isolated_saves/config/
+reports/phases/P06/**/isolated_saves/data/
+*.keystore

@@ -154,6 +154,9 @@ func _physics_process(delta: float) -> void:
 		query.collision_mask = 4 if attack.team == "player" else 2
 		query.exclude = [source.get_rid()]
 		for contact in get_world_2d().direct_space_state.intersect_shape(query, 16):
+			if source.has_method("authorize_melee_contact") and not source.authorize_melee_contact(attack.id):
+				attacks.erase(attack)
+				break
 			var target = contact.collider
 			if target.get_instance_id() in attack.hit:
 				continue

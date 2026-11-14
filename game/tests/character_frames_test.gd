@@ -78,5 +78,26 @@ func run() -> void:
  record("fractional_cell_bounds_rejected",not Frames._valid_layout(malformed,"gabar","action"))
  malformed=valid.duplicate(true);malformed.frames[0].rect=[0,0,"48",64]
  record("text_dimension_is_not_a_number",not Frames._valid_layout(malformed,"gabar","action"))
+ var socket_layout: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/characters/gabar/finisher.json"))
+ var socket_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/characters/gabar/finisher.sockets.json"))
+ record("real_authored_socket_contract",Frames._valid_sockets(socket_data,socket_layout))
+ for value in [null,true,[],"not sockets"]:
+  record("bad_socket_root_rejected:"+str(value),not Frames._valid_sockets(value,socket_layout))
+ var bad_socket: Dictionary=socket_data.duplicate(true)
+ bad_socket.sheet_sha256="another sheet"
+ record("socket_sheet_binding_required",not Frames._valid_sockets(bad_socket,socket_layout))
+ bad_socket=socket_data.duplicate(true);bad_socket.frames[0].clothing=[24,true]
+ record("boolean_socket_rejected",not Frames._valid_sockets(bad_socket,socket_layout))
+ bad_socket=socket_data.duplicate(true);bad_socket.frames[0].clothing=[24,64]
+ record("out_of_frame_socket_rejected",not Frames._valid_sockets(bad_socket,socket_layout))
+ bad_socket=socket_data.duplicate(true);bad_socket.frames[0].clothing=[24,32.5]
+ record("fractional_socket_rejected",not Frames._valid_sockets(bad_socket,socket_layout))
+ bad_socket=socket_data.duplicate(true);bad_socket.frames.pop_back()
+ record("all_32_socket_annotations_required",not Frames._valid_sockets(bad_socket,socket_layout))
+ if combined!=null:
+  for animation in combined.get_animation_names():
+   for index in combined.get_frame_count(animation):
+    var atlas := combined.get_frame_texture(animation,index) as AtlasTexture
+    record("authored_clothing_anchor:"+String(animation)+":"+str(index),atlas.has_meta("clothing_socket"))
  print("RESULT P06_CHARACTER_FRAMES passed=",checks-failures," failed=",failures)
  preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1 if failures else 0)
