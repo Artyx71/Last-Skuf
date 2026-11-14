@@ -1,0 +1,83 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "tega",
+  "passed": true,
+  "source_head": "a717f144a0d5f1304e56b5d3c00d43c11d03c208",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 70,
+  "checks_total": 70,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.692,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "tega",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/tega-adoption-headless-01/commands.json",
+      "sha256": "0a3004b37ab27853a182ad13e849e43f22684a36644ebfecc4984cf4a30adb53"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/tega-adoption-headless-01/live/input_gate.json",
+      "sha256": "127bbbd6298c079a45d2b2bbd4ff76c80e6428de224b73a339e0c681a2794aff"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/tega-adoption-headless-01/live/result.json",
+      "sha256": "4d48b4f9aed4ab40fcbc2177265672576a324b8b7bb16efa617045a6315b5b72"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/tega-adoption-headless-01/live.log",
+      "sha256": "c5cdfa02f5dfcc861666885548aad136a68f2bde1df1784917b9b2aad77a4107"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/tega-adoption-headless-01/source_hashes.json",
+      "sha256": "beb3fefd3679eedee34b12ebc305e9918d551be6400ee7424aa6ed730fca60a2"
+    }
+  ]
+}
