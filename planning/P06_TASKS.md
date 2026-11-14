@@ -30,3 +30,7 @@ Kaban/Ellana/Elya supporting, не playable. Ellana — партнёр Yakuza, E
 3. Подготовить WORLD32/ACTION28/FIN24 source candidates целыми клетками без placeholders. Исправить environmental family/readability. Получить fresh independent source review каждого необходимого набора и только затем explicit version migration с rollback snapshot/hash binding.
 4. Раздельно реализовать peaceful_present disengage и athletic_prime clinch на готовых context resources, через существующий controller/Core. Readiness registry разрешает только реальные обработчики. Отказ сохраняет текущие authority/jobs/receipts/options.
 5. Реальные Input/native доказательства двух контекстов, ART/GAMEPLAY/QA и последующая полная Lead приёмка P06. Scope approval не выдаёт PASS/merge.
+
+## P06-CBT — уточнение всех7 стилей
+
+Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own finisher sound/animation/reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.

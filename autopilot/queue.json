@@ -96,7 +96,8 @@
         "P04:PASS",
         "P04G:PASS",
         "P05:PASS",
-        "P06:PASS"
+        "P06:PASS",
+        "P06/seven-hero-combat-independent-review"
       ]
     },
     {
@@ -162,7 +163,9 @@
       "phase": "P06",
       "kind": "art_review",
       "depends_on": [
-        "P06/timka-compact-layout"
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review",
+        "P06/timka-finisher-source-review"
       ],
       "status": "PENDING",
       "scope": "Fresh all required32/28/24 source cells; rejected environment still must fix; no placeholder cells."
@@ -172,7 +175,8 @@
       "phase": "P06",
       "kind": "implementation",
       "depends_on": [
-        "P06/timka-compact-source-review"
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review"
       ],
       "status": "PENDING",
       "scope": "Registered peaceful_present WORLD/ACTION/sockets and real disengage; no prime/finishers."
@@ -182,7 +186,10 @@
       "phase": "P06",
       "kind": "implementation",
       "depends_on": [
-        "P06/timka-compact-source-review"
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review",
+        "P06/timka-finisher-source-review",
+        "P06/timka-context-visual-differences"
       ],
       "status": "PENDING",
       "scope": "Registered athletic_prime with full approved art/sockets and real clinch via existing Core."
@@ -193,10 +200,173 @@
       "kind": "verification",
       "depends_on": [
         "P06/timka-present-disengage",
-        "P06/timka-prime-clinch"
+        "P06/timka-prime-clinch",
+        "P06/timka-context-visual-differences"
       ],
       "status": "PENDING",
       "scope": "Both real Input/native contexts, independent ART/GAMEPLAY/QA/Lead component evidence; no phasePASS inference."
+    },
+    {
+      "id": "P06/combat-style-audit",
+      "phase": "P06",
+      "kind": "technical",
+      "depends_on": [],
+      "status": "AUDITED_IMPLEMENTATION_GAPS_RECORDED",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/ryzhik-roll",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-context-visual-differences",
+      "phase": "P06",
+      "kind": "art",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/pasha-moving-shot-hud",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/tega-real-environment-action",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/seven-hero-finisher-art-sound-reactions",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/seven-hero-combat-independent-review",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/ryzhik-roll",
+        "P06/timka-context-visual-differences",
+        "P06/pasha-moving-shot-hud",
+        "P06/tega-real-environment-action",
+        "P06/seven-hero-finisher-art-sound-reactions",
+        "P06/timka-context-native-review",
+        "P06/yakuza-campaign-finisher-scope",
+        "P06/oleg-guard-feedback",
+        "P06/gabar-combat-readability-gate"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-world-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "SOURCE_REVIEW_REBIND_PENDING",
+      "required_source_cells": 32,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-action-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "SOURCE_REVIEW_REBIND_PENDING",
+      "required_source_cells": 28,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-finisher-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "PENDING_ENVIRONMENT_ART_FIX",
+      "required_source_cells": 24,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/yakuza-campaign-finisher-scope",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "FIX_IMPLEMENTED_INDEPENDENT_REVIEW_PENDING",
+      "scope": "Actual earned-stun Input V inCH01 mustdeny; preserve explicittraining fivefinishers and interruption; actualbefore11/10FAIL after21/21",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/oleg-guard-feedback",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "scope": "Preserve actual parry-before-damage; make reaction window readable and independently inspectactualInput/nativeHUD",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/gabar-combat-readability-gate",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "scope": "Reuseactual sweptlunge/ownsprites; validate readablehitboxes/contact/recovery in fullproduction Input matrix",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false
     }
   ]
 }

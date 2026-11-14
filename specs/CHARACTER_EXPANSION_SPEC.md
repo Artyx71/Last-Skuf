@@ -60,3 +60,7 @@ Strict allowlist по actor/profile/schema/kind/размерам/картам/ч
 Present: настоящее ограниченное collision-движение назад, guard ACTION0 → собственные четыре WORLD walk-фазы в обратном временном порядке → ACTION2 recovery, с clock/cooldown/cancel/live scene authority, без урона/неуязвимости/добиваний. Это честное reuse, не новые уникальные рисунки; если переходы не приняты ART/GAMEPLAY, нужны дополнительные реальные рисунки. Prime: отдельный настоящий clinch, только unarmed/blunt/environmental, eligibility/once damage/score через существующий Core. Ранее непринятый environmental UP5 остаётся обязательным исправлением после переиндексации.
 
 Factory готовит exact registered context/required clips/sockets/реальный ability до изменения живого боя. Наличие арт-листа не выдаёт способность. Полная P06 требует обоих контекстов, всех6 героев/7 fixtures, независимых ART/GAMEPLAY/QA/Lead и всех build/CI/merge gates. Утверждение84 не снимает ни одного из этих требований.
+
+## Уточнение combat gate всех7 героев
+
+Обязателен specs/P06_COMBAT_ACCEPTANCE.md (P06-CBT-01..10). Индивидуальные finisher animations/sounds/reactions, present/prime differences, Pasha HUD, Ryzhik roll и реальные environment mechanics не считаются выполненными по наличию timings/PNG.

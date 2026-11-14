@@ -27,3 +27,7 @@ Every phase has PASS/FAIL/BLOCKED status, decided by `Lead Reviewer` in independ
 - Never mark a Windows runtime test done if only Windows export files were built on Linux.
 - Never advance to next phase based on self-generated author approval or if hard-blocking CRITICAL/HIGH issues remain.
 - If the current session ends, persist next step in `reports/STATUS.md`; a later Codex run may continue. No promises of background execution.
+
+## P06 combat acceptance before P07
+
+Все P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md обязательны. Независимые Gameplay и ART смотрят реальные покадровые анимации/взаимодействия, QA и Lead сверяют полный frozen source/evidence. Старые bounded component PASS не равны новому полному gate. P08 допускает только явно учтённые дополнительные косметические варианты с критериями; никакая обязательная механика/звук/реакция туда не переносится.
