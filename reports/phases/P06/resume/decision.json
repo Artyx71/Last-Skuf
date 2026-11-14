@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
+  "updated_utc": "2026-11-14T14:55:45.184676+00:00",
+  "phase": "P06",
+  "formal_attempt": 1,
+  "status": "IMPLEMENTING",
+  "last_pass_phase": "P05",
+  "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
+  "frozen_worktree_head": "7a9972772ed3b4bbab962ab535cb715a6444dcb9",
+  "canonical_state": "ROOT/automation/phase_state.json",
+  "operation": {
+    "id": "ab2f443821d647d49c5a6c85cf7ee897",
+    "task": "P06/olezhka-combat-native-01",
+    "status": "CONSUMED_EXIT0",
+    "safe_retry": false,
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/ab2f443821d647d49c5a6c85cf7ee897/receipt.json"
+  },
+  "independent_gates": {
+    "gameplay_controller": "Gabar controller findingsclosed; Olegv1 actual164checks/sourceverified, no new findings, componentonly",
+    "art": "Gabar native depth finding independently closed; Oleg FINsourcev2a accepted, actual Olegnative ART pending",
+    "full_QA": "PENDING full six-hero implementation/export proof",
+    "full_Lead": "PENDING; no P06 PASS"
+  },
+  "merge_allowed": false,
+  "phase_approval": false,
+  "next_phase_allowed": false,
+  "stop_boundary": "P06 MERGED; do not start P07/release",
+  "next_action": "Finish fresh independent OlegnativeARTv1r and TimkaWORLDsourcev1r; remediate sidegait before adoption",
+  "preserve": [
+    "ROOT dirty state/user changes",
+    "all prior PASS/failure evidence",
+    "private ignored raw references",
+    "formal attempt budget"
+  ],
+  "source_head": "c8118ca918227e1e7e154638204e4bab7e3eb01c",
+  "active_author": {
+    "pid": 4363,
+    "pty_session": 79583,
+    "status": "ACTIVE_SOLE_AUTHOR_AFTER_RESTART"
+  },
+  "native02": {
+    "operation": "c788ed6782ef4e5cbccc00cbff99523f",
+    "status": "CONSUMED_EXIT0",
+    "checks": "194/194",
+    "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
+  },
+  "recovery_evidence": "reports/phases/P06/resume/server-restart-recovery-20261114-01.json"
+}
