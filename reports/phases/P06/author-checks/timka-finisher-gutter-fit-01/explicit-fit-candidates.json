@@ -1,0 +1,65 @@
+{
+  "scope": "SOURCE_PREPARATION_ONLY",
+  "phase_approval": false,
+  "outputs_created_on_failure": false,
+  "overwide_or_overtall": [
+    {
+      "cell": 13,
+      "bounds": [
+        12,
+        33,
+        177,
+        237
+      ],
+      "width": 165,
+      "height": 204
+    },
+    {
+      "cell": 21,
+      "bounds": [
+        19,
+        31,
+        185,
+        240
+      ],
+      "width": 166,
+      "height": 209
+    },
+    {
+      "cell": 26,
+      "bounds": [
+        29,
+        2,
+        163,
+        233
+      ],
+      "width": 134,
+      "height": 231
+    },
+    {
+      "cell": 28,
+      "bounds": [
+        37,
+        2,
+        157,
+        230
+      ],
+      "width": 120,
+      "height": 228
+    }
+  ],
+  "captured_reproduction_of_initial_rejection": [
+    ".tools/art-venv/bin/python",
+    "assets/source_art/characters/fit_actor_gutters.py",
+    "timka",
+    "finisher",
+    "--version",
+    "v2a",
+    "--output-version",
+    "v2b",
+    "--margin",
+    "16"
+  ],
+  "captured_reproduction_exit": 1,
+  "note": "Same no-fit authorization command first failed in tool transcript, then reproduced without outputs to capture real stdout/stderr. Both failures preserved; later explicit-fit command is separate."
+}

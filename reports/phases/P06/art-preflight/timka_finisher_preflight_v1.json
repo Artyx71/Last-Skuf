@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T16:56:59.169412+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "status": "FAIL",
+  "actor_id": "timka",
+  "kind": "finisher",
+  "all32_freshly_reviewed": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "3db880ae51326478b11a3afe52d63956b722de43dd842d1d65a2bff94aa0210b",
+  "master_sha256": "58bdf3edc42a159d46b70348ac3d6c5bb7e4c360fe4fb85bc4dd564fa5a717c3",
+  "report_sha256": "069b4a5f72cb0b3590fba1060416155f56bb9a28fc3a1c3bb54b75167af3b5d4",
+  "metrics_sha256": "653eca29450952ffb2fa75d9862e83b791304233b4b5d266641be964de267ddf",
+  "must_fix": [
+    {
+      "id": "TIMKA-FINISHER-SOURCE-UP-CONTACT-01",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 25,
+          "direction": "up",
+          "column": 1
+        },
+        {
+          "index": 26,
+          "direction": "up",
+          "column": 2
+        },
+        {
+          "index": 27,
+          "direction": "up",
+          "column": 3
+        },
+        {
+          "index": 28,
+          "direction": "up",
+          "column": 4
+        },
+        {
+          "index": 29,
+          "direction": "up",
+          "column": 5
+        }
+      ],
+      "summary": "UP-facing contacts read behind the character toward screenDOWN, inconsistent with a target ahead toward screenUP.",
+      "evidence": [
+        "UP1 palms are below the back/hips toward the heels, rather than on a low target in front of the actor.",
+        "UP2 baton and UP3 knife extend farther screenDOWN from hands below the torso.",
+        "UP4 pistol barrel points screenDOWN between/below own legs rather than forward away from camera.",
+        "UP5 environmental hands are below the hood/back in a rearward press, not an away-facing grip on a ledge ahead."
+      ],
+      "remediation": "Regenerate ONLY these complete UP poses. Preserve own back-facing crown/hood/camera and body scale; place the implied target AHEAD/away toward screenUP. Downward physical action means towards ground at that forward target, not reversing screen facing. Show complete bent sleeved arms and hands/tool orientation leading forward, with readable fore-shortening and tool tip/barrel toward that forward target; do not point at own heels. No victim/scenery, rotations/mirror/limb repair or socket relabelling as substitute. Keep mandatory source gutters16."
+    },
+    {
+      "id": "TIMKA-FINISHER-SOURCE-UP-CLINCH-01",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 31,
+          "direction": "up",
+          "column": 7
+        }
+      ],
+      "summary": "UP7 reads as raised guard/hands at own shoulder-neck instead of forward two-arm tight clinch.",
+      "remediation": "Regenerate complete UP7 with bent forward sleeves and two visible inward-facing hands around an implied opponent upper torso AHEAD in facingUP. The two arms must visibly leave a coherent forward hold space, not rest on own shoulders/head or reproduce guard0. Keep own Timka camera/crown/proportions; no other person, prop, anatomy paint/mirror or contextual authorization in artwork."
+    },
+    {
+      "id": "TIMKA-FINISHER-SOURCE-GUTTER-01",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 2,
+          "direction": "down",
+          "column": 2,
+          "source_bounds_alpha128": [
+            32,
+            28,
+            163,
+            249
+          ],
+          "minimum_source_gutter": 7
+        },
+        {
+          "index": 11,
+          "direction": "left",
+          "column": 3,
+          "source_bounds_alpha128": [
+            15,
+            31,
+            165,
+            240
+          ],
+          "minimum_source_gutter": 15
+        },
+        {
+          "index": 13,
+          "direction": "left",
+          "column": 5,
+          "source_bounds_alpha128": [
+            12,
+            33,
+            177,
+            237
+          ],
+          "minimum_source_gutter": 12
+        },
+        {
+          "index": 21,
+          "direction": "right",
+          "column": 5,
+          "source_bounds_alpha128": [
+            19,
+            31,
+            185,
+            240
+          ],
+          "minimum_source_gutter": 7
+        },
+        {
+          "index": 26,
+          "direction": "up",
+          "column": 2,
+          "source_bounds_alpha128": [
+            26,
+            30,
+            165,
+            246
+          ],
+          "minimum_source_gutter": 10
+        },
+        {
+          "index": 29,
+          "direction": "up",
+          "column": 5,
+          "source_bounds_alpha128": [
+            19,
+            32,
+            179,
+            230
+          ],
+          "minimum_source_gutter": 13
+        }
+      ],
+      "summary": "Six whole poses fail explicit mandatory16 source-pixel transparent gutter; prompt target24 is aspirational, not treated as mandatory.",
+      "remediation": "Contain complete figure and prop alpha>=128 support inside [16,16,176,240] source bounds, preserving full body/tool and own WORLD proportions. For non-UP cells2/11/13/21 a documented wholefigure translation/fit may suffice; regenerate complete pose if fit changes art family. UP26/29 should be corrected together with forward choreography. No bodypart cuts/paint. Recheck exact pack and all32 source after new version.",
+      "native_boundary_opaque_pixels": 0,
+      "no_actual_clipping_claim": true
+    }
+  ],
+  "nonblocking_source_limits": [
+    "FAIL; no source adoption/runtime/fullphase approval.",
+    "No Godot/build/Git/controller/network/generator execution; ROOT diagnostics only with existing art-venv Python -B.",
+    "No raw photo read/upload/copy; own generated identity references only.",
+    "Sharp/firearm reference images still need correct directional drawing even though gameplay authorization is forbidden.",
+    "Targeted next revision should change only union cells[2,11,13,21,25,26,27,28,29,31] unless documented newly necessary changes; preserve other22 complete cells and all rejected masters."
+  ],
+  "pending_runtime_evidence": [
+    "Native actual Input/action clocks/contact/reach/facing/LOS/socket and coherent victim/environment positions after corrected source is accepted.",
+    "Native keypose sequences with shared0/6 and four directions; source GIF/boards are not runtime playback.",
+    "Timka peaceful_present no finishers/prime ability; athletic_prime only unarmed/blunt/environmental authority, no sharp/firearm authorization from art.",
+    "Audio/gameplayfeel/FPS/performance/exports/fullP06/merge gates remain independent."
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/timka/finisher_master_v1.png": "58bdf3edc42a159d46b70348ac3d6c5bb7e4c360fe4fb85bc4dd564fa5a717c3",
+    "assets/source_art/characters/timka/finisher_native_v1.png": "3db880ae51326478b11a3afe52d63956b722de43dd842d1d65a2bff94aa0210b",
+    "assets/source_art/characters/timka/finisher_manifest_v1.json": "760f448443a0d9a4d35e484f60eab7793e8743b88e70775900140d3e56a5d3ab",
+    "assets/source_art/characters/timka/finisher_inspection_v1_3x.png": "001c226eaf80c39fc84d9c9c92fd54e528d18f6f428ab8c65286f6cc75195c9b",
+    "assets/source_art/characters/timka/finisher_v1_prompt.txt": "b6a4b15e4c28368dfe1c293c72fc346f8811495fd443f66977904db083743815",
+    "assets/source_art/characters/timka/finisher_v1_references.json": "dc92881757a7cea4f9315766ee49af65439c2bf5b9389fe570e9f802c52c31f4",
+    "assets/source_art/characters/timka/finisher_v1_generation_metadata.json": "7facd45f9cb229a52fe07521a9fcfc6023d9e72bedf0483bd6aadfc975e05ce3",
+    "assets/source_art/characters/timka/world_native_v4c.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "assets/source_art/characters/timka/world_master_v4c.png": "79ab1a0ebd2e06e4793d83c8ed1d2f336f502d37228f3df1e8fb590ff8c114c0",
+    "assets/source_art/characters/timka/world_camera_reference_v4c_4x.png": "bd70c11ed30c44488beb5df6586536612b5d08343431e2638b4dd9cd17b28659",
+    "assets/source_art/characters/timka/action_native_v2b.png": "29811ccf0c4112e9113f5a8822a334f86d88e32398589aca1d4087a402bd5dee",
+    "assets/source_art/characters/timka/action_master_v2b.png": "806abc3d2fe470c92a3910b8dca364372693639e06c50e5235b313b32e245b7a",
+    "assets/source_art/characters/timka/action_camera_reference_v2b_4x.png": "a84ff96d70c71c1aa60bea3971cc8b33fd494113e66380cbf6039847c27c7e40",
+    "assets/source_art/characters/timka/portraits_master_v1.png": "0d6f6e48e33b061467614dcd65b350728cd9425e38b6eb7b1945d30d2dd2f4d7",
+    "assets/source_art/characters/timka/portraits_native_source.png": "c1647b81e9005c270260587841007255e2092c2db2cef0720854a6e332c81606",
+    "assets/source_art/characters/adopt_world.py": "d0b210e3a052b95e1b2cb34ad02c058dc53025dbd05bcaf713a3eb3a531c51d8",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332",
+    "reports/phases/P06/art-preflight/timka_world_preflight_v4c.json": "035762b483b1a77a3a4091f51fb4bd4655a65ed17854c7dd04e5ca27daeb7c4d",
+    "reports/phases/P06/art-preflight/timka-world-native-review-v1.json": "e136bc560aa30bcc77d47c95a8f9ca36beace0e6a43452ad7d6b480c12b9c1b1",
+    "reports/phases/P06/art-preflight/timka_action_preflight_v2b.json": "c12c3be3cc025b475e3fa9de1735bfe3936800c946f638fb07b87aa79ee30e68"
+  },
+  "cell_rgba_sha256": {
+    "0": "79b1a43dce47056a8bb06933ea1c3a6cdd0e4595822dfa82a68ac59a89abcf3f",
+    "1": "38bc212a5f9845aa436d469a2cce2d7b83baa00afbf50c026a550940f26dc754",
+    "2": "73409664f1bf016229575c82dfe13019b72a0739c02402419cd0efff843c8231",
+    "3": "fc4f9587b21bb971a3d18b9ab9979cdfe1f7a70ad113a957c7ae80eac0f6b285",
+    "4": "c215c19bf83d6ac29cdcfa2391d09e6cb45138064f9327b545b3e34a43d65ff4",
+    "5": "9168452c5459ef68062d6b7f43ee530d6946780e747963e2a3a6e113a8d297df",
+    "6": "758bdce82dc7852ea7b4ec6f721f92cc6b5cb31560bc8c0fb4ec5dfc0232b8c5",
+    "7": "867569843dd21730e1eba746186f7d25e2baddf2bfb33d9a97ad06733fea3a40",
+    "8": "c0d72c102cb70e50d03b15b418c63c09886ca9db140f6c08a7899cf36bc8bd4e",
+    "9": "e964346232bc55b2345a9d3d85f15c989e96909d8efbe8bd762d1c3b58aa806f",
+    "10": "4606b57d900c010a53af74c05b5cc415b5a9a02efa3ea332613a361a0199bb7d",
+    "11": "e858f92298cfdadb02510ba596a95f26742fdc359805688b8eed1e4d6c7c3292",
+    "12": "19ebba2728b5890b9902d3cd0c793f4280aa62b35bfa5db4151428ccbbafc785",
+    "13": "119b1eec0da4e578f233c7dcdc90c7b8d25925cb554d654cd5b0d877a8c069d7",
+    "14": "24077650ed33346a7d1f06b253fcf5d87373dd888938a952644a112eabd6eea6",
+    "15": "512d7856f605208519d02695fce941fee20982888c80617d29a928627ab165a7",
+    "16": "8c7fd581127cd0ae5b0f9ad9c83284050b3c89b9bb38a2dd7327138061c2f987",
+    "17": "57acbc17c58b371c3558e949a406897329f125675320f42fcb22fb36830b5453",
+    "18": "581ca65eb26d588eb7201bfef40cb3c5b5fc58b6e2caf65cd36b3dd8fc3d376e",
+    "19": "0b378333e2362ddab4bc21ccbe5d561cfe03ec286b02bc527647eba56d4ea67c",
+    "20": "5e535b1072a57c44348e916dbd221045d598a1c51f954c91d939f7ef07677502",
+    "21": "88221bd5f30e3df26f1636933532c6a8fcb44b00f16b8b68a7eba76663fdcb3e",
+    "22": "c0dc4e08c3f2110ddbf9bbdfab33c3ce4eacc1ff21f3361ce4a9d6010e2c9136",
+    "23": "ea413b296fff4d3c978f164f85d5f7d1a7cc856a6be3962180283eaf1ed96df3",
+    "24": "cb4c726903afbfd5c91fed417e7f3302f2f7f2c573f28900973311f60d2443e6",
+    "25": "d6b8a6bc175970924a7e2bfb64bbf44ede2245c877b770ded979d04e22a2098f",
+    "26": "ae6e1dc1fba811b140cfad0830fcdeac896991d049eccc985c3f6914a9eba5d9",
+    "27": "192fa649f151f95662aa7d56c0cf6034daf8e9d25368b2662df603e6f095ade5",
+    "28": "8af643b1fb204392b2ff823c7c84191150d9843c5a77effad599c596c8cc29f2",
+    "29": "70c9eb065a21a169d8f927ee50cf834dcddddf5bffd5075ef087058fc4e0646e",
+    "30": "94bb047dee09e39e50f71163f40761cec2f348eba67ff2267ce5f346b98fb22b",
+    "31": "8f6e00905a04a8896fe7f4d2a2b21c406c1ef9be3df2132fd152bce0f542a368"
+  },
+  "review_artifacts_sha256": {
+    "timka_finisher_preflight_v1_down_light_world_compare_4x.png": "2ef43cc2d52501f13176d84bc695feed1811cbd884ab6a8bb04a451704a137ee",
+    "timka_finisher_preflight_v1_down_dark_world_compare_4x.png": "736ba4fa3e59828acfc074e891b3d0e7ef26a607a2cb6725c2791b7e2f8d47dc",
+    "timka_finisher_preflight_v1_down_unarmed_SOURCE_ONLY.gif": "662f2423845ff028719dc21d8950393526ac994c5344387ca6d84249458b164b",
+    "timka_finisher_preflight_v1_down_blunt_SOURCE_ONLY.gif": "9873f51eb7fb265d7eae55818d8072abdcc4242f22ec5c02aa61955d7738a521",
+    "timka_finisher_preflight_v1_down_sharp_REFERENCE_SOURCE_ONLY.gif": "8b11316b555482d35a4630b102a0fd2d8ffb9314b0eedb95aa9d72e073f5d6a0",
+    "timka_finisher_preflight_v1_down_firearm_REFERENCE_SOURCE_ONLY.gif": "de2770e1088418471c0b22bfb5816041e22c35464d366fc80659f8117b11006e",
+    "timka_finisher_preflight_v1_down_environmental_SOURCE_ONLY.gif": "ba38f9a2fb1088c07e3b7944f95f0f4c982c2f60b29b00c941fd5198fab03720",
+    "timka_finisher_preflight_v1_down_prime_clinch_SOURCE_ONLY.gif": "1cfa2b8c4bc55d6fd1868932d38ba59cbddd3995cea9854ef1d55f9571dafe81",
+    "timka_finisher_preflight_v1_left_light_world_compare_4x.png": "e97f2a35ebaeed0e770e103dd4a924a9fe2b537ef18c253dbfbcb9ff912e5350",
+    "timka_finisher_preflight_v1_left_dark_world_compare_4x.png": "825d4dc0a522d25eb18351d89d07272408662cdd9109d07b876535861e9fdb2b",
+    "timka_finisher_preflight_v1_left_unarmed_SOURCE_ONLY.gif": "5d6d76e6181f47ae1cc229fd4a5eec2c1d4de87c98c86d8038beb94e48890267",
+    "timka_finisher_preflight_v1_left_blunt_SOURCE_ONLY.gif": "1975982d5048dda4606840eee3665fec34edf0ea75a9ec0a9323624429db9ffb",
+    "timka_finisher_preflight_v1_left_sharp_REFERENCE_SOURCE_ONLY.gif": "587c7eb8bee75b6408ce3c0b1db3f1829e27babca153484e2d7895cf4ab2e733",
+    "timka_finisher_preflight_v1_left_firearm_REFERENCE_SOURCE_ONLY.gif": "e17f58ed7a2edb4cb6aee667f9174ecccf7cde5ff5fd38e878d679fed17693a6",
+    "timka_finisher_preflight_v1_left_environmental_SOURCE_ONLY.gif": "6a0a0e9494a9f17361d0e325fcf3d1c972d4282369a8ba345ca8bb89687a5609",
+    "timka_finisher_preflight_v1_left_prime_clinch_SOURCE_ONLY.gif": "ed3d42eb145db47b2b63882e56c085194fb1eecf5e0e20352e6eb44defbaf660",
+    "timka_finisher_preflight_v1_right_light_world_compare_4x.png": "7a74e2e1d74ed62866b6f0f70d26bbc857e45f0a081ed8f0750406cdc9700bf4",
+    "timka_finisher_preflight_v1_right_dark_world_compare_4x.png": "26519ee8209c54ab84297231ad0e7ffc62439d04fcfbdd00e6bbc39030611f0e",
+    "timka_finisher_preflight_v1_right_unarmed_SOURCE_ONLY.gif": "a9840c8d564008db9160e5bc44fac3cc8a9812b66b680a7a7f6ce8b1f8c84228",
+    "timka_finisher_preflight_v1_right_blunt_SOURCE_ONLY.gif": "365786392cbe6135dd04420908c66d67cc184d3b1b2e2869fadc1580c67f5e78",
+    "timka_finisher_preflight_v1_right_sharp_REFERENCE_SOURCE_ONLY.gif": "e27bfccf1438d74de7f291d4314e5f0d38aa160b201e24a927a5bca3d3c4ab02",
+    "timka_finisher_preflight_v1_right_firearm_REFERENCE_SOURCE_ONLY.gif": "f3c7a9de65929a21dde798857217956cffda97e0f3b258984907c4cbd047d1d3",
+    "timka_finisher_preflight_v1_right_environmental_SOURCE_ONLY.gif": "0fb184ffde6751a7578c20ee5b23ed6e9433353d85a14929353c89e61d928de9",
+    "timka_finisher_preflight_v1_right_prime_clinch_SOURCE_ONLY.gif": "35d4ba74d22273c28ca02933df5510369b4eb5ba2ee3423dc070702129dba767",
+    "timka_finisher_preflight_v1_up_light_world_compare_4x.png": "def1cdd9b53432962e101eed80b605f44cf1cc02368aee934df0327ae1b4d130",
+    "timka_finisher_preflight_v1_up_dark_world_compare_4x.png": "b9644535c2e01ee37ae9ae5eee1a2a7fe85baabfbce72dab0b03dd24aa9b685e",
+    "timka_finisher_preflight_v1_up_unarmed_SOURCE_ONLY.gif": "61097f3a1234e0bb52fdae2ca44f7cf5a64612325886773e13dae4a6b2121501",
+    "timka_finisher_preflight_v1_up_blunt_SOURCE_ONLY.gif": "6ea4df551899e61319f00ed3b22b8dcd4b3502c718cbeb4713ea97fbd7a08018",
+    "timka_finisher_preflight_v1_up_sharp_REFERENCE_SOURCE_ONLY.gif": "f0011d6da971da4cf6afa4705487584efbd0d8620da586ee7286b6e21f53a850",
+    "timka_finisher_preflight_v1_up_firearm_REFERENCE_SOURCE_ONLY.gif": "d81dcea9504e4239984b662731dc839791e5576a5c45c3c93e22b3832b680155",
+    "timka_finisher_preflight_v1_up_environmental_SOURCE_ONLY.gif": "2977b61b89fe3d11cc83de45e875b365be7eeb64d570f4180c1c2808b9131659",
+    "timka_finisher_preflight_v1_up_prime_clinch_SOURCE_ONLY.gif": "89ebb58005f5570a4781cff101fa094dcf30871dcefd237cc109f8efd11dedef",
+    "timka_finisher_preflight_v1_whole_source_signature_guard_comparison_2x.png": "8d286525240dc9f034dc38e62fb97c97e6d4b8ba5a381dbe048aa9ecedab64dd",
+    "timka_finisher_preflight_v1_unarmed_all4_ordered_SOURCE_ONLY_4x.png": "637acb8a6e5d935367aa0a5aab5285e83af05e8700f2015a31f81eb52e26fe93",
+    "timka_finisher_preflight_v1_blunt_all4_ordered_SOURCE_ONLY_4x.png": "eba20cfde221a7c04cbc6dacd644b7c8e66a942185f08e21f0fc9c6ca315e0c3",
+    "timka_finisher_preflight_v1_sharp_REFERENCE_all4_ordered_SOURCE_ONLY_4x.png": "7dd2666db8d77a7a4af3edceab127ae4f6bcab918ed2e8dc81e58ffb8e64af25",
+    "timka_finisher_preflight_v1_firearm_REFERENCE_all4_ordered_SOURCE_ONLY_4x.png": "b602ba26512b2787c7bf42d071db3c21b6c88db2b7e87ccb7f6d86e173ec3817",
+    "timka_finisher_preflight_v1_environmental_all4_ordered_SOURCE_ONLY_4x.png": "593ef9474dff125b0e45c5d67f1e55de5691f9cd0e97f38c90d239fa0a40eefd",
+    "timka_finisher_preflight_v1_prime_clinch_all4_ordered_SOURCE_ONLY_4x.png": "f714d94f4c65951929fdad7982ff5915abb1edde8920dedf3fc38105d9c41acc",
+    "timka_finisher_preflight_v1.md": "069b4a5f72cb0b3590fba1060416155f56bb9a28fc3a1c3bb54b75167af3b5d4",
+    "timka_finisher_preflight_v1_metrics.json": "653eca29450952ffb2fa75d9862e83b791304233b4b5d266641be964de267ddf",
+    "timka_finisher_preflight_v1.inspect.py": "d0fdf163a1c8d3a51090b1ad22c3dcc6c4de6af0d8ee28f2e96a25830a601c54"
+  },
+  "minimal_wholecell_correction_union": [
+    2,
+    11,
+    13,
+    21,
+    25,
+    26,
+    27,
+    28,
+    29,
+    31
+  ],
+  "previous_rejections_preserved": true
+}
