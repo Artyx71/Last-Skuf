@@ -60,3 +60,26 @@ The action packer's `--anchor reference` uses one standing column0 offset for al
 eight cells of a direction, preserving actual fall/death depth instead of separately
 centering each pose. Strict source-cell bounds remain mandatory; the rejected Gabar
 action v1 is not packed by cropping its extended fist.
+
+## Gabar ACTION source assembly v6
+
+Selected rows: DOWN v4d, LEFT v2a, RIGHT v3d, UP v5c. Each has an independent
+source-only report; runtime joins/contact/floor/muzzle presentation remain pending.
+`assemble_character_actions.py` verifies both preserved source-review schemas,
+exact report/metrics/master/native hashes and copies32 reviewed RGBA frames without
+additional pixel changes. It refuses missing/failed reviews and existing outputs.
+Source approval and32 cells do not authorize a playable character.
+
+DOWN v4d applies one uniform45×60 whole-cell NN scale (all8 poses), fixedX1 and
+standing-column0 anchor58. Other action directions use48×64, fixed column0 anchor.
+The DOWN variant reduces the source's55px apparent standing height to51px against
+world50px; real world/action joins must still be inspected in Godot.
+
+RIGHT v3d preserves7 original whole cells and the newly drawn complete death pose.
+The generated death figure crosses a nominal cell boundary but fits wholly within
+a384px-wide rectangle. Its exact source rectangle738,512,1122,1024 is copied to
+cell6 with a30px whole-pose translation; all52,174 alpha128 foreground pixels survive,
+with no neighboring figure. The rejected nominal-cell selection v3c and failure
+record remain archived. This differs from the too-wide original punch: no limb
+is cropped, resized separately or reconstructed. Per-cell assembly provenance is
+retained for all direction corrections.
