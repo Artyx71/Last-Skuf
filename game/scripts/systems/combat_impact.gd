@@ -74,6 +74,7 @@ func on_contact(event: Dictionary) -> void:
 			held_ids[actor.get_instance_id()] = true
 			held_poses.append({"sprite": actor.sprite, "texture": actor.sprite.sprite_frames.get_frame_texture(actor.sprite.animation, actor.sprite.frame),
 				"position": actor.global_position + actor.sprite.position - Vector2(24,32), "color": actor.sprite.modulate,
+				"sort_y": actor.global_position.y,
 				"actor_id": actor.get_instance_id(), "clothing_at": actor.global_position+preload("res://scripts/actors/polish_frames.gd").clothing_offset(actor.sprite)})
 			actor.sprite.self_modulate.a = 0
 	if flashes_enabled(): flash_remaining = float(cfg.flash_seconds)
@@ -128,7 +129,14 @@ func _draw() -> void:
 		for particle in particles:
 			var frame := mini(3, int((float(combat.polish.particle_ttl) - particle.ttl) * 4 / float(combat.polish.particle_ttl)))
 			_draw_cell(particle.at, 11 if reduced() else frame, particle.row)
-	for row in held_poses:
+	var render_poses := held_poses
+	if combat.lab.y_sort_enabled:
+		# A hitstop snapshot must preserve the host's ground-depth order too.
+		# This separate array never changes physics, reservations or pose lifetime.
+		render_poses = held_poses.duplicate()
+		render_poses.sort_custom(func(a: Dictionary,b: Dictionary) -> bool:
+			return a.actor_id < b.actor_id if a.sort_y == b.sort_y else a.sort_y < b.sort_y)
+	for row in render_poses:
 		draw_texture(row.texture, row.position, row.color)
 
 func _draw_cell(at: Vector2, column: int, row: int) -> void:

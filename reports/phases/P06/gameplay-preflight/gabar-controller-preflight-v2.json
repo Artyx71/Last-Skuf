@@ -1,0 +1,234 @@
+{
+  "phase": "P06",
+  "version": 2,
+  "review_kind": "bounded_production_gabar_controller_remediation",
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed_without_git_command": "9b6ac50440670759d0131debf32f4e9bf774061f",
+  "status": "GP_GABAR_01_02_CLOSED_SCOPED_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "native_art_feel_fps_platform_exports_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_or_source_mutations": false,
+  "closed_findings": [
+    {
+      "id": "GP-GABAR-01",
+      "previous_severity": "HIGH",
+      "resolution": "Scene/ability snapshot rechecked preadvance/travel, melee_phase and per-recipient Core query; actual pending, active late-target and same-tick revocation tests pass."
+    },
+    {
+      "id": "GP-GABAR-02",
+      "previous_severity": "MEDIUM",
+      "resolution": "prepare_art runs exact complete+socket construction before current fixture mutation; bind prepared candidate after reset/invalidate/open. Normal unavailable selection is atomic."
+    }
+  ],
+  "findings": [],
+  "proof_limits": [
+    "Startup still requires packaged Gabar assets via assert; graceful missing-boot-asset screen not implemented/accepted",
+    "No separate live missing-socket selection fixture; atomic closure grounded in shared prepare_art source and unavailable/complete runtime+unit coverage",
+    "Current source content matches precommit-run inventory; run Git HEAD label differs and no exact-head native/CI/phase gate is claimed",
+    "Baseline25command regression receipt has no separate source inventory; logs read and hashed, not independently rerun"
+  ],
+  "author_evidence_read_not_rerun": {
+    "gabar_input_checks": 124,
+    "gabar_failed": 0,
+    "contacts": 37,
+    "rendered_captures": 0,
+    "source_inventory_checked": 652,
+    "source_inventory_mismatches": [],
+    "artifact_hashes_match": true,
+    "run_historical_head_label": "f14ad4765ac0e9446668a50e90ab8f770edb62e2",
+    "p06_component_checks": 1190,
+    "p06_component_inventory_checked": 378,
+    "p06_component_inventory_mismatches": 0,
+    "baseline_regression_commands": 25,
+    "baseline_reported_exit0_commands": 25
+  },
+  "remaining_constraints": [
+    "Five other hero bodies/abilities and complete P06 implementation",
+    "Native Input/contact/target reaction/readability/socket art and real-time performance",
+    "Pause/reload/full sandboxCH01 isolation and platform exports",
+    "Full verify_p06 and independent frozen-source/evidence phase gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/gabar-controller-preflight-v2.md",
+    "sha256": "7c4a2168214c8c7d80d3e0c8c11e7c1f08309ece7d2a78d5935014cccf7b510f"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "sha256": "0dc92bc5822ecb5a5f2fe854fb9afe1666b31beb277a5d32fb3130eaff920a03"
+    },
+    {
+      "path": "game/scripts/core/character_lab.gd",
+      "sha256": "b6dc518fb1322f6b470a31094ea4c8f17504df411695b269257638438d1762f7"
+    },
+    {
+      "path": "game/scripts/systems/character_scene_policy.gd",
+      "sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392"
+    },
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "sha256": "f99a28e59253306e5cd6dea4862b0e789e07d9224444fd476533da205d881ccb"
+    },
+    {
+      "path": "game/tests/gabar_combat_replay.gd",
+      "sha256": "2ce5192e42ff377e4be494260e92e80eb072a2592f8bdef56bc690d1d43be7be"
+    },
+    {
+      "path": "tools/verify_p06_gabar.py",
+      "sha256": "f1229d2d5c4391bc370d7a3b2a64bf9319abb854d685c6456acc9ce235cf3d30"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-03/validation.json",
+      "sha256": "02c7044a3c9269a747dc8089fbb2f4d0ed18563ec0b94ae8962a9975d40ca188"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-03/commands.json",
+      "sha256": "9a463b7bcc27dd84d5dd99f2ec128236fb0a96049c8aeefc8dab219884b55f20"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-03/source_hashes.json",
+      "sha256": "d0f4337f8eb94c5b44477b178976ba4bd22bacf04cf18b2a3a7b9330c205bb09"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-03/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-combat-03/live/result.json",
+      "sha256": "63b5dc8c6deaecd5fb219e2342c0000c3e8d8460ea723593d21b79d7d7812ab0"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/validation.json",
+      "sha256": "46aba762e14dd57713dc7c17538cfd1f6643d583c99b905b07898d3286b0c2ee"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/source_hashes.json",
+      "sha256": "94d8a30383903e0ba1a41eeb80a5fd536c5a658772d542126e86c633a2521997"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/character_combat_profile.log",
+      "sha256": "92b8b68f2291973b4768730342253a486ee6be22645ec460cffe2891e2f5061e"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/character_scene_policy.log",
+      "sha256": "bd9f2be984622e4757e9c50f1ec36799cfd5a9b27f2d2ea4ba4651facac55004"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/character_policy_integration.log",
+      "sha256": "791b87ba65def222933690eb1335d06b3ce0a0924f20ed1df7c73c37b9f81ccf"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/character_dialogue.log",
+      "sha256": "aec645a27a2540ded473e3da272966f3dfa9541cc2199af5d60a8d91464b85ba"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-p06-units-01/character_frames.log",
+      "sha256": "c3582759d23c33f71ea9ee609e71382263264848215e9c7bc34f21ac87a2117c"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/validation.json",
+      "sha256": "6c7f9bbd867f996ed37e758658dd864d1e2bf7935b1b405fa57876ac4efdfba5"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/privacy.log",
+      "sha256": "d1b921567468d6e141d579689dc3be69c621b6255d8bbb30894beb1ecd5b836d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/version.log",
+      "sha256": "c951d4f4250bf83e3cfcebfd4c77f3b9bdd66d4e236f9c27b596f2c54b2bc657"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/import.log",
+      "sha256": "60f39dca4e1107f7882155f59c5b3dba5166707108fcc84e54d6747dad54e6c5"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/smoke.log",
+      "sha256": "19ecb102a4f79ff48dd112d9871fd2bf77cb9c85125c883586accdd4580e51d3"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/integration.log",
+      "sha256": "deadc8d87ebe505f8402e219f92712be24beaf50eae5dd3ae7fe9dfc558dd7f6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/art_structure.log",
+      "sha256": "9af7f92c46afd4ca8441be5e3485f1e71f3f65668e0a89bf15e8afb32276793f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/movement.log",
+      "sha256": "4a206d2258e80943e69fae0b1d2f625f0ad9bce6cc739a82db59f3dcba04c4a6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/combat_art.log",
+      "sha256": "5ab3f948d581f495a007d478bf015232d506373ddd12c680a0c8cfacf51808c6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/combat.log",
+      "sha256": "a1f95a1d92621219a41d1f3fb09dddc24ebd08743f9a627fb6dbe15314622075"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/ai.log",
+      "sha256": "9974fc86bf16156a6395489a6b779a506f54ea92c1560a8ccbf21ef24ab65d7a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/restart.log",
+      "sha256": "bb67ef154a046439d94a3f71cafb0208cf7e73a9d363c2c66e7054e750f01cb7"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/contact_timing.log",
+      "sha256": "d1e2c53d98fdb5672b594a6e7573e19e29fd0c9a640bd3d637a8fcd044ac6bd0"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/portrait_motion.log",
+      "sha256": "5268e0c9c04e26d0ac3ed036ebd05092528913ebc52b3045d65001952ad15ebe"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/dialogue.log",
+      "sha256": "acf865d68605a2ada66b5eaf27adddbe5be274c58f25cdc2efb4238c7a256875"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/audio.log",
+      "sha256": "4b0c107886fe73868e63ed63109b5a249fb94042fc9d4bfba65929a54d92f0db"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/options.log",
+      "sha256": "d5a6b1e84291d464cd33721fc46f928f121030bd6a38e0634e701b4c1e7b0a05"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/mission.log",
+      "sha256": "a74caa341d61c36300b852ab691bb2aba37fe4389c0b0bc64da760607504d419"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/mission_normal_exit.log",
+      "sha256": "0eaddb1d197f9dd966b1c99474466bad8262d9a8159bf1cf7f849fe5f9bc18d5"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/mission_fast_exit.log",
+      "sha256": "c83a8e0594ba86227b180c1e5f031f4e31b69ab8dcec09e2a2d5f84429f7f546"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/p04g.log",
+      "sha256": "5f71eb51e0fb1d68786f3dd052be0824c60995c6ef9ef051319fe46d7151ba54"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/p04g_art.log",
+      "sha256": "d5683b8642d51435620954bed665316a6fe4dd4ccf8f5df56da918f40379ba0b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/story_registry.log",
+      "sha256": "805a583ca9444d4a6639abc8333f51b7377850bd445b125f5fbecb25956ef18b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/story_state.log",
+      "sha256": "92fdb7a9852199ad9b9fb47d82e16b947c4997823ae92c90350fbb6d59b12ad6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/story_graph.log",
+      "sha256": "6cacad6de7ec47cd97ec9f26580de010b41a1d66baf3c4b55b92144eeba1f69e"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/controller-regression-01/logs/story_integration.log",
+      "sha256": "5940fcdeacfa62f858b53bf288f49194782a1bef669bcd04d76d9e79da85e5ba"
+    }
+  ]
+}

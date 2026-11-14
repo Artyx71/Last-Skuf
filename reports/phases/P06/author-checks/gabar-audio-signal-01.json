@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "phase_approval": false,
+  "scope": "ACTUAL_GODOT_SFX_MIX_SIGNAL_ONLY",
+  "passed": true,
+  "records": [
+    {
+      "path": "reports/phases/P06/attempt1/gabar-combat-native-01/live/engine_mix.wav",
+      "sha256": "74efc9b40a3955d7dcee8332c0a49bc28e06138664f8085113a26477d7fdfa61",
+      "metrics": {
+        "frames": 1307648,
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_seconds": 29.6518820861678,
+        "sample_peak": 0.415557861328125,
+        "sample_peak_dbfs": -7.627369949944127,
+        "rms_dbfs": -22.058220271958948,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001579102353370087,
+          0.0015753743325534423
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.14129638671875,
+        "max_sample_step": 0.2392578125,
+        "sample_step_p9999": 0.147369384765625
+      },
+      "loudness": {
+        "integrated_lufs": -22.1,
+        "true_peak_dbfs": -7.6,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "technical_checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      },
+      "passed": true,
+      "silence_policy": "SFX-only fixture with deliberate idle gaps; continuous music/loop silence requirements do not apply"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/gabar-combat-native-01/movie/engine_mix.wav",
+      "sha256": "54ad2a3bf82c9bbed89f726c55dc531920d7eba65582d7559d78aba026531988",
+      "metrics": {
+        "frames": 1424384,
+        "sample_rate": 48000,
+        "channels": 2,
+        "duration_seconds": 29.674666666666667,
+        "sample_peak": 0.43994140625,
+        "sample_peak_dbfs": -7.132103226494603,
+        "rms_dbfs": -22.07422639066833,
+        "clipped_samples": 0,
+        "dc_channels": [
+          0.001575515906130299,
+          0.0015710710750733408
+        ],
+        "silence_threshold_dbfs": -70.0,
+        "silence_runs_seconds": [],
+        "max_internal_silence_seconds": 0,
+        "boundary_step": 0.106842041015625,
+        "max_sample_step": 0.233551025390625,
+        "sample_step_p9999": 0.145477294921875
+      },
+      "loudness": {
+        "integrated_lufs": -22.1,
+        "true_peak_dbfs": -6.9,
+        "short_cue_gating_warning": "Integrated LUFS is not reliable for very short cues."
+      },
+      "technical_checks": {
+        "nonempty_signal_energy": true,
+        "no_full_scale_clipping": true,
+        "bounded_dc": true
+      },
+      "passed": true,
+      "silence_policy": "SFX-only fixture with deliberate idle gaps; continuous music/loop silence requirements do not apply"
+    }
+  ],
+  "source": "existing accepted original SFX, no new P06 music/stems/voice",
+  "listening": "No actual audio hearing tool available in this session; no perceptual, musical-quality or artistic acceptance claim",
+  "music_loops_transitions": "No new music states/assets in this bounded actor fixture; accepted prior music QA remains historical and must not be inferred from this SFX analysis"
+}

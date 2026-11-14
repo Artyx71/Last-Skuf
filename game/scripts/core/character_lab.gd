@@ -8,6 +8,7 @@ var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_
 var selection_message := ""
 
 func _ready() -> void:
+	y_sort_enabled = true # Whole actor bodies sort by floor root, not head height.
 	var opened := scene_policy.open("gabar_training")
 	assert(opened)
 	super._ready()
