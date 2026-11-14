@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "name": "open_HIGH_future_obligations_allow_mass_entry",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": true,
+      "error": null,
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_full_p06",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_safe_handoff",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_navigation_pilot",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_audio_playback_pipeline",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_pacing_instrumentation",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_capability_secret_integration_contract",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "design_stage_string_cannot_skip_missing_capability",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Full actual preproduction capability matrix required",
+      "state_unchanged": true
+    },
+    {
+      "name": "unknown_future_enforcement_stage",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Unknown/closed/downgraded future acceptance obligation",
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_future_obligation",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Explicit future content acceptance contract required",
+      "state_unchanged": true
+    },
+    {
+      "name": "unknown_extra_future_obligation",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "error": "Explicit future content acceptance contract required",
+      "state_unchanged": true
+    },
+    {
+      "name": "unknown_inline_scope",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Wrong content acceptance schema/scope"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "boolean_inline_schema",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Wrong content acceptance schema/scope"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_closure_ID",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Lead must close every declared future content obligation"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "extra_closure_ID",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Lead must close every declared future content obligation"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "stale_inline_head",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Stale content acceptance source/contract"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "stale_inline_ReadinessSHA",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Stale content acceptance source/contract"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "closure_status_FAIL",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Future content acceptance incomplete"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "missing_hashed_closure_evidence",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": false,
+      "errors": [
+        "P07 production acceptance: Actual reviewed evidence required"
+      ],
+      "state_unchanged": true
+    },
+    {
+      "name": "valid_inline_full_closure_control",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "accepted": true,
+      "errors": [],
+      "state_unchanged": true
+    },
+    {
+      "name": "second_snapshot_changed_ReadinessSHA_blocks_before_PUT",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "status": "BLOCKED",
+      "snapshot_count": 2,
+      "request_count": 0,
+      "blockers": [
+        "P07 production acceptance: Stale content acceptance source/contract"
+      ],
+      "zero_real_network": true
+    },
+    {
+      "name": "second_snapshot_changed_content_evidence_blocks_before_PUT",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "status": "BLOCKED",
+      "snapshot_count": 2,
+      "request_count": 0,
+      "blockers": [
+        "Evidence changed: reports/P07/TEST_ONLY_CONTENT_EVIDENCE.txt",
+        "P07 production acceptance: Evidence missing from reviewed inventory"
+      ],
+      "zero_real_network": true
+    },
+    {
+      "name": "linked_new_P07_head_and_canonical_ROOT_authority",
+      "scope": "TEMP_GIT_FAKE_APPROVAL_ONLY",
+      "new_P07_commit_differs_from_P06": true,
+      "valid_canonical_accepted": true,
+      "stale_WORK_state_ignored": true,
+      "canonical_readiness_removed_then_BLOCKED": true,
+      "no_unintended_state_reset": true
+    }
+  ],
+  "actual_phase_or_GitHub_actions": false
+}

@@ -11,8 +11,9 @@
 | P04 Vertical slice | complete original first mission with authored tiles/story/music, death/restart, progression and Windows/Linux exports | playable, phase regression suite + smoke and human visual/audio reviewer report |
 | P04G Combat/Gore polish | impact, original blood/decals, enemy reaction states, five base finisher categories, settings | specs/COMBAT_GORE_POLISH_SPEC.md; independent ART/GAMEPLAY/QA + Lead PASS; required before P07 |
 | P05 Story infrastructure | event ledger, persistent flags, branch resolver, unlock/replay, 4 endings gate tests | complete reachable transition graph and automated simulations; no dead ends |
-| P06 Character expansion | other 6 playables + 3 photographed supporting, abilities, portraits, animation QA | per-character independent likeness/art/controls signoff |
-| P07 Campaign production | implement 21 chapter **slots** with real maps/dialogue/POV reveals, secret missions and choices | mission-specific functional and narrative checks; no fake filler levels |
+| P06 Character expansion | other 6 playables + 3 photographed supporting, abilities, portraits, animation QA | per-character independent likeness/art/controls; all7 combat styles P06-CBT01..10; complete native/export/QA/Lead gate |
+| PRE-P07 Readiness | 8-system actual audit, MDS template/registry, nonconflicting design preparation | full P06 PASS/confirmed merge; independent Lead readiness PASS;21 separate full MDS Lead-approved before mass production; preserves earlier PASS |
+| P07 Campaign production | implement21 chapters with real distinct maps/dialogue/POV reveals,5canonical secrets +2separate approved-for-concept optional proposals | mission-specific narrative/gameplay/ART/QA, navigation/save/branch reachability; measured pacing/FPS/music;7–9h first-play target requires actual runs, no filler |
 | P08 Polish/release candidate | accessibility, performance, diverse PC resolutions/controllers, licenses, export validation, permissions | complete content checklist, no HIGH issues, signed-off release candidates |
 
 ## Microtasks and commits

@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T23:28:01.131841+00:00",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "scope": "CANDIDATE_P07_PRODUCTION_GUARD_V2_NARROW_LEAD_COMPONENT_REVIEW",
+  "status": "FAIL_COMPONENT",
+  "reviewed_source_inventory_sha256": {
+    "autopilot/readiness.py": "f82db9f1fa54caca6ce78ce6fb0aad5d92c5f92202b947f3054458c6445c5304",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "autopilot/PRODUCTION_GATES.md": "e4f8078bfc58920b24f566cbb4765c9e0bc85355a4a21a4c55a27467afe83acd",
+    "autopilot/config.json": "8ef804a0855c05fb2c314ed559784243b39e9792b582d5897449611f2886c39f",
+    "autopilot/github.py": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b",
+    "autopilot/worker.py": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5",
+    "tools/tests/test_production_readiness.py": "1524c11a804c07cc53557f15a9e7546b358f94d6410726adbb1983214b72c602",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472",
+    "planning/PRE_P07_REQUIREMENTS.md": "e0f16f86708fe18b0d0cba49cfd2ff04777e5b5c21884c12789772c6415c1c02",
+    "automation/decisions/P07_CONDITIONAL_CONTINUATION.json": "1ac6d9dec9e7ca96b3cb97b872a88b905c691a86049f52c607583305c706dc44"
+  },
+  "reviewed_version": "V2_EXACT_SNAPSHOTS",
+  "commit_label_from_author": "fa6521c",
+  "QA2_awaited": true,
+  "QA2_verdict": "PASS_COMPONENT",
+  "QA2_decision_sha256": "87ec0d6b18cc5e1973c639b2895a19ff7132238bf4b5ee54c18be62e66f38a3e",
+  "QA2_mechanical_findings_remain_closed": [
+    "PG-C01",
+    "PG-C02",
+    "PG-C03",
+    "PG-C04"
+  ],
+  "must_fix": [
+    {
+      "id": "PG-L05-STAGED-ACCEPTANCE",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "category": "ORCHESTRATION_CONTRACT_MISMATCH_FAIL_CLOSED_OVERBLOCKING",
+      "source": [
+        "autopilot/readiness.py:121",
+        "autopilot/runner.py:228",
+        "autopilot/PRODUCTION_GATES.md",
+        "planning/PRE_P07_REQUIREMENTS.md"
+      ],
+      "observed": "Every unresolved High is treated identically at generic P07 entry. The contract cannot represent independently declared future content-acceptance obligations (e.g actual completed-campaign duration) separately from actual preproduction deficiencies. Strict v2 is fail-closed; no bypass or new security failure is claimed.",
+      "repro": "semantic-probe.py uses frozen v2 load_gate only in ROOT temporary TEST_ONLY files: CLOSED HIGH passes; otherwise valid OPEN HIGH marked after-content-before-completion blocks with Unresolved Critical/High blocks production. Both match v2 policy but expose missing staged expression. No Git/controller/state execution.",
+      "required_fix": "Keep general P07 executor as mass production with21MDS hardgate. Independently distinguish truly closed actual preproduction capability findings from explicit typed HIGH OPEN future acceptance obligations, fixed enforce_at=P07_LEAD_PASS_AND_MERGE. Require hash-bound exact-obligation production_acceptance before recording fullP07PASS and recheck before protectedmerge; unknown/missing/stale/wrong-kind records deny. No author reclassification/downgrade/premature closure. Alternatively add actual enforced preproduction/production stages, not prompt-only scope.",
+      "acceptance": "Actual preproduction evidence and21MDS before generic launch; mandatory future obligations remain open until real content exists and are enforced at fullP07Lead+merge. Tests must reject missing/unknown stages, missing/extra/duplicate closure IDs, stale readinessSHA/P07head/evidence, concept/component/FAIL/BLOCKED, and preserve v2 sourceGit/path/severity/schema/no-reset/one-executor protections."
+    }
+  ],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "full_production_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false,
+  "P06_formal_attempt_consumed": false,
+  "old_readiness_FAIL_changed": false,
+  "canonical_state_or_WORK_mutations": false,
+  "own_broad_tests_run": false,
+  "own_narrow_pure_probes": 2,
+  "own_Git_controller_engine_network_generator_calls": 0,
+  "safe_handoff_fullverify_fullP06_still_required": true,
+  "remove_21MDS_hardgate_approval": false,
+  "proposed_v3_direction_approval_only": true,
+  "proposed_v3_implementation_approval": false,
+  "report_sha256": "8e6aae7a349012a66750fef52c1d411701d5fc87342389fed2b33a6de106df51",
+  "metrics_sha256": "332fd9ccad16e47c4bf9fc9f6f7270d65a591c8faf10f5fbe0a006d6aeb705ce",
+  "stage_acceptance_sha256": "d349be21d7c7678b75b2e2c7bc85387e460fc79ea04f67970a9399631c94c0ad",
+  "next_action": "Author implements staged protocol in new candidate while preserving v2/QA2/old readiness; separate QA3 and narrow Lead review required. Keep ROOT stopP06 and all existing gates."
+}

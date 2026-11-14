@@ -1,22 +1,20 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-14T18:52:26.307478+00:00",
+  "updated_utc": "2026-11-14T23:52:14.348060+00:00",
   "phase": "P06",
-  "status": "COMPLETED_CONSUMED_CHECKPOINT",
-  "source_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
+  "status": "COMPLETED_CONSUMED_AUTHOR_RESUMED",
+  "source_head": "6daa6e473dd4e536e71f10580b53c2bf591047da",
   "active_author": {
-    "pid": 53666,
-    "pty_session": 30720,
-    "status": "CHECK_CANONICAL_LIVE_OR_ENDED_BEFORE_RESUME",
-    "snapshot": "Final report snapshot; author releases lease after checkpoint commit. Never infer live executor from this file."
+    "pid": 91871,
+    "pty_session": 35830
   },
   "current_operation": {
-    "id": "6bd418470f6144a1a23c4109adcd151f",
-    "task": "P06/pasha-world-native-01",
+    "id": "aa420deba7384c888d188a91b13acef8",
+    "task": "P06/owner-preview-20261115-01",
     "status": "CONSUMED_EXIT0"
   },
   "phase_approval": false,
   "merge_allowed": false,
-  "next": "No running job, no pending generator; verify canonical lease before oneauthor resume. Do not replay consumed Pasha/Tega jobs. Continue unblocked P06 tasks; no phase/merge approval."
+  "next": "Candidateguard boundedQA/LeadPASS; ownerpreview delivered/consumed. Resume existingP06, finish fullverifier/safehandoff/abilities. FullReadinessFAIL/21MDSmissing: noP07advance. CanonicalRoot state controls lease."
 }

@@ -1,20 +1,20 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-14T22:18:16.117146+00:00",
+  "updated_utc": "2026-11-14T23:52:14.348060+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
+  "frozen_worktree_head": "e48534065b87ce240aac991f0c892224d3d3af22",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "6bd418470f6144a1a23c4109adcd151f",
-    "task": "P06/pasha-world-native-01",
+    "id": "aa420deba7384c888d188a91b13acef8",
+    "task": "P06/owner-preview-20261115-01",
     "status": "CONSUMED_EXIT0",
     "safe_retry": false,
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/6bd418470f6144a1a23c4109adcd151f/receipt.json"
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aa420deba7384c888d188a91b13acef8/receipt.json"
   },
   "independent_gates": {
     "gameplay_controller": "Gabar/Olegboundedverified;TimkaWORLDactualInput1344/1344verified, combatpending",
@@ -25,24 +25,42 @@
     "readiness_QA": "PASS_COMPONENT f3b8fbd0: independently actual56+21 headless in isolated ROOTcopy. Author Gabar124/Oleg164/isolation25+reload evidence inspected, not independently rerun. CIregistration mocked, not GitHubCI.",
     "compact_QA": "b9484565 PASS_COMPONENT closesTC01/02",
     "runtime_import_QA": "c50b9b92 PASS_COMPONENT 2207+102+30; notability/visual/phase",
-    "yakuza_scope_fix": "2a8da1c7 CLOSED_SCOPED_FIX independent actualbaseline11/10 andafter801/801"
+    "yakuza_scope_fix": "2a8da1c7 CLOSED_SCOPED_FIX independent actualbaseline11/10 andafter801/801",
+    "production_readiness": "b76fa63b FAIL_PREP07_ONLY;9tickets;priorPASS/P06attemptunchanged",
+    "two_optional_concepts": "Narrativef047ffba andLead179ae29f CONCEPT_ONLY_PASS;notcanon/MDS/runtime/readiness",
+    "production_guard": {
+      "status": "PASS_COMPONENT_NOT_ROOT_INSTALLED",
+      "QA": "f2c1d17647186ccc90f0aa5e0a6974924b48168b156b46311e1df998283dfb86",
+      "Lead": "de1fb9f5c33c382cf1db6f39d7a2843463862f1974036949fa25e7ca4184588d",
+      "tests": "55+47unit;16ingress/23stage/10oldindependent",
+      "closed": [
+        "PG-C01",
+        "PG-C02",
+        "PG-C03",
+        "PG-C04",
+        "PG-C05",
+        "PG-C06",
+        "PG-L05"
+      ],
+      "full_readiness_approval": false
+    }
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "Complete durablelocalownerpreview export and giveactualLinux/Windowsfilelinks; thencontinueP06combatwork and nonconflictingPREP07audit/template/registry. Do not rerun actualmigration or consumedjobs.",
+  "next_action": "Continue existing P06 combat/art/ability/sound gates; complete fullverify_p06.py and safeROOT integration preserving dirtysource/singleexecutor. PREP07 fullReadiness remainsFAIL,21individualMDS notapproved, no P07advance. Candidateguardreviews complete, do not rerun consumedexport/migration.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "b21a8f589e6f71934d3ae559e124c55dcd83d7ca",
+  "source_head": "e48534065b87ce240aac991f0c892224d3d3af22",
   "active_author": {
-    "pid": 71862,
-    "pty_session": 65158,
-    "status": "ACTIVE_SOLE_AUTHOR_PREPARING_PREVIEW_HANDOFF"
+    "pid": 91871,
+    "pty_session": 35830,
+    "status": "ACTIVE_SOLE_AUTHOR"
   },
   "native02": {
     "operation": "c788ed6782ef4e5cbccc00cbff99523f",
@@ -61,16 +79,16 @@
     "pasha_world_v3d_native_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
     "pasha_world_v3d_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED"
   },
-  "latest_implementation_head": "b21a8f589e6f71934d3ae559e124c55dcd83d7ca",
+  "latest_implementation_head": "e48534065b87ce240aac991f0c892224d3d3af22",
   "persistent_runner": false,
   "session_checkpoint": {
     "phase_complete": false,
     "pending_generator_calls": 0,
     "last_full_phase": "P05",
     "P06_PR": null,
-    "P06_export": null,
+    "P06_export": "DEV_PREVIEW_ONLY actualLinux22/Wine18,notfullphase",
     "pending_component_reviews": [],
-    "full_phase_reviews": "NOT_READY_PENDING_COMPLETE_IMPLEMENTATION"
+    "full_phase_reviews": "NOT_READY_PENDING_P06_COMPLETE"
   },
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
@@ -97,20 +115,32 @@
       "status": "OWNER_APPROVED_EXCEPTION_RECORDED",
       "proposal": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
       "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
-      "applied": false,
-      "not_phase_approval": true
+      "applied": true,
+      "not_phase_approval": true,
+      "implementation_status": "WORLD32_ACTION28_MIGRATED_FIN24_NOT_ADOPTED"
     }
   ],
   "open_findings": [
     "Timka environmental contact family/readability",
     "Distinct present/prime visual stance/motion and actual abilities/sockets",
-    "P06-CBT-01..10 sevenhero finisher/sound/reactions/controls gates not complete"
+    "P06-CBT-01..10 sevenhero finisher/sound/reactions/controls gates not complete",
+    "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
+    "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
+    "FullProductionReadiness FAIL b76fa63b unchanged"
   ],
   "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
-    "status": "SOURCE_SMOKE18_PASS_EXPORT_PENDING",
-    "scope": "LOCAL_DEV_ONLY",
-    "phase_approval": false
-  }
+    "status": "ACTUAL_EXPORTED_AND_SMOKE_VERIFIED",
+    "source_head": "6daa6e473dd4e536e71f10580b53c2bf591047da",
+    "friendly_directory": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/build/P06_DEV_20261115_01",
+    "linux_checks": 22,
+    "linux_captures": 4,
+    "Wine_headless_checks": 18,
+    "native_windows": "NOT_TESTED",
+    "phase_approval": false,
+    "user_profiles_isolated": true,
+    "source_game_unchanged_since_export": true
+  },
+  "latest_game_source_commit": "6daa6e473dd4e536e71f10580b53c2bf591047da"
 }
