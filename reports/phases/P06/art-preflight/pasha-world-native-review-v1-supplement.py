@@ -1,0 +1,31 @@
+from pathlib import Path
+from PIL import Image,ImageOps
+import json,hashlib,ast,subprocess,math
+ROOT=Path(__file__).resolve().parents[4];WORK=ROOT/'.autopilot/worktrees/P06';OUT=ROOT/'reports/phases/P06/art-preflight';PFX='pasha-world-native-review-v1';BASE=WORK/'reports/phases/P06/attempt1/pasha-world-native-01';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+m=json.loads((OUT/(PFX+'-metrics.json')).read_text());meta=json.loads((WORK/'game/assets/art/characters/pasha/world.json').read_text());srp=WORK/meta['source_adoption']['independent_source_review'];sr=json.loads(srp.read_text());assert all(sha(WORK/p)==h for p,h in sr['source_inventory_sha256'].items());assert all(sha(srp.parent/p)==h for p,h in sr['review_artifacts_sha256'].items());m['source_acceptance_inventory_verified']={'sources':len(sr['source_inventory_sha256']),'artifacts':len(sr['review_artifacts_sha256']),'review_sha256':sha(srp),'all32_freshly_reviewed':sr['all32_freshly_reviewed']}
+master=Image.open(WORK/meta['master']).convert('RGBA');atlas=Image.open(WORK/'game/assets/art/characters/pasha/world_sheet.png').convert('RGBA');assert master.size==(1536,1024) and atlas.size==(384,256)
+tree=ast.parse((WORK/'assets/source_art/characters/pack_portraits.py').read_text());palette=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='PALETTE' for t in n.targets));colors=[tuple(bytes.fromhex(c)) for c in palette];pal=Image.new('P',(1,1));pal.putpalette([c for t in colors for c in t]+list(colors[0])*(256-len(colors)))
+recon=[]
+for i,f in enumerate(meta['frames']):
+ row,col=divmod(i,8);a=master.crop((col*192,row*256,col*192+192,row*256+256)).resize((48,64),Image.Resampling.NEAREST);alpha=a.getchannel('A').point(lambda p:255 if p>=128 else 0);a=a.convert('RGB').quantize(palette=pal,dither=Image.Dither.NONE).convert('RGBA');a.putalpha(alpha);a.paste((0,0,0,0),(0,0),ImageOps.invert(alpha));cell=Image.new('RGBA',(48,64));cell.paste(a,tuple(f['translate_native']));native=atlas.crop((col*48,row*64,col*48+48,row*64+64));assert cell.tobytes()==native.tobytes() and hashlib.sha256(cell.tobytes()).hexdigest()==f['rgba_sha256'];assert sum(cell.getchannel('A').get_flattened_data())==sum(alpha.get_flattened_data());box=native.getbbox();assert box[0]>0 and box[1]>0 and box[2]<48 and box[3]<64;recon.append({'index':i,'direction':f['direction'],'column':col,'bounds':box,'translate_native':f['translate_native'],'rgba_sha256':f['rgba_sha256'],'exact_reconstruction':True,'no_opaque_loss':True})
+m['independent_all32_native_reconstruction']=recon;m['binary_alpha_values']=sorted({p[3] for p in atlas.get_flattened_data()});m['opaque_colors']=len({p[:3] for p in atlas.get_flattened_data() if p[3]});m['transparent_rgb_nonzero_pixels']=sum(any(p[:3]) for p in atlas.get_flattened_data() if not p[3]);m['minimum_native_gutter']=min(min(f['bounds'][0],f['bounds'][1],48-f['bounds'][2],64-f['bounds'][3]) for f in recon)
+job=ROOT/'.autopilot/jobs/6bd418470f6144a1a23c4109adcd151f';j=json.loads((job/'input.json').read_text());rec=json.loads((job/'receipt.json').read_text());assert j['argv_sha256']==rec['argv_sha256'];assert j['argv']==['/usr/bin/python3','tools/verify_p06_world.py','--actor','pasha','--output','reports/phases/P06/attempt1/pasha-world-native-01','--movie','--build-output','build/P06/attempt1/pasha-world-native-01'];m['durable_job_input_sha256']=sha(job/'input.json');m['durable_argv_verified']=True
+m['independent_input_trace_checks']={};speed=125.;dirs={'down':[0.,1.],'left':[-1.,0.],'right':[1.,0.],'up':[0.,-1.]}
+for mode in ['live','movie']:
+ data=json.loads((BASE/mode/'result.json').read_text());trace=data['trace'];assert len(trace)==672 and data['continuous_trace_start']==480;wrong=[]
+ expected=[]
+ for direction in ['down','left','right','up']:
+  for state,n in [('idle',48),('walk',36),('run',36)]:expected += [('grid',state,direction)]*n
+ for state,direction in [('idle','up'),('walk','right'),('run','right'),('idle','right'),('walk','down'),('run','left'),('walk','up'),('idle','up')]:expected += [('continuous',state,direction)]*24
+ for i,(s,exp) in enumerate(zip(trace,expected)):
+  sequence,state,direction=exp;vector=[0.,0.] if state=='idle' else dirs[direction];vel=[v*speed*(1.44 if state=='run' else 1.) for v in vector]
+  if s['sequence']!=sequence or s['animation']!=state+'_'+direction or s['input_vector']!=vector or s['run_pressed']!=(state=='run') or math.dist(s['velocity'],vel)>0.0001:wrong.append(i)
+ assert not wrong
+ cont=trace[480:];steps=[]
+ for a,b in zip(cont,cont[1:]):
+  bound=speed*1.44*(b['physics_tick']-a['physics_tick'])/60;distance=math.dist(a['position'],b['position']);assert distance<=bound+.001;steps.append(distance)
+ m['independent_input_trace_checks'][mode]={'expected_samples':672,'matched_samples':672,'violations':wrong,'continuous_samples':192,'continuous_no_teleports':True,'continuous_max_step':max(steps),'movement_speed':speed,'run_multiplier':1.44,'max_visual_rounding_per_axis':max(max(abs(s['visual_origin'][0]-s['position'][0]),abs(s['visual_origin'][1]-(s['position'][1]-26))) for s in trace),'manual_keyboard_approval':False,'focus_efficacy_approval':False}
+for suffix in ['avi','mp4']:
+ p=WORK/('build/P06/attempt1/pasha-world-native-01/world.'+suffix);cmd=['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(p)];probe=json.loads(subprocess.check_output(cmd));(OUT/(PFX+'-'+suffix+'-probe.json')).write_text(json.dumps(probe,indent=2)+'\n');m.setdefault('independent_video_probe',{})[suffix]={'video_stream':next(s for s in probe['streams'] if s['codec_type']=='video'),'probe_command':cmd}
+m['additional_native_artifact_sha256']={str(p.relative_to(WORK)):sha(p) for p in [BASE/'validation.json',WORK/'build/P06/attempt1/pasha-world-native-01/world.avi',WORK/'build/P06/attempt1/pasha-world-native-01/world.mp4']}
+(OUT/(PFX+'-metrics.json')).write_text(json.dumps(m,indent=2)+'\n');print(json.dumps({'source_acceptance':m['source_acceptance_inventory_verified'],'native_reconstruction':len(recon),'native_gutter':m['minimum_native_gutter'],'input_trace':m['independent_input_trace_checks'],'video_frames':{k:v['video_stream']['nb_frames'] for k,v in m['independent_video_probe'].items()}},indent=2))

@@ -1,45 +1,46 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-14T18:44:03.048968+00:00",
+  "updated_utc": "2026-11-14T18:52:26.307478+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "00298c2406243d7ef9cde20d10645ebfb8d1a648",
+  "frozen_worktree_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "19acf1ed4aea41a7b9bc00cb0c732705",
-    "task": "P06/tega-world-native-01",
+    "id": "6bd418470f6144a1a23c4109adcd151f",
+    "task": "P06/pasha-world-native-01",
     "status": "CONSUMED_EXIT0",
     "safe_retry": false,
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/19acf1ed4aea41a7b9bc00cb0c732705/receipt.json"
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/6bd418470f6144a1a23c4109adcd151f/receipt.json"
   },
   "independent_gates": {
     "gameplay_controller": "Gabar/Olegboundedverified;TimkaWORLDactualInput1344/1344verified, combatpending",
-    "art": "Tega WORLD actual native captured ART accepted dcd902b4; Pasha WORLDv3d all32 SOURCE accepted b887f5f1, strictexactadopt+frames2231+headless70/672inputpassed, actualnativepending. No fullphaseapproval.",
+    "art": "Tega actual captured WORLD ART dcd902b4 accepted; Pasha actual captured WORLD ART c6767b48 accepted (all32/12loops/7joins/749frames/40PNG). No productioncombat/ability/fullphase approval.",
     "full_QA": "PENDING full six-hero implementation/export proof",
     "full_Lead": "PENDING; no P06 PASS",
     "input_QA": "strict672samplegate independentlyverified;14unit+1008faultinjections+12wrapper+2CIwiring; actualRyzhik1344samples pass",
-    "readiness_QA": "PENDING independent qa-readiness-01. Actual author readiness56/56, Gabar124/124, Oleg164/164, CH01isolation25/25 plus fresh-process restore; implemented-fixture gate only."
+    "readiness_QA": "PASS_COMPONENT f3b8fbd0: independently actual56+21 headless in isolated ROOTcopy. Author Gabar124/Oleg164/isolation25+reload evidence inspected, not independently rerun. CIregistration mocked, not GitHubCI."
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "P06 MERGED; do not start P07/release",
-  "next_action": "Freeze clean PashaWORLD source and perform one durable native job after authorrelease; then receiptverify+consume and independent actualART. ReadinessQA pending; Timkaownerproposal not applied.",
+  "next_action": "Resume one authorized author after checking canonical lease and consumed receipts. Next independent implementation: Ryzhik ACTION/FIN own-art and real dance-step; other unimplemented hero abilities/art queued. Timkaownerproposal pending NOT applied. Fullphaseharness/exports/Lead/CI still mandatory before P06 PR/merge.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "3bda69bc0337d220c98946f81e4ae5772166cbdf",
+  "source_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
   "active_author": {
-    "pid": 49648,
-    "pty_session": 24393,
-    "status": "ACTIVE_SOLE_AUTHOR"
+    "pid": 53666,
+    "pty_session": 30720,
+    "status": "CHECK_CANONICAL_LIVE_OR_ENDED_BEFORE_RESUME",
+    "snapshot": "Final report snapshot; author releases lease after checkpoint commit. Never infer live executor from this file."
   },
   "native02": {
     "operation": "c788ed6782ef4e5cbccc00cbff99523f",
@@ -56,7 +57,7 @@
     "remaining_pasha_camera_generations_started": true,
     "pending_generator_calls": 0,
     "pasha_world_v3d_native_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
-    "pasha_world_v3d_status": "ALL32_SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_PENDING"
+    "pasha_world_v3d_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED"
   },
   "scoped_blockers": [
     {
@@ -73,5 +74,15 @@
       "applied": false
     }
   ],
-  "latest_implementation_head": "3bda69bc0337d220c98946f81e4ae5772166cbdf"
+  "latest_implementation_head": "3bda69bc0337d220c98946f81e4ae5772166cbdf",
+  "persistent_runner": false,
+  "session_checkpoint": {
+    "phase_complete": false,
+    "pending_generator_calls": 0,
+    "last_full_phase": "P05",
+    "P06_PR": null,
+    "P06_export": null,
+    "pending_component_reviews": [],
+    "full_phase_reviews": "NOT_READY_PENDING_COMPLETE_IMPLEMENTATION"
+  }
 }

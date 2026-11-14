@@ -1,0 +1,56 @@
+{
+  "regressions": [
+    {
+      "subtask": "gabar",
+      "author_validation_passed": true,
+      "declared_artifacts_checked": 4,
+      "all_artifact_hashes_match": true,
+      "relevant_source_hash_matches": {
+        "game/scripts/actors/character_player.gd": true,
+        "game/scripts/core/character_lab.gd": true,
+        "game/tests/character_readiness_test.gd": true,
+        "tools/verify.py": true
+      },
+      "error_free_logs_inspected": [
+        "reports/phases/P06/author-checks/readiness-regression-01/gabar/live.log"
+      ],
+      "independent_regression_rerun": false
+    },
+    {
+      "subtask": "olezhka",
+      "author_validation_passed": true,
+      "declared_artifacts_checked": 4,
+      "all_artifact_hashes_match": true,
+      "relevant_source_hash_matches": {
+        "game/scripts/actors/character_player.gd": true,
+        "game/scripts/core/character_lab.gd": true,
+        "game/tests/character_readiness_test.gd": true,
+        "tools/verify.py": true
+      },
+      "error_free_logs_inspected": [
+        "reports/phases/P06/author-checks/readiness-regression-01/olezhka/live.log"
+      ],
+      "independent_regression_rerun": false
+    },
+    {
+      "subtask": "isolation",
+      "author_validation_passed": true,
+      "declared_artifacts_checked": 6,
+      "all_artifact_hashes_match": true,
+      "relevant_source_hash_matches": {
+        "game/scripts/actors/character_player.gd": true,
+        "game/scripts/core/character_lab.gd": true,
+        "game/tests/character_readiness_test.gd": true,
+        "tools/verify.py": true
+      },
+      "error_free_logs_inspected": [
+        "reports/phases/P06/author-checks/readiness-regression-01/isolation/sandbox.log",
+        "reports/phases/P06/author-checks/readiness-regression-01/isolation/process-reload.log"
+      ],
+      "independent_regression_rerun": false
+    }
+  ],
+  "author_readiness_command_log_sha_matches": true,
+  "author_import_log_no_errors": true,
+  "review_scope": "Actual saved logs/results and declared hashes inspected; author regressions not independently rerun"
+}

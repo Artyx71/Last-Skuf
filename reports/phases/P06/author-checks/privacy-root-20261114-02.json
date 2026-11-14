@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scope": "PRIVATE_MANIFEST_AND_SHARED_REACHABLE_GIT_HISTORY_ONLY",
+  "phase_approval": false,
+  "updated_utc": "2026-11-14T18:46:14.622343+00:00",
+  "worktree_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
+  "manifest_sha256": "fa6f407946c3d4f60c526f22af142452c230874b725862dabf29fbf6ab1e8400",
+  "checks": [
+    {
+      "argv": [
+        "python3",
+        "tools/validate_pack.py"
+      ],
+      "exit_code": 0,
+      "stdout": "References: 11, errors: 0\n",
+      "stderr": "",
+      "seconds": 0.028
+    },
+    {
+      "argv": [
+        "python3",
+        "tools/check_privacy.py"
+      ],
+      "exit_code": 0,
+      "stdout": "privacy probes=7 tracked=2332 errors=0\n",
+      "stderr": "",
+      "seconds": 2.608
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "No publication performed",
+    "Not a commercial rights determination",
+    "Must repeat when final source/history changes before push"
+  ]
+}

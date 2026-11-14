@@ -1,20 +1,22 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-14T18:42:01.437099+00:00",
+  "updated_utc": "2026-11-14T18:52:26.307478+00:00",
   "phase": "P06",
-  "status": "COMPLETED_AND_AUTHOR_RESUMED",
-  "source_head": "00298c2406243d7ef9cde20d10645ebfb8d1a648",
+  "status": "COMPLETED_CONSUMED_CHECKPOINT",
+  "source_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
   "active_author": {
-    "pid": 49648,
-    "pty_session": 24393
+    "pid": 53666,
+    "pty_session": 30720,
+    "status": "CHECK_CANONICAL_LIVE_OR_ENDED_BEFORE_RESUME",
+    "snapshot": "Final report snapshot; author releases lease after checkpoint commit. Never infer live executor from this file."
   },
   "current_operation": {
-    "id": "19acf1ed4aea41a7b9bc00cb0c732705",
-    "task": "P06/tega-world-native-01",
+    "id": "6bd418470f6144a1a23c4109adcd151f",
+    "task": "P06/pasha-world-native-01",
     "status": "CONSUMED_EXIT0"
   },
   "phase_approval": false,
   "merge_allowed": false,
-  "next": "Consumed Tega nativejob MUST NOT replay. Sole author49648/24393 continuing Pasha source review/readiness QA; no pending imagegen."
+  "next": "No running job, no pending generator; verify canonical lease before oneauthor resume. Do not replay consumed Pasha/Tega jobs. Continue unblocked P06 tasks; no phase/merge approval."
 }
