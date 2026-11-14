@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T17:19:28.490895+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "status": "FAIL_SOURCE_CELL_29_ONLY",
+  "cell_status": "FAIL",
+  "actor_id": "timka",
+  "kind": "finisher",
+  "scope": "SOURCE_CELL_29_ONLY",
+  "reviewed_cells": [
+    29
+  ],
+  "all32_freshly_reviewed": false,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "a5de9615b57f99fff85b31e06996c01df1860fdbfa0db31140e91b57a464fbc5",
+  "master_sha256": "b7ae2dc62cf2e000992ad0c8aa655a9b616475fcdfac621d11d5760feadf3373",
+  "raw_pose_sha256": "78413e99b209422a23079884cc9557f4f94d894652b1b5eabb2113ce871fc0f0",
+  "cell29_native_rgba_sha256": "c7779a262a35a7402688cf65ebaeb1011a975d42b79f9653df165d4965c1a671",
+  "report_sha256": "bccb477079af33ab59efe10b8abb125de0001ce58c3a0ef69e02541768bd0d7e",
+  "metrics_sha256": "93392ac7af9e9a4322e32e77b0fdfa191d174f0b39100e5a5dbed791ab6c1793",
+  "must_fix": [
+    {
+      "id": "TIMKA-FINISHER-SOURCE-UP5-FAMILY-03",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 29,
+          "direction": "up",
+          "column": 5
+        }
+      ],
+      "summary": "Distinct environmental brace is achieved, but complete-pose proportions/camera family no longer match own Timka WORLD/ACTION/FINISHER neighbors.",
+      "evidence": [
+        "Wholecell comparison at identical nativeNN scale shows markedly smaller crown/head, narrow shoulders/torso and long slim legs versus own broad compact large-crown family.",
+        "Matching total hands-to-foot support height199sourcepx does not preserve head/body scale when the isolated pose extends arms high and rear leg long.",
+        "Source-only0→29→6 comparison shows abrupt wholebody/head silhouette change, not merely a bent/staggered variation of neighboring Timka poses."
+      ],
+      "required_before_acceptance": "Cell29 needs a complete coherent pose retaining own large-crown/head-to-body proportion, broad compact hoodie torso/shoulders and shorter leg/foot family while preserving distinct forward ledge brace. Do not scale/paint head or limbs separately to hide the mismatch. This report assigns no generator call or new generation task. Fresh bounded review is required for any replacement."
+    }
+  ],
+  "unresolved_other_cells": [
+    {
+      "cell": 28,
+      "direction": "up",
+      "column": 4,
+      "source_finding": "TIMKA-FINISHER-SOURCE-UP-FIREARM-READABILITY-02",
+      "source_finding_status": "OPEN",
+      "production_status": "BLOCKED_TOOL_MODERATION",
+      "record": "assets/source_art/characters/timka/finisher_up4_v3_generation_failure_01.json",
+      "observed_record_http_status": 400,
+      "record_error": "moderation_blocked",
+      "request_id": "2f18a694-ee56-482f-888a-361ee16f492d",
+      "reviewer_retried": false,
+      "unchanged_source_and_native_v2b": true
+    }
+  ],
+  "nonblocking_source_limits": [
+    "Bounded cell29 source review only; all32_freshly_reviewed=false, source_only_acceptance=false and all runtime/fullphase/phase flagsfalse.",
+    "Cell28 remains unchanged/open and independently scoped tool-blocked; saved toolfailure record read, no retry/bypass/toolgeneration performed.",
+    "Technical all32 reconstruction/31unchanged verification does not constitute all32 fresh ART acceptance.",
+    "No Godot/build/Git/controller/network/generator execution; own diagnostics writes only ROOT prefix.",
+    "No rawphotos read/upload/copy; own generated family references only."
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/timka/finisher_master_v2b.png": "87f031b8c639fd0e92c9469eb084e9797c8c84a33837d713565bfa0c7cd84177",
+    "assets/source_art/characters/timka/finisher_native_v2b.png": "0d67c1f19006830ebe3cccfce4cdcd0ab6babbe3e5875421c01ddf1d4f8f7876",
+    "assets/source_art/characters/timka/finisher_manifest_v2b.json": "4617715c03553d4fdef0082586b56734995be8edd6dd73daabbf9440c1242720",
+    "assets/source_art/characters/timka/finisher_master_v3a.png": "b7ae2dc62cf2e000992ad0c8aa655a9b616475fcdfac621d11d5760feadf3373",
+    "assets/source_art/characters/timka/finisher_native_v3a.png": "a5de9615b57f99fff85b31e06996c01df1860fdbfa0db31140e91b57a464fbc5",
+    "assets/source_art/characters/timka/finisher_manifest_v3a.json": "9338a5eda38d65254eae03692329a5e59c06c1305bec8a2defa016c666455730",
+    "assets/source_art/characters/timka/finisher_inspection_v3a_3x.png": "c6a0dc897df944121f26fa4f3a8d09b909f90ff42628a715dc6abde22f5a77c2",
+    "assets/source_art/characters/timka/finisher_v3a_assembly.json": "e79baa8f8b368425b8286a969b317d13a7ee43f2b7c3b5c4b6a6e76d5ede322b",
+    "assets/source_art/characters/timka/finisher_up5_master_v3.png": "78413e99b209422a23079884cc9557f4f94d894652b1b5eabb2113ce871fc0f0",
+    "assets/source_art/characters/timka/finisher_up5_v3_prompt.txt": "ca39b4c484196571ccee9ec70e3f20ff8a64e096b077c621c0e2ad8749ad72fa",
+    "assets/source_art/characters/timka/finisher_up5_v3_generation_metadata.json": "ada9157a6471d460febc0076b677e47b6c4072ab892150599d1a76f4138f3959",
+    "assets/source_art/characters/timka/finisher_up5_own_family_reference_v3_4x.png": "82edf507775324711830b46c9646f35c7b6be01dda28948010661ce9bfd16257",
+    "assets/source_art/characters/timka/finisher_isolated_v3_references.json": "7bb9fb683e918e602cbc29b435ee17dd977a37c5db9193c75e97c9376847091f",
+    "assets/source_art/characters/timka/finisher_up4_v3_generation_failure_01.json": "cf8e65d6d1e42ea77d10296f6c030a3fee046a6bf9259af242faaf31f3881a87",
+    "assets/source_art/characters/timka/world_native_v4c.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "assets/source_art/characters/timka/action_native_v2b.png": "29811ccf0c4112e9113f5a8822a334f86d88e32398589aca1d4087a402bd5dee",
+    "assets/source_art/characters/timka/portraits_master_v1.png": "0d6f6e48e33b061467614dcd65b350728cd9425e38b6eb7b1945d30d2dd2f4d7",
+    "assets/source_art/characters/place_actor_pose.py": "bc5b83b9491684b0e30ec1cd44540d6ab1e5576fcedca99a7d4e7646c615afb9",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "assets/source_art/characters/adopt_world.py": "d0b210e3a052b95e1b2cb34ad02c058dc53025dbd05bcaf713a3eb3a531c51d8",
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332",
+    "reports/phases/P06/art-preflight/timka_finisher_preflight_v2b.json": "b15d4148f3323f4d41b091c11d784a09b0bbf09c07464df763a61bbc29fb1b29"
+  },
+  "review_artifacts_sha256": {
+    "timka_finisher_up5_preflight_v3a_light_wholecell_family_comparison_6x.png": "71ef16387e625625ca1755e86b6d6f8a00ae9064fb9828dfcaab21aa970ad819",
+    "timka_finisher_up5_preflight_v3a_dark_wholecell_family_comparison_6x.png": "e069ac69bf55872323695ae3288451ab1f0e12ba1a3ed3b3c7951cba9bc9dfc8",
+    "timka_finisher_up5_preflight_v3a_0_5_6_SOURCE_ONLY_sequence_8x.png": "c3ecc6772c825e08aa6dd9499cf66d0fcb56110d9ea670270ae9240c0e98306b",
+    "timka_finisher_up5_preflight_v3a.md": "bccb477079af33ab59efe10b8abb125de0001ce58c3a0ef69e02541768bd0d7e",
+    "timka_finisher_up5_preflight_v3a_metrics.json": "93392ac7af9e9a4322e32e77b0fdfa191d174f0b39100e5a5dbed791ab6c1793",
+    "timka_finisher_up5_preflight_v3a.inspect.py": "0d0719d9adf95755be6bed222f7fe7986463f690b94dce6309063848947b036f"
+  },
+  "fullsheet_status": "FAIL_WITH_SCOPED_CELL28_PRODUCTION_BLOCKER",
+  "previous_rejections_preserved": true
+}

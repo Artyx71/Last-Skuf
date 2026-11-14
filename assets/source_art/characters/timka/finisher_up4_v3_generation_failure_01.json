@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "actor_id": "timka",
+  "kind": "finisher",
+  "source_cell": [
+    3,
+    4
+  ],
+  "status": "BLOCKED_TOOL_MODERATION",
+  "scope": "new UP firearm-reference whole pose only; independent tasks remain authorized",
+  "observed_utc": "2026-11-14T17:14:04.805493+00:00",
+  "generator": "built-in image_gen",
+  "http_status": 400,
+  "error_code": "moderation_blocked",
+  "moderation_stage": "input",
+  "categories": [
+    "violence"
+  ],
+  "request_id": "2f18a694-ee56-482f-888a-361ee16f492d",
+  "error_message": "Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 2f18a694-ee56-482f-888a-361ee16f492d. safety_violations=[violence].",
+  "prompt": "assets/source_art/characters/timka/finisher_up4_v3_prompt.txt",
+  "prompt_sha256": "acd076069365f8a48dd0c14c7a77757649a7b8761489ada92cf8822c18e6c74c",
+  "references": [
+    {
+      "label": "up4",
+      "own_whole_source": "assets/source_art/characters/timka/finisher_master_v2b.png",
+      "own_source_sha256": "87f031b8c639fd0e92c9469eb084e9797c8c84a33837d713565bfa0c7cd84177",
+      "source_cell": [
+        3,
+        4
+      ],
+      "reference": "assets/source_art/characters/timka/finisher_up4_own_family_reference_v3_4x.png",
+      "reference_sha256": "9d530417632695cddef2c4b9dee760757af194571dd13fbd71d6fc93725e8eb1"
+    },
+    {
+      "source": "assets/source_art/characters/gabar/finisher_up_master_v4.png",
+      "source_sha256": "11bdad72f0c4dcfd0d1177e961b23d9891df0131e38e78ba5e5d0a3dc270d434",
+      "manifest": "assets/source_art/characters/gabar/finisher_up_manifest_v4.json",
+      "source_rect_from_manifest_frame4": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "resize": "whole384x512 pose NEAREST2x to768x1024",
+      "reference": "assets/source_art/characters/timka/finisher_up4_gabar_tool_reference_v3_4x.png",
+      "reference_sha256": "ea1110d3de1f144990914cc032825dc2a5a25a9cd5b0af3834cccd5183b556e6",
+      "role": "own accepted Gabar gun projection only, no identity/wardrobe/body transfer"
+    }
+  ],
+  "raw_photos_uploaded": false,
+  "tool_returned_image": false,
+  "retried_after_moderation": false,
+  "phase_approval": false,
+  "next_action": "Preserve SOURCE FAIL and scoped blocker; do not bypass generator rejection; continue independent permitted art/code/review tasks"
+}

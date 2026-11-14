@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-14T17:09:27.834065+00:00",
+  "updated_utc": "2026-11-14T17:41:47.631479+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
@@ -18,7 +18,7 @@
   },
   "independent_gates": {
     "gameplay_controller": "Gabar/Olegboundedverified;TimkaWORLDactualInput1344/1344verified, combatpending",
-    "art": "Gabar/Oleg/TimkaWORLD boundednativeaccepted; TimkaACTIONv2b/RyzhikWORLDv2d sourceaccepted+adopted; RyzhiknativeARTpending; TimkaFINv2bFAIL2poses",
+    "art": "Gabar/Olegboundednative,TimkaWORLD+RyzhikWORLDcapturedaccepted;TimkaACTIONsourceadopted;TimkaFINsourceFAIL/BLOCKED;PashaWORLDv2e andTegaCELL12v2a pendingfamilyreviews",
     "full_QA": "PENDING full six-hero implementation/export proof",
     "full_Lead": "PENDING; no P06 PASS",
     "input_QA": "strict672samplegate independentlyverified;14unit+1008faultinjections+12wrapper+2CIwiring; actualRyzhik1344samples pass"
@@ -27,14 +27,14 @@
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "P06 MERGED; do not start P07/release",
-  "next_action": "Independent actual RyzhikWORLD ART; fix whole TimkaFIN28/29; contextabilities/sockets and remaining heroes; full phase harness/exports/review still pending",
+  "next_action": "Wait completed Pasha/Tega source camera-family findings, refine one whole pose before batch; preserve Timka scoped moderation BLOCKED and pending owner proposal; continue unaffected P06 only",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "source_head": "19be7779c2c8f47d33892cee275b74d878bc41c1",
   "active_author": {
     "pid": 39170,
     "pty_session": 47858,
@@ -48,8 +48,24 @@
   },
   "recovery_evidence": "reports/phases/P06/resume/server-restart-recovery-20261114-01.json",
   "saved_generated_candidates": {
-    "timka_action_v2b_native_sha256": "29811ccf0c4112e9113f5a8822a334f86d88e32398589aca1d4087a402bd5dee",
-    "ryzhik_world_v2d_native_sha256": "cd3f563b42f035df58f8d3e70344f82cbd6670e112644ef6aee7791ecdec622e",
+    "pasha_world_v2e_native_sha256": "140a88cf3d4a058351613a59a74b079f45081b19bc349a19823bb1246086a73a",
+    "tega_world_v2a_native_sha256": "ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799",
+    "tega_remaining_three_gait_generations_started": false,
     "pending_generator_calls": 0
-  }
+  },
+  "scoped_blockers": [
+    {
+      "component": "timka_finisher_UP4_reference",
+      "status": "BLOCKED_TOOL_MODERATION",
+      "request_id": "2f18a694-ee56-482f-888a-361ee16f492d",
+      "no_retry_or_bypass": true
+    },
+    {
+      "component": "timka_supported_animation_exception",
+      "status": "OWNER_DECISION_PENDING",
+      "proposal": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
+      "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
+      "applied": false
+    }
+  ]
 }

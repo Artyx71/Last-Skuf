@@ -1,0 +1,33 @@
+"""Independent CELL12 whole-figure assembly/native reconstruction; ROOT reports only."""
+from pathlib import Path
+from PIL import Image,ImageOps
+from collections import deque
+import json,hashlib,sys
+sys.dont_write_bytecode=True
+ROOT=Path(__file__).resolve().parents[4];WORK=ROOT/'.autopilot/worktrees/P06';OUT=Path(__file__).parent;PFX='tega_world_left4_preflight_v2a'
+sys.path.insert(0,str(WORK/'assets/source_art/characters'));from pack_portraits import PALETTE
+folder=WORK/'assets/source_art/characters/tega';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();rgba=lambda im:hashlib.sha256(im.tobytes()).hexdigest()
+rawpath=folder/'world_left4_master_v2.png';basepath=folder/'world_master_v1.png';afterpath=folder/'world_master_v2a.png';nativepath=folder/'world_native_v2a.png';recipe=json.loads((folder/'world_v2a_assembly.json').read_text());layout=json.loads((folder/'world_manifest_v2a.json').read_text())
+assert sha(rawpath)=='37d1e1c5a0020b4dade10e4a7d7ab7fcd094eb35afe53909f47ae98070443168';assert sha(afterpath)=='d708ef0c9c3d8dc7af79d07661399617c8a50973c9fd095f420756fd8501bb15';assert sha(nativepath)=='ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799'
+base=Image.open(basepath).convert('RGBA');raw=Image.open(rawpath).convert('RGBA');after=Image.open(afterpath).convert('RGBA');native=Image.open(nativepath).convert('RGBA');oldnative=Image.open(folder/'world_native_v1.png').convert('RGBA')
+assert list(raw.size)==recipe['pose_canvas'];bounds=raw.getchannel('A').point(lambda a:255 if a>=128 else 0).getbbox();assert list(bounds)==recipe['complete_figure_bounds'];refcell=base.crop((384,256,576,512));refbounds=refcell.getchannel('A').point(lambda a:255 if a>=128 else 0).getbbox();assert list(refbounds)==recipe['reference_bounds'];scale=(refbounds[3]-refbounds[1])/(bounds[3]-bounds[1]);size=(round((bounds[2]-bounds[0])*scale),refbounds[3]-refbounds[1]);assert list(size)==recipe['resized_complete_figure']==[128,197];resized=raw.crop(bounds).resize(size,Image.Resampling.NEAREST);assert rgba(resized)==recipe['resized_rgba_sha256'];cell=Image.new('RGBA',(192,256));cell.paste(resized,tuple(recipe['placement']));assert rgba(cell)==recipe['output_cell_rgba_sha256'];expected=base.copy();expected.paste(cell,(768,256));assert expected.tobytes()==after.tobytes();assert sum(cell.getchannel('A').get_flattened_data())==sum(resized.getchannel('A').get_flattened_data())
+colors=[tuple(bytes.fromhex(h)) for h in PALETTE];pal=Image.new('P',(1,1));pal.putpalette([c for x in colors for c in x]+list(colors[0])*(256-len(colors)));rows=[];unchanged_source=[];unchanged_native=[];cellmetrics=[]
+for row in range(4):
+ ref=after.crop((0,row*256,192,(row+1)*256)).resize((48,64),Image.Resampling.NEAREST);dy=58-ref.getchannel('A').point(lambda a:255 if a>=128 else 0).getbbox()[3];rows.append(dy)
+ for col in range(8):
+  i=row*8+col;srect=(col*192,row*256,(col+1)*192,(row+1)*256);nrect=(col*48,row*64,(col+1)*48,(row+1)*64);full=after.crop(srect);small=full.resize((48,64),Image.Resampling.NEAREST);alpha=small.getchannel('A').point(lambda a:255 if a>=128 else 0);q=small.convert('RGB').quantize(palette=pal,dither=Image.Dither.NONE).convert('RGBA');q.putalpha(alpha);q.paste((0,0,0,0),(0,0),ImageOps.invert(alpha));packed=Image.new('RGBA',(48,64));packed.paste(q,(0,dy));actual=native.crop(nrect);assert packed.tobytes()==actual.tobytes();assert rgba(actual)==layout['frames'][i]['rgba_sha256'];assert sum(alpha.get_flattened_data())==sum(packed.getchannel('A').get_flattened_data())
+  if i!=12:assert full.tobytes()==base.crop(srect).tobytes();assert actual.tobytes()==oldnative.crop(nrect).tobytes();unchanged_source.append(i);unchanged_native.append(i)
+  cellmetrics.append({'index':i,'source_rgba_sha256':rgba(full),'native_rgba_sha256':rgba(actual),'native_bounds':list(actual.getbbox()),'exact_reconstruction':True})
+skin={tuple(bytes.fromhex(h)) for h in ['a75c49','c47755','dc956f','efb08b','f6c59f']};comparisons=[]
+for label,image,col in [('own_idle0',oldnative,0),('own_A2',oldnative,2),('own_passing3',oldnative,3),('new_B4',native,4),('own_passing5',oldnative,5),('own_A6',oldnative,6),('old_B4',oldnative,4)]:
+ c=image.crop((col*48,64,(col+1)*48,128));points={(x,y) for y in range(5,32) for x in range(48) if c.getpixel((x,y))[3] and c.getpixel((x,y))[:3] in skin};parts=[]
+ while points:
+  seed=points.pop();part=[seed];queue=deque([seed])
+  while queue:
+   x,y=queue.popleft()
+   for xy in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]:
+    if xy in points:points.remove(xy);queue.append(xy);part.append(xy)
+  parts.append(part)
+ face=max(parts,key=len);facebounds=[min(x for x,y in face),min(y for x,y in face),max(x for x,y in face)+1,max(y for x,y in face)+1];greyrows=[y for y in range(18,35) if sum(c.getpixel((x,y))==(139,138,135,255) for x in range(48))>=3];comparisons.append({'pose':label,'native_bounds':list(c.getbbox()),'largest_head_skin_component_bounds':facebounds,'largest_head_skin_component_pixels':len(face),'first_row_with3puregrey_pixels':min(greyrows),'caution':'Color ROI diagnostics support visual comparison, not automatic anatomical/likeness acceptance'})
+metrics={'schema':1,'scope':'TEGA_LEFT4_CELL12_SOURCE_COMPONENT_ONLY','all32_freshly_reviewed':False,'runtime_approval':False,'phase_approval':False,'raw_master_sha256':sha(rawpath),'source_master_sha256':sha(afterpath),'native_sha256':sha(nativepath),'complete_figure_bounds':list(bounds),'raw_canvas':list(raw.size),'uniform_scale':scale,'complete_resized_size':list(size),'placement':recipe['placement'],'resized_rgba_sha256':rgba(resized),'source_cell12_rgba_sha256':rgba(cell),'all31_other_source_cells_byte_exact':len(unchanged_source)==31,'all31_other_native_cells_byte_exact':len(unchanged_native)==31,'all32_native_technical_reconstruction_exact':True,'opaque_placement_and_native_alignment_loss':0,'row_native_dy':rows,'cells':cellmetrics,'family_landmark_diagnostics':comparisons,'visual_assessment':{'leg_ownership':'farleg-leading B direction reads improved, SOURCE-only','camera_head_body_family':'CORRECTION_REQUIRED; longer/narrower profile face and lowercollar/reducedhoodievolume vs ownfamily','absolute_head_width_claim':'Not claiming larger absolute head width; relativehead-body dominance is the visual issue','other_original_gait_cells_still_open':[15,20,23]}}
+(OUT/(PFX+'_metrics.json')).write_text(json.dumps(metrics,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:metrics[k] for k in ['all31_other_source_cells_byte_exact','all31_other_native_cells_byte_exact','all32_native_technical_reconstruction_exact','complete_resized_size','placement','visual_assessment']}))
