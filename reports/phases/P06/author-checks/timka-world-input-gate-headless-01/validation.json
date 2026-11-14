@@ -1,0 +1,83 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "timka",
+  "passed": true,
+  "source_head": "fff613d8e0f7ca2c3d0b51d4837754afccfc305c",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 70,
+  "checks_total": 70,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.689,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "timka",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-input-gate-headless-01/commands.json",
+      "sha256": "1d134af7eb5103d4eaaba757fe916a8bb2567978356530156416912f2266eb58"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-input-gate-headless-01/live/input_gate.json",
+      "sha256": "4e2aba38f9d370227a12ece7996c0fd253d3e3f5f30c0e82123e771329d8c3a6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-input-gate-headless-01/live/result.json",
+      "sha256": "f866e6a0d3a4a98d669a026d74f043aecfdf9c95caed36ae9004f16606994c9b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-input-gate-headless-01/live.log",
+      "sha256": "c5cdfa02f5dfcc861666885548aad136a68f2bde1df1784917b9b2aad77a4107"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-world-input-gate-headless-01/source_hashes.json",
+      "sha256": "f7866cd01fa4940eb89197bd32d69ebd2692e5b8ff634a7bcdafa373f72fab17"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "phase": "P06",
+  "review_kind": "independent_strict_world_engine_input_gate_component_qa",
+  "reviewer": "/root/qa_resume_recovery",
+  "independent_review": true,
+  "status": "BOUNDED_ENGINE_INPUT_GATE_VERIFIED_NOT_PHASE_APPROVAL",
+  "reviewed_utc": "2026-11-14T17:00:41.165077+00:00",
+  "phase_approval": false,
+  "merge_allowed": false,
+  "next_phase_allowed": false,
+  "findings": [],
+  "reviewed_source_sha256": {
+    "tools/p06_world_input.py": "49ebd01c79a775c4481e61012ffad2912df7c0511c0683e34de2d93abe24a4dc",
+    "tools/tests/test_p06_world_input.py": "c7846f04b88efba3e27d8e119cb1bb4ab5603bdfb604b3d3054f3bf94cf8b896",
+    "tools/verify_p06_world.py": "4a8d42d0ba3b7d9a83c7fa08caa3bd716bc16bd02f1cb9f4c21f1d48df32b4d4",
+    "tools/verify.py": "224cae1d505e9d658b2689ae9281c543a570ef723d545eba4a77e0e5523b252b",
+    "game/tests/character_world_preview.gd": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+    "game/resources/characters/catalog.json": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507"
+  },
+  "source_stable_during_review": true,
+  "tests": {
+    "actual_existing_unit_tests_passed": 14,
+    "actual_unit_failures": 0,
+    "posthoc_actual_saved_native_samples_accepted": 1344,
+    "individual_fault_injections_rejected": 1008,
+    "mocked_isolated_wrapper_cases_passed": 12,
+    "mocked_ci_wiring_cases_passed": 2,
+    "bounded_error_buffer_still_failed_at4032violations": true,
+    "author_actual_headless_engine_checks": "70/70",
+    "author_actual_headless_strict_input": "672/672",
+    "author_headless_artifact_sha_matches": 5
+  },
+  "verified": {
+    "strict_gate_controls_wrapper_overall_pass_and_exit": true,
+    "CI_registration_and_failure_propagation": true,
+    "old_coarse_engine_checks_remain_required": true,
+    "actual_Input_driver_unchanged": true,
+    "native02_trace_files_unchanged": true,
+    "old_failed_receipt_preserved": true,
+    "expected_speed_from_config_not_observation": true
+  },
+  "production_actions_by_reviewer": {
+    "Godot_or_native_game_executed": false,
+    "build_or_export_executed": false,
+    "Git_or_network_invoked": false,
+    "Controller_invoked": false,
+    "WORK_modified": false
+  },
+  "limits": [
+    "Pure signal gate plus temporary mocked wiring tests; no phase/merge approval",
+    "Old native02 positives are post-hoc input-validation evidence; next native capture with newwrapper still required",
+    "No physical OS keyboard/focus efficacy/ART/audio/performance/export acceptance",
+    "Fullphase harness outside this component scope"
+  ],
+  "report_sha256": "58f6f745693be1dd98eb898804728ddd6df9a0297e6a3042fb8b0f60c699d422",
+  "artifacts_sha256": "beaf48dc282b13fb1c1693b4362b4933ff894ed456e73a8c663f95bdce0195f1",
+  "next_action": "Freeze reviewed tools and run next character actual native replay sequentially under existing sole-executor protocol"
+}

@@ -55,6 +55,8 @@ def main():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
     if (ROOT / 'game/tests/character_frames_test.gd').is_file():
+        commands.append(('world_input_gate', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_world_input.py']))
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['character_combat_profile', 'character_scene_policy',
                                      'character_policy_integration', 'character_dialogue', 'character_frames'])
