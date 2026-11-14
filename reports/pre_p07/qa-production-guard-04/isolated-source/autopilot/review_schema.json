@@ -1,0 +1,329 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "reviewed_commit": {
+      "type": "string"
+    },
+    "base_branch": {
+      "type": "string"
+    },
+    "base_sha": {
+      "type": "string"
+    },
+    "independent_review": {
+      "type": "boolean"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "CLOSED",
+              "RESOLVED",
+              "VERIFIED"
+            ]
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "severity",
+          "status",
+          "message"
+        ]
+      }
+    },
+    "artistic_audio_acceptance": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "method",
+            "evidence"
+          ]
+        }
+      ]
+    },
+    "production_acceptance": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schema": {
+              "type": "integer",
+              "enum": [
+                1
+              ]
+            },
+            "scope": {
+              "enum": [
+                "P07_CONTENT_ACCEPTANCE"
+              ]
+            },
+            "reviewed_commit": {
+              "type": "string"
+            },
+            "readiness_sha256": {
+              "type": "string"
+            },
+            "closed_obligations": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "chapter_delivery_21": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "PASS"
+                      ]
+                    },
+                    "evidence": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "path": {
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "sha256"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "evidence"
+                  ]
+                },
+                "campaign_pacing_actual": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "PASS"
+                      ]
+                    },
+                    "evidence": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "path": {
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "sha256"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "evidence"
+                  ]
+                },
+                "new_audio_acceptance": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "PASS"
+                      ]
+                    },
+                    "evidence": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "path": {
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "sha256"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "evidence"
+                  ]
+                },
+                "secret_delivery_7": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "PASS"
+                      ]
+                    },
+                    "evidence": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "path": {
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "path",
+                          "sha256"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "evidence"
+                  ]
+                }
+              },
+              "required": [
+                "chapter_delivery_21",
+                "campaign_pacing_actual",
+                "new_audio_acceptance",
+                "secret_delivery_7"
+              ]
+            }
+          },
+          "required": [
+            "schema",
+            "scope",
+            "reviewed_commit",
+            "readiness_sha256",
+            "closed_obligations"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "phase",
+    "status",
+    "reviewed_commit",
+    "base_branch",
+    "base_sha",
+    "independent_review",
+    "reviewer",
+    "next_action",
+    "evidence",
+    "findings",
+    "artistic_audio_acceptance",
+    "production_acceptance"
+  ]
+}

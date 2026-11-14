@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "OWNER_AUTHORIZED_CONDITIONAL_FUTURE_CONTINUATION",
+  "recorded_utc": "2026-11-14T22:15:18.990570+00:00",
+  "owner_quote": "После PASS по P06 и проверкам готовности автоматически переходи к P07.",
+  "source": "Actual owner PRE-P07 PRODUCTION READINESS AUDIT request, superseding former stop-after-P06 only when all named gates pass.",
+  "preparation_during_P06": "Allowed only nonconflicting read-only audit/design pipeline work; do not reset P06",
+  "P07_requires": [
+    "P06 independent full PASS",
+    "P06 mandatory CI/current-SHA/protection checks and confirmed merge",
+    "Production Readiness independent Lead PASS",
+    "21 individual chapter MDS approved by Lead BEFORE mass production"
+  ],
+  "P07_goal_first_playthrough_minutes": [
+    420,
+    540
+  ],
+  "duration_status": "TARGET_NOT_MEASURED",
+  "P08_release_authorized": false,
+  "phase_approval": false,
+  "mass_production_approval": false,
+  "controller_limit_change": "Pending tested readiness enforcement and safe ROOT/WORK handoff; no hot-swap of active executor"
+}

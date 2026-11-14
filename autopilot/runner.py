@@ -14,7 +14,7 @@ import subprocess
 import sys
 import time
 import uuid
-from readiness import require_p07_production, ReadinessBlocked
+from readiness import require_p07_production, ReadinessBlocked, strict_json
 
 ROOT=Path(__file__).resolve().parents[1]
 DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
@@ -23,7 +23,11 @@ DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
 def utc(): return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
 def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def load(path,default=None):
-    return json.loads(Path(path).read_text()) if Path(path).exists() else default
+    if not Path(path).exists(): return default
+    try:
+        return strict_json(Path(path).read_text())
+    except (OSError,ValueError) as error:
+        raise Blocked('Invalid/ambiguous JSON: '+str(path)) from error
 
 def save(path,data):
     path=Path(path); path.parent.mkdir(parents=True,exist_ok=True)

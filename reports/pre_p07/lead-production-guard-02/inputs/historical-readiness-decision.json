@@ -1,0 +1,443 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T23:01:50.138014+00:00",
+  "kind": "INDEPENDENT_LEAD_PRODUCTION_READINESS",
+  "gate": "PRE_P07_PRODUCTION_READINESS",
+  "status": "FAIL",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "P06_context": "IMPLEMENTING_FULL_PHASE_NOT_SUBMITTED",
+  "phase_status_changed": false,
+  "prior_PASS_statuses_changed": false,
+  "formal_P06_attempt_consumed": false,
+  "P06_attempt_reset": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "P07_entry_approval": false,
+  "P07_mass_production_approval": false,
+  "P08_release_approval": false,
+  "nonconflicting_preparation_remains_allowed_by_owner": true,
+  "next_phase": "none",
+  "work_source_mutations": false,
+  "controller_Git_network_generator_calls": false,
+  "independent_tests": {
+    "ROOT_only_fresh_imports": 1,
+    "ROOT_only_headless_test_runs": 7,
+    "assertions_passed": 261,
+    "assertions_failed": 0,
+    "native_display_runs": 0,
+    "audio_files_decoded": 28,
+    "agent_listening": false
+  },
+  "current_preview_verified": {
+    "source_head_label": "6daa6e473dd4e536e71f10580b53c2bf591047da",
+    "ELF_PE_hashes_magics_verified": true,
+    "Linux_actual_checks": 22,
+    "Linux_actual_PNGs_viewed": 4,
+    "Wine_PE_headless_checks": 18,
+    "native_Windows": "NOT_TESTED",
+    "full_combat_approval": false
+  },
+  "domains": [
+    {
+      "id": "combat",
+      "status": "PARTIAL",
+      "implemented": "Core single action/contact clock, once/epoch/authority, weak Yakuza escape and fixed campaign grant; own Gabar lunge/Oleg pre-damage parry.",
+      "proof": [
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/actors/character_player.gd",
+        "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json",
+        "reports/phases/P06/owner-preview-20261115-01/linux_smoke/result.json"
+      ],
+      "existing_tests": [
+        "p04g_test.gd",
+        "contact_timing_test.gd",
+        "yakuza_finisher_authority_test.gd",
+        "gabar_combat_replay.gd",
+        "olezhka_combat_replay.gd"
+      ],
+      "remaining": "Only G/O extra heroes readiness handlers; missing seven-style pose/cue/NPC-reaction matrix, Timka/Ryzhik/Tega/Pasha abilities, Pasha resources HUD/Oleg active-window UX.",
+      "blocks": [
+        "READINESS-C01"
+      ],
+      "P08_allowed": "Optional cosmetic variants after functional base; mandatory combat/audio/reactions/HUD remain P06."
+    },
+    {
+      "id": "animation",
+      "status": "PARTIAL",
+      "implemented": "Six own WORLD sheets and G/O complete own runtime sets; Timka compact WORLD32/ACTION28 with bounded import QA; nine static portrait sets; base archetype reactions.",
+      "proof": [
+        "reports/phases/P06/asset_inventory.json",
+        "reports/phases/P06/qa-timka-runtime-import-01/decision.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/ai/enemy_actor.gd"
+      ],
+      "existing_tests": [
+        "character_frames_test.gd",
+        "timka_layout_test.gd",
+        "p04g_art_test.gd",
+        "character_readiness_test.gd"
+      ],
+      "remaining": "Timka FIN/environment/contexts/sockets, three other ACTION/FIN/abilities, all production temporal overlays/contact/reactions; static/death hold not multi-frame motion.",
+      "blocks": [
+        "READINESS-C01"
+      ],
+      "P08_allowed": "Additional optional expressions/art variants only after actual required animation acceptance."
+    },
+    {
+      "id": "ai_navigation",
+      "status": "PARTIAL_CAPABILITY_UNPROVEN",
+      "implemented": "Patrol/rusher/shooter FSM, detection/LOS/telegraph/contact/recovery/noise, collision and dead priorities; independent32 AI checks pass.",
+      "proof": [
+        "game/scripts/ai/enemy_actor.gd",
+        "independent-ai.log"
+      ],
+      "existing_tests": [
+        "ai_test.gd",
+        "contact_timing_test.gd",
+        "restart_test.gd"
+      ],
+      "remaining": "Direct-vector _walk_to has no proven U-obstacle/door/alternate-route multiroom routing; no new runtime bug claimed.",
+      "blocks": [
+        "READINESS-H02"
+      ],
+      "P08_allowed": "Optional patrol cosmetics; required reachability/telegraphs cannot be deferred."
+    },
+    {
+      "id": "dialogue_direction",
+      "status": "IMPLEMENTED_SCAFFOLD_CONTENT_PENDING",
+      "implemented": "Typewriter/history/skip-seen/portraits/fictional bleeps, durable dialogue ledger, isolated P06 viewing/pause ownership, CH01 existing scenes; independent44 dialogue checks pass.",
+      "proof": [
+        "game/scripts/systems/dialogue_director.gd",
+        "game/scripts/systems/character_dialogue_session.gd",
+        "independent-dialogue.log",
+        "reports/phases/P06/owner-preview-20261115-01/linux_smoke/timka_portrait.png"
+      ],
+      "existing_tests": [
+        "dialogue_test.gd",
+        "character_dialogue_test.gd",
+        "character_lab_isolation_test.gd",
+        "character_dialogue_reload.gd"
+      ],
+      "remaining": "Nine cast demonstrations are not21 chapter directions. Missing individual MDS/dialogue beats/skip/transition proofs for future scenes.",
+      "blocks": [
+        "READINESS-H01"
+      ],
+      "P08_allowed": "Optional staging/portrait polish, never missing required story scenes."
+    },
+    {
+      "id": "music_transitions",
+      "status": "PARTIAL_TECHNICAL_FOUNDATION",
+      "implemented": "Single synchronized4-stem mixer, EXPLORE/SUSPICION/COMBAT/CLEAR beat/bar scheduling, fade/duck/bounded voices/retry retention;28 actual legacy streams decoded; independent45 scheduler/API checks pass.",
+      "proof": [
+        "game/scripts/systems/audio_director.gd",
+        "game/assets/audio/manifest.json",
+        "game/resources/chapters/missed_fight_music.json",
+        "metrics.json:audio_signal_only",
+        "independent-audio.log"
+      ],
+      "existing_tests": [
+        "audio_test.gd",
+        "tools/audio_qa.py",
+        "tools/analyze_p04_audio.py",
+        "tools/analyze_p04g_audio.py"
+      ],
+      "remaining": "Actual new-hero accents/listening and chapter production matrix, pilot real playback-position/retry/transition evidence; agent has not heard audio.",
+      "blocks": [
+        "READINESS-C01",
+        "READINESS-H03"
+      ],
+      "P08_allowed": "Optional mastering/extra variants after required base accepted; missing cues/abrupt transition fixes stay required."
+    },
+    {
+      "id": "story_flags_save",
+      "status": "IMPLEMENTED_INFRASTRUCTURE_CONTENT_PENDING",
+      "implemented": "Canonical event ledger, atomic rename publish, derived validation, replay fork, legacy migration and4-ending eligibility; independent registry13/state40 pass; previous P05 accepted.",
+      "proof": [
+        "game/scripts/story/story_state.gd",
+        "game/scripts/story/story_registry.gd",
+        "game/resources/story/registry.json",
+        "game/resources/story/routes.json",
+        "reports/phases/P05/review.md",
+        "independent-story_registry.log",
+        "independent-story_state.log"
+      ],
+      "existing_tests": [
+        "story_registry_test.gd",
+        "story_state_test.gd",
+        "story_graph_test.gd",
+        "story_integration_test.gd",
+        "mission_test.gd"
+      ],
+      "remaining": "Only CH01 playable. Historical6344 logical partitions/22828states/662778assertions are not20 new levels. Two new noncanonical concepts accepted for design only, no runtime/save integration.",
+      "blocks": [
+        "READINESS-H01",
+        "READINESS-H05"
+      ],
+      "P08_allowed": "Optional journal presentation; no save corruption/deadlock or ending predicate changes."
+    },
+    {
+      "id": "ui_vhs_scene_transitions",
+      "status": "PARTIAL",
+      "implemented": "Options/VHS/reduced effects/text scale and existing pause/retry; actual owner-preview ELF/PE +Linux22/4PNG/Wineheadless18; independent31 options checks pass.",
+      "proof": [
+        "game/scripts/core/bootstrap.gd",
+        "game/scripts/core/options_store.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "reports/phases/P06/owner-preview-20261115-01/preview.json",
+        "independent-options.log"
+      ],
+      "existing_tests": [
+        "options_test.gd",
+        "owner_preview_smoke.gd",
+        "character_lab_isolation_test.gd"
+      ],
+      "remaining": "Mandatory Oleg readable window/Pasha ammo-cd-recovery HUD; new chapter cards/cutscene/transitions and first-visible-response metrics not accepted. Native Windows not tested.",
+      "blocks": [
+        "READINESS-C01",
+        "READINESS-H01",
+        "READINESS-H04"
+      ],
+      "P08_allowed": "Optional VHS decoration after readability/off/settings gates; mandatory HUD not deferred."
+    },
+    {
+      "id": "performance_effects",
+      "status": "BASELINE_ONLY_NOT_CURRENT_CAMPAIGN_ACCEPTANCE",
+      "implemented": "Bounded48particle/40decal pools/TTL/reset/cosmetic RNG; archived P04G actual600monotonic process frames,32 drawableactors/4800APIcontacts and10resets preserved.",
+      "proof": [
+        "game/scripts/systems/combat_impact.gd",
+        "game/scripts/qa/p04g_replay.gd",
+        "metrics.json:historical_P04G_performance"
+      ],
+      "existing_tests": [
+        "p04g_test.gd",
+        "p04g_replay.gd",
+        "restart_test.gd"
+      ],
+      "remaining": "Current P06/campaign stress/input-to-action/scene first-response/actual first-play data missing; old fixture is not32activeAI or current FPS guarantee.",
+      "blocks": [
+        "READINESS-H04"
+      ],
+      "P08_allowed": "Optional cosmetic quality tiers; critical leaks/stutter/required effects caps remain gates."
+    }
+  ],
+  "findings": [
+    {
+      "id": "READINESS-C01",
+      "severity": "CRITICAL",
+      "domains": [
+        "combat",
+        "animation",
+        "ui_vhs_scene_transitions",
+        "music_transitions"
+      ],
+      "file": "game/scripts/actors/character_player.gd:7",
+      "observed": "Implemented fixture/ability registry contains only Gabar/Oleg; runtime assets and packaged smokes preserve unready actors rather than implement remaining four. Full P06/CBT01..10 is not submitted/passed.",
+      "repro": "Inspect IMPLEMENTED_FIXTURE_ABILITIES/use_ability, actual runtime sheets and22Linux/18Wine checks; independent readiness56 validates these rejections, not seven-ready success.",
+      "fix": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "gate": "BEFORE_P07_ENTRY",
+      "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute."
+    },
+    {
+      "id": "READINESS-C02",
+      "severity": "CRITICAL",
+      "domains": [
+        "orchestration"
+      ],
+      "file": "autopilot/runner.py:219",
+      "observed": "Full tools/verify_p06.py absent; ROOT and WORK runner hashes differ; both still stopP06. Current prerequisite checks prior phase PASS/MERGED/P04G, not new typed Readiness/21MDS receipts. Safe handoff is pending. Current stop is protective, not a bypass incident.",
+      "repro": "Read both saved runner snapshots/configs and conditional authorization. No controller was executed.",
+      "fix": "Compose full P06 verifier from existing helpers; implement/test typed exact-source Readiness gate and21unique main-MDS approval before mass, then safe ROOT/WORK code/state/lease handoff. Do not merely raise stop limit or overwrite ROOT/history.",
+      "gate": "BEFORE_P07_ENTRY_AND_MASS_STAGE",
+      "acceptance": "Negative tests for missing/FAIL/BLOCKED/stale/wrong-kind receipts (including CONCEPT_ONLY PASS), missing MDS/changed source, unmergedP06/failedCI/manualapproval; preserve confirmed merge/currentSHA/protection and single executor. Existing worker not hot-swapped."
+    },
+    {
+      "id": "READINESS-H01",
+      "severity": "HIGH",
+      "domains": [
+        "dialogue_direction",
+        "story_flags_save",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/CAMPAIGN_PRODUCTION_REGISTRY.json",
+      "observed": "20 individual main MDS missing; CH01 only old P04 specification awaiting P07 fields;0of21 Lead-approved. Template/registry do not prove unique layouts or scene direction.",
+      "fix": "Author21 substantive separate MDS with canonical IDs/POV, rooms/connections/spawns/objectives/encounters/boss only when justified/dialogue/music/flags/assets/tests; compare topology and decisions with≥2similar MDS; multi-stage CyberX/PRIME, purposeful quiet scenes.",
+      "gate": "BEFORE_MASS_CHAPTER_PRODUCTION",
+      "acceptance": "Independent Narrative/Gameplay/Lead receipt on all21 exact document hashes; no copied placeholders/renamed arena or HP/count-only escalation."
+    },
+    {
+      "id": "READINESS-H02",
+      "severity": "HIGH",
+      "domains": [
+        "ai_navigation"
+      ],
+      "file": "game/scripts/ai/enemy_actor.gd:251",
+      "observed": "_walk_to steers straight toward point; arena AI32 passes, but multiroom obstacle/door routing capability is not demonstrated. Not a runtime-confirmed new AI bug.",
+      "fix": "Test representative U-obstacle/dynamic-door/choke/alternate-route fixtures with all3archetypes and allowed hero body/ability clearance. Introduce minimum routing adapter only on demonstrated need; preserve existing FSM/telegraph/contact.",
+      "gate": "BEFORE_MASS_AFFECTED_MULTIROOM_CONTENT",
+      "acceptance": "Real bounded reachability/door change/retry/LOS/contact proofs without stuck actors, unavoidable random death or new blanket AI rewrite."
+    },
+    {
+      "id": "READINESS-H03",
+      "severity": "HIGH",
+      "domains": [
+        "music_transitions"
+      ],
+      "file": "game/scripts/systems/audio_director.gd:112",
+      "observed": "Two real accepted prototype themes/20categorySFX are intact;45scheduler checks use deterministic clock and actual playback/listening for new mission transitions/hero accents is not established.",
+      "fix": "Plan chapter sound/music production, explicit Exploration→EXPLORE/Tension→SUSPICION/Combat→COMBAT/Aftermath→CLEAR mapping; pilot actual mixer playback-position/loop/bar/fade/duck/retry/scene reload plus real new-file decode/signal/listening.",
+      "gate": "P06_HERO_AUDIO_BEFORE_P06_PASS_AND_NEW_MISSION_AUDIO_BEFORE_RELEVANT_PRODUCTION_ACCEPTANCE",
+      "acceptance": "No stacked/restarted layers or abrupt unexplained cuts, typed contact sync; actual listener for new material. Agent/file metadata/pitch label does not confer artistic approval. Preserve prior owner prototype acceptance."
+    },
+    {
+      "id": "READINESS-H04",
+      "severity": "HIGH",
+      "domains": [
+        "performance_effects",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/PRE_P07_REQUIREMENTS.md",
+      "observed": "No calibrated current representative pilot latency/pacing/wall-frame protocol; actual420–540min campaign target not measured. Historic stress/physics delta and preview duration cannot prove it.",
+      "fix": "Instrument software Input→accepted/first-visible separately from intended windup, retry<1000ms, meaningful-action intervals/deaths/causes/route/story/traversal/AFK/skip and monotonic frame p50/p95/p99; calibrate representative pilot thresholds before acceptance runs.",
+      "gate": "INSTRUMENTATION_AND_PILOT_BASELINE_BEFORE_MASS;ACTUAL_CAMPAIGN_DURATION_AFTER_CONTENT_IMPLEMENTATION",
+      "acceptance": "Current hardware/backend/build/settings/sample conditions and first-play distribution, include real deaths; OS/hardware latency only if actually measured. No requirement for completed7–9h proof before levels exist, no padding or summing mutually exclusive endings."
+    },
+    {
+      "id": "READINESS-H05",
+      "severity": "HIGH",
+      "domains": [
+        "story_flags_save"
+      ],
+      "file": "planning/missions/SECRET_OFFLINE_BUILD.md",
+      "observed": "Two proposals now have separate Narrative+Lead CONCEPT_ONLY PASS, but are not canonical/full MDS/runtime scenes. Five original secrets/ending predicates remain unchanged.",
+      "fix": "Complete distinct bonus MDS and decide noncanonical journal/unlock/completion namespace; explicit save migration/defaultfalse/once/replay/old-save tests before integration; preserve existing5/history/relationships/WIFE_CALLING/REAL_PRIME conditions unless separately approved.",
+      "gate": "BEFORE_NEW_SECRET_CANONICAL_OR_RUNTIME_INTEGRATION_AND_LEVEL_PRODUCTION",
+      "acceptance": "Narrative/Lead full-MDS and actual Gameplay/ART/QA/geometry/pacing/audio evidence; concept PASS is never readiness/phase/runtime permission."
+    },
+    {
+      "id": "READINESS-M01",
+      "severity": "MEDIUM",
+      "domains": [
+        "dialogue_direction",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/MISSION_DESIGN_TEMPLATE.md",
+      "observed": "Additional optional staging/transition/portrait stylistic variants are production work, not current completed assets. Required story/HUD work is already covered by higher gates.",
+      "fix": "Attach chapter-specific polish tickets with actual source assets/native readability/settings/skip tests; keep mandatory scenes/dialogue functional before cosmetic acceptance.",
+      "gate": "RELEVANT_P07_CHAPTER_OR_P08_OPTIONAL_POLISH",
+      "acceptance": "Specific shot/text/transition comparison and independent review; no missing required scene hidden as cosmetic debt."
+    },
+    {
+      "id": "READINESS-L01",
+      "severity": "LOW",
+      "domains": [
+        "animation",
+        "performance_effects",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/P08_TECH_DEBT.md",
+      "observed": "Extra decorative blood/decal/VHS/optional accepted-finisher variants are not implemented and are explicitly deferred.",
+      "fix": "Retain concrete debt IDs P08-VAR01/02/VHS01; add genuine source/provenance and native comparison only when that authorized phase is reached.",
+      "gate": "OPTIONAL_P08_DEBT_ONLY",
+      "acceptance": "Full/Reduced/off noninterference, lifetime/caps/wall-frame checks and ART/QA; no mandatory combat/sound/HUD deferral."
+    }
+  ],
+  "separate_concept_decision": {
+    "path": "concept-decision.json",
+    "sha256": "179ae29f2bd408730e1f4c815d3603b5681b7c20721aef283a3cd6eb0216fcdd",
+    "status": "PASS",
+    "acceptance_level": "CONCEPT_ONLY",
+    "production_readiness_approval": false,
+    "canonical_runtime_MDS_level_approval": false
+  },
+  "report_sha256": "28b2f2d3db05fe22a20876b4303067108363d202d10478e10561c34e31e7092e",
+  "metrics_sha256": "685315f01a05090caa39278b6f8c7693024bd5e22a6abff251e04d97a01b5253",
+  "domains_sha256": "d2eafa8bd6a8b47343ee2a258fdb30376376ee7039d9e0803b82ab4ee99ebd76",
+  "findings_sha256": "f9fe9e6bf9cdea7f283d63d6674d3901b200bb0e028cf42c36962946fe114adf",
+  "inputs_sha256": "01cf47b5eee09aaac227ca02ddb3bde39d85ac827f2637796a2877f244bc89e6",
+  "source_inventory_sha256": {
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "README.md": "8fb6eca52f62f3bebc89160edf7641fbbff573f07c372c23f9c9da531c4e3da4",
+    "agents/LEAD_REVIEWER.md": "3cf0d9cc1a318bf7032bfff1e8be0d9e86e48bab924f965e03a66270da962729",
+    "automation/AUTHORIZATIONS.json": "e66ab8d38f984d8ff171b443d250c545720709b79d83afcdded2cf47b21df031",
+    "automation/decisions/P07_CONDITIONAL_CONTINUATION.json": "1ac6d9dec9e7ca96b3cb97b872a88b905c691a86049f52c607583305c706dc44",
+    "autopilot/config.json": "8ef804a0855c05fb2c314ed559784243b39e9792b582d5897449611f2886c39f",
+    "autopilot/runner.py": "9326c7ed87bc82fe7f4702852ca0b5fad2ff85ad658b0660c74413cc962923b5",
+    "docs/PROJECT_GATES.md": "9c3c6acf926c3c2d929be9fe7ec198178c91e80f4dcebf2b2d1198b1ace9330b",
+    "game/assets/audio/combat_polish.json": "caca896c7b00f5186a31263063cc38b1f15fcd44f650da45e5d5c96c24b19149",
+    "game/assets/audio/manifest.json": "cfcfb730bdae063681666a3618df50f9b70faeadff73b331cce0cae9d96a9de7",
+    "game/resources/chapters/missed_fight_music.json": "c24416db7f2afe3276ec00951c982cebf8824d1e7003a3e0648b0ee6983a407c",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "game/resources/story/routes.json": "7137e57c9e17678bcfca6e0ad39bae9f2904f880a31116da4f70bbeb9b689aa8",
+    "game/scripts/actors/character_frames.gd": "8a1edd9a8fff8fe9e082a54c90ab7a6ffa6e66977c1b9965d0d989aedda2a937",
+    "game/scripts/actors/character_player.gd": "e3f37c49521a02d9f2598cb129c12cf5d3b33517b18513866df59144ca960607",
+    "game/scripts/ai/enemy_actor.gd": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+    "game/scripts/core/bootstrap.gd": "59a34df0ac7ed3b1cdb301c96123a3ed801dc1af76e6f78143ff3c36fa252eae",
+    "game/scripts/core/character_lab.gd": "ac5cce04cf4950443bd4c46f7f428530cea7608066d637a7d207bef3d9f827c5",
+    "game/scripts/core/options_store.gd": "663eaae1ae7115320168d0e7c3aebc8e288935f107ae1211f8afc28f11eb8a12",
+    "game/scripts/qa/owner_preview_smoke.gd": "1958d164120b5952a26b2c709d882418da688ec0117af2a221a8175897189648",
+    "game/scripts/qa/p04g_replay.gd": "2dad318300f23c8400b2b9d0cc20df3b6413fc77402a6463c5d0c2dd86de7c0f",
+    "game/scripts/story/story_registry.gd": "8dabb3a960208b3554dce3ba818f4efbc6bdc2ae390739e1e4abe4bdabc011b6",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/scripts/systems/audio_director.gd": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+    "game/scripts/systems/campaign_view_guard.gd": "6792dbeef1fe5eac0088f1bbf4ef7bf3c61dd516da4f3b86113c979afee928ec",
+    "game/scripts/systems/character_dialogue_session.gd": "c4a54707f98124a99ef6a24500909ee116715973bd1cf447e89b886fcb79393c",
+    "game/scripts/systems/combat_impact.gd": "374e778782494f84de618ce8b81f6bc770d58827bbb133107d5df0e09b0d582a",
+    "game/scripts/systems/combat_system.gd": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+    "game/scripts/systems/dialogue_director.gd": "3ec60240e4c8b7179c7d28805cae128b8ab875f649cc9f81c0f80786b7d7c0dd",
+    "game/tests/ai_test.gd": "751c7161a248a17bfd302761999b7834da0c1c543577f9fbd7b990b39c225f14",
+    "game/tests/audio_test.gd": "5b472fd2239c1a63ce89c0dbecd31ccb72bf8593ec63319c213717d6f4bb641b",
+    "game/tests/character_dialogue_reload.gd": "fbd6d414969234aad95d096c02c32717c065cca5290410b63dea979424551924",
+    "game/tests/character_dialogue_test.gd": "9e8f014d27d736f09340ed6c85af169437011ab7b4fdc84188c1ae3158e6b4d1",
+    "game/tests/character_frames_test.gd": "9fac7ed8e4b94fa11281bab40045334c2e9fb01f11b18d276e1c56a67d412fad",
+    "game/tests/character_lab_isolation_test.gd": "fa7deb42a359006a782d0709232d2b8e8e740778634a236b5321c4eb06b26914",
+    "game/tests/contact_timing_test.gd": "25b0cf1b9e350bfea9346697c1d1d0bd716164dabba75f6716d143713a1c6a1d",
+    "game/tests/dialogue_test.gd": "9cb090695c677bce2c8fc9f2722819f5dbb382d364c5de93a0ff627cac319c62",
+    "game/tests/mission_test.gd": "6b1fd3551cc7c057c01b688158493106afc8aff60964c3967c5c2489c1aed55c",
+    "game/tests/options_test.gd": "a7c410d6682518934d1e5cb6da9ed0e163beb51688d76d731d31b9e002f4f90b",
+    "game/tests/p04g_art_test.gd": "653166591b12521afec1a58774621fcbe9e326d17727adb2b112241943d537f7",
+    "game/tests/p04g_test.gd": "61841bbecad203c5a54dd4ed934e3ede038574502fbb7efaed25a4e378e7d3ad",
+    "game/tests/restart_test.gd": "ee53596ede07af6da6658826a6747cd51fd6f26579f4d1e3e48c7a72ccc950b8",
+    "game/tests/story_graph_test.gd": "c1d1f0720625b9d87d6afee600ff1ea549826bf75dce889c9ac74ee506c7202f",
+    "game/tests/story_integration_test.gd": "3217a09919166d18a1b1442c26072e5b93cd9c6830db8164455bb98a2e330999",
+    "game/tests/story_registry_test.gd": "6c1d14470ec1c46b65e0c61a7bcd8ed81629903249c07c291207df817ecb7ad1",
+    "game/tests/story_state_test.gd": "8f97379065fe38cb29b40cc5b8b66045a312a4b231fc2fca24e12eb43ea892ed",
+    "game/tests/timka_layout_test.gd": "b0d3aa15e62c296883d6605363767a2ca0f983b11619b42f0facfca3021e2967",
+    "game/tests/yakuza_finisher_authority_test.gd": "d9a8175f4ff8da5a2920a48be205b7399dd809aaeb0f2b4678c93189ff1074ff",
+    "planning/CAMPAIGN_PRODUCTION_REGISTRY.json": "261b456a345e375846bcb9a95abadab6adf11179ac3b2fdad18692874c1e9dd5",
+    "planning/MISSION_DESIGN_TEMPLATE.md": "e6462ac72ffe19966cd80bad7e48182451aa99d8791a3ea2284bba4347a4c28a",
+    "planning/P06_TASKS.md": "df8d3931d74cc739a94453fb7cb062d24727839aab6528bdc3eb13060ef61b76",
+    "planning/P08_TECH_DEBT.md": "d8bedb06a0d31b2565e0a712b8f633551b0dc932cdf48ea26ed45ff46fa8101c",
+    "planning/PHASES.md": "22c6c0b3ed4fd34af593cb004902f61176af87596bc5c1c76f3ec0eb589fffa2",
+    "planning/PRE_P07_REQUIREMENTS.md": "edd1e992a689871523c7210b149c347053b89abcdc2bade86a2a8e1a21003c28",
+    "planning/missions/SECRET_COUNTER_LESSON.md": "417f7e6e0ec82ca1615c2b6a9d50648e9bf2eb727c8fb6d6de3c0915030323be",
+    "planning/missions/SECRET_OFFLINE_BUILD.md": "ac4acd07f2a0c9c7124794ff82a112fd39a3f8e356ff82b6d7c8dbdd23e02579",
+    "reports/phases/P06/asset_inventory.json": "0ad8adf59d2c96ae923bc977f56079f2e5cc743d7afa16da2f47c93ecdec7dbb",
+    "reports/phases/P06/author-checks/common-character-gate-02/logs/audio.log": "4b0c107886fe73868e63ed63109b5a249fb94042fc9d4bfba65929a54d92f0db",
+    "reports/phases/P06/author-checks/common-character-gate-02/logs/dialogue.log": "acf865d68605a2ada66b5eaf27adddbe5be274c58f25cdc2efb4238c7a256875",
+    "reports/phases/P06/author-checks/common-character-gate-02/logs/options.log": "d5a6b1e84291d464cd33721fc46f928f121030bd6a38e0634e701b4c1e7b0a05",
+    "reports/phases/P06/author-checks/common-character-gate-02/logs/story_graph.log": "6cacad6de7ec47cd97ec9f26580de010b41a1d66baf3c4b55b92144eeba1f69e",
+    "reports/phases/P06/author-checks/common-character-gate-02/logs/story_state.log": "92fdb7a9852199ad9b9fb47d82e16b947c4997823ae92c90350fbb6d59b12ad6",
+    "reports/phases/P06/author-checks/timka-supported-runtime-02/isolation/validation.json": "20d9c50151214e284b885479bed10b1f1442b94366f3db5fcfd9e86771776bef",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/ai.log": "3042a08243c564da27bc26b19a5c2d3d9809272e0bf82d4900b00cbf3659d774",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/commands.json": "80953c7139069a6b698a12f5c05361db04af75032ddea3b50adea9c5c9c0479c",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/mission.log": "2a7bedb22a4479770e5eead6de5193379ef7bb3f7c1ba40a53aade5f2eba08ca",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/p04g.log": "7177cac496e430c4de717027c97209524ac75e2e0dc666375a9ede92bc3df160",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/restart.log": "35aac4dd96aca92f4176baadda4cbc4204f0f8660b2c26601845def10c74bcf4",
+    "reports/phases/P06/gameplay-combat-gate-audit-01/decision.json": "fcefbeaea3666bbef014d7ee4f7f095b9e602391f1875805044b46bf6acc9613",
+    "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json": "2a8da1c7c90cf7ef50f841e086d21c2b28d0b1f965b447b03b3f59991de9bc65",
+    "reports/phases/P06/owner-preview-20261115-01/preview.json": "73078710a12f096da35b9403337fcdf8abd17bf99a9ca60677c7476b842f6522",
+    "reports/phases/P06/qa-timka-compact-02/decision.json": "b948456598575ce72a67973f5ee43aa8ad4ae6eeb15a8d8705dd719319468184",
+    "reports/phases/P06/qa-timka-runtime-import-01/decision.json": "c50b9b92218bc43fa5fa0b368d774e59f9cfa288f7e735bea9b289a322f354d7",
+    "specs/P06_COMBAT_ACCEPTANCE.md": "46e28354fbcf382f87527a75ace4ad9bc2382699e675376d637b049e0e755fd3",
+    "specs/STORY_SPEC.md": "a2848fedb28ee1a8594d3e79b18a31d79320b4c48b57a0f71580db37bd352438",
+    "tools/analyze_p04_audio.py": "1d9cc56104cec1403fa1834ffc69a73c3640aa94283991169a82f1170d7e935d",
+    "tools/analyze_p04g_audio.py": "f51cb7b57e73715063c5b5add155db11f0545873d27dbefc96152fefcd3da9ee",
+    "tools/audio_qa.py": "0fba981bf49b09658d62221e0eceafbcb15227af235cc9e46d7df48122e5be74",
+    "tools/verify.py": "2d6655c7c19feb712b78d207d68c6167d3f7fa4726d31033fbbe2c476d7914df",
+    "tools/verify_p06_gabar.py": "f1229d2d5c4391bc370d7a3b2a64bf9319abb854d685c6456acc9ce235cf3d30",
+    "tools/verify_p06_olezhka.py": "806a3f6fa665f202aee3d3a9361ca140bbf5352fd4f60fa93d672397774988b3"
+  },
+  "next_action": "Continue authorized P06 and nonconflicting prep; resolve Critical and applicable High tickets with evidence, re-review readiness separately; no P07 start/mass production or phase status mutation from this audit."
+}

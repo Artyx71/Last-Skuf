@@ -1,0 +1,55 @@
+--- v3/tools/tests/test_production_readiness.py
++++ v4/tools/tests/test_production_readiness.py
+@@ -13,7 +13,7 @@
+ from readiness import (ReadinessBlocked, require_p07_production, require_p07_review_acceptance,
+                        CAPABILITIES, OBLIGATIONS, ACCEPTANCE_STAGE)
+ from github import validate_review, guarded_merge
+-from runner import Blocked, Controller, DEFAULT_PHASES
++from runner import Blocked, Controller, DEFAULT_PHASES, load
+ 
+ 
+ def sha(path):
+@@ -399,6 +399,43 @@
+         check(schema)
+         self.assertIn({'type': 'null'}, schema['properties']['production_acceptance']['anyOf'])
+ 
++    def test_duplicate_raw_closure_id_is_rejected_by_actual_runner_loader(self):
++        review = self.acceptance_review()
++        raw = json.dumps(review)
++        needle = '"new_audio_acceptance":'
++        self.assertEqual(raw.count(needle), 1)
++        raw = raw.replace(needle, '"new_audio_acceptance":{"status":"FAIL","evidence":[]},' + needle)
++        p = self.root / 'ambiguous-verdict.json'; p.write_text(raw)
++        with self.assertRaises(Blocked): load(p)
++
++    def test_duplicate_top_level_verdict_status_is_rejected_before_merge(self):
++        review = self.acceptance_review()
++        raw = json.dumps(review)
++        raw = raw.replace('"status": "PASS"', '"status":"FAIL","status":"PASS"', 1)
++        p = self.root / 'ambiguous-verdict.json'; p.write_text(raw)
++        sent = []
++        with self.assertRaises(Blocked):
++            verdict = load(p)
++            guarded_merge(self.root, 4, {}, verdict, 'P07', lambda *_: self.merge_view(), lambda *a: sent.append(a))
++        self.assertFalse(sent)
++
++    def test_duplicate_capability_keys_in_hash_bound_readiness_are_rejected(self):
++        record = self.state['autopilot']['production_gates']['readiness']
++        p = self.root / record['decision']; raw = p.read_text()
++        needle = '"navigation_pilot":'
++        raw = raw.replace(needle, '"navigation_pilot":{"status":"FAIL"},' + needle)
++        p.write_text(raw); record['sha256'] = sha(p)
++        self.blocked()
++
++    def test_nonfinite_json_is_not_accepted_as_a_controller_record(self):
++        p = self.root / 'nonfinite.json'; p.write_text('{"value":NaN}')
++        with self.assertRaises(Blocked): load(p)
++
++    def test_malformed_phase_findings_container_never_passes(self):
++        for value in [{}, {'severity': 'HIGH', 'status': 'OPEN'}, None, '']:
++            review = self.acceptance_review(); review['findings'] = value
++            self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
++
+ 
+ if __name__ == '__main__':
+     unittest.main()

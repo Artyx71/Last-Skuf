@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T23:42:06.026569+00:00",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "role": "LEAD_REVIEWER",
+  "scope": "CANDIDATE_P07_PRODUCTION_GUARD_V3_03b_NARROW_LEAD_COMPONENT_REVIEW",
+  "status": "FAIL_COMPONENT",
+  "reviewed_version": "V3_FINAL03b_EXACT_SNAPSHOTS_NOT_CURRENT_V4",
+  "reviewed_source_inventory_sha256": {
+    "autopilot/readiness.py": "7cc4e8ce869fdc68ea091c4c8c07b206a64419d1c537aa3f32a27cff9a33bdb2",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "autopilot/github.py": "0f3a913960680dd3c1bb7e91e168b3cfc705ad5d03352e1246065f557601faa2",
+    "autopilot/review_schema.json": "45bdeb187e2419076086a372c4f0cab0a0d6b3f2d5c4376df90c72e40dc3f5ae",
+    "autopilot/PRODUCTION_GATES.md": "9d74e56c6fea921ce0c9ef7a7af8925189891a179193ffda5fb1094df0a81ef6",
+    "autopilot/prompts/INDEPENDENT_REVIEW.md": "09dafcfa7229f59b36b7b5735417990880496a1b7d41805c5cd03eb0c07a37ff",
+    "tools/tests/test_production_readiness.py": "8d32d5fbb5a35c05111a86eae1efab9372db64847d7050498fe98b73bcfb6caf",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "QA3_awaited": true,
+  "QA3_status": "FAIL_COMPONENT",
+  "QA3_decision_sha256": "fa9b45113d742f234846e1c11a0ac6dbbf1aab3597cef0d7d46f4df4f46ce39c",
+  "QA3_artifacts_sha256": "31158f71d39b677516acb9b49d890ccc8fa3abc1cc02ccb4f1e6c58aeaa5b0b6",
+  "QA3_portable_inventory_files_verified": 34,
+  "must_fix": [
+    {
+      "id": "PG-C05",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "summary": "Contradictory duplicate raw closure ID erased by actual JSON loader; accepted review reaches mock squash PUT",
+      "sources": [
+        "autopilot/runner.py:load",
+        "autopilot/readiness.py:JSON receipt loading",
+        "autopilot/github.py:validate_review/guarded_merge"
+      ],
+      "repro": "duplicate-proof.py + duplicate-raw-verdict.TEST_ONLY.txt",
+      "actual_phase_validation_errors": [],
+      "actual_mock_PUT_count": 1,
+      "actual_network_requests": 0,
+      "required_fix": "Reject duplicate JSON keys at actual ingress/cache/receipt/state decode before dict construction; targeted raw-JSON no-PUT tests"
+    },
+    {
+      "id": "PG-C06",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "summary": "Phase PASS validator accepts findings={} despite array schema",
+      "sources": [
+        "autopilot/github.py:validate_review"
+      ],
+      "repro": "staged-probes.py malformed_phase_findings_object",
+      "actual_validation_errors": [],
+      "required_fix": "Validate typed findings list and malformed phase containers at runtime, not only producer output schema"
+    }
+  ],
+  "PG_L05_status": "OPEN_PENDING_PG_C05_DUPLICATE_KEY_REJECTION",
+  "PG_L05_original_staged_overblocking_design_corrected": true,
+  "PG_L05_full_closure_approval": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "full_production_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false,
+  "P06_formal_attempt_consumed": false,
+  "old_readiness_FAIL_changed": false,
+  "canonical_state_or_WORK_mutations_by_reviewer": false,
+  "remove_21MDS_hardgate_approval": false,
+  "own_broad_tests_run": false,
+  "own_narrow_pure_decoder_cases": 2,
+  "own_Git_controller_engine_network_generator_calls": 0,
+  "actual_GitHub_requests": 0,
+  "safe_handoff_fullverify_fullP06_still_required": true,
+  "report_sha256": "8c158f50fa08a9ea15828522fab1d5440c0842640f888ee8c33bdfe3ddfd8c07",
+  "metrics_sha256": "1527c30a365b52d8f4ca1c994ce88c2af4e5c57610779713466724ddc25379cd",
+  "artifacts_manifest_sha256": "bb5d1aefe64bf0e03c9f3ba61656ca458a1438808537579610abd0eff57affc4",
+  "next_action": "Fix strict actual JSON duplicate-key decoding and typed phase findings in separate v4; await independent QA4 and narrow Lead review. No ROOT install/production start/full readiness or phase approval."
+}

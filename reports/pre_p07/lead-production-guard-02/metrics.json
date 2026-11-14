@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "scope": "V3_03b_NARROW_LEAD_COMPONENT_REVIEW_ONLY",
+  "status": "FAIL_COMPONENT",
+  "reviewed_frozen_files": 8,
+  "QA3_immutable_decision_awaited_and_verified": true,
+  "QA3_manifest_verified_files": 34,
+  "QA3_baseline_production_tests": {
+    "passed": 50,
+    "total": 50
+  },
+  "QA3_baseline_autopilot_regression_tests": {
+    "passed": 47,
+    "total": 47
+  },
+  "QA3_old_adversarial_cases_correct": 10,
+  "QA3_staged_probes": {
+    "contract_conformant": 23,
+    "total": 25,
+    "unexpected_acceptances": 2
+  },
+  "QA3_duplicate_raw_verdict_mock_PUT": 1,
+  "QA3_actual_network_requests": 0,
+  "own_narrow_pure_decoder_cases": 2,
+  "own_decoder_observations": {
+    "contradictory_duplicate_FAIL_lost_PASS_retained": true,
+    "ordinary_unique_key_control_correct": true
+  },
+  "own_broad_tests": 0,
+  "own_Git_controller_engine_network_generator_calls": 0,
+  "criteria": [
+    {
+      "criterion": "Keep generic P07 mass executor and all21 full unique MDS hardgate",
+      "result": "SATISFIED_IN_REVIEWED_CANDIDATE",
+      "evidence": "reviewed-source/autopilot/runner.py prerequisite/run_phase; readiness.py require_p07_production"
+    },
+    {
+      "criterion": "Six actual preproduction capabilities with hash-bound independently approved evidence",
+      "result": "SATISFIED_AS_COMPONENT_PROTOCOL_NOT_ACTUAL_GAME_READINESS",
+      "evidence": "readiness.py readiness_contract; PRODUCTION_GATES.md"
+    },
+    {
+      "criterion": "Four HIGH OPEN future obligations exact fixed P07_LEAD_PASS_AND_MERGE stage",
+      "result": "SATISFIED_IN_REVIEWED_CANDIDATE",
+      "evidence": "readiness.py OBLIGATIONS/readiness_contract; QA3 staged cases"
+    },
+    {
+      "criterion": "Close every obligation against canonical readiness SHA and current P07 head before PASS checkpoint",
+      "result": "SATISFIED_FOR_NORMAL_UNAMBIGUOUS_DICT_INPUTS_ONLY",
+      "evidence": "runner.py validate_review before persist/checkpoint; github.py validate_review; readiness.py require_p07_review_acceptance"
+    },
+    {
+      "criterion": "Revalidate canonical common-dir authority and actual nested evidence at both merge snapshots",
+      "result": "SATISFIED_FOR_NORMAL_UNAMBIGUOUS_DICT_INPUTS_ONLY",
+      "evidence": "QA3 linked newer P07 head, two changed contract/evidence no-PUT probes; github.py guarded_merge"
+    },
+    {
+      "criterion": "Reject contradictory duplicate raw closure IDs before any PASS/PUT",
+      "result": "FAILED_PG_C05",
+      "evidence": "QA3 duplicate-proof and raw verdict; own decoder-probe-results.json"
+    },
+    {
+      "criterion": "Runtime typed phase findings list, not producer schema alone",
+      "result": "FAILED_PG_C06",
+      "evidence": "QA3 staged-results malformed_phase_findings_object; github.py validate_review"
+    },
+    {
+      "criterion": "Retain old source/Git/path/symlink/severity/schema/no-reset/one-executor protections",
+      "result": "BASELINES_AND_DECLARED_CASES_RETAINED_WITHIN_COMPONENT_SCOPE",
+      "evidence": "QA3 50+47, old10 correct including legitimate resume; reviewed runner lease preserved"
+    }
+  ],
+  "scope_flags": {
+    "phase_approval": false,
+    "full_production_readiness_approval": false,
+    "ROOT_runner_installation_approval": false,
+    "production_start_approval": false,
+    "merge_approval": false,
+    "P06_attempt_consumed": false,
+    "old_readiness_FAIL_changed": false,
+    "canonical_state_or_WORK_mutated_by_reviewer": false
+  }
+}

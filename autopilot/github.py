@@ -8,6 +8,7 @@ import subprocess
 import sys
 import time
 from urllib.parse import quote
+from readiness import strict_json
 
 REPO='Artyx71/Last-Skuf'
 SHA=re.compile(r'^[0-9a-f]{40}$')
@@ -22,7 +23,7 @@ def gh(argv,payload=None,json_output=True):
     if proc.returncode:
         raise GitHubBlocked(proc.stderr.strip() or proc.stdout.strip())
     if not json_output: return proc.stdout
-    return json.loads(proc.stdout) if proc.stdout.strip() else {}
+    return strict_json(proc.stdout) if proc.stdout.strip() else {}
 
 
 def api(endpoint,method='GET',payload=None):
@@ -33,6 +34,7 @@ def api(endpoint,method='GET',payload=None):
 
 def validate_review(root,review,head,phase):
     errors=[]
+    if not isinstance(review,dict): return ['Malformed independent verdict container']
     if review.get('phase')!=phase or review.get('reviewed_commit')!=head or not SHA.fullmatch(head or ''):
         errors.append('Independent review does not cover exact current head SHA/phase')
     if review.get('status') not in ['PASS','FAIL','BLOCKED'] or review.get('independent_review') is not True or not review.get('reviewer'):
@@ -48,8 +50,11 @@ def validate_review(root,review,head,phase):
                 errors.append('Evidence missing/escapes repository: '+item['path']); continue
             if hashlib.sha256(path.read_bytes()).hexdigest()!=item.get('sha256'):
                 errors.append('Evidence changed: '+item['path'])
+    findings=review.get('findings')
+    if not isinstance(findings,list):
+        errors.append('Malformed findings container; array required'); findings=[]
     if review.get('status')=='PASS':
-        for item in review.get('findings',[]):
+        for item in findings:
             if not isinstance(item,dict): errors.append('Malformed finding'); continue
             severity=item.get('severity')
             if not isinstance(severity,str) or severity.strip().upper() not in ['CRITICAL','HIGH','MEDIUM','LOW']:
@@ -73,7 +78,7 @@ def validate_review(root,review,head,phase):
                 errors.append('Actual listening acceptance must be hash-bound review evidence')
             elif phase in ['P04','P04G']:
                 try:
-                    listening=json.loads((Path(root)/proof['path']).read_text())
+                    listening=strict_json((Path(root)/proof['path']).read_text())
                     if listening.get('phase')!=phase: errors.append('Other-phase listening does not accept new '+phase+' audio')
                 except (OSError,ValueError,AttributeError):
                     errors.append(phase+' listening proof must identify this phase in structured evidence')
