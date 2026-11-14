@@ -1,0 +1,247 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "timka",
+  "passed": false,
+  "source_head": "171bcfc01710614968d9e61ffd7ad409b727951f",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 40,
+  "phase_captures": 32,
+  "transition_captures": 8,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 13.227,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/timka-world-native-01/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 1,
+      "seconds": 22.098,
+      "passed": false
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/commands.json",
+      "sha256": "730f91267d5dbff85299fe7b671738c7090fb1dc40fa3393d63b697d02455a4e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_down_0.png",
+      "sha256": "aa5bbd059c50bcc56ba34defd2426b51555a1928dae45aa234b1f12cca8b1826"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_down_1.png",
+      "sha256": "5c9d202057a62194b8475621b599d6c660aa4933e2e27a42fe34fe0d57bc17df"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_left_0.png",
+      "sha256": "9ff7889ef46225838996b45814bc753e8674aaea9aae2a0ff785915ddaa4c2b0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_left_1.png",
+      "sha256": "020d0b177659e08b8935a1d65c34d524a21f2d6fd6dec0dfecc0c4afc82f660c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_right_0.png",
+      "sha256": "547ff069af8e32f9bcf3653bce93775d27c766826ce55a6e50052384bd35bff0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_right_1.png",
+      "sha256": "052d3428bfbdb23305a5807acaa7f42a97672f86308c62bcf3629411162c1a5d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_up_0.png",
+      "sha256": "b6367f467535f518e2bec9257ea93b699c4fc406b3c0ea415c5a86d7e8553fae"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/idle_up_1.png",
+      "sha256": "d23ab1dc7a246e05f6f7a7c858d3688e3b8dd5f20b5abb791aaf62c7c31633ff"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/result.json",
+      "sha256": "ca2f288ed860f6ee5fb62de872fc67109e00aeff47572666eefbaff32d77c44d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_down_0.png",
+      "sha256": "6d95e2db6f84ed682c6b4fa058c0fe38e1be6721fa54d299cf99e798571f72f5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_down_1.png",
+      "sha256": "5212e0c1620bac6043712e97b105bed353c44256392e1b1cc0d1ebdb59bae3c8"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_left_0.png",
+      "sha256": "5c1a7b212d0cc9d3c70b82bf9c258de9c883f2f15d67d16f692c4ef7373781a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_left_1.png",
+      "sha256": "6cab508b64fd152937be117f6834b17d9d612fae77cf7a17c8bbbd84e6767b6c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_right_0.png",
+      "sha256": "4171a8d7e9b0d8e6a6c9a76515be1ee5d4205d1aa5d48967b4918c4a2b450b34"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_right_1.png",
+      "sha256": "7b15dad578a497444bebf41ead99d1a43699014b410f68143f83ff213ad84207"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_up_0.png",
+      "sha256": "a70adbe8b0bc3acd14c0ae2d9d53cb8002f87bc9e5e2cfb1b6588467429c43d6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/run_up_1.png",
+      "sha256": "51e45741ac1456baa89701d60b9ed2b46461df4b3aab4f6e3c1757fb3b45edcb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_504_idle_up.png",
+      "sha256": "b41bf7594f8743f74b796a59849566f62d6494541ad0aa13059ab75ad2ccf05e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_528_walk_right.png",
+      "sha256": "46b49d1da4cc3af9ea013bdec3922385236ee56d4d391344d38487b28e2dcb97"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_552_run_right.png",
+      "sha256": "01030956e722278bdb91222802df05cc5da2eca1b0b6eeab5621c26bbb8605bb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_576_idle_right.png",
+      "sha256": "a5ba6fba7d16c77019aaa48c4653787ef3e8e41ebe5a47d9dae2c238b93acf01"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_600_walk_down.png",
+      "sha256": "dfd22080e980076dafa39f3091d009444e1f8a1132778b80d6bbd35f188302d6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_624_run_left.png",
+      "sha256": "93fc2de2bc513b383a44691c678b56942e0f63220edb5a7632d0cb591d40acbf"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_648_walk_up.png",
+      "sha256": "a772acecb9f9086abe464f38fc1a2c8205a314f3f31f64abaa8b1088d78714fd"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/transition_672_idle_up.png",
+      "sha256": "12214f2d8b320b51a7eb020d8ee42e344c6ad292fb912caeae4a7a9e7e3fdfbe"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_down_0.png",
+      "sha256": "91aeaa73989ead16adb7329fc0aeec546b0b15a0b326158b7cfaa1eca8cdb9d9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_down_1.png",
+      "sha256": "802647b5b46f736f0474728c2b301959c0db78a435269cec6f2a0508a9999f8f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_down_2.png",
+      "sha256": "38240d3bf562688c022bde404ab29203ee91c645212d12ec1427982cf361681b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_down_3.png",
+      "sha256": "b407e32987fbdb7c8b55f125acdf77a8415a8026225d2c34caf275c00cff196a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_left_0.png",
+      "sha256": "74b8c9582573d6de04f21d7b97ea97914563175bebe7ef9e2b660b1dffef9a77"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_left_1.png",
+      "sha256": "2b3fe90704f816927beecb03f0068a6a67c209253fb543e490ceebd5bd88811a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_left_2.png",
+      "sha256": "e2951a664a5c18d25723169d33ed7930c393b21a0373a2ab71349daf64c8bcd5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_left_3.png",
+      "sha256": "b4e9357eb5320e339665c9b0782ceadfe5e42a3224f85ab22ccbea5ce422772a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_right_0.png",
+      "sha256": "6afd3daf0e41e3cfe5410dc74ae7704fad528911fa5143f7cb77291a60c2dffc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_right_1.png",
+      "sha256": "6c0c8976496a40ff101e6f6a9529a88f91ab82b06ec6807e559125f616d8310b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_right_2.png",
+      "sha256": "f4048dfe1fd7ab3dc16c94fc10381d0d1c442bfa0e1b4909913bfb9e44e0a422"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_right_3.png",
+      "sha256": "7f8a6acbff702d77fc5ade7a08604a35916fa5d1f52d7b2cad59b8b3d6ab328b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_up_0.png",
+      "sha256": "26eaf5c5fcfe972d5dd1b7416f3572156a8a59da4a76e0fe7888e541ab1e27fb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_up_1.png",
+      "sha256": "487d72bfd774cf2f49c9268eab74e1d54bc9ad1ed7762f9fb396ec0e7d1ccada"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_up_2.png",
+      "sha256": "9c4a90c3c0008e4791aa49533a016f27e075b8771912d3425a4d4def4169fde9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live/walk_up_3.png",
+      "sha256": "4ec32e30048f4df1f292cd3c3bc52cc3326377c6df533eb019b18b573830fcf4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/live.log",
+      "sha256": "0c33d6276de67058dae4414e63a930e24f6728268f9c364d8b5f017acd977568"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/movie/result.json",
+      "sha256": "668903ac79c3cb7eb24c6962fdea30536476549e0993e3afb01a4f85afdff0e3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/movie.log",
+      "sha256": "787d77b284318562a98eab827ce167c93151a99700514596085e18d9c583b231"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/timka-world-native-01/source_hashes.json",
+      "sha256": "10fbc0f03f555d55305e37d6d8c639df9ed8d2fa50bf4f155be66911a5dcdd35"
+    }
+  ]
+}
