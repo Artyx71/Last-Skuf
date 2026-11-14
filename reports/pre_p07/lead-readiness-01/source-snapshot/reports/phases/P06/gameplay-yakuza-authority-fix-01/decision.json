@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T21:51:43.274801+00:00",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "phase": "P06",
+  "scope": "GP-P06-YAKUZA-SCOPE-01_BOUNDED_FINDING_CLOSURE",
+  "status": "CLOSED_SCOPED_FIX_VERIFIED",
+  "closed_findings": [
+    {
+      "id": "GP-P06-YAKUZA-SCOPE-01",
+      "previous_severity": "HIGH",
+      "status": "CLOSED_SCOPED_FIX_VERIFIED",
+      "before_runtime_confirmed": true,
+      "after_isolated_headless_fix_verified": true
+    }
+  ],
+  "must_fix": [],
+  "seven_hero_gate_ready": false,
+  "formal_phase_attempt": false,
+  "phase_attempt_consumed": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "runtime_approval": false,
+  "production_combat_approval": false,
+  "ability_approval": false,
+  "ART_approval": false,
+  "audio_listening_approval": false,
+  "performance_approval": false,
+  "export_approval": false,
+  "merge_approval": false,
+  "owner_moderation_approval": false,
+  "next_phase": "none",
+  "independent_engine_tests_performed": true,
+  "engine_invocations": 7,
+  "engine_scope": "HEADLESS_ROOT_ISOLATED_COPIES_ONLY",
+  "work_source_mutations": false,
+  "independent_after_fix_assertions": {
+    "passed": 801,
+    "failed": 0
+  },
+  "before_expected_regression_control": {
+    "passed": 11,
+    "failed": 10,
+    "expected_exit": 1,
+    "actual_exit": 1
+  },
+  "source_inventory_sha256": {
+    "game/scripts/systems/combat_system.gd": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+    "game/scripts/core/combat_lab.gd": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+    "game/tests/yakuza_finisher_authority_test.gd": "d9a8175f4ff8da5a2920a48be205b7399dd809aaeb0f2b4678c93189ff1074ff",
+    "tools/verify.py": "2d6655c7c19feb712b78d207d68c6167d3f7fa4726d31033fbbe2c476d7914df"
+  },
+  "report_sha256": "4bf723e438425b3d45f728fb0786234764acdf7549410dff236614063aac00d6",
+  "metrics_sha256": "157dde1ee97f44e0b2eb066daa6d29700192056670456d3f4b271453bfea6085",
+  "inputs_sha256": "13572507699f92ab0b72a45fa1e86164c393d35ca4797455a1c9a637d60ce17f",
+  "commands_sha256": "78faee908a430fd4b16660d4821971af417ab1efc7880f2eff626baf71012b9d",
+  "original_gap_audit_unchanged": true,
+  "remaining_gap_findings": [
+    "GP-P06-MATRIX-01",
+    "GP-P06-OLEG-UX-01",
+    "GP-P06-TIMKA-01",
+    "GP-P06-PASHA-01",
+    "GP-P06-RYZHIK-01",
+    "GP-P06-TEGA-01",
+    "GP-P06-REGRESSION-01"
+  ],
+  "next_action": "Executor may record only this finding closure; continue current authorized P06 work and obtain independent full gates later."
+}

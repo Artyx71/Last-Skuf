@@ -1,0 +1,193 @@
+[
+  {
+    "name": "import",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--editor",
+      "--quit"
+    ],
+    "exit_code": 0,
+    "seconds": 4.321,
+    "log": "independent-import.log",
+    "log_sha256": "8cf41ff8f9c5a9cadd5e74151d2ed11c2f1fe9dc94e840bc05f1efae65769063",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/import",
+    "reported_counts": null,
+    "tail": "ading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n"
+  },
+  {
+    "name": "ai",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/ai_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.815,
+    "log": "independent-ai.log",
+    "log_sha256": "5c2d1450f174bb3c0e174a3db4a242a0e648c86512a1e55062d0c27a399cedb9",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/ai",
+    "reported_counts": [
+      32,
+      0
+    ],
+    "tail": "n already-committed enemy shot\nPASS distraction diverts active rusher to real noise\nPASS finite distraction returns to detection loop\nRESULT passed=32 failed=0\n"
+  },
+  {
+    "name": "audio",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/audio_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.715,
+    "log": "independent-audio.log",
+    "log_sha256": "1e0c0ec890e34fa7115baec455f1f1e14a23cb2e24aec3459bce3f01f9eeb34c",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/audio",
+    "reported_counts": [
+      45,
+      0
+    ],
+    "tail": "lifecycle 9\nPASS retry never stacks/restarts music 9\nPASS all ten real deaths exercised\nPASS death/retry storm stays within polyphony\nRESULT passed=45 failed=0\n"
+  },
+  {
+    "name": "dialogue",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/dialogue_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.815,
+    "log": "independent-dialogue.log",
+    "log_sha256": "f3f43a393867624ee6d613a038d5cce86790c45f8459c4b13bd141944d85be40",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/dialogue",
+    "reported_counts": [
+      44,
+      0
+    ],
+    "tail": "d line 3\nPASS maximum text size fits authored line 4\nPASS actual slider updates persisted volume\nPASS technical world remains visible\nRESULT passed=44 failed=0\n"
+  },
+  {
+    "name": "options",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/options_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.615,
+    "log": "independent-options.log",
+    "log_sha256": "f08e25c61ecd0237ae9b686f828bc6b3486e00dc24798e1908a975f8333c9bc5",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/options",
+    "reported_counts": [
+      31,
+      0
+    ],
+    "tail": "ence\nPASS clamp volume range\nPASS P03 preferences retain values and gain default gore option\nPASS reject unsupported settings version\nRESULT passed=31 failed=0\n"
+  },
+  {
+    "name": "story_registry",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/story_registry_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.615,
+    "log": "independent-story_registry.log",
+    "log_sha256": "303d03d0f2093f86457cc8674971f3d8dc0854914fcfcf433380974f1dbda747",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/story_registry",
+    "reported_counts": null,
+    "tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSTORY_REGISTRY_TEST checks=13 failures=0\n"
+  },
+  {
+    "name": "story_state",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/story_state_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.715,
+    "log": "independent-story_state.log",
+    "log_sha256": "56310b4bcc9c1d1b5c0ecf8c260177ce6bc83ad1fd7515008019cbe9a8f637f4",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/story_state",
+    "reported_counts": null,
+    "tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSTORY_STATE_TEST checks=40 failures=0\n"
+  },
+  {
+    "name": "character_readiness",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--fixed-fps",
+      "60",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/isolated/game",
+      "--script",
+      "res://tests/character_readiness_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 0.915,
+    "log": "independent-character_readiness.log",
+    "log_sha256": "ad2296723c82ec8022305a1936ca9537a3fb1f99b2c31a19db2d6fb8d0dcf892",
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-readiness-01/profiles/character_readiness",
+    "reported_counts": [
+      56,
+      0
+    ],
+    "tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nRESULT P06_READINESS passed=56 failed=0\n"
+  }
+]

@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "scope": "PRODUCTION_DESIGN_REGISTRY_NOT_RUNTIME_CONTENT",
+  "canonical_source": "game/resources/story/registry.json",
+  "canonical_sha256": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+  "target_first_play_minutes": [
+    420,
+    540
+  ],
+  "duration_status": "TARGET_NOT_MEASURED",
+  "main_chapters": [
+    {
+      "id": "CH01_THE_MISSED_FIGHT",
+      "event_id": "EV_CH01_SERVICE_ESCAPE",
+      "title_ru": "Пропущенная драка",
+      "presentation": 1,
+      "chronology": 1,
+      "period": "past",
+      "timestamp": "2023-10-14T22:18:00+03:00",
+      "timestamp_status": "locked",
+      "povs": [
+        "YAKUZA"
+      ],
+      "prerequisites": [],
+      "runtime_availability": "playable",
+      "runtime_scene": "res://scenes/levels/missed_fight.tscn",
+      "mission_design_spec": "planning/P04_MISSION_DESIGN.md",
+      "spec_file_exists": true,
+      "design_status": "EXISTING_P04_SPEC_NEEDS_P07_FIELDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH02_THE_TITAN",
+      "event_id": "EV_CH02_COMPLETE",
+      "title_ru": "Титан",
+      "presentation": 2,
+      "chronology": 2,
+      "period": "past",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "prerequisites": [
+        "EV_CH01_SERVICE_ESCAPE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH02_THE_TITAN.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH03_THE_LAST_ARMRESTLER",
+      "event_id": "EV_CH03_COMPLETE",
+      "title_ru": "Последний армрестлер",
+      "presentation": 3,
+      "chronology": 3,
+      "period": "past",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TEGA"
+      ],
+      "prerequisites": [
+        "EV_CH02_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH03_THE_LAST_ARMRESTLER.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH04_THE_FINAL_SKUF",
+      "event_id": "EV_CH04_COMPLETE",
+      "title_ru": "Последний скуф",
+      "presentation": 4,
+      "chronology": 4,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "prerequisites": [
+        "EV_CH03_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH04_THE_FINAL_SKUF.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH05_THE_ORIGINAL_PRIME",
+      "event_id": "EV_CH05_COMPLETE",
+      "title_ru": "Настоящий прайм",
+      "presentation": 5,
+      "chronology": 5,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR",
+        "OLEZHKA"
+      ],
+      "prerequisites": [
+        "EV_CH04_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH05_THE_ORIGINAL_PRIME.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH06_THE_BREAKER",
+      "event_id": "EV_CH06_COMPLETE",
+      "title_ru": "Брейкер",
+      "presentation": 6,
+      "chronology": 6,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "RYZHIK"
+      ],
+      "prerequisites": [
+        "EV_CH05_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH06_THE_BREAKER.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH07_THE_AMERICAN_PROGRAM",
+      "event_id": "EV_CH07_COMPLETE",
+      "title_ru": "Американская программа",
+      "presentation": 7,
+      "chronology": 7,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA"
+      ],
+      "prerequisites": [
+        "EV_CH06_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH07_THE_AMERICAN_PROGRAM.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH08_WIFE_APPROVAL",
+      "event_id": "EV_CH08_COMPLETE",
+      "title_ru": "Одобрение жены",
+      "presentation": 8,
+      "chronology": 8,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "prerequisites": [
+        "EV_CH07_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH08_WIFE_APPROVAL.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH09_THE_NIGHT_SHIFT",
+      "event_id": "EV_CH09_COMPLETE",
+      "title_ru": "Ночная смена",
+      "presentation": 9,
+      "chronology": 9,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TEGA"
+      ],
+      "prerequisites": [
+        "EV_CH08_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH09_THE_NIGHT_SHIFT.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH10_THE_KIMONO",
+      "event_id": "EV_CH10_COMPLETE",
+      "title_ru": "Кимоно",
+      "presentation": 10,
+      "chronology": 10,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "OLEZHKA",
+        "YAKUZA"
+      ],
+      "prerequisites": [
+        "EV_CH09_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH10_THE_KIMONO.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH11_THE_DOG_WALKER",
+      "event_id": "EV_CH11_COMPLETE",
+      "title_ru": "Собачник",
+      "presentation": 11,
+      "chronology": 11,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "prerequisites": [
+        "EV_CH10_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH11_THE_DOG_WALKER.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH12_CYBERX",
+      "event_id": "EV_CH12_COMPLETE",
+      "title_ru": "Киберикс",
+      "presentation": 12,
+      "chronology": 12,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA",
+        "GABAR"
+      ],
+      "prerequisites": [
+        "EV_CH11_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH12_CYBERX.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH13_NO_REFUNDS",
+      "event_id": "EV_CH13_COMPLETE",
+      "title_ru": "Без возврата",
+      "presentation": 13,
+      "chronology": 13,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "RYZHIK"
+      ],
+      "prerequisites": [
+        "EV_CH12_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH13_NO_REFUNDS.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH14_AGENT_SWARM",
+      "event_id": "EV_CH14_COMPLETE",
+      "title_ru": "Рой агентов",
+      "presentation": 14,
+      "chronology": 14,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR"
+      ],
+      "prerequisites": [
+        "EV_CH13_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH14_AGENT_SWARM.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH15_THE_SUPERSUIT",
+      "event_id": "EV_CH15_COMPLETE",
+      "title_ru": "Суперкостюм",
+      "presentation": 15,
+      "chronology": 15,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "prerequisites": [
+        "EV_CH14_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH15_THE_SUPERSUIT.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH16_THE_AMERICAN_NIGHTMARE",
+      "event_id": "EV_CH16_COMPLETE",
+      "title_ru": "Американский кошмар",
+      "presentation": 16,
+      "chronology": 16,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "PASHA"
+      ],
+      "prerequisites": [
+        "EV_CH15_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH16_THE_AMERICAN_NIGHTMARE.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH17_BROTHERHOOD",
+      "event_id": "EV_CH17_COMPLETE",
+      "title_ru": "Братство",
+      "presentation": 17,
+      "chronology": 17,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "OLEZHKA",
+        "YAKUZA"
+      ],
+      "prerequisites": [
+        "EV_CH16_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH17_BROTHERHOOD.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH18_THE_BETRAYAL",
+      "event_id": "EV_CH18_COMPLETE",
+      "title_ru": "Предательство",
+      "presentation": 18,
+      "chronology": 18,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR",
+        "PASHA"
+      ],
+      "prerequisites": [
+        "EV_CH17_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH18_THE_BETRAYAL.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH19_FOUNDING_INVESTOR",
+      "event_id": "EV_CH19_COMPLETE",
+      "title_ru": "Первый инвестор",
+      "presentation": 19,
+      "chronology": 19,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA"
+      ],
+      "prerequisites": [
+        "EV_CH18_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH19_FOUNDING_INVESTOR.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH20_THE_ARCHITECT",
+      "event_id": "EV_CH20_COMPLETE",
+      "title_ru": "Архитектор",
+      "presentation": 20,
+      "chronology": 20,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA",
+        "OLEZHKA"
+      ],
+      "prerequisites": [
+        "EV_CH19_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH20_THE_ARCHITECT.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "CH21_THE_LAST_CALL",
+      "event_id": "EV_CH21_COMPLETE",
+      "title_ru": "Последний звонок",
+      "presentation": 21,
+      "chronology": 21,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "YAKUZA",
+        "GABAR",
+        "OLEZHKA",
+        "TIMKA",
+        "RYZHIK",
+        "TEGA",
+        "PASHA"
+      ],
+      "prerequisites": [
+        "EV_CH20_COMPLETE"
+      ],
+      "runtime_availability": "planned",
+      "runtime_scene": "",
+      "mission_design_spec": "planning/missions/CH21_THE_LAST_CALL.md",
+      "spec_file_exists": false,
+      "design_status": "PENDING_INDIVIDUAL_MDS",
+      "lead_approved": false
+    }
+  ],
+  "secret_missions": [
+    {
+      "id": "SECRET_SUPPOSITORY_CANNON",
+      "story_status": "CANONICAL_CONCEPT",
+      "runtime_registered_flag": true,
+      "playable_secret_scene_created": false,
+      "design_status": "PENDING_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_BROKEN_TOOTH",
+      "story_status": "CANONICAL_CONCEPT",
+      "runtime_registered_flag": true,
+      "playable_secret_scene_created": false,
+      "design_status": "PENDING_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_BATHROOM_INCIDENT",
+      "story_status": "CANONICAL_CONCEPT",
+      "runtime_registered_flag": true,
+      "playable_secret_scene_created": false,
+      "design_status": "PENDING_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_JACK_REVENGE",
+      "story_status": "CANONICAL_CONCEPT",
+      "runtime_registered_flag": true,
+      "playable_secret_scene_created": false,
+      "design_status": "PENDING_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_PRIME_PHOTOS",
+      "story_status": "CANONICAL_CONCEPT",
+      "runtime_registered_flag": true,
+      "playable_secret_scene_created": false,
+      "design_status": "PENDING_MDS",
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_OFFLINE_BUILD",
+      "title_ru": "Офлайн-сборка",
+      "story_status": "PROPOSED_AWAITING_NARRATIVE_LEAD",
+      "runtime_registered_flag": false,
+      "mission_design_spec": "planning/missions/SECRET_OFFLINE_BUILD.md",
+      "design_status": "CONCEPT_DRAFT_NOT_PRODUCTION_MDS",
+      "playable_secret_scene_created": false,
+      "lead_approved": false
+    },
+    {
+      "id": "SECRET_COUNTER_LESSON",
+      "title_ru": "Пауза между ударами",
+      "story_status": "PROPOSED_AWAITING_NARRATIVE_LEAD",
+      "runtime_registered_flag": false,
+      "mission_design_spec": "planning/missions/SECRET_COUNTER_LESSON.md",
+      "design_status": "CONCEPT_DRAFT_NOT_PRODUCTION_MDS",
+      "playable_secret_scene_created": false,
+      "lead_approved": false
+    }
+  ],
+  "individual_21_MDS_complete": false,
+  "mass_production_approved": false
+}

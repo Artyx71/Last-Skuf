@@ -1,6 +1,6 @@
 # PRE-P07 / P07: новые требования владельца
 
-Статус: RECORDED_REQUIREMENTS_AND_PENDING_AUDIT. Источники — прямые поручения MISSION PACING & LEVEL DESIGN QUALITY GATE, HIGH-INTENSITY GAMEPLAY & PACING, PRODUCTION READINESS AUDIT. Утверждённый сюжет и выполненные фазы сохраняются. P06 не перезапускается. Это не21 готовая MDS, не28 готовых миссий и не доказательство готовности P07.
+Статус: INDEPENDENT_READINESS_FAIL_REMEDIATION_QUEUED. Источники — прямые поручения MISSION PACING & LEVEL DESIGN QUALITY GATE, HIGH-INTENSITY GAMEPLAY & PACING, PRODUCTION READINESS AUDIT. Утверждённый сюжет и выполненные фазы сохраняются. P06 не перезапускается. Это не21 готовая MDS, не28 готовых миссий и не доказательство готовности P07.
 
 ## Условия продолжения
 
@@ -12,7 +12,7 @@
 
 Нужны единый шаблон и отдельные содержательные21MDS: хронология/event_id/POV; герой/механики; карта связанных зон и порядок помещений; цели/победа/поражение; позиции/archetypes врагов; инструменты/взаимодействия; уникальные encounters; boss phases если сюжет предусматривает босса; диалоги/cutscenes/transitions; adaptive music/SFX; secrets/альтернативы; story flags; assets; тестовые сценарии/критерии. Каждая глава имеет вступление→развитие→кульминацию→завершение, свою идею и критерии отличия от остальных. CyberX и финальный PRIME — многоэтапные. Не добавлять боссов или менять сюжет ради checklist; предусмотренные боссы имеют уникальные читаемые механики.
 
-Обязателен реестр21main+7secret production slots. Фактический утверждённый specs/STORY_SPEC.md §6 и game/resources/story/registry.json содержат21main+5definedsecrets. Две дополнительные secret stories пока не заданы; сохранить различие между defined и reserved/proposed, не изобретать одобренный сюжет или runtime availability. Разрешение содержательного расхождения требуется до производства соответствующих секретов, не блокирует P06/build.
+Обязателен реестр21main+7secret production slots. Фактический утверждённый specs/STORY_SPEC.md §6 и game/resources/story/registry.json содержат21main+5definedsecrets. Владелец разрешил два необязательных предложения: SECRET_OFFLINE_BUILD и SECRET_COUNTER_LESSON. Они получили отдельный Narrative/Lead CONCEPT_ONLY PASS; полные MDS, канонизация и runtime ещё не приняты. См. planning/missions/OPTIONAL_CONCEPT_REVIEW_FOLLOWUPS.md. Это не блокирует P06/build.
 
 ## Динамика и отзывчивость
 
@@ -31,3 +31,5 @@ Music: Exploration→Tension→Combat→Aftermath как смысловые со
 Gameplay Pacing Review обязателен в P07 и финальном P08: Input-to-action latency, time-to-restart, интервалы без значимого действия, уникальные encounter scenarios, причины/частота смертей, длительность каждой главы/маршрута, actual wall-frame FPS/frame-time distribution, real music transitions. Отделять AFK/pause/целенаправленное исследование/важную режиссуру от пустого ожидания; не вырезать их для искусственной метрики. Численные пороги после baseline calibration фиксируются до acceptance run; исходный retry gate<1000ms сохраняется. Headless fixed-fps/physics delta/расчётные бюджеты не доказывают renderFPS, input hardware latency или7–9часов.
 
 Readiness/полныеMDS/пилоты/производство/послепроизводственные реальные прогоны имеют отдельные independent Gameplay/Narrative/Art/QA/Lead gates и конечные FAIL→FIX→REVIEW tickets. Сам шаблон/реестр/план не результат readiness. Текущая P06 ещё incomplete, полный readiness PASS отсутствует.
+
+Независимый аудит: reports/pre_p07/lead-readiness-01/decision.json — FAIL только по readiness, без изменения P06/прежних PASS. Девять конкретных замечаний сохранены в findings.json и очереди. Кандидат защиты перехода описан в autopilot/PRODUCTION_GATES.md; безопасная установка в ROOT ещё не выполнена.

@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "READINESS-C01",
+      "severity": "CRITICAL",
+      "domains": [
+        "combat",
+        "animation",
+        "ui_vhs_scene_transitions",
+        "music_transitions"
+      ],
+      "file": "game/scripts/actors/character_player.gd:7",
+      "observed": "Implemented fixture/ability registry contains only Gabar/Oleg; runtime assets and packaged smokes preserve unready actors rather than implement remaining four. Full P06/CBT01..10 is not submitted/passed.",
+      "repro": "Inspect IMPLEMENTED_FIXTURE_ABILITIES/use_ability, actual runtime sheets and22Linux/18Wine checks; independent readiness56 validates these rejections, not seven-ready success.",
+      "fix": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "gate": "BEFORE_P07_ENTRY",
+      "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute."
+    },
+    {
+      "id": "READINESS-C02",
+      "severity": "CRITICAL",
+      "domains": [
+        "orchestration"
+      ],
+      "file": "autopilot/runner.py:219",
+      "observed": "Full tools/verify_p06.py absent; ROOT and WORK runner hashes differ; both still stopP06. Current prerequisite checks prior phase PASS/MERGED/P04G, not new typed Readiness/21MDS receipts. Safe handoff is pending. Current stop is protective, not a bypass incident.",
+      "repro": "Read both saved runner snapshots/configs and conditional authorization. No controller was executed.",
+      "fix": "Compose full P06 verifier from existing helpers; implement/test typed exact-source Readiness gate and21unique main-MDS approval before mass, then safe ROOT/WORK code/state/lease handoff. Do not merely raise stop limit or overwrite ROOT/history.",
+      "gate": "BEFORE_P07_ENTRY_AND_MASS_STAGE",
+      "acceptance": "Negative tests for missing/FAIL/BLOCKED/stale/wrong-kind receipts (including CONCEPT_ONLY PASS), missing MDS/changed source, unmergedP06/failedCI/manualapproval; preserve confirmed merge/currentSHA/protection and single executor. Existing worker not hot-swapped."
+    },
+    {
+      "id": "READINESS-H01",
+      "severity": "HIGH",
+      "domains": [
+        "dialogue_direction",
+        "story_flags_save",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/CAMPAIGN_PRODUCTION_REGISTRY.json",
+      "observed": "20 individual main MDS missing; CH01 only old P04 specification awaiting P07 fields;0of21 Lead-approved. Template/registry do not prove unique layouts or scene direction.",
+      "fix": "Author21 substantive separate MDS with canonical IDs/POV, rooms/connections/spawns/objectives/encounters/boss only when justified/dialogue/music/flags/assets/tests; compare topology and decisions with≥2similar MDS; multi-stage CyberX/PRIME, purposeful quiet scenes.",
+      "gate": "BEFORE_MASS_CHAPTER_PRODUCTION",
+      "acceptance": "Independent Narrative/Gameplay/Lead receipt on all21 exact document hashes; no copied placeholders/renamed arena or HP/count-only escalation."
+    },
+    {
+      "id": "READINESS-H02",
+      "severity": "HIGH",
+      "domains": [
+        "ai_navigation"
+      ],
+      "file": "game/scripts/ai/enemy_actor.gd:251",
+      "observed": "_walk_to steers straight toward point; arena AI32 passes, but multiroom obstacle/door routing capability is not demonstrated. Not a runtime-confirmed new AI bug.",
+      "fix": "Test representative U-obstacle/dynamic-door/choke/alternate-route fixtures with all3archetypes and allowed hero body/ability clearance. Introduce minimum routing adapter only on demonstrated need; preserve existing FSM/telegraph/contact.",
+      "gate": "BEFORE_MASS_AFFECTED_MULTIROOM_CONTENT",
+      "acceptance": "Real bounded reachability/door change/retry/LOS/contact proofs without stuck actors, unavoidable random death or new blanket AI rewrite."
+    },
+    {
+      "id": "READINESS-H03",
+      "severity": "HIGH",
+      "domains": [
+        "music_transitions"
+      ],
+      "file": "game/scripts/systems/audio_director.gd:112",
+      "observed": "Two real accepted prototype themes/20categorySFX are intact;45scheduler checks use deterministic clock and actual playback/listening for new mission transitions/hero accents is not established.",
+      "fix": "Plan chapter sound/music production, explicit Exploration→EXPLORE/Tension→SUSPICION/Combat→COMBAT/Aftermath→CLEAR mapping; pilot actual mixer playback-position/loop/bar/fade/duck/retry/scene reload plus real new-file decode/signal/listening.",
+      "gate": "P06_HERO_AUDIO_BEFORE_P06_PASS_AND_NEW_MISSION_AUDIO_BEFORE_RELEVANT_PRODUCTION_ACCEPTANCE",
+      "acceptance": "No stacked/restarted layers or abrupt unexplained cuts, typed contact sync; actual listener for new material. Agent/file metadata/pitch label does not confer artistic approval. Preserve prior owner prototype acceptance."
+    },
+    {
+      "id": "READINESS-H04",
+      "severity": "HIGH",
+      "domains": [
+        "performance_effects",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/PRE_P07_REQUIREMENTS.md",
+      "observed": "No calibrated current representative pilot latency/pacing/wall-frame protocol; actual420–540min campaign target not measured. Historic stress/physics delta and preview duration cannot prove it.",
+      "fix": "Instrument software Input→accepted/first-visible separately from intended windup, retry<1000ms, meaningful-action intervals/deaths/causes/route/story/traversal/AFK/skip and monotonic frame p50/p95/p99; calibrate representative pilot thresholds before acceptance runs.",
+      "gate": "INSTRUMENTATION_AND_PILOT_BASELINE_BEFORE_MASS;ACTUAL_CAMPAIGN_DURATION_AFTER_CONTENT_IMPLEMENTATION",
+      "acceptance": "Current hardware/backend/build/settings/sample conditions and first-play distribution, include real deaths; OS/hardware latency only if actually measured. No requirement for completed7–9h proof before levels exist, no padding or summing mutually exclusive endings."
+    },
+    {
+      "id": "READINESS-H05",
+      "severity": "HIGH",
+      "domains": [
+        "story_flags_save"
+      ],
+      "file": "planning/missions/SECRET_OFFLINE_BUILD.md",
+      "observed": "Two proposals now have separate Narrative+Lead CONCEPT_ONLY PASS, but are not canonical/full MDS/runtime scenes. Five original secrets/ending predicates remain unchanged.",
+      "fix": "Complete distinct bonus MDS and decide noncanonical journal/unlock/completion namespace; explicit save migration/defaultfalse/once/replay/old-save tests before integration; preserve existing5/history/relationships/WIFE_CALLING/REAL_PRIME conditions unless separately approved.",
+      "gate": "BEFORE_NEW_SECRET_CANONICAL_OR_RUNTIME_INTEGRATION_AND_LEVEL_PRODUCTION",
+      "acceptance": "Narrative/Lead full-MDS and actual Gameplay/ART/QA/geometry/pacing/audio evidence; concept PASS is never readiness/phase/runtime permission."
+    },
+    {
+      "id": "READINESS-M01",
+      "severity": "MEDIUM",
+      "domains": [
+        "dialogue_direction",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/MISSION_DESIGN_TEMPLATE.md",
+      "observed": "Additional optional staging/transition/portrait stylistic variants are production work, not current completed assets. Required story/HUD work is already covered by higher gates.",
+      "fix": "Attach chapter-specific polish tickets with actual source assets/native readability/settings/skip tests; keep mandatory scenes/dialogue functional before cosmetic acceptance.",
+      "gate": "RELEVANT_P07_CHAPTER_OR_P08_OPTIONAL_POLISH",
+      "acceptance": "Specific shot/text/transition comparison and independent review; no missing required scene hidden as cosmetic debt."
+    },
+    {
+      "id": "READINESS-L01",
+      "severity": "LOW",
+      "domains": [
+        "animation",
+        "performance_effects",
+        "ui_vhs_scene_transitions"
+      ],
+      "file": "planning/P08_TECH_DEBT.md",
+      "observed": "Extra decorative blood/decal/VHS/optional accepted-finisher variants are not implemented and are explicitly deferred.",
+      "fix": "Retain concrete debt IDs P08-VAR01/02/VHS01; add genuine source/provenance and native comparison only when that authorized phase is reached.",
+      "gate": "OPTIONAL_P08_DEBT_ONLY",
+      "acceptance": "Full/Reduced/off noninterference, lifetime/caps/wall-frame checks and ART/QA; no mandatory combat/sound/HUD deferral."
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "scope": "EIGHT_DOMAIN_INDEPENDENT_READINESS_SCORECARD",
+  "domains": [
+    {
+      "id": "combat",
+      "status": "PARTIAL",
+      "implemented": "Core single action/contact clock, once/epoch/authority, weak Yakuza escape and fixed campaign grant; own Gabar lunge/Oleg pre-damage parry.",
+      "proof": [
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/actors/character_player.gd",
+        "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json",
+        "reports/phases/P06/owner-preview-20261115-01/linux_smoke/result.json"
+      ],
+      "existing_tests": [
+        "p04g_test.gd",
+        "contact_timing_test.gd",
+        "yakuza_finisher_authority_test.gd",
+        "gabar_combat_replay.gd",
+        "olezhka_combat_replay.gd"
+      ],
+      "remaining": "Only G/O extra heroes readiness handlers; missing seven-style pose/cue/NPC-reaction matrix, Timka/Ryzhik/Tega/Pasha abilities, Pasha resources HUD/Oleg active-window UX.",
+      "blocks": [
+        "READINESS-C01"
+      ],
+      "P08_allowed": "Optional cosmetic variants after functional base; mandatory combat/audio/reactions/HUD remain P06."
+    },
+    {
+      "id": "animation",
+      "status": "PARTIAL",
+      "implemented": "Six own WORLD sheets and G/O complete own runtime sets; Timka compact WORLD32/ACTION28 with bounded import QA; nine static portrait sets; base archetype reactions.",
+      "proof": [
+        "reports/phases/P06/asset_inventory.json",
+        "reports/phases/P06/qa-timka-runtime-import-01/decision.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/ai/enemy_actor.gd"
+      ],
+      "existing_tests": [
+        "character_frames_test.gd",
+        "timka_layout_test.gd",
+        "p04g_art_test.gd",
+        "character_readiness_test.gd"
+      ],
+      "remaining": "Timka FIN/environment/contexts/sockets, three other ACTION/FIN/abilities, all production temporal overlays/contact/reactions; static/death hold not multi-frame motion.",
+      "blocks": [
+        "READINESS-C01"
+      ],
+      "P08_allowed": "Additional optional expressions/art variants only after actual required animation acceptance."
+    },
+    {
+      "id": "ai_navigation",
+      "status": "PARTIAL_CAPABILITY_UNPROVEN",
+      "implemented": "Patrol/rusher/shooter FSM, detection/LOS/telegraph/contact/recovery/noise, collision and dead priorities; independent32 AI checks pass.",
+      "proof": [
+        "game/scripts/ai/enemy_actor.gd",
+        "independent-ai.log"
+      ],
+      "existing_tests": [
+        "ai_test.gd",
+        "contact_timing_test.gd",
+        "restart_test.gd"
+      ],
+      "remaining": "Direct-vector _walk_to has no proven U-obstacle/door/alternate-route multiroom routing; no new runtime bug claimed.",
+      "blocks": [
+        "READINESS-H02"
+      ],
+      "P08_allowed": "Optional patrol cosmetics; required reachability/telegraphs cannot be deferred."
+    },
+    {
+      "id": "dialogue_direction",
+      "status": "IMPLEMENTED_SCAFFOLD_CONTENT_PENDING",
+      "implemented": "Typewriter/history/skip-seen/portraits/fictional bleeps, durable dialogue ledger, isolated P06 viewing/pause ownership, CH01 existing scenes; independent44 dialogue checks pass.",
+      "proof": [
+        "game/scripts/systems/dialogue_director.gd",
+        "game/scripts/systems/character_dialogue_session.gd",
+        "independent-dialogue.log",
+        "reports/phases/P06/owner-preview-20261115-01/linux_smoke/timka_portrait.png"
+      ],
+      "existing_tests": [
+        "dialogue_test.gd",
+        "character_dialogue_test.gd",
+        "character_lab_isolation_test.gd",
+        "character_dialogue_reload.gd"
+      ],
+      "remaining": "Nine cast demonstrations are not21 chapter directions. Missing individual MDS/dialogue beats/skip/transition proofs for future scenes.",
+      "blocks": [
+        "READINESS-H01"
+      ],
+      "P08_allowed": "Optional staging/portrait polish, never missing required story scenes."
+    },
+    {
+      "id": "music_transitions",
+      "status": "PARTIAL_TECHNICAL_FOUNDATION",
+      "implemented": "Single synchronized4-stem mixer, EXPLORE/SUSPICION/COMBAT/CLEAR beat/bar scheduling, fade/duck/bounded voices/retry retention;28 actual legacy streams decoded; independent45 scheduler/API checks pass.",
+      "proof": [
+        "game/scripts/systems/audio_director.gd",
+        "game/assets/audio/manifest.json",
+        "game/resources/chapters/missed_fight_music.json",
+        "metrics.json:audio_signal_only",
+        "independent-audio.log"
+      ],
+      "existing_tests": [
+        "audio_test.gd",
+        "tools/audio_qa.py",
+        "tools/analyze_p04_audio.py",
+        "tools/analyze_p04g_audio.py"
+      ],
+      "remaining": "Actual new-hero accents/listening and chapter production matrix, pilot real playback-position/retry/transition evidence; agent has not heard audio.",
+      "blocks": [
+        "READINESS-C01",
+        "READINESS-H03"
+      ],
+      "P08_allowed": "Optional mastering/extra variants after required base accepted; missing cues/abrupt transition fixes stay required."
+    },
+    {
+      "id": "story_flags_save",
+      "status": "IMPLEMENTED_INFRASTRUCTURE_CONTENT_PENDING",
+      "implemented": "Canonical event ledger, atomic rename publish, derived validation, replay fork, legacy migration and4-ending eligibility; independent registry13/state40 pass; previous P05 accepted.",
+      "proof": [
+        "game/scripts/story/story_state.gd",
+        "game/scripts/story/story_registry.gd",
+        "game/resources/story/registry.json",
+        "game/resources/story/routes.json",
+        "reports/phases/P05/review.md",
+        "independent-story_registry.log",
+        "independent-story_state.log"
+      ],
+      "existing_tests": [
+        "story_registry_test.gd",
+        "story_state_test.gd",
+        "story_graph_test.gd",
+        "story_integration_test.gd",
+        "mission_test.gd"
+      ],
+      "remaining": "Only CH01 playable. Historical6344 logical partitions/22828states/662778assertions are not20 new levels. Two new noncanonical concepts accepted for design only, no runtime/save integration.",
+      "blocks": [
+        "READINESS-H01",
+        "READINESS-H05"
+      ],
+      "P08_allowed": "Optional journal presentation; no save corruption/deadlock or ending predicate changes."
+    },
+    {
+      "id": "ui_vhs_scene_transitions",
+      "status": "PARTIAL",
+      "implemented": "Options/VHS/reduced effects/text scale and existing pause/retry; actual owner-preview ELF/PE +Linux22/4PNG/Wineheadless18; independent31 options checks pass.",
+      "proof": [
+        "game/scripts/core/bootstrap.gd",
+        "game/scripts/core/options_store.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "reports/phases/P06/owner-preview-20261115-01/preview.json",
+        "independent-options.log"
+      ],
+      "existing_tests": [
+        "options_test.gd",
+        "owner_preview_smoke.gd",
+        "character_lab_isolation_test.gd"
+      ],
+      "remaining": "Mandatory Oleg readable window/Pasha ammo-cd-recovery HUD; new chapter cards/cutscene/transitions and first-visible-response metrics not accepted. Native Windows not tested.",
+      "blocks": [
+        "READINESS-C01",
+        "READINESS-H01",
+        "READINESS-H04"
+      ],
+      "P08_allowed": "Optional VHS decoration after readability/off/settings gates; mandatory HUD not deferred."
+    },
+    {
+      "id": "performance_effects",
+      "status": "BASELINE_ONLY_NOT_CURRENT_CAMPAIGN_ACCEPTANCE",
+      "implemented": "Bounded48particle/40decal pools/TTL/reset/cosmetic RNG; archived P04G actual600monotonic process frames,32 drawableactors/4800APIcontacts and10resets preserved.",
+      "proof": [
+        "game/scripts/systems/combat_impact.gd",
+        "game/scripts/qa/p04g_replay.gd",
+        "metrics.json:historical_P04G_performance"
+      ],
+      "existing_tests": [
+        "p04g_test.gd",
+        "p04g_replay.gd",
+        "restart_test.gd"
+      ],
+      "remaining": "Current P06/campaign stress/input-to-action/scene first-response/actual first-play data missing; old fixture is not32activeAI or current FPS guarantee.",
+      "blocks": [
+        "READINESS-H04"
+      ],
+      "P08_allowed": "Optional cosmetic quality tiers; critical leaks/stutter/required effects caps remain gates."
+    }
+  ],
+  "all_current_phase_gates_preserved": true
+}

@@ -157,8 +157,9 @@
       "depends_on": [
         "P06/timka-supported-animation-contract"
       ],
-      "status": "IMPLEMENTING",
-      "spec": "specs/CHARACTER_EXPANSION_SPEC.md"
+      "status": "IMPLEMENTED_BOUNDED_QA_PASS",
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "evidence": "reports/phases/P06/qa-timka-runtime-import-01/decision.json"
     },
     {
       "id": "P06/timka-compact-source-review",
@@ -305,10 +306,11 @@
       "depends_on": [
         "P06/timka-compact-layout"
       ],
-      "status": "SOURCE_REVIEW_REBIND_PENDING",
+      "status": "SOURCE_ACCEPTED_AND_MIGRATED_RUNTIME_INTEGRITY_VERIFIED",
       "required_source_cells": 32,
       "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
-      "phase_approval": false
+      "phase_approval": false,
+      "decision": "reports/phases/P06/art-preflight/timka_world_supported_v2.json"
     },
     {
       "id": "P06/timka-action-source-review",
@@ -317,10 +319,11 @@
       "depends_on": [
         "P06/timka-compact-layout"
       ],
-      "status": "SOURCE_REVIEW_REBIND_PENDING",
+      "status": "SOURCE_ACCEPTED_AND_MIGRATED_RUNTIME_INTEGRITY_VERIFIED",
       "required_source_cells": 28,
       "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
-      "phase_approval": false
+      "phase_approval": false,
+      "decision": "reports/phases/P06/art-preflight/timka_action_supported_v2.json"
     },
     {
       "id": "P06/timka-finisher-source-review",
@@ -341,10 +344,11 @@
       "depends_on": [
         "P06/combat-style-audit"
       ],
-      "status": "FIX_IMPLEMENTED_INDEPENDENT_REVIEW_PENDING",
+      "status": "SCOPED_FIX_INDEPENDENTLY_CLOSED",
       "scope": "Actual earned-stun Input V inCH01 mustdeny; preserve explicittraining fivefinishers and interruption; actualbefore11/10FAIL after21/21",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
-      "phase_approval": false
+      "phase_approval": false,
+      "decision": "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json"
     },
     {
       "id": "P06/oleg-guard-feedback",
@@ -375,29 +379,36 @@
       "phase": "P06",
       "kind": "audit",
       "depends_on": [],
-      "status": "PENDING",
+      "status": "AUDIT_COMPLETE_NOT_READY",
       "requirements": "planning/PRE_P07_REQUIREMENTS.md",
       "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
-      "not_content_completion": true
+      "not_content_completion": true,
+      "evidence": "reports/pre_p07/production-readiness-01/audit.json",
+      "decision": "reports/pre_p07/production-readiness-01/audit.json",
+      "phase_approval": false
     },
     {
       "id": "PREP07/mission-design-template-and-registry",
       "phase": "P06",
       "kind": "preparation_only",
       "depends_on": [],
-      "status": "PENDING",
+      "status": "TEMPLATE_AND_21_PLUS_7_DESIGN_REGISTRY_CREATED",
       "requirements": "planning/PRE_P07_REQUIREMENTS.md",
       "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
-      "not_content_completion": true
+      "not_content_completion": true,
+      "evidence": [
+        "planning/MISSION_DESIGN_TEMPLATE.md",
+        "planning/CAMPAIGN_PRODUCTION_REGISTRY.json"
+      ]
     },
     {
       "id": "P07/mission-design-specs-21",
-      "phase": "P07",
-      "kind": "design",
+      "phase": "P06",
+      "kind": "nonconflicting_preparation_for_P07",
       "depends_on": [
         "PREP07/mission-design-template-and-registry"
       ],
-      "status": "PENDING",
+      "status": "PENDING_20_NEW_AND_CH01_EXTENSION",
       "requirements": "planning/PRE_P07_REQUIREMENTS.md",
       "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
       "not_content_completion": true
@@ -410,15 +421,17 @@
         "PREP07/production-readiness",
         "PREP07/mission-design-template-and-registry"
       ],
-      "status": "PENDING",
+      "status": "FAIL",
       "requirements": "planning/PRE_P07_REQUIREMENTS.md",
       "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
-      "not_content_completion": true
+      "not_content_completion": true,
+      "decision": "reports/pre_p07/lead-readiness-01/decision.json",
+      "phase_approval": false
     },
     {
       "id": "P07/lead-mission-spec-approval",
-      "phase": "P07",
-      "kind": "review",
+      "phase": "P06",
+      "kind": "preproduction_review",
       "depends_on": [
         "P07/mission-design-specs-21"
       ],
@@ -450,6 +463,156 @@
       "requirements": "planning/PRE_P07_REQUIREMENTS.md",
       "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
       "not_content_completion": true
+    },
+    {
+      "id": "PREP07/two-secret-concepts-narrative-lead",
+      "phase": "P06",
+      "kind": "preparation_review",
+      "depends_on": [
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "PASS_CONCEPT_ONLY",
+      "owner_scope": "automation/decisions/P07_TWO_OPTIONAL_CONCEPT_PROPOSALS.json",
+      "concept_only": true,
+      "phase_approval": false,
+      "canon_integrated": false,
+      "decision": "reports/pre_p07/lead-readiness-01/concept-decision.json"
+    },
+    {
+      "id": "PREP07/READINESS-C01",
+      "phase": "P06",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "CRITICAL",
+      "depends_on": [],
+      "scope": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute.",
+      "gate": "BEFORE_P07_ENTRY",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-C02",
+      "phase": "P06",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "CRITICAL",
+      "depends_on": [],
+      "scope": "Compose full P06 verifier from existing helpers; implement/test typed exact-source Readiness gate and21unique main-MDS approval before mass, then safe ROOT/WORK code/state/lease handoff. Do not merely raise stop limit or overwrite ROOT/history.",
+      "acceptance": "Negative tests for missing/FAIL/BLOCKED/stale/wrong-kind receipts (including CONCEPT_ONLY PASS), missing MDS/changed source, unmergedP06/failedCI/manualapproval; preserve confirmed merge/currentSHA/protection and single executor. Existing worker not hot-swapped.",
+      "gate": "BEFORE_P07_ENTRY_AND_MASS_STAGE",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Author21 substantive separate MDS with canonical IDs/POV, rooms/connections/spawns/objectives/encounters/boss only when justified/dialogue/music/flags/assets/tests; compare topology and decisions with≥2similar MDS; multi-stage CyberX/PRIME, purposeful quiet scenes.",
+      "acceptance": "Independent Narrative/Gameplay/Lead receipt on all21 exact document hashes; no copied placeholders/renamed arena or HP/count-only escalation.",
+      "gate": "BEFORE_MASS_CHAPTER_PRODUCTION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H02",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Test representative U-obstacle/dynamic-door/choke/alternate-route fixtures with all3archetypes and allowed hero body/ability clearance. Introduce minimum routing adapter only on demonstrated need; preserve existing FSM/telegraph/contact.",
+      "acceptance": "Real bounded reachability/door change/retry/LOS/contact proofs without stuck actors, unavoidable random death or new blanket AI rewrite.",
+      "gate": "BEFORE_MASS_AFFECTED_MULTIROOM_CONTENT",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H03",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Plan chapter sound/music production, explicit Exploration→EXPLORE/Tension→SUSPICION/Combat→COMBAT/Aftermath→CLEAR mapping; pilot actual mixer playback-position/loop/bar/fade/duck/retry/scene reload plus real new-file decode/signal/listening.",
+      "acceptance": "No stacked/restarted layers or abrupt unexplained cuts, typed contact sync; actual listener for new material. Agent/file metadata/pitch label does not confer artistic approval. Preserve prior owner prototype acceptance.",
+      "gate": "P06_HERO_AUDIO_BEFORE_P06_PASS_AND_NEW_MISSION_AUDIO_BEFORE_RELEVANT_PRODUCTION_ACCEPTANCE",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H04",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Instrument software Input→accepted/first-visible separately from intended windup, retry<1000ms, meaningful-action intervals/deaths/causes/route/story/traversal/AFK/skip and monotonic frame p50/p95/p99; calibrate representative pilot thresholds before acceptance runs.",
+      "acceptance": "Current hardware/backend/build/settings/sample conditions and first-play distribution, include real deaths; OS/hardware latency only if actually measured. No requirement for completed7–9h proof before levels exist, no padding or summing mutually exclusive endings.",
+      "gate": "INSTRUMENTATION_AND_PILOT_BASELINE_BEFORE_MASS;ACTUAL_CAMPAIGN_DURATION_AFTER_CONTENT_IMPLEMENTATION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H05",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Complete distinct bonus MDS and decide noncanonical journal/unlock/completion namespace; explicit save migration/defaultfalse/once/replay/old-save tests before integration; preserve existing5/history/relationships/WIFE_CALLING/REAL_PRIME conditions unless separately approved.",
+      "acceptance": "Narrative/Lead full-MDS and actual Gameplay/ART/QA/geometry/pacing/audio evidence; concept PASS is never readiness/phase/runtime permission.",
+      "gate": "BEFORE_NEW_SECRET_CANONICAL_OR_RUNTIME_INTEGRATION_AND_LEVEL_PRODUCTION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-M01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "MEDIUM",
+      "depends_on": [],
+      "scope": "Attach chapter-specific polish tickets with actual source assets/native readability/settings/skip tests; keep mandatory scenes/dialogue functional before cosmetic acceptance.",
+      "acceptance": "Specific shot/text/transition comparison and independent review; no missing required scene hidden as cosmetic debt.",
+      "gate": "RELEVANT_P07_CHAPTER_OR_P08_OPTIONAL_POLISH",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-L01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "LOW",
+      "depends_on": [],
+      "scope": "Retain concrete debt IDs P08-VAR01/02/VHS01; add genuine source/provenance and native comparison only when that authorized phase is reached.",
+      "acceptance": "Full/Reduced/off noninterference, lifetime/caps/wall-frame checks and ART/QA; no mandatory combat/sound/HUD deferral.",
+      "gate": "OPTIONAL_P08_DEBT_ONLY",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/production-entry-guard",
+      "phase": "P06",
+      "kind": "implementation_verification",
+      "depends_on": [],
+      "status": "CANDIDATE_24_NEW_AND_47_REGRESSION_PASS_INDEPENDENT_QA_PENDING",
+      "scope": "Typed exact-source Readiness/21MDS prerequisite; not ROOT installation/full readiness closure",
+      "spec": "autopilot/PRODUCTION_GATES.md",
+      "phase_approval": false
     }
   ]
 }

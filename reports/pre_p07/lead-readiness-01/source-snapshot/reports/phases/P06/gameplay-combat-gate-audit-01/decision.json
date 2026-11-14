@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T21:41:25.161423+00:00",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "phase": "P06",
+  "scope": "PREIMPLEMENTATION_GAMEPLAY_COMBAT_GAP_AUDIT_ONLY",
+  "status": "GAPS_IDENTIFIED_NOT_PHASE_VERDICT",
+  "seven_hero_gate_ready": false,
+  "audit_only": true,
+  "formal_phase_attempt": false,
+  "phase_attempt_consumed": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "runtime_approval": false,
+  "production_combat_approval": false,
+  "ability_approval": false,
+  "ART_approval": false,
+  "audio_listening_approval": false,
+  "owner_moderation_approval": false,
+  "implementation_approval": false,
+  "merge_approval": false,
+  "next_phase": "none",
+  "runtime_tests_performed_by_reviewer": false,
+  "engine_runs": 0,
+  "work_source_mutations": false,
+  "controller_Git_network_generator_calls": false,
+  "findings": [
+    {
+      "id": "GP-P06-MATRIX-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-01",
+        "P06-CBT-09"
+      ],
+      "classification": "INCOMPLETE_REQUIRED_IMPLEMENTATION_AND_EVIDENCE",
+      "source": [
+        "game/scripts/systems/character_combat_profile.gd:7",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json",
+        "game/scripts/ai/enemy_actor.gd:286",
+        "game/assets/audio/combat_polish.json"
+      ],
+      "finding": "Profiles change timings/style only; finisher cue and NPC reaction selection remain category-only. G/O own keyposes exist, but complete individual seven-hero choreography/sound/paired-reaction matrix is absent.",
+      "required_fix": "Build trusted per-hero/context/category presentation/cue/reaction mapping using existing Core single clock; create/integrate remaining original assets and actual sound accents. Paired category reaction reuse is allowed when it really fits contact; no forced rewrite or 25 gratuitous NPC sheets. Verify individual sound by render/decode/signal QA and actual listening.",
+      "acceptance": "Authorized matrix with honest shared references/source hashes, native contact/recovery/reaction traces and ART/Gameplay/Audio/QA evidence; metadata/style/pitch alone insufficient."
+    },
+    {
+      "id": "GP-P06-OLEG-UX-01",
+      "severity": "MEDIUM",
+      "requirements": [
+        "P06-CBT-02"
+      ],
+      "classification": "UX_AND_ACCEPTANCE_GAP_NOT_PARRY_LOGIC_FAILURE",
+      "source": [
+        "game/scripts/actors/character_player.gd:186",
+        "game/scripts/actors/character_player.gd:199",
+        "game/scripts/core/character_lab.gd:88"
+      ],
+      "finding": "Actual limited parry exists and precedes damage; current HUD exposes generic cooldown only, not the0.06–0.26 active window or explicit success/whiff/recovery feedback. Readable-window UX has not been accepted.",
+      "required_fix": "Add clear clock-derived player feedback without moving parry to receive_hit or widening it; retain current single-contact geometry/authority and separate queued Core counter.",
+      "acceptance": "Native active-window and early/late/whiff/success/recovery presentation, unchanged saved negative cases incl lethal miss/bullet/death/cancel/reset; independent readability signoff."
+    },
+    {
+      "id": "GP-P06-TIMKA-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-03"
+      ],
+      "classification": "MISSING_REQUIRED_IMPLEMENTATION",
+      "source": [
+        "game/scripts/actors/character_player.gd:7",
+        "game/scripts/actors/character_player.gd:167",
+        "game/resources/characters/catalog.json",
+        "specs/CHARACTER_EXPANSION_SPEC.md"
+      ],
+      "finding": "Registry permits G/O only, use_ability has no Timka handlers; context speed/equipment data and one shared WORLD are not distinct stance/movement/actions. Compact migration is in progress, not accepted.",
+      "required_fix": "Finish strict approved84 migration/source/sockets, address required environmental ART finding, implement actual nonlethal disengage and prime clinch. Specify real context stance/movement clips; if base drawings cannot express difference, add genuine counted context drawings and independent ART.",
+      "acceptance": "Both trusted fixtures actual Input/native stance/motion/action distinctions, present finisher denial, prime unarmed/blunt/environment eligibility and authority/cancel/death tests; no timer-only visual difference."
+    },
+    {
+      "id": "GP-P06-PASHA-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-04"
+      ],
+      "classification": "MISSING_REQUIRED_IMPLEMENTATION",
+      "source": [
+        "game/scripts/actors/character_player.gd:163",
+        "game/scripts/actors/character_player.gd:167",
+        "game/scripts/core/character_lab.gd:88"
+      ],
+      "finding": "No Pasha handler/ammo resource state exists; normal ranged returnsfalse; HUD has only score/ability cooldown. Speed125/WORLD preview proves no moving shot.",
+      "required_fix": "Add composable aimed moving-shot action with finite ammo/recovery/cooldown, explicit replenishment rule and clear HUD from authoritative action/resource state. Preserve G/O movement restrictions; define before/after projectile commit cancellation semantics.",
+      "acceptance": "Native movement+aim+shot/HUD on one clock; held/repeated trigger/empty/cooldown/recovery/interruption/death/reset and once resource/contact checks; finite risk without forced suicide."
+    },
+    {
+      "id": "GP-P06-RYZHIK-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-07"
+      ],
+      "classification": "MISSING_REQUIRED_IMPLEMENTATION",
+      "source": [
+        "game/scripts/actors/character_player.gd:167",
+        "game/assets/art/characters/ryzhik/world.json"
+      ],
+      "finding": "No roll handler or production roll transition art/integration; WORLD running is not an acrobatic roll.",
+      "required_fix": "Implement controlled collision route with genuine intermediate roll drawings and a bounded close-range control window through existing Core/authority/cancel clock.",
+      "acceptance": "Four-direction route/obstacle/range/recovery/cooldown/hurt/death/cancel native traces; no teleport/VFX substitution or unapproved invulnerability."
+    },
+    {
+      "id": "GP-P06-TEGA-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-08"
+      ],
+      "classification": "MISSING_ABILITY_WITH_REUSABLE_ENVIRONMENT_CORE",
+      "source": [
+        "game/scripts/actors/character_player.gd:167",
+        "game/scripts/systems/combat_system.gd:291"
+      ],
+      "finding": "environment_kick is catalog data only; no Tega handler. Existing environment category infrastructure does not implement the hero action.",
+      "required_fix": "Use existing registered object geometry/LOS/enabled/existence checks and pinned authority for actual Tega interaction/contact/reaction; cancel before contact if object or authorization disappears.",
+      "acceptance": "Real registered-object native interaction and target/range/facing/LOS/disabled/removed/object-replaced/authority-loss/once/cancel tests; no dream cannon grant."
+    },
+    {
+      "id": "GP-P06-YAKUZA-SCOPE-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-05"
+      ],
+      "classification": "STATIC_PATH_GAP_RUNTIME_NOT_CONFIRMED",
+      "runtime_confirmed": false,
+      "source": [
+        "game/scripts/core/input_bindings.gd:15",
+        "game/scripts/actors/combat_player.gd:29",
+        "game/scripts/actors/combat_player.gd:273",
+        "game/scripts/systems/combat_system.gd:291",
+        "game/scripts/core/combat_lab.gd:445",
+        "game/tests/character_combat_profile_test.gd:20"
+      ],
+      "finding": "Legacy CH01 CombatPlayer has default unarmed finisher/weapon, Input V and global finisher definitions, no resolve/can_use hook. eligible() has no legacy campaign denial; config restriction protects equipment UI and+100score only. Pure Profile campaign denial unit test is not wired into this legacy source.",
+      "required_fix": "Author first reproduces actual CH01 earned-stun→V/direct-Core path, then adds trusted scope denial before reservation/contact while preserving legacy training five categories and weak escape. Do not merely disable UI or mutate global Yakuza clocks.",
+      "acceptance": "Real CH01 nonlethal shove setup, V and direct start_finisher all deny with no job/kill/ammo/score; repeat/reset/load negative cases; training categories and existing no-kill escape/distraction/retry still pass."
+    },
+    {
+      "id": "GP-P06-REGRESSION-01",
+      "severity": "HIGH",
+      "requirements": [
+        "P06-CBT-06",
+        "P06-CBT-09",
+        "P06-CBT-10"
+      ],
+      "classification": "COMPLETE_GATE_EVIDENCE_NOT_YET_AVAILABLE",
+      "source": [
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_combat_replay.gd",
+        "game/tests/p04g_test.gd",
+        "game/scripts/systems/combat_impact.gd"
+      ],
+      "finding": "Historical G/O and P04G cases are valuable component evidence, not a seven-hero gate on current expanded source; remaining handlers and full native/build/performance matrix are absent.",
+      "required_fix": "Extend existing parametrized Core/actor replay/state checks, retain G/O, cover new hero abilities/context actions, actual enemy clips/contact/death/once/reset/settings/lifetime/caps; measure wall-frame performance separately and run declared exports/CI on final frozen source.",
+      "acceptance": "All mandatory P06-CBT01..10 evidence including ART/Gameplay/QA and independent full Lead; current SHA/base/checks/protection before merge. No P07 advance or P08 deferral of mandatory items."
+    }
+  ],
+  "reusable_implemented": [
+    "Oleg active pre-damage single-contact parry and separate next-turn Core counter",
+    "Gabar swept lunge and per-recipient authority revocation",
+    "Core epoch/once/action-clock/finisher cancellation/environment eligibility",
+    "Baseline three enemy archetypes/dead-priority/reaction states",
+    "Presentation-only hitstop/settings/cosmeticRNG/caps/TTL",
+    "Existing weak CH01 no-kill/distraction/retry route and legacy training finishers"
+  ],
+  "not_runtime_confirmed_findings": [
+    "GP-P06-YAKUZA-SCOPE-01"
+  ],
+  "report_sha256": "23fa3710c69eea6a5d856de54b7d23400bba47ab273bb6041b1952f8b6142bab",
+  "requirements_sha256": "1c14e08347751c9ae7767b545181fc362db4c51f2a297849ecd028d21990a972",
+  "evidence_analysis_sha256": "346552ebed023ea8fb09e7f38e246cb4dfd65a777813922de6bd03884b818e29",
+  "source_snapshot_manifest_sha256": "0358563ef8ede352c6ee38ef1a9318a5aa98fcd8718f5bf84b5c3f3278c36460",
+  "source_followup_sha256": {
+    "specs/P06_COMBAT_ACCEPTANCE.md": "46e28354fbcf382f87527a75ace4ad9bc2382699e675376d637b049e0e755fd3",
+    "planning/P08_TECH_DEBT.md": "d8bedb06a0d31b2565e0a712b8f633551b0dc932cdf48ea26ed45ff46fa8101c"
+  },
+  "source_code_drift_since_snapshot": {},
+  "next_action": "Author reproduces/fixes static CH01 scope gap separately, preserves G/O, implements remaining required abilities/presentation/audio/reactions and collects full frozen evidence for independent gates; no phase advancement from this audit."
+}

@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T22:45:24.012933+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "independent_of_author": true,
+  "status": "PASS",
+  "acceptance_level": "CONCEPT_ONLY",
+  "scope": "TWO_OPTIONAL_NONCANONICAL_PROPOSALS_ONLY",
+  "concept_ids": [
+    "SECRET_OFFLINE_BUILD",
+    "SECRET_COUNTER_LESSON"
+  ],
+  "concepts_accepted_for_separate_MDS_and_Lead_review": true,
+  "owner_content_approval_inferred": false,
+  "owner_instruction_basis": "Parent task quotes permission to prepare two optional proposals; no separate owner transcript file supplied; no full story approval inferred.",
+  "canonical_integration_approval": false,
+  "full_MDS_approval": false,
+  "runtime_approval": false,
+  "production_readiness_approval": false,
+  "level_production_approval": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "merge_approval": false,
+  "P06_PASS": false,
+  "P07_start_approval": false,
+  "must_fix_before_concept_acceptance": [],
+  "findings": [
+    {
+      "id": "NS01-DISTINCT-MDS",
+      "severity": "MEDIUM",
+      "blocks_concept_acceptance": false,
+      "gate": "BEFORE_FULL_MDS_LEAD_APPROVAL_AND_LEVEL_PRODUCTION",
+      "files": [
+        "planning/missions/SECRET_OFFLINE_BUILD.md",
+        "planning/missions/SECRET_COUNTER_LESSON.md"
+      ],
+      "observed": "Обе бумажные схемы используют S1→S2→S3, локальную петлю, melee затем стрелка, checkpoint после S1 и одинаковую формулу победы interactions+exit. Различается решение игрока, но геометрическая уникальность ещё не доказана.",
+      "required": "В отдельных MDS показать разные topology/цели и encounter sequence; сравнить между собой и с минимум двумя похожими MDS по шаблону. Gabar: порядок переключателей/открываемых путей и риск выпада; Oleg: различение фронтального окна, второй угрозы и безопасного отхода, допускающий выход без зачистки. Нельзя выдать смену героя/скорости за уникальность."
+    },
+    {
+      "id": "NS01-PACING",
+      "severity": "MEDIUM",
+      "blocks_concept_acceptance": false,
+      "gate": "BEFORE_PLAYTESTED_OR_DURATION_ACCEPTANCE",
+      "files": [
+        "planning/missions/SECRET_OFFLINE_BUILD.md",
+        "planning/missions/SECRET_COUNTER_LESSON.md"
+      ],
+      "observed": "5–8/5–10 минут названы NOT_MEASURED; трёх коротких частей недостаточно, чтобы доказать эти диапазоны.",
+      "required": "Оставить диапазоны гипотезой; actual first-play walltime/deaths/retry/combat/story/traversal и разброс получить в нативных прогонах. Принять более короткий содержательный бонус, если так выходит; не растягивать повторами, ожиданием компиляции, пустыми коридорами или HP."
+    },
+    {
+      "id": "NS01-INTEGRATION",
+      "severity": "MEDIUM",
+      "blocks_concept_acceptance": false,
+      "gate": "BEFORE_CANONICAL_OR_RUNTIME_INTEGRATION",
+      "files": [
+        "game/resources/story/registry.json",
+        "game/resources/story/routes.json",
+        "planning/MISSION_DESIGN_TEMPLATE.md"
+      ],
+      "observed": "Оба новых ID отсутствуют в runtime; bonus journal/once completion/save migration ещё не реализованы данным предложением.",
+      "required": "Отдельный Narrative/Lead на полные MDS и решение о статусе внесюжетных бонусов, явная migration с default false, once reward/ledger и old-save tests. Основной canon/5 условий REAL_PRIME/3 primary routes/WIFE_CALLING не менять без отдельного решения. Глава unlock — мета-условие меню, не новый факт датированной хронологии."
+    }
+  ],
+  "static_checks": {
+    "passed": 10,
+    "failed": 0,
+    "engine_or_native_tests_run": false
+  },
+  "source_inventory_sha256": {
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "README.md": "8fb6eca52f62f3bebc89160edf7641fbbff573f07c372c23f9c9da531c4e3da4",
+    "specs/STORY_SPEC.md": "a2848fedb28ee1a8594d3e79b18a31d79320b4c48b57a0f71580db37bd352438",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/DIALOGUE_SPEC.md": "db0acb38e6c8923764bd320edc2a5f66165f412c79a22aedfec86f49c262e320",
+    "planning/missions/SECRET_OFFLINE_BUILD.md": "ac4acd07f2a0c9c7124794ff82a112fd39a3f8e356ff82b6d7c8dbdd23e02579",
+    "planning/missions/SECRET_COUNTER_LESSON.md": "417f7e6e0ec82ca1615c2b6a9d50648e9bf2eb727c8fb6d6de3c0915030323be",
+    "planning/MISSION_DESIGN_TEMPLATE.md": "e6462ac72ffe19966cd80bad7e48182451aa99d8791a3ea2284bba4347a4c28a",
+    "planning/CAMPAIGN_PRODUCTION_REGISTRY.json": "261b456a345e375846bcb9a95abadab6adf11179ac3b2fdad18692874c1e9dd5",
+    "planning/PRE_P07_REQUIREMENTS.md": "edd1e992a689871523c7210b149c347053b89abcdc2bade86a2a8e1a21003c28",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "2982e71798c719b3dbbe9b0ef3f6cb1570a783f6c0f035606875ffab1d232c3a",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "game/resources/story/routes.json": "7137e57c9e17678bcfca6e0ad39bae9f2904f880a31116da4f70bbeb9b689aa8",
+    "game/scripts/actors/character_player.gd": "e3f37c49521a02d9f2598cb129c12cf5d3b33517b18513866df59144ca960607",
+    "game/resources/characters/catalog.json": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "agents/NARRATIVE_AGENT.md": "4574a4c34bb572ebed67138c120dfcd2b016a8d240de3ce90d89c02080360ae4",
+    "agents/LEAD_REVIEWER.md": "3cf0d9cc1a318bf7032bfff1e8be0d9e86e48bab924f965e03a66270da962729",
+    "docs/SECURITY_AND_RIGHTS.md": "482416e0b967197d5f38a82450446e3f8dcf0bb9aa628b9a892f05c4e34ce64e",
+    "planning/PHASES.md": "22c6c0b3ed4fd34af593cb004902f61176af87596bc5c1c76f3ec0eb589fffa2",
+    "automation/REVIEW_LOOP.md": "bd53d35b65cb5a3a5a5f311f92e0e0acd74c1e87819d5de111832f7e16fdacc3"
+  },
+  "review_sha256": "4588a28a708d930efce256e677b5e65527b2c7827e926aff6f68e5019d0ed0b2",
+  "artifacts_sha256": "ab295372dbc55401347e83cb90da5662d629df1f147f89210ed31b243d2cf5b8",
+  "next_action": "Independent Lead concept review only. Retain all current P06/P07 gates; no production or canonical/runtime registration from this decision."
+}
