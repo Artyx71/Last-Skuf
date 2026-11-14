@@ -12,7 +12,7 @@ func record(label: String, passed: bool) -> void:
 
 func _initialize() -> void: call_deferred("run")
 
-func check_sheet(frames: SpriteFrames, kind: String, mapping: Dictionary) -> void:
+func check_sheet(frames: SpriteFrames, kind: String, mapping: Dictionary, actor_id := "gabar") -> void:
  record(kind+"_available",frames!=null)
  if frames==null: return
  record(kind+"_all_direction_clips",frames.get_animation_names().size()==mapping.size()*4)
@@ -25,11 +25,11 @@ func check_sheet(frames: SpriteFrames, kind: String, mapping: Dictionary) -> voi
    record(String(name)+"_fps",frames.get_animation_speed(name)==expected_fps)
    for index in mapping[state].size():
     var atlas := frames.get_frame_texture(name,index) as AtlasTexture
-    record(String(name)+"_authored_texture_"+str(index),atlas!=null and atlas.atlas.resource_path=="res://assets/art/characters/gabar/"+kind+"_sheet.png")
+    record(String(name)+"_authored_texture_"+str(index),atlas!=null and atlas.atlas.resource_path=="res://assets/art/characters/"+actor_id+"/"+kind+"_sheet.png")
     if atlas==null: continue
     var column: int=mapping[state][index]
     record(String(name)+"_exact_source_cell_"+str(index),atlas.region==Rect2(column*48,row*64,48,64))
-    record(String(name)+"_identity_metadata_"+str(index),atlas.get_meta("character_id")=="gabar" and atlas.get_meta("source_kind")==kind and atlas.get_meta("source_direction")==["down","left","right","up"][row] and atlas.get_meta("source_column")==column)
+    record(String(name)+"_identity_metadata_"+str(index),atlas.get_meta("character_id")==actor_id and atlas.get_meta("source_kind")==kind and atlas.get_meta("source_direction")==["down","left","right","up"][row] and atlas.get_meta("source_column")==column)
 
 func run() -> void:
  check_sheet(Frames.world_frames("gabar"),"world",{"idle":[0,1],"walk":[2,3,4,5],"run":[6,7]})
@@ -41,7 +41,10 @@ func run() -> void:
  record("unknown_finisher_denied",Frames.finisher_frames("unknown")==null)
  record("supporting_cannot_construct_combat",Frames.combat_frames("ellana")==null)
  record("existing_Yakuza_keeps_original_path",Frames.combat_frames("yakuza")==null)
- record("missing_Olezhka_combat_art_never_falls_back",Frames.combat_frames("olezhka")==null)
+ record("Olezhka_complete_combat_art_available",Frames.combat_frames("olezhka")!=null)
+ for kind in Frames.SHEET_COLUMNS:
+  check_sheet(Frames._sheet_frames("olezhka",kind),kind,Frames.SHEET_COLUMNS[kind],"olezhka")
+ record("missing_Timka_combat_art_never_falls_back",Frames.combat_frames("timka")==null)
  check_sheet(Frames.finisher_frames("gabar"),"finisher",Frames.FINISHER_COLUMNS)
  var combined := Frames.combat_frames("gabar")
  record("Gabar_combat_contains_all_56_authored_clips",combined!=null and combined.get_animation_names().size()==56)

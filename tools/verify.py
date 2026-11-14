@@ -62,6 +62,8 @@ def main():
                          '--output', str(output / 'character_lab_isolation')]))
         commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
                          '--headless', '--output', str(output / 'gabar_controller')]))
+        commands.append(('olezhka_controller', [sys.executable, 'tools/verify_p06_olezhka.py',
+                         '--headless', '--output', str(output / 'olezhka_controller')]))
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder

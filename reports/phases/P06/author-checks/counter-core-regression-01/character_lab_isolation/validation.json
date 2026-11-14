@@ -1,0 +1,70 @@
+{
+  "scope": "COMBAT_SANDBOX_CAMPAIGN_VIEW_ISOLATION_AND_FRESH_PROCESS_RESTORE_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_head": "64c57f75671aeff07e8b9d13a8ee91d4cb79b3ff",
+  "source_unchanged": true,
+  "checks_passed": 25,
+  "checks_total": 25,
+  "actual_new_process_reload": true,
+  "commands": [
+    {
+      "name": "sandbox",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_lab_isolation_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.881
+    },
+    {
+      "name": "process-reload",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_dialogue_reload.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.596
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/commands.json",
+      "sha256": "b1c07bf8d8652f309570dc9e8a6f0af8b97eafcb989ec70cb5f1590e213a9a3d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/sandbox.log",
+      "sha256": "175e31dea6c3d9a2b3ffaea0aad16a33fa280251f92ff00c7784a703df008e4f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/character_lab_isolation/source_hashes.json",
+      "sha256": "44f727df74927ff24d4aa5f86a92f56caeb43b10f54968d6159595cb9762745f"
+    }
+  ]
+}

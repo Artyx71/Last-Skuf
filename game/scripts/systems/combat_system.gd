@@ -13,6 +13,8 @@ signal contact_committed(event: Dictionary)
 var encounter_epoch := 0
 var receipts: Dictionary = {}
 var contact_events: Array[Dictionary] = []
+var defended_events: Array[Dictionary] = []
+signal contact_defended(event: Dictionary)
 var impact: Node2D
 var polish: Dictionary
 var finisher_definitions: Dictionary
@@ -64,6 +66,7 @@ func reset() -> void:
 	encounter_epoch += 1
 	receipts.clear()
 	contact_events.clear()
+	defended_events.clear()
 	if impact: impact.reset()
 	attacks.clear()
 	projectiles.clear()
@@ -163,7 +166,7 @@ func _physics_process(delta: float) -> void:
 			if not clear_line(source.global_position + Vector2(0, -7), target.global_position + Vector2(0, -7)):
 				continue
 			attack.hit.append(target.get_instance_id())
-			_apply_hit(target, definition, attack.id, source)
+			_apply_hit(target, definition, attack.id, source, "melee")
 		attack.time += delta
 		if not source.has_method("melee_phase") and attack.time >= float(definition.get("windup", 0.0)) + float(definition.active):
 			attacks.erase(attack)
@@ -199,7 +202,7 @@ func _wall_contact(at: Vector2, definition: Dictionary, object: Node = null) -> 
 	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
 
 
-func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D) -> bool:
+func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D, contact_kind := "") -> bool:
 	if not is_instance_valid(target) or not is_instance_valid(source) or target.health <= 0:
 		return false
 	if int(definition.get("_epoch", encounter_epoch)) != encounter_epoch:
@@ -207,6 +210,17 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	var token := str(attack_id) + ":" + str(target.get_instance_id())
 	if receipts.has(token): return false
 	receipts[token] = true
+	# Only actual melee collision dispatch opts in. Projectiles, finishers and
+	# legacy direct contacts keep their existing damage/effect path. Reserve the
+	# same once-token before a parry can queue its separate counterattack.
+	if contact_kind == "melee" and not definition.get("finisher",false) and target.has_method("defend_melee_contact"):
+		if target.defend_melee_contact(definition.duplicate(true),attack_id,source):
+			var defended := {"epoch":encounter_epoch,"id":attack_id,"target":target.get_instance_id(),
+				"source":source.get_instance_id(),"tick":Engine.get_physics_frames(),"kind":"training_counter_parry","damage":0}
+			defended_events.append(defended)
+			if defended_events.size() > 512: defended_events.pop_front()
+			contact_defended.emit(defended)
+			return false
 	damage_events += 1
 	var category := String(definition.get("category", "unarmed"))
 	var strong := bool(definition.get("strong", int(definition.damage) > 0))

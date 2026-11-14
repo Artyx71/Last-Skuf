@@ -11,6 +11,8 @@ var ability_distance := 0.0
 var last_ability_path: Array[Vector2] = []
 var action_authority_snapshot: Dictionary = {}
 var action_ability_id := ""
+var counter_spent := false
+var counter_blocks := 0
 
 func configure(id: String, policy: RefCounted) -> bool:
 	if is_inside_tree() or policy == null or policy.definition().get("actor_id") != id: return false
@@ -87,6 +89,8 @@ func reset(at: Vector2) -> void:
 	ability_uses = 0
 	ability_distance = 0.0
 	last_ability_path.clear()
+	counter_spent = false
+	counter_blocks = 0
 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
 
 func finisher_authority(category: String) -> Dictionary:
@@ -132,6 +136,8 @@ func attack_ranged() -> bool:
 
 func use_ability() -> bool:
 	if not _can_begin_action() or ability_cooldown > 0: return false
+	if actor_id == "olezhka" and scene_policy.ability_id() == "training_counter":
+		return _start_training_counter()
 	# Other abilities remain unavailable until their actual actor integration exists.
 	if actor_id != "gabar" or scene_policy.ability_id() != "gabar_lunge": return false
 	_face_aim()
@@ -145,6 +151,40 @@ func use_ability() -> bool:
 	_play_action("special",action_windup+action_active+action_recovery)
 	var definition := {"damage":1,"stun":0.45,"cooldown":1.6,"windup":action_windup,"active":action_active,"recovery":action_recovery,"reach":19.0,"radius":14.0,"category":"unarmed","strong":true}
 	melee_attack_id = lab.combat.start_melee(self,"player",action_aim,definition)
+	return true
+
+func _start_training_counter() -> bool:
+	_face_aim()
+	action_windup = 0.28
+	action_active = 0.10
+	action_recovery = 0.34
+	ability_cooldown = 2.0
+	ability_uses += 1
+	counter_spent = false
+	# Guard pose first; no melee damage is scheduled unless a real incoming
+	# contact is parried in the limited window below. A miss is a visible whiff.
+	_play_action("special",action_windup+action_active+action_recovery)
+	return true
+
+func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2D) -> bool:
+	if actor_id != "olezhka" or lab.state != "playing" or health <= 0: return false
+	if action_kind != "special" or action_ability_id != "training_counter" or not _action_authorized(): return false
+	if counter_spent or action_frame != 0 or action_elapsed < 0.06 or action_elapsed > 0.26: return false
+	if String(definition.get("category","")) not in ["unarmed","blunt","sharp"]: return false
+	if not source is CharacterBody2D or not (source.collision_layer & 4) or source.health <= 0: return false
+	var offset := source.global_position-global_position
+	if offset.length() < 1.0 or offset.length() > 40.0 or action_aim.dot(offset.normalized()) < 0.65: return false
+	if not lab.combat.clear_line(global_position+Vector2(0,-7),source.global_position+Vector2(0,-7)): return false
+	counter_spent = true
+	counter_blocks += 1
+	# The same physics action clock enters its authored contact pose. Damage is
+	# still queued through CombatSystem and reauthorised per target on its turn.
+	action_elapsed = action_windup
+	action_timer = action_duration-action_elapsed
+	_present_action()
+	var counter := {"damage":1,"stun":0.45,"windup":action_windup,"active":action_active,
+		"recovery":action_recovery,"reach":21.0,"radius":14.0,"category":"unarmed","strong":true}
+	melee_attack_id = lab.combat.start_melee(self,"player",action_aim,counter)
 	return true
 
 func melee_phase(attack_id: int) -> String:

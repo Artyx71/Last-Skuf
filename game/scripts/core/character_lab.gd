@@ -92,7 +92,7 @@ func _update_hud() -> void:
 	hint_label.text = "WASD/Shift · Space: толчок · F: приём · V: добивание · Tab: инструмент · O: эффекты"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
 	if equipment_label:
-		equipment_label.text = "Инструмент: "+["Кулаки","Труба","Нож","Пистолет","Верстак"][equipment_index]+" · новый боевой набор: Габар; остальные в работе"
+		equipment_label.text = "Инструмент: "+["Кулаки","Труба","Нож","Пистолет","Верстак"][equipment_index]+" · Tab: сменить инструмент"
 	if damage_portrait:
 		damage_portrait.texture = load(actor.portrait_file)
 		damage_portrait.region_rect = Rect2(480,0,160,160)
