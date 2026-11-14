@@ -10,7 +10,9 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'autopilot'))
-from readiness import ReadinessBlocked, require_p07_production
+from readiness import (ReadinessBlocked, require_p07_production, require_p07_review_acceptance,
+                       CAPABILITIES, OBLIGATIONS, ACCEPTANCE_STAGE)
+from github import validate_review, guarded_merge
 from runner import Blocked, Controller, DEFAULT_PHASES
 
 
@@ -38,6 +40,18 @@ class ProductionReadinessTests(unittest.TestCase):
         inventory = {str(p.relative_to(self.root)): sha(p) for p in (self.root / 'game').rglob('*') if p.is_file()}
         self.ready = self.decision('PRE_P07_PRODUCTION_READINESS', inventory)
         self.ready['ready_for_p07'] = True
+        capabilities = {}
+        for capability in sorted(CAPABILITIES):
+            p = self.root / f'reports/pre_p07/TEST_ONLY/{capability}.txt'
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text('TEST ONLY capability evidence: ' + capability)
+            relative = str(p.relative_to(self.root))
+            inventory[relative] = sha(p)
+            capabilities[capability] = {'status': 'PASS', 'evidence': [{'path': relative, 'sha256': sha(p)}]}
+        self.ready['preproduction_capabilities'] = capabilities
+        self.ready['future_acceptance_obligations'] = {k: {'severity': 'HIGH', 'status': 'OPEN',
+            'enforce_at': ACCEPTANCE_STAGE, 'requirement': 'TEST ONLY future ' + k,
+            'source_findings': ['TEST_ONLY_REQUIREMENT_' + k]} for k in OBLIGATIONS}
         specs = {}
         for i in range(1, 22):
             p = self.root / f'planning/CH{i:02}.md'
@@ -249,6 +263,141 @@ class ProductionReadinessTests(unittest.TestCase):
         controller.prerequisite('P07')
         del self.state['autopilot']['production_gates']['readiness']
         with self.assertRaises(Blocked): controller.prerequisite('P07')
+
+    def test_missing_actual_capability_blocks_production(self):
+        del self.ready['preproduction_capabilities']['navigation_pilot']
+        self.publish(); self.blocked()
+
+    def test_capability_needs_accepted_actual_hash_bound_evidence(self):
+        entry = self.ready['preproduction_capabilities']['audio_playback_pipeline']
+        entry['status'] = 'PLANNED'; self.publish(); self.blocked()
+        entry['status'] = 'PASS'; entry['evidence'] = []; self.publish(); self.blocked()
+
+    def test_missing_future_contract_blocks_production(self):
+        del self.ready['future_acceptance_obligations']
+        self.publish(); self.blocked()
+
+    def test_future_requirements_cannot_be_downgraded_closed_or_unknown_stage(self):
+        entry = self.ready['future_acceptance_obligations']['campaign_pacing_actual']
+        for key, value in [('severity', 'MEDIUM'), ('status', 'CLOSED'), ('enforce_at', 'AFTER_MERGE'),
+                           ('requirement', ''), ('source_findings', [])]:
+            old = entry[key]; entry[key] = value
+            self.publish(); self.blocked(); entry[key] = old
+
+    def acceptance_review(self):
+        write(self.root / 'automation/phase_state.json', self.state)
+        proof = self.root / 'reports/P07/TEST_ONLY_CONTENT_EVIDENCE.txt'
+        proof.parent.mkdir(parents=True, exist_ok=True)
+        proof.write_text('TEST ONLY evidence, not actual game content acceptance')
+        item = {'path': str(proof.relative_to(self.root)), 'sha256': sha(proof)}
+        return {'phase': 'P07', 'status': 'PASS', 'reviewed_commit': self.head,
+                'independent_review': True, 'reviewer': 'independent-test-fixture-only',
+                'evidence': [item], 'findings': [], 'production_acceptance': {
+                    'schema': 1, 'scope': 'P07_CONTENT_ACCEPTANCE', 'reviewed_commit': self.head,
+                    'readiness_sha256': self.state['autopilot']['production_gates']['readiness']['sha256'],
+                    'closed_obligations': {k: {'status': 'PASS', 'evidence': [item]} for k in OBLIGATIONS}}}
+
+    def test_future_open_obligations_allow_mass_entry_but_not_automatic_phase_pass(self):
+        require_p07_production(self.root, self.state)
+        review = self.acceptance_review(); del review['production_acceptance']
+        self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_independent_actual_content_closure_allows_p07_pass(self):
+        review = self.acceptance_review()
+        self.assertEqual(validate_review(self.root, review, self.head, 'P07'), [])
+
+    def test_missing_obligation_closure_blocks_phase_pass(self):
+        review = self.acceptance_review()
+        del review['production_acceptance']['closed_obligations']['new_audio_acceptance']
+        self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_stale_readiness_or_p07_sha_blocks_closure(self):
+        for key in ['readiness_sha256', 'reviewed_commit']:
+            review = self.acceptance_review()
+            review['production_acceptance'][key] = 'f' * 64
+            self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_future_evidence_must_be_in_actual_review_inventory(self):
+        review = self.acceptance_review()
+        review['production_acceptance']['closed_obligations']['new_audio_acceptance']['evidence'] = [
+            {'path': 'reports/MISSING.txt', 'sha256': 'f' * 64}]
+        self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_future_evidence_tamper_blocks_closure(self):
+        review = self.acceptance_review()
+        (self.root / review['evidence'][0]['path']).write_text('unreviewed replacement')
+        self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_canonical_state_is_used_in_linked_worktree_not_historical_copy(self):
+        review = self.acceptance_review()
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory) / 'P07'
+            subprocess.run(['git', 'worktree', 'add', '--detach', str(work), self.head],
+                           cwd=self.root, check=True, capture_output=True)
+            try:
+                import shutil
+                shutil.copytree(self.root / 'reports', work / 'reports')
+                write(work / 'automation/phase_state.json', {'STALE_WORKTREE_COPY': True})
+                self.assertTrue(require_p07_review_acceptance(work, review, self.head))
+                self.state['autopilot']['production_gates'].pop('readiness')
+                write(self.root / 'automation/phase_state.json', self.state)
+                self.assertTrue(validate_review(work, review, self.head, 'P07'))
+            finally:
+                subprocess.run(['git', 'worktree', 'remove', '--force', str(work)],
+                               cwd=self.root, check=True, capture_output=True)
+
+    def merge_view(self):
+        return {'number': 4, 'repository': 'Artyx71/Last-Skuf', 'head_repo': 'Artyx71/Last-Skuf',
+                'head_sha': self.head, 'base': 'main', 'base_sha': 'b' * 40, 'state': 'open',
+                'draft': False, 'squash_allowed': True, 'permissions': {'push': True},
+                'protection_inspected': True, 'mergeable': True, 'merge_state': 'CLEAN',
+                'threads_complete': True, 'unresolved_threads': 0, 'review_decision': 'APPROVED',
+                'approvals_required': 1, 'queue_required': False, 'required_checks': ['bootstrap'],
+                'integration_ids': {}, 'checks': {'bootstrap': {'status': 'completed',
+                    'conclusion': 'success', 'head_sha': self.head, 'app_id': 1, 'app_slug': 'github-actions'}}}
+
+    def test_merge_rechecks_canonical_contract_before_network_write(self):
+        review = self.acceptance_review(); review.update(base_branch='main', base_sha='b' * 40)
+        calls = []; sent = []
+        def snapshot(*_):
+            calls.append(1)
+            if len(calls) == 2:
+                del self.state['autopilot']['production_gates']['readiness']
+                write(self.root / 'automation/phase_state.json', self.state)
+            return self.merge_view()
+        result = guarded_merge(self.root, 4, {}, review, 'P07', snapshot, lambda *a: sent.append(a))
+        self.assertEqual(result['status'], 'BLOCKED'); self.assertEqual(len(calls), 2); self.assertFalse(sent)
+
+    def test_merge_without_closure_never_sends_request(self):
+        review = self.acceptance_review(); review.update(base_branch='main', base_sha='b' * 40)
+        del review['production_acceptance']; sent = []
+        result = guarded_merge(self.root, 4, {}, review, 'P07', lambda *_: self.merge_view(), lambda *a: sent.append(a))
+        self.assertEqual(result['status'], 'BLOCKED'); self.assertFalse(sent)
+
+    def test_fail_and_blocked_review_need_not_fabricate_content_closure(self):
+        review = self.acceptance_review(); del review['production_acceptance']
+        for status in ['FAIL', 'BLOCKED']:
+            review['status'] = status
+            self.assertEqual(validate_review(self.root, review, self.head, 'P07'), [])
+
+    def test_malformed_or_open_high_phase_finding_blocks_even_with_content_closure(self):
+        for severity in ['HIGH ', 'critical', None, {'priority': 'HIGH'}, 'UNKNOWN']:
+            review = self.acceptance_review()
+            review['findings'] = [{'severity': severity, 'status': 'OPEN'}]
+            self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
+
+    def test_cli_strict_schema_requires_all_object_fields_and_nullable_other_phases(self):
+        schema = json.loads((ROOT / 'autopilot/review_schema.json').read_text())
+        def check(node):
+            if isinstance(node, dict):
+                if node.get('type') == 'object':
+                    self.assertEqual(set(node.get('required', [])), set(node.get('properties', {})))
+                    self.assertIs(node.get('additionalProperties'), False)
+                for value in node.values(): check(value)
+            elif isinstance(node, list):
+                for value in node: check(value)
+        check(schema)
+        self.assertIn({'type': 'null'}, schema['properties']['production_acceptance']['anyOf'])
 
 
 if __name__ == '__main__':

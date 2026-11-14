@@ -15,6 +15,14 @@ class ReadinessBlocked(RuntimeError):
     pass
 
 
+CAPABILITIES = {'full_p06', 'safe_handoff', 'navigation_pilot',
+                'audio_playback_pipeline', 'pacing_instrumentation',
+                'secret_integration_contract'}
+OBLIGATIONS = {'chapter_delivery_21', 'campaign_pacing_actual',
+               'new_audio_acceptance', 'secret_delivery_7'}
+ACCEPTANCE_STAGE = 'P07_LEAD_PASS_AND_MERGE'
+
+
 def require(condition, message):
     if not condition:
         raise ReadinessBlocked(message)
@@ -128,6 +136,37 @@ def load_gate(root, record, scope, p06_heads):
     return data
 
 
+def reviewed_evidence(root, evidence, inventory):
+    require(isinstance(evidence, list) and bool(evidence), 'Actual reviewed evidence required')
+    for item in evidence:
+        require(isinstance(item, dict), 'Invalid evidence record')
+        path = file_under(root, item.get('path'), '.')
+        relative = str(path.relative_to(root))
+        require(digest(path) == item.get('sha256') == inventory.get(relative), 'Evidence missing from reviewed inventory')
+
+
+def readiness_contract(root, ready):
+    capabilities = ready.get('preproduction_capabilities')
+    require(isinstance(capabilities, dict) and set(capabilities) == CAPABILITIES,
+            'Full actual preproduction capability matrix required')
+    for capability in capabilities.values():
+        require(isinstance(capability, dict) and capability.get('status') == 'PASS', 'Preproduction capability not accepted')
+        reviewed_evidence(root, capability.get('evidence'), ready['source_inventory_sha256'])
+    obligations = ready.get('future_acceptance_obligations')
+    require(isinstance(obligations, dict) and set(obligations) == OBLIGATIONS,
+            'Explicit future content acceptance contract required')
+    for obligation in obligations.values():
+        require(isinstance(obligation, dict) and obligation.get('severity') == 'HIGH' and
+                obligation.get('status') == 'OPEN' and obligation.get('enforce_at') == ACCEPTANCE_STAGE,
+                'Unknown/closed/downgraded future acceptance obligation')
+        require(isinstance(obligation.get('requirement'), str) and bool(obligation['requirement'].strip()),
+                'Acceptance obligation criteria missing')
+        require(isinstance(obligation.get('source_findings'), list) and bool(obligation['source_findings']) and
+                all(isinstance(i, str) and bool(i.strip()) for i in obligation['source_findings']),
+                'Original finding/requirement trace required')
+    return obligations
+
+
 def require_p07_production(root, state):
     root = Path(root).resolve()
     require(isinstance(state, dict), 'Invalid canonical state')
@@ -146,6 +185,7 @@ def require_p07_production(root, state):
     require(isinstance(records, dict), 'Independent production gate records missing')
     ready = load_gate(root, records.get('readiness'), 'PRE_P07_PRODUCTION_READINESS', heads)
     require(ready.get('ready_for_p07') is True, 'Readiness does not authorize P07')
+    obligations = readiness_contract(root, ready)
     game_tree = git_tree(root, ready['p06_base_head'], 'game')
     game_files = production_files(root)
     require(game_files == set(game_tree), 'Untracked/missing production game files must be reconciled')
@@ -173,4 +213,44 @@ def require_p07_production(root, state):
         require(path not in paths and actual not in hashes, 'One duplicated specification cannot approve multiple chapters')
         require(bool(path.read_text().strip()), 'Empty MDS cannot authorize production')
         paths.add(path); hashes.add(actual)
-    return {'readiness': True, 'mission_specs': 21, 'phase_approval': False}
+    return {'readiness': True, 'mission_specs': 21, 'phase_approval': False,
+            'future_acceptance_obligations': obligations}
+
+
+def require_p07_review_acceptance(work, review, head):
+    """Close future obligations only in actual independent phase review.
+
+    Derive the original repository from Git metadata, not a worktree's stale
+    phase_state. Called on every P07 PASS validation, including both merge checks.
+    """
+    work = Path(work).resolve()
+    common = subprocess.run(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
+                            cwd=work, text=True, capture_output=True, check=False)
+    require(common.returncode == 0, 'Canonical Git authority unavailable')
+    common_path = Path(common.stdout.strip()).resolve()
+    require(common_path.name == '.git' and common_path.is_dir(), 'Unsupported canonical Git authority')
+    root = common_path.parent
+    try:
+        state = json.loads((root / 'automation/phase_state.json').read_text())
+    except (OSError, ValueError) as error:
+        raise ReadinessBlocked('Canonical production authority missing') from error
+    contract = require_p07_production(root, state)
+    current = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=work,
+                             text=True, capture_output=True, check=False)
+    require(current.returncode == 0 and current.stdout.strip() == head, 'P07 review workspace is not current head')
+    # Inline in the independent Lead verdict stored outside the worktree. A
+    # committed proof containing its own final commit SHA would be circular.
+    data = review.get('production_acceptance')
+    require(isinstance(data, dict) and type(data.get('schema')) is int and data['schema'] == 1 and
+            data.get('scope') == 'P07_CONTENT_ACCEPTANCE', 'Wrong content acceptance schema/scope')
+    require(data.get('reviewed_commit') == head and data.get('readiness_sha256') ==
+            state['autopilot']['production_gates']['readiness']['sha256'], 'Stale content acceptance source/contract')
+    closed = data.get('closed_obligations')
+    require(isinstance(closed, dict) and set(closed) == set(contract['future_acceptance_obligations']),
+            'Lead must close every declared future content obligation')
+    evidence_inventory = {e['path']: e.get('sha256') for e in review.get('evidence', [])
+                          if isinstance(e, dict) and isinstance(e.get('path'), str)}
+    for entry in closed.values():
+        require(isinstance(entry, dict) and entry.get('status') == 'PASS', 'Future content acceptance incomplete')
+        reviewed_evidence(work, entry.get('evidence'), evidence_inventory)
+    return True

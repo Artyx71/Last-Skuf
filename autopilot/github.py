@@ -51,8 +51,19 @@ def validate_review(root,review,head,phase):
     if review.get('status')=='PASS':
         for item in review.get('findings',[]):
             if not isinstance(item,dict): errors.append('Malformed finding'); continue
-            if item.get('severity') in ['CRITICAL','HIGH'] and item.get('status') not in ['CLOSED','RESOLVED']:
+            severity=item.get('severity')
+            if not isinstance(severity,str) or severity.strip().upper() not in ['CRITICAL','HIGH','MEDIUM','LOW']:
+                errors.append('Malformed finding severity'); continue
+            if item.get('status') not in ['OPEN','CLOSED','RESOLVED','VERIFIED']:
+                errors.append('Malformed finding resolution'); continue
+            if severity.strip().upper() in ['CRITICAL','HIGH'] and item.get('status') not in ['CLOSED','RESOLVED','VERIFIED']:
                 errors.append('Unresolved CRITICAL/HIGH finding')
+        if phase=='P07':
+            from readiness import require_p07_review_acceptance, ReadinessBlocked
+            try:
+                require_p07_review_acceptance(root,review,head)
+            except (ReadinessBlocked,OSError,ValueError) as error:
+                errors.append('P07 production acceptance: '+str(error))
         if phase in ['P03','P04','P04G']:
             acceptance=review.get('artistic_audio_acceptance') or {}
             if acceptance.get('status')!='PASS' or acceptance.get('method') not in ['human_listening','actual_listening_tool']:

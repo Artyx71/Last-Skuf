@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-14T23:28:44.030585+00:00",
+  "scope": "AUTHOR_CANDIDATE_STAGED_GUARD_V3_TESTS_ONLY",
+  "source_inventory_sha256": {
+    "autopilot/readiness.py": "7cc4e8ce869fdc68ea091c4c8c07b206a64419d1c537aa3f32a27cff9a33bdb2",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "autopilot/github.py": "0f3a913960680dd3c1bb7e91e168b3cfc705ad5d03352e1246065f557601faa2",
+    "autopilot/review_schema.json": "42186d67307599863622d3c2ecf8aedc6a1c5b8f7234efd5ff0d06e040090869",
+    "autopilot/PRODUCTION_GATES.md": "9d74e56c6fea921ce0c9ef7a7af8925189891a179193ffda5fb1094df0a81ef6",
+    "autopilot/prompts/INDEPENDENT_REVIEW.md": "436c371c7cab4067d669eb292d69d1007086c7d41850198e7802755e392389aa",
+    "tools/tests/test_production_readiness.py": "4505580a64a76e0b64835e2ebfcc4b5f63130e006324a1b9ecf1cbf46394c616",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "results": [
+    {
+      "name": "production_readiness",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_production_readiness.py",
+        "-v"
+      ],
+      "exit": 0,
+      "summary": " (test_production_readiness.ProductionReadinessTests.test_wrong_frozen_head_blocks) ... ok\n\n----------------------------------------------------------------------\nRan 49 tests in 0.979s\n\nOK\n"
+    },
+    {
+      "name": "autopilot_regression",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_autopilot.py",
+        "-v"
+      ],
+      "exit": 0,
+      "summary": "_progress (test_autopilot.MergeTests.test_unverified_merged_parent_blocks_progress) ... ok\n\n----------------------------------------------------------------------\nRan 47 tests in 2.703s\n\nOK\n"
+    }
+  ],
+  "source_unchanged": true,
+  "ROOT_runner_installed": false,
+  "P07_authorized": false,
+  "phase_approval": false
+}

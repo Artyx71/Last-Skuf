@@ -1,0 +1,34 @@
+{
+  "scope": "TEST_ONLY_PURE_LOADER_STAGE_SEMANTICS_NO_PRODUCTION_APPROVAL",
+  "source_sha256": "f82db9f1fa54caca6ce78ce6fb0aad5d92c5f92202b947f3054458c6445c5304",
+  "cases": [
+    {
+      "name": "closed_preproduction_control",
+      "finding": {
+        "id": "TEST_ONLY_CAPABILITY",
+        "severity": "HIGH",
+        "status": "CLOSED",
+        "gate": "BEFORE_P07_ENTRY"
+      },
+      "actual_v2_outcome": "ACCEPTED_LOAD_GATE_ONLY",
+      "message": null
+    },
+    {
+      "name": "future_content_condition",
+      "finding": {
+        "id": "TEST_ONLY_CAMPAIGN_DURATION",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "gate": "AFTER_CONTENT_IMPLEMENTATION_BEFORE_P07_COMPLETION",
+        "required_evidence": "actual complete campaign first-play data; levels not yet created"
+      },
+      "actual_v2_outcome": "BLOCKED",
+      "message": "Unresolved Critical/High blocks production"
+    }
+  ],
+  "current_v2_behavior_reproduced": true,
+  "bypass_found": false,
+  "mechanical_failure_claim": false,
+  "git_controller_engine_network_calls": 0,
+  "real_state_mutations": 0
+}
