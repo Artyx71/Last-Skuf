@@ -1,0 +1,22 @@
+{
+  "status": "REJECTED_BY_STRICT_SOURCE_CELL_BOUNDS",
+  "command": [
+    ".tools/art-venv/bin/python",
+    "assets/source_art/characters/pack_actor_sheet.py",
+    "olezhka",
+    "action",
+    "--version",
+    "v2",
+    "--output-version",
+    "v2",
+    "--source-only",
+    "--anchor",
+    "reference"
+  ],
+  "exit_code": 1,
+  "master_sha256": "00489f866337a43e1b14d106e754d5b6008c4e62e15523eb9cef4ad80cb89101",
+  "assertion": "('olezhka', 'action', 'down', 3, 'cell boundary/clipping', (10, 33, 192, 230))",
+  "native_v2_exists": false,
+  "action": "Preserve master; inspect opaque components/gutters. Do not crop cross-cell body. Whole-pose layout correction or built-in edit and independent source review required.",
+  "phase_approval": false
+}
