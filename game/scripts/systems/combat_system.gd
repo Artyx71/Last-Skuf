@@ -295,7 +295,11 @@ func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String
 		var authority := _finisher_authority(source,category)
 		if authority.is_empty(): return false
 		if not job.is_empty() and job.get("authority",{}) != authority: return false
-	elif source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+	else:
+		# A legacy actor has no per-character resolver. Its host must explicitly
+		# grant the training fixture; an earned chapter stun is not a grant.
+		if not lab.has_method("legacy_finishers_allowed") or not lab.legacy_finishers_allowed(source): return false
+		if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
 	var definition: Dictionary = _finisher_definition(source,category,job)
 	if definition.is_empty(): return false
 	if source.finisher_weapon != definition.weapon: return false

@@ -1,0 +1,30 @@
+--- archived_before/game/scripts/systems/combat_system.gd
++++ current_after/game/scripts/systems/combat_system.gd
+@@ -295,7 +295,11 @@
+ 		var authority := _finisher_authority(source,category)
+ 		if authority.is_empty(): return false
+ 		if not job.is_empty() and job.get("authority",{}) != authority: return false
+-	elif source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
++	else:
++		# A legacy actor has no per-character resolver. Its host must explicitly
++		# grant the training fixture; an earned chapter stun is not a grant.
++		if not lab.has_method("legacy_finishers_allowed") or not lab.legacy_finishers_allowed(source): return false
++		if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+ 	var definition: Dictionary = _finisher_definition(source,category,job)
+ 	if definition.is_empty(): return false
+ 	if source.finisher_weapon != definition.weapon: return false
+
+--- archived_before/game/scripts/core/combat_lab.gd
++++ current_after/game/scripts/core/combat_lab.gd
+@@ -442,6 +442,11 @@
+ 	select_equipment((equipment_index + 1) % 5)
+ 
+ 
++func legacy_finishers_allowed(source: CharacterBody2D) -> bool:
++	# Training tools belong to this explicit host, never a chapter's saved kit.
++	return config_path == CONFIG_PATH and source == player
++
++
+ func select_equipment(index: int) -> bool:
+ 	if config_path != CONFIG_PATH or not index in range(5): return false
+ 	if not combat.finisher_for(player).is_empty(): return false

@@ -442,6 +442,11 @@ func _cycle_equipment() -> void:
 	select_equipment((equipment_index + 1) % 5)
 
 
+func legacy_finishers_allowed(source: CharacterBody2D) -> bool:
+	# Training tools belong to this explicit host, never a chapter's saved kit.
+	return config_path == CONFIG_PATH and source == player
+
+
 func select_equipment(index: int) -> bool:
 	if config_path != CONFIG_PATH or not index in range(5): return false
 	if not combat.finisher_for(player).is_empty(): return false
