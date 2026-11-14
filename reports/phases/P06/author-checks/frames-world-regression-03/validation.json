@@ -1,0 +1,62 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "6c1e6d0c43b9eace0be6186fc30869583acc6ca6",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 70,
+  "checks_total": 70,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.689,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/commands.json",
+      "sha256": "1d134af7eb5103d4eaaba757fe916a8bb2567978356530156416912f2266eb58"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/live/result.json",
+      "sha256": "9287b821c8ffba54169f239f58005a7202fcabc94bdff75622807fe00d4068e1"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/live.log",
+      "sha256": "c5cdfa02f5dfcc861666885548aad136a68f2bde1df1784917b9b2aad77a4107"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/source_hashes.json",
+      "sha256": "c961775006b31250aa4a7a9f176762801130d13d8159007a44b2d16b72b7f31d"
+    }
+  ]
+}
