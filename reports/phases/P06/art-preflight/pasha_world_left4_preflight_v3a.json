@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T18:16:19.899166+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "status": "ACCEPTABLE_SOURCE_CELL_12_ONLY",
+  "cell_status": "ACCEPTABLE",
+  "source_cell_art_approval": true,
+  "actor_id": "pasha",
+  "kind": "world",
+  "scope": "SOURCE_CELL_12_ONLY",
+  "reviewed_cells": [
+    12
+  ],
+  "all32_freshly_reviewed": false,
+  "source_only_acceptance": false,
+  "fullsheet_approval": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "304adf39789af2282d26785ffdb882e69e725843fe99040be50f9b4876b0fc47",
+  "master_sha256": "a9a68cf270e9eeff747940d1cc2aee800268f1d39884cfc54c4c3e8f36af768f",
+  "raw_pose_sha256": "8ebe7adc3ce931d6ca2f6e5df18b2fbdfa5e4a0436bbb43e55ea4ddfc4c02609",
+  "cell12_native_rgba_sha256": "17afef222c3e2688f79438754921c4c20fc8fdbf96415d0ab219e6ae7be95676",
+  "report_sha256": "eb16ddd74bd9c958f645f6e5c2a2a8a2c054b57fcca062a073e0d58664b1878f",
+  "metrics_sha256": "595866f3c32c5c86c1c5016d28c92e6ca28a823aa8a0807324be23c15909f676",
+  "must_fix": [],
+  "unresolved_other_cells": [
+    {
+      "index": 15,
+      "direction": "left",
+      "column": 7,
+      "finding": "PASHA-WORLD-SOURCE-SIDE-CAMERA-FAMILY-02",
+      "status": "OPEN_UNCHANGED"
+    },
+    {
+      "index": 20,
+      "direction": "right",
+      "column": 4,
+      "finding": "PASHA-WORLD-SOURCE-SIDE-CAMERA-FAMILY-02",
+      "status": "OPEN_UNCHANGED"
+    },
+    {
+      "index": 23,
+      "direction": "right",
+      "column": 7,
+      "finding": "PASHA-WORLD-SOURCE-SIDE-CAMERA-FAMILY-02",
+      "status": "OPEN_UNCHANGED"
+    }
+  ],
+  "partially_resolved_findings": [
+    {
+      "id": "PASHA-WORLD-SOURCE-SIDE-CAMERA-FAMILY-02",
+      "accepted_cells": [
+        12
+      ],
+      "remaining_cells": [
+        15,
+        20,
+        23
+      ]
+    }
+  ],
+  "nonblocking_source_limits": [
+    "Cell12 source candidate accepted only; all32_freshly_reviewed=false/source_only_acceptance=false/runtime/fullphase/phasefalse.",
+    "Remaining cells15/20/23 camera finding remains open; whole atlas notadoptable under this decision.",
+    "No native animation/Input/cadence/physics/floorlocking/gameplay/audio/FPS/export/Lead/P06 acceptance.",
+    "No WORK/Git/controller/runner/build/network/generator/helper execution; ROOT diagnostic scripts only.",
+    "No rawphotos read/upload/copy; own accepted artwork continuity only, no new humanlikeness claim."
+  ],
+  "pending_runtime_evidence": [
+    "Complete remaining15/20/23 camera corrections and fresh all32 source review before any fullatlas adoption.",
+    "Actual native2→3→4→5 and otherdirection loops/head-body/pixelgrid/floor/continuousInput after full source acceptance."
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/pasha/world_master_v1.png": "2e561d438d154b345c86ba809a2f269653250efcbb49b3ad0000c1fc72a4a778",
+    "assets/source_art/characters/pasha/world_native_v1.png": "d386642864e4ee5ce6b2b85e13d44687ca5da6cc5ae3920d93907f4b579130e8",
+    "assets/source_art/characters/pasha/world_master_v2e.png": "0de190d1bfb80a834752c5ac3308456ea9c519a049c0b32dcdbed332b2468ad6",
+    "assets/source_art/characters/pasha/world_native_v2e.png": "140a88cf3d4a058351613a59a74b079f45081b19bc349a19823bb1246086a73a",
+    "assets/source_art/characters/pasha/world_manifest_v2e.json": "78321b5c519cfe04325573d3d1f35372b9a85c4fa1109a8fab8210e724c16177",
+    "assets/source_art/characters/pasha/world_master_v3a.png": "a9a68cf270e9eeff747940d1cc2aee800268f1d39884cfc54c4c3e8f36af768f",
+    "assets/source_art/characters/pasha/world_native_v3a.png": "304adf39789af2282d26785ffdb882e69e725843fe99040be50f9b4876b0fc47",
+    "assets/source_art/characters/pasha/world_manifest_v3a.json": "73de68aaa5072384920f298398f78232198aa248ee6c7041ddca0bed9e796a88",
+    "assets/source_art/characters/pasha/world_inspection_v3a_3x.png": "242038b137575b001e81bfeeebb9892689c280abc00d6b119607c390fbaf4533",
+    "assets/source_art/characters/pasha/world_v3a_assembly.json": "35ed5f75aa36004be3975939a36b5e76a3b8a46477a3b057584cad35e6865e43",
+    "assets/source_art/characters/pasha/world_left4_master_v3.png": "8ebe7adc3ce931d6ca2f6e5df18b2fbdfa5e4a0436bbb43e55ea4ddfc4c02609",
+    "assets/source_art/characters/pasha/world_left4_v3_prompt.txt": "a9bc52ed078ef6f3dc1972383752ac163eda9ea88092d9615dea9fc7bf8e13c7",
+    "assets/source_art/characters/pasha/world_left4_v3_generation_metadata.json": "3d77446832d9db710432a7c1e74ae2344b942010d77df43a1a9eacb573ac9418",
+    "assets/source_art/characters/pasha/left4_correct_stride_camera_edit_target_v3_4x.png": "297fb94b538b00510b87a23dc2a44a66fcb9859e8ff96acde281aa40207fbaed",
+    "assets/source_art/characters/pasha/left4_own_family_reference_v2_4x.png": "39bdf65f42c1f6cc704573366bcdebd694dd3036e585ee1ad17b0f099fea7f9b",
+    "assets/source_art/characters/pasha/portraits_master_v1.png": "1343cc89610d813366876ddb80a894117572849cb620d3f023a14a3950ad3ad5",
+    "assets/source_art/characters/pasha/portraits_native_source.png": "a50abd0d060c2d01118697e1e8bf3ec69f301bd02f3adde4cba125a435932cf7",
+    "assets/source_art/characters/adopt_world.py": "d0b210e3a052b95e1b2cb34ad02c058dc53025dbd05bcaf713a3eb3a531c51d8",
+    "assets/source_art/characters/place_actor_pose.py": "bc5b83b9491684b0e30ec1cd44540d6ab1e5576fcedca99a7d4e7646c615afb9",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+  },
+  "review_artifacts_sha256": {
+    "pasha_world_left4_preflight_v3a_light_wholecell_family_comparison_6x.png": "0f707fb6098367dc26729d23cf9d3a02512485e4698cde9afea1600a134a1f2c",
+    "pasha_world_left4_preflight_v3a_dark_wholecell_family_comparison_6x.png": "29cbcccf9bfa02611011b7e96d89df67516aa8bed2540582bfbb1dbf0861405f",
+    "pasha_world_left4_preflight_v3a_whole_source_A2_oldB4_newB4_2x.png": "e7416bf070b8ec95c68db0bcb02572590f239b9968f6a5bd87f7c725b220e9f2",
+    "pasha_world_left4_preflight_v3a.md": "eb16ddd74bd9c958f645f6e5c2a2a8a2c054b57fcca062a073e0d58664b1878f",
+    "pasha_world_left4_preflight_v3a_metrics.json": "595866f3c32c5c86c1c5016d28c92e6ca28a823aa8a0807324be23c15909f676",
+    "pasha_world_left4_preflight_v3a.inspect.py": "03c5463e2b9eebd02ad1e86ef76e31d78b6e6dd349830a3a45831616986db3b8"
+  },
+  "previous_rejections_preserved": true
+}

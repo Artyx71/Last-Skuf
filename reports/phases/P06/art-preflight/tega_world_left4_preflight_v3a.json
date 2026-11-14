@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "reviewer": "/root/qa_resume_recovery",
+  "review_role": "independent_ART_SOURCE_CELL12_ONLY",
+  "reviewed_utc": "2026-11-14T17:54:11.303728+00:00",
+  "actor_id": "tega",
+  "kind": "world",
+  "status": "FAIL_CELL12_LEG_OWNERSHIP",
+  "reviewed_cells": [
+    12
+  ],
+  "all32_freshly_reviewed": false,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "raw_master_sha256": "30da9fd43d365076a331c4e1fbe779947d04a034e64e2345c225f965430b6a3e",
+  "master_sha256": "c6faf83aa132b9cdaac99a2938650dea31eb32569816a57ab485d2343d65e290",
+  "native_sha256": "352f69db1bb2a895db0bca11c0e9b52f4e7ce7e4c6f5a103b61981d0a94b3a46",
+  "report_sha256": "ae1e22ec78c7799e0cd2cb422de4104ec7d44ea1bbf2a43365ad734bdd2ab26a",
+  "metrics_sha256": "a9f53bb0aa72c0fada56261773f3e06a009d9fa56e1aaed102250539f5f20ace",
+  "must_fix": [
+    {
+      "id": "TEGA-WORLD-SIDE-GAIT-01",
+      "severity": "major",
+      "status": "OPEN_SOURCE_CORRECTION_REQUIRED",
+      "cell_index": 12,
+      "direction": "left",
+      "column": 4,
+      "source_rect_xyxy": [
+        768,
+        256,
+        960,
+        512
+      ],
+      "native_rect_xywh": [
+        192,
+        64,
+        48,
+        64
+      ],
+      "summary": "The lower/foreground near hip still leads into the large left-forward thigh/shoe as in A2; rear chain remains right/up. Opposite far-leg-leading contact is not readable.",
+      "required_action": "Reauthor one complete pose with clear opposite continuous hip-to-shoe ownership while preserving the improved own camera/hoodie/head family; no part collage."
+    }
+  ],
+  "previous_family_finding": {
+    "id": "TEGA-LEFT4-FAMILY-01",
+    "assessment": "v3 is visibly closer to own A2 than v2; unchanged-v2 failure is not asserted; exact prompt upperbody lock not proven"
+  },
+  "other_original_gait_cells_still_open": [
+    15,
+    20,
+    23
+  ],
+  "technical_checks": {
+    "complete_figure_bounds": [
+      203,
+      211,
+      903,
+      1298
+    ],
+    "complete_resized_size": [
+      127,
+      197
+    ],
+    "placement": [
+      32,
+      37
+    ],
+    "source_cell12_rgba_sha256": "fe9726a58859e6b525c3a38a7173ff10550dbb5de105d42b4cc10aa202c1c86c",
+    "all31_other_source_cells_byte_exact": true,
+    "all31_other_native_cells_byte_exact": true,
+    "all32_native_technical_reconstruction_exact": true,
+    "opaque_placement_and_native_alignment_loss": 0,
+    "row_native_dy": [
+      0,
+      0,
+      0,
+      -1
+    ]
+  },
+  "source_inventory_base": ".autopilot/worktrees/P06",
+  "source_inventory_sha256": {
+    "assets/source_art/characters/tega/world_master_v1.png": "93bbe92c89a48fce9e6969e63b21923e7a449fdfbc1a14eb54e26bab62222754",
+    "assets/source_art/characters/tega/world_native_v1.png": "e3b52ae7b4611b73e77c830155b973614c237cfe399095552ab5e8ca2138871c",
+    "assets/source_art/characters/tega/world_master_v2a.png": "d708ef0c9c3d8dc7af79d07661399617c8a50973c9fd095f420756fd8501bb15",
+    "assets/source_art/characters/tega/world_native_v2a.png": "ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799",
+    "assets/source_art/characters/tega/world_left4_master_v3.png": "30da9fd43d365076a331c4e1fbe779947d04a034e64e2345c225f965430b6a3e",
+    "assets/source_art/characters/tega/world_master_v3a.png": "c6faf83aa132b9cdaac99a2938650dea31eb32569816a57ab485d2343d65e290",
+    "assets/source_art/characters/tega/world_native_v3a.png": "352f69db1bb2a895db0bca11c0e9b52f4e7ce7e4c6f5a103b61981d0a94b3a46",
+    "assets/source_art/characters/tega/world_manifest_v3a.json": "bbf981d66f550bc5333399a4696542295f762ec33038b63da0afef7184165879",
+    "assets/source_art/characters/tega/world_v3a_assembly.json": "d63c3df2f1aedca69b9776e747ce7c2e7e01a6eb3a3419b0614cdd59f7ab4b9c",
+    "assets/source_art/characters/tega/world_left4_v3_prompt.txt": "de5a4e492a0a9c7055606e4e763aaf51c740043638c00e825740c895b6d5edde",
+    "assets/source_art/characters/tega/world_left4_v3_generation_metadata.json": "8a6559a86a8634ca004e9f7aa92e63cf3f484e52b35346f7a6857dc7273d49cb",
+    "assets/source_art/characters/tega/world_left4_v3_references.json": "357b1db1b204c00f40efc735f8f44f97578586dfc8e892ae461badb760db0299",
+    "assets/source_art/characters/tega/left4_own_family_reference_v2_4x.png": "6466192704bbca0d2577a1094916b9f6ea09124ca4bdbeb75f124c90f6cf3389",
+    "assets/source_art/characters/tega/left4_opposite_stride_reference_v3_4x.png": "927827a4822cd475724dbd2c9eb2e5197de1a2e39b117cfe3ac68f2ab4fc67c4",
+    "assets/source_art/characters/place_actor_pose.py": "bc5b83b9491684b0e30ec1cd44540d6ab1e5576fcedca99a7d4e7646c615afb9",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e"
+  },
+  "review_artifacts_base": "reports/phases/P06/art-preflight",
+  "review_artifacts_sha256": {
+    "tega_world_left4_preflight_v3a.inspect.py": "e94e3414002e6d053098a804e8e63153fd0257dd7803763821b7442464eb4a6d",
+    "tega_world_left4_preflight_v3a.md": "ae1e22ec78c7799e0cd2cb422de4104ec7d44ea1bbf2a43365ad734bdd2ab26a",
+    "tega_world_left4_preflight_v3a.metrics.json": "a9f53bb0aa72c0fada56261773f3e06a009d9fa56e1aaed102250539f5f20ace",
+    "tega_world_left4_preflight_v3a.native_family6x.png": "f0f1467fbb7d17114ca0758ab9af2e675d0980d6514ce38ff4e0ae8d988a1057",
+    "tega_world_left4_preflight_v3a.source_family2x.png": "658048ed262fac8dd38d7598d272a17627461e7389bbc9178395a09ef4a4c667"
+  },
+  "limits": [
+    "Only cell12 independently reviewed visually; all32 native reconstruction is technical only",
+    "No runtime/native animation or full-phase acceptance",
+    "No new raw-photo likeness signoff or generator invocation",
+    "Color ROI metrics are supporting diagnostics, not anatomy thresholds"
+  ],
+  "next": "New complete LEFT4 correction and independent single-cell review before generating the other3 B poses."
+}

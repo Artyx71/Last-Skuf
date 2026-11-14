@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "actor_id": "tega",
+  "kind": "world",
+  "isolated_pose": "left4",
+  "generator": "built-in image_gen",
+  "generated_utc": "2026-11-14T17:56:22.960436+00:00",
+  "tool_output": "/home/artyx/.codex/generated_images/01a1d1be-1613-7e53-ac22-e5baaf6ba484/exec-2c4009e3-103a-402c-898b-b0de490e16f5.png",
+  "master_sha256": "17b8537d81c8c97e520ae1487e0b7288b484aed33a20fe881b5597de711c70a6",
+  "prompt_sha256": "be24c1b3d8230f8c190644b6bd01be6824dba8f26b8e273f3ad4077789750a52",
+  "references": [
+    {
+      "path": "assets/source_art/characters/tega/left4_opposite_stride_reference_v3_4x.png",
+      "sha256": "927827a4822cd475724dbd2c9eb2e5197de1a2e39b117cfe3ac68f2ab4fc67c4",
+      "role": "edit target own v2 B4, attempt preserve leg ownership/arm swing"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left4_own_family_reference_v2_4x.png",
+      "sha256": "6466192704bbca0d2577a1094916b9f6ea09124ca4bdbeb75f124c90f6cf3389",
+      "role": "own original A2 camera/head/torso guide only; no leg transfer"
+    }
+  ],
+  "raw_photos_uploaded": false,
+  "source_cell_remediation_index": 3,
+  "source_cell_initial_rejection": "world_v1 same-leg lead",
+  "prior_repairs": [
+    "v2a gait improved but camera/bodyfamily FAIL",
+    "v3a family closer but legownership regressed FAIL"
+  ],
+  "method": "whole generated figure, targeted upperbody edit while attempting to preserve own rejected v2 lowerbody, no source collage",
+  "status": "CANDIDATE_REQUIRES_INDEPENDENT_SINGLE_CELL_REVIEW",
+  "phase_approval": false
+}
