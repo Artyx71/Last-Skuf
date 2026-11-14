@@ -1,0 +1,34 @@
+{
+  "scope": "ACTUAL_IMPORT_AND_CHARACTER_FRAME_LOADING_ONLY",
+  "phase_approval": false,
+  "commands": [
+    {
+      "name": "import",
+      "argv": [
+        ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "game",
+        "--editor",
+        "--quit"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "log_sha256": "ed3c4646a64f7b2e29dcdbd1f0e47346a6e94925bedd91494b103189acf11bf5"
+    },
+    {
+      "name": "character_frames",
+      "argv": [
+        ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "game",
+        "--script",
+        "res://tests/character_frames_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "log_sha256": "35bf9af14e4d39ff5fd1e893729ef09e8fdab168ba3a27fabe26dc5620880e53"
+    }
+  ]
+}
