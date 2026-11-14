@@ -1,0 +1,154 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_combat_sandbox_campaign_view_isolation",
+  "reviewer": "/root/gameplay_review_p06",
+  "status": "CAMPAIGN_VIEW_ISOLATION_REMEDIATION_VERIFIED_COMPONENT_ONLY",
+  "head_label_read_without_git_commands": "8f30222dd054ef7b605ecc654500aa2eb1a1ef3a",
+  "phase_approval": false,
+  "native_art_feel_export_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_source_or_authority_mutations": false,
+  "findings": [],
+  "verified": [
+    "Owned shared token pause acquired before combat setup; never load/advance/save campaign dialogue",
+    "Prior processing true/false restored only for same owner on exit; duplicate/nonowner/stale release does not steal",
+    "Blocked ownership branch skips combat/player creation and permits menu exit",
+    "Actual Lab Input/options/retry/reopen preserves campaign viewing/file/logical story",
+    "Wrapper executes actual separate-process same CH01line1/file restore; CI routes isolation wrapper"
+  ],
+  "historical_failure_read": {
+    "passed": 12,
+    "failed": 6,
+    "exit_code": 1,
+    "frozen_source_inventory_present": false
+  },
+  "author_current_evidence_read_not_rerun": {
+    "isolation_passed": 25,
+    "isolation_failed": 0,
+    "separate_process_reload": true,
+    "restored_resource": "res://resources/dialogue/missed_fight_intro.json",
+    "restored_line": 1,
+    "dialogue_file_bytes_unchanged": true,
+    "gabar_passed": 124,
+    "gabar_failed": 0,
+    "rendered_captures": 0,
+    "recorded_source_entries_per_inventory": 675,
+    "initial_current_mismatches": 0,
+    "final_current_matches": 674,
+    "final_current_mismatches": [
+      "assets/source_art/characters/adopt_world.py"
+    ],
+    "reviewed_runtime_hashes_unchanged": true,
+    "isolation_artifact_hashes_match": 6,
+    "gabar_artifact_hashes_match": 4
+  },
+  "proof_limits": [
+    "No reviewer runtime rerun; same Git label is not independent committed exact-tree freeze",
+    "Full blockedLab/CastViewer conflict UI case not executed; actual guard contention and source branch reviewed",
+    "Snapshot story comparison is logical Store state, not separate story.json bytes",
+    "Audio accepted tails may finish; no new campaign scheduling while paused, no listening claim",
+    "Old native02 render ART acceptance is not proof of new guard; Oleg source adoption outside scope"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/lab-isolation-preflight-v1.md",
+    "sha256": "841775c9eb33ee6f9109b3915023a2158378a31514286adbe363981eb2a06e9e"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/systems/campaign_view_guard.gd",
+      "sha256": "6792dbeef1fe5eac0088f1bbf4ef7bf3c61dd516da4f3b86113c979afee928ec"
+    },
+    {
+      "path": "game/scripts/core/character_lab.gd",
+      "sha256": "0c4d931dccdab8a5ad9ba7a6f3ccf4f8e64c355844c0935129f9f4b3f5bdab8a"
+    },
+    {
+      "path": "game/scripts/systems/character_dialogue_session.gd",
+      "sha256": "c4a54707f98124a99ef6a24500909ee116715973bd1cf447e89b886fcb79393c"
+    },
+    {
+      "path": "game/scripts/ui/cast_viewer.gd",
+      "sha256": "dc8eeaa626a0fdc15c65a46d5ea2bcc7625ebf94c3c13da063cd364f99481bb7"
+    },
+    {
+      "path": "game/scripts/systems/dialogue_director.gd",
+      "sha256": "3ec60240e4c8b7179c7d28805cae128b8ab875f649cc9f81c0f80786b7d7c0dd"
+    },
+    {
+      "path": "game/scripts/systems/audio_director.gd",
+      "sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42"
+    },
+    {
+      "path": "game/tests/character_lab_isolation_test.gd",
+      "sha256": "fa7deb42a359006a782d0709232d2b8e8e740778634a236b5321c4eb06b26914"
+    },
+    {
+      "path": "game/tests/character_dialogue_reload.gd",
+      "sha256": "fbd6d414969234aad95d096c02c32717c065cca5290410b63dea979424551924"
+    },
+    {
+      "path": "tools/verify_p06_lab_isolation.py",
+      "sha256": "dc7798d540bfb098d0ef3a2fd86bfc595407b4bb82e8b2806fe98bc5a8a125b4"
+    },
+    {
+      "path": "tools/verify.py",
+      "sha256": "e7963c92bf117c4eb92f2bb732a9790093f50633dc95bd1ef03ff57fdd0916f1"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-before-01/result.json",
+      "sha256": "6b365a1faeb43937539ca08de4ca206d33f78e5573de3692a98686327a936d5a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-before-01/command.json",
+      "sha256": "f7e185a8ebe379f53344fcd44b95402dfbec253a15c489e36a403cceca011927"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-before-01/output.log",
+      "sha256": "c54e0ade12d3b356cba4eae7f793c11d87b2961c56c968cf5c4608d970edb6c8"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/source_hashes.json",
+      "sha256": "7872d9448d965df1ae3d8ca6454f74e2db1a61150a1c101827f00780566839cd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/commands.json",
+      "sha256": "f7be07fd10b11e24e249f764d35859825dcf563b0fdf2ac376d58b57be4bc425"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/validation.json",
+      "sha256": "328472a85ac3ac63ef98ae7c2541498ee024f57b145d2e3674b7900633e9cafe"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/sandbox.log",
+      "sha256": "175e31dea6c3d9a2b3ffaea0aad16a33fa280251f92ff00c7784a703df008e4f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/lab-isolation-after-02/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-view-guard-01/source_hashes.json",
+      "sha256": "7872d9448d965df1ae3d8ca6454f74e2db1a61150a1c101827f00780566839cd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-view-guard-01/commands.json",
+      "sha256": "6daa586b742a336f0a186a5e86b759a3591cafe2c9c9c40c2193c37364376a34"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-view-guard-01/validation.json",
+      "sha256": "10bda2633511ef4cfb470f5ba72a3724a96595003a01298637fc0937e1d7c034"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-view-guard-01/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    }
+  ]
+}

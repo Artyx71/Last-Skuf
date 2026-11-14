@@ -58,6 +58,8 @@ def main():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['character_combat_profile', 'character_scene_policy',
                                      'character_policy_integration', 'character_dialogue', 'character_frames'])
+        commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
+                         '--output', str(output / 'character_lab_isolation')]))
         commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
                          '--headless', '--output', str(output / 'gabar_controller')]))
     env = dict(os.environ)

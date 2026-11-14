@@ -1,0 +1,43 @@
+{
+  "scope": "ACTUAL_COMBAT_SANDBOX_AND_NEW_PROCESS_CAMPAIGN_VIEW_RELOAD_ONLY",
+  "phase_approval": false,
+  "source_hashes": {
+    "game/scripts/systems/campaign_view_guard.gd": "6792dbeef1fe5eac0088f1bbf4ef7bf3c61dd516da4f3b86113c979afee928ec",
+    "game/scripts/core/character_lab.gd": "0c4d931dccdab8a5ad9ba7a6f3ccf4f8e64c355844c0935129f9f4b3f5bdab8a",
+    "game/tests/character_lab_isolation_test.gd": "fa7deb42a359006a782d0709232d2b8e8e740778634a236b5321c4eb06b26914"
+  },
+  "source_unchanged": true,
+  "commands": [
+    {
+      "name": "actual-sandbox",
+      "argv": [
+        ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "game",
+        "--script",
+        "res://tests/character_lab_isolation_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "new-process-reload",
+      "argv": [
+        ".tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "game",
+        "--script",
+        "res://tests/character_dialogue_reload.gd"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

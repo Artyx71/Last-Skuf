@@ -8,6 +8,13 @@ var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_
 var selection_message := ""
 
 func _ready() -> void:
+	var view_guard := preload("res://scripts/systems/campaign_view_guard.gd").new()
+	add_child(view_guard)
+	if not view_guard.acquire(get_node_or_null("/root/DialogueDirector")):
+		state = "blocked"
+		set_physics_process(false)
+		_add_label("Другой просмотр уже открыт. Esc: меню",Vector2(24,24),14,Color("ffcc71"))
+		return
 	y_sort_enabled = true # Whole actor bodies sort by floor root, not head height.
 	var opened := scene_policy.open("gabar_training")
 	assert(opened)
@@ -92,6 +99,11 @@ func _update_hud() -> void:
 		damage_portrait.visible = player.hits_received > 0
 
 func _unhandled_input(event: InputEvent) -> void:
+	if state == "blocked":
+		if event.is_action_pressed("ui_cancel"):
+			get_viewport().set_input_as_handled()
+			get_tree().change_scene_to_file("res://scenes/bootstrap/bootstrap.tscn")
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode >= KEY_1 and event.keycode <= KEY_7:
 		select_fixture(fixture_keys[event.keycode-KEY_1])
 		get_viewport().set_input_as_handled()
