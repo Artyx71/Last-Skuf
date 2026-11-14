@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "CANDIDATE_P07_GUARD_CODE_ONLY",
+  "reviewer": "/root/qa_resume_recovery",
+  "review_role": "INDEPENDENT_BOUNDED_QA",
+  "reviewed_utc": "2026-11-14T23:14:10.655539+00:00",
+  "phase_approval": false,
+  "full_production_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false,
+  "must_fix": [
+    {
+      "id": "PG-C01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Untracked game directory symlink hides readable unreviewed source from whole-game file-set",
+      "repro": "adversarial.py: untracked_game_directory_symlink_with_unreviewed_source",
+      "required_fix": "Detect and reject/reconcile all production symlinks including untracked directories before full tree comparison"
+    },
+    {
+      "id": "PG-C02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Resolved report prefix may itself escape repository, allowing external full decisions",
+      "repro": "adversarial.py: reports_pre_p07_prefix_symlink_escapes_repository",
+      "required_fix": "Require canonical root containment for both prefix and file, handle escaping symlink ancestors fail-closed"
+    },
+    {
+      "id": "PG-C03",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "OPEN High whitespace severity and malformed severity types silently bypass blocking findings filter",
+      "repro": "adversarial.py: malformed_finding_severity cases",
+      "required_fix": "Validate known typed severity/status enums; normalize explicitly or reject whitespace/unknown/missing values"
+    },
+    {
+      "id": "PG-C04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Boolean schema true accepted as schema1",
+      "repro": "adversarial.py: boolean_decision_schema",
+      "required_fix": "Strict integer schema and malformed record type validation"
+    }
+  ],
+  "actual_results": {
+    "schema": 1,
+    "scope": "CANDIDATE_P07_GUARD_V1_COMPONENT_ONLY",
+    "status": "FAIL_COMPONENT",
+    "actual_tests": {
+      "production": {
+        "passed": 24,
+        "total": 24,
+        "exit_code": 0
+      },
+      "autopilot_regression": {
+        "passed": 47,
+        "total": 47,
+        "exit_code": 0
+      }
+    },
+    "additional_cases": 10,
+    "unexpected_acceptances": 6,
+    "correct_controls": 4,
+    "state_unchanged_all_adversarial_cases": true,
+    "legitimate_worktree_resume_control_passed": true,
+    "production_or_canonical_controller_invocations": 0,
+    "ROOT_runner_upgraded": false,
+    "phase_approval": false,
+    "production_readiness_approval": false,
+    "merge_approval": false,
+    "must_fix": [
+      {
+        "id": "PG-C01",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "file": "autopilot/readiness.py",
+        "summary": "Untracked game directory symlink hides readable unreviewed source from whole-game file-set",
+        "repro": "adversarial.py: untracked_game_directory_symlink_with_unreviewed_source",
+        "required_fix": "Detect and reject/reconcile all production symlinks including untracked directories before full tree comparison"
+      },
+      {
+        "id": "PG-C02",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "file": "autopilot/readiness.py",
+        "summary": "Resolved report prefix may itself escape repository, allowing external full decisions",
+        "repro": "adversarial.py: reports_pre_p07_prefix_symlink_escapes_repository",
+        "required_fix": "Require canonical root containment for both prefix and file, handle escaping symlink ancestors fail-closed"
+      },
+      {
+        "id": "PG-C03",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "file": "autopilot/readiness.py",
+        "summary": "OPEN High whitespace severity and malformed severity types silently bypass blocking findings filter",
+        "repro": "adversarial.py: malformed_finding_severity cases",
+        "required_fix": "Validate known typed severity/status enums; normalize explicitly or reject whitespace/unknown/missing values"
+      },
+      {
+        "id": "PG-C04",
+        "severity": "MEDIUM",
+        "status": "OPEN",
+        "file": "autopilot/readiness.py",
+        "summary": "Boolean schema true accepted as schema1",
+        "repro": "adversarial.py: boolean_decision_schema",
+        "required_fix": "Strict integer schema and malformed record type validation"
+      }
+    ]
+  },
+  "frozen_candidate_sha256": {
+    "autopilot/readiness.py": "013774cc4fa6b631a84b7c8869f0d7337246c5b28dad200c56cb7147d18afd74",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "tools/tests/test_production_readiness.py": "1ebe75c251f031106c8a437e39c7d0ce2ed6fe3c05725347092d01b571cb859f",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "immutable_source_snapshots_sha256": {
+    "isolated-source/autopilot/readiness.py": "013774cc4fa6b631a84b7c8869f0d7337246c5b28dad200c56cb7147d18afd74",
+    "isolated-source/autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "isolated-source/autopilot/github.py": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b",
+    "isolated-source/autopilot/worker.py": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5",
+    "isolated-source/autopilot/config.json": "8ef804a0855c05fb2c314ed559784243b39e9792b582d5897449611f2886c39f",
+    "isolated-source/autopilot/PRODUCTION_GATES.md": "e4f8078bfc58920b24f566cbb4765c9e0bc85355a4a21a4c55a27467afe83acd",
+    "isolated-source/tools/tests/test_production_readiness.py": "1ebe75c251f031106c8a437e39c7d0ce2ed6fe3c05725347092d01b571cb859f",
+    "isolated-source/tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "review_artifacts_sha256": {
+    "review.md": "f2f313f45ff663df46681fcc1086fce90b3271f60378e924bf3bf54374f0bac7",
+    "metrics.json": "1e09526dd9b59c597fb10a52bedd2bdfbcb475943ff0c94e21785b3d207c8cd0",
+    "source-freeze.json": "4406f2aa99b48702d42e6be9fc348c40eeb2dfa3971805d653dfa4730b72e8e6",
+    "source-inventory.json": "b9d1a613b9aefda9625d53706567f38d53c6c5ccb637d07b43162c73f48f270a",
+    "integrity-after.json": "204f6c1cc250c65f9a9dda7d2997f7618d7ac937d3f4085a0ea3d164566194ff",
+    "ROOT-runner-observation.json": "ab152ab9b20cd3d126152117219abd41fea4b15e8cc46edb2dabec65481c1848",
+    "run-isolated.py": "9bfa084475d5e4ca648801dc35b4254014242fbd57caa90fad0dc3625eefa4f6",
+    "adversarial.py": "76eb2cec40adc802fea99edcb0f8eaf2b240af9f1147e1f932844e5433a185a7",
+    "adversarial-results.json": "e1fd8f43c8a58eb720fdde2e49017e382c7236b119ede9d4d7f9eb932a0d0d2e",
+    "adversarial.log": "52e9ceb36e80a71ee816a684b4fdf5626b3e96e789a26b7da61d388370e8189d",
+    "production.log": "e638c777c4ce88eecc2d6f7cd3d2b15562ab679cc13c4daf10adf1c75834ed58",
+    "production-command.json": "fa440eb956d7a33cbc97746ab8079d3b07f6b4ef77ebca54901cc2aefb80a91a",
+    "regression.log": "2a952a100a889d0d66b29b3be4627f95638bf7b4e4f58a5d5b24994e0615bb66",
+    "regression-command.json": "dbed34d67a79dad5ef0d688f25a72367efc163fa901bd3e7338742950913893e",
+    "isolated-source/autopilot/readiness.py": "013774cc4fa6b631a84b7c8869f0d7337246c5b28dad200c56cb7147d18afd74",
+    "isolated-source/autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "isolated-source/autopilot/github.py": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b",
+    "isolated-source/autopilot/worker.py": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5",
+    "isolated-source/autopilot/config.json": "8ef804a0855c05fb2c314ed559784243b39e9792b582d5897449611f2886c39f",
+    "isolated-source/autopilot/PRODUCTION_GATES.md": "e4f8078bfc58920b24f566cbb4765c9e0bc85355a4a21a4c55a27467afe83acd",
+    "isolated-source/tools/tests/test_production_readiness.py": "1ebe75c251f031106c8a437e39c7d0ce2ed6fe3c05725347092d01b571cb859f",
+    "isolated-source/tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "report_sha256": "f2f313f45ff663df46681fcc1086fce90b3271f60378e924bf3bf54374f0bac7",
+  "metrics_sha256": "1e09526dd9b59c597fb10a52bedd2bdfbcb475943ff0c94e21785b3d207c8cd0",
+  "artifacts_manifest_sha256": "e80d7e2ea0b7dd15074ac6f6e0160a1848034b6166e40e4bf67affbb655ba6af",
+  "next": "Author v2 fixes with targeted tests, new exact freeze and independent QA. Preserve ROOT stopP06 and actual readiness/phase gates; no current production authorization."
+}

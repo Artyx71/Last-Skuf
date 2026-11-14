@@ -1,0 +1,120 @@
+[
+  {
+    "name": "ready:schema_float",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unknown readiness decision schema",
+    "passed": true
+  },
+  {
+    "name": "ready:blank_reviewer",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Reviewer identity missing",
+    "passed": true
+  },
+  {
+    "name": "ready:numeric_independence",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Independent Lead approval required",
+    "passed": true
+  },
+  {
+    "name": "ready:trimmed_lower_HIGH_OPEN",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unresolved Critical/High blocks production",
+    "passed": true
+  },
+  {
+    "name": "ready:missing_LOW_resolution",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unknown finding resolution status",
+    "passed": true
+  },
+  {
+    "name": "ready:normalized_HIGH_VERIFIED_control",
+    "expected_acceptance": true,
+    "accepted": true,
+    "state_unchanged": true,
+    "error": null,
+    "passed": true
+  },
+  {
+    "name": "designs:schema_float",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unknown readiness decision schema",
+    "passed": true
+  },
+  {
+    "name": "designs:blank_reviewer",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Reviewer identity missing",
+    "passed": true
+  },
+  {
+    "name": "designs:numeric_independence",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Independent Lead approval required",
+    "passed": true
+  },
+  {
+    "name": "designs:trimmed_lower_HIGH_OPEN",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unresolved Critical/High blocks production",
+    "passed": true
+  },
+  {
+    "name": "designs:missing_LOW_resolution",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Unknown finding resolution status",
+    "passed": true
+  },
+  {
+    "name": "designs:normalized_HIGH_VERIFIED_control",
+    "expected_acceptance": true,
+    "accepted": true,
+    "state_unchanged": true,
+    "error": null,
+    "passed": true
+  },
+  {
+    "name": "same_bytes_internal_decision_leaf_symlink",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Symlink evidence/source requires reconciliation: reports/pre_p07/TEST_ONLY/readiness.json",
+    "passed": true
+  },
+  {
+    "name": "same_bytes_internal_inventory_file_symlink",
+    "expected_acceptance": false,
+    "accepted": false,
+    "state_unchanged": true,
+    "error": "Symlink evidence/source requires reconciliation: planning/input-link.txt",
+    "passed": true
+  },
+  {
+    "name": "resume_missing_gate_blocks_without_reset",
+    "passed": true,
+    "state_unchanged": true,
+    "workspace_marker_preserved": true
+  }
+]

@@ -1,0 +1,62 @@
+--- v1/tools/tests/test_production_readiness.py
++++ v2/tools/tests/test_production_readiness.py
+@@ -141,6 +141,59 @@
+         p = self.root / 'game/.godot/imported/cache'; p.parent.mkdir(parents=True); p.write_text('cache')
+         require_p07_production(self.root, self.state)
+ 
++    def test_untracked_directory_symlink_cannot_hide_unreviewed_source(self):
++        with tempfile.TemporaryDirectory() as external:
++            p = Path(external); (p / 'unreviewed.gd').write_text('outside production commit')
++            (self.root / 'game/hidden').symlink_to(p, target_is_directory=True)
++            self.blocked()
++
++    def test_internal_directory_symlink_also_requires_reconciliation(self):
++        p = self.root / 'elsewhere'; p.mkdir(); (p / 'unreviewed.gd').write_text('unreviewed')
++        (self.root / 'game/hidden').symlink_to(p, target_is_directory=True)
++        self.blocked()
++
++    def test_game_file_symlink_rejected_even_if_bytes_match(self):
++        p = self.root / 'copy.gd'; p.write_bytes(self.source.read_bytes())
++        self.source.unlink(); self.source.symlink_to(p)
++        self.blocked()
++
++    def test_dangling_production_symlink_rejected(self):
++        (self.root / 'game/dangling').symlink_to(self.root / 'missing')
++        self.blocked()
++
++    def test_report_prefix_symlink_cannot_move_approvals_outside_repository(self):
++        import shutil
++        with tempfile.TemporaryDirectory() as external:
++            p = Path(external) / 'approvals'
++            original = self.root / 'reports/pre_p07'
++            shutil.move(str(original), str(p)); original.symlink_to(p, target_is_directory=True)
++            self.blocked()
++
++    def test_mds_parent_symlink_cannot_move_files_outside_repository(self):
++        import shutil
++        with tempfile.TemporaryDirectory() as external:
++            p = Path(external) / 'specs'; original = self.root / 'planning'
++            shutil.move(str(original), str(p)); original.symlink_to(p, target_is_directory=True)
++            self.blocked()
++
++    def test_boolean_schema_is_not_schema_one(self):
++        self.ready['schema'] = True
++        self.publish(); self.blocked()
++
++    def test_unknown_or_malformed_severities_never_silently_skip_gate(self):
++        for severity in [None, {'priority': 'HIGH'}, '', 'HIG H', 1]:
++            with self.subTest(severity=severity):
++                self.ready['findings'] = [{'severity': severity, 'status': 'OPEN'}]
++                self.publish(); self.blocked()
++
++    def test_whitespace_high_still_blocks(self):
++        self.ready['findings'] = [{'severity': 'HIGH ', 'status': 'OPEN'}]
++        self.publish(); self.blocked()
++
++    def test_unknown_resolution_status_rejected(self):
++        self.ready['findings'] = [{'severity': 'LOW', 'status': None}]
++        self.publish(); self.blocked()
++
+     def test_wrong_frozen_head_blocks(self):
+         self.ready['p06_base_head'] = 'f' * 40
+         self.publish(); self.blocked()

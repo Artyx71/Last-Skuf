@@ -1,0 +1,117 @@
+[
+  {
+    "name": "untracked_game_directory_symlink_with_unreviewed_source",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "unreviewed_resource_is_readable": true,
+    "link_is_not_in_inventory": true,
+    "expected": "BLOCK_UNTRACKED_PRODUCTION_SYMLINK"
+  },
+  {
+    "name": "reports_pre_p07_prefix_symlink_escapes_repository",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "decision_resolves_outside_fixture_repository": true,
+    "expected": "BLOCK_ESCAPED_REPORT_EVIDENCE"
+  },
+  {
+    "name": "malformed_finding_severity_HIGH ",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "severity": "HIGH ",
+    "expected": "BLOCK_MALFORMED_OR_OPEN_HIGH_FINDING"
+  },
+  {
+    "name": "malformed_finding_severity_None",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "severity": null,
+    "expected": "BLOCK_MALFORMED_OR_OPEN_HIGH_FINDING"
+  },
+  {
+    "name": "malformed_finding_severity_{'priority': 'HIGH'}",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "severity": {
+      "priority": "HIGH"
+    },
+    "expected": "BLOCK_MALFORMED_OR_OPEN_HIGH_FINDING"
+  },
+  {
+    "name": "boolean_decision_schema",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "result": {
+      "readiness": true,
+      "mission_specs": 21,
+      "phase_approval": false
+    },
+    "state_unchanged": true,
+    "expected": "BLOCK_UNKNOWN_BOOLEAN_SCHEMA"
+  },
+  {
+    "name": "exact_HIGH_open_control",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": false,
+    "error_type": "ReadinessBlocked",
+    "error": "Unresolved Critical/High blocks production",
+    "state_unchanged": true,
+    "expected": "BLOCK_OPEN_HIGH_CONTROL"
+  },
+  {
+    "name": "same_MDS_via_symlink_control",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": false,
+    "error_type": "ReadinessBlocked",
+    "error": "One duplicated specification cannot approve multiple chapters",
+    "state_unchanged": true,
+    "expected": "BLOCK_DUPLICATED_MDS_SYMLINK"
+  },
+  {
+    "name": "direct_inventory_escape_control",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": false,
+    "error_type": "ReadinessBlocked",
+    "error": "Missing or escaped file: ../outside",
+    "state_unchanged": true,
+    "expected": "BLOCK_ESCAPED_INVENTORY_PATH"
+  },
+  {
+    "name": "legitimate_P07_worktree_progress_resume_control",
+    "scope": "TEMP_GIT_TEST_ONLY",
+    "accepted": true,
+    "error": null,
+    "state_unchanged": true,
+    "expected": "ALLOW_VALID_FROZEN_ROOT_WITH_P07_WORKSPACE_PROGRESS_NO_RESET"
+  }
+]

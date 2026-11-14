@@ -14,6 +14,7 @@ import subprocess
 import sys
 import time
 import uuid
+from readiness import require_p07_production, ReadinessBlocked
 
 ROOT=Path(__file__).resolve().parents[1]
 DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
@@ -224,6 +225,11 @@ class Controller:
         if previous and records[previous[-1]].get('merge',{}).get('status')!='MERGED':
             raise Blocked(f'{previous[-1]} must have a confirmed main merge before {phase}')
         if phase=='P07' and records['P04G']['status']!='PASS': raise Blocked('Full campaign requires Combat/Gore P04G PASS')
+        if phase=='P07':
+            try:
+                require_p07_production(self.root,state)
+            except ReadinessBlocked as error:
+                raise Blocked(str(error)) from error
 
     def checkpoint(self,phase,value,status=None):
         state=self.state(); item=state['autopilot']['phases'][phase]
