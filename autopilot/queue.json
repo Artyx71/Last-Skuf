@@ -138,6 +138,65 @@
       ],
       "spec": "planning/P06_TASKS.md",
       "scope": "Six additional playable characters, three photographed supporting, original art and per-character abilities/finishers; no campaign chapter production"
+    },
+    {
+      "id": "P06/timka-supported-animation-contract",
+      "phase": "P06",
+      "kind": "scope_decision",
+      "depends_on": [],
+      "status": "OWNER_APPROVED",
+      "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json"
+    },
+    {
+      "id": "P06/timka-compact-layout",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-supported-animation-contract"
+      ],
+      "status": "IMPLEMENTING",
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md"
+    },
+    {
+      "id": "P06/timka-compact-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "PENDING",
+      "scope": "Fresh all required32/28/24 source cells; rejected environment still must fix; no placeholder cells."
+    },
+    {
+      "id": "P06/timka-present-disengage",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-compact-source-review"
+      ],
+      "status": "PENDING",
+      "scope": "Registered peaceful_present WORLD/ACTION/sockets and real disengage; no prime/finishers."
+    },
+    {
+      "id": "P06/timka-prime-clinch",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-compact-source-review"
+      ],
+      "status": "PENDING",
+      "scope": "Registered athletic_prime with full approved art/sockets and real clinch via existing Core."
+    },
+    {
+      "id": "P06/timka-context-native-review",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/timka-present-disengage",
+        "P06/timka-prime-clinch"
+      ],
+      "status": "PENDING",
+      "scope": "Both real Input/native contexts, independent ART/GAMEPLAY/QA/Lead component evidence; no phasePASS inference."
     }
   ]
 }
