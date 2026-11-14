@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scope": "TIMKA_COMPACT_STRUCTURAL_ADOPTER_ONLY_V1",
+  "actual_structural_checks": {
+    "passed": 96,
+    "total": 96,
+    "exit_code": 0
+  },
+  "actual_Pillow_unittests": {
+    "passed": 19,
+    "total": 19,
+    "exit_code": 0
+  },
+  "independent_wholecell_compactor_roundtrips": 3,
+  "additional_adopter_cases": 6,
+  "unexpected_acceptances": 2,
+  "interrupted_retry_fail_closed": true,
+  "pair_transaction_atomic": false,
+  "automatic_recovery_provided": false,
+  "actual_ART_or_runtime_adoption": false,
+  "new_hero_readiness_approval": false,
+  "full_runtime_frames_regression": "PENDING migration intentionally rejects legacy Timka",
+  "phase_approval": false,
+  "must_fix": [
+    {
+      "id": "TC-C01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "assets/source_art/characters/adopt_timka_supported.py",
+      "summary": "Wrong owner approval profile/scope accepted with coherent integrity hashes",
+      "repro": "adversarial.py owner_profile_mismatch",
+      "expected": "Reject before writes",
+      "actual": "Accepted=True, temporary runtime changed",
+      "required_fix": "Canonical owner decision and exact actor/phase/kind/profile/budget84/exclusions/context scope checks with targeted negative tests"
+    },
+    {
+      "id": "TC-C02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "assets/source_art/characters/adopt_timka_supported.py",
+      "summary": "Recorded source_compaction script digest not compared to actual canonical compactor",
+      "repro": "adversarial.py stale_provenance_script_digest",
+      "expected": "Reject false provenance digest before writes",
+      "actual": "64 zero digest accepted despite actual c1a034...",
+      "required_fix": "Canonical compactor path plus recorded/actual/inventory SHA equality; negative tests"
+    }
+  ]
+}

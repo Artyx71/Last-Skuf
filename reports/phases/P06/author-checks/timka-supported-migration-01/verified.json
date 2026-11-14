@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "scope": "ACTUAL_EXPLICIT_SOURCE_ACCEPTED_MIGRATION_ONLY",
+  "phase_approval": false,
+  "source_only_ART": true,
+  "actual_engine_validation": "PENDING",
+  "checks": {
+    "world": {
+      "schema": 2,
+      "profile": "timka_supported_v1",
+      "source_cells": 32,
+      "dimensions": [
+        384,
+        256
+      ],
+      "sha256": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+      "metadata_sha256": "282502a1f6edabf4811d8b392e407d5776c5548b0a06b86da2f98ee439f78fd9",
+      "legacy_backups_exact": true
+    },
+    "action": {
+      "schema": 2,
+      "profile": "timka_supported_v1",
+      "source_cells": 28,
+      "dimensions": [
+        336,
+        256
+      ],
+      "sha256": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+      "metadata_sha256": "34fee35578aded891d02a2258d91fd66002f7108e4637f49d4a95d3dde61c85b",
+      "legacy_backups_exact": true
+    }
+  },
+  "FIN_runtime_exists": false,
+  "commands_completed": [
+    {
+      "argv": [
+        ".tools/art-venv/bin/python",
+        "assets/source_art/characters/adopt_timka_supported.py",
+        "world",
+        "--version",
+        "supported_v1",
+        "--review",
+        "reports/phases/P06/art-preflight/timka_world_supported_v2.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        ".tools/art-venv/bin/python",
+        "assets/source_art/characters/adopt_timka_supported.py",
+        "action",
+        "--version",
+        "supported_v1",
+        "--review",
+        "reports/phases/P06/art-preflight/timka_action_supported_v2.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "trailing_inspection_error": {
+    "command": "system python3 empty inspection imported PIL",
+    "error": "ModuleNotFoundError; system Python lacks Pillow",
+    "no_writes_in_failed_inspection": true,
+    "correct_venv_postvalidation_passed": true
+  }
+}

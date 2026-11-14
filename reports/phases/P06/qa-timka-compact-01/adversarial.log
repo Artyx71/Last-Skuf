@@ -1,0 +1,70 @@
+[
+  {
+    "name": "owner_profile_mismatch",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "accepted": true,
+    "error": null,
+    "owner_profile": "UNAPPROVED_OTHER_LAYOUT",
+    "expected": "REJECT_OWNER_PROFILE_MISMATCH",
+    "runtime_changed": true
+  },
+  {
+    "name": "stale_provenance_script_digest",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "accepted": true,
+    "error": null,
+    "recorded_compactor_script_sha": "0000000000000000000000000000000000000000000000000000000000000000",
+    "actual_compactor_script_sha": "c1a034a4247898f345aa1f9d05d0646fbeb4bd2488ea6d83e00c557cdb5d1f96",
+    "expected": "REJECT_FALSE_PROVENANCE_DIGEST"
+  },
+  {
+    "name": "existing_staging_collision",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "accepted": false,
+    "error": "ValueError: Interrupted migration must be inspected, not overwritten",
+    "runtime_unchanged": true,
+    "staging_unchanged": true,
+    "snapshots_created_before_staging_refusal": [
+      "action.json",
+      "action_sheet.png"
+    ],
+    "retry": {
+      "accepted": false,
+      "error": "ValueError: Preserve existing migration snapshot"
+    },
+    "expected": "REJECT_AND_PRESERVE_STAGING_RUNTIME"
+  },
+  {
+    "name": "interrupt_between_png_and_json_replace",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "first_call": {
+      "accepted": false,
+      "error": "OSError: QA simulated stop after PNG replacement before JSON replacement"
+    },
+    "new_PNG_old_JSON_partial_pair": true,
+    "both_legacy_backups_byte_exact": true,
+    "pending_json_preserved": true,
+    "retry": {
+      "accepted": false,
+      "error": "ValueError: Runtime differs from selected source baseline"
+    },
+    "retry_did_not_mutate_any_fixture_file": true,
+    "expected": "FAIL_CLOSED_REQUIRES_EXPLICIT_MANUAL_RECONCILIATION_NO_AUTOMATIC_ROLLBACK"
+  },
+  {
+    "name": "existing_backup_collision",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "accepted": false,
+    "error": "ValueError: Preserve existing migration snapshot",
+    "all_fixture_files_unchanged": true,
+    "expected": "REJECT_PRESERVE_EXISTING_SNAPSHOT"
+  },
+  {
+    "name": "partial_legacy_pair",
+    "scope": "FAKE_REVIEW_AND_RUNTIME_ONLY_IN_TEMP_PROJECT",
+    "accepted": false,
+    "error": "ValueError: Partial old runtime must be reconciled first",
+    "runtime_unchanged": true,
+    "expected": "REJECT_PARTIAL_OLD_RUNTIME"
+  }
+]

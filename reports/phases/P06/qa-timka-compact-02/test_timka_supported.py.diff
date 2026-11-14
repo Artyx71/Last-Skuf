@@ -1,0 +1,40 @@
+--- v1/assets/source_art/characters/test_timka_supported.py
++++ v2/assets/source_art/characters/test_timka_supported.py
+@@ -175,6 +175,37 @@
+     def test_stale_sockets_prevent_migration(self):
+         self.fixture(); (self.target.parent / 'action.sockets.json').write_text('{"schema":1,"frames":[]}'); self.reject()
+ 
++    def change_owner_for_test(self, field, value):
++        owner = self.root / self.manifest['source_compaction']['owner_decision']
++        permission = json.loads(owner.read_text()); permission[field] = value
++        owner.write_text(json.dumps(permission))
++        self.manifest['source_compaction']['owner_decision_sha256'] = compact.sha(owner)
++        self.rebind_modified_candidate_for_test()
++
++    def test_other_approved_profile_rejected_even_with_rebound_hashes(self):
++        self.fixture(); self.change_owner_for_test('profile', 'UNAPPROVED_OTHER_LAYOUT'); self.reject()
++
++    def test_other_approved_budget_rejected_even_with_rebound_hashes(self):
++        self.fixture(); self.change_owner_for_test('source_cells', {'world':32,'action':32,'finisher':32}); self.reject()
++
++    def test_other_actor_owner_scope_rejected(self):
++        self.fixture(); self.change_owner_for_test('actor_id', 'gabar'); self.reject()
++
++    def test_removed_context_requirement_rejected(self):
++        self.fixture(); self.change_owner_for_test('required_contexts', {'peaceful_present':['world','action']}); self.reject()
++
++    def test_owner_path_cannot_substitute_other_approval(self):
++        self.fixture()
++        old = self.root / self.manifest['source_compaction']['owner_decision']
++        new = old.with_name('TEST_OTHER_APPROVED_SCOPE.json'); shutil.copyfile(old, new)
++        self.manifest['source_compaction']['owner_decision'] = str(new.relative_to(self.root))
++        self.review['source_inventory_sha256'][str(new.relative_to(self.root))] = compact.sha(new)
++        self.rebind_modified_candidate_for_test(); self.reject()
++
++    def test_recorded_script_digest_checked_with_rebound_hashes(self):
++        self.fixture(); self.manifest['source_compaction']['script_sha256'] = '0' * 64
++        self.rebind_modified_candidate_for_test(); self.reject()
++
+     def test_invalid_profile_rejected_by_validator(self):
+         self.fixture(); bad = copy.deepcopy(self.manifest); bad['layout_profile'] = 'untrusted'
+         with self.assertRaises(ValueError): compact.validate(bad, Image.open(self.native).convert('RGBA'))

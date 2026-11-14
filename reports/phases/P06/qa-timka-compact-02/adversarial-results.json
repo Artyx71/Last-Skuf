@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "actual_implementation_sha256": "b1b8d3d72536947715234c99003c047c3bc8d368c97d5fd652b67a5ac7842b8c",
+  "actual_ART_or_production_adoption": false,
+  "cases": [
+    {
+      "name": "TC-C01_original_wrong_owner_profile",
+      "accepted": false,
+      "error": "ValueError: Owner approval does not cover this phase/actor/profile",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "TC-C02_original_zero_recorded_script_digest",
+      "accepted": false,
+      "error": "ValueError: Recorded compaction script digest changed",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_compactor_canonical_path_same_bytes",
+      "accepted": false,
+      "error": "ValueError: Unexpected compaction script",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_kind",
+      "accepted": false,
+      "error": "ValueError: Scoped owner approval required",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_phase",
+      "accepted": false,
+      "error": "ValueError: Owner approval does not cover this phase/actor/profile",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_total84_float",
+      "accepted": false,
+      "error": "ValueError: Owner total budget differs",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_budget_float",
+      "accepted": false,
+      "error": "ValueError: Owner approval does not cover this cell budget",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_excluded_scope",
+      "accepted": false,
+      "error": "ValueError: Owner excluded actions differ",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_phase_approval",
+      "accepted": false,
+      "error": "ValueError: Scope approval cannot substitute for phase acceptance",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    },
+    {
+      "name": "wrong_owner_merge_approval",
+      "accepted": false,
+      "error": "ValueError: Scope approval cannot substitute for phase acceptance",
+      "all_fixture_files_unchanged_after_refusal": true,
+      "passed": true,
+      "scope": "FAKE_REVIEW_TEMP_ONLY_NOT_ART_APPROVAL"
+    }
+  ],
+  "passed": true
+}

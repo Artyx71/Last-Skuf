@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "reviewer": "/root/qa_resume_recovery",
+  "review_role": "INDEPENDENT_QA_BOUNDED_TIMKA_COMPACT",
+  "reviewed_utc": "2026-11-14T21:37:47.824198+00:00",
+  "status": "FAIL_COMPONENT",
+  "scope": "UNCOMMITTED_V1_FREEZE_STRUCTURAL_AND_ADOPTER_ONLY",
+  "phase_approval": false,
+  "full_P06_approval": false,
+  "merge_approval": false,
+  "new_hero_readiness_approval": false,
+  "actual_ART_approval": false,
+  "actual_runtime_adoption_approval": false,
+  "must_fix": [
+    {
+      "id": "TC-C01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "assets/source_art/characters/adopt_timka_supported.py",
+      "summary": "Wrong owner approval profile/scope accepted with coherent integrity hashes",
+      "repro": "adversarial.py owner_profile_mismatch",
+      "expected": "Reject before writes",
+      "actual": "Accepted=True, temporary runtime changed",
+      "required_fix": "Canonical owner decision and exact actor/phase/kind/profile/budget84/exclusions/context scope checks with targeted negative tests"
+    },
+    {
+      "id": "TC-C02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "assets/source_art/characters/adopt_timka_supported.py",
+      "summary": "Recorded source_compaction script digest not compared to actual canonical compactor",
+      "repro": "adversarial.py stale_provenance_script_digest",
+      "expected": "Reject false provenance digest before writes",
+      "actual": "64 zero digest accepted despite actual c1a034...",
+      "required_fix": "Canonical compactor path plus recorded/actual/inventory SHA equality; negative tests"
+    }
+  ],
+  "reviewed_implementation_sha256": {
+    "game/scripts/actors/character_frames.gd": "684cd8e6ee15b13f8bf0df5edc70c35fe85e1e0c0c5bce4bb1cb26cfd2d3bd81",
+    "game/tests/character_frames_test.gd": "9fac7ed8e4b94fa11281bab40045334c2e9fb01f11b18d276e1c56a67d412fad",
+    "game/tests/timka_layout_test.gd": "78f04d2190ab5a96c670a565523f3c087d3cc3224a1e21a4d4e5c4d3213527bc",
+    "tools/verify.py": "d847a08363c8b313d4f0bc0e9649b106819d9d1c05fdbc04d54941182199d907",
+    "assets/source_art/characters/compact_timka.py": "c1a034a4247898f345aa1f9d05d0646fbeb4bd2488ea6d83e00c557cdb5d1f96",
+    "assets/source_art/characters/adopt_timka_supported.py": "84380b0e67d23eb1cfb562d76973fbe87d94f7de695d53f7ce51f73a6a45987e",
+    "assets/source_art/characters/test_timka_supported.py": "514a409d517837125f05877ab40ee3a2ac5c045bff8735774c46f0e85a9f412c"
+  },
+  "immutable_implementation_snapshots_sha256": {
+    "code-freeze/assets/source_art/characters/adopt_timka_supported.py": "84380b0e67d23eb1cfb562d76973fbe87d94f7de695d53f7ce51f73a6a45987e",
+    "code-freeze/assets/source_art/characters/compact_timka.py": "c1a034a4247898f345aa1f9d05d0646fbeb4bd2488ea6d83e00c557cdb5d1f96",
+    "code-freeze/assets/source_art/characters/test_timka_supported.py": "514a409d517837125f05877ab40ee3a2ac5c045bff8735774c46f0e85a9f412c",
+    "code-freeze/game/scripts/actors/character_frames.gd": "684cd8e6ee15b13f8bf0df5edc70c35fe85e1e0c0c5bce4bb1cb26cfd2d3bd81",
+    "code-freeze/game/tests/character_frames_test.gd": "9fac7ed8e4b94fa11281bab40045334c2e9fb01f11b18d276e1c56a67d412fad",
+    "code-freeze/game/tests/timka_layout_test.gd": "78f04d2190ab5a96c670a565523f3c087d3cc3224a1e21a4d4e5c4d3213527bc",
+    "code-freeze/tools/verify.py": "d847a08363c8b313d4f0bc0e9649b106819d9d1c05fdbc04d54941182199d907"
+  },
+  "source_inputs_sha256": {
+    "assets/source_art/characters/timka/world_native_supported_v1.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "assets/source_art/characters/timka/world_manifest_supported_v1.json": "fed2f79ac370ce44eefd873cfa2af3452a067d805a70da61976de2095d91a72e",
+    "assets/source_art/characters/timka/action_native_supported_v1.png": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+    "assets/source_art/characters/timka/action_manifest_supported_v1.json": "cf349a08c4a91a7950522f7e610dabe269bb257447bc078d7ed1c9d47f2b015a",
+    "assets/source_art/characters/timka/finisher_native_supported_v1.png": "3a4205f2f026e2ae543f2d03806935590d9492da885bd7f68349692bf2f8ce69",
+    "assets/source_art/characters/timka/finisher_manifest_supported_v1.json": "ad54d23ff0238b0f477eefff8f420f4c9599fa8d25f48efc6ee4553daee92a8a",
+    "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "2982e71798c719b3dbbe9b0ef3f6cb1570a783f6c0f035606875ffab1d232c3a",
+    "reports/phases/P06/author-checks/timka-compact-structural-01/command.json": "aa6e3959c725272dccd509e45e727cfb40e54ba8a83e2dc9620ae8afd98f59b9",
+    "reports/phases/P06/author-checks/timka-compact-structural-01/run.log": "29e1daf934e860b9369a9704d72365dfb72d046ecaf86c2c29094909c1746f40",
+    "reports/phases/P06/author-checks/timka-compact-adopter-01/command.json": "0fcfb64aa89943b33e9167ca8f1fce495a49cbf28cc7f3eabcaa149a47902d4a",
+    "reports/phases/P06/author-checks/timka-compact-adopter-01/run.log": "ef622c5e1d192d045e1b81bfd8267092b67450be9d4705d25824a51e855f3bbe",
+    "tools/toolchain.lock.json": "54be10fffaf8e5fb2855043bf5a0b42154c614fdd1bcac01c11c195c1c236cfd"
+  },
+  "actual_results": {
+    "schema": 1,
+    "scope": "TIMKA_COMPACT_STRUCTURAL_ADOPTER_ONLY_V1",
+    "actual_structural_checks": {
+      "passed": 96,
+      "total": 96,
+      "exit_code": 0
+    },
+    "actual_Pillow_unittests": {
+      "passed": 19,
+      "total": 19,
+      "exit_code": 0
+    },
+    "independent_wholecell_compactor_roundtrips": 3,
+    "additional_adopter_cases": 6,
+    "unexpected_acceptances": 2,
+    "interrupted_retry_fail_closed": true,
+    "pair_transaction_atomic": false,
+    "automatic_recovery_provided": false,
+    "actual_ART_or_runtime_adoption": false,
+    "new_hero_readiness_approval": false,
+    "full_runtime_frames_regression": "PENDING migration intentionally rejects legacy Timka",
+    "phase_approval": false,
+    "must_fix": [
+      {
+        "id": "TC-C01",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "file": "assets/source_art/characters/adopt_timka_supported.py",
+        "summary": "Wrong owner approval profile/scope accepted with coherent integrity hashes",
+        "repro": "adversarial.py owner_profile_mismatch",
+        "expected": "Reject before writes",
+        "actual": "Accepted=True, temporary runtime changed",
+        "required_fix": "Canonical owner decision and exact actor/phase/kind/profile/budget84/exclusions/context scope checks with targeted negative tests"
+      },
+      {
+        "id": "TC-C02",
+        "severity": "MEDIUM",
+        "status": "OPEN",
+        "file": "assets/source_art/characters/adopt_timka_supported.py",
+        "summary": "Recorded source_compaction script digest not compared to actual canonical compactor",
+        "repro": "adversarial.py stale_provenance_script_digest",
+        "expected": "Reject false provenance digest before writes",
+        "actual": "64 zero digest accepted despite actual c1a034...",
+        "required_fix": "Canonical compactor path plus recorded/actual/inventory SHA equality; negative tests"
+      }
+    ]
+  },
+  "report_sha256": "e27a4fbb6b3cdc0df385ceaed309e938d491a9516469b3e796b54dbc58f2964a",
+  "metrics_sha256": "49b3a5c564cc84c4a7bba197b6b4512d3795ebffdd28c914a7ba61aeb71c06b2",
+  "artifacts_manifest_sha256": "b95c5721c2a423c4a72b1005e7e9ffe2345993fb61c5e15dd71c34fd1dba1d50",
+  "review_artifacts_sha256": {
+    "review.md": "e27a4fbb6b3cdc0df385ceaed309e938d491a9516469b3e796b54dbc58f2964a",
+    "metrics.json": "49b3a5c564cc84c4a7bba197b6b4512d3795ebffdd28c914a7ba61aeb71c06b2",
+    "frozen-inputs.json": "d6579203010ad5654def35020398a6c8cb63806f4cadd924f7577f991f4993be",
+    "copy-inputs.json": "bcc39d251212440894af6e3d6ee1d92c12b6d0b6e0ad0b83a28b12d410804797",
+    "integrity-after.json": "ee69bc8f01784a61b6c26941afe64594b27de890bb13991593e307849a10b817",
+    "source-inventory.json": "16ecee002a39c211b5985990b3585b0ee3a091410d59530d41430e82c99b08f7",
+    "run-tests.py": "21973b3b24d78a087212c7e88abbce9209227fe0dfff9c32ac4f453fcd54e665",
+    "adversarial.py": "5660e0d4f7629c45d7d2493fb4fb1509cfb1de9d6eda275f7131914fd3423bd2",
+    "adversarial.log": "3c7d0d38ae2fec8864e6010203bde6d1e86638779ea01f9b0e89c41f581b26d9",
+    "adversarial-frozen-replay.log": "3c7d0d38ae2fec8864e6010203bde6d1e86638779ea01f9b0e89c41f581b26d9",
+    "adversarial-results.json": "5f1a659da7dea448b60031c81f91bab88415cee442b1f93ee2a2294cf9f3961c",
+    "compactor-roundtrip.py": "4f752cb85fa60ec9928d80f1884e44d777408e159032265d8bb590c5b31d2bc8",
+    "compactor-roundtrip.log": "01f9453758422bfd5292ec772f672d3b82b30ab380b0e8fd4603309924271bb0",
+    "compactor-roundtrip-results.json": "01f9453758422bfd5292ec772f672d3b82b30ab380b0e8fd4603309924271bb0",
+    "structural/command.json": "c8cf56bc25c8f5ee48afbfc66950ad05dc757601878b348647c7edc8b4cdd3d4",
+    "structural/run.log": "ac9d5741e95ac181b371212377e62d0192cd8df5c03e5f44ac2fc6bea7682276",
+    "structural/result.json": "f2bb96f2131df579ce08467866fab56c7a7f3b8f02df45148d5d6d4c796778e4",
+    "adopter/command.json": "e3f73837984a58bee283f477a732922bc4d81097d3c6655888fb1b2464aafe0c",
+    "adopter/run.log": "a4b441516ddace76a49cecf168d4aa7747396b8475554d8912131226300db7a1",
+    "code-freeze/assets/source_art/characters/adopt_timka_supported.py": "84380b0e67d23eb1cfb562d76973fbe87d94f7de695d53f7ce51f73a6a45987e",
+    "code-freeze/assets/source_art/characters/compact_timka.py": "c1a034a4247898f345aa1f9d05d0646fbeb4bd2488ea6d83e00c557cdb5d1f96",
+    "code-freeze/assets/source_art/characters/test_timka_supported.py": "514a409d517837125f05877ab40ee3a2ac5c045bff8735774c46f0e85a9f412c",
+    "code-freeze/game/scripts/actors/character_frames.gd": "684cd8e6ee15b13f8bf0df5edc70c35fe85e1e0c0c5bce4bb1cb26cfd2d3bd81",
+    "code-freeze/game/tests/character_frames_test.gd": "9fac7ed8e4b94fa11281bab40045334c2e9fb01f11b18d276e1c56a67d412fad",
+    "code-freeze/game/tests/timka_layout_test.gd": "78f04d2190ab5a96c670a565523f3c087d3cc3224a1e21a4d4e5c4d3213527bc",
+    "code-freeze/tools/verify.py": "d847a08363c8b313d4f0bc0e9649b106819d9d1c05fdbc04d54941182199d907"
+  },
+  "next": "Author fixes only adopter/tests, publishes new code freeze; independent QA v2 targeted negatives and suite rerun required before actual migration; fresh ART erratum must bind exact fixed adopter if its hash was in previous review."
+}

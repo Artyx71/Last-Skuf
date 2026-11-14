@@ -1,0 +1,89 @@
+[
+  {
+    "name": "frames",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--script",
+      "res://tests/character_frames_test.gd"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 0.691,
+    "log_sha256": "0e203fa71cc7096d0d2a9b7d7a2953a0b695966a64cb04251d7e35ec6b8531ea"
+  },
+  {
+    "name": "structural",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--script",
+      "res://tests/timka_layout_test.gd"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 0.691,
+    "log_sha256": "b8f16fb52873f0ae35957db24c23178fda03b61ced212dd4e66169f2333cb1c3"
+  },
+  {
+    "name": "world-headless",
+    "argv": [
+      "python3",
+      "tools/verify_p06_world.py",
+      "--actor",
+      "timka",
+      "--headless",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/timka-supported-runtime-02/world-headless"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 1.092,
+    "log_sha256": "e8b4ddf8595ddcd731b42d6bd97b8df094aafc91359d33dee34e0927a913f7cf"
+  },
+  {
+    "name": "gabar",
+    "argv": [
+      "python3",
+      "tools/verify_p06_gabar.py",
+      "--headless",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/timka-supported-runtime-02/gabar"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 2.506,
+    "log_sha256": "dab7d04cd148fdd74614c191fbe360eb64c419a2da2c6786c6f8cafc0c22a5fd"
+  },
+  {
+    "name": "olezhka",
+    "argv": [
+      "python3",
+      "tools/verify_p06_olezhka.py",
+      "--headless",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/timka-supported-runtime-02/olezhka"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 2.603,
+    "log_sha256": "d4f1721069c5e5c4609fc664b9d9e257d19bae4536be229c066322a2c8f5d62e"
+  },
+  {
+    "name": "isolation",
+    "argv": [
+      "python3",
+      "tools/verify_p06_lab_isolation.py",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/timka-supported-runtime-02/isolation"
+    ],
+    "passed": true,
+    "exit_code": 0,
+    "seconds": 1.864,
+    "log_sha256": "27009ff53c92dff576c2d6d4fe8c32aaef1c3113aea7f7a99c7cc27f9d7f4bb3"
+  }
+]

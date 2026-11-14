@@ -46,7 +46,7 @@ func run() -> void:
   check_sheet(Frames._sheet_frames("olezhka",kind),kind,Frames.SHEET_COLUMNS[kind],"olezhka")
  record("missing_Timka_combat_art_never_falls_back",Frames.combat_frames("timka")==null)
  check_sheet(Frames.world_frames("timka"),"world",Frames.WORLD_COLUMNS,"timka")
- check_sheet(Frames.action_frames("timka"),"action",Frames.ACTION_COLUMNS,"timka")
+ check_sheet(Frames.action_frames("timka"),"action",Frames.TIMKA_ACTION_COLUMNS,"timka")
  check_sheet(Frames.world_frames("ryzhik"),"world",Frames.WORLD_COLUMNS,"ryzhik")
  record("missing_Ryzhik_combat_art_never_falls_back",Frames.combat_frames("ryzhik")==null)
  check_sheet(Frames.world_frames("tega"),"world",Frames.WORLD_COLUMNS,"tega")

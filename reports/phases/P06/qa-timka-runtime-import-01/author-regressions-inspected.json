@@ -1,0 +1,166 @@
+{
+  "commands": [
+    {
+      "name": "frames",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    },
+    {
+      "name": "structural",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    },
+    {
+      "name": "world-headless",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    },
+    {
+      "name": "gabar",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    },
+    {
+      "name": "olezhka",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    },
+    {
+      "name": "isolation",
+      "log_sha_matches": true,
+      "exit_code": 0,
+      "scope": "AUTHOR_EXECUTED_LOG_INSPECTED_NOT_INDEPENDENT_RERUN"
+    }
+  ],
+  "actual_saved_results": [
+    {
+      "relative": "world-headless/live/result.json",
+      "sha256": "964df9281a09e3e51553a6dcacbfa2dcc45479acf4ac0f7edfbdbb500f246147",
+      "passed": true,
+      "checks": 70,
+      "keys": [
+        "actor_id",
+        "actual_input",
+        "audio",
+        "captures",
+        "checks",
+        "combat_abilities",
+        "continuous_input_transitions",
+        "continuous_trace_start",
+        "focus_events",
+        "focus_observation",
+        "headless",
+        "maximum_visual_grid_error",
+        "movie",
+        "movie_window_no_focus_requested",
+        "passed",
+        "phase",
+        "phase_approval",
+        "renderer",
+        "scope",
+        "trace"
+      ]
+    },
+    {
+      "relative": "world-headless/live/input_gate.json",
+      "sha256": "4e2aba38f9d370227a12ece7996c0fd253d3e3f5f30c0e82123e771329d8c3a6",
+      "passed": true,
+      "checks": 0,
+      "keys": [
+        "schema",
+        "scope",
+        "actor_id",
+        "phase_approval",
+        "manual_keyboard_approval",
+        "focus_efficacy_approval",
+        "expected_samples",
+        "matched_samples",
+        "trace_samples",
+        "errors",
+        "violations",
+        "passed"
+      ]
+    },
+    {
+      "relative": "gabar/live/result.json",
+      "sha256": "132f19d59a68b53d48221865a17c52270aff5c683aa31988b348417f1810bd5a",
+      "passed": true,
+      "checks": 124,
+      "keys": [
+        "actor_id",
+        "actual_input",
+        "captures",
+        "checks",
+        "contacts",
+        "fixture",
+        "headless",
+        "movie",
+        "not_tested",
+        "passed",
+        "phase_approval",
+        "renderer",
+        "schema",
+        "scope",
+        "trace"
+      ]
+    },
+    {
+      "relative": "olezhka/live/result.json",
+      "sha256": "6e70b18f11d32e1873df83ce1c67e175d5c64891d08729d16df7c84d9864b7be",
+      "passed": true,
+      "checks": 164,
+      "keys": [
+        "actor_id",
+        "actual_input",
+        "captures",
+        "checks",
+        "contacts",
+        "defenses",
+        "fixture",
+        "not_tested",
+        "passed",
+        "phase_approval",
+        "renderer",
+        "schema",
+        "scope",
+        "trace"
+      ]
+    },
+    {
+      "relative": "isolation/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55",
+      "passed": true,
+      "checks": 25,
+      "keys": [
+        "checks",
+        "line",
+        "passed",
+        "phase_approval",
+        "resource",
+        "schema",
+        "scope"
+      ]
+    },
+    {
+      "relative": "isolation/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d",
+      "passed": true,
+      "checks": 0,
+      "keys": [
+        "actual_new_process",
+        "campaign_file_unchanged",
+        "line",
+        "passed",
+        "resource",
+        "visible_count"
+      ]
+    }
+  ],
+  "independent_reruns": "Only own frames2207/structural102/RGBA30/fresh import; other author regressions inspected only",
+  "initial_real_failure_log_SHA": "dbfde433bc4d317d458604ea7c50227d6795abf7129a3cb029ab0fc3ad31e20d"
+}

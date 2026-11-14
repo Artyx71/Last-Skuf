@@ -1,0 +1,35 @@
+--- v1/assets/source_art/characters/adopt_timka_supported.py
++++ v2/assets/source_art/characters/adopt_timka_supported.py
+@@ -53,6 +53,9 @@
+     master = relative_file(ROOT, manifest['master'])
+     require(sha(master) == manifest['master_sha256'] == review.get('master_sha256'), 'Master review binding failed')
+     compaction = manifest['source_compaction']
++    script = relative_file(ROOT, compaction['script'])
++    require(script == (ROOT / 'assets/source_art/characters/compact_timka.py').resolve(), 'Unexpected compaction script')
++    require(sha(script) == compaction.get('script_sha256'), 'Recorded compaction script digest changed')
+     original_png = relative_file(ROOT, compaction['input_native'])
+     original_manifest = relative_file(ROOT, compaction['input_manifest'])
+     require(sha(original_png) == compaction['input_native_sha256'] and sha(original_manifest) == compaction['input_manifest_sha256'], 'Original compaction inputs changed')
+@@ -66,11 +69,20 @@
+         require(hashlib.sha256(cell.tobytes()).hexdigest() == frame['rgba_sha256'], 'Selected cell differs from original whole figure')
+     if kind == 'world':
+         require(sha(native) == sha(original_png), 'WORLD PNG must remain byte-exact')
+-    for path in [native, metadata, master, original_png, original_manifest, relative_file(ROOT, compaction['script']), relative_file(ROOT, compaction['owner_decision'])]:
++    for path in [native, metadata, master, original_png, original_manifest, script, relative_file(ROOT, compaction['owner_decision'])]:
+         require(review['source_inventory_sha256'].get(str(path.relative_to(ROOT))) == sha(path), 'Required source missing from review inventory')
+     owner = relative_file(ROOT, compaction['owner_decision'])
++    require(owner == (ROOT / 'automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json').resolve(), 'Canonical owner decision required')
+     require(sha(owner) == compaction['owner_decision_sha256'], 'Owner decision changed')
+-    require(json.loads(owner.read_text()).get('status') == 'APPROVED', 'Owner approval required')
++    permission = json.loads(owner.read_text())
++    require(permission.get('status') == 'APPROVED' and permission.get('kind') == 'OWNER_APPROVED_SCOPE_EXCEPTION_NOT_PHASE_ACCEPTANCE', 'Scoped owner approval required')
++    require(permission.get('phase') == 'P06' and permission.get('actor_id') == 'timka' and permission.get('profile') == PROFILE, 'Owner approval does not cover this phase/actor/profile')
++    budget = permission.get('source_cells')
++    require(isinstance(budget, dict) and budget == {'world':32, 'action':28, 'finisher':24} and all(type(v) is int for v in budget.values()), 'Owner approval does not cover this cell budget')
++    require(type(permission.get('total_source_cells')) is int and permission['total_source_cells'] == 84, 'Owner total budget differs')
++    require(permission.get('excluded') == ['finish_sharp', 'finish_firearm', 'fire'], 'Owner excluded actions differ')
++    require(permission.get('required_contexts') == {'peaceful_present':['world','action','implemented_disengage'], 'athletic_prime':['world','action','finisher_unarmed_blunt_environmental','implemented_clinch']}, 'Owner context requirements differ')
++    require(permission.get('phase_approval') is False and permission.get('merge_approval') is False, 'Scope approval cannot substitute for phase acceptance')
+     destination = ROOT / 'game/assets/art/characters/timka'
+     target = destination / (kind + '_sheet.png')
+     target_meta = destination / (kind + '.json')
