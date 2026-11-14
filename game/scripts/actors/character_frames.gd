@@ -43,28 +43,16 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
  if not SHEET_COLUMNS.has(kind): return null
  var definition := Catalog.actor(actor_id)
  if definition.get("role") != "playable" or not definition.has(kind+"_file"): return null
- var path: String = definition[kind+"_file"]
+ var path_value: Variant = definition[kind+"_file"]
+ if not path_value is String or path_value.is_empty(): return null
+ var path: String = path_value
  var metadata_path := path.get_base_dir().path_join(kind+".json")
  if not ResourceLoader.exists(path) or not FileAccess.file_exists(metadata_path): return null
  var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(metadata_path))
- if not parsed is Dictionary: return null
- if parsed.get("schema") != 1 or parsed.get("actor_id") != actor_id or parsed.get("kind") != kind: return null
- if not _matches_numbers(parsed.get("frame_size"),[48,64]) or not _matches_numbers(parsed.get("pivot"),[24,58]) or parsed.get("directions") != DIRECTIONS: return null
- var columns: Variant = parsed.get("animations_source_columns")
+ if not _valid_layout(parsed,actor_id,kind): return null
  var expected: Dictionary = SHEET_COLUMNS[kind]
- if not columns is Dictionary or columns.size() != expected.size(): return null
- for state in expected:
-  if not _matches_numbers(columns.get(state),expected[state]): return null
- var source_frames: Variant = parsed.get("frames")
- if not source_frames is Array or source_frames.size() != 32 or parsed.get("source_cells") != 32: return null
- for index in 32:
-  var entry: Variant = source_frames[index]
-  var row := index/8
-  var column := index%8
-  if not entry is Dictionary or entry.get("direction") != DIRECTIONS[row] or entry.get("column") != column: return null
-  if not _matches_numbers(entry.get("rect"),[column*48,row*64,48,64]): return null
- var texture: Texture2D = load(path)
- if texture == null or texture.get_size() != Vector2(384,256): return null
+ var texture := _sheet_texture(path_value)
+ if texture == null: return null
  var frames := SpriteFrames.new()
  frames.remove_animation(&"default")
  for row in DIRECTIONS.size():
@@ -83,3 +71,30 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
     atlas.set_meta("source_column",column)
     frames.add_frame(animation,atlas)
  return frames
+
+static func _sheet_texture(path_value: Variant) -> Texture2D:
+ if not path_value is String or path_value.is_empty() or not ResourceLoader.exists(path_value): return null
+ var resource: Resource = load(path_value)
+ if not resource is Texture2D: return null
+ var texture := resource as Texture2D
+ return texture if texture.get_size()==Vector2(384,256) else null
+
+static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bool:
+ if not SHEET_COLUMNS.has(kind) or not parsed is Dictionary: return false
+ if parsed.get("schema") != 1 or parsed.get("actor_id") != actor_id or parsed.get("kind") != kind: return false
+ if not _matches_numbers(parsed.get("frame_size"),[48,64]) or not _matches_numbers(parsed.get("pivot"),[24,58]) or parsed.get("directions") != DIRECTIONS: return false
+ var expected: Dictionary = SHEET_COLUMNS[kind]
+ var columns: Variant = parsed.get("animations_source_columns")
+ if not columns is Dictionary or columns.size()!=expected.size(): return false
+ for state in expected:
+  if not _matches_numbers(columns.get(state),expected[state]): return false
+ var source_frames: Variant = parsed.get("frames")
+ if not source_frames is Array or source_frames.size()!=32 or parsed.get("source_cells")!=32: return false
+ for index in 32:
+  var entry: Variant = source_frames[index]
+  var row := index/8
+  var column := index%8
+  if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row]: return false
+  if not _matches_numbers([entry.get("column")],[column]): return false
+  if not _matches_numbers(entry.get("rect"),[column*48,row*64,48,64]): return false
+ return true

@@ -44,5 +44,29 @@ func run() -> void:
  record("missing_Olezhka_combat_art_never_falls_back",Frames.combat_frames("olezhka")==null)
  # Finisher art is deliberately not substituted while the source task is pending.
  record("Gabar_combat_construction_requires_all_three_sheets",Frames.combat_frames("gabar")==null)
+ for value in [null,42,true,[],{},&"res://assets/art/characters/gabar/world_sheet.png",""]:
+  record("malformed_texture_path_rejected:"+str(value),Frames._sheet_texture(value)==null)
+ record("script_resource_is_not_a_texture",Frames._sheet_texture("res://scripts/systems/character_catalog.gd")==null)
+ record("missing_texture_is_not_substituted",Frames._sheet_texture("res://assets/art/characters/unknown/world_sheet.png")==null)
+ record("wrong_texture_dimensions_rejected",Frames._sheet_texture("res://assets/art/characters/gabar/portraits.png")==null)
+ var valid: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/characters/gabar/action.json"))
+ record("real_action_metadata_validates",Frames._valid_layout(valid,"gabar","action"))
+ record("metadata_identity_mismatch_rejected",not Frames._valid_layout(valid,"olezhka","action"))
+ record("unknown_sheet_kind_rejected",not Frames._valid_layout(valid,"gabar","unknown"))
+ for value in [null,[],true,"not JSON metadata"]:
+  record("malformed_metadata_root_rejected:"+str(value),not Frames._valid_layout(value,"gabar","action"))
+ var malformed: Dictionary=valid.duplicate(true)
+ malformed.animations_source_columns.hit=[3,4]
+ record("legacy_Yakuza_hurt_mapping_rejected",not Frames._valid_layout(malformed,"gabar","action"))
+ malformed=valid.duplicate(true);malformed.frames.pop_back()
+ record("missing_source_cell_rejected",not Frames._valid_layout(malformed,"gabar","action"))
+ malformed=valid.duplicate(true);malformed.frames[1].column=0
+ record("duplicate_cell_index_rejected",not Frames._valid_layout(malformed,"gabar","action"))
+ malformed=valid.duplicate(true);malformed.frames[0].column=false
+ record("boolean_column_is_not_numeric_zero",not Frames._valid_layout(malformed,"gabar","action"))
+ malformed=valid.duplicate(true);malformed.frames[0].rect=[0,0,48,64.5]
+ record("fractional_cell_bounds_rejected",not Frames._valid_layout(malformed,"gabar","action"))
+ malformed=valid.duplicate(true);malformed.frames[0].rect=[0,0,"48",64]
+ record("text_dimension_is_not_a_number",not Frames._valid_layout(malformed,"gabar","action"))
  print("RESULT P06_CHARACTER_FRAMES passed=",checks-failures," failed=",failures)
  preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1 if failures else 0)
