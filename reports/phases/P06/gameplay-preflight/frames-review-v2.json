@@ -1,0 +1,71 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_character_frames_remediation",
+  "version": 2,
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed_without_git_command": "c97d65ad3025ec77947bca72016c484fad390aea",
+  "status": "FRAMES_PF_01_CLOSED_COMPONENT_ONLY",
+  "phase_approval": false,
+  "playable_hero_ability_native_finisher_composite_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_or_source_mutations": false,
+  "closed_findings": [
+    {
+      "id": "FRAMES-PF-01",
+      "previous_severity": "MEDIUM",
+      "resolution": "Variant/String path guards precede typed/path operations; Resource type verified Texture2D before cast/dimensions;23 malformed-input/positive-bound cases use actual production helpers."
+    }
+  ],
+  "findings": [],
+  "author_headless_evidence_read_not_rerun": {
+    "passed": 323,
+    "failed": 0,
+    "reported_exit_code": 0,
+    "new_cases": 23,
+    "source_hashes_checked": 5,
+    "source_hash_mismatches": [],
+    "log_hash_matches": true,
+    "full_tree_freeze_claimed": false
+  },
+  "gabar_finisher_fullsheet_exists_at_review": false,
+  "positive_finisher_composite_tests": "PENDING actual complete authored assets",
+  "remaining_constraints": [
+    "Actual finisher assets and positive full-composite mapping tests",
+    "Production CharacterPlayer/actions/abilities/policy and native Input/contact/cancel/reaction evidence",
+    "Full once-hit/score/reset/reload/settings/performance/platform exports and phase gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/frames-review-v2.md",
+    "sha256": "bfe7236112d6a1ee6146adcc2af19dc7b2924338f24bb9815145a050dfa54226"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/actors/character_frames.gd",
+      "sha256": "36e376b16beb78135e284f9cdb6b97b5348433df0d925d46622d0019c589dad3"
+    },
+    {
+      "path": "game/tests/character_frames_test.gd",
+      "sha256": "af58ec6c5bcfc683ab778aad6b9b4858450324a89a9ba2a5592048582424ad1d"
+    },
+    {
+      "path": "game/resources/characters/catalog.json",
+      "sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507"
+    },
+    {
+      "path": "game/assets/art/characters/gabar/action.json",
+      "sha256": "ea65bc6dc47ad23079f9202620a7017e5309db8d5526be1a3123f75553702393"
+    },
+    {
+      "path": "game/assets/art/characters/gabar/action_sheet.png",
+      "sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/character-frames-02.json",
+      "sha256": "487527ce0c585678dd51c400526ef0d3d6965aca4018c90ffc92f22a49c8c1fe"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/character-frames-02.log",
+      "sha256": "9028bab058f97e0890a5b786becf3d79293afbeb7ca1453c2847a35506f2e272"
+    }
+  ]
+}
