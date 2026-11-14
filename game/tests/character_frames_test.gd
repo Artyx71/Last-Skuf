@@ -51,6 +51,8 @@ func run() -> void:
  record("missing_Ryzhik_combat_art_never_falls_back",Frames.combat_frames("ryzhik")==null)
  check_sheet(Frames.world_frames("tega"),"world",Frames.WORLD_COLUMNS,"tega")
  record("missing_Tega_combat_art_never_falls_back",Frames.combat_frames("tega")==null)
+ check_sheet(Frames.world_frames("pasha"),"world",Frames.WORLD_COLUMNS,"pasha")
+ record("missing_Pasha_combat_art_never_falls_back",Frames.combat_frames("pasha")==null)
  check_sheet(Frames.finisher_frames("gabar"),"finisher",Frames.FINISHER_COLUMNS)
  var combined := Frames.combat_frames("gabar")
  record("Gabar_combat_contains_all_56_authored_clips",combined!=null and combined.get_animation_names().size()==56)

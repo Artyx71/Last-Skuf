@@ -1,23 +1,20 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-14T17:04:37.506861+00:00",
+  "updated_utc": "2026-11-14T18:42:01.437099+00:00",
   "phase": "P06",
   "status": "COMPLETED_AND_AUTHOR_RESUMED",
-  "phase_approval": false,
-  "merge_allowed": false,
-  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
-  "author": "released28959/41300 before builder, do not resume while controller/worker lease held",
-  "builder_tool_session": 29251,
+  "source_head": "00298c2406243d7ef9cde20d10645ebfb8d1a648",
+  "active_author": {
+    "pid": 49648,
+    "pty_session": 24393
+  },
   "current_operation": {
-    "id": "291e6d80000e4cb6b8585858c551adc1",
-    "task": "P06/ryzhik-world-native-01",
+    "id": "19acf1ed4aea41a7b9bc00cb0c732705",
+    "task": "P06/tega-world-native-01",
     "status": "CONSUMED_EXIT0"
   },
-  "next": "Do not replay completed job; author may fix source art, receive independent native ART",
-  "last_partial_common": "reports/phases/P06/author-checks/common-character-gate-01/INTERRUPTED.json: exit143, no fullPASS",
-  "active_author": {
-    "pid": 39170,
-    "pty_session": 47858
-  }
+  "phase_approval": false,
+  "merge_allowed": false,
+  "next": "Consumed Tega nativejob MUST NOT replay. Sole author49648/24393 continuing Pasha source review/readiness QA; no pending imagegen."
 }
