@@ -97,7 +97,9 @@
         "P04G:PASS",
         "P05:PASS",
         "P06:PASS",
-        "P06/seven-hero-combat-independent-review"
+        "P06/seven-hero-combat-independent-review",
+        "PREP07/independent-lead-readiness:PASS",
+        "P07/lead-mission-spec-approval:PASS"
       ]
     },
     {
@@ -367,6 +369,87 @@
       "scope": "Reuseactual sweptlunge/ownsprites; validate readablehitboxes/contact/recovery in fullproduction Input matrix",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
       "phase_approval": false
+    },
+    {
+      "id": "PREP07/production-readiness",
+      "phase": "P06",
+      "kind": "audit",
+      "depends_on": [],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "PREP07/mission-design-template-and-registry",
+      "phase": "P06",
+      "kind": "preparation_only",
+      "depends_on": [],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P07/mission-design-specs-21",
+      "phase": "P07",
+      "kind": "design",
+      "depends_on": [
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "PREP07/independent-lead-readiness",
+      "phase": "P06",
+      "kind": "review",
+      "depends_on": [
+        "PREP07/production-readiness",
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P07/lead-mission-spec-approval",
+      "phase": "P07",
+      "kind": "review",
+      "depends_on": [
+        "P07/mission-design-specs-21"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P07/gameplay-pacing-review",
+      "phase": "P07",
+      "kind": "review",
+      "depends_on": [
+        "P07/campaign"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P08/gameplay-pacing-review",
+      "phase": "P08",
+      "kind": "review",
+      "depends_on": [
+        "P07/gameplay-pacing-review"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
     }
   ]
 }
