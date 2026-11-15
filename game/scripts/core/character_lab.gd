@@ -105,6 +105,8 @@ func _update_hud() -> void:
 		hint_label.text = "Space: силовой удар · F: захват уязвимого без оружия · V: добить · C: отмена"
 	elif player.actor_id == "ryzhik":
 		hint_label.text = "F: перекат вперёд · WASD/Shift · Space: оттолкнуть · V: добить · C: отмена"
+	elif player.actor_id == "tega":
+		hint_label.text = "F: пнуть верстак перед собой · WASD/Shift · Space: толчок · V: добить · C: отмена"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
 	if equipment_label:

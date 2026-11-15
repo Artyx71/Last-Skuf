@@ -35,13 +35,13 @@ func lab_snapshot(lab: Node) -> Dictionary:
 		"options":lab.options_panel.visible}
 
 func run() -> void:
-	for key in ["tega_training","pasha_training","unknown"]:
+	for key in ["pasha_training","unknown"]:
 		var probe := CompleteArtProbe.new()
 		check("unsupported_even_if_complete_art:"+key,not probe.prepare_fixture(key))
 		check("unsupported_rejected_before_art_load:"+key,probe.load_calls.is_empty())
 		check("unsupported_cannot_bind_stale_body:"+key,probe.authored_frames==null and probe.prepared_definition.is_empty())
 		probe.free()
-	for key in ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training"]:
+	for key in ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training"]:
 		var policy := Policy.new()
 		check("registered_policy:"+key,policy.open(key))
 		var player := Player.new()
@@ -73,7 +73,7 @@ func run() -> void:
 	check("nonempty_real_projectile_and_once_receipt",not lab.combat.projectiles.is_empty() and not lab.combat.receipts.is_empty())
 	lab._set_options_visible(true)
 	var before := lab_snapshot(lab)
-	for key in ["tega_training","pasha_training","unknown"]:
+	for key in ["pasha_training","unknown"]:
 		check("live_unsupported_selection_refused:"+key,not lab.select_fixture(key))
 		check("refusal_preserves_actor_authority_jobs_receipts_options:"+key,lab_snapshot(lab)==before)
 	var old_player: Node = lab.player

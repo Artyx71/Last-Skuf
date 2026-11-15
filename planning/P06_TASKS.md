@@ -38,3 +38,11 @@ Kaban/Ellana/Elya supporting, не playable. Ellana — партнёр Yakuza, E
 ## Принятый компонент Олежки: читаемое окно защиты
 
 Guard feedback на f844e4d принят независимыми ART/Gameplay/QA/Lead как PASS_COMPONENT. Прежний actualpre-damageparry остаётся0.06–0.26s, один incomingcontact, counterчерезCore. Read-only HUDсостояния/sharedpredicate,5pxbar внеарены, authority/death/cancel/pause/restart/settings проверены. Final57headless/78native+21PNG/movie57; independent57+31+164. DEVpreview02 Linux22/Wine18 существует. FullP06/остальныегерои/7uniqueaudio/finishermatrix иnativeWindows не приняты; не повторять готовый компонент без новых дефектов.
+
+### Тега — текущий атомарный пакет
+
+- [x] Создать оригинальные ACTION32 и FIN32; независимый source ART: ACTION v2a `ef71ab4c`, FIN v1a `bb18d080` (только исходный арт).
+- [ ] Проверить actual Input F: физический верстак, все четыре направления, NPC/wall collisions, отмена и потеря объекта/полномочий, once receipts, восстановление R.
+- [ ] Проверить собственные unarmed/blunt/environmental добивания, hurt/death/restart, persistent clothing overlays, Full/Reduced.
+- [ ] Снять native кадры и запись; независимые ART/Gameplay/QA/Lead принимают только замороженный исходный код и реальные материалы.
+- [ ] Обновить пользовательский DEV после scoped приёмки. Не считать этот пакет полным PASS P06.

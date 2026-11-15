@@ -21,6 +21,7 @@ var finisher_definitions: Dictionary
 var finishers: Array[Dictionary] = []
 var finisher_history: Array[Dictionary] = []
 var environments: Dictionary = {}
+var environment_kicks := preload("res://scripts/systems/environment_kick_runtime.gd").new()
 
 func _stamp(definition: Dictionary) -> Dictionary:
 	var result := definition.duplicate(true)
@@ -31,6 +32,7 @@ func _stamp(definition: Dictionary) -> Dictionary:
 
 func _ready() -> void:
 	process_physics_priority = 10
+	environment_kicks.combat = self
 	polish = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/polish.json"))
 	finisher_definitions = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/finishers.json")).definitions
 	impact = preload("res://scripts/systems/combat_impact.gd").new()
@@ -60,6 +62,7 @@ func _melee_phase(attack: Dictionary) -> String:
 
 
 func reset() -> void:
+	environment_kicks.reset()
 	for job in finishers.duplicate(): cancel_finisher(job.source, "reset", true)
 	finishers.clear()
 	finisher_history.clear()
@@ -193,6 +196,7 @@ func _physics_process(delta: float) -> void:
 			bullet.time += delta
 			if bullet.time >= float(bullet.definition.lifetime):
 				projectiles.erase(bullet)
+	environment_kicks.tick()
 	queue_redraw()
 
 

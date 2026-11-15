@@ -3,11 +3,13 @@ extends "res://scripts/actors/combat_player.gd"
 const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
 const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
 const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
-const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd")}
+const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd"),
+	"environment_kick":preload("res://scripts/abilities/environment_kick.gd")}
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
-	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step"
+	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step",
+	"tega_training":"environment_kick"
 }
 var actor_id := ""
 var scene_policy: RefCounted
@@ -193,7 +195,7 @@ func _play_action(action: String, duration: float) -> void:
 		_present_action()
 
 func _present_action() -> void:
-	if movement_ability != null and action_kind == movement_ability.KIND:
+	if movement_ability != null and action_kind == movement_ability.KIND and movement_ability.has_method("present"):
 		movement_ability.present(self)
 		return
 	if action_kind != "disengage":
@@ -361,7 +363,7 @@ func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2
 	return true
 
 func melee_phase(attack_id: int) -> String:
-	if movement_ability != null and action_kind == movement_ability.KIND:
+	if movement_ability != null and action_kind == movement_ability.KIND and movement_ability.has_method("melee_phase"):
 		if health <= 0 or attack_id != melee_attack_id or not _action_authorized(): return "finished"
 		return movement_ability.melee_phase(self)
 	if health <= 0 or attack_id != melee_attack_id or action_kind not in ["shove","special"] or not _action_authorized(): return "finished"
@@ -377,3 +379,11 @@ func present_melee_contact(attack_id: int) -> void:
 func weapon_visual_update() -> void:
 	# Character art includes the weapon: never draw a second procedural pistol.
 	if weapon_visual: weapon_visual.hide()
+
+func cancel_action() -> void:
+	super.cancel_action()
+	if lab != null and lab.combat != null: lab.combat.environment_kicks.cancel(self)
+
+func sync_ability_presentation() -> void:
+	_present_action()
+	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)

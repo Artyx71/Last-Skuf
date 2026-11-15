@@ -16,6 +16,7 @@ GABAR_SHIRT={tuple(bytes.fromhex(h)) for h in ['4e202c','67243b','963450','994a6
 OLEZHKA_SHIRT={tuple(bytes.fromhex(h)) for h in ['4c3c56','352b3d']}
 TIMKA_SHIRT={tuple(bytes.fromhex(h)) for h in ['15151e','252332','353244','4c3c56','352b3d','211b29']}
 RYZHIK_SHIRT={tuple(bytes.fromhex(h)) for h in ['15151e','252332','353244','4c3c56','352b3d','211b29','243547','304253']}
+TEGA_SHIRT={tuple(bytes.fromhex(h)) for h in ['8b8a87','75455f','4c3c56']}
 
 def anchor(frame, palette=GABAR_SHIRT):
     remaining={(x,y) for y in range(64) for x in range(48)
@@ -36,7 +37,7 @@ def anchor(frame, palette=GABAR_SHIRT):
     return chosen,len(component)
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('actor',choices=['gabar','olezhka','timka','ryzhik']);parser.add_argument('--output',default='reports/phases/P06/author-checks/socket-candidates-01');parser.add_argument('--kinds',nargs='+',choices=['world','action','finisher','roll'],default=['world','action','finisher']);args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('actor',choices=['gabar','olezhka','timka','ryzhik','tega']);parser.add_argument('--output',default='reports/phases/P06/author-checks/socket-candidates-01');parser.add_argument('--kinds',nargs='+',choices=['world','action','finisher','roll'],default=['world','action','finisher']);args=parser.parse_args()
     folder=ROOT/'game/assets/art/characters'/args.actor
     diagnostics=(ROOT/args.output).resolve();assert diagnostics.is_relative_to(ROOT/'reports/phases/P06');assert not diagnostics.exists();diagnostics.mkdir()
     for kind in args.kinds:
@@ -45,7 +46,7 @@ def main():
         assert hashlib.sha256(source.read_bytes()).hexdigest()==layout['sha256']
         image=Image.open(source).convert('RGBA');board=Image.new('RGBA',image.size,(36,48,44,255));board.alpha_composite(image);draw=ImageDraw.Draw(board)
         entries=[]
-        palette={'gabar':GABAR_SHIRT,'olezhka':OLEZHKA_SHIRT,'timka':TIMKA_SHIRT,'ryzhik':RYZHIK_SHIRT}[args.actor]
+        palette={'gabar':GABAR_SHIRT,'olezhka':OLEZHKA_SHIRT,'timka':TIMKA_SHIRT,'ryzhik':RYZHIK_SHIRT,'tega':TEGA_SHIRT}[args.actor]
         columns=image.width//48
         for i in range(layout['source_cells']):
             x,y=i%columns*48,i//columns*64
