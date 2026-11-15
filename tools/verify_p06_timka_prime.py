@@ -86,8 +86,12 @@ def completed_live_evidence(folder, current_sources):
         capture_paths.add(path)
     if capture_paths != {path for path in verified_paths if path.suffix.lower() == '.png'}:
         raise ValueError('Native capture paths contradict the actual PNG inventory')
-    if ERRORS.search((folder / 'live.log').read_text()):
+    live_log = (folder / 'live.log').read_text()
+    if ERRORS.search(live_log):
         raise ValueError('Live log contains engine/test errors')
+    final_lines = [line for line in live_log.splitlines() if line.strip()]
+    if not final_lines or final_lines[-1] != 'exit_code=0':
+        raise ValueError('Live log is missing the exact successful final exit footer')
     return {'validation': str(manifest.relative_to(ROOT)), 'sha256': sha(manifest),
             'source_head': report['source_head'], 'checks': report['checks'],
             'captures': report['actual_captures'], 'all_artifacts_verified': True}

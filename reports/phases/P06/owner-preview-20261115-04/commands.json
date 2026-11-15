@@ -1,0 +1,65 @@
+[
+  {
+    "name": "export_linux",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--export-release",
+      "Linux",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-04/linux/last-skuf.x86_64"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 3.153,
+    "log_sha256": "75312da16768e0b53cf93c029de4d92d3d2f6cd23fd59ad53043a97b4bf9df50"
+  },
+  {
+    "name": "linux_smoke",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-04/linux/last-skuf.x86_64",
+      "--disable-vsync",
+      "--max-fps",
+      "60",
+      "--",
+      "--p06-owner-preview-smoke"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 2.166,
+    "log_sha256": "cf198106880254da11c7d439dcda6c2253f5c140a266ca6a104ced5931c85167"
+  },
+  {
+    "name": "export_windows",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--export-release",
+      "Windows",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-04/windows/last-skuf.exe"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 2.875,
+    "log_sha256": "a4bde1e322bcf5e8a96d33f6ebbdd4b1b615d59eee8d22cfb149fe7a24724be6"
+  },
+  {
+    "name": "windows_smoke",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/wine/usr/bin/wine",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-04/windows/last-skuf.exe",
+      "--headless",
+      "--fixed-fps",
+      "60",
+      "--",
+      "--p06-owner-preview-smoke"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 20.443,
+    "log_sha256": "41cca0d9df07afb2ededc0a022598c9b2e79da2d2136d4dbf498831a814c7bf1"
+  }
+]

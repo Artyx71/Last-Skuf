@@ -31,7 +31,7 @@ class CompletedLiveRecoveryTest(unittest.TestCase):
                               '--disable-vsync', '--max-fps', '60', '--script',
                               'res://tests/timka_prime_replay.gd']}]
         self.write('commands.json', commands)
-        (self.folder / 'live.log').write_text('UNIT fixture successful log\n')
+        (self.folder / 'live.log').write_text('UNIT fixture successful log\nexit_code=0\n')
         self.write('live/result.json', {'scope': 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY', 'phase_approval': False,
                    'passed': True, 'actual_input': True, 'renderer': 'UNIT_RENDERER',
                    'checks': [{'passed': True}], 'captures': [{'path': str(self.capture), 'code': 0}]})
@@ -146,6 +146,15 @@ class CompletedLiveRecoveryTest(unittest.TestCase):
         self.report['artifacts'].append({'path': str(path.relative_to(self.root)), 'sha256': replay.sha(path)})
         self.save_report()
         with self.assertRaisesRegex(ValueError, 'PNG inventory'): self.validate()
+
+    def test_rebound_log_requires_exact_successful_final_footer(self):
+        for text in ['UNIT log\nexit_code=17\n', 'UNIT log\n',
+                     'UNIT log\nprefix exit_code=0\n', 'UNIT log\nexit_code=00\n',
+                     'UNIT log\n exit_code=0\n', 'UNIT log\nexit_code=0 then failed\n']:
+            with self.subTest(text=text):
+                (self.folder / 'live.log').write_text(text)
+                self.rebind('live.log')
+                with self.assertRaisesRegex(ValueError, 'final exit footer'): self.validate()
 
 
 if __name__ == '__main__':
