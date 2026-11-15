@@ -7,8 +7,8 @@ var meter: ProgressBar
 var displayed_feedback: Dictionary = {}
 
 func _ready() -> void:
-	position=Vector2(380,27)
-	size=Vector2(244,54)
+	position=Vector2(380,25)
+	size=Vector2(244,28)
 	z_index=20
 	process_priority=100
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -17,12 +17,12 @@ func _ready() -> void:
 	title.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(title)
 	detail=Label.new()
-	detail.position=Vector2(0,17)
+	detail.position=Vector2(0,12)
 	detail.add_theme_font_size_override("font_size",10)
 	detail.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(detail)
 	meter=ProgressBar.new()
-	meter.position=Vector2(0,36)
+	meter.position=Vector2(0,26)
 	meter.max_value=1.0
 	meter.step=0.0
 	meter.show_percentage=false
@@ -34,7 +34,7 @@ func _ready() -> void:
 	meter.add_theme_stylebox_override("background",background)
 	meter.add_theme_stylebox_override("fill",fill)
 	add_child(meter)
-	meter.size=Vector2(244,5)
+	meter.size=Vector2(244,2)
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(lab) or not is_instance_valid(lab.player):hide();return

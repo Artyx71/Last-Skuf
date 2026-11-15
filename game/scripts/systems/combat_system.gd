@@ -116,6 +116,7 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 		if obstruction.collider.collision_layer & 1:
 			wall_impacts += 1
 			_wall_contact(obstruction.position, definition, obstruction.collider)
+			if int(definition._epoch)!=encounter_epoch: return attack_id
 			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
@@ -198,6 +199,7 @@ func _physics_process(delta: float) -> void:
 			if contact.collider.collision_layer & 1:
 				wall_impacts += 1
 				_wall_contact(contact.position, bullet.definition, contact.collider)
+				if int(bullet.definition._epoch)!=encounter_epoch: continue
 				last_hit_position = contact.position + bullet.visual_offset
 				hit_flash = 0.15
 			else:

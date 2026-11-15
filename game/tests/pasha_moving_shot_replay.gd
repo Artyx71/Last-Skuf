@@ -1,6 +1,10 @@
 extends "res://tests/gabar_combat_replay.gd"
 ## Real registered Pasha, Input, finite ammunition and Core projectile contacts.
 const MOVE_KEYS := [KEY_S,KEY_A,KEY_D,KEY_W]
+class EndOfCoreObserver:
+	extends Node
+	var replay
+	func _physics_process(_delta: float) -> void: replay.observe_after_core()
 var ammo_trace: Array[Dictionary] = []
 var launches: Array[Dictionary] = []
 var costs: Array[Dictionary] = []
@@ -10,6 +14,13 @@ var callback_new_action := false
 var overlay_proofs: Array[Dictionary] = []
 var impact_reset_pending := false
 var impact_reset_executed := false
+var wall_reset_pending := false
+var wall_reset_executed := false
+var wall_observe_pending := false
+var wall_observation: Dictionary = {}
+var despawn_target: Variant
+var despawn_armed := false
+var despawn_executed := false
 
 func check(label: String, ok: bool, details: Dictionary = {}) -> void:
 	checks.append({"name":label,"passed":ok,"details":details.duplicate(true)})
@@ -29,6 +40,12 @@ func frames(count: int) -> void:
 				"hud":lab.ranged_feedback.displayed_feedback.duplicate(true)})
 
 func on_audio(cue: StringName, _at: Vector2) -> void:
+	if cue==&"impact_firearm_concrete" and wall_reset_pending:
+		wall_reset_pending=false;wall_reset_executed=true
+		var at:Vector2=lab.player.position
+		lab.combat.reset();lab.player.reset(at)
+		wall_observe_pending=true
+		return
 	if cue==&"impact_firearm_body" and impact_reset_pending:
 		impact_reset_pending=false;impact_reset_executed=true
 		lab.combat.reset();lab.player.reset(Vector2(300,240))
@@ -47,6 +64,25 @@ func on_audio(cue: StringName, _at: Vector2) -> void:
 		callback_new_action=lab.player.use_ability()
 	if mode=="replace":lab.select_fixture("pasha_training")
 	if mode=="foreign_strategy":lab.player.movement_ability=preload("res://scripts/abilities/moving_shot.gd").new()
+
+func observe_after_core() -> void:
+	if not wall_observe_pending:return
+	wall_observe_pending=false
+	wall_observation={"tick":Engine.get_physics_frames(),"epoch":lab.combat.encounter_epoch,
+		"flash":lab.combat.hit_flash,"at":lab.combat.last_hit_position,"ammo":lab.player.movement_ability.ammo,
+		"jobs":lab.combat.moving_shots.jobs.size(),"bullets":lab.combat.projectiles.size()}
+
+func despawn_on_finisher_contact() -> void:
+	if not despawn_armed or not is_instance_valid(despawn_target):return
+	if despawn_target.state!="finisher_reaction" or despawn_target.sprite.frame!=1:return
+	var inside_core:=false
+	for item in get_stack():
+		if item.function=="_tick_finishers" and String(item.source).ends_with("combat_system.gd"):inside_core=true
+	if not inside_core:return
+	despawn_armed=false
+	lab.enemies.erase(despawn_target)
+	despawn_target.free()
+	despawn_executed=not is_instance_valid(despawn_target)
 
 func setup(di: int, target_distance := 90.0, target_health := 1) -> CharacterBody2D:
 	lab.player.scene_policy=lab.scene_policy
@@ -99,6 +135,7 @@ func run() -> void:
 	if lab.player.actor_id!="pasha":preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1);return
 	lab.auto_retry=false
 	lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
+	var observer:=EndOfCoreObserver.new();observer.replay=self;observer.process_physics_priority=1000;root.add_child(observer)
 	trace_enabled=true
 	var atlas:SpriteFrames=lab.player.sprite.sprite_frames
 	var own:=true
@@ -108,6 +145,13 @@ func run() -> void:
 			own=own and t.get_meta("character_id","")=="pasha" and t.has_meta("clothing_socket")
 	check("all60_clips_128_own_source_drawings_clothing",own and atlas.get_animation_names().size()==60)
 	check("Pasha_speed125_no_legacy_training_kit",lab.player.move_speed==125 and lab.player.kit=="escape")
+	var hud_in_header:=true
+	var hud_rects:Array=[]
+	for widget in [lab.ranged_feedback.title,lab.ranged_feedback.detail,lab.ranged_feedback.meter]:
+		var rect:Rect2=widget.get_global_rect()
+		hud_rects.append([rect.position.x,rect.position.y,rect.size.x,rect.size.y])
+		hud_in_header=hud_in_header and rect.end.y<=54 and rect.end.x<=640
+	check("actual_ammo_HUD_rects_stay_above_arena",hud_in_header,{"rects":hud_rects})
 	await setup(2,170,5);segment="actual_RMB_held_trigger"
 	mouse_trigger(true);await frames(36)
 	check("held_RMB_launches_only_one_round",lab.player.ability_uses==1 and lab.player.movement_ability.rounds_spent==1 and lab.shots_fired==1)
@@ -238,6 +282,16 @@ func run() -> void:
 	await tap(KEY_F);await frames(30)
 	check("impact_reset_callback_really_executed",impact_reset_executed)
 	check("impact_reset_leaves_no_old_contact_or_effect_in_new_epoch",lab.combat.contact_events.is_empty() and lab.combat.receipts.is_empty() and lab.combat.damage_events==0 and lab.combat.impact.decals.is_empty(),{"contacts":lab.combat.contact_events,"decals":lab.combat.impact.decals.size(),"epoch":lab.combat.encounter_epoch})
+	for distance in [10,44]:
+		await setup(2,170,8);segment="wall_sound_reset_"+str(distance)
+		var wall:=StaticBody2D.new();wall.position=lab.player.position+Vector2(distance,-7);wall.collision_layer=1
+		var shape:=CollisionShape2D.new();var rectangle:=RectangleShape2D.new();rectangle.size=Vector2(2,16);shape.shape=rectangle;wall.add_child(shape);lab.add_child(wall)
+		wall_reset_pending=true;wall_reset_executed=false;wall_observation={}
+		var wall_epoch:int=lab.combat.encounter_epoch
+		await frames(2);await tap(KEY_F);await frames(20)
+		check(segment+":actual_wall_reset_callback",wall_reset_executed and not wall_observation.is_empty())
+		check(segment+":same_tick_no_phantom_flash_or_old_bullet",not wall_observation.is_empty() and wall_observation.epoch==wall_epoch+1 and wall_observation.flash==0 and wall_observation.at==Vector2.ZERO and wall_observation.ammo==4 and wall_observation.jobs==0 and wall_observation.bullets==0,wall_observation)
+		wall.queue_free();await frames(2)
 	# Already launched rounds may finish after recovery, but never cross authority epochs.
 	for revoke in [false,true]:
 		var distant:=await setup(2,210,3)
@@ -323,6 +377,25 @@ func run() -> void:
 				var outcome:=[target.health,target.hits_received,lab.combat.damage_events,lab.score,lab.player.movement_ability.rounds_spent]
 				if not reduced:finisher_outcomes[category+NAMES[di]]=outcome
 				else:check(segment+":Full_Reduced_identical",finisher_outcomes[category+NAMES[di]]==outcome)
+	# Regression for the independently reproduced freed-argument error. The
+	# actual enemy frame signal runs inside Core, after an Input-earned stun.
+	despawn_target=await setup(2,20)
+	segment="despawn_during_actual_finisher_frame_signal"
+	await tap(KEY_SPACE)
+	var despawn_budget:=35
+	while not lab.player.action_kind.is_empty() and despawn_budget>0:await frames(1);despawn_budget-=1
+	check("despawn_probe_stun_earned_by_Input",despawn_target.state=="stunned" and despawn_target.hits_received==1)
+	despawn_target.set_physics_process(true);lab.select_equipment(3)
+	despawn_target.sprite.frame_changed.connect(despawn_on_finisher_contact)
+	despawn_armed=true;despawn_executed=false
+	await tap(KEY_V);await frames(30)
+	check("target_freed_by_actual_Core_contact_frame_signal",despawn_executed and not despawn_armed)
+	check("freed_target_cannot_charge_or_commit_finisher",lab.player.movement_ability.rounds_spent==0 and lab.player.movement_ability.ammo==4 and lab.combat.damage_events==1 and lab.score==0 and lab.combat.finishers.is_empty())
+	# Remove this deliberate despawn fixture before any encounter reset.
+	root.remove_child(lab);lab.queue_free();await process_frame
+	lab=Lab.new();root.add_child(lab);current_scene=lab
+	await frames(2);await tap(KEY_7);lab.auto_retry=false
+	lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
 	await setup(2);await capture("pasha_after_restart")
 	var failed:=checks.filter(func(e:Dictionary):return not e.passed).size()
 	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE)

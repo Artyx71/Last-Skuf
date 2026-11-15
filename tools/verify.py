@@ -79,6 +79,8 @@ def main():
                          '-s', 'tools/tests', '-p', 'test_p06_ryzhik_report.py']))
         commands.append(('tega_environment_controller', [sys.executable, 'tools/verify_p06_tega.py',
                          '--headless', '--output', str(output / 'tega_environment_controller')]))
+        commands.append(('pasha_moving_shot_controller', [sys.executable, 'tools/verify_p06_pasha.py',
+                         '--headless', '--output', str(output / 'pasha_moving_shot_controller')]))
         commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
                          '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
     env = dict(os.environ)
