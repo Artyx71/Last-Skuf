@@ -7,7 +7,7 @@ const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/groun
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
-	"timka_present":"disengage", "timka_prime":"clinch"
+	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step"
 }
 var actor_id := ""
 var scene_policy: RefCounted

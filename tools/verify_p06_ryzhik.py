@@ -11,6 +11,21 @@ import sys
 import time
 from verify_p06_cast import ROOT, GODOT, ERRORS, sha, sources, write
 
+SCOPE = 'RYZHIK_ROLL_COMPONENT_ONLY'
+
+def valid_replay(result, headless):
+    if not isinstance(result, dict) or result.get('scope') != SCOPE:
+        return False
+    if result.get('phase_approval') is not False or result.get('actual_input') is not True or result.get('passed') is not True:
+        return False
+    if not isinstance(result.get('renderer'), str) or ((result['renderer'] == 'headless') != headless):
+        return False
+    checks = result.get('checks')
+    return bool(isinstance(checks, list) and checks and
+                all(isinstance(c, dict) and c.get('passed') is True for c in checks) and
+                isinstance(result.get('trace'), list) and result['trace'] and
+                isinstance(result.get('contacts'), list) and result['contacts'])
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -59,8 +74,7 @@ def main():
             code, log = 124, 'TIMEOUT\n' + str(error.stdout) + str(error.stderr)
         (output / (mode + '.log')).write_text(log + '\nexit_code=' + str(code) + '\n')
         result = json.loads((scope / 'result.json').read_text()) if (scope / 'result.json').is_file() else {}
-        ok = bool(code == 0 and not ERRORS.search(log) and result.get('passed') and
-                  result.get('actual_input') and ((result.get('renderer') == 'headless') == args.headless))
+        ok = bool(code == 0 and not ERRORS.search(log) and valid_replay(result, args.headless))
         commands.append({'name': mode, 'argv': argv, 'exit_code': code, 'passed': ok,
                          'seconds': round(time.monotonic() - started, 3), 'profile': str(profile)})
         results.append(result)

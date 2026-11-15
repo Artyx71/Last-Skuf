@@ -12,6 +12,8 @@ func required_frames(actor_id: String) -> SpriteFrames:
 	return Frames.roll_frames(actor_id)
 
 func start(body: CharacterBody2D) -> bool:
+	if body.movement_ability != self or body.prepared_ability != "dance_step": return false
+	if not body._can_begin_action() or body.ability_cooldown > 0: return false
 	body._face_aim()
 	body.action_windup = WINDUP
 	body.action_active = ACTIVE
@@ -48,6 +50,7 @@ func present(body: CharacterBody2D) -> void:
 	body.weapon_visual_update()
 
 func advance_motion(body: CharacterBody2D, delta: float) -> void:
+	if body.movement_ability != self or body.action_kind != KIND or not body._action_authorized(): return
 	# Integrate only the active fraction of this tick, including boundary ticks.
 	var step := maxf(0.0,minf(body.action_elapsed,WINDUP+ACTIVE)-maxf(body.action_elapsed-delta,WINDUP))
 	if step <= 0.0: return

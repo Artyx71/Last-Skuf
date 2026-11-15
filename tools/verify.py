@@ -60,7 +60,7 @@ def main():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['character_combat_profile', 'character_scene_policy',
                                      'character_policy_integration', 'character_dialogue', 'character_frames',
-                                     'character_readiness', 'timka_layout', 'yakuza_finisher_authority'])
+                                     'character_readiness', 'timka_layout', 'ryzhik_roll_layout', 'yakuza_finisher_authority'])
         commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
                          '--output', str(output / 'character_lab_isolation')]))
         commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
@@ -73,6 +73,8 @@ def main():
                          '--headless', '--output', str(output / 'timka_present_controller')]))
         commands.append(('timka_prime_controller', [sys.executable, 'tools/verify_p06_timka_prime.py',
                          '--headless', '--output', str(output / 'timka_prime_controller')]))
+        commands.append(('ryzhik_roll_controller', [sys.executable, 'tools/verify_p06_ryzhik.py',
+                         '--headless', '--output', str(output / 'ryzhik_roll_controller')]))
         commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
                          '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
     env = dict(os.environ)
