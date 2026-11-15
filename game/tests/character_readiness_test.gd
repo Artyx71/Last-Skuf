@@ -1,6 +1,6 @@
 extends SceneTree
 ## Readiness/atomic refusal only; simulated complete art is a negative test double.
-## Actual Gabar/Oleg bodies below use production art. No new hero/ability approval.
+## Actual Gabar/Oleg/present Timka bodies below use production art. No new hero/ability approval.
 const Player = preload("res://scripts/actors/character_player.gd")
 const Policy = preload("res://scripts/systems/character_scene_policy.gd")
 var checks: Array[Dictionary] = []
@@ -35,13 +35,13 @@ func lab_snapshot(lab: Node) -> Dictionary:
 		"options":lab.options_panel.visible}
 
 func run() -> void:
-	for key in ["timka_present","timka_prime","ryzhik_training","tega_training","pasha_training","unknown"]:
+	for key in ["timka_prime","ryzhik_training","tega_training","pasha_training","unknown"]:
 		var probe := CompleteArtProbe.new()
 		check("unsupported_even_if_complete_art:"+key,not probe.prepare_fixture(key))
 		check("unsupported_rejected_before_art_load:"+key,probe.load_calls.is_empty())
 		check("unsupported_cannot_bind_stale_body:"+key,probe.authored_frames==null and probe.prepared_definition.is_empty())
 		probe.free()
-	for key in ["gabar_training","olezhka_training"]:
+	for key in ["gabar_training","olezhka_training","timka_present"]:
 		var policy := Policy.new()
 		check("registered_policy:"+key,policy.open(key))
 		var player := Player.new()
@@ -73,7 +73,7 @@ func run() -> void:
 	check("nonempty_real_projectile_and_once_receipt",not lab.combat.projectiles.is_empty() and not lab.combat.receipts.is_empty())
 	lab._set_options_visible(true)
 	var before := lab_snapshot(lab)
-	for key in ["timka_present","timka_prime","ryzhik_training","tega_training","pasha_training","unknown"]:
+	for key in ["timka_prime","ryzhik_training","tega_training","pasha_training","unknown"]:
 		check("live_unsupported_selection_refused:"+key,not lab.select_fixture(key))
 		check("refusal_preserves_actor_authority_jobs_receipts_options:"+key,lab_snapshot(lab)==before)
 	var old_player: Node = lab.player
@@ -83,6 +83,8 @@ func run() -> void:
 	check("successful_transition_closes_options",not lab.options_panel.visible)
 	check("live_reprepare_refused_without_mutation",not lab.player.prepare_fixture("gabar_training") and lab.player.actor_id=="olezhka" and lab.player.scene_policy==lab.scene_policy)
 	lab.player.use_ability()
+	check("supported_present_replaces_Oleg_without_prime_grant",lab.select_fixture("timka_present") and lab.player.actor_id=="timka" and lab.scene_policy.ability_id()=="disengage" and not lab.player.can_use_finisher("unarmed"))
+	check("present_transition_revokes_old_jobs",lab.combat.attacks.is_empty() and lab.combat.finishers.is_empty())
 	check("supported_return_to_Gabar",lab.select_fixture("gabar_training") and lab.player.actor_id=="gabar" and lab.scene_policy.ability_id()=="gabar_lunge")
 	root.remove_child(lab)
 	lab.queue_free()
