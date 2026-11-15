@@ -67,6 +67,7 @@ func run() -> void:
 			await frames(1)
 			limit-=1
 		check(segment+":once_contact_kills_and_rewards",target.health==0 and target.hits_received==2 and lab.combat.damage_events==2 and lab.kills==1 and lab.score==100)
+		check(segment+":NPC_contact_reaction_is_visible_before_death_hold",target.sprite.frame==1,{"NPC_frame_on_contact":target.sprite.frame})
 		var pose: Texture2D=lab.player.sprite.sprite_frames.get_frame_texture(lab.player.sprite.animation,lab.player.sprite.frame)
 		check(segment+":signature_drawn_contact_on_damage_tick",lab.player.action_frame==1 and lab.player.sprite.animation==StringName("special_"+NAMES[di]) and pose.get_meta("source_kind")=="finisher" and pose.get_meta("original_source_column")==7)
 		await capture(segment+"_contact")
@@ -119,26 +120,33 @@ func run() -> void:
 		lab.scene_policy.open("timka_prime")
 		await tap(KEY_R)
 		check(segment+":restart_clears_cost_and_receipts",lab.player.health==1 and lab.player.ability_uses==0 and lab.player.ability_cooldown==0 and lab.combat.receipts.is_empty())
-	for category in ["unarmed","blunt","environmental"]:
-		segment="V_finisher_"+category
-		var target: CharacterBody2D
-		if category=="environmental":
-			# Declared whole fixture placement before the first measured Input.
-			lab.reset_encounter()
-			lab.player.position=Vector2(420,260);lab.player.set_aim(Vector2.RIGHT)
-			for enemy in lab.enemies:enemy.set_physics_process(false);enemy.position=Vector2(520,100)
-			target=lab.enemies[0];target.position=Vector2(446,260)
-			lab.training_bench.position=Vector2(476,260);lab.training_bench.set_meta("finisher_enabled",true)
-			await frames(2);await tap(KEY_SPACE);await frames(37)
-		else:target=await prime_target(Vector2.RIGHT)
-		var index: int={"unarmed":0,"blunt":1,"environmental":4}[category]
-		check(segment+":registered_equipment",lab.select_equipment(index))
-		await tap(KEY_V)
-		check(segment+":own_category_pose_started",lab.player.action_animation==StringName("finish_"+category+"_right") and not lab.combat.finisher_for(lab.player).is_empty())
-		await frames(32)
-		await capture(segment+"_contact")
-		await frames(32)
-		check(segment+":once_reward",target.health==0 and lab.score==100 and lab.kills==1 and target.hits_received==2)
+	for di in 4:
+		for category in ["unarmed","blunt","environmental"]:
+			segment="V_finisher_"+category+"_"+NAMES[di]
+			var target: CharacterBody2D
+			if category=="environmental":
+				# Declared whole fixture placement before the first measured Input.
+				lab.reset_encounter()
+				lab.player.position=Vector2(470,250)-DIRECTIONS[di]*26;lab.player.set_aim(DIRECTIONS[di])
+				for enemy in lab.enemies:enemy.set_physics_process(false);enemy.position=Vector2(520,100)
+				target=lab.enemies[0];target.position=Vector2(470,250)
+				lab.training_bench.position=target.position+DIRECTIONS[di]*30;lab.training_bench.set_meta("finisher_enabled",true)
+				await frames(2);await tap(KEY_SPACE);await frames(37)
+			else:target=await prime_target(DIRECTIONS[di])
+			var index: int={"unarmed":0,"blunt":1,"environmental":4}[category]
+			check(segment+":registered_equipment",lab.select_equipment(index))
+			await tap(KEY_V)
+			check(segment+":own_category_pose_started",lab.player.action_animation==StringName("finish_"+category+"_"+NAMES[di]) and not lab.combat.finisher_for(lab.player).is_empty())
+			await capture(segment+"_guard")
+			var limit:=60
+			while target.health>0 and limit>0:await frames(1);limit-=1
+			check(segment+":NPC_contact_reaction_is_visible",target.health==0 and target.sprite.frame==1,{"NPC_frame_on_contact":target.sprite.frame})
+			await capture(segment+"_contact")
+			await frames(10)
+			check(segment+":NPC_finishes_in_death_hold",target.state=="dead" and target.sprite.frame==2)
+			await capture(segment+"_recovery")
+			await frames(25)
+			check(segment+":once_reward",target.health==0 and lab.score==100 and lab.kills==1 and target.hits_received==2)
 	for index in [2,3]:check("excluded_tool_denied:"+str(index),not lab.select_equipment(index))
 	for source_present in [true,false]:
 		segment="context_leak_"+str(source_present)
