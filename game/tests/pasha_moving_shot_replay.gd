@@ -238,6 +238,9 @@ func run() -> void:
 	check("firearm_finisher_spends_same_clip_second_round_once",mixed_target.health==0 and lab.player.movement_ability.ammo==2 and lab.player.movement_ability.rounds_spent==2 and lab.score==100)
 	check("shared_clip_records_two_distinct_contact_costs",lab.player.movement_ability.cost_history.size()==2 and lab.player.movement_ability.cost_history[0].reason=="moving_shot" and lab.player.movement_ability.cost_history[1].reason=="firearm_finisher")
 	await capture("shared_clip_firearm_finisher")
+	# MovieMaker capture() is a no-op. Preserve the actual committed pose through
+	# a render boundary before the next fixture resets its actors and resources.
+	await frames(2)
 	# Cancelling or losing authority before contact never consumes ammunition.
 	for mode in ["cancel","revoke","reopen","replace_policy","hurt","death"]:
 		await setup(2);segment="before_contact_"+mode

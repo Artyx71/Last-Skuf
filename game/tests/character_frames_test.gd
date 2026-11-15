@@ -12,6 +12,16 @@ func record(label: String, passed: bool) -> void:
 
 func _initialize() -> void: call_deferred("run")
 
+func complete_own_combat(actor_id: String, expected_clips: int) -> bool:
+ var frames := Frames.combat_frames(actor_id)
+ if frames==null or frames.get_animation_names().size()!=expected_clips:return false
+ for animation in frames.get_animation_names():
+  for index in frames.get_frame_count(animation):
+   var texture := frames.get_frame_texture(animation,index) as AtlasTexture
+   if texture==null or texture.get_meta("character_id","")!=actor_id:return false
+   if not texture.atlas.resource_path.begins_with("res://assets/art/characters/"+actor_id+"/"):return false
+ return true
+
 func check_sheet(frames: SpriteFrames, kind: String, mapping: Dictionary, actor_id := "gabar") -> void:
  record(kind+"_available",frames!=null)
  if frames==null: return
@@ -44,15 +54,20 @@ func run() -> void:
  record("Olezhka_complete_combat_art_available",Frames.combat_frames("olezhka")!=null)
  for kind in Frames.SHEET_COLUMNS:
   check_sheet(Frames._sheet_frames("olezhka",kind),kind,Frames.SHEET_COLUMNS[kind],"olezhka")
- record("missing_Timka_combat_art_never_falls_back",Frames.combat_frames("timka")==null)
+ record("Timka_complete44_own_combat_clips_no_borrowed_actor",complete_own_combat("timka",44))
  check_sheet(Frames.world_frames("timka"),"world",Frames.WORLD_COLUMNS,"timka")
  check_sheet(Frames.action_frames("timka"),"action",Frames.TIMKA_ACTION_COLUMNS,"timka")
  check_sheet(Frames.world_frames("ryzhik"),"world",Frames.WORLD_COLUMNS,"ryzhik")
- record("missing_Ryzhik_combat_art_never_falls_back",Frames.combat_frames("ryzhik")==null)
+ record("Ryzhik_complete56_own_combat_clips_no_borrowed_actor",complete_own_combat("ryzhik",56))
  check_sheet(Frames.world_frames("tega"),"world",Frames.WORLD_COLUMNS,"tega")
- record("missing_Tega_combat_art_never_falls_back",Frames.combat_frames("tega")==null)
+ record("Tega_complete56_own_combat_clips_no_borrowed_actor",complete_own_combat("tega",56))
  check_sheet(Frames.world_frames("pasha"),"world",Frames.WORLD_COLUMNS,"pasha")
- record("missing_Pasha_combat_art_never_falls_back",Frames.combat_frames("pasha")==null)
+ record("Pasha_complete56_own_combat_clips_no_borrowed_actor",complete_own_combat("pasha",56))
+ for actor_id in ["timka","ryzhik","tega","pasha"]:
+  record(actor_id+"_genuinely_missing_texture_not_substituted",Frames._sheet_texture("res://assets/art/characters/"+actor_id+"/missing_sheet.png")==null)
+  var incomplete:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/art/characters/"+actor_id+"/finisher.json"))
+  incomplete.frames.pop_back()
+  record(actor_id+"_incomplete_own_finisher_layout_rejected",not Frames._valid_layout(incomplete,actor_id,"finisher"))
  check_sheet(Frames.finisher_frames("gabar"),"finisher",Frames.FINISHER_COLUMNS)
  var combined := Frames.combat_frames("gabar")
  record("Gabar_combat_contains_all_56_authored_clips",combined!=null and combined.get_animation_names().size()==56)
