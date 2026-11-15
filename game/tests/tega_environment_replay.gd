@@ -17,6 +17,8 @@ func on_audio(cue: StringName, _at: Vector2) -> void:
 	if mode=="unregistered": lab.combat.environments.erase("training_bench")
 	if mode=="replace":
 		var replacement:=StaticBody2D.new();lab.add_child(replacement);lab.combat.register_environment("training_bench",replacement);replacement.queue_free()
+	if mode=="prop_far": lab.training_bench.position += Vector2(100,0)
+	if mode=="source_far": lab.player.position -= Vector2(100,0)
 
 func check(label: String, ok: bool, details: Dictionary = {}) -> void:
 	checks.append({"name":label,"passed":ok,"details":details})
@@ -162,6 +164,14 @@ func run() -> void:
 		if mode=="free":
 			root.remove_child(lab);lab.queue_free();await process_frame;lab=Lab.new();root.add_child(lab);current_scene=lab;await frames(2);await tap(KEY_6);lab.auto_retry=false;lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
 		else:lab.scene_policy.open("tega_training");await tap(KEY_R)
+	for mode in ["prop_far","source_far"]:
+		await setup(2,false);segment="foot_geometry_"+mode
+		var prop_after_callback:Vector2=lab.training_bench.position+(Vector2(100,0) if mode=="prop_far" else Vector2.ZERO)
+		var actor_after_callback:Vector2=lab.player.position-(Vector2(100,0) if mode=="source_far" else Vector2.ZERO)
+		foot_callback_mode=mode
+		await tap(KEY_F);await frames(30)
+		check(segment+":same_instance_transform_callback_executed",foot_callback_mode.is_empty())
+		check(segment+":no_remote_step_or_receipt",lab.training_bench.position==prop_after_callback and lab.player.position==actor_after_callback and lab.combat.environment_kicks.jobs.is_empty() and lab.combat.receipts.is_empty() and lab.combat.damage_events==0)
 	for reason in ["cancel","disabled","revoke"]:
 		await setup(2,false);segment="active_interrupt_"+reason
 		await tap(KEY_F)

@@ -64,6 +64,16 @@ func _authorized_source(source: Variant) -> bool:
 func _valid_job(job: Dictionary) -> bool:
 	return job.epoch == combat.encounter_epoch and _authorized_source(job.source) and job.source.melee_attack_id == job.id and job.authority == job.source.action_authority_snapshot and _valid_object(job.object) and combat.environments.get(job.key) == job.object
 
+func _contact_eligible(job: Dictionary) -> bool:
+	# Identity alone survives a same-instance transform change in a callback.
+	return jobs.has(job) and _valid_job(job) and _near_foot(job.source,job.object,job.aim)
+
+func _stop_job(job: Dictionary) -> void:
+	jobs.erase(job)
+	# Do not cancel a replacement action created by an external listener.
+	if _authorized_source(job.source) and job.source.melee_attack_id == job.id:
+		job.source.cancel_action()
+
 func request_step(source: CharacterBody2D, distance: float) -> void:
 	for job in jobs:
 		if job.source == source:
@@ -111,12 +121,12 @@ func tick() -> void:
 			combat._wall_contact(foot_at,{"category":"unarmed"},object)
 			# Audio listeners may cancel/reset/revoke/free an actor or object.
 			# Never touch the old local job's bodies after an external callback.
-			if not jobs.has(job) or not _valid_job(job):
-				jobs.erase(job)
+			if not _contact_eligible(job):
+				_stop_job(job)
 				continue
 			combat.lab.make_noise(foot_at)
-			if not jobs.has(job) or not _valid_job(job):
-				jobs.erase(job)
+			if not _contact_eligible(job):
+				_stop_job(job)
 				continue
 		var motion: Vector2 = job.aim*float(job.step)
 		job.step = 0.0
@@ -145,12 +155,15 @@ func tick() -> void:
 		source.ability_distance += travelled.length()
 		source.last_ability_path.append(source.global_position)
 		source.sync_ability_presentation()
+		if not _contact_eligible(job):
+			_stop_job(job)
+			continue
 		if collision == null: continue
 		job.stopped = true
 		var target: Object = collision.get_collider()
 		_record(job,"object_collision",{"travel":[travelled.x,travelled.y],"normal":[collision.get_normal().x,collision.get_normal().y],"collider":target.get_instance_id() if is_instance_valid(target) else 0,"source_frame":source.sprite.frame})
 		# Real collider, same pinned job and contact pose; Core reserves once-token.
-		if not _valid_job(job) or source.action_frame != 1: continue
+		if not _contact_eligible(job) or source.action_frame != 1: continue
 		if target is CharacterBody2D and target in combat.lab.enemies and target.health > 0:
 			combat._apply_hit(target,job.definition,job.id,source,"environment_object")
 		elif target is CollisionObject2D and target.collision_layer & 1:
