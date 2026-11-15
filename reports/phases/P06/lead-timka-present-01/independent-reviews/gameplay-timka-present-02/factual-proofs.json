@@ -1,0 +1,2754 @@
+{
+  "method": "Independent replay-source, actual receipt and trace analysis; no engine execution",
+  "runs": {
+    "native-02/live": {
+      "checks": 137,
+      "trace_samples": 1098,
+      "contact_count": 7,
+      "contacts": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 21,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_hurt",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 774
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 773,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 13334946
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 774,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 13355452
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 9,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 23,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_fatal",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 795
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 794,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 13668395
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 795,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 13686835
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 25,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_hurt",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 825
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 824,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 14168414
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 825,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 14185357
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 27,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_fatal",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 855
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 854,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 14668329
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 855,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 14686467
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 29,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 897
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 896,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 15368292
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 897,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 15385323
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 31,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 939
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 938,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 16068228
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 939,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 16086199
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "firearm",
+            "cue": "impact_firearm_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 33,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_projectile_during_active",
+            "strong": true,
+            "target": 67360524729,
+            "target_is_player": true,
+            "tick": 967
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 966,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 16534815
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 967,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 16551876
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": null,
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": []
+        }
+      ],
+      "full_action_motion": {
+        "down": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "left": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "right": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "up": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      }
+    },
+    "native-02/movie": {
+      "checks": 104,
+      "trace_samples": 1098,
+      "contact_count": 7,
+      "contacts": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 21,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_hurt",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 763
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 762,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 24887986
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 763,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 24925594
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 23,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_fatal",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 783
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 782,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 25555909
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 783,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 25591461
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 25,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_hurt",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 813
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 812,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 26554224
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 813,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 26587996
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 27,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_fatal",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 843
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 842,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 27554216
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 843,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 27588651
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 29,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 885
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 884,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 28954378
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 885,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 28988134
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 31,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 927
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 926,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 30354584
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 927,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 30389027
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "firearm",
+            "cue": "impact_firearm_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 33,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_projectile_during_active",
+            "strong": true,
+            "target": 67041757626,
+            "target_is_player": true,
+            "tick": 955
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 954,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 31290778
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 955,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 31322416
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": null,
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": []
+        }
+      ],
+      "full_action_motion": {
+        "down": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "left": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "right": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "up": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      }
+    },
+    "headless-03/live": {
+      "checks": 104,
+      "trace_samples": 1098,
+      "contact_count": 7,
+      "contacts": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 21,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_hurt",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 763
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 762,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 1000802
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_hurt",
+            "tick": 763,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 1006283
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "receipt": {
+            "at": "(250.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 23,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_guard_fatal",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 783
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.0333333333333333,
+            "action_frame": 0,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 782,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 1020735
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              250.0,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_guard_fatal",
+            "tick": 783,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              250.0,
+              214.0
+            ],
+            "wall_usec": 1022999
+          },
+          "inferred_clock_before_receive_hit": 0.04999999999999996,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              270,
+              240
+            ],
+            "attack_center": [
+              252,
+              233
+            ],
+            "actual_player_body_center": [
+              250.0,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.0333333333333333,
+                "contact_count": 1,
+                "frame_before_contact": 0
+              },
+              "name": "Core_melee_guard_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_guard_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 25,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_hurt",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 813
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 812,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 1048344
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_hurt",
+            "tick": 813,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 1049990
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 27,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_active_fatal",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 843
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 842,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 1074809
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_active_fatal",
+            "tick": 843,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 1077355
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              254,
+              240
+            ],
+            "attack_center": [
+              236,
+              233
+            ],
+            "actual_player_body_center": [
+              236.466690063477,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.2,
+                "contact_count": 1,
+                "frame_before_contact": 2
+              },
+              "name": "Core_melee_active_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_active_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 29,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 885
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 884,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 1113367
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_hurt",
+            "tick": 885,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 1115002
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_hurt:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_hurt:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "receipt": {
+            "at": "(216.4001, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 31,
+            "finisher": false,
+            "id": 1,
+            "lethal": true,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "fall_right",
+            "player_frame": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 927
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.4,
+            "action_frame": 5,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 5,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 926,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 1151819
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "fall",
+            "animation": "fall_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              216.40007019043,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_melee_recovery_fatal",
+            "tick": 927,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              216.0,
+              214.0
+            ],
+            "wall_usec": 1154353
+          },
+          "inferred_clock_before_receive_hit": 0.4166666666666667,
+          "geometry": {
+            "declared_initial_enemy_position": [
+              200,
+              240
+            ],
+            "attack_center": [
+              218,
+              233
+            ],
+            "actual_player_body_center": [
+              216.40007019043,
+              234.0
+            ],
+            "circle_to_body_rect_distance": 0.0,
+            "default_radius": 14,
+            "live_overlap": true
+          },
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": true,
+          "observed_checks": [
+            {
+              "details": {
+                "attack_id": 1,
+                "clock_before_contact": 0.4,
+                "contact_count": 1,
+                "frame_before_contact": 5
+              },
+              "name": "Core_melee_recovery_fatal:live_overlap_receipt_and_damage",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:own_action_replaced_by_hurt_or_fall",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:enemy_contact_pose_is_real",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:no_repeat_damage_or_outgoing_ability",
+              "passed": true
+            },
+            {
+              "details": {},
+              "name": "Core_melee_recovery_fatal:restart_clears_receipts_and_action",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "receipt": {
+            "at": "(236.4667, 240.0)",
+            "category": "firearm",
+            "cue": "impact_firearm_body",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 33,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.0,
+            "player_action_frame": 0,
+            "player_animation": "hit_right",
+            "player_frame": 0,
+            "segment": "Core_projectile_during_active",
+            "strong": true,
+            "target": 66622327257,
+            "target_is_player": true,
+            "tick": 955
+          },
+          "pre_contact_trace": {
+            "action_elapsed": 0.2,
+            "action_frame": 2,
+            "action_kind": "disengage",
+            "animation": "disengage_right",
+            "damage_events": 0,
+            "frame": 2,
+            "position": [
+              238.800018310547,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 954,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              239.0,
+              214.0
+            ],
+            "wall_usec": 1178486
+          },
+          "contact_trace": {
+            "action_elapsed": 0.0,
+            "action_frame": 0,
+            "action_kind": "hit",
+            "animation": "hit_right",
+            "damage_events": 1,
+            "frame": 0,
+            "position": [
+              236.466690063477,
+              240.0
+            ],
+            "score": 0,
+            "segment": "Core_projectile_during_active",
+            "tick": 955,
+            "velocity": [
+              0.0,
+              0.0
+            ],
+            "visual_origin": [
+              236.0,
+              214.0
+            ],
+            "wall_usec": 1179729
+          },
+          "inferred_clock_before_receive_hit": 0.21666666666666667,
+          "geometry": null,
+          "post_contact_samples_checked": 10,
+          "body_after_nonfatal": "ordinary Core knockback; ability action cancelled",
+          "fatal_body_stationary": false,
+          "observed_checks": []
+        }
+      ],
+      "full_action_motion": {
+        "down": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "left": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "right": {
+          "max_integral_error": 7.019042999445446e-05,
+          "max_step": 2.333328247071023,
+          "distance": 33.59992980957,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "up": {
+          "max_integral_error": 0.00013427734398874236,
+          "max_step": 2.3333435058600003,
+          "distance": 33.60012817382801,
+          "all_phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      }
+    }
+  },
+  "independent_QA_observer": {
+    "method": "Reviewed observation-only subclass and independently checked actual QA callback fields; Gameplay reviewer did not execute this engine run",
+    "events": [
+      {
+        "segment": "Core_melee_guard_hurt",
+        "tick": 763,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 1,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "hit"
+      },
+      {
+        "segment": "Core_melee_guard_fatal",
+        "tick": 783,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 0,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "fall"
+      },
+      {
+        "segment": "Core_melee_active_hurt",
+        "tick": 813,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 1,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "hit"
+      },
+      {
+        "segment": "Core_melee_active_fatal",
+        "tick": 843,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 0,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "fall"
+      },
+      {
+        "segment": "Core_melee_recovery_hurt",
+        "tick": 885,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 1,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "hit"
+      },
+      {
+        "segment": "Core_melee_recovery_fatal",
+        "tick": 927,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 0,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "fall"
+      },
+      {
+        "segment": "Core_projectile_during_active",
+        "tick": 955,
+        "qa_actual_receipt_reserved": true,
+        "qa_actual_receipt_count": 1,
+        "qa_health_after": 1,
+        "qa_hits_received": 1,
+        "qa_damage_events": 1,
+        "qa_score": 0,
+        "qa_counter_blocks": 0,
+        "qa_collision_layer": 2,
+        "qa_collision_mask": 1,
+        "qa_action_after": "hit"
+      }
+    ]
+  }
+}

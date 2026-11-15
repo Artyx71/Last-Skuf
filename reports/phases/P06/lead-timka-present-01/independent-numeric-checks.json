@@ -1,0 +1,450 @@
+{
+  "schema": 1,
+  "scope": "OWN_NUMERIC_CHECKS_OF_SAVED_ACTUAL_TRACES_NOT_ENGINE_RERUN",
+  "runs": {
+    "headless03": {
+      "checks": 104,
+      "trace_samples": 1098,
+      "incoming": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "tick": 763,
+          "prior_tick": 762,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "tick": 783,
+          "prior_tick": 782,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "tick": 813,
+          "prior_tick": 812,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "tick": 843,
+          "prior_tick": 842,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "tick": 885,
+          "prior_tick": 884,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "tick": 927,
+          "prior_tick": 926,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "tick": 955,
+          "prior_tick": 954,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        }
+      ],
+      "motion_integral": [
+        {
+          "direction": "down",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "left",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "right",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "up",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    "native02": {
+      "checks": 137,
+      "trace_samples": 1098,
+      "incoming": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "tick": 774,
+          "prior_tick": 773,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "tick": 795,
+          "prior_tick": 794,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "tick": 825,
+          "prior_tick": 824,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "tick": 855,
+          "prior_tick": 854,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "tick": 897,
+          "prior_tick": 896,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "tick": 939,
+          "prior_tick": 938,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "tick": 967,
+          "prior_tick": 966,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        }
+      ],
+      "motion_integral": [
+        {
+          "direction": "down",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "left",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "right",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "up",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    "movie02": {
+      "checks": 104,
+      "trace_samples": 1098,
+      "incoming": [
+        {
+          "segment": "Core_melee_guard_hurt",
+          "tick": 763,
+          "prior_tick": 762,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_guard_fatal",
+          "tick": 783,
+          "prior_tick": 782,
+          "prior_clock": 0.0333333333333333,
+          "prior_frame": 0,
+          "phase_at_contact_from_prior_plus_tick": "guard",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_active_hurt",
+          "tick": 813,
+          "prior_tick": 812,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_active_fatal",
+          "tick": 843,
+          "prior_tick": 842,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_melee_recovery_hurt",
+          "tick": 885,
+          "prior_tick": 884,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "hit_right"
+        },
+        {
+          "segment": "Core_melee_recovery_fatal",
+          "tick": 927,
+          "prior_tick": 926,
+          "prior_clock": 0.4,
+          "prior_frame": 5,
+          "phase_at_contact_from_prior_plus_tick": "recovery",
+          "after_animation": "fall_right"
+        },
+        {
+          "segment": "Core_projectile_during_active",
+          "tick": 955,
+          "prior_tick": 954,
+          "prior_clock": 0.2,
+          "prior_frame": 2,
+          "phase_at_contact_from_prior_plus_tick": "active",
+          "after_animation": "hit_right"
+        }
+      ],
+      "motion_integral": [
+        {
+          "direction": "down",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "left",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "right",
+          "samples": 33,
+          "max_integral_error_px": 7.019042999445446e-05,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "direction": "up",
+          "samples": 33,
+          "max_integral_error_px": 0.00013427734398874236,
+          "phases": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    }
+  },
+  "author_trace_total": 3294,
+  "independent_QA_raw_receipts": [
+    {
+      "segment": "Core_melee_guard_hurt",
+      "receipt_token": "1:67175975386",
+      "epoch": 21,
+      "count": 1,
+      "health": 1,
+      "action": "hit",
+      "prev_tick": 762,
+      "contact_tick": 763
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "receipt_token": "1:67175975386",
+      "epoch": 23,
+      "count": 1,
+      "health": 0,
+      "action": "fall",
+      "prev_tick": 782,
+      "contact_tick": 783
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "receipt_token": "1:67175975386",
+      "epoch": 25,
+      "count": 1,
+      "health": 1,
+      "action": "hit",
+      "prev_tick": 812,
+      "contact_tick": 813
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "receipt_token": "1:67175975386",
+      "epoch": 27,
+      "count": 1,
+      "health": 0,
+      "action": "fall",
+      "prev_tick": 842,
+      "contact_tick": 843
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "receipt_token": "1:67175975386",
+      "epoch": 29,
+      "count": 1,
+      "health": 1,
+      "action": "hit",
+      "prev_tick": 884,
+      "contact_tick": 885
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "receipt_token": "1:67175975386",
+      "epoch": 31,
+      "count": 1,
+      "health": 0,
+      "action": "fall",
+      "prev_tick": 926,
+      "contact_tick": 927
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "receipt_token": "1:67175975386",
+      "epoch": 33,
+      "count": 1,
+      "health": 1,
+      "action": "hit",
+      "prev_tick": 954,
+      "contact_tick": 955
+    }
+  ],
+  "ordinary_knockback_not_confused_with_ability_distance": true,
+  "phase_approval": false
+}

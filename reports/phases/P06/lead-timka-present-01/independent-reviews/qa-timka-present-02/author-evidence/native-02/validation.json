@@ -1,0 +1,269 @@
+{
+  "scope": "TIMKA_PRESENT_DISENGAGE_COMPONENT_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 137,
+      "total": 137
+    },
+    {
+      "passed": 104,
+      "total": 104
+    }
+  ],
+  "actual_captures": 33,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/timka_present_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 19.468,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-timka-present-qa/05bf8e14db9ed0e63e50"
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/timka_present_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 36.672,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-timka-present-qa/0fef0ed4aa79b98b0adc"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/commands.json",
+      "sha256": "6916526ee6ff8399acdb974795df2ec0414abb4a41769d7f5f7a53e252d83f2f"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_active_fatal_actual_contact.png",
+      "sha256": "405c03aa4ecaf32f5968ca2859cdeac0a57ef1ca8dee0c9ba544046612a0d411"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_active_hurt_actual_contact.png",
+      "sha256": "7ceb85248c5a5174e17acfa3b6af855a7839f401f5013c934586c86e78a3e532"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_guard_fatal_actual_contact.png",
+      "sha256": "b515c0e4ea2ee1f7f93ab75910ff95da1e39b1e7f95ea9cf9cf96f948019d9c6"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_guard_hurt_actual_contact.png",
+      "sha256": "b0fd10d618000f3766d794978360d5d3bca0eb9e7ffcba8595388e572c2c1db5"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_recovery_fatal_actual_contact.png",
+      "sha256": "e9db70801ad5ea80684216207d331a8cd8a8eb34c5ae7a3f2cbaa41cf5134053"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/Core_melee_recovery_hurt_actual_contact.png",
+      "sha256": "2a456c9e07fe60cbed3bc058b6b36985ea88d495d0e4e17c768c63f973329981"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_guard.png",
+      "sha256": "5e0a206300e0882eb473bc40d3a948f97459763e4de604f080adbe8aab995e7d"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_phase1.png",
+      "sha256": "2e86bebdd719854145e51c7f2ef48bac613aa7ed4be992ac21ac5de8a80b3aee"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_phase2.png",
+      "sha256": "b092fca689fc630da7291964e7651b0f5236f540cc908c94a9aa61f1e9830589"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_phase3.png",
+      "sha256": "abc446c9008f2c2dcb46e97adf0dae074b92f5f29e76f88e797096a317b01d52"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_phase4.png",
+      "sha256": "79a45185e6bf02d17c70c603add995790a831e085fe951a3ea053d161a4f3b91"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_down_phase5.png",
+      "sha256": "240f0ff8507e5263319fbf67fedc4a964f8e1f04d7bd3b82db37cf1ce99acf25"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_guard.png",
+      "sha256": "5a61a2d870ee322f76c5baa7821ea716d778645bf5aa2d484373fb5e4ffb8f5e"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_phase1.png",
+      "sha256": "5aec81686ab5ddc8e0a652622aba5974c581f8f8ee2a91c7313469164b53dcb2"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_phase2.png",
+      "sha256": "0b6043ba81d735ab3730484da68d6362245f3703ebdc4c04cfdab6cec1f0afcc"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_phase3.png",
+      "sha256": "7d481f2047f594dfeb1442c767b77d095c58e4a5830a3f3312df453229308530"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_phase4.png",
+      "sha256": "99ccd10e6b9aad54793237d1862c35f100d6fcd63c2301022ade8abd4cabee7b"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_left_phase5.png",
+      "sha256": "4f951238e54c7eb8464b9fa48237451807be8af986613edab2d219145915536e"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_guard.png",
+      "sha256": "c6e5ab4e76518d22abd4f1eb40ad18875a90fbcf22262e736d0b2c808dfe5a82"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_phase1.png",
+      "sha256": "2850fc915062b1ac8ce208f1e5fa8d9eacc0f2383ef2f13ffb46fd1e6eebc754"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_phase2.png",
+      "sha256": "f23162ef2aa42ecd66609081395dc52df4ccc0370b66a43eb675b71aa221a2e2"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_phase3.png",
+      "sha256": "15928ac1e0f296b25a6759df55d248dba0360a5f507eaf5212f406e10aa0595d"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_phase4.png",
+      "sha256": "502a63e4515097059b016f00a5056cef9e98b2f36836ec35ab7a8e51150b28f9"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_right_phase5.png",
+      "sha256": "6626827a8d1a390dea038ef41aa66396cfc060e4b2514e9aee250e3dc9ede304"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_guard.png",
+      "sha256": "2bb380ff0f891049ee0270733978a7f72c02edfae7b4aa94f7016479bf06a532"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_phase1.png",
+      "sha256": "5addaed26b983599ddc8fda75fedee39580fc7e14ce373d5dcddf9bcc29551b1"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_phase2.png",
+      "sha256": "14214e3917b77060379d63c46f252974d58140cbb12e8d51eb59e5317e65f52f"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_phase3.png",
+      "sha256": "54e7f2e8c884de5a9c0105107e5b9d87e549bc79d7ed937d4689e7174544c4c9"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_phase4.png",
+      "sha256": "4a030753237b18fd214207f38080d2d6d7336da0bbc9ebf69c706a62e55a536f"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/disengage_up_phase5.png",
+      "sha256": "758bc143e90b099ee64fd2c5d5055ad8f2166a939421f9a5fad7ba80d324fcf8"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/present_ready_after_restart.png",
+      "sha256": "b7e9ff631e2b622158c3ba4e73fc3e16d4d5f1b713ae05f6337f436435f7090f"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/projectile_interrupts_actual_step.png",
+      "sha256": "eeabf364d9bbfa1f60561aab7c07863cd57519128d9234874c99027cf2ac21d0"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/result.json",
+      "sha256": "552237718bfc1e4a59d388f1593f6bf22f7b077b97cf2f480a787bfb85b992b8"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live/wall_stops_backward_step.png",
+      "sha256": "7ec2b6bd14afc1dc873c8e9751887c140f2ecc58da5771bc99fb71f5738c6d66"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/live.log",
+      "sha256": "d27d6b4fcf08a01c0bcc82bb972d4aed40ef423b8262f0e56a143a0705710d45"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/movie/result.json",
+      "sha256": "a76ea63efeb2aff713ea311bd2f7f6c01c444d020420d63a79ad145c6de3511a"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/movie.log",
+      "sha256": "91aa07ccfac7157e4b62d78fe76776a993c75696d21ee5bf10d9ad27c1d67e46"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/movie_probe.json",
+      "sha256": "d7dd3155005f438b9b516e8953736d8f179843b7729efd960a1de8b62eac143b"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/native-02/source_hashes.json",
+      "sha256": "89d9a74f2af63da34840bcdba52147ff18405c6906900c7155ff78b12f265972"
+    }
+  ]
+}
