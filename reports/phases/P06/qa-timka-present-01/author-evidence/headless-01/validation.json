@@ -1,0 +1,60 @@
+{
+  "scope": "TIMKA_PRESENT_DISENGAGE_COMPONENT_ONLY",
+  "phase_approval": false,
+  "passed": false,
+  "source_unchanged": true,
+  "source_head": "7c7e70bf1a0f15d5cea3f226040e7cf0a70f1637",
+  "headless": true,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 70,
+      "total": 72
+    }
+  ],
+  "actual_captures": 0,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/timka_present_replay.gd"
+      ],
+      "exit_code": 1,
+      "passed": false,
+      "seconds": 1.544,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-timka-present-qa/4efe9e00acea2b40dfbc"
+    }
+  ],
+  "movie_path": null,
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/timka-present-01/headless-01/commands.json",
+      "sha256": "90bbc6c9e0935463314ff0e7dec1f452478d25cd443a7093b6cce464e1fac23b"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/headless-01/live/result.json",
+      "sha256": "2934a859568fc78145b01ebc2b411d6e32cdbf62cfe1c6fff6548c5babe2cf57"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/headless-01/live.log",
+      "sha256": "1ea9fc7dd6ae34392640bca416d18ec5dd934dfb15b2ea4336132b25ef3ef1b3"
+    },
+    {
+      "path": "reports/phases/P06/timka-present-01/headless-01/source_hashes.json",
+      "sha256": "c4aa5d6c52f298f447fde222f243e2aa057de51a5bf0b68f78af96b48c3271f4"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "TP-Q01",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "kind": "AUTOMATED_REGRESSION_GATE_GAP",
+    "title": "Timka present Input replay is absent from the common verifier",
+    "evidence": [
+      "code-freeze/tools/verify.py",
+      "CI-registration-finding.json"
+    ],
+    "actual": "Common verify registers Gabar, Oleg and counter-feedback wrappers; new Timka present wrapper is not scheduled. Readiness/layout do not exercise its movement clock and input/cancel behaviour.",
+    "required_fix": "Register the existing headless Timka present wrapper with a fresh output path in common verification; independently verify actual constructed command and fail propagation."
+  },
+  {
+    "id": "TP-Q02",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "kind": "ACCEPTANCE_EVIDENCE_GAP",
+    "title": "No real incoming CombatSystem contact verifies vulnerable disengage phases",
+    "evidence": [
+      "code-freeze/game/tests/timka_present_replay.gd",
+      "actual-trace-analysis.json"
+    ],
+    "actual": "Independent72/headless author72/native98/movie72 traces have zero contact_committed contacts. Hurt/death sections invoke receive_hit directly. These valid interruption checks do not establish that Core melee/spatial-query and projectile delivery reach Timka during guard/active/recovery. No invulnerability implementation bug was reproduced.",
+    "required_fix": "Add actual controlled enemy melee and projectile delivery through production CombatSystem during guard, moving and recovery phases, with nonfatal/fatal receipt counts and stop/no-ghost checks; no direct target receive_hit/_apply_hit substitution, player teleport or mask change during measured attack."
+  }
+]

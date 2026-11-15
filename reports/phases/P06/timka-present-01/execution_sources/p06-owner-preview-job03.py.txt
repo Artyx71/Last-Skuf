@@ -1,0 +1,15 @@
+import sys,subprocess,json,shutil
+from pathlib import Path
+w=Path.cwd();r=w.parents[2];sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import sources,write,sha
+base=w/'reports/phases/P06/owner-preview-20261115-03';build=w/'build/P06/owner-preview-20261115-03';friendly=r/'build/P06_DEV_20261115_03';assert not friendly.exists() and not friendly.is_symlink()
+frozen=json.loads((w/'reports/phases/P06/timka-present-01/native-02/source_hashes.json').read_text());current=sources();assert set(frozen)==set(current);assert [p for p in frozen if frozen[p]!=current[p]]==['game/scripts/qa/owner_preview_smoke.gd']
+argv=[sys.executable,'tools/export_p06_preview.py','--output',str(base),'--build-output',str(build)];code=subprocess.run(argv,cwd=w).returncode
+if code:raise SystemExit(code)
+old=w/'build/P06/owner-preview-20261115-02'
+for name in ['PLAY_LINUX.sh','PLAY_WINDOWS.cmd','GODOT_COPYRIGHT.txt','GODOT_LICENSE.txt']:shutil.copy2(old/name,build/name)
+(build/'ПРОЧТИ_МЕНЯ.txt').write_text('АЫАЫ: Последний скуф — DEV preview 2026-11-15 / 03\n\nЭто прототип P06, не готовая кампания и не релиз.\nPLAY_LINUX.sh / PLAY_WINDOWS.cmd открывают полигон. Профили этой сборки отдельные; DEV01/02 сохранены.\n1: Габар. 2: Олежка с окном блока. 3: современный Тимка. 4–7 пока не готовы и не заменяют героя.\nWASD/Shift: движение; Space: толчок; F: приём; C: отмена; R: повтор; O: эффекты; Esc: меню.\nТимка: F — короткий шаг назад с коллизией и восстановлением. Он получает урон, не выполняет добивания и не получает силу прайма.\nМеню: F5 полигон, F6 портреты/диалоги; CH01 и журнал доступны из меню. Сюжетные сохранения отделены от полигона.\nLinux проверяется настоящим рендером, Windows PE — под Wine headless; native Windows не проверен.\n')
+files=[{'path':str(p.relative_to(build)),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(build.rglob('*')) if p.is_file()];preview=json.loads((base/'preview.json').read_text());linux=json.loads((base/'linux_smoke/result.json').read_text());win=json.loads((base/'windows_smoke/result.json').read_text());handoff={'schema':1,'scope':'LOCAL_OWNER_DEV_PREVIEW','phase_approval':False,'source_head':preview['source_head'],'friendly_directory':str(friendly),'files':files,'linux_checks':len(linux['checks']),'Wine_headless_checks':len(win['checks']),'native_windows':'NOT_TESTED','new_feature':'Timka peaceful present real collision disengage, no prime/finisher grant'};write(base/'owner-handoff.json',handoff);write(build/'BUILD_MANIFEST.json',handoff)
+assert not subprocess.run(['bash','-n',str(build/'PLAY_LINUX.sh')]).returncode
+for f in files:assert sha(build/f['path'])==f['sha256']
+friendly.parent.mkdir(exist_ok=True);friendly.symlink_to(build,target_is_directory=True);print('OWNER_PREVIEW_READY',friendly,'linux',len(linux['checks']),'Wineheadless',len(win['checks']),flush=True)

@@ -1,0 +1,120 @@
+{
+  "scope": "READ_ONLY_DEV03_ARTIFACT_AND_SAVED_SMOKE_INSPECTION_ONLY",
+  "source_head": "f66995892c8fdf8782e389a76c8ff05d628714d0",
+  "changes_from_reviewed2780_game": [
+    "game/scripts/qa/owner_preview_smoke.gd"
+  ],
+  "source_inventory_diff": [
+    "game/scripts/qa/owner_preview_smoke.gd"
+  ],
+  "source_inventory_count": 1108,
+  "exports": [
+    {
+      "platform": "Linux",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-03/linux/last-skuf.x86_64",
+      "native_windows": null,
+      "sha256": "f9dccfe24827011b2710a24d45edc4970ee4e8cc55fcac554bd7e678217ff38f",
+      "bytes": 77382624,
+      "runtime_smoke_passed": true,
+      "runtime_scope": "Linux renderer + Input menu/available fixtures",
+      "captures": 5
+    },
+    {
+      "platform": "Windows",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-03/windows/last-skuf.exe",
+      "native_windows": "NOT_TESTED",
+      "sha256": "6977fa5c9587e064807a89c8f4713256191a302ff8cf53331d81f598bf05b28d",
+      "bytes": 113131696,
+      "runtime_smoke_passed": true,
+      "runtime_scope": "Actual Windows PE under Wine headless + Input menu/available fixtures",
+      "captures": 0
+    }
+  ],
+  "actual_saved_smoke_counts": {
+    "linux_smoke": 26,
+    "windows_smoke": 21
+  },
+  "friendly_files_verified": 7,
+  "friendly_resolves_to": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-03",
+  "selected_actual_linux_png_visually_inspected": "linux_smoke/timka_present.png",
+  "producer_receipt": {
+    "operation": "738b87f6a425418fbffa06d62e9d8cb9",
+    "argv_sha256": "c97cec8ea1fb6f7d4569c4c54e7934a8c227f84859abaa79a8c46ab077715772",
+    "exit_code": 0,
+    "log_sha256": "d1cece8b6ec07fce1968dbadbe828a27d47a38dcb9cffda507d06c7a53d173dd",
+    "seconds": 22.82
+  },
+  "producer_actual_log_sha256": "d1cece8b6ec07fce1968dbadbe828a27d47a38dcb9cffda507d06c7a53d173dd",
+  "copies": [
+    {
+      "path": "dev03-addendum/preview.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/preview.json",
+      "sha256": "4b342d272916bf14996fec4873dd515fb950bf8c3b1b543c621b344e9c92f261"
+    },
+    {
+      "path": "dev03-addendum/exports.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/exports.json",
+      "sha256": "b47a732e4e78a53f6def1552609eb1b09dc76c9a228668f6de85ad4081a4a310"
+    },
+    {
+      "path": "dev03-addendum/owner-handoff.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/owner-handoff.json",
+      "sha256": "730aeafca5e87985a21d585f59ace87504a13d9e441a085dc4c809a33a52ff94"
+    },
+    {
+      "path": "dev03-addendum/commands.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/commands.json",
+      "sha256": "09f0d31a3660f1888dd9ccef75e45ec98cd20dce7af0ee09081396bb799b3491"
+    },
+    {
+      "path": "dev03-addendum/linux_smoke/result.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/linux_smoke/result.json",
+      "sha256": "7225e6c10d00bd7b9263ee89823a8b3329a802a4d73c96522785e3e93cc6f737"
+    },
+    {
+      "path": "dev03-addendum/windows_smoke/result.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/windows_smoke/result.json",
+      "sha256": "4675cdf6d5c3deb5a350b588ae4cc4dfe0ef4b0c4925366472ce088722628a8d"
+    },
+    {
+      "path": "dev03-addendum/linux_smoke/timka_present.png",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/linux_smoke/timka_present.png",
+      "sha256": "10ad6ee32722a6b294458a634b3588a6413dc81af090ceb56dc6da635db1d448"
+    },
+    {
+      "path": "dev03-addendum/export_linux.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/export_linux.log",
+      "sha256": "3b30b2e9b2c837fc0c5517c23997aefac0282e044725071626c39d412cd36cff"
+    },
+    {
+      "path": "dev03-addendum/export_windows.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/export_windows.log",
+      "sha256": "a4bde1e322bcf5e8a96d33f6ebbdd4b1b615d59eee8d22cfb149fe7a24724be6"
+    },
+    {
+      "path": "dev03-addendum/linux_smoke.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/linux_smoke.log",
+      "sha256": "9cc6a6ccbe01d40b916b8ac3a2dcbd52ed93a99a50a34bc5cd868182d927ab10"
+    },
+    {
+      "path": "dev03-addendum/windows_smoke.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-03/windows_smoke.log",
+      "sha256": "e89887c38794685975b5a048239cc806b6f46c3f04081fa46b0d93f0aed04ae5"
+    }
+  ],
+  "no_independent_export_or_packed_runtime_rerun": true,
+  "native_windows": "NOT_TESTED",
+  "phase_approval": false,
+  "release_approval": false,
+  "metadata_note": {
+    "severity": "LOW",
+    "path": "preview.json/available_combat_heroes",
+    "actual": [
+      "gabar",
+      "olezhka"
+    ],
+    "issue": "Saved preview list omits Timka present despite actual26/21 smoke and handoff new_feature. Requires explicit metadata erratum; does not invalidate binary/runtime observations."
+  }
+}
