@@ -7,7 +7,7 @@ var meter: ProgressBar
 var displayed_feedback: Dictionary = {}
 
 func _ready() -> void:
-	position=Vector2(380,25)
+	position=Vector2(380,23)
 	size=Vector2(244,28)
 	z_index=20
 	process_priority=100
@@ -34,7 +34,7 @@ func _ready() -> void:
 	meter.add_theme_stylebox_override("background",background)
 	meter.add_theme_stylebox_override("fill",fill)
 	add_child(meter)
-	meter.size=Vector2(244,2)
+	meter.size=Vector2(144,2)
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(lab) or not is_instance_valid(lab.player):hide();return
