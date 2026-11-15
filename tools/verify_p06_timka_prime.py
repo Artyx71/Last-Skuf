@@ -56,17 +56,36 @@ def completed_live_evidence(folder, current_sources):
     result_path = folder / 'live/result.json'
     if not {result_path, folder / 'source_hashes.json', folder / 'live.log', folder / 'commands.json'} <= verified_paths:
         raise ValueError('Required completed live artifacts are not bound')
+    bound_commands = read(folder / 'commands.json')
+    if not (isinstance(bound_commands, list) and len(bound_commands) == 1 and
+            isinstance(bound_commands[0], dict) and bound_commands[0].get('passed') is True and
+            type(bound_commands[0].get('exit_code')) is int and bound_commands[0]['exit_code'] == 0):
+        raise ValueError('Bound live commands contradict a successful typed receipt')
+    # JSON equality must preserve bool/int/float distinctions in receipt fields.
+    if json.dumps(bound_commands, sort_keys=True, allow_nan=False) != json.dumps(commands, sort_keys=True, allow_nan=False):
+        raise ValueError('Bound live commands contradict the validation summary')
     result = read(result_path)
-    if not (result.get('passed') is True and result.get('actual_input') is True and
-            result.get('renderer') not in [None, '', 'headless'] and result.get('checks') and
+    if not (result.get('scope') == 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY' and
+            result.get('phase_approval') is False and result.get('passed') is True and result.get('actual_input') is True and
+            isinstance(result.get('renderer'), str) and result['renderer'] not in ['', 'headless'] and result.get('checks') and
             all(item.get('passed') is True for item in result['checks'])):
         raise ValueError('Native live result does not establish successful actual Input')
+    counts = report.get('checks')
+    if (not isinstance(counts, list) or len(counts) != 1 or
+            any(type(counts[0].get(key)) is not int for key in ['passed', 'total']) or
+            counts != [{'passed': len(result['checks']), 'total': len(result['checks'])}]):
+        raise ValueError('Live check counts contradict the actual result')
     captures = result.get('captures')
     if not isinstance(captures, list) or not captures or type(report.get('actual_captures')) is not int or len(captures) != report['actual_captures']:
         raise ValueError('Completed native captures are required')
+    capture_paths = set()
     for item in captures:
-        if item.get('code') != 0 or Path(item['path']).resolve() not in verified_paths:
+        path = Path(item['path']).resolve()
+        if type(item.get('code')) is not int or item['code'] != 0 or path not in verified_paths or path in capture_paths:
             raise ValueError('Native capture is not bound to the verified live inventory')
+        capture_paths.add(path)
+    if capture_paths != {path for path in verified_paths if path.suffix.lower() == '.png'}:
+        raise ValueError('Native capture paths contradict the actual PNG inventory')
     if ERRORS.search((folder / 'live.log').read_text()):
         raise ValueError('Live log contains engine/test errors')
     return {'validation': str(manifest.relative_to(ROOT)), 'sha256': sha(manifest),

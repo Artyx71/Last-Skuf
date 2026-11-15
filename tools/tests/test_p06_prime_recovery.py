@@ -26,18 +26,20 @@ class CompletedLiveRecoveryTest(unittest.TestCase):
         self.capture = self.folder / 'live/unit.png'
         self.capture.write_bytes(b'UNIT FIXTURE ONLY, not a generated screenshot')
         self.write('source_hashes.json', self.source)
-        self.write('commands.json', [])
+        commands = [{'name': 'live', 'passed': True, 'exit_code': 0,
+                     'argv': [str(replay.GODOT), '--path', str(self.root / 'game'),
+                              '--disable-vsync', '--max-fps', '60', '--script',
+                              'res://tests/timka_prime_replay.gd']}]
+        self.write('commands.json', commands)
         (self.folder / 'live.log').write_text('UNIT fixture successful log\n')
-        self.write('live/result.json', {'passed': True, 'actual_input': True, 'renderer': 'UNIT_RENDERER',
+        self.write('live/result.json', {'scope': 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY', 'phase_approval': False,
+                   'passed': True, 'actual_input': True, 'renderer': 'UNIT_RENDERER',
                    'checks': [{'passed': True}], 'captures': [{'path': str(self.capture), 'code': 0}]})
         self.report = {'scope': 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY', 'passed': True,
                        'source_unchanged': True, 'headless': False, 'actual_input': True,
                        'phase_approval': False, 'movie_path': None, 'source_head': '0' * 40,
                        'checks': [{'passed': 1, 'total': 1}], 'actual_captures': 1,
-                       'commands': [{'name': 'live', 'passed': True, 'exit_code': 0,
-                                     'argv': [str(replay.GODOT), '--path', str(self.root / 'game'),
-                                              '--disable-vsync', '--max-fps', '60', '--script',
-                                              'res://tests/timka_prime_replay.gd']}],
+                       'commands': commands,
                        'artifacts': [{'path': str(p.relative_to(self.root)), 'sha256': replay.sha(p)}
                                      for p in sorted(self.folder.rglob('*')) if p.is_file()]}
         self.save_report()
@@ -50,6 +52,12 @@ class CompletedLiveRecoveryTest(unittest.TestCase):
 
     def validate(self):
         return replay.completed_live_evidence(self.folder, self.source)
+
+    def rebind(self, relative):
+        path = self.folder / relative
+        for entry in self.report['artifacts']:
+            if entry['path'] == str(path.relative_to(self.root)): entry['sha256'] = replay.sha(path)
+        self.save_report()
 
     def test_intact_toy_inventory_is_reusable(self):
         self.assertTrue(self.validate()['all_artifacts_verified'])
@@ -96,6 +104,48 @@ class CompletedLiveRecoveryTest(unittest.TestCase):
             with self.subTest(text=text):
                 (self.folder / 'validation.json').write_text(text)
                 with self.assertRaises(ValueError): self.validate()
+
+    def test_coherently_rebound_failed_command_cannot_be_overruled_by_summary(self):
+        self.write('commands.json', [{'name': 'live', 'passed': False, 'exit_code': 9}])
+        self.rebind('commands.json')
+        with self.assertRaisesRegex(ValueError, 'commands contradict'): self.validate()
+
+    def test_bound_numeric_boolean_receipt_cannot_equal_true_zero(self):
+        original = json.loads((self.folder / 'commands.json').read_text())
+        for key, value in [('passed', 1), ('exit_code', False)]:
+            with self.subTest(key=key):
+                commands = [original[0] | {key: value}]
+                self.write('commands.json', commands)
+                self.rebind('commands.json')
+                with self.assertRaisesRegex(ValueError, 'typed receipt'): self.validate()
+
+    def test_rebound_foreign_scope_or_phase_approval_is_rejected(self):
+        original = json.loads((self.folder / 'live/result.json').read_text())
+        for key, value in [('scope', 'GABAR_DIFFERENT_COMPONENT'), ('phase_approval', True)]:
+            with self.subTest(key=key):
+                self.write('live/result.json', original | {key: value})
+                self.rebind('live/result.json')
+                with self.assertRaises(ValueError): self.validate()
+
+    def test_two_aliases_do_not_establish_two_actual_captures(self):
+        result = json.loads((self.folder / 'live/result.json').read_text())
+        result['captures'].append(result['captures'][0])
+        self.report['actual_captures'] = 2
+        self.write('live/result.json', result)
+        self.rebind('live/result.json')
+        with self.assertRaisesRegex(ValueError, 'capture'): self.validate()
+
+    def test_summary_cannot_inflate_actual_checks(self):
+        self.report['checks'] = [{'passed': 999, 'total': 999}]
+        self.save_report()
+        with self.assertRaisesRegex(ValueError, 'counts contradict'): self.validate()
+
+    def test_extra_bound_png_cannot_disappear_from_actual_capture_list(self):
+        path = self.folder / 'live/extra.png'
+        path.write_bytes(b'UNIT fixture only')
+        self.report['artifacts'].append({'path': str(path.relative_to(self.root)), 'sha256': replay.sha(path)})
+        self.save_report()
+        with self.assertRaisesRegex(ValueError, 'PNG inventory'): self.validate()
 
 
 if __name__ == '__main__':
