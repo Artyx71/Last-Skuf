@@ -24,13 +24,12 @@ func _ready() -> void:
 	process_priority = 100 # After the simulation, before this frame is drawn.
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	title = Label.new()
-	title.size = Vector2(274,18)
 	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	title.add_theme_font_size_override("font_size",11)
 	add_child(title)
+	title.size = Vector2(274,18)
 	meter = ProgressBar.new()
 	meter.position = Vector2(0,22)
-	meter.size = Vector2(274,5)
 	meter.max_value = 1.0
 	meter.step = 0.0
 	meter.show_percentage = false
@@ -41,6 +40,9 @@ func _ready() -> void:
 	meter.add_theme_stylebox_override("background",background)
 	meter.add_theme_stylebox_override("fill",fill_style)
 	add_child(meter)
+	# Set the rect AFTER disabling percentage/theme minima; the default theme
+	# otherwise clamps an early 5px assignment to its 27px text minimum.
+	meter.size = Vector2(274,5)
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(lab) or not is_instance_valid(lab.player):

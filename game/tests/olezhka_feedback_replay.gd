@@ -21,12 +21,14 @@ func observe_hud() -> void:
 	var hud: Control = lab.counter_feedback
 	var player: CharacterBody2D = lab.player
 	var shown: Dictionary = hud.displayed_feedback.duplicate(true)
+	var rect: Rect2 = hud.meter.get_global_rect()
 	observations.append({"segment":segment,"physics_tick":Engine.get_physics_frames(),
 		"clock":player.action_elapsed,"action":player.action_kind,"frame":player.action_frame,
 		"health":player.health,"cooldown":player.ability_cooldown,"blocks":player.counter_blocks,
 		"damage":lab.combat.damage_events,"phase":shown.get("phase",""),
 		"window_open":player.counter_window_open(),"model":player.counter_feedback(),
-		"displayed":shown,"text":hud.title.text,"bar":hud.meter.value,"visible":hud.visible})
+		"displayed":shown,"text":hud.title.text,"bar":hud.meter.value,"visible":hud.visible,
+		"bar_rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
 
 func sample_frames(count: int) -> void:
 	for i in count: await observer.sampled
@@ -184,14 +186,17 @@ func run() -> void:
 	var parity := true
 	var bounds := true
 	var layout := true
+	var bar_clear := true
 	var phases: Dictionary = {}
 	for item in observations:
 		if item.displayed != item.model: parity = false
 		if item.phase=="guard" and not item.window_open: parity = false
 		if item.bar < 0 or item.bar > 1: bounds = false
+		if item.visible and (item.bar_rect[1]+item.bar_rect[3]>62 or item.bar_rect[3]!=5): bar_clear=false
 		phases[item.phase] = true
 	check("every_observed_frame_HUD_matches_current_simulation",parity,{"samples":observations.size()})
 	check("bar_is_always_bounded",bounds)
+	check("actual_bar_rect_is_5px_and_never_overlaps_arena",bar_clear)
 	for phase in ["ready","preparing","guard","closed","counter","recovery","cooldown","paused","dead","unavailable","hidden"]:
 		check("observed_real_phase_"+phase,phases.has(phase))
 	var hud: Control = lab.counter_feedback
