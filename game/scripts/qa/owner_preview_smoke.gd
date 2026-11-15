@@ -33,6 +33,23 @@ func run() -> void:
 	output=OS.get_environment("AYAY_OWNER_PREVIEW_SMOKE_OUTPUT")
 	if not output.is_empty(): DirAccess.make_dir_recursive_absolute(output)
 	await frames(3)
+	# Runs inside the actual packaged ELF/PE: exported JSON and imported streams
+	# must exist independently of the source checkout. This is a playback-binding
+	# smoke check, not artistic listening or a full exported combat replay.
+	var audio: Node=get_node("/root/AudioDirector")
+	var entries: Dictionary=preload("res://scripts/systems/character_finisher_audio.gd").entries()
+	check("exported_twenty_finisher_routes_and_audio_ready",audio.ready_assets and entries.size()==20)
+	for cue in entries:
+		var entry: Dictionary=entries[cue]
+		var stream: Resource=load(entry.path)
+		check("exported_stream:"+cue,stream is AudioStreamWAV and stream.mix_rate==44100 and not stream.stereo and stream.loop_mode==AudioStreamWAV.LOOP_DISABLED and stream.get_length()>=0.20 and stream.get_length()<=0.35)
+		var played: bool=audio.play_cue(StringName(cue))
+		var found:=0
+		for voice in audio.voices:
+			if voice.playing and voice.stream.resource_path==entry.path and voice.bus==&"SFX" and is_equal_approx(voice.volume_db,float(entry.gain_db)):
+				found+=1
+				voice.stop() # The smoke probe retires its own voice, keeping the pool free.
+		check("exported_playback_binding:"+cue,played and found==1)
 	await capture("menu")
 	await tap(KEY_F5)
 	await frames(4)
