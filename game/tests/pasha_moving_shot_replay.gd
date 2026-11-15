@@ -12,12 +12,15 @@ var impact_reset_pending := false
 var impact_reset_executed := false
 
 func check(label: String, ok: bool, details: Dictionary = {}) -> void:
-	checks.append({"name":label,"passed":ok,"details":details})
+	checks.append({"name":label,"passed":ok,"details":details.duplicate(true)})
 	if not ok: push_error("FAIL P06_PASHA "+label)
 
 func frames(count: int) -> void:
 	for i in count:
 		await super.frames(1)
+		# SceneTree.process_frame precedes Node._process. Observe the completed
+		# presentation/HUD/garment update, rather than last frame's decal position.
+		await create_timer(0.0).timeout
 		if trace_enabled and is_instance_valid(lab.player) and lab.player.actor_id=="pasha":
 			var p: CharacterBody2D=lab.player
 			ammo_trace.append({"segment":segment,"tick":Engine.get_physics_frames(),"ammo":p.movement_ability.ammo,
@@ -49,7 +52,9 @@ func setup(di: int, target_distance := 90.0, target_health := 1) -> CharacterBod
 	lab.player.scene_policy=lab.scene_policy
 	if lab.scene_policy.ability_id()!="moving_shot":lab.scene_policy.open("pasha_training")
 	lab.reset_encounter();lab.auto_retry=false
-	lab.player.position=Vector2(300,240)
+	# Vertical lanes use the existing open gap between authored walls. The first
+	# baseline deliberately retained in reports exposed out-of-bounds targets.
+	lab.player.position=[Vector2(380,200),Vector2(300,240),Vector2(300,240),Vector2(380,270)][di]
 	lab.player.set_aim(DIRECTIONS[di])
 	for enemy in lab.enemies:
 		enemy.set_physics_process(false);enemy.position=Vector2(560,100)
