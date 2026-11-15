@@ -20,6 +20,12 @@ var action_authority_snapshot: Dictionary = {}
 var action_ability_id := ""
 var counter_spent := false
 var counter_blocks := 0
+const COUNTER_GUARD_OPEN := 0.06
+const COUNTER_GUARD_CLOSE := 0.26
+const COUNTER_WINDUP := 0.28
+const COUNTER_ACTIVE := 0.10
+const COUNTER_RECOVERY := 0.34
+const COUNTER_COOLDOWN := 2.0
 
 func configure(id: String, policy: RefCounted) -> bool:
 	if is_inside_tree() or not policy is ScenePolicy or policy.definition().get("actor_id") != id: return false
@@ -185,10 +191,10 @@ func use_ability() -> bool:
 
 func _start_training_counter() -> bool:
 	_face_aim()
-	action_windup = 0.28
-	action_active = 0.10
-	action_recovery = 0.34
-	ability_cooldown = 2.0
+	action_windup = COUNTER_WINDUP
+	action_active = COUNTER_ACTIVE
+	action_recovery = COUNTER_RECOVERY
+	ability_cooldown = COUNTER_COOLDOWN
 	ability_uses += 1
 	counter_spent = false
 	# Guard pose first; no melee damage is scheduled unless a real incoming
@@ -196,10 +202,42 @@ func _start_training_counter() -> bool:
 	_play_action("special",action_windup+action_active+action_recovery)
 	return true
 
-func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2D) -> bool:
-	if actor_id != "olezhka" or lab.state != "playing" or health <= 0: return false
+func counter_window_open() -> bool:
+	# The HUD and defense use the same live predicate, never a second UI timer.
+	if actor_id != "olezhka" or lab == null or lab.state != "playing" or health <= 0: return false
 	if action_kind != "special" or action_ability_id != "training_counter" or not _action_authorized(): return false
-	if counter_spent or action_frame != 0 or action_elapsed < 0.06 or action_elapsed > 0.26: return false
+	return not counter_spent and action_frame == 0 and action_elapsed >= COUNTER_GUARD_OPEN and action_elapsed <= COUNTER_GUARD_CLOSE
+
+func _counter_view(phase: String, progress := 0.0) -> Dictionary:
+	return {"phase":phase,"progress":clampf(progress,0.0,1.0),"cooldown":ability_cooldown,
+		"window_open":counter_window_open()}
+
+func counter_feedback() -> Dictionary:
+	# Read-only presentation snapshot. Calling this never consumes a block/action.
+	if actor_id != "olezhka": return _counter_view("hidden")
+	if health <= 0: return _counter_view("dead")
+	if lab == null: return _counter_view("unavailable")
+	if lab.state == "options": return _counter_view("paused")
+	if lab.state != "playing" or scene_policy == null: return _counter_view("unavailable")
+	if scene_policy.definition().get("actor_id") != actor_id or scene_policy.ability_id() != "training_counter":
+		return _counter_view("unavailable")
+	if action_kind == "special" and action_ability_id == "training_counter":
+		if not _action_authorized(): return _counter_view("unavailable")
+		if counter_window_open():
+			return _counter_view("guard",(COUNTER_GUARD_CLOSE-action_elapsed)/(COUNTER_GUARD_CLOSE-COUNTER_GUARD_OPEN))
+		if action_elapsed < COUNTER_GUARD_OPEN:
+			return _counter_view("preparing",action_elapsed/COUNTER_GUARD_OPEN)
+		if action_frame == 1 and counter_spent:
+			return _counter_view("counter",(action_windup+action_active-action_elapsed)/action_active)
+		if action_frame == 2:
+			return _counter_view("recovery",action_timer/action_recovery)
+		return _counter_view("closed")
+	if not action_kind.is_empty() or not lab.combat.finisher_for(self).is_empty(): return _counter_view("busy")
+	if ability_cooldown > 0: return _counter_view("cooldown",1.0-ability_cooldown/COUNTER_COOLDOWN)
+	return _counter_view("ready",1.0) if _can_begin_action() else _counter_view("unavailable")
+
+func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2D) -> bool:
+	if not counter_window_open(): return false
 	if String(definition.get("category","")) not in ["unarmed","blunt","sharp"]: return false
 	if not source is CharacterBody2D or not (source.collision_layer & 4) or source.health <= 0: return false
 	var offset := source.global_position-global_position

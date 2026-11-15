@@ -6,6 +6,7 @@ const CharacterCatalog = preload("res://scripts/systems/character_catalog.gd")
 var scene_policy := ScenePolicy.new()
 var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training","pasha_training"]
 var selection_message := ""
+var counter_feedback: Control
 
 func _ready() -> void:
 	var view_guard := preload("res://scripts/systems/campaign_view_guard.gd").new()
@@ -22,6 +23,9 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Label and child.text.begins_with("P02 /"):
 			child.text = "P06 / ПОЛИГОН ПЕРСОНАЖЕЙ · НЕ СЮЖЕТНАЯ ГЛАВА"
+	counter_feedback = preload("res://scripts/ui/counter_feedback.gd").new()
+	counter_feedback.lab = self
+	add_child(counter_feedback)
 	_update_hud()
 
 func _create_player() -> CharacterBody2D:
@@ -88,9 +92,14 @@ func _cycle_equipment() -> void:
 func _update_hud() -> void:
 	if not kit_label or not player: return
 	var actor: Dictionary = CharacterCatalog.actor(player.actor_id)
-	kit_label.text = actor.display_name+" / "+String(scene_policy.definition().get("context",""))+" · "+selection_message
+	var context: String = scene_policy.definition().get("context","")
+	var names := {"training":"тренировка","peaceful_present":"настоящее","athletic_prime":"прайм"}
+	kit_label.text = actor.display_name+" / "+String(names.get(context,context))
 	hint_label.text = "WASD/Shift · Space: толчок · F: приём · V: добивание · Tab: инструмент · O: эффекты"
+	if player.actor_id == "olezhka":
+		hint_label.text = "F: парировать спереди · WASD/Shift · Space: толчок · V: добить · C: отмена · O: эффекты"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
+	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
 	if equipment_label:
 		equipment_label.text = "Инструмент: "+["Кулаки","Труба","Нож","Пистолет","Верстак"][equipment_index]+" · Tab: сменить инструмент"
 	if damage_portrait:
