@@ -1,5 +1,5 @@
 # Продолжение P06
 
-Паша Lead01 PASS_COMPONENT f43d2434 наb359 и DEV06 Linux40/Wine31 готов. Архивировать metadata/evidence без измененияGame source. Затем один serial C01 offline signal job28959fe8 для20реальныхWAV-кандидатов; исправить доказанные signal defects, интегрировать вGodot и получить runtime/independent/слуховую приёмку. C09 NPCstyles/fullverifier/readiness остаются внутриP06. Fullphase/P07/merge не разрешены.
+Тега и Паша имеют независимый Lead PASS_COMPONENT; DEV06 owner smoke принят. C01 source signal PASS c69fe500:20 новых WAV плюс прежние5 Якудзы. В WORK незакоммиченная интеграция маршрутов и аудиотестов. Сначала закончить author tests/replay, заморозить source; release author lease, один canonical Controller.stage import/runtime/mixer QA, затем независимый review. Только художественную приёмку новых SFX оставить BLOCKED при отсутствии слушателя. C09 NPC styles, full verifier и readiness остаются открыты.
 
-Одинauthor/engine; сверятьcanonicalreceipt/lease; consumedjobs не повторять. Sourceb359 принят только как компонент. ROOTuserchanges/privatephotos сохранить; permanent runner false.
+Один автор/engine job; сохранять failures/receipts. P06 attempt1 IMPLEMENTING; P07/merge/phase approval false. Постоянного runner нет. Resume reports/phases/P06/resume/decision.json; authority ROOT/automation/phase_state.json.

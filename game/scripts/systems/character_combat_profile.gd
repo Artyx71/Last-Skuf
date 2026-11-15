@@ -1,6 +1,7 @@
 extends RefCounted
 ## Pure copy-on-resolve character tuning. A trusted scene supplies the context.
 const Characters = preload("res://scripts/systems/character_catalog.gd")
+const FinisherAudio = preload("res://scripts/systems/character_finisher_audio.gd")
 const PATH := "res://resources/characters/combat_profiles.json"
 
 static func resolve_finisher(actor_id: String, context: String, category: String, base: Dictionary) -> Dictionary:
@@ -13,6 +14,8 @@ static func resolve_finisher(actor_id: String, context: String, category: String
  if not parsed is Dictionary or parsed.get("schema") != 1: return {}
  var profile: Dictionary = parsed.get("profiles", {}).get(actor_id, {})
  if profile.is_empty() or context not in profile.get("contexts", []): return {}
+ var cue := FinisherAudio.cue_for(actor_id,context,category)
+ if cue.is_empty(): return {}
  var result := base.duplicate(true)
  for phase in ["windup", "active", "recovery"]:
   var time_value: Variant = profile.get("finisher", {}).get(phase)
@@ -21,4 +24,5 @@ static func resolve_finisher(actor_id: String, context: String, category: String
  result["character_id"] = actor_id
  result["character_style"] = profile.style
  result["scene_context"] = context
+ result["cue"] = cue
  return result

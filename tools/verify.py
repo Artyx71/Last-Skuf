@@ -55,10 +55,11 @@ def main():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
     if (ROOT / 'game/tests/character_frames_test.gd').is_file():
+        commands.append(('character_finisher_audio_source', [sys.executable, 'tools/verify_character_finisher_audio.py']))
         commands.append(('world_input_gate', [sys.executable, '-m', 'unittest', 'discover',
                          '-s', 'tools/tests', '-p', 'test_p06_world_input.py']))
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
-                        for name in ['character_combat_profile', 'character_scene_policy',
+                        for name in ['character_combat_profile', 'character_finisher_audio', 'character_scene_policy',
                                      'character_policy_integration', 'character_dialogue', 'character_frames',
                                      'character_readiness', 'timka_layout', 'ryzhik_roll_layout', 'yakuza_finisher_authority'])
         commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
