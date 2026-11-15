@@ -39,19 +39,42 @@ func run() -> void:
 		var frameset: SpriteFrames=lab.player.authored_frames
 		check("own_required_clip_count:"+str(present),frameset.get_animation_names().size()==(32 if present else 48))
 		for di in 4:
-			segment=("present" if present else "prime")+"_locomotion_"+NAMES[di]
+			var route: String=("present" if present else "prime")+"_locomotion_"+NAMES[di]
+			segment="setup_"+route
 			await fixture(DIRECTIONS[di],1,false)
+			for enemy in lab.enemies:enemy.position=Vector2(520,100)
+			lab.player.position=Vector2(280,300 if di==3 else 190) if di in [0,3] else Vector2(300,280)
+			await frames(2)
+			segment=route
 			var idle: Texture2D=frameset.get_frame_texture(StringName("idle_"+NAMES[di]),0)
 			check(segment+":different_authored_stance",idle.get_meta("source_kind")==("world" if present else "finisher"))
 			var movement: Texture2D=frameset.get_frame_texture(StringName("walk_"+NAMES[di]),0)
 			check(segment+":different_authored_stride",movement.get_meta("original_source_column")== (2 if present else 6) and frameset.get_frame_count(StringName("walk_"+NAMES[di]))==(4 if present else 2))
-			await capture(segment+"_stance")
-			var start: Vector2=lab.player.position
 			var code: Key=[KEY_S,KEY_A,KEY_D,KEY_W][di]
+			# Real directional Input establishes facing before either idle pose.
+			key(code,true);await frames(2);key(code,false);await frames(2)
+			for expected_frame in [0,1]:
+				var wait_budget:=60
+				while (lab.player.sprite.animation!=StringName("idle_"+NAMES[di]) or lab.player.sprite.frame!=expected_frame) and wait_budget>0:
+					await frames(1);wait_budget-=1
+				check(segment+":actual_directional_idle_"+str(expected_frame),lab.player.sprite.animation==StringName("idle_"+NAMES[di]) and lab.player.sprite.frame==expected_frame)
+				await capture(segment+"_stance"+str(expected_frame))
+			var start: Vector2=lab.player.position
+			var observed_frames: Array=[]
+			var previous_frame: int=-1
+			var wraps:=0
 			key(code,true)
-			await frames(8)
+			for tick in (70 if present else 50):
+				await frames(1)
+				var actual_frame: int=lab.player.sprite.frame
+				if previous_frame>=0 and actual_frame<previous_frame:wraps+=1
+				previous_frame=actual_frame
+				if actual_frame not in observed_frames:
+					observed_frames.append(actual_frame)
+					await capture(segment+"_walk_frame"+str(actual_frame))
 			check(segment+":real_Input_stride",lab.player.sprite.animation==StringName("walk_"+NAMES[di]) and lab.player.position.distance_to(start)>5)
-			await capture(segment+"_walk")
+			check(segment+":all_drawn_walk_frames_displayed",observed_frames==([0,1,2,3] if present else [0,1]),{"observed":observed_frames})
+			check(segment+":two_real_animation_cycles",wraps>=2,{"observed_wraps":wraps})
 			key(code,false)
 			await frames(2)
 	for di in 4:

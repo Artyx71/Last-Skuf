@@ -73,6 +73,8 @@ def main():
                          '--headless', '--output', str(output / 'timka_present_controller')]))
         commands.append(('timka_prime_controller', [sys.executable, 'tools/verify_p06_timka_prime.py',
                          '--headless', '--output', str(output / 'timka_prime_controller')]))
+        commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder

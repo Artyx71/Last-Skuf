@@ -11,16 +11,91 @@ import sys
 import time
 from verify_p06_cast import ROOT, GODOT, ERRORS, sha, sources, write
 
+def completed_live_evidence(folder, current_sources):
+    """Only a complete, unchanged native run may support a separate movie job."""
+    def unique(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value: raise ValueError('Duplicate evidence key: ' + key)
+            value[key] = item
+        return value
+    def invalid_constant(value):
+        raise ValueError('Non-finite evidence value: ' + value)
+    def read(path):
+        return json.loads(path.read_text(), object_pairs_hook=unique, parse_constant=invalid_constant)
+    folder = folder.resolve()
+    if not folder.is_relative_to(ROOT / 'reports'):
+        raise ValueError('Live evidence must be inside project reports')
+    manifest = folder / 'validation.json'
+    report = read(manifest)
+    if not (report.get('scope') == 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY' and
+            report.get('passed') is True and report.get('source_unchanged') is True and
+            report.get('headless') is False and report.get('actual_input') is True and
+            report.get('phase_approval') is False and report.get('movie_path') is None):
+        raise ValueError('A complete native live-only validation is required')
+    if read(folder / 'source_hashes.json') != current_sources:
+        raise ValueError('Live source snapshot differs; do not reuse stale gameplay')
+    commands = report.get('commands')
+    if not (isinstance(commands, list) and len(commands) == 1 and
+            commands[0].get('name') == 'live' and commands[0].get('passed') is True and
+            type(commands[0].get('exit_code')) is int and commands[0]['exit_code'] == 0):
+        raise ValueError('A successful native live command receipt is required')
+    expected_argv = [str(GODOT), '--path', str(ROOT / 'game'), '--disable-vsync', '--max-fps', '60',
+                     '--script', 'res://tests/timka_prime_replay.gd']
+    if commands[0].get('argv') != expected_argv:
+        raise ValueError('Live command does not match the current native replay')
+    artifacts = report.get('artifacts')
+    if not isinstance(artifacts, list) or not artifacts:
+        raise ValueError('Missing live artifact inventory')
+    verified_paths = set()
+    for item in artifacts:
+        path = (ROOT / item['path']).resolve()
+        if not path.is_relative_to(folder) or not path.is_file() or sha(path) != item['sha256']:
+            raise ValueError('Live artifact missing, outside its run, or changed: ' + str(path))
+        verified_paths.add(path)
+    result_path = folder / 'live/result.json'
+    if not {result_path, folder / 'source_hashes.json', folder / 'live.log', folder / 'commands.json'} <= verified_paths:
+        raise ValueError('Required completed live artifacts are not bound')
+    result = read(result_path)
+    if not (result.get('passed') is True and result.get('actual_input') is True and
+            result.get('renderer') not in [None, '', 'headless'] and result.get('checks') and
+            all(item.get('passed') is True for item in result['checks'])):
+        raise ValueError('Native live result does not establish successful actual Input')
+    captures = result.get('captures')
+    if not isinstance(captures, list) or not captures or type(report.get('actual_captures')) is not int or len(captures) != report['actual_captures']:
+        raise ValueError('Completed native captures are required')
+    for item in captures:
+        if item.get('code') != 0 or Path(item['path']).resolve() not in verified_paths:
+            raise ValueError('Native capture is not bound to the verified live inventory')
+    if ERRORS.search((folder / 'live.log').read_text()):
+        raise ValueError('Live log contains engine/test errors')
+    return {'validation': str(manifest.relative_to(ROOT)), 'sha256': sha(manifest),
+            'source_head': report['source_head'], 'checks': report['checks'],
+            'captures': report['actual_captures'], 'all_artifacts_verified': True}
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True)
     parser.add_argument('--headless', action='store_true')
-    parser.add_argument('--movie', action='store_true')
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--movie', action='store_true')
+    modes.add_argument('--movie-only', action='store_true')
+    parser.add_argument('--live-evidence')
     parser.add_argument('--build-output')
     args = parser.parse_args()
-    if args.movie and (args.headless or not args.build_output):
+    movie_requested = args.movie or args.movie_only
+    if movie_requested and (args.headless or not args.build_output):
         parser.error('Movie requires native renderer and a fresh --build-output')
+    if bool(args.live_evidence) != args.movie_only:
+        parser.error('--movie-only requires --live-evidence from a completed identical native live run')
+    before = sources()
+    reused_live = None
+    if args.movie_only:
+        try:
+            reused_live = completed_live_evidence(ROOT / args.live_evidence, before)
+        except (ValueError, OSError, KeyError, TypeError) as error:
+            parser.error(str(error))
     output = (ROOT / args.output).resolve()
     if output.exists(): parser.error('Use a new evidence directory; never replay consumed jobs')
     output.mkdir(parents=True)
@@ -30,11 +105,10 @@ def main():
         build.mkdir(parents=True)
     lock = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
     if sha(GODOT) != lock['linux_binary_sha256']: raise SystemExit('Pinned Godot hash mismatch')
-    before = sources()
     write(output / 'source_hashes.json', before)
     commands = []
     results = []
-    for mode in ['live', 'movie'] if args.movie else ['live']:
+    for mode in (['movie'] if args.movie_only else (['live', 'movie'] if args.movie else ['live'])):
         scope = output / mode
         scope.mkdir()
         profile = ROOT / '.tools/p06-timka-prime-qa' / hashlib.sha256(str(scope).encode()).hexdigest()[:20]
@@ -53,7 +127,8 @@ def main():
         argv += ['--script', 'res://tests/timka_prime_replay.gd']
         started = time.monotonic()
         try:
-            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True, timeout=100)
+            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True,
+                                 timeout=180 if mode == 'movie' else 140)
             code, log = run.returncode, run.stdout + run.stderr
         except subprocess.TimeoutExpired as error:
             code, log = 124, 'TIMEOUT\n' + str(error.stdout) + str(error.stderr)
@@ -68,7 +143,7 @@ def main():
         print(mode, 'PASS' if ok else 'FAIL', flush=True)
         if not ok: break
     movie_probe = {}
-    if args.movie and all(c['passed'] for c in commands):
+    if movie_requested and all(c['passed'] for c in commands):
         ffmpeg, ffprobe = shutil.which('ffmpeg'), shutil.which('ffprobe')
         if not ffmpeg or not ffprobe: raise SystemExit('Existing ffmpeg/ffprobe required')
         argv = [ffmpeg, '-v', 'error', '-n', '-i', str(build / 'timka-prime.avi'),
@@ -91,6 +166,7 @@ def main():
                'headless': args.headless, 'actual_input': all(r.get('actual_input') for r in results),
                'checks': [{'passed': sum(c['passed'] for c in r.get('checks', [])), 'total': len(r.get('checks', []))} for r in results],
                'actual_captures': len(list(output.rglob('*.png'))), 'commands': commands,
+               'reused_completed_live': reused_live,
                'movie_path': str(build / 'timka-prime.mp4') if movie_probe else None,
                'audio': 'Existing runtime cues only; no new media or listening claim',
                'native_windows': 'NOT_TESTED', 'exports': 'NOT_REQUESTED_FOR_THIS_COMPONENT'}
