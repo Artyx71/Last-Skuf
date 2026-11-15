@@ -69,6 +69,8 @@ def main():
                          '--headless', '--output', str(output / 'olezhka_controller')]))
         commands.append(('olezhka_counter_feedback', [sys.executable, 'tools/verify_p06_counter_feedback.py',
                          '--headless', '--output', str(output / 'olezhka_counter_feedback')]))
+        commands.append(('timka_present_controller', [sys.executable, 'tools/verify_p06_timka_present.py',
+                         '--headless', '--output', str(output / 'timka_present_controller')]))
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder
