@@ -702,7 +702,7 @@
       "depends_on": [
         "P06/C09-npc-presentation-contract"
       ],
-      "status": "PENDING_INDEPENDENT_SOURCE_ART",
+      "status": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
       "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
       "phase": "P06",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
@@ -711,8 +711,14 @@
       "brief": "planning/P06_C09_TASKS.md",
       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
       "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
-      "current_source_candidate": "assets/source_art/npc_styles/gabar/preview-v2/manifest.json",
-      "independent_source_review": "ROOT/reports/phases/P06/art-c09-gabar-source-01"
+      "current_source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "independent_source_review": "reports/phases/P06/art-c09-gabar-reuse-feasibility-01/decision.json",
+      "decision_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+      "reason": "4shooter contact wholeposes missing; requested imagegen fix rejectedmoderation;19retained+1oldrelease is partial inventory only",
+      "independent_unaffected_tasks": [
+        "P06/C09-npc-presentation-contract",
+        "PREP07/READINESS-C02"
+      ]
     },
     {
       "id": "P06/C09-npc-style-integration",

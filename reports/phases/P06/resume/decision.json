@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T21:21:14.070990+00:00",
+  "updated_utc": "2026-11-15T21:46:55.236770+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
@@ -10,24 +10,24 @@
   "frozen_worktree_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "44134ae147ee4e39b41aae0b80d3685d",
-    "task": "P06/audio-C01-independent-Q03-headroom-signal-02",
+    "id": "7588fc343a3d446d8b8e2afc2209e696",
+    "task": "P06/C01-reviewed-content-privacy",
     "argv": [
       "/usr/bin/python3",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-02/run_job.py"
+      "tools/check_privacy.py"
     ],
-    "argv_sha256": "78b799f59d667c9ebe8deacca4a72a8d3be7a9684388cf28b3d8662d6b9497b8",
-    "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
-    "timeout": 600,
+    "argv_sha256": "091b18c1eb723f230d53947ab37c1240aae9486c8070a7773a5282a51cfc63f6",
+    "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "timeout": 120,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/44134ae147ee4e39b41aae0b80d3685d/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/44134ae147ee4e39b41aae0b80d3685d/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/44134ae147ee4e39b41aae0b80d3685d/started.json",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/started.json",
     "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "b82ca03eff094fc0684df1f45532fb1c7499ae35bde4ed43c0d6e52893073aaf",
+    "input_sha256": "1b58844e647b58d879152c3e30b77a8e15853ca1a8d04578d9d95323aba9dae4",
     "safe_retry": false,
-    "created_at": "2026-11-15T21:08:38+00:00",
+    "created_at": "2026-11-15T21:21:52+00:00",
     "exit_code": 0
   },
   "independent_gates": {
@@ -244,13 +244,14 @@
       "owner_listening": "OLD_SOLO_GAMEPLAY_ACCEPTED_FOR_PROTOTYPE;newstress_not_explicitly_heard",
       "agent_listening": false,
       "phase_approval": false
-    }
+    },
+    "NPC_C09_source": "ART18dfe9a8 BLOCKED contact4;19newsource+1existingrelease only, noPackage/runtimeapproval;2sourceFAILs preserved"
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "C01 audio Lead031cc8c1/QA02eed5a827 PASS_COMPONENT on0dd, DEV08Linux81/Wine72 готов; sourceartifact/prototype ownerlistening bound. Продолжить C09: дождаться отдельного source ART решения по24GabarNPC preview-v2 (contact rows may read as enemyattack), приFAIL исправить только конкретные wholepose findings черезimage_gen, сохранитьmaster/recipe/oldFAIL; затем sourceadoption prep и stamped presentation contract, остальныеheroNPCstyles/pairednative/prioritymatrix. FullP06/P07/merge остаются закрыты.",
+  "next_action": "C01 Lead031cc8c1/QAeed5 PASS_COMPONENT onGame0dd1cc4; DEV08 actualLinux81/Wine72 готов. C09 Gabar source ledger:19new retainable+1existingP04release+4missing shootercontacts; independentART18dfe9a8 BLOCKED, source03NOT_STARTED. Imagegen correction09e29275 denied moderation_blocked violence, noPNG/no retries/bypass. Do not adopt5badgun cells or call20refs complete. WithinP06 continue independent stamped-presentation contract preparation and existing PREP07/READINESS-C02 full-verifier/safeRoot–WORKhandoff tasks while art dependency unresolved; keep P06attempt1/oldphasePASS, do not enterP07.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
@@ -259,15 +260,15 @@
   ],
   "source_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "active_author": {
-    "pid": 304827,
+    "pid": 306790,
     "phase": "P06",
     "attempt": 1,
     "kind": "sole host author with built-in imagegen",
     "safe_retry": false,
-    "started_at": "2026-11-15T21:09:49+00:00",
+    "started_at": "2026-11-15T21:23:41+00:00",
     "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
-    "checkpoint": "C01-Lead031-PASS-C09-Gabar24-source-review-will-fix",
-    "updated_at": "2026-11-15T21:21:12+00:00"
+    "checkpoint": "C09-sourceART02-five-shooter-toolBLOCKED-no-image-reuse-audit",
+    "updated_at": "2026-11-15T21:37:06+00:00"
   },
   "native02": {
     "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
@@ -291,9 +292,9 @@
     "ryzhik_action_source": "EXACT_SOURCE_ADOPTED SOURCEART18636309; runtime pending",
     "ryzhik_finisher_source": "SOURCE_ACCEPTED3a7bb218 EXACT_ADOPTED native04f92049; bothsourceFAILs preserved"
   },
-  "latest_implementation_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "latest_implementation_head": "0ef418677d5b5891e2c656b4e493efab3c13a992",
   "persistent_runner": false,
-  "session_checkpoint": "C01-Lead-PASS-component-C09-Gabar24-source-ART-pending",
+  "session_checkpoint": "C01-PASS-C09-sourceART-blocked4-independent-prep-queued",
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
     "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
@@ -329,7 +330,7 @@
     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
     "FullProductionReadiness FAIL b76fa63b unchanged",
-    "P06-C09 hero-linked NPC reaction source/routing/pairednative matrix incomplete"
+    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
   ],
   "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
@@ -345,7 +346,7 @@
   },
   "latest_game_source_commit": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "previous_owner_preview": "DEV01..05 and profiles preserved",
-  "checkpoint_commit_before_metadata": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "checkpoint_commit_before_metadata": "0ef418677d5b5891e2c656b4e493efab3c13a992",
   "pending_generator_calls": 0,
   "historical_native02": {
     "operation": "c788ed6782ef4e5cbccc00cbff99523f",
@@ -416,14 +417,26 @@
     "full_P06_approval": false
   },
   "C09_current": {
-    "status": "GABAR24_SOURCE_ART_REVIEW_PENDING_NOT_GAME_INTEGRATED",
-    "source_candidate": "assets/source_art/npc_styles/gabar/preview-v2/manifest.json",
-    "source_native_sha256": "414cbbe5dc6fb0da3dd3d7bc53c2c459a5a6edd35c354033189f4726c3556379",
+    "status": "ART_BLOCKED_CONTACT4_WITH_ONE_RELEASE_REUSE_REF",
+    "source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+    "source_native_sha256": "00955ed93b5ec38db1ce914c5f53771f1f0d31258a27b502d5defcf1936e374b",
     "planned_FIN_wholepose_candidate_budget": 156,
     "queue_prefix": "P06/C09-",
     "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
     "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
-    "phase_approval": false
+    "phase_approval": false,
+    "source_ART01_sha256": "985592e6d599a9c1abc13703f4c7f71bd5385e5441e2dca688f821b4b4d7376e",
+    "source_ART02_sha256": "073430cdbf7c500d29d0eb4a57d1099cbc16e9d1d8289ebda0027d83e39e61c1",
+    "retained_new_source_poses": 19,
+    "unresolved_shooter_wholepose_cells": 4,
+    "tool_block_request_id": "09e29275-f3c1-49ed-95d9-24ae4e20719b",
+    "pending_reuse_feasibility": null,
+    "runtime_integration": false,
+    "source_package_complete": false,
+    "existing_P04_release_refs": 1,
+    "reuse_feasibility_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+    "source_ART03": "NOT_STARTED_NO_COMPLETE_PACKAGE",
+    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992"
   },
   "owner_preview_history": [
     {
@@ -452,5 +465,6 @@
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
     "FullProductionReadiness FAIL b76fa63b unchanged",
     "Pasha actual runtime/Input/finiteammo/HUD/art/evidence/reviews WIP; all7 individual sounds and NPC style matrix open"
-  ]
+  ],
+  "latest_worktree_checkpoint": "0ef418677d5b5891e2c656b4e493efab3c13a992"
 }
