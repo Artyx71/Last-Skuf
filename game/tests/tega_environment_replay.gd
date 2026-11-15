@@ -85,7 +85,7 @@ func run() -> void:
 			check(segment+":actual_own_walk_to_idle",lab.player.sprite.animation==StringName("idle_"+NAMES[di]))
 			var actor_start: Vector2 = lab.player.position
 			var object_start: Vector2 = lab.training_bench.position
-			var cross := DIRECTIONS[di].orthogonal()*20.0
+			var cross: Vector2 = DIRECTIONS[di].orthogonal()*20.0
 			check(segment+":original_object_blocks_LOS",not lab.combat.clear_line(object_start-cross,object_start+cross))
 			var start_index := trace.size()
 			await capture(segment+"_world")
