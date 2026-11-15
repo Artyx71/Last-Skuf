@@ -1,0 +1,18 @@
+{
+  "matches": [
+    {
+      "name": "mcp__codex_apps__chatgpt_space_read_page",
+      "description": "Read an accessible Page's current content. Choose one read shape: {page_id}, {page_id,view:'full'}, {page_id,search:['literal']}, {page_id,view:'excerpts',search:['literal']}, {page_id,block_ids:['observed ID']}, or {page_id,include_content:false}. Omit unused selectors and context fields; never sen"
+    },
+    {
+      "name": "mcp__codex_apps__chatgpt_space_read_page_transcript",
+      "description": "Read the best available source transcript for a Page with namespace meeting_notes, including during recording. Use the Page ID directly; the server resolves its meeting and enforces transcript access independently of Page sharing. Retrieve it whenever the user's intent requires meeting context, incl"
+    },
+    {
+      "name": "mcp__codex_apps__figma_weave_get_tool_inputs",
+      "description": "Gets the input contract of a Weave tool (a published Weave workflow) — the inputs you fill in to run it. Pass the `recipeId` (from weave_list_tools, or the `<id>` in a pasted Weave URL like app.weavy.ai/tool/<id> or app.weavy.ai/flow/<id> — that `<id>` is the recipeId). A pasted Weave URL is enough "
+    }
+  ],
+  "actual_audio_listening_tool_found": false,
+  "scope": "Tool metadata searched; meeting transcript/page tools are not audio listening."
+}

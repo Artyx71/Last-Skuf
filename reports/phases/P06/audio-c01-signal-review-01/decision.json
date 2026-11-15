@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "scope": "C01_OFFLINE_SOURCE_SIGNAL_ONLY",
+  "status": "PASS_SIGNAL_ONLY",
+  "reviewer": {
+    "agent": "/root/qa_resume_recovery",
+    "role": "INDEPENDENT_QA",
+    "authored_audio_candidates": false
+  },
+  "source_binding": {
+    "input_freeze_sha256": "5fe77b841e8d661b86e4c468e9d5c598a83b71e758712587caa0df1635414ba9",
+    "recipe_sha256": "04ab31ad68ac9b949be17858eb06546cff5bdcb8520569a880cb90df3def7fc0",
+    "catalog_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "candidate_manifest_sha256": "74aee14ba1ce319e476634a5c81c6f2475bb9050406ec66e69d21a0081a60573",
+    "entrypoint_sha256": "28959fe85b35b34483f32b1bceb827c50eb1d84ace72151ee70aa2d4f6bac1f9"
+  },
+  "actual_serial_job": {
+    "operation": "0c23ecf71f324a1c8872cc80ece7bd87",
+    "exit_code": 0,
+    "receipt_sha256": "b7dd742d4d7583d1992d15ef07d14a6ef4cae113de88017351efa04dcde74b58",
+    "log_sha256": "5c10b0f448719089cc45dc9f5754705374d017efe6343dfa3d2034dd4c0ccc88",
+    "seconds": 9.209
+  },
+  "actual_counts": {
+    "source_WAV_decoded": 20,
+    "signal_checks": 300,
+    "catalog_recipe_retention_checks": 12,
+    "recipe_byte_exact": 20,
+    "independent_raw_PCM_rechecks": 20,
+    "independent_pair_rechecks": 38,
+    "unchanged_input_SHA": 35,
+    "legacy_WAV_preserved": 5
+  },
+  "mandatory_findings": [],
+  "allows_next_author_step": "Integrate exact reviewed20 plus retained5 Yakuza using INTEGRATION_CONTRACT.md; subsequent runtime/mix evidence and listening required",
+  "artistic_status": "ARTISTIC_NOT_LISTENED",
+  "actual_listening_performed": false,
+  "runtime_status": "NOT_INTEGRATED_NOT_TESTED",
+  "runtime_approval": false,
+  "artistic_approval": false,
+  "full_C01_approval": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "full_audio_acceptance": "PENDING_ACTUAL_RUNTIME_MIX_AND_ARTISTIC_LISTENING",
+  "not_claimed": [
+    "Pleasant/quality sound",
+    "Audible hero distinctiveness",
+    "Safe combined mix from source headroom alone",
+    "Loops or music transitions",
+    "Native Windows playback",
+    "FPS or hardware latency",
+    "Universal originality/rights certification"
+  ]
+}
