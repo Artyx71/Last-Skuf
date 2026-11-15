@@ -36,6 +36,7 @@ def main():
     env = dict(os.environ, AYAY_C01_OUTPUT=str(output / 'replay'), XDG_CONFIG_HOME=str(profile/'config'), XDG_DATA_HOME=str(profile/'data'))
     for key, name in [('AYAY_OPTIONS_PATH','options'),('AYAY_STORY_SAVE_PATH','story'),('AYAY_CHAPTER_SAVE_PATH','chapter'),('AYAY_DIALOGUE_SAVE_PATH','dialogue')]:
         env[key] = str(profile / (name + '.json'))
+    env['AYAY_TIMING_RESULT'] = str(output / 'contact_timing.json')
     before = source_hashes();write(output/'source_hashes_before.json', before)
     bindings = verify();write(output/'source_binding.json', bindings)
     commands = []
@@ -61,7 +62,11 @@ def main():
     ok = ok and (not changed or args.import_assets and set(changed)<=allowed)
     if ok:
         for test in ['character_finisher_audio','character_combat_profile','audio','contact_timing','p04g','yakuza_finisher_authority','restart']:
-            if not run(test,base+['--script',f'res://tests/{test}_test.gd']): ok=False;break
+            # The legacy contact test counts render observations of fixed physics
+            # poses. Lock one physics step per frame, preserving its full-window
+            # oracle even during the first cold asset/cache load.
+            timing = ['--fixed-fps','60'] if test=='contact_timing' else []
+            if not run(test,base+timing+['--script',f'res://tests/{test}_test.gd']): ok=False;break
     replay = {}
     if ok:
         (output/'replay').mkdir()
