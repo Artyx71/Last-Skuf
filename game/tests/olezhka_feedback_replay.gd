@@ -146,6 +146,9 @@ func run() -> void:
 	await sample_frames(1)
 	check("unsupported_selection_keeps_Oleg_and_visible_warning",lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready" and lab.status_label.text.contains("ещё не готов"))
 	await capture("13_unsupported_keeps_Oleg")
+	await tap(KEY_R)
+	await sample_frames(1)
+	check("retry_clears_stale_selection_warning_and_restores_status",lab.selection_message.is_empty() and not lab.status_label.text.contains("ещё не готов") and lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready")
 
 	var modes: Array = []
 	for reduced in [false,true]:

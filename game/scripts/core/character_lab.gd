@@ -65,6 +65,7 @@ func select_fixture(key: String) -> bool:
 	return true
 
 func reset_encounter() -> void:
+	selection_message = ""
 	super.reset_encounter()
 	gallery_mode = true
 	_update_hud()
@@ -97,7 +98,7 @@ func _update_hud() -> void:
 	kit_label.text = actor.display_name+" / "+String(names.get(context,context))
 	hint_label.text = "WASD/Shift · Space: толчок · F: приём · V: добивание · Tab: инструмент · O: эффекты"
 	if player.actor_id == "olezhka":
-		hint_label.text = "F: парировать спереди · WASD/Shift · Space: толчок · V: добить · C: отмена · O: эффекты"
+		hint_label.text = "F: блок удара спереди · WASD/Shift · Space: толчок · V: добить · C: отмена · O: эффекты"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
 	if equipment_label:

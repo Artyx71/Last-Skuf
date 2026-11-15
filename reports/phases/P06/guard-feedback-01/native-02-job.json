@@ -1,0 +1,39 @@
+{
+  "scope": "HUD_RECT_FIX_ONLY",
+  "phase_approval": false,
+  "source_unchanged": true,
+  "passed": true,
+  "commands": [
+    {
+      "name": "headless-02",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_counter_feedback.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/headless-02",
+        "--headless"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "native-02",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_counter_feedback.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/native-02",
+        "--movie",
+        "--build-output",
+        "build/P06/guard-feedback-01/native-02"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "unchanged_gameplay_regressions": "regression-01; onlyUI/replayrectassert changed",
+  "changed_sources_vs_regression": [
+    "game/scripts/ui/counter_feedback.gd",
+    "game/tests/olezhka_feedback_replay.gd"
+  ]
+}
