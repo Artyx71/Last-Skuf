@@ -6,8 +6,9 @@ var jobs: Array[Dictionary] = []
 var history: Array[Dictionary] = []
 var reset_transforms: Dictionary = {}
 
-func _valid_object(object: PhysicsBody2D) -> bool:
-	return is_instance_valid(object) and not object.is_queued_for_deletion() and object.is_inside_tree() and object.get_meta("finisher_enabled",false) and object.collision_layer & 1 != 0
+func _valid_object(object: Variant) -> bool:
+	# Freed Objects must be checked BEFORE a typed PhysicsBody2D argument cast.
+	return is_instance_valid(object) and object is PhysicsBody2D and not object.is_queued_for_deletion() and object.is_inside_tree() and object.get_meta("finisher_enabled",false) and object.collision_layer & 1 != 0
 
 func _near_foot(source: CharacterBody2D, object: PhysicsBody2D, aim: Vector2) -> bool:
 	if not _valid_object(object): return false
@@ -55,8 +56,8 @@ func begin(source: CharacterBody2D, object: PhysicsBody2D) -> int:
 		"definition":combat._stamp({"damage":1,"stun":0.55,"category":"environmental","strong":true})})
 	return combat.next_attack_id
 
-func _authorized_source(source: CharacterBody2D) -> bool:
-	if not is_instance_valid(source) or source.is_queued_for_deletion() or not source.is_inside_tree(): return false
+func _authorized_source(source: Variant) -> bool:
+	if not is_instance_valid(source) or not source is CharacterBody2D or source.is_queued_for_deletion() or not source.is_inside_tree(): return false
 	if source != combat.lab.player or combat.lab.state != "playing" or source.health <= 0: return false
 	return source.has_method("_action_authorized") and source.actor_id == "tega" and source.prepared_ability == "environment_kick" and source.action_kind == "special" and source.action_ability_id == "environment_kick" and source._action_authorized()
 
