@@ -99,6 +99,8 @@ def main():
                 'timka_present': ['present_Timka_selects_own_context_and_body', 'present_disengage_starts_from_Input',
                                   'present_disengage_moves_without_prime_damage'],
                 'timka_prime': ['prime_Timka_selects_separate_body_contract', 'prime_cannot_grab_without_vulnerable_target'],
+                'ryzhik_training': ['Ryzhik_selects_complete_own_roll_body', 'Ryzhik_roll_starts_from_Input',
+                                    'Ryzhik_roll_moves_with_live_collision'],
             }
             row['verified_combat_fixtures'] = [key for key, required in fixture_checks.items()
                                                if data.get('passed') and all(check_results.get(name, False) for name in required)]
