@@ -3,6 +3,7 @@ extends "res://scripts/actors/combat_player.gd"
 const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
 const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
 const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
+const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd")}
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
@@ -13,6 +14,7 @@ var scene_policy: RefCounted
 var authored_frames: SpriteFrames
 var prepared_definition: Dictionary = {}
 var prepared_ability := ""
+var movement_ability: RefCounted
 var ability_cooldown := 0.0
 var ability_uses := 0
 var ability_distance := 0.0
@@ -46,6 +48,7 @@ func prepare_fixture(scene_id: String) -> bool:
 	scene_policy = null
 	prepared_definition.clear()
 	prepared_ability = ""
+	movement_ability = null
 	if not IMPLEMENTED_FIXTURE_ABILITIES.has(scene_id): return false
 	var proposed := ScenePolicy.new()
 	if not proposed.open(scene_id) or proposed.ability_id() != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
@@ -56,6 +59,12 @@ func prepare_fixture(scene_id: String) -> bool:
 	elif scene_id == "timka_prime": frames = CharacterFrames.timka_prime_frames()
 	else: frames = _load_combat_frames(id)
 	if frames == null: return false
+	var strategy: RefCounted
+	if MOVEMENT_ABILITIES.has(proposed.ability_id()):
+		strategy = MOVEMENT_ABILITIES[proposed.ability_id()].new()
+		var extra: SpriteFrames = strategy.required_frames(id)
+		if extra == null: return false
+		CharacterFrames._append_clips(frames,extra)
 	for animation in frames.get_animation_names():
 		for frame in frames.get_frame_count(animation):
 			if not frames.get_frame_texture(animation,frame).has_meta("clothing_socket"): return false
@@ -63,6 +72,7 @@ func prepare_fixture(scene_id: String) -> bool:
 	authored_frames = frames
 	prepared_definition = definition
 	prepared_ability = proposed.ability_id()
+	movement_ability = strategy
 	return true
 
 func _load_combat_frames(id: String) -> SpriteFrames:
@@ -107,20 +117,22 @@ func _process(_delta: float) -> void:
 
 func _movement_multiplier() -> float:
 	if not _prepared_policy_matches_live(): return 0.0
-	if action_kind in ["special","disengage"]: return 0.0
+	if action_kind in ["special","disengage","roll"]: return 0.0
 	return 1.44 if Input.is_action_pressed("character_run") else 1.0
 
 func _movement_state() -> String:
 	return "run" if Input.is_action_pressed("character_run") else "walk"
 
 func _physics_process(delta: float) -> void:
-	if action_kind in ["shove","special","disengage"] and not _action_authorized(): cancel_action()
+	if action_kind in ["shove","special","disengage","roll"] and not _action_authorized(): cancel_action()
 	if lab.state == "playing" and health > 0:
 		ability_cooldown = maxf(0.0,ability_cooldown-delta)
-	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage"]: cancel_action()
+	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage","roll"]: cancel_action()
 	super._physics_process(delta)
 	if lab.state == "playing" and health > 0:
 		if Input.is_action_just_pressed("character_ability"): use_ability()
+		if movement_ability != null and action_kind == movement_ability.KIND and _action_authorized():
+			movement_ability.advance_motion(self,delta)
 		if action_kind == "disengage" and _action_authorized():
 			# Only the active part of this physics tick moves. No teleport, damage,
 			# changed collision mask or invulnerability; interruption stops the path.
@@ -170,8 +182,8 @@ func _can_begin_action() -> bool:
 	return lab != null and _prepared_policy_matches_live() and lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty()
 
 func _play_action(action: String, duration: float) -> void:
-	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage"] else {}
-	action_ability_id = scene_policy.ability_id() if action in ["special","disengage"] else ""
+	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage","roll"] else {}
+	action_ability_id = scene_policy.ability_id() if action in ["special","disengage","roll"] else ""
 	super._play_action(action,duration)
 	if actor_id == "timka" and prepared_ability == "clinch":
 		if action == "shove": action_animation = StringName("prime_strike_"+action_direction)
@@ -181,6 +193,9 @@ func _play_action(action: String, duration: float) -> void:
 		_present_action()
 
 func _present_action() -> void:
+	if movement_ability != null and action_kind == movement_ability.KIND:
+		movement_ability.present(self)
+		return
 	if action_kind != "disengage":
 		super._present_action()
 		return
@@ -203,7 +218,7 @@ func _present_action() -> void:
 func _action_authorized() -> bool:
 	if action_authority_snapshot.is_empty() or not _prepared_policy_matches_live(): return false
 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
-	return action_kind not in ["special","disengage"] or action_ability_id == scene_policy.ability_id()
+	return action_kind not in ["special","disengage","roll"] or action_ability_id == scene_policy.ability_id()
 
 func attack_melee() -> bool:
 	if not _can_begin_action() or melee_cooldown > 0: return false
@@ -229,6 +244,7 @@ func attack_ranged() -> bool:
 
 func use_ability() -> bool:
 	if not _can_begin_action() or ability_cooldown > 0: return false
+	if movement_ability != null: return movement_ability.start(self)
 	if actor_id == "timka" and scene_policy.ability_id() == "disengage":
 		return _start_disengage()
 	if actor_id == "timka" and scene_policy.ability_id() == "clinch":
@@ -345,6 +361,9 @@ func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2
 	return true
 
 func melee_phase(attack_id: int) -> String:
+	if movement_ability != null and action_kind == movement_ability.KIND:
+		if health <= 0 or attack_id != melee_attack_id or not _action_authorized(): return "finished"
+		return movement_ability.melee_phase(self)
 	if health <= 0 or attack_id != melee_attack_id or action_kind not in ["shove","special"] or not _action_authorized(): return "finished"
 	return "windup" if action_frame == 0 else ("contact" if action_frame == 1 else "finished")
 
