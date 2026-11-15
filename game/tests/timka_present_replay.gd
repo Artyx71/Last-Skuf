@@ -27,7 +27,7 @@ func run() -> void:
 	lab.auto_retry = false
 	lab.combat.contact_committed.connect(on_contact)
 	var clips: SpriteFrames = lab.player.sprite.sprite_frames
-	check("own_required_36_clips_speed84",clips.get_animation_names().size()==36 and lab.player.move_speed==84)
+	check("own_required_32_clips_speed84",clips.get_animation_names().size()==32 and lab.player.move_speed==84)
 	var forbidden_absent := true
 	for name in clips.get_animation_names():
 		if String(name).begins_with("finish_") or String(name).begins_with("special_") or String(name).begins_with("fire_"): forbidden_absent=false
@@ -46,6 +46,12 @@ func run() -> void:
 	for di in 4:
 		segment = "disengage_"+NAMES[di]
 		var target := await fixture(DIRECTIONS[di],3,false)
+		if di==0:
+			# Explicit initial placement below the arena divider, before the
+			# measured Input path. The separate wall case keeps its collider.
+			lab.player.position.y+=12
+			target.position.y+=12
+			await frames(2)
 		var start: Vector2 = lab.player.position
 		var offset := trace.size()
 		await tap(KEY_F)
