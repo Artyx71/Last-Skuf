@@ -1,0 +1,354 @@
+{
+  "schema": 1,
+  "status": "P06_IMPLEMENTATION_CANDIDATE_NOT_PHASE_ACCEPTED",
+  "actors": {
+    "yakuza": {
+      "actor_id": "yakuza",
+      "speaker_id": "YAKUZA",
+      "display_name": "Якудза",
+      "role": "playable",
+      "speed": 82,
+      "ability_id": "escape",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/yakuza/portraits.png",
+      "portrait_metadata": "res://assets/art/yakuza/atlas.json",
+      "portrait_presentation": "accepted_p03_motion",
+      "contexts": [
+        "training",
+        "campaign"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "sharp",
+          "firearm",
+          "environmental"
+        ],
+        "campaign": []
+      }
+    },
+    "gabar": {
+      "actor_id": "gabar",
+      "speaker_id": "GABAR",
+      "display_name": "Габар",
+      "role": "playable",
+      "speed": 110,
+      "ability_id": "gabar_lunge",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/gabar/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/gabar/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "firearm"
+      ],
+      "world_file": "res://assets/art/characters/gabar/world_sheet.png",
+      "action_file": "res://assets/art/characters/gabar/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/gabar/finisher_sheet.png",
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "firearm"
+        ]
+      }
+    },
+    "olezhka": {
+      "actor_id": "olezhka",
+      "speaker_id": "OLEZHKA",
+      "display_name": "Олежка",
+      "role": "playable",
+      "speed": 106,
+      "ability_id": "training_counter",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/olezhka/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/olezhka/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "sharp"
+      ],
+      "world_file": "res://assets/art/characters/olezhka/world_sheet.png",
+      "action_file": "res://assets/art/characters/olezhka/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/olezhka/finisher_sheet.png",
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "sharp"
+        ]
+      }
+    },
+    "timka": {
+      "actor_id": "timka",
+      "speaker_id": "TIMKA",
+      "display_name": "Тимка",
+      "role": "playable",
+      "speed": 84,
+      "ability_id": "contextual_clinch",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/timka/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/timka/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "peaceful_present",
+        "athletic_prime"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "context_rules": {
+        "peaceful_present": {
+          "speed": 84,
+          "lethal": false,
+          "finishers": false,
+          "ability": "disengage"
+        },
+        "athletic_prime": {
+          "speed": 118,
+          "lethal": true,
+          "finishers": true,
+          "ability": "clinch"
+        }
+      },
+      "world_file": "res://assets/art/characters/timka/world_sheet.png",
+      "action_file": "res://assets/art/characters/timka/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/timka/finisher_sheet.png",
+      "equipment_by_context": {
+        "peaceful_present": [],
+        "athletic_prime": [
+          "unarmed",
+          "blunt",
+          "environmental"
+        ]
+      }
+    },
+    "ryzhik": {
+      "actor_id": "ryzhik",
+      "speaker_id": "RYZHIK",
+      "display_name": "Рыжик",
+      "role": "playable",
+      "speed": 120,
+      "ability_id": "dance_step",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/ryzhik/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/ryzhik/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "world_file": "res://assets/art/characters/ryzhik/world_sheet.png",
+      "action_file": "res://assets/art/characters/ryzhik/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/ryzhik/finisher_sheet.png",
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "environmental"
+        ]
+      },
+      "roll_file": "res://assets/art/characters/ryzhik/roll_sheet.png"
+    },
+    "tega": {
+      "actor_id": "tega",
+      "speaker_id": "TEGA",
+      "display_name": "Тега",
+      "role": "playable",
+      "speed": 92,
+      "ability_id": "environment_kick",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/tega/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/tega/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "world_file": "res://assets/art/characters/tega/world_sheet.png",
+      "action_file": "res://assets/art/characters/tega/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/tega/finisher_sheet.png",
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "environmental"
+        ]
+      }
+    },
+    "pasha": {
+      "actor_id": "pasha",
+      "speaker_id": "PASHA",
+      "display_name": "Паша",
+      "role": "playable",
+      "speed": 125,
+      "ability_id": "moving_shot",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/pasha/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/pasha/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "world_file": "res://assets/art/characters/pasha/world_sheet.png",
+      "action_file": "res://assets/art/characters/pasha/action_sheet.png",
+      "finisher_file": "res://assets/art/characters/pasha/finisher_sheet.png",
+      "equipment_by_context": {
+        "training": [
+          "unarmed",
+          "blunt",
+          "sharp",
+          "firearm",
+          "environmental"
+        ]
+      }
+    },
+    "kaban": {
+      "actor_id": "kaban",
+      "speaker_id": "KABAN",
+      "display_name": "Кабан",
+      "role": "supporting",
+      "speed": 0,
+      "ability_id": "",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/kaban/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/kaban/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": []
+    },
+    "ellana": {
+      "actor_id": "ellana",
+      "speaker_id": "ELLANA",
+      "display_name": "Эллана",
+      "role": "supporting",
+      "speed": 0,
+      "ability_id": "",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/ellana/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/ellana/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": []
+    },
+    "elya": {
+      "actor_id": "elya",
+      "speaker_id": "ELYA",
+      "display_name": "Эля",
+      "role": "supporting",
+      "speed": 0,
+      "ability_id": "",
+      "expressions": [
+        "neutral",
+        "angry",
+        "surprise",
+        "hurt",
+        "catchphrase"
+      ],
+      "portrait_file": "res://assets/art/characters/elya/portraits.png",
+      "portrait_metadata": "res://assets/art/characters/elya/portraits.json",
+      "portrait_presentation": "static",
+      "contexts": [
+        "training"
+      ],
+      "equipment_categories": []
+    }
+  },
+  "speaker_audio": {
+    "profile": "accepted_non_identifying_two_tone_shared",
+    "cue_prefix": "speech_yakuza",
+    "new_voice_recordings": false,
+    "identity_claim": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "role": "QA",
+  "reviewer": "independent qa_resume_recovery",
+  "scope": "RYZHIK_ROLL_ORIGINAL407_COMPONENT_QA_ONLY",
+  "frozen_commit": "407f9a1df6c3d8ed110ab908b234fad4750b622d",
+  "findings": [
+    {
+      "id": "TPR-R01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "must_fix": true,
+      "kind": "MANDATORY_ACCEPTANCE_COVERAGE",
+      "title": "FIN Reduced mode missing from Ryzhik actual replay/native evidence",
+      "evidence": [
+        "code-freeze/game/tests/ryzhik_roll_replay.gd",
+        "signal-analysis.json"
+      ],
+      "actual": "All12FIN routes precede finalFullReduced loop; thatloopchecks onlynonlethalroll. Actual12FINFull contacts/NPC1\u21922/once proven, ReducedFIN notrun. No claimReducedproductbug.",
+      "fix": "Addactual12FINroutes inReduced, NPCcontact1/corpse2, each oncehealth/damage/score outcomes andFullReduced comparison, source/render evidence independently reviewed."
+    },
+    {
+      "id": "TPR-R02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "must_fix": true,
+      "kind": "REPORT_ACCEPTANCE_GUARD",
+      "title": "Native report predicate accepts blank renderer identity",
+      "evidence": [
+        "code-freeze/tools/verify_p06_ryzhik.py",
+        "probe-report-schema.py",
+        "report-schema-probes.json"
+      ],
+      "actual": "valid_replay(actualNativeJSONwithonlyrenderer=\"\",False) returnsTrue; emptyidentitydoesnotestablishnative renderer. Actual407corpusX11 isvalid, notallegedfailednative.",
+      "fix": "Requirevalid nonblank/nativeidentity andtypedmodeconsistency, regressioncasesforblank/whitespace/unknown/type/mode; preserve actualX11positive."
+    }
+  ],
+  "blocking_findings": [
+    "TPR-R01",
+    "TPR-R02"
+  ],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "review_sha256": "854281c76241ac3d12d6c11333195b223b0a9415755a6a56f4493c26c0b8548d",
+  "metrics_sha256": "f47a014918dfbf33cb32af7240ae882cd12bc96ec000b6fa670d14e91179a88f",
+  "source_freeze_sha256": "955063f63f9d884270449e2aabf30890c1354d95103fe80dd31432a49c4bbc5b",
+  "source_inventory_sha256": "51b5dc7e99c04a62d195d045d60be58a49c0fe579333d12ac7dde8f0e3c04679",
+  "next_action": "Authorfix ReducedFIN/nativecoverage and nonblankvalidrenderer predicate; independentART owns anyUP26/29readabilityfix; freeze newcandidate and review again. Keep407evidenceimmutable.",
+  "limits": [
+    "Successful targeted actualheadless suite doesnotclose missingmandatoryReducedFINcoverage.",
+    "Authoractualnative/movie evidence independently inspected, notindependently rerun.",
+    "Mockrouting and metadatafixtures arenotGitHubCI/exports/runtime.",
+    "No fullP06/readiness/merge/ARTfeel/newaudio/nativeWindows/FPS/hardwarelatency approval."
+  ]
+}

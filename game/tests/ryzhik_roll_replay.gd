@@ -175,7 +175,7 @@ func run() -> void:
 				await frames(45)
 				check(segment+":no_repeat_damage_score_or_job",target.hits_received==2 and lab.score==100 and lab.combat.finishers.is_empty() and not lab.player.try_finisher())
 				var outcome:=[target.health,target.hits_received,lab.score,lab.combat.damage_events,lab.player.health,lab.combat.finishers.size()]
-				var route:=NAMES[di]+"_"+category
+				var route:String=NAMES[di]+"_"+String(category)
 				if not reduced:finisher_outcomes[route]=outcome
 				else:check(segment+":Full_Reduced_same_once_health_score",finisher_outcomes[route]==outcome,{"Full":finisher_outcomes[route],"Reduced":outcome})
 	await roll_fixture(2,false);segment="options_pause"

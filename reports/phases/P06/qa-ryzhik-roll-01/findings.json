@@ -1,0 +1,31 @@
+[
+  {
+    "id": "TPR-R01",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "must_fix": true,
+    "kind": "MANDATORY_ACCEPTANCE_COVERAGE",
+    "title": "FIN Reduced mode missing from Ryzhik actual replay/native evidence",
+    "evidence": [
+      "code-freeze/game/tests/ryzhik_roll_replay.gd",
+      "signal-analysis.json"
+    ],
+    "actual": "All12FIN routes precede finalFullReduced loop; thatloopchecks onlynonlethalroll. Actual12FINFull contacts/NPC1\u21922/once proven, ReducedFIN notrun. No claimReducedproductbug.",
+    "fix": "Addactual12FINroutes inReduced, NPCcontact1/corpse2, each oncehealth/damage/score outcomes andFullReduced comparison, source/render evidence independently reviewed."
+  },
+  {
+    "id": "TPR-R02",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "must_fix": true,
+    "kind": "REPORT_ACCEPTANCE_GUARD",
+    "title": "Native report predicate accepts blank renderer identity",
+    "evidence": [
+      "code-freeze/tools/verify_p06_ryzhik.py",
+      "probe-report-schema.py",
+      "report-schema-probes.json"
+    ],
+    "actual": "valid_replay(actualNativeJSONwithonlyrenderer=\"\",False) returnsTrue; emptyidentitydoesnotestablishnative renderer. Actual407corpusX11 isvalid, notallegedfailednative.",
+    "fix": "Requirevalid nonblank/nativeidentity andtypedmodeconsistency, regressioncasesforblank/whitespace/unknown/type/mode; preserve actualX11positive."
+  }
+]

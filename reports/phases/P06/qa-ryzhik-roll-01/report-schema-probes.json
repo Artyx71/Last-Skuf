@@ -1,0 +1,63 @@
+{
+  "scope": "PURE_JSON_PREDICATE_ON_ACTUAL_JSON_COPIES",
+  "helper_sha256": "cc4d3c2e15c8b02037009e4fdee6e40675bacf7055ff8ea997bb6871c0cefcc1",
+  "actual_native_result_sha256": "128c780631e5e20f90cc65105f7909addb06fbfff23f9a3174a9a2f56f804901",
+  "cases": [
+    {
+      "case": "actual_native_positive",
+      "accepted": true,
+      "expected": true,
+      "matches_expected": true
+    },
+    {
+      "case": "wrong_scope",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "phase_approval",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "actual_input_false",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_renderer",
+      "accepted": true,
+      "expected": false,
+      "matches_expected": false
+    },
+    {
+      "case": "headless_renderer_for_native",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_trace",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_contacts",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "failed_assertion",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    }
+  ],
+  "actual_WORK_or_native_mutation": false,
+  "engine_invocations": 0
+}
