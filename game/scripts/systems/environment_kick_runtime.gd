@@ -107,8 +107,17 @@ func tick() -> void:
 		if not job.foot_contact:
 			job.foot_contact = true
 			_record(job,"foot_contact",{"source_frame":source.sprite.frame,"animation":String(source.sprite.animation)})
-			combat._wall_contact(object.global_position,{"category":"unarmed"},object)
-			combat.lab.make_noise(object.global_position)
+			var foot_at := object.global_position
+			combat._wall_contact(foot_at,{"category":"unarmed"},object)
+			# Audio listeners may cancel/reset/revoke/free an actor or object.
+			# Never touch the old local job's bodies after an external callback.
+			if not jobs.has(job) or not _valid_job(job):
+				jobs.erase(job)
+				continue
+			combat.lab.make_noise(foot_at)
+			if not jobs.has(job) or not _valid_job(job):
+				jobs.erase(job)
+				continue
 		var motion: Vector2 = job.aim*float(job.step)
 		job.step = 0.0
 		if motion.is_zero_approx(): continue
