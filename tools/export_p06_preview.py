@@ -92,6 +92,16 @@ def main():
             ok = run(folder + '_smoke', argv + ['--', '--p06-owner-preview-smoke'], env, 90)
             data = json.loads((scope / 'result.json').read_text()) if (scope / 'result.json').is_file() else {}
             row['runtime_smoke_passed'] = bool(ok and data.get('passed'))
+            check_results = {item['name']: item.get('passed') is True for item in data.get('checks', [])}
+            fixture_checks = {
+                'gabar_training': ['Gabar_actual_complete_body_loaded', 'Gabar_ability_Input_starts'],
+                'olezhka_training': ['Oleg_selection_actual_complete_body', 'Oleg_ability_Input_starts'],
+                'timka_present': ['present_Timka_selects_own_context_and_body', 'present_disengage_starts_from_Input',
+                                  'present_disengage_moves_without_prime_damage'],
+                'timka_prime': ['prime_Timka_selects_separate_body_contract', 'prime_cannot_grab_without_vulnerable_target'],
+            }
+            row['verified_combat_fixtures'] = [key for key, required in fixture_checks.items()
+                                               if data.get('passed') and all(check_results.get(name, False) for name in required)]
             row['runtime_scope'] = 'Linux renderer + Input menu/available fixtures' if folder == 'linux' else 'Actual Windows PE under Wine headless + Input menu/available fixtures'
             row['captures'] = len(list(scope.glob('*.png')))
         exports.append(row)
@@ -100,10 +110,12 @@ def main():
             break
     unchanged = before == sources()
     passed = len(exports) == 2 and unchanged and all(e['export_passed'] and e.get('runtime_smoke_passed') for e in exports)
+    available_fixtures = sorted(set.intersection(*(set(e.get('verified_combat_fixtures', [])) for e in exports))) if passed else []
     report = {'schema': 1, 'scope': 'LOCAL_OWNER_P06_DEV_PREVIEW_ONLY', 'passed': passed,
               'source_head': head, 'source_unchanged': unchanged, 'phase_approval': False,
               'release_approval': False, 'last_full_PASS': 'P05',
-              'available_combat_heroes': ['gabar', 'olezhka'], 'portrait_cast_count': 9,
+              'available_combat_heroes': sorted({key.split('_', 1)[0] for key in available_fixtures}),
+              'available_combat_fixtures': available_fixtures, 'portrait_cast_count': 9,
               'other_combat_heroes': 'INCOMPLETE; selection must preserve current ready actor',
               'native_windows': 'NOT_TESTED', 'audio_listening': 'NOT_CLAIMED',
               'FPS_acceptance': 'NOT_CLAIMED', 'exports': exports, 'commands': commands}
