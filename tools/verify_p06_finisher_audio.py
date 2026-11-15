@@ -26,7 +26,9 @@ def main():
     parser.add_argument('--headless', action='store_true')
     parser.add_argument('--import-assets', action='store_true')
     parser.add_argument('--replay-only', action='store_true', help='Keep earlier unchanged-source regressions; run actual contact replay only')
+    parser.add_argument('--headroom-only', action='store_true', help='Native targeted three contacts plus all twenty solo cues and eight twelve-voice bursts')
     args = parser.parse_args()
+    if args.headroom_only and (args.headless or not args.replay_only): parser.error('Headroom check requires native --replay-only')
     output = (ROOT / args.output).resolve()
     if output.exists(): parser.error('Use a fresh output; consumed jobs are never blindly repeated')
     output.mkdir(parents=True)
@@ -73,12 +75,14 @@ def main():
         (output/'replay').mkdir()
         argv = [GODOT,'--path',ROOT/'game','--disable-vsync','--max-fps','60']
         if args.headless: argv += ['--headless','--fixed-fps','60']
-        ok = run('contact_replay',argv+['--script','res://tests/character_finisher_audio_replay.gd'],420)
+        argv += ['--script','res://tests/character_finisher_audio_replay.gd']
+        if args.headroom_only: argv += ['--','--c01-headroom-only']
+        ok = run('contact_replay',argv,420)
         path = output/'replay/result.json'
         if path.exists(): replay=json.loads(path.read_text())
-        ok = ok and replay.get('passed') is True and replay.get('actual_input') is True and len(replay.get('route_results',[]))==45
+        ok = ok and replay.get('passed') is True and replay.get('actual_input') is True and len(replay.get('route_results',[]))==(3 if args.headroom_only else 45)
     unchanged = source_hashes()==imported
-    summary = {'schema':1,'scope':'C01_RUNTIME_SIGNAL_ONLY','passed':bool(ok and unchanged),'headless':args.headless,
+    summary = {'schema':1,'scope':'C01_HEADROOM_TARGETED_ONLY' if args.headroom_only else 'C01_RUNTIME_SIGNAL_ONLY','passed':bool(ok and unchanged),'headless':args.headless,
                'phase_approval':False,'artistic_approval':False,'listening_performed':False,'source_unchanged_after_import':unchanged,
                'source_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                'source_binding_checks':len(bindings),'runtime_checks':len(replay.get('checks',[])),

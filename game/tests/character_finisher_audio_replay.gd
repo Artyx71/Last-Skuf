@@ -15,6 +15,7 @@ var active_capture := ""
 var capture_started_usec := 0
 var solo_events: Array[Dictionary]=[]
 var stress_events: Array[Dictionary]=[]
+var headroom_only := false
 
 func frames(count: int) -> void:
  for i in count:
@@ -117,6 +118,7 @@ func capture_end() -> void:
 
 func run() -> void:
  output=OS.get_environment("AYAY_C01_OUTPUT");headless=DisplayServer.get_name()=="headless"
+ headroom_only="--c01-headroom-only" in OS.get_cmdline_user_args()
  if output.is_empty():preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1);return
  DirAccess.make_dir_recursive_absolute(output)
  root.content_scale_size=Vector2i(640,360);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
@@ -130,6 +132,19 @@ func run() -> void:
  lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
  await frames(30)
  if not headless:check("real_mixer_driver",AudioServer.get_driver_name()!="Dummy" and audio.mixer_clock_enabled)
+ if headroom_only:
+  # Target the changed Master effect. Previously verified45 routes/logic are
+  # unchanged; these three actual input contacts cover power/prime/firearm.
+  audio.request_state(&"COMBAT");await frames(60)
+  capture_begin("runtime_mix")
+  for row in [["gabar_training","unarmed"],["timka_prime","blunt"],["pasha_training","firearm"]]:
+   check(String(row[0])+":headroom_fixture",lab.select_fixture(row[0]))
+   segment=String(row[0])+"_headroom_"+String(row[1])
+   var context: String="athletic_prime" if row[0]=="timka_prime" else "training"
+   await complete_route(row[1],Routes.cue_for(lab.player.actor_id,context,row[1]))
+  await frames(25);capture_end()
+  await mixer_pass(starts)
+  return
  capture_begin("runtime_mix")
  for reduced in [false,true]:
   options.set_value(&"reduced_gore",reduced,false)
@@ -170,6 +185,9 @@ func run() -> void:
  if headless:
   finish_replay(starts)
   return
+ await mixer_pass(starts)
+
+func mixer_pass(starts: int) -> void:
  # Solo actual playback gives a compact listening artifact, with music muted only
  # inside this test. Full gameplay above uses normal buses and production settings.
  var music_bus:=AudioServer.get_bus_index(&"Music")
@@ -201,7 +219,7 @@ func run() -> void:
 func finish_replay(starts: int) -> void:
  check("retry_and_cues_preserve_music_player_clock",audio.stem_starts==starts and audio.diagnostics().music_players==1)
  var ok:=not checks.is_empty() and checks.all(func(c: Dictionary)->bool:return c.passed)
- var data: Dictionary={"schema":1,"scope":"C01_RUNTIME_SIGNAL_ONLY","passed":ok,"phase_approval":false,
+ var data: Dictionary={"schema":1,"scope":"C01_HEADROOM_TARGETED_ONLY" if headroom_only else "C01_RUNTIME_SIGNAL_ONLY","passed":ok,"phase_approval":false,
   "actual_input":true,"renderer":DisplayServer.get_name(),"listening_performed":false,"checks":checks,
   "route_results":route_results,"contacts":contacts,"audio_events":audio_events,"captures":captures,
   "mixer_captures":capture_data,"solo_events":solo_events,"stress_events":stress_events,"audio":audio.diagnostics(),
