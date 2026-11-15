@@ -18,7 +18,7 @@
 ## Состояние аудита существующей реализации
 
 - Gabar и Oleg: собственные runtime WORLD/ACTION/FIN и bounded Gameplay/native ART существуют. `character_player.gd` уже реализует swept lunge и парирование до receive_hit. Oleg guard0.06–0.26s/один incoming melee, windup0.28/active0.10/recovery0.34; Core резервирует incoming receipt ДО defend hook. Сохранять, не дублировать.
-- `olezhka_combat_replay.gd` реально проверяет parry/no incoming damage/once counter, boundaries и смертельные miss/revoked/projectile cases. Readable HUD/все новые критерии нуждаются отдельной проверкой; старый bounded PASS не выдаёт новый full gate.
+- `olezhka_combat_replay.gd` реально проверяет parry/no incoming damage/once counter, boundaries и смертельные miss/revoked/projectile cases. Читаемое окно/HUD теперь приняты отдельным ART/Gameplay/QA/Lead PASS_COMPONENT на f844e4d (guard-feedback-01 и *-guard-feedback-01): live shared predicate,57headless/78native/21PNG, originalCore timing/damage сохранены. Это не полный P06/7hero gate.
 - `character_combat_profile.gd` сейчас меняет per-character timings/style только в данных. Это НЕ самостоятельное доказательство уникальных анимаций/звуков/реакций. Новые6 собственных листов и full matrix ещё не готовы. Shared category cues Core не доказывают индивидуальный sound design.
 - Timka WORLD/ACTION принят ранее; compact migration и новые context mechanics в работе. Finisher environmental source finding всё ещё открыт. В factory реально разрешены только Gabar/Oleg, остальные не получают силу от наличия PNG.
 - Рыжик/Tega/Pasha WORLD принят; акробатический roll, actual environment action и moving-shot HUD/ability ещё не реализованы. Yakuza/CH01 старый слабый путь сохраняется, должен повторно пройти regression в полном P06.

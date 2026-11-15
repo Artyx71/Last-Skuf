@@ -34,3 +34,7 @@ Kaban/Ellana/Elya supporting, не playable. Ellana — партнёр Yakuza, E
 ## P06-CBT — уточнение всех7 стилей
 
 Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own finisher sound/animation/reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.
+
+## Принятый компонент Олежки: читаемое окно защиты
+
+Guard feedback на f844e4d принят независимыми ART/Gameplay/QA/Lead как PASS_COMPONENT. Прежний actualpre-damageparry остаётся0.06–0.26s, один incomingcontact, counterчерезCore. Read-only HUDсостояния/sharedpredicate,5pxbar внеарены, authority/death/cancel/pause/restart/settings проверены. Final57headless/78native+21PNG/movie57; independent57+31+164. DEVpreview02 Linux22/Wine18 существует. FullP06/остальныегерои/7uniqueaudio/finishermatrix иnativeWindows не приняты; не повторять готовый компонент без новых дефектов.

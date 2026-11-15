@@ -357,11 +357,19 @@
       "depends_on": [
         "P06/combat-style-audit"
       ],
-      "status": "IMPLEMENTING",
+      "status": "PASS_COMPONENT",
       "scope": "Preserve actual parry-before-damage; make reaction window readable and independently inspectactualInput/nativeHUD",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
       "phase_approval": false,
-      "evidence": "reports/phases/P06/guard-feedback-01/implementation.md"
+      "evidence": "reports/phases/P06/guard-feedback-01/implementation.md",
+      "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+      "independent_reviews": {
+        "ART": "7666fcc6fb8da035a206c945110314580c33e517a15fe92239508378f97bf200",
+        "Gameplay": "a896505e72a1642a219f8c6258b7c8f5267196c8d0683de67829f7719193d94c",
+        "QA": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
+        "Lead": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67"
+      },
+      "full_phase_approval": false
     },
     {
       "id": "P06/gabar-combat-readability-gate",
