@@ -15,4 +15,3 @@
 FullP06 ещё требует C09, полного verifier/performance/regression/exports/независимогоLead/mandatoryCI и защищённого merge. Затем отдельный FULL ProductionReadiness PASS, Lead approval21MDS до массового P07. ТолькоCH01 playable; целевые7–9часов не измерены.5секретов canonical+2optional concept episodes, не готовые миссии.
 
 Resume: reports/phases/P06/resume/decision.json; authority ROOT/automation/phase_state.json, зеркало .autopilot/STATE.json. Один автор/engine job, consumed receipts не повторять. Постоянного runner нет. Пользовательские ROOT изменения, приватные фото и стэши сохранены.
-

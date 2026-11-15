@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T21:46:55.236770+00:00",
+  "updated_utc": "2026-11-15T21:49:30.613821+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
@@ -10,8 +10,8 @@
   "frozen_worktree_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "7588fc343a3d446d8b8e2afc2209e696",
-    "task": "P06/C01-reviewed-content-privacy",
+    "id": "47fd8cc8473540deb4efd32eb765448c",
+    "task": "P06/C09-archived-source-privacy",
     "argv": [
       "/usr/bin/python3",
       "tools/check_privacy.py"
@@ -20,14 +20,14 @@
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
     "timeout": 120,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/7588fc343a3d446d8b8e2afc2209e696/started.json",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/47fd8cc8473540deb4efd32eb765448c/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/47fd8cc8473540deb4efd32eb765448c/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/47fd8cc8473540deb4efd32eb765448c/started.json",
     "status": "COMPLETED",
     "consumed": true,
     "input_sha256": "1b58844e647b58d879152c3e30b77a8e15853ca1a8d04578d9d95323aba9dae4",
     "safe_retry": false,
-    "created_at": "2026-11-15T21:21:52+00:00",
+    "created_at": "2026-11-15T21:47:57+00:00",
     "exit_code": 0
   },
   "independent_gates": {
@@ -260,15 +260,9 @@
   ],
   "source_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "active_author": {
-    "pid": 306790,
-    "phase": "P06",
-    "attempt": 1,
-    "kind": "sole host author with built-in imagegen",
-    "safe_retry": false,
-    "started_at": "2026-11-15T21:23:41+00:00",
-    "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
-    "checkpoint": "C09-sourceART02-five-shooter-toolBLOCKED-no-image-reuse-audit",
-    "updated_at": "2026-11-15T21:37:06+00:00"
+    "scope": "SNAPSHOT_NOT_A_LEASE",
+    "canonical_authority": "ROOT/automation/phase_state.json",
+    "check_canonical_lease_before_resuming": true
   },
   "native02": {
     "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
@@ -346,7 +340,7 @@
   },
   "latest_game_source_commit": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
   "previous_owner_preview": "DEV01..05 and profiles preserved",
-  "checkpoint_commit_before_metadata": "0ef418677d5b5891e2c656b4e493efab3c13a992",
+  "checkpoint_commit_before_metadata": "b25e604e1f2fe06059e252fd4d56558ede54788b",
   "pending_generator_calls": 0,
   "historical_native02": {
     "operation": "c788ed6782ef4e5cbccc00cbff99523f",
@@ -466,5 +460,10 @@
     "FullProductionReadiness FAIL b76fa63b unchanged",
     "Pasha actual runtime/Input/finiteammo/HUD/art/evidence/reviews WIP; all7 individual sounds and NPC style matrix open"
   ],
-  "latest_worktree_checkpoint": "0ef418677d5b5891e2c656b4e493efab3c13a992"
+  "latest_worktree_checkpoint": "b25e604e1f2fe06059e252fd4d56558ede54788b",
+  "privacy_evidence": {
+    "operation": "47fd8cc8473540deb4efd32eb765448c",
+    "exit_code": 0,
+    "all_tracked_sources_checked": true
+  }
 }
