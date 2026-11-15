@@ -219,6 +219,16 @@ func _wall_contact(at: Vector2, definition: Dictionary, object: Node = null) -> 
 	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
 
 
+func _contact_current(target: Variant, source: Variant, epoch: int, token: String, definition: Dictionary) -> bool:
+	# Variant guards run before any typed call or access to a callback-freed node.
+	if epoch!=encounter_epoch or not receipts.has(token): return false
+	if not is_instance_valid(target) or not is_instance_valid(source): return false
+	if not target is Node2D or not source is Node2D: return false
+	if target.is_queued_for_deletion() or source.is_queued_for_deletion() or not target.is_inside_tree() or not source.is_inside_tree(): return false
+	if definition.has("_ranged_authority"):
+		return source.has_method("authorize_committed_projectile") and source.authorize_committed_projectile(definition)
+	return true
+
 func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D, contact_kind := "") -> bool:
 	if not is_instance_valid(target) or not is_instance_valid(source) or target.health <= 0:
 		return false
@@ -226,18 +236,22 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 		return false
 	var token := str(attack_id) + ":" + str(target.get_instance_id())
 	if receipts.has(token): return false
+	var epoch := encounter_epoch
+	var target_id := target.get_instance_id()
 	receipts[token] = true
 	# Only actual melee collision dispatch opts in. Projectiles, finishers and
 	# legacy direct contacts keep their existing damage/effect path. Reserve the
 	# same once-token before a parry can queue its separate counterattack.
 	if contact_kind == "melee" and not definition.get("finisher",false) and target.has_method("defend_melee_contact"):
 		if target.defend_melee_contact(definition.duplicate(true),attack_id,source):
-			var defended := {"epoch":encounter_epoch,"id":attack_id,"target":target.get_instance_id(),
+			if not _contact_current(target,source,epoch,token,definition): return false
+			var defended := {"epoch":epoch,"id":attack_id,"target":target_id,
 				"source":source.get_instance_id(),"tick":Engine.get_physics_frames(),"kind":"training_counter_parry","damage":0}
 			defended_events.append(defended)
 			if defended_events.size() > 512: defended_events.pop_front()
 			contact_defended.emit(defended)
 			return false
+	if not _contact_current(target,source,epoch,token,definition): return false
 	damage_events += 1
 	var category := String(definition.get("category", "unarmed"))
 	var strong := bool(definition.get("strong", int(definition.damage) > 0))
@@ -246,18 +260,22 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
+	if not _contact_current(target,source,epoch,token,definition): return false
 	if target.health > 0 and float(definition.get("knockdown",0)) > 0 and target.has_method("receive_knockdown"):
 		target.receive_knockdown(float(definition.knockdown))
+		if not _contact_current(target,source,epoch,token,definition): return false
 	if target.has_method("apply_impulse"):
 		target.apply_impulse(direction * (float(polish.knockback_strong) if strong else float(polish.knockback_weak)))
+		if not _contact_current(target,source,epoch,token,definition): return false
 	if target.health <= 0 and definition.get("finisher",false) and lab.config_path == lab.CONFIG_PATH:
 		lab.score += 100
 	var cue := String(definition.get("cue", "impact_" + category + "_body"))
-	lab.audio_event.emit(StringName(cue), target.global_position)
-	var event := {"epoch": encounter_epoch, "id": attack_id, "target": target.get_instance_id(),
+	var event := {"epoch": epoch, "id": attack_id, "target": target_id,
 		"tick": Engine.get_physics_frames(), "at": target.global_position, "direction": direction,
 		"category": category, "strong": strong, "damage": int(definition.damage),
 		"lethal": target.health <= 0, "finisher": bool(definition.get("finisher", false)), "cue": cue}
+	lab.audio_event.emit(StringName(cue), event.at)
+	if not _contact_current(target,source,epoch,token,definition): return false
 	contact_events.append(event)
 	if contact_events.size() > 512: contact_events.pop_front()
 	contact_committed.emit(event)
@@ -388,6 +406,12 @@ func _record_finisher(job: Dictionary, stage: String, reason := "") -> void:
 		"elapsed":job.elapsed,"committed":job.committed,"tick":Engine.get_physics_frames()})
 	if finisher_history.size() > 128: finisher_history.pop_front()
 
+func _finisher_nodes_current(job: Dictionary) -> bool:
+	if not finishers.has(job) or job.epoch!=encounter_epoch: return false
+	if not is_instance_valid(job.source) or not is_instance_valid(job.target): return false
+	if job.source.is_queued_for_deletion() or job.target.is_queued_for_deletion(): return false
+	return job.source.is_inside_tree() and job.target.is_inside_tree() and is_instance_valid(job.source.sprite) and is_instance_valid(job.target.sprite)
+
 func _tick_finishers(delta: float) -> void:
 	for job in finishers.duplicate():
 		if not is_instance_valid(job.source) or not is_instance_valid(job.target):
@@ -409,9 +433,10 @@ func _tick_finishers(delta: float) -> void:
 			if job.elapsed + 0.00001 >= float(definition.windup):
 				# Present both registered contact poses on the damage tick. No animation callback damage.
 				job.source._present_action()
+				if not _finisher_nodes_current(job): continue
 				job.target.sprite.set_frame_and_progress(1,0)
 				# Presentation callbacks cannot charge a newly reset/replaced actor.
-				if not finishers.has(job) or job.epoch!=encounter_epoch or not eligible(job.source,job.target,job.category,job): continue
+				if not _finisher_nodes_current(job) or not eligible(job.source,job.target,job.category,job): continue
 				if job.source.has_method("commit_finisher_cost") and not job.source.commit_finisher_cost(job.epoch,job.id,job.category):
 					var actor: CharacterBody2D=job.source
 					cancel_finisher(actor,"resource_lost")
@@ -420,6 +445,8 @@ func _tick_finishers(delta: float) -> void:
 				job.committed = true # Reentry guard precedes the only existing damage path.
 				job.stage = "contact"
 				_apply_hit(job.target,definition,job.id,job.source)
+				# Hit audio/contact listeners may reset/free/replace the reservation.
+				if not _finisher_nodes_current(job): continue
 				_record_finisher(job,"contact")
 		if job.committed and job.elapsed >= float(definition.windup)+float(definition.active): job.stage = "recovery"
 		if job.source.action_kind.is_empty() or job.elapsed >= float(definition.windup)+float(definition.active)+float(definition.recovery):

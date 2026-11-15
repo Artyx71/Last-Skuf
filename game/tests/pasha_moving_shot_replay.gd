@@ -72,6 +72,12 @@ func wait_launch(budget := 30) -> bool:
 		await frames(1);budget-=1
 	return not lab.combat.moving_shots.history.is_empty()
 
+func mouse_trigger(pressed: bool) -> void:
+	var event:=InputEventMouseButton.new()
+	event.button_index=MOUSE_BUTTON_RIGHT;event.pressed=pressed
+	event.position=Vector2(450,240)
+	Input.parse_input_event(event)
+
 func remember_launches() -> void:
 	for entry in lab.combat.moving_shots.history:
 		var copy:Dictionary=entry.duplicate(true);copy.segment=segment;launches.append(copy)
@@ -102,6 +108,11 @@ func run() -> void:
 			own=own and t.get_meta("character_id","")=="pasha" and t.has_meta("clothing_socket")
 	check("all60_clips_128_own_source_drawings_clothing",own and atlas.get_animation_names().size()==60)
 	check("Pasha_speed125_no_legacy_training_kit",lab.player.move_speed==125 and lab.player.kit=="escape")
+	await setup(2,170,5);segment="actual_RMB_held_trigger"
+	mouse_trigger(true);await frames(36)
+	check("held_RMB_launches_only_one_round",lab.player.ability_uses==1 and lab.player.movement_ability.rounds_spent==1 and lab.shots_fired==1)
+	mouse_trigger(false);await frames(2);mouse_trigger(true);await frames(12);mouse_trigger(false)
+	check("released_repressed_RMB_fires_second_round",lab.player.ability_uses==2 and lab.player.movement_ability.rounds_spent==2 and lab.player.movement_ability.ammo==2)
 	var outcomes:Dictionary={}
 	for reduced in [false,true]:
 		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false)
@@ -149,12 +160,39 @@ func run() -> void:
 	await frames(1)
 	check("actual_HUD_shows_empty_and_recovery",lab.ranged_feedback.displayed_feedback.phase=="empty" and lab.ranged_feedback.title.text.contains("0 / 4") and lab.ranged_feedback.detail.text.contains("ПУСТО"))
 	await capture("empty_clip_HUD")
+	# The empty clip was earned by Input; place a nearby live target without a
+	# resource reset, earn its stun, and try actual V rather than just an API query.
+	var empty_target:CharacterBody2D=lab.enemies[0]
+	empty_target.position=lab.player.position+Vector2(20,0)
+	lab.select_equipment(3)
+	var hits_before:int=empty_target.hits_received
+	await frames(2);await tap(KEY_SPACE)
+	var empty_budget:=35
+	while not lab.player.action_kind.is_empty() and empty_budget>0:await frames(1);empty_budget-=1
+	check("empty_clip_target_stun_earned_by_Input",empty_target.state=="stunned" and empty_target.hits_received==hits_before+1 and lab.player.movement_ability.ammo==0)
+	await tap(KEY_V)
+	check("empty_clip_Input_V_cannot_reserve_firearm_finisher",lab.combat.finishers.is_empty() and lab.player.action_kind.is_empty() and lab.player.movement_ability.rounds_spent==4 and lab.score==0)
 	var before:int=lab.player.movement_ability.ammo
 	await frames(60)
 	check("passive_recovers_one_real_round",lab.player.movement_ability.ammo>before and lab.player.movement_ability.ammo<4)
 	await capture("refill_HUD")
 	await frames(180)
 	check("refill_caps_at_four",lab.player.movement_ability.ammo==4 and lab.player.movement_ability.refill_elapsed==0)
+	var mixed_target:=await setup(2,20)
+	segment="shared_clip_shot_then_firearm_finisher"
+	lab.player.set_aim(Vector2.LEFT);await tap(KEY_F)
+	var mixed_budget:=30
+	while not lab.player.action_kind.is_empty() and mixed_budget>0:await frames(1);mixed_budget-=1
+	check("mixed_clip_actual_shot_spends_first_round",lab.player.movement_ability.ammo==3 and lab.player.movement_ability.rounds_spent==1 and mixed_target.hits_received==0)
+	lab.player.set_aim(Vector2.RIGHT);lab.select_equipment(3)
+	await tap(KEY_SPACE);mixed_budget=35
+	while not lab.player.action_kind.is_empty() and mixed_budget>0:await frames(1);mixed_budget-=1
+	check("mixed_clip_earns_target_stun",mixed_target.state=="stunned" and mixed_target.hits_received==1)
+	mixed_target.set_physics_process(true);await tap(KEY_V);mixed_budget=35
+	while mixed_target.health>0 and mixed_budget>0:await frames(1);mixed_budget-=1
+	check("firearm_finisher_spends_same_clip_second_round_once",mixed_target.health==0 and lab.player.movement_ability.ammo==2 and lab.player.movement_ability.rounds_spent==2 and lab.score==100)
+	check("shared_clip_records_two_distinct_contact_costs",lab.player.movement_ability.cost_history.size()==2 and lab.player.movement_ability.cost_history[0].reason=="moving_shot" and lab.player.movement_ability.cost_history[1].reason=="firearm_finisher")
+	await capture("shared_clip_firearm_finisher")
 	# Cancelling or losing authority before contact never consumes ammunition.
 	for mode in ["cancel","revoke","reopen","replace_policy","hurt","death"]:
 		await setup(2);segment="before_contact_"+mode
