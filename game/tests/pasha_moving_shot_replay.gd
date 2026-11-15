@@ -85,6 +85,7 @@ func despawn_on_finisher_contact() -> void:
 	despawn_executed=not is_instance_valid(despawn_target)
 
 func setup(di: int, target_distance := 90.0, target_health := 1) -> CharacterBody2D:
+	segment="setup_"+NAMES[di]
 	lab.player.scene_policy=lab.scene_policy
 	if lab.scene_policy.ability_id()!="moving_shot":lab.scene_policy.open("pasha_training")
 	lab.reset_encounter();lab.auto_retry=false
