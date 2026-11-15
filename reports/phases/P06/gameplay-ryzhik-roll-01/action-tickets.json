@@ -1,0 +1,37 @@
+{
+  "source_head": "407f9a1df6c3d8ed110ab908b234fad4750b622d",
+  "status": "FAIL",
+  "tickets": [
+    {
+      "id": "GP-RYZ-01",
+      "severity": "HIGH",
+      "type": "ACTUAL_NATIVE_MOVEMENT_READABILITY",
+      "title": "UP roll entry/exit читаются против физического направления",
+      "actual": "Body движется к верху экрана; в UP2/source26 и UP5/source29 tuck/ground-support cue остаётся направлен к низу экрана. В native последовательности и actual movie вход/выход читаются как обратный/sled-like кувырок. Корректный y-path не устраняет противоречивую позу.",
+      "evidence": [
+        "evidence/native-01/live/walk_roll_walk_up_roll2.png",
+        "evidence/native-01/live/walk_roll_walk_up_roll5.png",
+        "video-frames/frame-02.png",
+        "video-frames/frame-05.png",
+        "video-frame-inventory.json",
+        "factual-proofs.json"
+      ],
+      "required_change": "Заменить целиком UP2/UP5 рисунки так, чтобы leading crown/shoulder/palm support при UP был читаем к SCREEN TOP с сохранением задней камеры, четырёх конечностей, одежды и pivot. Проверить полный UP1→2→3/4→5→6 цикл. Не маскировать дефект вращением/переворотом исходника, VFX, ускорением или изменением collision path.",
+      "acceptance": "Fresh source/native/movie на новом SHA: direction/support читаются вместе с реальным TOP path; обе W/R/W границы и UP2..5 осмотрены покадрово, landing6 сохраняет once control/contact и прежние тайминги; DOWN/LEFT/RIGHT regression сохранена."
+    },
+    {
+      "id": "GP-RYZ-02",
+      "severity": "MEDIUM",
+      "type": "FINISHER_SETTINGS_ACCEPTANCE_COVERAGE",
+      "title": "12 FIN routes не проверены в Reduced",
+      "actual": "Replay выполняет12 finisher routes до смены reduced_gore; Full_Reduced_same_combat_logic сравнивает только roll с нулевым health damage. В actual traces имеются только finisher_category_direction без mode, а settings_false/true содержат roll0damage contacts. Это не доказательство FIN/NPC/once invariance в Reduced.",
+      "evidence": [
+        "source-snapshot/game/tests/ryzhik_roll_replay.gd",
+        "evidence/native-01/live/result.json",
+        "evidence/native-01/movie/result.json"
+      ],
+      "required_change": "Выполнить все12 category×direction FIN routes в Full и Reduced с реально установленными/проверенными option values, Input-earned shove stun и работающим NPC physics; записать явные mode/phase/contact/corpse labels. Сопоставить health/hits/damage/score/kills/once receipt и finite recovery/reset; осмотреть actual Reduced contact1→corpse2 вместе с Full.",
+      "acceptance": "На новом SHA есть24 mode-bound FIN cases, по одному lethal Core receipt/reward на случай, NPC contact1→corpse2, совпадающие механические outcomes и реальные native captures/video обеих настроек. Изменение только metadata или повтор roll0damage недостаточны."
+    }
+  ]
+}

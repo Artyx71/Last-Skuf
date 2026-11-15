@@ -18,7 +18,8 @@ def valid_replay(result, headless):
         return False
     if result.get('phase_approval') is not False or result.get('actual_input') is not True or result.get('passed') is not True:
         return False
-    if not isinstance(result.get('renderer'), str) or ((result['renderer'] == 'headless') != headless):
+    allowed_renderers = {'headless'} if headless else {'X11', 'Wayland'}
+    if not isinstance(result.get('renderer'), str) or result['renderer'] not in allowed_renderers:
         return False
     checks = result.get('checks')
     return bool(isinstance(checks, list) and checks and

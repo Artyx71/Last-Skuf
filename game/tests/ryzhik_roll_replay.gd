@@ -142,34 +142,42 @@ func run() -> void:
 	# All three permitted own finishers use genuinely Input-earned baseline
 	# shove control. AI starts disabled for initial placement, then the actual
 	# stunned NPC clock/motion/reactions run through death; no injected stun.
-	for di in 4:
-		for category in ["unarmed","blunt","environmental"]:
-			var target:=await roll_fixture(di,false)
-			segment="finisher_"+category+"_"+NAMES[di]
-			target.position=lab.player.position+DIRECTIONS[di]*20.0
-			lab.training_bench.position=target.position+DIRECTIONS[di]*24.0
-			lab.training_bench.set_meta("finisher_enabled",category=="environmental")
-			check(segment+":allowed_tool",lab.select_equipment({"unarmed":0,"blunt":1,"environmental":4}[category]))
-			await frames(2);await tap(KEY_SPACE)
-			var budget:=35
-			while target.hits_received==0 and budget>0:await frames(1);budget-=1
-			check(segment+":actual_Input_shove_earned_stun",target.health==1 and target.hits_received==1 and target.state=="stunned")
-			target.set_physics_process(true)
-			while not lab.player.action_kind.is_empty() and budget>0:await frames(1);budget-=1
-			await tap(KEY_V)
-			check(segment+":own_windup_and_real_reaction",lab.player.action_kind=="finish_"+category and target.state=="finisher_reaction" and target.sprite.frame==0)
-			await capture(segment+"_windup")
-			budget=65
-			while lab.player.action_kind=="finish_"+category and lab.player.action_frame<1 and budget>0:await frames(1);budget-=1
-			var fin_contacts:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.get("finisher",false))
-			check(segment+":one_Core_contact_on_own_frame1",fin_contacts.size()==1 and fin_contacts[0].player_frame==1 and fin_contacts[0].player_animation=="finish_"+category+"_"+NAMES[di])
-			check(segment+":NPC_dead_contact_then_once_reward",target.health==0 and target.state=="dead" and target.sprite.frame==1 and target.hits_received==2 and lab.score==100)
-			await capture(segment+"_contact")
-			await frames(9)
-			check(segment+":NPC_own_corpse2",target.state=="dead" and target.sprite.frame==2)
-			await capture(segment+"_recovery")
-			await frames(45)
-			check(segment+":no_repeat_damage_score_or_job",target.hits_received==2 and lab.score==100 and lab.combat.finishers.is_empty() and not lab.player.try_finisher())
+	var finisher_outcomes:Dictionary={}
+	for reduced in [false,true]:
+		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false)
+		root.get_node("OptionsStore").set_value(&"decals",true,false)
+		for di in 4:
+			for category in ["unarmed","blunt","environmental"]:
+				var target:=await roll_fixture(di,false)
+				segment="finisher_"+str(reduced)+"_"+category+"_"+NAMES[di]
+				target.position=lab.player.position+DIRECTIONS[di]*20.0
+				lab.training_bench.position=target.position+DIRECTIONS[di]*24.0
+				lab.training_bench.set_meta("finisher_enabled",category=="environmental")
+				check(segment+":allowed_tool",lab.select_equipment({"unarmed":0,"blunt":1,"environmental":4}[category]))
+				await frames(2);await tap(KEY_SPACE)
+				var budget:=35
+				while target.hits_received==0 and budget>0:await frames(1);budget-=1
+				check(segment+":actual_Input_shove_earned_stun",target.health==1 and target.hits_received==1 and target.state=="stunned")
+				target.set_physics_process(true)
+				while not lab.player.action_kind.is_empty() and budget>0:await frames(1);budget-=1
+				await tap(KEY_V)
+				check(segment+":own_windup_and_real_reaction",lab.player.action_kind=="finish_"+category and target.state=="finisher_reaction" and target.sprite.frame==0)
+				await capture(segment+"_windup")
+				budget=65
+				while lab.player.action_kind=="finish_"+category and lab.player.action_frame<1 and budget>0:await frames(1);budget-=1
+				var fin_contacts:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.get("finisher",false))
+				check(segment+":one_Core_contact_on_own_frame1",fin_contacts.size()==1 and fin_contacts[0].player_frame==1 and fin_contacts[0].player_animation=="finish_"+category+"_"+NAMES[di])
+				check(segment+":NPC_dead_contact_then_once_reward",target.health==0 and target.state=="dead" and target.sprite.frame==1 and target.hits_received==2 and lab.score==100)
+				await capture(segment+"_contact")
+				await frames(9)
+				check(segment+":NPC_own_corpse2",target.state=="dead" and target.sprite.frame==2)
+				await capture(segment+"_corpse_recovery")
+				await frames(45)
+				check(segment+":no_repeat_damage_score_or_job",target.hits_received==2 and lab.score==100 and lab.combat.finishers.is_empty() and not lab.player.try_finisher())
+				var outcome:=[target.health,target.hits_received,lab.score,lab.combat.damage_events,lab.player.health,lab.combat.finishers.size()]
+				var route:=NAMES[di]+"_"+category
+				if not reduced:finisher_outcomes[route]=outcome
+				else:check(segment+":Full_Reduced_same_once_health_score",finisher_outcomes[route]==outcome,{"Full":finisher_outcomes[route],"Reduced":outcome})
 	await roll_fixture(2,false);segment="options_pause"
 	await tap(KEY_F);await frames(8);lab._set_options_visible(true)
 	var clock:float=lab.player.action_elapsed;start=lab.player.position;var cost:float=lab.player.ability_cooldown
@@ -185,5 +193,5 @@ func run() -> void:
 	check("Full_Reduced_same_combat_logic",outcomes[0]==outcomes[1])
 	await tap(KEY_R);await capture("ryzhik_ready_after_restart")
 	var failed:=checks.filter(func(item:Dictionary):return not item.passed).size()
-	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"not_tested":["character-specific finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
+	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"not_tested":["full sevenhero finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
 	print("RESULT P06_RYZHIK passed=%d failed=%d"%[checks.size()-failed,failed]);preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)
