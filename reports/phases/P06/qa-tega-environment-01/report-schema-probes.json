@@ -1,0 +1,105 @@
+{
+  "scope": "PURE_JSON_PREDICATE_ON_ACTUAL_JSON_COPIES",
+  "helper_sha256": "88fbcd5ff00311673661f495dd691562d39d889e138708c1e7716dd519dcee9c",
+  "actual_native_result_sha256": "c0dfc1607be8c84aa66c7fc9c95a607e05c9c6823953f88eda25b0349f6e1da5",
+  "cases": [
+    {
+      "case": "actual_native_positive",
+      "accepted": true,
+      "expected": true,
+      "matches_expected": true
+    },
+    {
+      "case": "wrong_scope",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "phase_approval",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "actual_input_false",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "whitespace_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "unknown_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "numeric_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "headless_renderer_for_native",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_trace",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_contacts",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "failed_assertion",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "wrong_checks_type",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "numeric_passed",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "phase_zero_is_not_bool",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "actual_headless_mode_separation",
+      "headless_accept": true,
+      "native_reject": true,
+      "matches_expected": true
+    }
+  ],
+  "actual_WORK_or_native_mutation": false,
+  "engine_invocations": 0
+}

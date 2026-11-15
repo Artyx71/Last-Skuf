@@ -1,39 +1,49 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-15T15:05:16.723406+00:00",
+  "updated_utc": "2026-11-15T17:21:29.319945+00:00",
   "phase": "P06",
-  "status": "RYZHIK_COMPONENT_ACCEPTED_NEXT_TEGA",
-  "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "status": "TEGA_COMPONENT_ACCEPTED_PASHA_SOURCE_ART_IN_PROGRESS",
+  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
   "active_author": {
-    "pid": 225582,
-    "status": "HELD_SOLE_AUTHOR_NEXT_P06_TEGA",
-    "checkpoint": "p06-ryzhik-lead-component-pass-DEV05-delivered-TEGA-next",
-    "canonical_state": "ROOT/automation/phase_state.json"
+    "pid": 244829,
+    "phase": "P06",
+    "attempt": 1,
+    "kind": "sole host author with built-in imagegen",
+    "safe_retry": false,
+    "started_at": "2026-11-15T16:51:19+00:00",
+    "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "checkpoint": "p06-Pasha-FIN32-raw-preserved-SourceART-inspection-next",
+    "updated_at": "2026-11-15T17:16:28+00:00"
   },
   "current_operation": {
-    "id": "aaafe45b97414c9aae22c3e991a7c9d3",
-    "task": "P06/owner-preview-20261115-05",
+    "id": "b6bf331f70f24a168026aa89842b6110",
+    "task": "P06/tega-native-03",
     "argv": [
       "/usr/bin/python3",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job05.py"
+      "tools/verify_p06_tega.py",
+      "--movie",
+      "--build-output",
+      "build/P06/tega-environment-03",
+      "--output",
+      "reports/phases/P06/tega-environment-01/native-03"
     ],
-    "argv_sha256": "a68decee9d9f82c203aa95a8a25ced9999936557e6ee478cd0bb11f3384a1762",
+    "argv_sha256": "14d191f6a2676f229744ec1c683411bc1e02be24a917c3a764c96a0eb0549ee9",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
     "timeout": 420,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/started.json",
-    "status": "CONSUMED_EXIT0",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/started.json",
+    "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "a8b9df516c769f60ac28829f646195784f2624142435147a27396436ca2c2fb0",
+    "input_sha256": "c45d69fc4cc694167b6e7373cf4d2a6ffe3062bb0f5639f2068c6cb4e8d1aa47",
     "safe_retry": false,
-    "created_at": "2026-11-15T14:43:28+00:00",
+    "created_at": "2026-11-15T16:40:40+00:00",
     "exit_code": 0
   },
   "pending_generator_calls": 0,
   "phase_approval": false,
   "merge_allowed": false,
-  "next": "Ryzhik Lead PASS_COMPONENTbd49 exact8ad; DEV05 delivered+ownerpreliminarypositive. Continue P06 Tega original ACTION/FIN and meaningful registered environment object action using existing architecture; then Pasha aimedmoving shot/ammo-cooldown HUD. Full7hero audio/NPCmatrix/fullverifier/safeRoot handoff/readiness stillOPEN. No P07/fullphase/merge/release authorization."
+  "next": "Паша ACTION32sourceART принят ebff5f14 (толькоsource). FIN32 raw сохранён послеbuilt-inimagegen по собственным WORLD/портретам; packaging/ALL32ART ещёнеприняты. Далееmoving-shot32+реальнаяfiniteammo/HUD/проверки, безподменыстатическимfire7. ТегаLead03PASS8d7e4bdf остаётсязакрытымкомпонентомP06."
 }

@@ -1,0 +1,48 @@
+{
+  "finding_id": "TEGA-L01",
+  "status": "ACTUAL_ENGINE_CONFIRMED",
+  "severity": "MEDIUM",
+  "must_fix": true,
+  "runtime_source": "6a0224e016e53e13ddb1e6fde747b66e7f75447b",
+  "mapped_test_export_source": "084026895f2ffb1b51b438cbf87e8a97440d7b77",
+  "actual_assertions_passed": 6,
+  "actual_assertions_failed": 2,
+  "reviewer_engine_runs": 0,
+  "proofs": [
+    {
+      "mode": "same_object_transform_far",
+      "tick": 19,
+      "range_after_callback_px": 128.0,
+      "same_tick_actor_step_px": 0.7000122070310226,
+      "same_tick_object_step_px": 0.7000122070310226,
+      "stale_jobs_after_Core": 1,
+      "damage_observed": false,
+      "receipt_observed": false,
+      "mask_or_exception_corruption_observed": false
+    },
+    {
+      "mode": "source_transform_far",
+      "tick": 48,
+      "range_after_callback_px": 128.0,
+      "same_tick_actor_step_px": 0.7000122070309942,
+      "same_tick_object_step_px": 0.7000122070310226,
+      "stale_jobs_after_Core": 1,
+      "damage_observed": false,
+      "receipt_observed": false,
+      "mask_or_exception_corruption_observed": false
+    }
+  ],
+  "remote_damage_confirmed": false,
+  "pure_recomputation_from_raw_actual_data": true,
+  "result_sha256": "699625534d102d9aca0dbf59d0932f61accee746df644bf3a0c80cecd2bf7c9e",
+  "log_sha256": "e3d63144048b546b4522e60c4e438b70459825b0195027f078b195d723dce28c",
+  "producer_receipt": {
+    "operation": "579fa7a9142f48a4bf93af29b516ab8c",
+    "argv_sha256": "10624e44552987522acaf6af5557fea825d9552411570c467169f092c7b481af",
+    "exit_code": 1,
+    "log_sha256": "678de908ea132882d59a5c5babb2ff51e5716c3c03cf1e67ccc2dad8c13695a3",
+    "seconds": 1.906
+  },
+  "producer_receipt_sha256": "754e612c668336c6c566849594d52f1dfdbdf445643b6c203f710ec7e5439a80",
+  "producer_log_sha256_matches": true
+}

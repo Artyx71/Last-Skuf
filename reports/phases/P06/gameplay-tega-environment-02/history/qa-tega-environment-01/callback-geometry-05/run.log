@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RESULT QA_TEGA_CALLBACK_GEOMETRY passed=6 failed=2
+ERROR: FAIL P06_TEGA same_object_transform_far:no_stale_same_tick_step_after_geometry_invalidated
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:23)
+       [1] run (res://tests/qa_tega_callback_geometry.gd:46)
+       [2] frames (res://tests/qa_tega_callback_geometry.gd:17)
+ERROR: FAIL P06_TEGA source_transform_far:no_stale_same_tick_step_after_geometry_invalidated
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:23)
+       [1] run (res://tests/qa_tega_callback_geometry.gd:46)
+       [2] frames (res://tests/qa_tega_callback_geometry.gd:17)
+
+exit_code=1

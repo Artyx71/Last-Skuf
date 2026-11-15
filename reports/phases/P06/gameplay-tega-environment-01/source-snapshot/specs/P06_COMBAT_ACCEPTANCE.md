@@ -1,0 +1,43 @@
+# P06: обязательный combat quality gate семи персонажей
+
+Источник — прямое уточнение владельца «P06 — Уточнение боевых механик и добиваний». Это расширяет критерии P06 перед P07; текущие Core/controller/прогресс сохраняются. План и таблица статусов не являются приёмкой. Owner-approved Timka84 остаётся базовым бюджетом; дополнительные настоящие рисунки для различия контекстов учитываются отдельно, если требуются новым визуальным gate.
+
+| ID | Обязательный результат | Доказательство |
+|---|---|---|
+| P06-CBT-01 | Все7 героев имеют собственные finisher keyposes/покадровые переходы, тайминги, звуковые акценты и связанные реакции NPC. Одна чужая анимация с новой скоростью не подходит. | Матрица hero/category/pose/contact/recovery/cue/reaction; source и native temporal inspection; честный отдельный учёт shared refs внутри своего набора. |
+| P06-CBT-02 | Олег: counter только после успешной активной защиты, понятное окно реакции. Полученный смертельный урон не запускает ответ. | Реальный входящий melee, preserved health/no incoming damage/blood/score on parry, отдельный Core contact; промах/ранний/поздний/задний/пуля/death/cancel/reset tests и native окно. Не требуется переписывать уже работающий parry. |
+| P06-CBT-03 | Тимка present/prime визуально и механически различимы по стойке, движению и допустимым действиям. Present мирный/disengage, prime силовой clinch/unarmed/blunt/environment. | Две registered fixture записи Input/native: stance/movement/action/grapple/finisher denial+eligibility. Общий actor ID или shared WORLD не доказывает различие сам по себе. При недостатке рисунков нужны собственные context drawings, не ускорение прежней анимации. |
+| P06-CBT-04 | Паша: быстрый бег и настоящий moving aimed shot, понятные ammo/cooldown/recovery индикаторы, конечный расход/восстановление, риск без гарантированного самоубийства. | HUD и Input trace одной физической шкалы; held/repeated trigger, empty ammo, cooldown, interruption/death/reset, движение и выстрел вместе. Catalog speed125 — данные, не готовая механика. |
+| P06-CBT-05 | Якудза остаётся слабым: побег, отвлечение, окружение, неуклюжие долгие interruptible finishers. | Existing CH01 escape/no-kill route и training finisher regression, без новых campaign grants/сильного special. Нельзя требовать победы в заведомо проигрышной opening fight. |
+| P06-CBT-06 | Габар: читаемый направленный выпад/силовые удары, swept collision и соответствующие contact hitboxes, конечный короткий recovery. | Actual Input directions/contacts/LOS/wall/cancel, sprite phase и Core receipts на одном physics tick; повторный callback не повторяет урон/очки. |
+| P06-CBT-07 | Рыжик: управляемый акробатический перекат/кувырок с реальными промежуточными рисунками и collision-путём, close-range control в допустимом окне. | Roll route/obstacles/range/finite recovery/cooldown/hurt/death/cancel; native переходы и авторские кадры. Не телепорт/VFX-only; не добавлять неоговорённую неуязвимость. |
+| P06-CBT-08 | Тега использует реальный доступный зарегистрированный объект окружения. | Target/range/facing/LOS/object enabled/existence, потеря объекта/authority до contact, once receipt/reaction/cancel. Пушка только dream-only и вне P06. |
+| P06-CBT-09 | Enemy archetypes отображают telegraph/attack/recovery/hurt/stun/knockdown/death/finisher reaction; damage совпадает с contact pose. Attack/fall/death не конфликтуют. | Actual clips/phase traces по archetype и связанным hero/category; нет урона без визуального контакта, потерянных кадров и оживления после смерти. |
+| P06-CBT-10 | Все7 героев: отмена, death/restart, once damage/score, lifetime/caps, Full/Reduced и прочие эффекты не меняют боевую логику. | Полный regression/state matrix, реальные native captures/loop transitions, wall-frame performance отдельно от headless/MovieMaker. |
+
+## Состояние аудита существующей реализации
+
+- Gabar и Oleg: собственные runtime WORLD/ACTION/FIN и bounded Gameplay/native ART существуют. `character_player.gd` уже реализует swept lunge и парирование до receive_hit. Oleg guard0.06–0.26s/один incoming melee, windup0.28/active0.10/recovery0.34; Core резервирует incoming receipt ДО defend hook. Сохранять, не дублировать.
+- `olezhka_combat_replay.gd` реально проверяет parry/no incoming damage/once counter, boundaries и смертельные miss/revoked/projectile cases. Читаемое окно/HUD теперь приняты отдельным ART/Gameplay/QA/Lead PASS_COMPONENT на f844e4d (guard-feedback-01 и *-guard-feedback-01): live shared predicate,57headless/78native/21PNG, originalCore timing/damage сохранены. Это не полный P06/7hero gate.
+- `character_combat_profile.gd` сейчас меняет per-character timings/style только в данных. Это НЕ самостоятельное доказательство уникальных анимаций/звуков/реакций. Новые6 собственных листов и full matrix ещё не готовы. Shared category cues Core не доказывают индивидуальный sound design.
+- Timka WORLD/ACTION принят ранее; compact migration и новые context mechanics в работе. Finisher environmental source finding всё ещё открыт. В factory реально разрешены только Gabar/Oleg, остальные не получают силу от наличия PNG.
+- Рыжик/Tega/Pasha WORLD принят; акробатический roll, actual environment action и moving-shot HUD/ability ещё не реализованы. Yakuza/CH01 старый слабый путь сохраняется, должен повторно пройти regression в полном P06.
+- Новые индивидуальные combat audio файлы потребуют реального рендера/декодирования/сигнального QA и фактической слуховой приёмки. Metadata, cue ID или pitch-change не являются доказательством звучания. При отсутствии listening инструмента художественный audio gate BLOCKED отдельно, зависимые обязательные phase gates сохраняются.
+
+## Независимая приёмка
+
+ART Reviewer смотрит реальные source cells, покадровые/native sequences и согласованность actor/context. Gameplay Reviewer проверяет реальные игровые контакты/тайминги/геометрию/окно реакции/управление и HUD. QA проверяет отрицательные случаи/регрессии/settings/performance/builds и inventories. Lead самостоятельно связывает полный frozen SHA/base, evidence и mandatory CI. Все P06-CBT-01..10 обязательны до P07; author не выставляет PASS. Full P06 также требует обоих Timka contexts и прежних privacy/licensing/export/merge gates.
+
+## Технический долг P08, не подмена P06
+
+Допустимо отложить только дополнительные варианты уже работающих и принятых эффектов: больше декоративных рисунков крови/декалей, необязательные косметические дубли финшеров, дополнительную VHS стилизацию. Каждый debt item требует списка реальных новых assets/source provenance, native comparison Full/Reduced, неизменных hitboxes/damage/score/сюжета, lifetime/caps/performance и независимого ART/QA до закрытия. Сейчас эти улучшения не реализованы и не приняты. Обязательные анимации/звуки/реакции/контакт/способности/HUD из таблицы переносить в P08 нельзя.
+
+Конкретные открытые debt IDs/критерии: planning/P08_TECH_DEBT.md. Это не completed content и не разрешение начинать P08.
+
+## Кандидат Теги: физическое использование окружения
+
+F применяет собственные FIN keyposes `special` (готовность → короткий удар ногой → усталое восстановление) к реальному зарегистрированному PhysicsBody2D перед героем. Начальные параметры прототипа: windup 0.18s, active 0.18s, recovery 0.32s, cooldown 2.4s; скорость толчка 210px/s, максимум 37.8px. Это параметры реализации для проверки, не подтверждённое ощущение игры.
+
+Короткий foot overlap, расстояние 12–38px, facing dot≥0.85 и LOS обязательны до старта и перед контактом. Источник, объект, ID регистрации, encounter epoch и scene authority закреплены в job. Герой следует за фактическим swept перемещением предмета; стена, препятствие на пути героя и первое столкновение останавливают движение. Столкновение предмета с NPC передаёт один контакт в прежний CombatSystem (`damage=1`, `stun=0.55`, без finisher reward). Пустой F не расходует cooldown. Отмена/ранение/смерть, удаление/отключение/перерегистрация объекта или отзыв полномочий прекращают job. Reset возвращает только действительно сдвинутые предметы к исходной позиции. Маски и collision exceptions восстанавливаются синхронно до событий.
+
+Используется уже созданный оригинальный верстак, а не новый тип декора. Приём не даёт пушку, дистанционную волну, обычную стрельбу или sharp/firearm finisher. Новые ACTION32/FIN32 получили независимое принятие только исходного арта; runtime, точное совпадение стопы и предмета в четырёх направлениях, реакции NPC, clothing overlays и игровой результат ещё требуют ART/Gameplay/QA/Lead. Существующие category SFX переиспользуются временно с явным открытым P06-CBT-01 по индивидуальному звуку всех семи героев.

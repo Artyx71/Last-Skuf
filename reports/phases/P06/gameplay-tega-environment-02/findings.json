@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "source_head": "c8f465840ec970e6abdcb9d41e1f0cbed8fc38bd",
+  "decision": "FAIL_COMPONENT",
+  "findings": [
+    {
+      "id": "TEGA-L02",
+      "QA_cross_reference": "TEG-Q03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "component_blocker": true,
+      "source": "source-snapshot/game/scripts/systems/environment_kick_runtime.gd:13",
+      "title": "Eligibility uses stale PhysicsServer shape after same-instance Node transform change",
+      "reproduction": [
+        "Start actual Input F on registered bench at actor280,240 / prop308,240.",
+        "Foot audio listener shifts same enabled registered prop Node by(0,16), without force_update_transform.",
+        "Inspect current CollisionShape global transform with direct Shape2D.collide and observer after Core in same tick19."
+      ],
+      "observed": {
+        "current_Node_shape_overlap": false,
+        "cached_PhysicsServer_overlap": true,
+        "runtime_near_foot": true,
+        "actor_delta": [
+          0.70001220703125,
+          0.0
+        ],
+        "prop_delta": [
+          0.70001220703125,
+          0.0
+        ],
+        "jobs": 1,
+        "damage": 0,
+        "receipts": 0
+      },
+      "positive_control": "Same shift plus force_update_transform makes server/current shape agree; Core movement0, jobs0.",
+      "required_fix": "Production eligibility must use collision geometry consistent with the current Node transforms subsequently moved, including callback changes; syncing only QA callback is not a product fix. Preserve range/facing/LOS and atomic no-contact abort.",
+      "required_actual_validation": "Unchanged QA07 no-force case must show current shape miss and zero additional actor/prop movement/job0 in the same tick; force-control and normal sweeps must still pass."
+    },
+    {
+      "id": "TEGA-L03",
+      "QA_cross_reference": "TEG-Q04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "component_blocker": true,
+      "source": "source-snapshot/game/scripts/systems/environment_kick_runtime.gd:71",
+      "title": "Old-job cleanup cancels a legitimate replacement action after epoch reset and reused numeric attack ID",
+      "reproduction": [
+        "Start initial actual Input F.",
+        "Foot callback invokes ordinary combat.reset(), player.reset(current_position), set_aim(RIGHT), use_ability(); no forced attack-ID assignment.",
+        "Normal reset advances epoch6→7 and resets allocator; valid new special action obtains id1 again.",
+        "Return to old job cleanup; observe same tick137 after Core."
+      ],
+      "observed": {
+        "old_epoch": 6,
+        "new_epoch": 7,
+        "old_id": 1,
+        "new_id": 1,
+        "new_action_started": true,
+        "jobs_inside_callback": 1,
+        "action_kind_after_old_cleanup": "",
+        "action_id_after_old_cleanup": 0,
+        "jobs_after_old_cleanup": 0,
+        "damage": 0,
+        "receipts": 0
+      },
+      "required_fix": "Cancel only the exact original action/job lifetime, binding epoch and original authority/action identity as well as numeric ID; old cleanup must not erase or cancel a new valid lifetime.",
+      "required_actual_validation": "Unchanged QA07 reset/new-same-kind case must preserve new epoch7/id1 special job/action after the old job returns, with no stale old step/receipt. Preserve different-ID shove and prior reset/free/cancel cases."
+    }
+  ],
+  "partially_remediated": [
+    {
+      "id": "TEGA-L01",
+      "status": "PARTIALLY_REMEDIATED",
+      "closed_scope": "Original unchanged QA05/06 far-source/far-prop128px cases: stale0.700012px→zero in same tick. LOS invalidation and different-ID shove guard pass.",
+      "remaining": "Current-Node/cache consistency and epoch-safe cleanup above block broad closure."
+    }
+  ]
+}

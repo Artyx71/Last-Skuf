@@ -1,0 +1,56 @@
+diff --git a/game/scripts/qa/owner_preview_smoke.gd b/game/scripts/qa/owner_preview_smoke.gd
+index 6a9f3e0..8247b73 100644
+--- a/game/scripts/qa/owner_preview_smoke.gd
++++ b/game/scripts/qa/owner_preview_smoke.gd
+@@ -67,10 +67,21 @@ func run() -> void:
+ 	await frames(24)
+ 	check("Ryzhik_roll_moves_with_live_collision",lab.player.ability_distance>0 and lab.player.ability_distance<=57.64 and lab.player.collision_layer==2 and lab.player.collision_mask==1)
+ 	await capture("ryzhik_roll")
+-	var player_id: int=lab.player.get_instance_id()
+-	var authority: Dictionary=lab.scene_policy.action_authority("ryzhik")
+ 	await tap(KEY_6)
+-	check("unready_Tega_preserves_Ryzhik_context",lab.player.get_instance_id()==player_id and lab.scene_policy.action_authority("ryzhik")==authority and not lab.selection_message.is_empty())
++	check("Tega_selects_complete_environment_body",lab.player.actor_id=="tega" and lab.player.prepared_ability=="environment_kick" and lab.player.authored_frames.get_animation_names().size()==56)
++	# Explicit sandbox setup; actual Input and physical displacement are measured.
++	lab.player.position=Vector2(274,270)
++	lab.player.set_aim(Vector2.RIGHT)
++	var bench_start:Vector2=lab.training_bench.position
++	await frames(2);await tap(KEY_F)
++	check("Tega_kick_starts_with_registered_object_Input",lab.player.action_kind=="special" and lab.player.ability_uses==1)
++	await frames(24)
++	check("Tega_moves_real_bench_with_restored_masks",lab.player.ability_distance>0 and lab.player.ability_distance<=37.81 and lab.training_bench.position.distance_to(bench_start)>0 and lab.training_bench.collision_mask==6 and lab.player.collision_mask==1)
++	await capture("tega_environment_kick")
++	var player_id: int=lab.player.get_instance_id()
++	var authority: Dictionary=lab.scene_policy.action_authority("tega")
++	await tap(KEY_7)
++	check("unready_Pasha_preserves_Tega_context",lab.player.get_instance_id()==player_id and lab.scene_policy.action_authority("tega")==authority and not lab.selection_message.is_empty())
+ 	await tap(KEY_ESCAPE)
+ 	await frames(3)
+ 	check("sandbox_returns_to_menu",get_tree().current_scene.get_script().resource_path=="res://scripts/core/bootstrap.gd")
+diff --git a/game/tests/olezhka_feedback_replay.gd b/game/tests/olezhka_feedback_replay.gd
+index d7b7353..5efa62f 100644
+--- a/game/tests/olezhka_feedback_replay.gd
++++ b/game/tests/olezhka_feedback_replay.gd
+@@ -142,7 +142,7 @@ func run() -> void:
+ 	await tap(KEY_2)
+ 	await sample_frames(1)
+ 	check("registered_reselection_restores_ready",lab.counter_feedback.displayed_feedback.phase=="ready")
+-	await tap(KEY_6)
++	await tap(KEY_7)
+ 	await sample_frames(1)
+ 	check("unsupported_selection_keeps_Oleg_and_visible_warning",lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready" and lab.status_label.text.contains("ещё не готов"))
+ 	await capture("13_unsupported_keeps_Oleg")
+diff --git a/tools/export_p06_preview.py b/tools/export_p06_preview.py
+index e787f0a..6d2f6f8 100644
+--- a/tools/export_p06_preview.py
++++ b/tools/export_p06_preview.py
+@@ -101,6 +101,9 @@ def main():
+                 'timka_prime': ['prime_Timka_selects_separate_body_contract', 'prime_cannot_grab_without_vulnerable_target'],
+                 'ryzhik_training': ['Ryzhik_selects_complete_own_roll_body', 'Ryzhik_roll_starts_from_Input',
+                                     'Ryzhik_roll_moves_with_live_collision'],
++                'tega_training': ['Tega_selects_complete_environment_body',
++                                  'Tega_kick_starts_with_registered_object_Input',
++                                  'Tega_moves_real_bench_with_restored_masks'],
+             }
+             row['verified_combat_fixtures'] = [key for key, required in fixture_checks.items()
+                                                if data.get('passed') and all(check_results.get(name, False) for name in required)]

@@ -1,0 +1,111 @@
+{
+  "scope": "INDEPENDENT_ISOLATED_TEGA_ENGINE_QA_ONLY",
+  "passed": true,
+  "phase_approval": false,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": null
+    },
+    {
+      "name": "clean-geometry",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "5",
+        "0"
+      ]
+    },
+    {
+      "name": "geometry-closure",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "8",
+        "0"
+      ]
+    },
+    {
+      "name": "physics-qualification",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "15",
+        "0"
+      ]
+    },
+    {
+      "name": "callback-extended",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "12",
+        "0"
+      ]
+    },
+    {
+      "name": "tega-negative",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "26",
+        "0"
+      ]
+    },
+    {
+      "name": "actor-wall",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "4",
+        "0"
+      ]
+    },
+    {
+      "name": "tega",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "305",
+        "0"
+      ]
+    },
+    {
+      "name": "counter-fixed",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "57",
+        "0"
+      ]
+    },
+    {
+      "name": "source-owner-smoke",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "29",
+        "0"
+      ]
+    }
+  ],
+  "integrity": {
+    "copy_inputs_unchanged": true,
+    "WORK_inputs_unchanged": true,
+    "copy_differences": {},
+    "WORK_differences": {},
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "all_engine_processes_waited": true,
+    "QA_probe_inputs_unchanged": true,
+    "no_work_or_controller_mutations": true
+  },
+  "not_tested": [
+    "native Windows",
+    "hardware FPS/input latency",
+    "subjective audio",
+    "full P06",
+    "publication/merge"
+  ]
+}

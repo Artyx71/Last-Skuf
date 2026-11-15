@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "decision": "FAIL_COMPONENT",
+  "scope": "TEGA_CALLBACK_GEOMETRY_AND_ACTION_LIFETIME_C8_ONLY",
+  "source_head": "c8f465840ec970e6abdcb9d41e1f0cbed8fc38bd",
+  "reviewer": "independent gameplay_olezhka_feedback",
+  "phase_approval": false,
+  "export_approval": false,
+  "engine_runs_by_reviewer": 0,
+  "blocking_findings": [
+    "TEGA-L02",
+    "TEGA-L03"
+  ],
+  "TEGA-L01": "PARTIALLY_REMEDIATED_ORIGINAL128PX_CASES_ONLY",
+  "QA_cross_references": [
+    "TEG-Q03",
+    "TEG-Q04"
+  ],
+  "preserved_positive_evidence": {
+    "native_checks": 428,
+    "movie_checks": 300,
+    "native_PNG_byte_equivalence": 128,
+    "movie_fresh_frames_inspected": 260,
+    "movie_total_video_frames": 4717,
+    "actor_trace_samples_per_run": 4699,
+    "Core_contacts_per_run": 66,
+    "Full_Reduced_FIN_pairs": 12,
+    "blood_anchors_per_run": 12
+  },
+  "QA07": {
+    "passed": 13,
+    "total": 15,
+    "result_sha256": "0fb1ece16ac1daf127cfb7fa03a68a17d0fc0c65162d238c04343b4b4b7d0ada",
+    "observed_stale_step_px": 0.70001220703125,
+    "reset_old_new_epochs": [
+      6,
+      7
+    ],
+    "reused_attack_id": 1,
+    "observed_damage": 0,
+    "observed_receipts": 0
+  },
+  "previous_GP01_decision_sha256": "052c1cf3b4331d3f6d8bb4831f5c497139b75e32853f16638234d8e544bb2846",
+  "newer_production_fix_accepted": false,
+  "files": {
+    "review": "review.md",
+    "findings": "findings.json",
+    "positive_metrics": "metrics.json",
+    "negative_metrics": "new-negative-metrics.json",
+    "independent_QA07_extraction": "QA07-independent-extraction.json",
+    "source_inventory": "source-inventory.json",
+    "portable_manifest": "portable-manifest.json"
+  },
+  "limits": [
+    "Historical c8 only; later20cbc candidate unreviewed",
+    "No fullP06/P07/readiness/CI/merge/release/export approval",
+    "No native Windows, hardwareFPS/input latency, audio listening or live-AI feel approval"
+  ]
+}

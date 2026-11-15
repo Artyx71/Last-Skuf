@@ -1,33 +1,38 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T15:05:16.723406+00:00",
+  "updated_utc": "2026-11-15T17:21:29.319945+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "frozen_worktree_head": "20cbc322441a80675907bf407f12962778c6c084",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "aaafe45b97414c9aae22c3e991a7c9d3",
-    "task": "P06/owner-preview-20261115-05",
+    "id": "b6bf331f70f24a168026aa89842b6110",
+    "task": "P06/tega-native-03",
     "argv": [
       "/usr/bin/python3",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job05.py"
+      "tools/verify_p06_tega.py",
+      "--movie",
+      "--build-output",
+      "build/P06/tega-environment-03",
+      "--output",
+      "reports/phases/P06/tega-environment-01/native-03"
     ],
-    "argv_sha256": "a68decee9d9f82c203aa95a8a25ced9999936557e6ee478cd0bb11f3384a1762",
+    "argv_sha256": "14d191f6a2676f229744ec1c683411bc1e02be24a917c3a764c96a0eb0549ee9",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
     "timeout": 420,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/started.json",
-    "status": "CONSUMED_EXIT0",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/started.json",
+    "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "a8b9df516c769f60ac28829f646195784f2624142435147a27396436ca2c2fb0",
+    "input_sha256": "c45d69fc4cc694167b6e7373cf4d2a6ffe3062bb0f5639f2068c6cb4e8d1aa47",
     "safe_retry": false,
-    "created_at": "2026-11-15T14:43:28+00:00",
+    "created_at": "2026-11-15T16:40:40+00:00",
     "exit_code": 0
   },
   "independent_gates": {
@@ -127,25 +132,48 @@
       "QA": "46b4b458f127fd60b0482eb9bfd322b4a8658a0415e276351c5f452861adef47",
       "actual_clothing_overlay_poses": 8,
       "Lead": "bd49a4ffe44a1874f5e252c6889a6d9850a6909db8d0598dbd62c95bdab659cc"
+    },
+    "tega_source_art": {
+      "action": "ef71ab4c0a6dea00d529ab7beb21934c09ad0bae88598264160c011f10cd7d88",
+      "finisher": "bb18d0809616647ca7746e7f96ac550a4a6571146e71f92dfa4e395d6acd8cae",
+      "scope": "SOURCE_ONLY"
+    },
+    "tega_lead01": {
+      "status": "FAIL_COMPONENT",
+      "sha256": "88896295546536b486bf7ff46dfa417650af7232145c213deb4f9190f1247cb4",
+      "must_fix": "TEGA-L01",
+      "subsequent_fix": "c8f4658",
+      "closure": "PENDING_QA07"
+    },
+    "tega_lead03": {
+      "status": "PASS_COMPONENT",
+      "sha256": "8d7e4bdfead1cc5cbd7b702780bee711f3faa6ab3b85afcfdfdc8c90eba46e7a",
+      "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+      "next_allowed": "Pasha within P06 only"
     }
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "Ryzhik Lead PASS_COMPONENTbd49 exact8ad; DEV05 delivered+ownerpreliminarypositive. Continue P06 Tega original ACTION/FIN and meaningful registered environment object action using existing architecture; then Pasha aimedmoving shot/ammo-cooldown HUD. Full7hero audio/NPCmatrix/fullverifier/safeRoot handoff/readiness stillOPEN. No P07/fullphase/merge/release authorization.",
+  "next_action": "Паша ACTION32sourceART принят ebff5f14 (толькоsource). FIN32 raw сохранён послеbuilt-inimagegen по собственным WORLD/портретам; packaging/ALL32ART ещёнеприняты. Далееmoving-shot32+реальнаяfiniteammo/HUD/проверки, безподменыстатическимfire7. ТегаLead03PASS8d7e4bdf остаётсязакрытымкомпонентомP06.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
   "active_author": {
-    "pid": 225582,
-    "status": "HELD_SOLE_AUTHOR_NEXT_P06_TEGA",
-    "checkpoint": "p06-ryzhik-lead-component-pass-DEV05-delivered-TEGA-next",
-    "canonical_state": "ROOT/automation/phase_state.json"
+    "pid": 244829,
+    "phase": "P06",
+    "attempt": 1,
+    "kind": "sole host author with built-in imagegen",
+    "safe_retry": false,
+    "started_at": "2026-11-15T16:51:19+00:00",
+    "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "checkpoint": "p06-Pasha-FIN32-raw-preserved-SourceART-inspection-next",
+    "updated_at": "2026-11-15T17:16:28+00:00"
   },
   "native02": {
     "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
@@ -169,19 +197,9 @@
     "ryzhik_action_source": "EXACT_SOURCE_ADOPTED SOURCEART18636309; runtime pending",
     "ryzhik_finisher_source": "SOURCE_ACCEPTED3a7bb218 EXACT_ADOPTED native04f92049; bothsourceFAILs preserved"
   },
-  "latest_implementation_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "latest_implementation_head": "20cbc322441a80675907bf407f12962778c6c084",
   "persistent_runner": false,
-  "session_checkpoint": {
-    "phase_complete": false,
-    "pending_generator_calls": 0,
-    "last_full_phase": "P05",
-    "P06_PR": null,
-    "P06_export": "DEV05 actualLinux33/7PNG/Wine26;notfullphase",
-    "pending_component_reviews": [],
-    "full_phase_reviews": "P06_NOT_READY; RYZHIK_COMPONENT_LEAD_ACCEPTED",
-    "author_lease_released": false,
-    "canonical_checkpoint_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e"
-  },
+  "session_checkpoint": "p06-Pasha-FIN-source-review-moving-shot-next",
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
     "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
@@ -219,7 +237,9 @@
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
     "FullProductionReadiness FAIL b76fa63b unchanged"
   ],
-  "pending_component_reviews": [],
+  "pending_component_reviews": [
+    "Pasha FIN source ART"
+  ],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
     "directory": "ROOT/build/P06_DEV_20261115_05",
@@ -238,7 +258,7 @@
     ],
     "full_phase_approval": false
   },
-  "latest_game_source_commit": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "latest_game_source_commit": "20cbc322441a80675907bf407f12962778c6c084",
   "previous_owner_preview": "DEV01/02/03/04 and their profiles preserved",
   "checkpoint_commit_before_metadata": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
   "pending_generator_calls": 0,
@@ -248,5 +268,22 @@
     "checks": "194/194",
     "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
   },
-  "source_dirty_author_fix_in_progress": false
+  "source_dirty_author_fix_in_progress": false,
+  "component_checkpoint_history": [
+    {
+      "previous_source": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+      "previous_checkpoint": {
+        "phase_complete": false,
+        "pending_generator_calls": 0,
+        "last_full_phase": "P05",
+        "P06_PR": null,
+        "P06_export": "DEV05 actualLinux33/7PNG/Wine26;notfullphase",
+        "pending_component_reviews": [],
+        "full_phase_reviews": "P06_NOT_READY; RYZHIK_COMPONENT_LEAD_ACCEPTED",
+        "author_lease_released": false,
+        "canonical_checkpoint_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e"
+      },
+      "superseded_at": "2026-11-15T16:04:30.231732+00:00"
+    }
+  ]
 }
