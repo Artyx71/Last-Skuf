@@ -103,7 +103,7 @@ func run() -> void:
 	check("registered_scene_speed_and_no_legacy_kit",lab.player.move_speed==110 and lab.player.kit=="escape")
 	var epoch: int = lab.combat.encounter_epoch
 	var authority: Dictionary = lab.player.finisher_authority("unarmed")
-	check("unready_actor_keeps_current_fixture",not lab.select_fixture("pasha_training") and lab.player.actor_id=="gabar" and lab.combat.encounter_epoch==epoch)
+	check("unregistered_fixture_keeps_current_actor",not lab.select_fixture("unregistered_fixture") and lab.player.actor_id=="gabar" and lab.combat.encounter_epoch==epoch)
 	check("unknown_fixture_rejected",not lab.select_fixture("saved_prime") and lab.scene_policy.definition().actor_id=="gabar")
 	var rejected := preload("res://scripts/actors/character_player.gd").new()
 	check("supporting_factory_rejected",not rejected.configure("ellana",lab.scene_policy))

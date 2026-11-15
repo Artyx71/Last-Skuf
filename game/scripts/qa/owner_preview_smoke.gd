@@ -11,6 +11,10 @@ func frames(count: int) -> void:
 	for i in count:
 		await get_tree().physics_frame
 		await get_tree().process_frame
+func key(code: Key, pressed: bool) -> void:
+	var event:=InputEventKey.new()
+	event.keycode=code;event.physical_keycode=code;event.pressed=pressed
+	Input.parse_input_event(event)
 func tap(key: Key) -> void:
 	var event := InputEventKey.new()
 	event.keycode=key;event.physical_keycode=key;event.pressed=true
@@ -78,10 +82,15 @@ func run() -> void:
 	await frames(24)
 	check("Tega_moves_real_bench_with_restored_masks",lab.player.ability_distance>0 and lab.player.ability_distance<=37.81 and lab.training_bench.position.distance_to(bench_start)>0 and lab.training_bench.collision_mask==6 and lab.player.collision_mask==1)
 	await capture("tega_environment_kick")
-	var player_id: int=lab.player.get_instance_id()
-	var authority: Dictionary=lab.scene_policy.action_authority("tega")
 	await tap(KEY_7)
-	check("unready_Pasha_preserves_Tega_context",lab.player.get_instance_id()==player_id and lab.scene_policy.action_authority("tega")==authority and not lab.selection_message.is_empty())
+	check("Pasha_selects_complete_moving_shot_body",lab.player.actor_id=="pasha" and lab.player.prepared_ability=="moving_shot" and lab.player.authored_frames.get_animation_names().size()==60)
+	lab.player.position=Vector2(274,240);lab.player.set_aim(Vector2.RIGHT)
+	var pasha_start:Vector2=lab.player.position
+	key(KEY_D,true);key(KEY_SHIFT,true);await tap(KEY_F)
+	check("Pasha_moving_shot_starts_from_Input",lab.player.action_kind=="moving_shot" and lab.player.ability_uses==1)
+	await frames(20);key(KEY_D,false);key(KEY_SHIFT,false)
+	check("Pasha_moves_and_spends_one_round_with_HUD",lab.player.position.distance_to(pasha_start)>30 and lab.player.movement_ability.ammo==3 and lab.shots_fired==1 and lab.ranged_feedback.displayed_feedback.ammo==3)
+	await capture("pasha_moving_shot")
 	await tap(KEY_ESCAPE)
 	await frames(3)
 	check("sandbox_returns_to_menu",get_tree().current_scene.get_script().resource_path=="res://scripts/core/bootstrap.gd")

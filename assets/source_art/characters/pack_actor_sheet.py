@@ -9,6 +9,7 @@ from pack_portraits import PALETTE
 ROOT=Path(__file__).resolve().parents[3]
 DIRECTIONS=['down','left','right','up']
 MAPS={'world':{'idle':[0,1],'walk':[2,3,4,5],'run':[6,7]},'action':{'shove':[0,1,2],'interact':[3],'hit':[4],'fall':[5,6],'fire':[7]},'finisher':{**{f'finish_{name}':[0,col,6] for col,name in enumerate(['unarmed','blunt','sharp','firearm','environmental'],1)},'special':[0,7,6]}}
+MAPS['moving_shot']={'moving_shot':list(range(8))}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def pack(actor,kind,version,anchor="sole",source_only=False,alpha_threshold=128,output_version=None):
  output_version=output_version or version

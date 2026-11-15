@@ -104,6 +104,9 @@ def main():
                 'tega_training': ['Tega_selects_complete_environment_body',
                                   'Tega_kick_starts_with_registered_object_Input',
                                   'Tega_moves_real_bench_with_restored_masks'],
+                'pasha_training': ['Pasha_selects_complete_moving_shot_body',
+                                   'Pasha_moving_shot_starts_from_Input',
+                                   'Pasha_moves_and_spends_one_round_with_HUD'],
             }
             row['verified_combat_fixtures'] = [key for key, required in fixture_checks.items()
                                                if data.get('passed') and all(check_results.get(name, False) for name in required)]
@@ -121,7 +124,7 @@ def main():
               'release_approval': False, 'last_full_PASS': 'P05',
               'available_combat_heroes': sorted({key.split('_', 1)[0] for key in available_fixtures}),
               'available_combat_fixtures': available_fixtures, 'portrait_cast_count': 9,
-              'other_combat_heroes': 'INCOMPLETE; selection must preserve current ready actor',
+              'other_combat_heroes': 'Not an approval of campaign combat; available fixtures are measured below',
               'native_windows': 'NOT_TESTED', 'audio_listening': 'NOT_CLAIMED',
               'FPS_acceptance': 'NOT_CLAIMED', 'exports': exports, 'commands': commands}
     write(output / 'preview.json', report)

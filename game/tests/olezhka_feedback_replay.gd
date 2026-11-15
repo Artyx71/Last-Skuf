@@ -142,13 +142,13 @@ func run() -> void:
 	await tap(KEY_2)
 	await sample_frames(1)
 	check("registered_reselection_restores_ready",lab.counter_feedback.displayed_feedback.phase=="ready")
-	await tap(KEY_7)
+	check("unknown_fixture_refused",not lab.select_fixture("unregistered_fixture"))
 	await sample_frames(1)
-	check("unsupported_selection_keeps_Oleg_and_visible_warning",lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready" and lab.status_label.text.contains("ещё не готов"))
-	await capture("13_unsupported_keeps_Oleg")
+	check("unknown_selection_keeps_Oleg_feedback",lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready")
+	await capture("13_unknown_keeps_Oleg")
 	await tap(KEY_R)
 	await sample_frames(1)
-	check("retry_clears_stale_selection_warning_and_restores_status",lab.selection_message.is_empty() and not lab.status_label.text.contains("ещё не готов") and lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready")
+	check("retry_restores_Oleg_feedback_and_status",lab.selection_message.is_empty() and not lab.status_label.text.contains("ещё не готов") and lab.player.actor_id=="olezhka" and lab.counter_feedback.displayed_feedback.phase=="ready")
 
 	var modes: Array = []
 	for reduced in [false,true]:

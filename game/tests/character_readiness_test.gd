@@ -14,6 +14,10 @@ class CompleteArtProbe:
 		# Gabar set. This cannot qualify another identity for production/review.
 		return CharacterFrames.combat_frames("gabar")
 
+class MissingArtProbe:
+	extends "res://scripts/actors/character_player.gd"
+	func _load_combat_frames(_id: String) -> SpriteFrames: return null
+
 class ForgedPolicy:
 	extends RefCounted
 	func definition() -> Dictionary:
@@ -35,13 +39,13 @@ func lab_snapshot(lab: Node) -> Dictionary:
 		"options":lab.options_panel.visible}
 
 func run() -> void:
-	for key in ["pasha_training","unknown"]:
+	for key in ["unknown","saved_prime"]:
 		var probe := CompleteArtProbe.new()
 		check("unsupported_even_if_complete_art:"+key,not probe.prepare_fixture(key))
 		check("unsupported_rejected_before_art_load:"+key,probe.load_calls.is_empty())
 		check("unsupported_cannot_bind_stale_body:"+key,probe.authored_frames==null and probe.prepared_definition.is_empty())
 		probe.free()
-	for key in ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training"]:
+	for key in ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training","pasha_training"]:
 		var policy := Policy.new()
 		check("registered_policy:"+key,policy.open(key))
 		var player := Player.new()
@@ -58,8 +62,14 @@ func run() -> void:
 		policy.open(key)
 		check("good_binding_after_rejection:"+key,player.bind_policy(policy))
 		check("failed_reprepare_revokes_cache:"+key,not player.prepare_fixture("unknown") and player.authored_frames==null and player.actor_id.is_empty() and not player.bind_policy(policy))
-		check("configure_wrong_identity_denied:"+key,not player.configure("pasha",policy))
+		check("configure_wrong_identity_denied:"+key,not player.configure("olezhka" if key=="pasha_training" else "pasha",policy))
 		player.free()
+	var wrong_art := CompleteArtProbe.new()
+	check("borrowed_complete_actor_art_cannot_prepare_Pasha",not wrong_art.prepare_fixture("pasha_training") and wrong_art.actor_id.is_empty())
+	wrong_art.free()
+	var missing_art := MissingArtProbe.new()
+	check("missing_own_art_cannot_prepare_Pasha",not missing_art.prepare_fixture("pasha_training") and missing_art.authored_frames==null)
+	missing_art.free()
 	var lab := preload("res://scripts/core/character_lab.gd").new()
 	root.add_child(lab)
 	current_scene = lab
@@ -73,7 +83,7 @@ func run() -> void:
 	check("nonempty_real_projectile_and_once_receipt",not lab.combat.projectiles.is_empty() and not lab.combat.receipts.is_empty())
 	lab._set_options_visible(true)
 	var before := lab_snapshot(lab)
-	for key in ["pasha_training","unknown"]:
+	for key in ["unknown","saved_prime"]:
 		check("live_unsupported_selection_refused:"+key,not lab.select_fixture(key))
 		check("refusal_preserves_actor_authority_jobs_receipts_options:"+key,lab_snapshot(lab)==before)
 	var old_player: Node = lab.player

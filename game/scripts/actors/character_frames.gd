@@ -7,6 +7,7 @@ const ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6
 const FINISHER_COLUMNS := {"finish_unarmed":[0,1,6], "finish_blunt":[0,2,6], "finish_sharp":[0,3,6], "finish_firearm":[0,4,6], "finish_environmental":[0,5,6], "special":[0,7,6]}
 const SHEET_COLUMNS := {"world":WORLD_COLUMNS, "action":ACTION_COLUMNS, "finisher":FINISHER_COLUMNS}
 const ROLL_COLUMNS := {"roll":[0,1,2,3,4,5,6,7]}
+const MOVING_SHOT_COLUMNS := {"moving_shot":[0,1,2,3,4,5,6,7]}
 const TIMKA_PROFILE := "timka_supported_v1"
 const TIMKA_SOURCE_COLUMNS := {"world":[0,1,2,3,4,5,6,7], "action":[0,1,2,3,4,5,6], "finisher":[0,1,2,5,6,7]}
 const TIMKA_ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6]}
@@ -15,6 +16,8 @@ const SIZE := Vector2(48,64)
 const PIVOT := Vector2(24,58)
 
 static func _layout_spec(actor_id: String, kind: String) -> Dictionary:
+ if kind=="moving_shot":
+  return {"schema":1,"columns":8,"mapping":MOVING_SHOT_COLUMNS,"count":32} if actor_id=="pasha" else {}
  if kind=="roll":
   return {"schema":1,"columns":8,"mapping":ROLL_COLUMNS,"count":32} if actor_id=="ryzhik" else {}
  if not SHEET_COLUMNS.has(kind) or actor_id not in ["gabar","olezhka","timka","ryzhik","tega","pasha"]: return {}
@@ -47,6 +50,9 @@ static func finisher_frames(actor_id: String) -> SpriteFrames:
 
 static func roll_frames(actor_id: String) -> SpriteFrames:
  return _sheet_frames(actor_id,"roll")
+
+static func moving_shot_frames(actor_id: String) -> SpriteFrames:
+ return _sheet_frames(actor_id,"moving_shot")
 
 static func timka_present_frames() -> SpriteFrames:
  # This context has no finisher/ranged clips. Its backward step explicitly
@@ -120,13 +126,20 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
  var expected: Dictionary = spec.mapping
  var texture := _sheet_texture(path_value,Vector2(int(spec.columns)*48,256))
  if texture == null: return null
- if (spec.schema==2 or kind=="roll") and not _valid_sheet_pixels(texture.get_image(),parsed): return null
+ if (spec.schema==2 or kind in ["roll","moving_shot"]) and not _valid_sheet_pixels(texture.get_image(),parsed): return null
  var socket_path := path.get_base_dir().path_join(kind+".sockets.json")
  var sockets: Dictionary = {}
  if FileAccess.file_exists(socket_path):
   var socket_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(socket_path))
   if not _valid_sockets(socket_data,parsed): return null
   sockets = socket_data
+ var muzzles: Dictionary = {}
+ if kind=="moving_shot":
+  var muzzle_path := path.get_base_dir().path_join(kind+".muzzles.json")
+  if not FileAccess.file_exists(muzzle_path): return null
+  var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(muzzle_path))
+  if not _valid_muzzles(data,parsed,texture.get_image()): return null
+  muzzles = data
  var frames := SpriteFrames.new()
  frames.remove_animation(&"default")
  for row in DIRECTIONS.size():
@@ -149,8 +162,29 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
     if not sockets.is_empty():
      var point: Array = sockets.frames[row*int(spec.columns)+column].clothing
      atlas.set_meta("clothing_socket",Vector2(point[0],point[1]))
+    if not muzzles.is_empty() and column==3:
+     var muzzle_point: Array = muzzles.frames[row].muzzle
+     atlas.set_meta("muzzle_socket",Vector2(muzzle_point[0],muzzle_point[1]))
     frames.add_frame(animation,atlas)
  return frames
+
+static func _valid_muzzles(data: Variant, layout: Dictionary, image: Image) -> bool:
+ if not data is Dictionary or image==null: return false
+ if data.get("schema")!=1 or data.get("actor_id")!="pasha" or data.get("kind")!="moving_shot": return false
+ if data.get("sheet_sha256")!=layout.get("sha256"): return false
+ if not _valid_layout(layout,"pasha","moving_shot"): return false
+ var entries: Variant = data.get("frames")
+ if not entries is Array or entries.size()!=4: return false
+ for row in 4:
+  var entry: Variant = entries[row]
+  if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row] or not _matches_numbers([entry.get("column")],[3]): return false
+  var point: Variant = entry.get("muzzle")
+  if not point is Array or point.size()!=2: return false
+  for axis in 2:
+   if not (point[axis] is int or point[axis] is float) or point[axis]!=floor(point[axis]): return false
+   if point[axis]<0 or point[axis]>=[48,64][axis]: return false
+  if image.get_pixel(3*48+int(point[0]),row*64+int(point[1])).a<=0: return false
+ return true
 
 static func _valid_sockets(sockets: Variant, layout: Dictionary) -> bool:
  if not sockets is Dictionary: return false
@@ -222,7 +256,7 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
   if not _matches_numbers(parsed.get("source_column_mapping"),spec.source_columns): return false
   if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
  elif parsed.has("layout_profile"): return false
- if kind=="roll":
+ if kind in ["roll","moving_shot"]:
   if not _matches_numbers(parsed.get("dimensions"),[384,256]): return false
   if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
  var expected: Dictionary = spec.mapping
@@ -239,7 +273,7 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
   if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row]: return false
   if not _matches_numbers([entry.get("column")],[column]): return false
   if not _matches_numbers(entry.get("rect"),[column*48,row*64,48,64]): return false
-  if kind=="roll":
+  if kind in ["roll","moving_shot"]:
    if not _matches_numbers(entry.get("pivot"),[24,58]) or not _valid_sha(entry.get("rgba_sha256")): return false
   if spec.schema==2:
    if not _matches_numbers([entry.get("index"),entry.get("source_column")],[index,spec.source_columns[column]]): return false

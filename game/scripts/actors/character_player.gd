@@ -4,12 +4,13 @@ const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
 const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
 const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
 const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd"),
-	"environment_kick":preload("res://scripts/abilities/environment_kick.gd")}
+	"environment_kick":preload("res://scripts/abilities/environment_kick.gd"),
+	"moving_shot":preload("res://scripts/abilities/moving_shot.gd")}
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
 	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step",
-	"tega_training":"environment_kick"
+	"tega_training":"environment_kick", "pasha_training":"moving_shot"
 }
 var actor_id := ""
 var scene_policy: RefCounted
@@ -23,6 +24,8 @@ var ability_distance := 0.0
 var last_ability_path: Array[Vector2] = []
 var action_authority_snapshot: Dictionary = {}
 var action_ability_id := ""
+var ranged_action_id := 0
+var action_serial := 0 # Monotonic across reset, separate from reusable Core IDs.
 var counter_spent := false
 var counter_blocks := 0
 var _clinch_requested := false
@@ -69,7 +72,8 @@ func prepare_fixture(scene_id: String) -> bool:
 		CharacterFrames._append_clips(frames,extra)
 	for animation in frames.get_animation_names():
 		for frame in frames.get_frame_count(animation):
-			if not frames.get_frame_texture(animation,frame).has_meta("clothing_socket"): return false
+			var texture := frames.get_frame_texture(animation,frame)
+			if not texture.has_meta("clothing_socket") or texture.get_meta("character_id","")!=id: return false
 	actor_id = id
 	authored_frames = frames
 	prepared_definition = definition
@@ -126,10 +130,11 @@ func _movement_state() -> String:
 	return "run" if Input.is_action_pressed("character_run") else "walk"
 
 func _physics_process(delta: float) -> void:
-	if action_kind in ["shove","special","disengage","roll"] and not _action_authorized(): cancel_action()
+	if (action_kind=="shove" or _signature_action(action_kind)) and not _action_authorized(): cancel_action()
 	if lab.state == "playing" and health > 0:
 		ability_cooldown = maxf(0.0,ability_cooldown-delta)
-	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage","roll"]: cancel_action()
+		if movement_ability!=null and movement_ability.has_method("advance_passive"): movement_ability.advance_passive(self,delta)
+	if Input.is_action_just_pressed("cancel_finisher") and _signature_action(action_kind): cancel_action()
 	super._physics_process(delta)
 	if lab.state == "playing" and health > 0:
 		if Input.is_action_just_pressed("character_ability"): use_ability()
@@ -154,6 +159,7 @@ func _physics_process(delta: float) -> void:
 
 func reset(at: Vector2) -> void:
 	super.reset(at)
+	if movement_ability!=null and movement_ability.has_method("reset"): movement_ability.reset(self)
 	move_speed = scene_policy.movement_speed() if _prepared_policy_matches_live() else 0.0
 	ability_cooldown = 0.0
 	ability_uses = 0
@@ -169,7 +175,10 @@ func finisher_authority(category: String) -> Dictionary:
 	return scene_policy.finisher_authority(actor_id,category,finisher_category)
 
 func can_use_finisher(category: String) -> bool:
-	return not finisher_authority(category).is_empty()
+	if finisher_authority(category).is_empty(): return false
+	if actor_id=="pasha" and category=="firearm":
+		return movement_ability!=null and movement_ability.can_spend(self)
+	return true
 
 func resolve_finisher(category: String, base: Dictionary) -> Dictionary:
 	if not _prepared_policy_matches_live(): return {}
@@ -184,8 +193,9 @@ func _can_begin_action() -> bool:
 	return lab != null and _prepared_policy_matches_live() and lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty()
 
 func _play_action(action: String, duration: float) -> void:
-	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage","roll"] else {}
-	action_ability_id = scene_policy.ability_id() if action in ["special","disengage","roll"] else ""
+	action_serial += 1
+	action_authority_snapshot = scene_policy.action_authority(actor_id) if action=="shove" or _signature_action(action) else {}
+	action_ability_id = scene_policy.ability_id() if _signature_action(action) else ""
 	super._play_action(action,duration)
 	if actor_id == "timka" and prepared_ability == "clinch":
 		if action == "shove": action_animation = StringName("prime_strike_"+action_direction)
@@ -220,7 +230,10 @@ func _present_action() -> void:
 func _action_authorized() -> bool:
 	if action_authority_snapshot.is_empty() or not _prepared_policy_matches_live(): return false
 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
-	return action_kind not in ["special","disengage","roll"] or action_ability_id == scene_policy.ability_id()
+	return not _signature_action(action_kind) or action_ability_id == scene_policy.ability_id()
+
+func _signature_action(action: String) -> bool:
+	return action in ["special","disengage","roll","moving_shot"]
 
 func attack_melee() -> bool:
 	if not _can_begin_action() or melee_cooldown > 0: return false
@@ -241,7 +254,9 @@ func attack_melee() -> bool:
 	return true
 
 func attack_ranged() -> bool:
-	# Normal ranged kits are implemented separately from selecting a finisher tool.
+	if actor_id=="pasha" and prepared_ability=="moving_shot" and movement_ability!=null:
+		return movement_ability.start(self)
+	# Selecting a drawn finisher tool does not grant anyone a ranged kit.
 	return false
 
 func use_ability() -> bool:
@@ -382,8 +397,35 @@ func weapon_visual_update() -> void:
 
 func cancel_action() -> void:
 	super.cancel_action()
-	if lab != null and lab.combat != null: lab.combat.environment_kicks.cancel(self)
+	if lab != null and lab.combat != null:
+		lab.combat.environment_kicks.cancel(self)
+		lab.combat.moving_shots.cancel(self)
+	ranged_action_id = 0
 
 func sync_ability_presentation() -> void:
 	_present_action()
 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
+
+func visual_muzzle() -> Vector2:
+	if actor_id=="pasha" and action_kind=="moving_shot":
+		var texture := sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame)
+		if texture.has_meta("muzzle_socket"):
+			return sprite.global_position-FRAME_SIZE*0.5+texture.get_meta("muzzle_socket")
+	return super.visual_muzzle()
+
+func authorize_ranged_launch(definition: Dictionary) -> bool:
+	if not authorize_committed_projectile(definition) or not _action_authorized(): return false
+	return action_kind=="moving_shot" and action_frame==3 and sprite.frame==3 and ranged_action_id==int(definition.get("_ranged_job_id",-1)) and action_serial==int(definition.get("_ranged_action_serial",-1))
+
+func authorize_committed_projectile(definition: Dictionary) -> bool:
+	if actor_id!="pasha" or prepared_ability!="moving_shot" or not _prepared_policy_matches_live(): return false
+	if lab==null or lab.player!=self or movement_ability==null or is_queued_for_deletion(): return false
+	return definition.get("_ranged_authority",{})==scene_policy.action_authority(actor_id) and int(definition.get("_ranged_strategy_id",0))==movement_ability.get_instance_id() and int(definition.get("_ranged_epoch",-1))==lab.combat.encounter_epoch
+
+func commit_finisher_cost(epoch: int, id: int, category: String) -> bool:
+	if actor_id!="pasha" or category!="firearm": return true
+	return movement_ability!=null and movement_ability.spend_round(self,epoch,id,"firearm_finisher")
+
+func ranged_feedback() -> Dictionary:
+	if actor_id!="pasha" or movement_ability==null: return {"phase":"hidden"}
+	return movement_ability.feedback(self)

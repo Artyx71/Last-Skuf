@@ -7,6 +7,7 @@ var scene_policy := ScenePolicy.new()
 var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training","pasha_training"]
 var selection_message := ""
 var counter_feedback: Control
+var ranged_feedback: Control
 
 func _ready() -> void:
 	var view_guard := preload("res://scripts/systems/campaign_view_guard.gd").new()
@@ -26,6 +27,9 @@ func _ready() -> void:
 	counter_feedback = preload("res://scripts/ui/counter_feedback.gd").new()
 	counter_feedback.lab = self
 	add_child(counter_feedback)
+	ranged_feedback = preload("res://scripts/ui/ranged_feedback.gd").new()
+	ranged_feedback.lab = self
+	add_child(ranged_feedback)
 	_update_hud()
 
 func _create_player() -> CharacterBody2D:
@@ -107,6 +111,8 @@ func _update_hud() -> void:
 		hint_label.text = "F: перекат вперёд · WASD/Shift · Space: оттолкнуть · V: добить · C: отмена"
 	elif player.actor_id == "tega":
 		hint_label.text = "F: пнуть верстак перед собой · WASD/Shift · Space: толчок · V: добить · C: отмена"
+	elif player.actor_id == "pasha":
+		hint_label.text = "F / ПКМ: выстрел на ходу · WASD/Shift · Space: толчок · V: добить · C: отмена"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
 	if equipment_label:

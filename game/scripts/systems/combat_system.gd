@@ -22,6 +22,7 @@ var finishers: Array[Dictionary] = []
 var finisher_history: Array[Dictionary] = []
 var environments: Dictionary = {}
 var environment_kicks := preload("res://scripts/systems/environment_kick_runtime.gd").new()
+var moving_shots := preload("res://scripts/systems/moving_shot_runtime.gd").new()
 
 func _stamp(definition: Dictionary) -> Dictionary:
 	var result := definition.duplicate(true)
@@ -33,6 +34,7 @@ func _stamp(definition: Dictionary) -> Dictionary:
 func _ready() -> void:
 	process_physics_priority = 10
 	environment_kicks.combat = self
+	moving_shots.combat = self
 	polish = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/polish.json"))
 	finisher_definitions = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/finishers.json")).definitions
 	impact = preload("res://scripts/systems/combat_impact.gd").new()
@@ -63,6 +65,7 @@ func _melee_phase(attack: Dictionary) -> String:
 
 func reset() -> void:
 	environment_kicks.reset()
+	moving_shots.reset()
 	for job in finishers.duplicate(): cancel_finisher(job.source, "reset", true)
 	finishers.clear()
 	finisher_history.clear()
@@ -93,8 +96,13 @@ func start_melee(source: CharacterBody2D, team: String, direction: Vector2, defi
 
 func fire(source: CharacterBody2D, team: String, direction: Vector2, definition: Dictionary) -> int:
 	definition = _stamp(definition)
+	if definition.has("_ranged_authority") and (not source.has_method("authorize_ranged_launch") or not source.authorize_ranged_launch(definition)): return 0
 	lab.audio_event.emit(&"weapon_fire", source.global_position)
+	# A sound listener may revoke, reset, replace or free the source immediately.
+	if not is_instance_valid(source) or source.is_queued_for_deletion() or not source.is_inside_tree() or source.health<=0 or lab.state!="playing" or int(definition._epoch)!=encounter_epoch: return 0
+	if definition.has("_ranged_authority") and not source.authorize_ranged_launch(definition): return 0
 	next_attack_id += 1
+	var attack_id := next_attack_id
 	var aim := direction.normalized()
 	var origin := source.global_position + Vector2(0, -7)
 	var muzzle := origin + aim * 12.0
@@ -111,13 +119,13 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
 			last_hit_position = obstruction.position + visual_offset
 			hit_flash = 0.15
 		else:
-			_apply_hit(obstruction.collider, definition, next_attack_id, source)
-		return next_attack_id
-	projectiles.append({"id": next_attack_id, "source": source, "team": team,
+			_apply_hit(obstruction.collider, definition, attack_id, source)
+		return attack_id
+	projectiles.append({"id": attack_id, "source": source, "team": team,
 		"position": muzzle,
 		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition,
 		"visual_offset": visual_offset})
-	return next_attack_id
+	return attack_id
 
 
 func clear_line(from: Vector2, to: Vector2) -> bool:
@@ -174,6 +182,10 @@ func _physics_process(delta: float) -> void:
 		if not source.has_method("melee_phase") and attack.time >= float(definition.get("windup", 0.0)) + float(definition.active):
 			attacks.erase(attack)
 	for bullet in projectiles.duplicate():
+		if bullet.definition.has("_ranged_authority"):
+			if not is_instance_valid(bullet.source) or not bullet.source.authorize_committed_projectile(bullet.definition):
+				projectiles.erase(bullet)
+				continue
 		var start: Vector2 = bullet.position
 		var finish: Vector2 = start + bullet.velocity * delta
 		var mask := 1 | (4 if bullet.team == "player" else 2)
@@ -197,6 +209,7 @@ func _physics_process(delta: float) -> void:
 			if bullet.time >= float(bullet.definition.lifetime):
 				projectiles.erase(bullet)
 	environment_kicks.tick()
+	moving_shots.tick()
 	queue_redraw()
 
 
@@ -229,6 +242,7 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: 
 	var category := String(definition.get("category", "unarmed"))
 	var strong := bool(definition.get("strong", int(definition.damage) > 0))
 	var direction := (target.global_position - source.global_position).normalized()
+	if definition.get("_impact_direction") is Vector2: direction = definition._impact_direction.normalized()
 	last_hit_position = target.global_position + Vector2(0, -28)
 	hit_flash = 0.16
 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
@@ -303,7 +317,7 @@ func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String
 		# A legacy actor has no per-character resolver. Its host must explicitly
 		# grant the training fixture; an earned chapter stun is not a grant.
 		if not lab.has_method("legacy_finishers_allowed") or not lab.legacy_finishers_allowed(source): return false
-		if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+	if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
 	var definition: Dictionary = _finisher_definition(source,category,job)
 	if definition.is_empty(): return false
 	if source.finisher_weapon != definition.weapon: return false
@@ -396,6 +410,13 @@ func _tick_finishers(delta: float) -> void:
 				# Present both registered contact poses on the damage tick. No animation callback damage.
 				job.source._present_action()
 				job.target.sprite.set_frame_and_progress(1,0)
+				# Presentation callbacks cannot charge a newly reset/replaced actor.
+				if not finishers.has(job) or job.epoch!=encounter_epoch or not eligible(job.source,job.target,job.category,job): continue
+				if job.source.has_method("commit_finisher_cost") and not job.source.commit_finisher_cost(job.epoch,job.id,job.category):
+					var actor: CharacterBody2D=job.source
+					cancel_finisher(actor,"resource_lost")
+					actor.cancel_action()
+					continue
 				job.committed = true # Reentry guard precedes the only existing damage path.
 				job.stage = "contact"
 				_apply_hit(job.target,definition,job.id,job.source)
