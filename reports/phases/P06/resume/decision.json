@@ -1,33 +1,33 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T12:42:31.249625+00:00",
+  "updated_utc": "2026-11-15T15:05:16.723406+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
+  "frozen_worktree_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "2cf56a72721c4ec3bcdca03970106115",
-    "task": "P06/owner-preview-20261115-04",
+    "id": "aaafe45b97414c9aae22c3e991a7c9d3",
+    "task": "P06/owner-preview-20261115-05",
     "argv": [
       "/usr/bin/python3",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job04.py"
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job05.py"
     ],
-    "argv_sha256": "a427e3802d5e8aa5ff813b90eae5f2827601bd3ad3f3052b4cdaf5489705e15b",
+    "argv_sha256": "a68decee9d9f82c203aa95a8a25ced9999936557e6ee478cd0bb11f3384a1762",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
     "timeout": 420,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/started.json",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/aaafe45b97414c9aae22c3e991a7c9d3/started.json",
     "status": "CONSUMED_EXIT0",
     "consumed": true,
-    "input_sha256": "1885e1458400abb6929a0e5fb36c5f20c3050879e10527e161ad6acd9c03606e",
+    "input_sha256": "a8b9df516c769f60ac28829f646195784f2624142435147a27396436ca2c2fb0",
     "safe_retry": false,
-    "created_at": "2026-11-15T11:48:51+00:00",
+    "created_at": "2026-11-15T14:43:28+00:00",
     "exit_code": 0
   },
   "independent_gates": {
@@ -92,24 +92,59 @@
       "footer_QA": "c86a97b7a4deeb1444005f1c31679391d51a55ccbfbde0f40a899eb01d3843d0",
       "checks": "214headless/304native90PNG/214movie3599frames/15unit; actual589 evidence, Gameequivalence9b42/c193",
       "full_phase_approval": false
+    },
+    "ryzhik_source": {
+      "ROLL": "ACCEPTABLE_SOURCE_CANDIDATE3678206e;exactadopted",
+      "ACTION": "ACCEPTABLE_SOURCE_CANDIDATE18636309;exactadopted",
+      "FIN1": "FAIL_SOURCE_ONLY796ba0b8 direction15/23/31 preserved",
+      "FIN2": "FAIL_SOURCE_ONLY9aecef29 preserved sleeves/head",
+      "FIN3": "ACCEPTABLE_SOURCE_CANDIDATE3a7bb218 exactadopted; other29raw/nativeexact; nofullbodyapproval",
+      "runtime_approval": false,
+      "phase_approval": false
+    },
+    "ryzhik_runtime": {
+      "status": "PASS_COMPONENT_NOT_FULL_PHASE",
+      "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+      "headless_checks": 311,
+      "native_checks": 439,
+      "native_PNG": 128,
+      "movie_checks": 311,
+      "movie_video_frames": 3513,
+      "movie_duration_seconds": 58.55,
+      "movie_sha256": "b32d70789ff24bf6afc997a65222e7da66779d2124d16ef7862ee721d67e9fa6",
+      "actual_Core_contacts": 61,
+      "fixture_registered": true,
+      "phase_approval": false,
+      "independent_component_approval": true,
+      "ART": "1bff5aa09a90cc7350316ac9af896082c5b38e4b3b301b58705b7c87a39aa72e",
+      "Gameplay": "bb8880ccace31061391289675412494d76917aaf3619438d504f034200194b21",
+      "current_source_approval": "UPv2a14200fc4 SOURCE_ONLY_NOT_RUNTIME",
+      "historical407_reviews": {
+        "ART": "2871c101ff8608f3182e02679b271c47217b6d1e1c3965a59fcc72d92effe054",
+        "Gameplay": "199b981dca95c001e118a0b1859fd1452719c7b19c2f466ab33743d2ad073cac",
+        "QA": "4c1dcef9f724b29149858e61046f9dd68c3b423fecc7ff930f82457a25835b1b"
+      },
+      "QA": "46b4b458f127fd60b0482eb9bfd322b4a8658a0415e276351c5f452861adef47",
+      "actual_clothing_overlay_poses": 8,
+      "Lead": "bd49a4ffe44a1874f5e252c6889a6d9850a6909db8d0598dbd62c95bdab659cc"
     }
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "P06 Ryzhik original ACTION/FIN + real collision-roll; preserve Timka bounded Lead02 PASS, DEV04 and historical FAIL. Then Tega/Pasha/audio/NPC/fullverifier/safe handoff; no P07 advance.",
+  "next_action": "Ryzhik Lead PASS_COMPONENTbd49 exact8ad; DEV05 delivered+ownerpreliminarypositive. Continue P06 Tega original ACTION/FIN and meaningful registered environment object action using existing architecture; then Pasha aimedmoving shot/ammo-cooldown HUD. Full7hero audio/NPCmatrix/fullverifier/safeRoot handoff/readiness stillOPEN. No P07/fullphase/merge/release authorization.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
+  "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
   "active_author": {
-    "pid": 170428,
-    "status": "HELD_VERIFY_CANONICAL_LEASE_BEFORE_RESUME",
-    "checkpoint": "p06-ryzhik-action-v1a-source-packed-fin-generation-prepared",
+    "pid": 225582,
+    "status": "HELD_SOLE_AUTHOR_NEXT_P06_TEGA",
+    "checkpoint": "p06-ryzhik-lead-component-pass-DEV05-delivered-TEGA-next",
     "canonical_state": "ROOT/automation/phase_state.json"
   },
   "native02": {
@@ -130,24 +165,22 @@
     "pending_generator_calls": 0,
     "pasha_world_v3d_native_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
     "pasha_world_v3d_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED",
-    "ryzhik_roll_source": "ROOT/.tools/art-pending/ryzhik/roll-v1;sourceART3678206e;notruntime",
-    "ryzhik_action_source": "ROOT/.tools/art-pending/ryzhik/action-v1;v1a native4605ae8d sourceART pending",
-    "ryzhik_finisher_source": "ROOT/.tools/art-pending/ryzhik/finisher-v1 raw saved; NOT_PACKED"
+    "ryzhik_roll_source": "UPv2a SOURCE14200fc4 EXACT_ADOPTED; runtimeART02/GP02 accepted8ad; Leadpending",
+    "ryzhik_action_source": "EXACT_SOURCE_ADOPTED SOURCEART18636309; runtime pending",
+    "ryzhik_finisher_source": "SOURCE_ACCEPTED3a7bb218 EXACT_ADOPTED native04f92049; bothsourceFAILs preserved"
   },
-  "latest_implementation_head": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
+  "latest_implementation_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
   "persistent_runner": false,
   "session_checkpoint": {
     "phase_complete": false,
     "pending_generator_calls": 0,
     "last_full_phase": "P05",
     "P06_PR": null,
-    "P06_export": "DEV04_ONLY Linux29/6PNG/Wine23;notfullphase",
-    "pending_component_reviews": [
-      "Ryzhik ACTION32v1a SOURCE ART"
-    ],
-    "full_phase_reviews": "P06_NOT_READY; TIMKA_BOTH_CONTEXTS_COMPONENT_ACCEPTED",
+    "P06_export": "DEV05 actualLinux33/7PNG/Wine26;notfullphase",
+    "pending_component_reviews": [],
+    "full_phase_reviews": "P06_NOT_READY; RYZHIK_COMPONENT_LEAD_ACCEPTED",
     "author_lease_released": false,
-    "canonical_checkpoint_head": "c193119deac0e5d65655e0cd97ced7fdf596eb6c"
+    "canonical_checkpoint_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e"
   },
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
@@ -180,33 +213,33 @@
     }
   ],
   "open_findings": [
-    "Ryzhik/Tega/Pasha own ACTION/FIN/real abilities, sevenhero sounds/NPC/fullmatrix incomplete",
+    "Tega/Pasha own ACTION/FIN/realabilities; sevenhero sounds/NPCstyle/fullmatrix incomplete",
     "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
     "FullProductionReadiness FAIL b76fa63b unchanged"
   ],
-  "pending_component_reviews": [
-    "Ryzhik ACTION32v1a SOURCE ART"
-  ],
+  "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
-    "directory": "ROOT/build/P06_DEV_20261115_04",
-    "source": "9b42df871e53758b402108cb7cc00a2e385ab773",
-    "Linux_renderer_checks": 29,
-    "Linux_PNG": 6,
-    "Wine_headless_checks": 23,
+    "directory": "ROOT/build/P06_DEV_20261115_05",
+    "standalone_copy": true,
+    "source": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+    "Linux_renderer_checks": 33,
+    "Linux_PNG": 7,
+    "Wine_headless_checks": 26,
     "native_windows": "NOT_TESTED",
     "available_fixtures": [
       "gabar_training",
       "olezhka_training",
       "timka_present",
-      "timka_prime"
+      "timka_prime",
+      "ryzhik_training"
     ],
     "full_phase_approval": false
   },
-  "latest_game_source_commit": "9b42df871e53758b402108cb7cc00a2e385ab773",
-  "previous_owner_preview": "DEV01/02/03 with separate profiles preserved",
+  "latest_game_source_commit": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "previous_owner_preview": "DEV01/02/03/04 and their profiles preserved",
   "checkpoint_commit_before_metadata": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
   "pending_generator_calls": 0,
   "historical_native02": {
@@ -214,5 +247,6 @@
     "status": "CONSUMED_EXIT0",
     "checks": "194/194",
     "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
-  }
+  },
+  "source_dirty_author_fix_in_progress": false
 }

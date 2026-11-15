@@ -1,0 +1,55 @@
+{
+  "scope": "HISTORICAL_FAILED_OPERATIONS_NOT_RUNTIME_PASS",
+  "native02_validation_sha256": "8be941bcb270d9f3943aec49ee46c71ee0f334ac39b164423df862f9904ff5e6",
+  "live418_valid": true,
+  "actual_live_PNGs": 120,
+  "movie_timeout_command": {
+    "name": "movie",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--disable-vsync",
+      "--max-fps",
+      "60",
+      "--write-movie",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-02/ryzhik-roll.avi",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "res://tests/ryzhik_roll_replay.gd"
+    ],
+    "exit_code": 124,
+    "passed": false,
+    "seconds": 100.128,
+    "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-ryzhik-roll-qa/d983c6c4a5ae29789efb"
+  },
+  "movie_result_exists": false,
+  "final_MP4_claimed": null,
+  "receipt": {
+    "operation": "a0189f6aa91a4a438307490d318ad9b0",
+    "argv_sha256": "b075ef1070faae826bbbf0d25c2fd008425551c6a457758a3a636c59d744595f",
+    "exit_code": 1,
+    "log_sha256": "22e27aaf4b62340bf2670691941ba4ef83f2cb20685068cad06faeb5fb112be5",
+    "seconds": 158.985
+  },
+  "actual_log_SHA_matches": true,
+  "prior_parse_failure": {
+    "validation_sha256": "24fd39db7374a4645fb9b610a33e14fe8fb50e2c45f0188ca94043ea64c22009",
+    "log_sha256": "c48c29749eb12625b555856eef853d59e4dd64f194360577c5b2536c4345b31d",
+    "checks": [
+      {
+        "passed": 0,
+        "total": 0
+      }
+    ],
+    "source_head": "a33581e430109de3d80fcd517aaafbc76d6f3cd6",
+    "is_product_bug_claim": false
+  },
+  "actual_QA_engines_so_far": 0,
+  "actual_partial_AVI": {
+    "path": "build/P06/ryzhik-roll-02/ryzhik-roll.avi",
+    "bytes": 202592256,
+    "sha256": "64511ce6365e97fd44f39869586861643a44a44cfa33cf9dd41b6d28b2fbc13e"
+  }
+}
