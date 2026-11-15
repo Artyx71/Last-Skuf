@@ -129,7 +129,7 @@ func run() -> void:
 				lab.reset_encounter()
 				lab.player.position=Vector2(470,250)-DIRECTIONS[di]*26;lab.player.set_aim(DIRECTIONS[di])
 				for enemy in lab.enemies:enemy.set_physics_process(false);enemy.position=Vector2(520,100)
-				target=lab.enemies[0];target.position=Vector2(470,250)
+				target=lab.enemies[0];target.position=Vector2(470,250);target.set_physics_process(true)
 				lab.training_bench.position=target.position+DIRECTIONS[di]*30;lab.training_bench.set_meta("finisher_enabled",true)
 				await frames(2);await tap(KEY_SPACE);await frames(37)
 			else:target=await prime_target(DIRECTIONS[di])
