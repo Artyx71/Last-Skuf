@@ -115,6 +115,30 @@ func run() -> void:
 		if reason in ["revoke","reopen"]:lab.scene_policy.open("ryzhik_training")
 		await tap(KEY_R)
 		check(reason+":restart_resets_cost",lab.state=="playing" and lab.player.health==1 and lab.player.ability_cooldown==0 and lab.player.action_kind.is_empty())
+	# Production incoming Core overlaps in three actual roll phases; initial
+	# opponents are placed before F, not teleported into a measured action.
+	for phase_index in 3:
+		for fatal in [false,true]:
+			var target:=await roll_fixture(2,false)
+			segment="Core_incoming_"+str(phase_index)+("_fatal" if fatal else "_hurt")
+			target.position=lab.player.position+Vector2([20.0,30.0,43.0][phase_index],0)
+			lab.player.health=1 if fatal else 2
+			await frames(2);await tap(KEY_F)
+			while lab.player.action_elapsed<float([0.03,0.20,0.44][phase_index]):await frames(1)
+			var clock_before:float=lab.player.action_elapsed
+			target.locked_aim=(lab.player.position-target.position).normalized()
+			var incoming:int=lab.combat.start_melee(target,"enemy",target.locked_aim,lab.config.attacks.enemy_melee)
+			await frames(1)
+			var hits:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.target_is_player)
+			check(segment+":real_Core_damage_no_immunity",hits.size()==1 and lab.player.health==(0 if fatal else 1) and lab.player.hits_received==1 and lab.combat.defended_events.is_empty(),{"clock_before":clock_before,"incoming":incoming})
+			check(segment+":actual_enemy_attack_pose",String(target.sprite.animation).begins_with("reaction_attack_") and target.attack_id==incoming)
+			check(segment+":own_hurt_or_fall_replaces_roll",lab.player.action_kind==("fall" if fatal else "hit") and lab.player.sprite.animation==StringName(("fall_" if fatal else "hit_")+"right"))
+			await capture(segment+"_actual_contact")
+			var distance:float=lab.player.ability_distance
+			await frames(12)
+			check(segment+":no_ghost_motion_or_repeated_incoming",lab.player.ability_distance==distance and lab.player.hits_received==1 and lab.player.action_kind!="roll" and lab.score==0)
+			await tap(KEY_R)
+			check(segment+":restart_clears_real_receipts",lab.player.health==1 and lab.player.hits_received==0 and lab.combat.receipts.is_empty() and lab.player.ability_cooldown==0)
 	await roll_fixture(2,false);segment="options_pause"
 	await tap(KEY_F);await frames(8);lab._set_options_visible(true)
 	var clock:float=lab.player.action_elapsed;start=lab.player.position;var cost:float=lab.player.ability_cooldown
