@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "must_fix": [
+    {
+      "id": "TPR-L01",
+      "severity": "MEDIUM",
+      "status": "OPEN_AT_REVIEWED_HELPER_SHA",
+      "scope": "RESUMABLE_LIVE_CACHE_LOG_EXIT_INTERNAL_CONSISTENCY_ONLY",
+      "source": "tools/verify_p06_timka_prime.py:completed_live_evidence",
+      "source_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+      "expected": "Mandatory wrapper last nonempty live.log footer must exactly agree with successful typed exit0 receipts before automatic cache reuse.",
+      "observed": "ROOT path-rebased actualNative03 positive control accepts; modifying only final live.log footer toexit_code=17 and coherently rebinding its artifacthash ALSO accepts/all_artifacts_verified=true while both commands remain0.",
+      "repro": [
+        "probe-log-exit-consistency.py",
+        "log-exit-consistency-results.json"
+      ],
+      "fix": "Require exact final nonempty line exit_code=0; reject nonzero/missing/prefix/00/leading-space/trailing-comment forms; retain actual0 positive and strictsource equality; add pure negative tests and independent helper-only closure.",
+      "actual_native03_invalidated": false,
+      "actual_native03_log_exit": 0,
+      "runtime_Game_ART_DEV_changes_required": false,
+      "new_engine_or_GPU_runs_required_for_pure_helper_fix": false,
+      "author_fix_pending_separate_review": "c193119deac0e5d65655e0cd97ced7fdf596eb6c"
+    }
+  ],
+  "runtime_component_findings": []
+}

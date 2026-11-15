@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "scope": "PURE_FROZEN_HELPER_READ_ONLY_EXISTING_REAL_EVIDENCE",
+  "helper_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+  "cases": [
+    {
+      "case": "actual_complete_native03_historical_exact",
+      "accepted": true,
+      "expected": true,
+      "value": {
+        "validation": "reports/phases/P06/timka-prime-01/native-03/validation.json",
+        "sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+        "source_head": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+        "checks": [
+          {
+            "passed": 304,
+            "total": 304
+          }
+        ],
+        "captures": 90,
+        "all_artifacts_verified": true
+      },
+      "error": null
+    },
+    {
+      "case": "current_test_source_delta_rejects_historical_reuse",
+      "accepted": false,
+      "expected": false,
+      "value": null,
+      "error": "ValueError: Live source snapshot differs; do not reuse stale gameplay"
+    },
+    {
+      "case": "old02_helper_source_stale_rejected",
+      "accepted": false,
+      "expected": false,
+      "value": null,
+      "error": "ValueError: Live source snapshot differs; do not reuse stale gameplay"
+    },
+    {
+      "case": "interrupted_old01_no_validation_rejected",
+      "accepted": false,
+      "expected": false,
+      "value": null,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/timka-prime-01/native-01/validation.json'"
+    }
+  ],
+  "engine_Git_controller_network_calls": 0,
+  "WORK_or_original_evidence_mutations": false
+}

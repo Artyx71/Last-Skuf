@@ -1,0 +1,14 @@
+{
+  "id": "TPR-Q01",
+  "severity": "MEDIUM",
+  "status": "OPEN",
+  "scope": "COMPLETED_NATIVE_CACHE_CONSISTENCY_ONLY",
+  "frozen_commit": "db84b39711181bb93b6ce58ac4bb7a244dee032b",
+  "helper_sha256": "1d6f905075b3b4e536f6eb26e0835b25d1d79ac0dd932cc0bc2c1b9535b262a7",
+  "repro_script": "probe-cache-consistency.py",
+  "actual_results": "cache-consistency-probes.json",
+  "observed": "All four coherently hash-rebound contradictory/incomplete TEST_ONLY fixtures are accepted with all_artifacts_verified=true: failed commands.json vs successful report.commands; wrong result scope/phase; aliased duplicate captures; false summary counts.",
+  "expected": "Completed cached native evidence must be internally consistent and belong to this component; actual command receipt, result scope/phase, unique capture inventory and reported check summary must agree.",
+  "limitations": "Pure helper fixture tests; no actual native02 corruption, no renderer proof, no runtime bug, no controller/engine action.",
+  "remedy": "Read strict commands.json and compare report; require exact result scope/phase; validate unique capture bindings/count and report summary derived from actual result checks."
+}

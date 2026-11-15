@@ -1,0 +1,1173 @@
+{
+  "schema": 1,
+  "source_head": "db84b39711181bb93b6ce58ac4bb7a244dee032b",
+  "native_validation_sha256": "442e43fdb4019b413835c181c5e1644473ed8b26b6766e6c6f1eb41dc142eaca",
+  "all_native_artifacts_verified": 94,
+  "source_art_controller_exact_previous_candidate": true,
+  "production_source_inventory_sha256": {
+    "game/scripts/actors/character_frames.gd": "46a7949aecdbabc5ef6f928c96369af1d31fb0fe47b647b3762480efd85986c6",
+    "game/scripts/actors/character_player.gd": "8201485285934b6b2f8bcf51d92ca5fea19f5898e73c3313002426b99370f6c9",
+    "game/scripts/actors/pixel_presentation.gd": "a6dfc9819d5f710f2ad33c1fd01ee1d1beb3fc7eca8ce95839da483b5add88a0",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/ai/enemy_actor.gd": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+    "game/scripts/actors/polish_frames.gd": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+    "game/scripts/systems/combat_system.gd": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/assets/art/characters/timka/world_sheet.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "game/assets/art/characters/timka/action_sheet.png": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+    "game/assets/art/characters/timka/finisher_sheet.png": "26aa10f81a3d4d3197133983d7e117f976278420f40919b4d9a27e3c204e57ae",
+    "game/assets/art/characters/timka/world.json": "282502a1f6edabf4811d8b392e407d5776c5548b0a06b86da2f98ee439f78fd9",
+    "game/assets/art/characters/timka/action.json": "34fee35578aded891d02a2258d91fd66002f7108e4637f49d4a95d3dde61c85b",
+    "game/assets/art/characters/timka/finisher.json": "9d090f7c17db1ca81ade7376482390fa111c8866b61688a78a236e1279317bcb",
+    "game/assets/art/characters/timka/world.sockets.json": "dc1999511ff06021620c546615410a38e23c9e181691640b5aafdcb0451a05d0",
+    "game/assets/art/characters/timka/action.sockets.json": "8ef9dcd5ab00a5faafb272c4aab03eff591e71545bbbc134c1f55a5922cb5bf3",
+    "game/assets/art/characters/timka/finisher.sockets.json": "f37f6b86a0f5f3ebb255097181da6faa0595c91cab769faf96a33b159c384728"
+  },
+  "native_passed_checks": 304,
+  "captures": 90,
+  "locomotion_captures_verified": 40,
+  "real_walk_routes": [
+    {
+      "route": "present_locomotion_down",
+      "capture_animations_frames": [
+        [
+          "present_locomotion_down_stance0",
+          "idle_down",
+          0
+        ],
+        [
+          "present_locomotion_down_stance1",
+          "idle_down",
+          1
+        ],
+        [
+          "present_locomotion_down_walk_frame0",
+          "walk_down",
+          0
+        ],
+        [
+          "present_locomotion_down_walk_frame1",
+          "walk_down",
+          1
+        ],
+        [
+          "present_locomotion_down_walk_frame2",
+          "walk_down",
+          2
+        ],
+        [
+          "present_locomotion_down_walk_frame3",
+          "walk_down",
+          3
+        ]
+      ],
+      "longest_real_walk_records": 70,
+      "walk_tick_start": 46,
+      "walk_tick_end": 115,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 46,
+          "frame": 0,
+          "position": [
+            280.0,
+            194.199981689453
+          ]
+        },
+        {
+          "tick": 54,
+          "frame": 1,
+          "position": [
+            280.0,
+            205.399932861328
+          ]
+        },
+        {
+          "tick": 61,
+          "frame": 2,
+          "position": [
+            280.0,
+            215.199890136719
+          ]
+        },
+        {
+          "tick": 69,
+          "frame": 3,
+          "position": [
+            280.0,
+            226.399841308594
+          ]
+        },
+        {
+          "tick": 76,
+          "frame": 0,
+          "position": [
+            280.0,
+            236.199798583984
+          ]
+        },
+        {
+          "tick": 84,
+          "frame": 1,
+          "position": [
+            280.0,
+            247.399749755859
+          ]
+        },
+        {
+          "tick": 91,
+          "frame": 2,
+          "position": [
+            280.0,
+            257.19970703125
+          ]
+        },
+        {
+          "tick": 99,
+          "frame": 3,
+          "position": [
+            280.0,
+            268.399658203125
+          ]
+        },
+        {
+          "tick": 106,
+          "frame": 0,
+          "position": [
+            280.0,
+            278.199615478516
+          ]
+        },
+        {
+          "tick": 114,
+          "frame": 1,
+          "position": [
+            280.0,
+            289.399566650391
+          ]
+        }
+      ]
+    },
+    {
+      "route": "present_locomotion_left",
+      "capture_animations_frames": [
+        [
+          "present_locomotion_left_stance0",
+          "idle_left",
+          0
+        ],
+        [
+          "present_locomotion_left_stance1",
+          "idle_left",
+          1
+        ],
+        [
+          "present_locomotion_left_walk_frame0",
+          "walk_left",
+          0
+        ],
+        [
+          "present_locomotion_left_walk_frame1",
+          "walk_left",
+          1
+        ],
+        [
+          "present_locomotion_left_walk_frame2",
+          "walk_left",
+          2
+        ],
+        [
+          "present_locomotion_left_walk_frame3",
+          "walk_left",
+          3
+        ]
+      ],
+      "longest_real_walk_records": 70,
+      "walk_tick_start": 145,
+      "walk_tick_end": 214,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 145,
+          "frame": 0,
+          "position": [
+            295.800018310547,
+            280.0
+          ]
+        },
+        {
+          "tick": 153,
+          "frame": 1,
+          "position": [
+            284.600067138672,
+            280.0
+          ]
+        },
+        {
+          "tick": 160,
+          "frame": 2,
+          "position": [
+            274.800109863281,
+            280.0
+          ]
+        },
+        {
+          "tick": 168,
+          "frame": 3,
+          "position": [
+            263.600158691406,
+            280.0
+          ]
+        },
+        {
+          "tick": 175,
+          "frame": 0,
+          "position": [
+            253.800201416016,
+            280.0
+          ]
+        },
+        {
+          "tick": 183,
+          "frame": 1,
+          "position": [
+            242.600250244141,
+            280.0
+          ]
+        },
+        {
+          "tick": 190,
+          "frame": 2,
+          "position": [
+            232.80029296875,
+            280.0
+          ]
+        },
+        {
+          "tick": 198,
+          "frame": 3,
+          "position": [
+            221.600341796875,
+            280.0
+          ]
+        },
+        {
+          "tick": 205,
+          "frame": 0,
+          "position": [
+            211.800384521484,
+            280.0
+          ]
+        },
+        {
+          "tick": 213,
+          "frame": 1,
+          "position": [
+            200.600433349609,
+            280.0
+          ]
+        }
+      ]
+    },
+    {
+      "route": "present_locomotion_right",
+      "capture_animations_frames": [
+        [
+          "present_locomotion_right_stance0",
+          "idle_right",
+          0
+        ],
+        [
+          "present_locomotion_right_stance1",
+          "idle_right",
+          1
+        ],
+        [
+          "present_locomotion_right_walk_frame0",
+          "walk_right",
+          0
+        ],
+        [
+          "present_locomotion_right_walk_frame1",
+          "walk_right",
+          1
+        ],
+        [
+          "present_locomotion_right_walk_frame2",
+          "walk_right",
+          2
+        ],
+        [
+          "present_locomotion_right_walk_frame3",
+          "walk_right",
+          3
+        ]
+      ],
+      "longest_real_walk_records": 70,
+      "walk_tick_start": 244,
+      "walk_tick_end": 313,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 244,
+          "frame": 0,
+          "position": [
+            304.199981689453,
+            280.0
+          ]
+        },
+        {
+          "tick": 252,
+          "frame": 1,
+          "position": [
+            315.399932861328,
+            280.0
+          ]
+        },
+        {
+          "tick": 259,
+          "frame": 2,
+          "position": [
+            325.199890136719,
+            280.0
+          ]
+        },
+        {
+          "tick": 267,
+          "frame": 3,
+          "position": [
+            336.399841308594,
+            280.0
+          ]
+        },
+        {
+          "tick": 274,
+          "frame": 0,
+          "position": [
+            346.199798583984,
+            280.0
+          ]
+        },
+        {
+          "tick": 282,
+          "frame": 1,
+          "position": [
+            357.399749755859,
+            280.0
+          ]
+        },
+        {
+          "tick": 289,
+          "frame": 2,
+          "position": [
+            367.19970703125,
+            280.0
+          ]
+        },
+        {
+          "tick": 297,
+          "frame": 3,
+          "position": [
+            378.399658203125,
+            280.0
+          ]
+        },
+        {
+          "tick": 304,
+          "frame": 0,
+          "position": [
+            388.199615478516,
+            280.0
+          ]
+        },
+        {
+          "tick": 312,
+          "frame": 1,
+          "position": [
+            399.399566650391,
+            280.0
+          ]
+        }
+      ]
+    },
+    {
+      "route": "present_locomotion_up",
+      "capture_animations_frames": [
+        [
+          "present_locomotion_up_stance0",
+          "idle_up",
+          0
+        ],
+        [
+          "present_locomotion_up_stance1",
+          "idle_up",
+          1
+        ],
+        [
+          "present_locomotion_up_walk_frame0",
+          "walk_up",
+          0
+        ],
+        [
+          "present_locomotion_up_walk_frame1",
+          "walk_up",
+          1
+        ],
+        [
+          "present_locomotion_up_walk_frame2",
+          "walk_up",
+          2
+        ],
+        [
+          "present_locomotion_up_walk_frame3",
+          "walk_up",
+          3
+        ]
+      ],
+      "longest_real_walk_records": 70,
+      "walk_tick_start": 343,
+      "walk_tick_end": 412,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 343,
+          "frame": 0,
+          "position": [
+            280.0,
+            295.800018310547
+          ]
+        },
+        {
+          "tick": 351,
+          "frame": 1,
+          "position": [
+            280.0,
+            284.600067138672
+          ]
+        },
+        {
+          "tick": 358,
+          "frame": 2,
+          "position": [
+            280.0,
+            274.800109863281
+          ]
+        },
+        {
+          "tick": 366,
+          "frame": 3,
+          "position": [
+            280.0,
+            263.600158691406
+          ]
+        },
+        {
+          "tick": 373,
+          "frame": 0,
+          "position": [
+            280.0,
+            253.800201416016
+          ]
+        },
+        {
+          "tick": 381,
+          "frame": 1,
+          "position": [
+            280.0,
+            242.600250244141
+          ]
+        },
+        {
+          "tick": 388,
+          "frame": 2,
+          "position": [
+            280.0,
+            232.80029296875
+          ]
+        },
+        {
+          "tick": 396,
+          "frame": 3,
+          "position": [
+            280.0,
+            221.600341796875
+          ]
+        },
+        {
+          "tick": 403,
+          "frame": 0,
+          "position": [
+            280.0,
+            211.800384521484
+          ]
+        },
+        {
+          "tick": 411,
+          "frame": 1,
+          "position": [
+            280.0,
+            200.600433349609
+          ]
+        }
+      ]
+    },
+    {
+      "route": "prime_locomotion_down",
+      "capture_animations_frames": [
+        [
+          "prime_locomotion_down_stance0",
+          "idle_down",
+          0
+        ],
+        [
+          "prime_locomotion_down_stance1",
+          "idle_down",
+          1
+        ],
+        [
+          "prime_locomotion_down_walk_frame0",
+          "walk_down",
+          0
+        ],
+        [
+          "prime_locomotion_down_walk_frame1",
+          "walk_down",
+          1
+        ]
+      ],
+      "longest_real_walk_records": 50,
+      "walk_tick_start": 447,
+      "walk_tick_end": 496,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 447,
+          "frame": 0,
+          "position": [
+            280.0,
+            195.899978637695
+          ]
+        },
+        {
+          "tick": 458,
+          "frame": 1,
+          "position": [
+            280.0,
+            217.533233642578
+          ]
+        },
+        {
+          "tick": 468,
+          "frame": 0,
+          "position": [
+            280.0,
+            237.199829101562
+          ]
+        },
+        {
+          "tick": 478,
+          "frame": 1,
+          "position": [
+            280.0,
+            256.866424560547
+          ]
+        },
+        {
+          "tick": 488,
+          "frame": 0,
+          "position": [
+            280.0,
+            276.533172607422
+          ]
+        }
+      ]
+    },
+    {
+      "route": "prime_locomotion_left",
+      "capture_animations_frames": [
+        [
+          "prime_locomotion_left_stance0",
+          "idle_left",
+          0
+        ],
+        [
+          "prime_locomotion_left_stance1",
+          "idle_left",
+          1
+        ],
+        [
+          "prime_locomotion_left_walk_frame0",
+          "walk_left",
+          0
+        ],
+        [
+          "prime_locomotion_left_walk_frame1",
+          "walk_left",
+          1
+        ]
+      ],
+      "longest_real_walk_records": 50,
+      "walk_tick_start": 527,
+      "walk_tick_end": 576,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 527,
+          "frame": 0,
+          "position": [
+            294.099975585938,
+            280.0
+          ]
+        },
+        {
+          "tick": 537,
+          "frame": 1,
+          "position": [
+            274.433227539062,
+            280.0
+          ]
+        },
+        {
+          "tick": 547,
+          "frame": 0,
+          "position": [
+            254.766494750977,
+            280.0
+          ]
+        },
+        {
+          "tick": 557,
+          "frame": 1,
+          "position": [
+            235.099899291992,
+            280.0
+          ]
+        },
+        {
+          "tick": 567,
+          "frame": 0,
+          "position": [
+            215.433303833008,
+            280.0
+          ]
+        }
+      ]
+    },
+    {
+      "route": "prime_locomotion_right",
+      "capture_animations_frames": [
+        [
+          "prime_locomotion_right_stance0",
+          "idle_right",
+          0
+        ],
+        [
+          "prime_locomotion_right_stance1",
+          "idle_right",
+          1
+        ],
+        [
+          "prime_locomotion_right_walk_frame0",
+          "walk_right",
+          0
+        ],
+        [
+          "prime_locomotion_right_walk_frame1",
+          "walk_right",
+          1
+        ]
+      ],
+      "longest_real_walk_records": 50,
+      "walk_tick_start": 607,
+      "walk_tick_end": 656,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 607,
+          "frame": 0,
+          "position": [
+            305.900024414062,
+            280.0
+          ]
+        },
+        {
+          "tick": 618,
+          "frame": 1,
+          "position": [
+            327.533447265625,
+            280.0
+          ]
+        },
+        {
+          "tick": 628,
+          "frame": 0,
+          "position": [
+            347.2001953125,
+            280.0
+          ]
+        },
+        {
+          "tick": 638,
+          "frame": 1,
+          "position": [
+            366.866943359375,
+            280.0
+          ]
+        },
+        {
+          "tick": 648,
+          "frame": 0,
+          "position": [
+            386.53369140625,
+            280.0
+          ]
+        }
+      ]
+    },
+    {
+      "route": "prime_locomotion_up",
+      "capture_animations_frames": [
+        [
+          "prime_locomotion_up_stance0",
+          "idle_up",
+          0
+        ],
+        [
+          "prime_locomotion_up_stance1",
+          "idle_up",
+          1
+        ],
+        [
+          "prime_locomotion_up_walk_frame0",
+          "walk_up",
+          0
+        ],
+        [
+          "prime_locomotion_up_walk_frame1",
+          "walk_up",
+          1
+        ]
+      ],
+      "longest_real_walk_records": 50,
+      "walk_tick_start": 687,
+      "walk_tick_end": 736,
+      "observed_wraps_independent": 2,
+      "frame_transition_graph": [
+        {
+          "tick": 687,
+          "frame": 0,
+          "position": [
+            280.0,
+            294.099975585938
+          ]
+        },
+        {
+          "tick": 698,
+          "frame": 1,
+          "position": [
+            280.0,
+            272.466552734375
+          ]
+        },
+        {
+          "tick": 708,
+          "frame": 0,
+          "position": [
+            280.0,
+            252.799835205078
+          ]
+        },
+        {
+          "tick": 718,
+          "frame": 1,
+          "position": [
+            280.0,
+            233.133239746094
+          ]
+        },
+        {
+          "tick": 728,
+          "frame": 0,
+          "position": [
+            280.0,
+            213.466644287109
+          ]
+        }
+      ]
+    }
+  ],
+  "full_two_cycles_every_route": true,
+  "finisher_clip_sequences": [
+    {
+      "segment": "clinch_down",
+      "captures": [
+        [
+          "clinch_down_guard",
+          "special_down",
+          0,
+          783
+        ],
+        [
+          "clinch_down_contact",
+          "special_down",
+          1,
+          811
+        ],
+        [
+          "clinch_down_recovery",
+          "special_down",
+          2,
+          819
+        ]
+      ]
+    },
+    {
+      "segment": "clinch_left",
+      "captures": [
+        [
+          "clinch_left_guard",
+          "special_left",
+          0,
+          974
+        ],
+        [
+          "clinch_left_contact",
+          "special_left",
+          1,
+          1002
+        ],
+        [
+          "clinch_left_recovery",
+          "special_left",
+          2,
+          1010
+        ]
+      ]
+    },
+    {
+      "segment": "clinch_right",
+      "captures": [
+        [
+          "clinch_right_guard",
+          "special_right",
+          0,
+          1165
+        ],
+        [
+          "clinch_right_contact",
+          "special_right",
+          1,
+          1193
+        ],
+        [
+          "clinch_right_recovery",
+          "special_right",
+          2,
+          1201
+        ]
+      ]
+    },
+    {
+      "segment": "clinch_up",
+      "captures": [
+        [
+          "clinch_up_guard",
+          "special_up",
+          0,
+          1356
+        ],
+        [
+          "clinch_up_contact",
+          "special_up",
+          1,
+          1384
+        ],
+        [
+          "clinch_up_recovery",
+          "special_up",
+          2,
+          1392
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_unarmed_down",
+      "captures": [
+        [
+          "V_finisher_unarmed_down_guard",
+          "finish_unarmed_down",
+          0,
+          2120
+        ],
+        [
+          "V_finisher_unarmed_down_contact",
+          "finish_unarmed_down",
+          1,
+          2148
+        ],
+        [
+          "V_finisher_unarmed_down_recovery",
+          "finish_unarmed_down",
+          2,
+          2158
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_blunt_down",
+      "captures": [
+        [
+          "V_finisher_blunt_down_guard",
+          "finish_blunt_down",
+          0,
+          2228
+        ],
+        [
+          "V_finisher_blunt_down_contact",
+          "finish_blunt_down",
+          1,
+          2256
+        ],
+        [
+          "V_finisher_blunt_down_recovery",
+          "finish_blunt_down",
+          2,
+          2266
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_environmental_down",
+      "captures": [
+        [
+          "V_finisher_environmental_down_guard",
+          "finish_environmental_down",
+          0,
+          2334
+        ],
+        [
+          "V_finisher_environmental_down_contact",
+          "finish_environmental_down",
+          1,
+          2362
+        ],
+        [
+          "V_finisher_environmental_down_recovery",
+          "finish_environmental_down",
+          2,
+          2372
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_unarmed_left",
+      "captures": [
+        [
+          "V_finisher_unarmed_left_guard",
+          "finish_unarmed_left",
+          0,
+          2442
+        ],
+        [
+          "V_finisher_unarmed_left_contact",
+          "finish_unarmed_left",
+          1,
+          2470
+        ],
+        [
+          "V_finisher_unarmed_left_recovery",
+          "finish_unarmed_left",
+          2,
+          2480
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_blunt_left",
+      "captures": [
+        [
+          "V_finisher_blunt_left_guard",
+          "finish_blunt_left",
+          0,
+          2550
+        ],
+        [
+          "V_finisher_blunt_left_contact",
+          "finish_blunt_left",
+          1,
+          2578
+        ],
+        [
+          "V_finisher_blunt_left_recovery",
+          "finish_blunt_left",
+          2,
+          2588
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_environmental_left",
+      "captures": [
+        [
+          "V_finisher_environmental_left_guard",
+          "finish_environmental_left",
+          0,
+          2656
+        ],
+        [
+          "V_finisher_environmental_left_contact",
+          "finish_environmental_left",
+          1,
+          2684
+        ],
+        [
+          "V_finisher_environmental_left_recovery",
+          "finish_environmental_left",
+          2,
+          2694
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_unarmed_right",
+      "captures": [
+        [
+          "V_finisher_unarmed_right_guard",
+          "finish_unarmed_right",
+          0,
+          2764
+        ],
+        [
+          "V_finisher_unarmed_right_contact",
+          "finish_unarmed_right",
+          1,
+          2792
+        ],
+        [
+          "V_finisher_unarmed_right_recovery",
+          "finish_unarmed_right",
+          2,
+          2802
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_blunt_right",
+      "captures": [
+        [
+          "V_finisher_blunt_right_guard",
+          "finish_blunt_right",
+          0,
+          2872
+        ],
+        [
+          "V_finisher_blunt_right_contact",
+          "finish_blunt_right",
+          1,
+          2900
+        ],
+        [
+          "V_finisher_blunt_right_recovery",
+          "finish_blunt_right",
+          2,
+          2910
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_environmental_right",
+      "captures": [
+        [
+          "V_finisher_environmental_right_guard",
+          "finish_environmental_right",
+          0,
+          2978
+        ],
+        [
+          "V_finisher_environmental_right_contact",
+          "finish_environmental_right",
+          1,
+          3006
+        ],
+        [
+          "V_finisher_environmental_right_recovery",
+          "finish_environmental_right",
+          2,
+          3016
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_unarmed_up",
+      "captures": [
+        [
+          "V_finisher_unarmed_up_guard",
+          "finish_unarmed_up",
+          0,
+          3086
+        ],
+        [
+          "V_finisher_unarmed_up_contact",
+          "finish_unarmed_up",
+          1,
+          3114
+        ],
+        [
+          "V_finisher_unarmed_up_recovery",
+          "finish_unarmed_up",
+          2,
+          3124
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_blunt_up",
+      "captures": [
+        [
+          "V_finisher_blunt_up_guard",
+          "finish_blunt_up",
+          0,
+          3194
+        ],
+        [
+          "V_finisher_blunt_up_contact",
+          "finish_blunt_up",
+          1,
+          3222
+        ],
+        [
+          "V_finisher_blunt_up_recovery",
+          "finish_blunt_up",
+          2,
+          3232
+        ]
+      ]
+    },
+    {
+      "segment": "V_finisher_environmental_up",
+      "captures": [
+        [
+          "V_finisher_environmental_up_guard",
+          "finish_environmental_up",
+          0,
+          3300
+        ],
+        [
+          "V_finisher_environmental_up_contact",
+          "finish_environmental_up",
+          1,
+          3328
+        ],
+        [
+          "V_finisher_environmental_up_recovery",
+          "finish_environmental_up",
+          2,
+          3338
+        ]
+      ]
+    }
+  ],
+  "contact_records": 49,
+  "movie_acceptance": "PENDING_COMPLETE_MOVIE02",
+  "full_phase_approval": false
+}

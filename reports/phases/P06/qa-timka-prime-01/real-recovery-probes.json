@@ -1,0 +1,85 @@
+{
+  "scope": "ACTUAL_NATIVE03_READONLY_PLUS_ROOT_ISOLATED_CORRUPTION_FIXTURES",
+  "helper_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+  "source_map_sha256": "28a3654a510a19d5f125776a55334c3088ff6e9fd1f0960621e8cc224b6c8561",
+  "native03_validation_sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+  "no_actual_native_or_WORK_artifact_mutation": true,
+  "cases": [
+    {
+      "case": "actual_native03_positive_readonly",
+      "accepted": true,
+      "value": {
+        "validation": "reports/phases/P06/timka-prime-01/native-03/validation.json",
+        "sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+        "source_head": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+        "checks": [
+          {
+            "passed": 304,
+            "total": 304
+          }
+        ],
+        "captures": 90,
+        "all_artifacts_verified": true
+      }
+    },
+    {
+      "case": "old_native02_source_stale",
+      "accepted": false,
+      "error": "ValueError: Live source snapshot differs; do not reuse stale gameplay"
+    },
+    {
+      "case": "original_native01_incomplete",
+      "accepted": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/timka-prime-01/native-01/validation.json'"
+    },
+    {
+      "case": "portable_positive",
+      "accepted": true,
+      "error": null,
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "changed_PNG_bytes",
+      "accepted": false,
+      "error": "ValueError: Live artifact missing, outside its run, or changed: /home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/qa-timka-prime-01/temporary-fixtures/tmpr8njfsj5/reports/native/live/present_locomotion_down_stance0.png",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "contradictory_failed_commands",
+      "accepted": false,
+      "error": "ValueError: Bound live commands contradict a successful typed receipt",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "wrong_result_scope",
+      "accepted": false,
+      "error": "ValueError: Native live result does not establish successful actual Input",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "capture_alias_duplicate",
+      "accepted": false,
+      "error": "ValueError: Native capture is not bound to the verified live inventory",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "summary_counts_inflated",
+      "accepted": false,
+      "error": "ValueError: Live check counts contradict the actual result",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    },
+    {
+      "case": "typed_commands_contradiction",
+      "accepted": false,
+      "error": "ValueError: Bound live commands contradict a successful typed receipt",
+      "control_is_explicit_path_rebased_copy_of_real_native03": true,
+      "engine_invoked": false
+    }
+  ]
+}

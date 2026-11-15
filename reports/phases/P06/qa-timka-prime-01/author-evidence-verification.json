@@ -1,0 +1,91 @@
+{
+  "author_runs_not_independent_reruns": [
+    {
+      "mode": "native-03",
+      "validation_sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+      "checks": [
+        {
+          "passed": 304,
+          "total": 304
+        }
+      ],
+      "actual_PNGs": 90,
+      "artifact_hashes_verified": 94,
+      "source_inventory_exact": 1112
+    },
+    {
+      "mode": "movie-03",
+      "validation_sha256": "46f2c66fcfff40708d83f5a9c31bc068c9e38b2be306a1b94adb5160d65d3605",
+      "checks": [
+        {
+          "passed": 214,
+          "total": 214
+        }
+      ],
+      "actual_PNGs": 0,
+      "artifact_hashes_verified": 6,
+      "source_inventory_exact": 1112
+    }
+  ],
+  "copies": [
+    {
+      "path": "author-evidence/native-03/validation.json",
+      "origin": "reports/phases/P06/timka-prime-01/native-03/validation.json",
+      "sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5"
+    },
+    {
+      "path": "author-evidence/native-03/commands.json",
+      "origin": "reports/phases/P06/timka-prime-01/native-03/commands.json",
+      "sha256": "d31c6b8ccf8b468afe86611115c480e68cccb24442123b06f8337c28372f4b21"
+    },
+    {
+      "path": "author-evidence/movie-03/validation.json",
+      "origin": "reports/phases/P06/timka-prime-01/movie-03/validation.json",
+      "sha256": "46f2c66fcfff40708d83f5a9c31bc068c9e38b2be306a1b94adb5160d65d3605"
+    },
+    {
+      "path": "author-evidence/movie-03/commands.json",
+      "origin": "reports/phases/P06/timka-prime-01/movie-03/commands.json",
+      "sha256": "079e73686da59f46443c239e890a6333348fa78361ad17cc876449841a1009c9"
+    }
+  ],
+  "receipts": [
+    {
+      "receipt": {
+        "operation": "3c1b568018f34fcfa3bebb77a0293a37",
+        "argv_sha256": "3c1b8ec26fda81aeee9b689f73ca62e1aa24aad9129a21e78b20fdf2b8ac4873",
+        "exit_code": 0,
+        "log_sha256": "72e928b7cddbdd44591a7018f0412392ca68c7465ca5b07d552d90c505da40d4",
+        "seconds": 61.762
+      },
+      "receipt_sha256": "648f1eb8d275c3c21aefac9c8762e89394fca50fc5e24eee8edf2465c1e0da90",
+      "actual_argv_and_output_log_hash_match": true
+    },
+    {
+      "receipt": {
+        "operation": "e130daa4d2be4f7bacb825578ab92feb",
+        "argv_sha256": "7972e2ad6ff133993eeb9458b312f3533369637fb6eff706bcc3b594f92a39af",
+        "exit_code": 0,
+        "log_sha256": "ce03317b0e40fdf06ff0ea7ebd804fa00b288dce01f827c01466ca7825332a4d",
+        "seconds": 129.215
+      },
+      "receipt_sha256": "59bff48e0fa90a795138badcf3c6b0c6f706ba7e807fceffac28d3f629226a9c",
+      "actual_argv_and_output_log_hash_match": true
+    },
+    {
+      "receipt": {
+        "operation": "7ad76d5b23004f738ebd3cfa07c92fc9",
+        "argv_sha256": "8ec3c8c66a36ae87fa6d3618c90e269f62c5a13aa1556b5f1ef45ec253aacb77",
+        "exit_code": 0,
+        "log_sha256": "8b2cc6d581f78711dada9c781acf1e56e8ec47a52d75804669965c72e5d5ca3e",
+        "seconds": 2.604
+      },
+      "receipt_sha256": "30aab838615a1479a8ecb1632480994bd1b7f889a68589a3f1f3f06e4dd6080b",
+      "actual_argv_and_output_log_hash_match": true
+    }
+  ],
+  "old_exit130_receipt_and_partialAVI_unchanged": true,
+  "original_isolated_inputs_after_all_probes_exact": 1112,
+  "production_code_and_art_unchanged_by_QA": true,
+  "counter_test_only_closure_commit": "9b42df871e53758b402108cb7cc00a2e385ab773"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "scope": "READ_ONLY_FROZEN_HELPER_ON_ROOT_REBASED_ACTUAL_CACHE_ONLY",
+  "helper_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+  "cases": [
+    {
+      "case": "rebased_actual_native03_positive_control",
+      "accepted": true,
+      "error": null,
+      "value": {
+        "validation": "reports/native/validation.json",
+        "sha256": "6b2b5e93902b2450f881a3fccc0ffcb806039bfe72b88d67344c0f56fd2d3928",
+        "source_head": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+        "checks": [
+          {
+            "passed": 304,
+            "total": 304
+          }
+        ],
+        "captures": 90,
+        "all_artifacts_verified": true
+      },
+      "validation_command_exit": 0,
+      "bound_command_exit": 0,
+      "log_last_nonempty_line": "exit_code=0"
+    },
+    {
+      "case": "rebound_live_log_last_exit17_but_both_commands_exit0",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "value": null,
+      "validation_command_exit": 0,
+      "bound_command_exit": 0,
+      "log_last_nonempty_line": "exit_code=17"
+    }
+  ],
+  "actual_WORK_or_native_evidence_mutated": false,
+  "engine_Git_controller_network_calls": 0
+}

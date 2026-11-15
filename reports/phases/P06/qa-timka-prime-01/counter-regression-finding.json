@@ -1,0 +1,23 @@
+{
+  "id": "TPR-Q02",
+  "severity": "MEDIUM",
+  "status": "OPEN",
+  "source_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+  "scope": "COUNTER_HUD_REGRESSION_TEST_FIXTURE_ONLY",
+  "source_file": "game/tests/olezhka_feedback_replay.gd",
+  "source_sha256": "8911cc84a931fb1d47c10bf439cd571428dc2690874511e936864d25b7e9a030",
+  "actual_result": "counter/result.json",
+  "actual_passed": 51,
+  "actual_total": 57,
+  "actual_failed_checks": [
+    "unsupported_selection_keeps_Oleg_and_visible_warning",
+    "retry_clears_stale_selection_warning_and_restores_status",
+    "settings_keep_guard_information_false",
+    "settings_keep_guard_information_true",
+    "reading_or_mutating_snapshots_never_changes_gameplay",
+    "reset_clears_clock_and_keeps_one_panel"
+  ],
+  "cause": "The old unsupported-selection case tapsKEY3 and expectsOleg preserved. KEY3 now correctly selects supportedTimka present; later Oleg-specific checks cascade on the wrong body.",
+  "remedy": "Use still-unimplemented RyzhikKEY5 for unsupported-selection case, preserve all assertions and rerun57.",
+  "no_product_regression_claim": "ExistingOleg164 passed; this result is not six demonstrated product defects."
+}

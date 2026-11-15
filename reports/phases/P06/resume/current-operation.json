@@ -1,24 +1,39 @@
 {
   "schema": 1,
   "kind": "MONITOR_RESUME_NOT_REVIEW",
-  "updated_utc": "2026-11-15T10:29:25.898480+00:00",
+  "updated_utc": "2026-11-15T12:42:31.249625+00:00",
   "phase": "P06",
-  "status": "AUTHOR_HELD_NEXT_P06_PRIME_COMPONENT",
-  "source_head": "f66995892c8fdf8782e389a76c8ff05d628714d0",
+  "status": "AUTHOR_HELD_RYZHIK_SOURCE_PRODUCTION",
+  "source_head": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
   "active_author": {
-    "pid": 148604,
+    "pid": 170428,
     "status": "HELD_VERIFY_CANONICAL_LEASE_BEFORE_RESUME",
-    "checkpoint": "p06-timka-present-fixes-reviewed-dev03-lead-pending"
+    "checkpoint": "p06-ryzhik-action-v1a-source-packed-fin-generation-prepared",
+    "canonical_state": "ROOT/automation/phase_state.json"
   },
   "current_operation": {
-    "id": "738b87f6a425418fbffa06d62e9d8cb9",
-    "task": "P06/owner-preview-20261115-03",
+    "id": "2cf56a72721c4ec3bcdca03970106115",
+    "task": "P06/owner-preview-20261115-04",
+    "argv": [
+      "/usr/bin/python3",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job04.py"
+    ],
+    "argv_sha256": "a427e3802d5e8aa5ff813b90eae5f2827601bd3ad3f3052b4cdaf5489705e15b",
+    "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "timeout": 420,
+    "stdin": "",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/2cf56a72721c4ec3bcdca03970106115/started.json",
     "status": "CONSUMED_EXIT0",
+    "consumed": true,
+    "input_sha256": "1885e1458400abb6929a0e5fb36c5f20c3050879e10527e161ad6acd9c03606e",
     "safe_retry": false,
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/738b87f6a425418fbffa06d62e9d8cb9/receipt.json"
+    "created_at": "2026-11-15T11:48:51+00:00",
+    "exit_code": 0
   },
   "pending_generator_calls": 0,
   "phase_approval": false,
   "merge_allowed": false,
-  "next": "Lead de6418fb PASS_COMPONENT; continueprimewithinP06, noP07/phaseadvance"
+  "next": "P06 Ryzhik original ACTION/FIN + real collision-roll; preserve Timka bounded Lead02 PASS, DEV04 and historical FAIL. Then Tega/Pasha/audio/NPC/fullverifier/safe handoff; no P07 advance."
 }

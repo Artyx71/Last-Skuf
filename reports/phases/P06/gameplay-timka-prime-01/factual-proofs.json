@@ -1,0 +1,3434 @@
+{
+  "source_head": "db84b39711181bb93b6ce58ac4bb7a244dee032b",
+  "method": "Independent actual Input trace/receipt/geometry analysis, no engine execution",
+  "runs": {
+    "native-live": {
+      "trace_samples": 3589,
+      "checks": 304,
+      "passed": 304,
+      "contacts": 49,
+      "locomotion": {
+        "present_locomotion_down": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            46,
+            115
+          ]
+        },
+        "present_locomotion_left": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            145,
+            214
+          ]
+        },
+        "present_locomotion_right": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            244,
+            313
+          ]
+        },
+        "present_locomotion_up": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            343,
+            412
+          ]
+        },
+        "prime_locomotion_down": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            447,
+            496
+          ]
+        },
+        "prime_locomotion_left": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            527,
+            576
+          ]
+        },
+        "prime_locomotion_right": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            607,
+            656
+          ]
+        },
+        "prime_locomotion_up": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            687,
+            736
+          ]
+        }
+      },
+      "clinch": {
+        "down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 14,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "clinch_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 755
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 14,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_down",
+              "player_frame": 1,
+              "segment": "clinch_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 811
+            }
+          ],
+          "F_start_tick": 782,
+          "damage_tick": 811,
+          "actual_target_distance": 31.888900000000007,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 782,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 811,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 818,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 15,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "clinch_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 946
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 15,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_left",
+              "player_frame": 1,
+              "segment": "clinch_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1002
+            }
+          ],
+          "F_start_tick": 973,
+          "damage_tick": 1002,
+          "actual_target_distance": 31.88889999999998,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 973,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 1002,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 1009,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 16,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "clinch_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1137
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 16,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_right",
+              "player_frame": 1,
+              "segment": "clinch_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1193
+            }
+          ],
+          "F_start_tick": 1164,
+          "damage_tick": 1193,
+          "actual_target_distance": 31.88889999999998,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 1164,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 1193,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 1200,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 17,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "clinch_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1328
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 17,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_up",
+              "player_frame": 1,
+              "segment": "clinch_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1384
+            }
+          ],
+          "F_start_tick": 1355,
+          "damage_tick": 1384,
+          "actual_target_distance": 31.888900000000007,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 1355,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 1384,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 1391,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        }
+      },
+      "V": {
+        "V_finisher_unarmed_down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 38,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2092
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 38,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_down",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2148
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 39,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2200
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 39,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_down",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2256
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_down": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 40,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2306
+            },
+            {
+              "at": "(470.0, 255.8889)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 40,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_down",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_down",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2362
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 41,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2414
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 41,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_left",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2470
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 42,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2522
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 42,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_left",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2578
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_left": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 43,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2628
+            },
+            {
+              "at": "(464.1111, 250.0)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 43,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_left",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_left",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2684
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 44,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2736
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 44,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_right",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2792
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 45,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2844
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 45,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_right",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2900
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_right": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 46,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2950
+            },
+            {
+              "at": "(475.8889, 250.0)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 46,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_right",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_right",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3006
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 47,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3058
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 47,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_up",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3114
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 48,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3166
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 48,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_up",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3222
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_up": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 49,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3272
+            },
+            {
+              "at": "(470.0, 244.1111)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 49,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_up",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_up",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 3328
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        }
+      },
+      "interruptions": {
+        "cancel": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 23,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_cancel",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1696
+            }
+          ]
+        },
+        "movement": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 25,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_movement",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1754
+            }
+          ]
+        },
+        "revoke": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 27,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_revoke",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1810
+            }
+          ]
+        },
+        "reopen": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 29,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_reopen",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1866
+            }
+          ]
+        },
+        "hurt": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 31,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_hurt",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1922
+            },
+            {
+              "at": "(254.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 31,
+              "finisher": false,
+              "id": 3,
+              "lethal": false,
+              "player_action_elapsed": 0.0,
+              "player_action_frame": 0,
+              "player_animation": "hit_right",
+              "player_frame": 0,
+              "segment": "interrupt_clinch_hurt",
+              "strong": true,
+              "target": 134888819109,
+              "target_is_player": true,
+              "tick": 1958
+            }
+          ]
+        },
+        "death": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 33,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_death",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 1978
+            },
+            {
+              "at": "(254.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 33,
+              "finisher": false,
+              "id": 3,
+              "lethal": true,
+              "player_action_elapsed": 0.0,
+              "player_action_frame": 0,
+              "player_animation": "fall_right",
+              "player_frame": 0,
+              "segment": "interrupt_clinch_death",
+              "strong": true,
+              "target": 134888819109,
+              "target_is_player": true,
+              "tick": 2014
+            }
+          ]
+        },
+        "restart": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 35,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_restart",
+              "strong": true,
+              "target": 49559897858,
+              "target_is_player": false,
+              "tick": 2034
+            }
+          ]
+        }
+      },
+      "negative_cases": {
+        "healthy": {
+          "details": {},
+          "name": "deny_healthy:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "range": {
+          "details": {},
+          "name": "deny_range:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "facing": {
+          "details": {},
+          "name": "deny_facing:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "wall": {
+          "details": {},
+          "name": "deny_wall:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "tool": {
+          "details": {},
+          "name": "deny_tool:no_grant_cost_or_reservation",
+          "passed": true
+        }
+      }
+    },
+    "headless03": {
+      "trace_samples": 3585,
+      "checks": 214,
+      "passed": 214,
+      "contacts": 49,
+      "locomotion": {
+        "present_locomotion_down": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            33,
+            102
+          ]
+        },
+        "present_locomotion_left": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            132,
+            201
+          ]
+        },
+        "present_locomotion_right": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            231,
+            300
+          ]
+        },
+        "present_locomotion_up": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "measured_held_walk_samples": 70,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.3999938964850003,
+          "tick_range": [
+            330,
+            399
+          ]
+        },
+        "prime_locomotion_down": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            431,
+            480
+          ]
+        },
+        "prime_locomotion_left": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            510,
+            559
+          ]
+        },
+        "prime_locomotion_right": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            589,
+            638
+          ]
+        },
+        "prime_locomotion_up": {
+          "actual_idle_frames": [
+            0,
+            1
+          ],
+          "actual_walk_frames": [
+            0,
+            1
+          ],
+          "measured_held_walk_samples": 50,
+          "observed_cycle_wraps": 2,
+          "velocity_integral_errors": [],
+          "max_sample_step": 1.9666748046880116,
+          "tick_range": [
+            668,
+            717
+          ]
+        }
+      },
+      "clinch": {
+        "down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 14,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "clinch_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 736
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 14,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_down",
+              "player_frame": 1,
+              "segment": "clinch_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 792
+            }
+          ],
+          "F_start_tick": 763,
+          "damage_tick": 792,
+          "actual_target_distance": 31.888900000000007,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 763,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 792,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 799,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 15,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "clinch_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 927
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 15,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_left",
+              "player_frame": 1,
+              "segment": "clinch_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 983
+            }
+          ],
+          "F_start_tick": 954,
+          "damage_tick": 983,
+          "actual_target_distance": 31.88889999999998,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 954,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 983,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 990,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 16,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "clinch_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1118
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 16,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_right",
+              "player_frame": 1,
+              "segment": "clinch_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1174
+            }
+          ],
+          "F_start_tick": 1145,
+          "damage_tick": 1174,
+          "actual_target_distance": 31.88889999999998,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 1145,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 1174,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 1181,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        },
+        "up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 17,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "clinch_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1309
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 17,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "special_up",
+              "player_frame": 1,
+              "segment": "clinch_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1365
+            }
+          ],
+          "F_start_tick": 1336,
+          "damage_tick": 1365,
+          "actual_target_distance": 31.888900000000007,
+          "precontact_no_damage_score_samples": 29,
+          "phases": [
+            {
+              "tick": 1336,
+              "action_elapsed": 0.0,
+              "action_frame": 0
+            },
+            {
+              "tick": 1365,
+              "action_elapsed": 0.483333333333333,
+              "action_frame": 1
+            },
+            {
+              "tick": 1372,
+              "action_elapsed": 0.6,
+              "action_frame": 2
+            }
+          ]
+        }
+      },
+      "V": {
+        "V_finisher_unarmed_down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 38,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2073
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 38,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_down",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2129
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_down": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 39,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2181
+            },
+            {
+              "at": "(280.0, 245.8889)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 39,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_down",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2237
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_down": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, 1.0)",
+              "epoch": 40,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_down",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2287
+            },
+            {
+              "at": "(470.0, 255.8889)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(0.0, 1.0)",
+              "epoch": 40,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_down",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_down",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2343
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_down:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_down:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 41,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2395
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 41,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_left",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2451
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_left": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 42,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2503
+            },
+            {
+              "at": "(274.1111, 240.0)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 42,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_left",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2559
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_left": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 43,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_left",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2609
+            },
+            {
+              "at": "(464.1111, 250.0)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(-1.0, 0.0)",
+              "epoch": 43,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_left",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_left",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2665
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_left:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_left:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 44,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2717
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 44,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_right",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2773
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_right": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 45,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2825
+            },
+            {
+              "at": "(285.8889, 240.0)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 45,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_right",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2881
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_right": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 46,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2931
+            },
+            {
+              "at": "(475.8889, 250.0)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 46,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_right",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_right",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2987
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_right:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_right:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_unarmed_up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 47,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3039
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "unarmed",
+              "cue": "finish_unarmed",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 47,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_unarmed_up",
+              "player_frame": 1,
+              "segment": "V_finisher_unarmed_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3095
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_unarmed_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_unarmed_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_blunt_up": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 48,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3147
+            },
+            {
+              "at": "(280.0, 234.1111)",
+              "category": "blunt",
+              "cue": "finish_blunt",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 48,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_blunt_up",
+              "player_frame": 1,
+              "segment": "V_finisher_blunt_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3203
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_blunt_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_blunt_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        },
+        "V_finisher_environmental_up": {
+          "contacts": [
+            {
+              "at": "(470.0, 250.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(0.0, -1.0)",
+              "epoch": 49,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_up",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3253
+            },
+            {
+              "at": "(470.0, 244.1111)",
+              "category": "environmental",
+              "cue": "finish_environmental",
+              "damage": 1,
+              "direction": "(0.0, -1.0)",
+              "epoch": 49,
+              "finisher": true,
+              "id": 2,
+              "lethal": true,
+              "player_action_elapsed": 0.483333333333333,
+              "player_action_frame": 1,
+              "player_animation": "finish_environmental_up",
+              "player_frame": 1,
+              "segment": "V_finisher_environmental_up",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 3309
+            }
+          ],
+          "NPC_contact_frame": {
+            "details": {
+              "NPC_frame_on_contact": 1
+            },
+            "name": "V_finisher_environmental_up:NPC_contact_reaction_is_visible",
+            "passed": true
+          },
+          "NPC_dead_hold": {
+            "details": {},
+            "name": "V_finisher_environmental_up:NPC_finishes_in_death_hold",
+            "passed": true
+          }
+        }
+      },
+      "interruptions": {
+        "cancel": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 23,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_cancel",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1677
+            }
+          ]
+        },
+        "movement": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 25,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_movement",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1735
+            }
+          ]
+        },
+        "revoke": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 27,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_revoke",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1791
+            }
+          ]
+        },
+        "reopen": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 29,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_reopen",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1847
+            }
+          ]
+        },
+        "hurt": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 31,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_hurt",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1903
+            },
+            {
+              "at": "(254.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 31,
+              "finisher": false,
+              "id": 3,
+              "lethal": false,
+              "player_action_elapsed": 0.0,
+              "player_action_frame": 0,
+              "player_animation": "hit_right",
+              "player_frame": 0,
+              "segment": "interrupt_clinch_hurt",
+              "strong": true,
+              "target": 128261818748,
+              "target_is_player": true,
+              "tick": 1939
+            }
+          ]
+        },
+        "death": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 33,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_death",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 1959
+            },
+            {
+              "at": "(254.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 1,
+              "direction": "(1.0, 0.0)",
+              "epoch": 33,
+              "finisher": false,
+              "id": 3,
+              "lethal": true,
+              "player_action_elapsed": 0.0,
+              "player_action_frame": 0,
+              "player_animation": "fall_right",
+              "player_frame": 0,
+              "segment": "interrupt_clinch_death",
+              "strong": true,
+              "target": 128261818748,
+              "target_is_player": true,
+              "tick": 1995
+            }
+          ]
+        },
+        "restart": {
+          "contacts": [
+            {
+              "at": "(280.0, 240.0)",
+              "category": "unarmed",
+              "cue": "impact_unarmed_body",
+              "damage": 0,
+              "direction": "(1.0, 0.0)",
+              "epoch": 35,
+              "finisher": false,
+              "id": 1,
+              "lethal": false,
+              "player_action_elapsed": 0.2,
+              "player_action_frame": 1,
+              "player_animation": "prime_strike_right",
+              "player_frame": 1,
+              "segment": "interrupt_clinch_restart",
+              "strong": true,
+              "target": 49039804164,
+              "target_is_player": false,
+              "tick": 2015
+            }
+          ]
+        }
+      },
+      "negative_cases": {
+        "healthy": {
+          "details": {},
+          "name": "deny_healthy:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "range": {
+          "details": {},
+          "name": "deny_range:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "facing": {
+          "details": {},
+          "name": "deny_facing:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "wall": {
+          "details": {},
+          "name": "deny_wall:no_grant_cost_or_reservation",
+          "passed": true
+        },
+        "tool": {
+          "details": {},
+          "name": "deny_tool:no_grant_cost_or_reservation",
+          "passed": true
+        }
+      }
+    },
+    "movie-only02": {
+      "trace_samples": 3585,
+      "checks": 214,
+      "passed": 214,
+      "contacts": 49,
+      "locomotion": {
+        "present_down": {
+          "samples": 70,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 6.103516028588274e-06,
+          "actual_frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "present_left": {
+          "samples": 70,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 6.103516028588274e-06,
+          "actual_frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "present_right": {
+          "samples": 70,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 6.1035160001665645e-06,
+          "actual_frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "present_up": {
+          "samples": 70,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 6.103516028588274e-06,
+          "actual_frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "prime_down": {
+          "samples": 50,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 8.138021371451032e-06,
+          "actual_frames": [
+            0,
+            1
+          ]
+        },
+        "prime_left": {
+          "samples": 50,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 8.138021371451032e-06,
+          "actual_frames": [
+            0,
+            1
+          ]
+        },
+        "prime_right": {
+          "samples": 50,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 8.138021371451032e-06,
+          "actual_frames": [
+            0,
+            1
+          ]
+        },
+        "prime_up": {
+          "samples": 50,
+          "cycle_wraps": 2,
+          "max_velocity_integral_error": 8.138021371451032e-06,
+          "actual_frames": [
+            0,
+            1
+          ]
+        }
+      },
+      "finisher_cases": {
+        "clinch_down": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, 1.0)",
+            "epoch": 14,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_down",
+            "player_frame": 1,
+            "segment": "clinch_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 736
+          },
+          {
+            "at": "(280.0, 245.8889)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(0.0, 1.0)",
+            "epoch": 14,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "special_down",
+            "player_frame": 1,
+            "segment": "clinch_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 792
+          }
+        ],
+        "clinch_left": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 15,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_left",
+            "player_frame": 1,
+            "segment": "clinch_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 927
+          },
+          {
+            "at": "(274.1111, 240.0)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 15,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "special_left",
+            "player_frame": 1,
+            "segment": "clinch_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 983
+          }
+        ],
+        "clinch_right": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 16,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_right",
+            "player_frame": 1,
+            "segment": "clinch_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 1118
+          },
+          {
+            "at": "(285.8889, 240.0)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 16,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "special_right",
+            "player_frame": 1,
+            "segment": "clinch_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 1174
+          }
+        ],
+        "clinch_up": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, -1.0)",
+            "epoch": 17,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_up",
+            "player_frame": 1,
+            "segment": "clinch_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 1309
+          },
+          {
+            "at": "(280.0, 234.1111)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(0.0, -1.0)",
+            "epoch": 17,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "special_up",
+            "player_frame": 1,
+            "segment": "clinch_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 1365
+          }
+        ],
+        "V_finisher_unarmed_down": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, 1.0)",
+            "epoch": 38,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_down",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2073
+          },
+          {
+            "at": "(280.0, 245.8889)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(0.0, 1.0)",
+            "epoch": 38,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_unarmed_down",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2129
+          }
+        ],
+        "V_finisher_blunt_down": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, 1.0)",
+            "epoch": 39,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_down",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2181
+          },
+          {
+            "at": "(280.0, 245.8889)",
+            "category": "blunt",
+            "cue": "finish_blunt",
+            "damage": 1,
+            "direction": "(0.0, 1.0)",
+            "epoch": 39,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_blunt_down",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2237
+          }
+        ],
+        "V_finisher_environmental_down": [
+          {
+            "at": "(470.0, 250.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, 1.0)",
+            "epoch": 40,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_down",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2287
+          },
+          {
+            "at": "(470.0, 255.8889)",
+            "category": "environmental",
+            "cue": "finish_environmental",
+            "damage": 1,
+            "direction": "(0.0, 1.0)",
+            "epoch": 40,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_environmental_down",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_down",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2343
+          }
+        ],
+        "V_finisher_unarmed_left": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 41,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_left",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2395
+          },
+          {
+            "at": "(274.1111, 240.0)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 41,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_unarmed_left",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2451
+          }
+        ],
+        "V_finisher_blunt_left": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 42,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_left",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2503
+          },
+          {
+            "at": "(274.1111, 240.0)",
+            "category": "blunt",
+            "cue": "finish_blunt",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 42,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_blunt_left",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2559
+          }
+        ],
+        "V_finisher_environmental_left": [
+          {
+            "at": "(470.0, 250.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 43,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_left",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2609
+          },
+          {
+            "at": "(464.1111, 250.0)",
+            "category": "environmental",
+            "cue": "finish_environmental",
+            "damage": 1,
+            "direction": "(-1.0, 0.0)",
+            "epoch": 43,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_environmental_left",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_left",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2665
+          }
+        ],
+        "V_finisher_unarmed_right": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 44,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_right",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2717
+          },
+          {
+            "at": "(285.8889, 240.0)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 44,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_unarmed_right",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2773
+          }
+        ],
+        "V_finisher_blunt_right": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 45,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_right",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2825
+          },
+          {
+            "at": "(285.8889, 240.0)",
+            "category": "blunt",
+            "cue": "finish_blunt",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 45,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_blunt_right",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2881
+          }
+        ],
+        "V_finisher_environmental_right": [
+          {
+            "at": "(470.0, 250.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 46,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_right",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2931
+          },
+          {
+            "at": "(475.8889, 250.0)",
+            "category": "environmental",
+            "cue": "finish_environmental",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 46,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_environmental_right",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_right",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 2987
+          }
+        ],
+        "V_finisher_unarmed_up": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, -1.0)",
+            "epoch": 47,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_up",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3039
+          },
+          {
+            "at": "(280.0, 234.1111)",
+            "category": "unarmed",
+            "cue": "finish_unarmed",
+            "damage": 1,
+            "direction": "(0.0, -1.0)",
+            "epoch": 47,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_unarmed_up",
+            "player_frame": 1,
+            "segment": "V_finisher_unarmed_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3095
+          }
+        ],
+        "V_finisher_blunt_up": [
+          {
+            "at": "(280.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, -1.0)",
+            "epoch": 48,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_up",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3147
+          },
+          {
+            "at": "(280.0, 234.1111)",
+            "category": "blunt",
+            "cue": "finish_blunt",
+            "damage": 1,
+            "direction": "(0.0, -1.0)",
+            "epoch": 48,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_blunt_up",
+            "player_frame": 1,
+            "segment": "V_finisher_blunt_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3203
+          }
+        ],
+        "V_finisher_environmental_up": [
+          {
+            "at": "(470.0, 250.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(0.0, -1.0)",
+            "epoch": 49,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "player_action_elapsed": 0.2,
+            "player_action_frame": 1,
+            "player_animation": "prime_strike_up",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3253
+          },
+          {
+            "at": "(470.0, 244.1111)",
+            "category": "environmental",
+            "cue": "finish_environmental",
+            "damage": 1,
+            "direction": "(0.0, -1.0)",
+            "epoch": 49,
+            "finisher": true,
+            "id": 2,
+            "lethal": true,
+            "player_action_elapsed": 0.483333333333333,
+            "player_action_frame": 1,
+            "player_animation": "finish_environmental_up",
+            "player_frame": 1,
+            "segment": "V_finisher_environmental_up",
+            "strong": true,
+            "target": 49610229507,
+            "target_is_player": false,
+            "tick": 3309
+          }
+        ]
+      }
+    }
+  }
+}

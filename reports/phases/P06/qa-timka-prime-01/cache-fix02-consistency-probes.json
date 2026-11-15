@@ -1,0 +1,61 @@
+{
+  "scope": "TEST_ONLY_PURE_HELPER_CONSISTENCY_PROBES",
+  "source_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+  "actual_native_or_engine_executed": false,
+  "results": [
+    {
+      "case": "baseline_toy",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "4f6c170a0fa17ff32c06e943e6579016f84a9ad39853274360c594430eee6bad",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "contradictory_failed_commands_file",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Bound live commands contradict a successful typed receipt')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "wrong_result_scope",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Native live result does not establish successful actual Input')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "duplicate_capture_aliases",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Native capture is not bound to the verified live inventory')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "summary_count_mismatch",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Live check counts contradict the actual result')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "typed_commands_contradiction",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Bound live commands contradict a successful typed receipt')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    }
+  ]
+}

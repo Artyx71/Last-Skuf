@@ -1,0 +1,45 @@
+{
+  "scope": "BOUNDED_ACTUAL_INTERRUPTED_NATIVE_RECOVERY_AUDIT_ONLY",
+  "frozen_commit": "3a9ff811fd3550ab7e91c3b3f042744936111bda",
+  "operation": "e5426991ddf44791b8713777dcccba6e",
+  "receipt": {
+    "operation": "e5426991ddf44791b8713777dcccba6e",
+    "argv_sha256": "9b003f6a4fc1286c3f8d77f09060f87f6127fe193c931bdd3ac701bf5676e79f",
+    "exit_code": 130,
+    "log_sha256": "aced6e64a85b1ae32c04821c4c6894e245a99af2fcf8ec98cc826f88fb749953",
+    "seconds": 109.391
+  },
+  "receipt_sha256": "5411733399175ac763dce3c5089d5cbd6689afac4c0da30d391c9788f5c0057e",
+  "actual_output_log_sha256": "aced6e64a85b1ae32c04821c4c6894e245a99af2fcf8ec98cc826f88fb749953",
+  "actual_argv_sha256_matches": true,
+  "native_source_snapshot_exact_count": 1111,
+  "live_passed_checks": 248,
+  "live_pngs_actual": 66,
+  "live_result_sha256": "1624b0113735f580620b45261e679a61280bb91df894fe930fbe754056b07f94",
+  "final_validation_exists": false,
+  "movie_result_exists": false,
+  "partial_movie_files": [
+    {
+      "path": "build/P06/timka-prime-01/timka-prime.avi",
+      "bytes": 233148416,
+      "sha256": "174dcb20b4c530e0d0e7e159224f6c872ba76ed6ee8ccd5597945360c1a69622"
+    }
+  ],
+  "canonical_history_matching_records": [
+    {
+      "when": "2026-11-15T10:55:14+00:00",
+      "event": "P06_TIMKA_PRIME_VALIDATION",
+      "operation": "e5426991ddf44791b8713777dcccba6e",
+      "code": 130,
+      "phase_pass": false
+    }
+  ],
+  "current_phase": "P06",
+  "P06_status": "IMPLEMENTING",
+  "P06_attempt": null,
+  "P05_status": "PASS",
+  "cause": "Exit130/interruption is observed; cause not independently established. Live success does not complete movie or full component.",
+  "recovery_limits": "No controller invocation, replay, reset, process kill, native engine or state mutation by QA; old receipt and partial output retained.",
+  "P06_formal_attempts": 1,
+  "P06_attempt_note": "Canonical schema stores attempts (plural); independently observed current value saved. No reset or counter increment by QA."
+}

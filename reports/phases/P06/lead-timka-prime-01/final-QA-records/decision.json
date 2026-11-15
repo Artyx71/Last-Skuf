@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "role": "QA",
+  "reviewer": "independent qa_resume_recovery",
+  "scope": "TIMKA_PRIME_TWO_CONTEXT_AND_RECOVERY_QA_COMPONENT_ONLY",
+  "frozen_commit": "9b42df871e53758b402108cb7cc00a2e385ab773",
+  "unchanged_production_runtime_and_native_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+  "closure_only_delta": "game/tests/olezhka_feedback_replay.gd KEY3->KEY5; sameassertions, independently57/57",
+  "findings": [
+    {
+      "id": "TPR-Q00",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "scope": "SUPERSEDED_NATIVE_HARNESS_COVERAGE",
+      "original": "superseded-3a9ff-interruption/review-note.md",
+      "fix": "db84 actualdirectionidle0/1 and realtwo-cycleframecoverage",
+      "evidence": [
+        "runtime-signal-analysis.json",
+        "db84-successful-native02-audit.json"
+      ]
+    },
+    {
+      "id": "TPR-Q01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "original": "cache-consistency-finding.json",
+      "fix_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+      "fix_helper_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+      "evidence": [
+        "cache-fix02-unit.log",
+        "cache-fix02-consistency-probes.json",
+        "real-recovery-probes.json",
+        "current-source-stale-control.json"
+      ]
+    },
+    {
+      "id": "TPR-Q02",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "original": "counter-regression-finding.json",
+      "fix_commit": "9b42df871e53758b402108cb7cc00a2e385ab773",
+      "evidence": [
+        "counter-closure-proof.json",
+        "counter-fixed/result.json",
+        "counter-fixed/run.log"
+      ]
+    }
+  ],
+  "blocking_findings": [],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "review_sha256": "d712b57cf17c01e33c7a0525889ff9e31325080fca4fa9945d6bafbe73d89d54",
+  "metrics_sha256": "c42bef867bb0af0dfd4156740d4690356f6897b803aae4bb2dbda1ff9234eebb",
+  "source_freeze_sha256": "e544534030d500d5038f50cedabc17b7b45c8d827379258d87411af7cfa63d42",
+  "source_inventory_sha256": "3db44ce28c27c55898085f2406f4380f6b41368c1af63904226447243e5a349f",
+  "DEV04_addendum_sha256": "b0aedbc3a5ef6f5e002e1a09b94423bd8d7b7bab687cfa7b4d72fb5facd7b76f",
+  "limits": [
+    "Targeted actual headless engine suite; author native/export/Wine evidence independently inspected, not independently rerun.",
+    "Actualcommonmain commandrouting executed with allsubprocesses mocked; noGitHubCI orfullverifiersuite claim.",
+    "Native03is historical589runtime; changed9b42currentmapcorrectlyrejectsautomaticcache reuse. Runtime code/art unchanged, onlycountertestdelta separatelytested.",
+    "NofullP06/globalreadiness/merge/release/ARTlikenessorplacement/subjectivefeel/newaudio/listening/nativeWindows/FPS/hardwarelatency approval."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "scope": "TEST_ONLY_PURE_HELPER_CONSISTENCY_PROBES",
+  "source_sha256": "1d6f905075b3b4e536f6eb26e0835b25d1d79ac0dd932cc0bc2c1b9535b262a7",
+  "actual_native_or_engine_executed": false,
+  "results": [
+    {
+      "case": "baseline_toy",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "297d51c7ab9ce930ebf8eccdb35bf3acbaa58c79afab4ba0fe2af7f2e74a8e67",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "contradictory_failed_commands_file",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "a7ecf9783a8b79314dadfa1c94b438effd85f56e4a9fc573f92dfd149847d993",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "wrong_result_scope",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "3112afa0bbb808dd6649335bf28f11f4cf597700402f4e7fe94ea9354428044a",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "duplicate_capture_aliases",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "a273f8598fc299a4a0b6ec612c44b453983871596891ff726286b7388c52c0c4",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 2,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "summary_count_mismatch",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "0bf726c040075dd0ceee5e70df3a4829e3ec3d339b220c18708ef96125dd657a",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 999,
+            "total": 999
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    }
+  ]
+}
