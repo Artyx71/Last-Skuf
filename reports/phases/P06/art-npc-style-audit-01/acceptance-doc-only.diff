@@ -1,0 +1,34 @@
+diff --git i/specs/P06_COMBAT_ACCEPTANCE.md w/specs/P06_COMBAT_ACCEPTANCE.md
+index 13107e6..fb2f42e 100644
+--- i/specs/P06_COMBAT_ACCEPTANCE.md
++++ w/specs/P06_COMBAT_ACCEPTANCE.md
+@@ -15,7 +15,7 @@
+ | P06-CBT-09 | Enemy archetypes отображают telegraph/attack/recovery/hurt/stun/knockdown/death/finisher reaction; damage совпадает с contact pose. Attack/fall/death не конфликтуют. | Actual clips/phase traces по archetype и связанным hero/category; нет урона без визуального контакта, потерянных кадров и оживления после смерти. |
+ | P06-CBT-10 | Все7 героев: отмена, death/restart, once damage/score, lifetime/caps, Full/Reduced и прочие эффекты не меняют боевую логику. | Полный regression/state matrix, реальные native captures/loop transitions, wall-frame performance отдельно от headless/MovieMaker. |
+ 
+-## Состояние аудита существующей реализации
++## Исходный аудит существующей реализации — исторический снимок
+ 
+ - Gabar и Oleg: собственные runtime WORLD/ACTION/FIN и bounded Gameplay/native ART существуют. `character_player.gd` уже реализует swept lunge и парирование до receive_hit. Oleg guard0.06–0.26s/один incoming melee, windup0.28/active0.10/recovery0.34; Core резервирует incoming receipt ДО defend hook. Сохранять, не дублировать.
+ - `olezhka_combat_replay.gd` реально проверяет parry/no incoming damage/once counter, boundaries и смертельные miss/revoked/projectile cases. Читаемое окно/HUD теперь приняты отдельным ART/Gameplay/QA/Lead PASS_COMPONENT на f844e4d (guard-feedback-01 и *-guard-feedback-01): live shared predicate,57headless/78native/21PNG, originalCore timing/damage сохранены. Это не полный P06/7hero gate.
+@@ -51,3 +51,20 @@ F применяет собственные FIN keyposes `special` (готовн
+ HUD читает фактические ammo/cooldown/refill/state стратегии. Нельзя имитировать восстановление независимым UI-таймером. Pause замораживает ресурс и действия; смерть/ранение прерывают уязвимый приём, R очищает jobs/projectiles/cost history и восстанавливает новый encounter. Наличие оружия в рисунке другого героя не даёт ему эту способность.
+ 
+ Обязательное evidence: реальные Input и четыре направления, все8 кадров, видимый muzzle, непрерывное движение/стены, расход/пустой запас/восстановление/HUD, пауза, hurt/death/restart, delayed projectile, смена полномочий и callback reentry; пять категорий finisher с однократными damage/score/cost и Full/Reduced invariance. ART отдельно проверяет128 source/clothing anchors и actual overlays. SOURCE ART PASS не заменяет runtime ART/Gameplay/QA/Lead. Индивидуальные звуки всех семи героев и NPC style matrix остаются обязательными открытыми P06-CBT-01/09; временный общий cue не закрывает их.
++
++
++## Текущее продолжение после DEV06/DEV07: C01 и C09
++
++Тега и Паша имеют отдельные независимые Lead PASS_COMPONENT, последний Pasha f43d2434 на b359747. Это не полный PASS P06. Их реализация и сохранённые FAIL/фиксы не перезапускаются. Прежние утверждения об отсутствии способностей в исходном аудите выше относятся к тому историческому снимку.
++
++C01 использует20 собственных новых monoPCM WAV для шести героев плюс5 прежних category WAV Якудзы. Разрешённые маршруты строго совпадают с существующим catalog: Габар3/Олежка3/ТимкаPrime3/Рыжик3/Тега3/Паша5; present и excluded equipment не получают звук/силу. Source signal review c69fe500 — отдельный PASS_SIGNAL_ONLY. Native source f615b2e:45Input маршрутов,518проверок, actual mixer PCM; DEV07 source5403faa: Linux81/Wine72 packaged smoke. Это авторские runtime evidence до независимого closure. Владелец прослушал новые solo/gameplay записи и явно принял их для прототипа P06 (owner-listening-acceptance.json); агент не заявляет собственного прослушивания или финальной аудиоприёмки игры.
++
++C09 остаётся обязательной частью P06-CBT-01/09: существующие настоящие P04 NPC category sprites/FSM сохраняются, но пока target получает category/duration без character style. Наличие собственного player FIN и звука не закрывает характерную реакцию NPC. Нужен presentation-only descriptor внутри прежнего authoritative Core, закреплённый за actor/context/style/action variant/category и exact encounter epoch/action/target. Нельзя выбирать реакцию позднее по текущему выбранному персонажу.
++
++Отдельно различать обычный FIN, Тимка F-clinch/V-unarmed, настоящий ответ Олега после защиты, landing переката Рыжика, удар предмета Теги и projectile/FIN Паши. Совпадающий category не делает их одинаковыми взаимодействиями. Предоставление descriptor не даёт способности, damage или equipment grant. Present остаётся мирным; действие Якудзы в CH01 остаётся побегом.
++
++Новые рисунки создаются только для доказанно недостающих contact/restraint переходов. Реальные уникальные клетки и явно переиспользованные собственные/P04 refs учитываются раздельно; одинаковую последовательность с другим темпом нельзя принять за новый стиль. Конкретный бюджет и совместимость должны пройти независимый ART source review, затем paired source/target native review. Timka84 — сохранённый бюджет **игрового персонажа**, его исключённые sharp/firearm не возвращаются ради NPC matrix.
++
++C09 gate требует все25 разрешённых FIN hero/category routes ×3 archetypes ×4 directions ×Full/Reduced (600 logical cases), отдельные signature и natural-AI priority probes. Это план покрытия, не выполненные проверки. Нужны actual Input-earned vulnerability, contact frame1 и последующий corpse2, отмена/смерть/отзыв/reset без позднего контакта/повторной награды; reentrant presentation callbacks не должны менять новую epoch. Сохранять original GP/QA callbacks и negative tests, не заменять их одинаковыми implementation assertions. Native batches ограничивать по времени; хранить continuous temporal proof каждого отличающегося взаимодействия, не600копий одного фильма. Hardware FPS/input latency отдельно, не из headless/MovieMaker delta.
++
++Зависимая очередь: P06/C01-* и P06/C09-* в autopilot/queue.json. Родитель seven-hero-finisher-art-sound-reactions требует независимый runtime-аудио review, owner listening и NPC style review. Ни source-only review, ни owner prototype acceptance, ни один компонентный PASS не открывают P07/merge. Full P06 и Production Readiness gates сохраняются.

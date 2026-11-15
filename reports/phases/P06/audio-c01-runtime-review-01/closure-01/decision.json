@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scope": "C01_INDEPENDENT_TECHNICAL_COMPONENT_ATTEMPT1",
+  "status": "FAIL_COMPONENT",
+  "reviewer": {
+    "agent": "/root/qa_resume_recovery",
+    "role": "INDEPENDENT_QA",
+    "authored_Game_or_source_audio": false
+  },
+  "source_native": "f615b2e6de75e9303a343edca6e873435efb22b3",
+  "source_exports": "5403faa837a32e0fd370bb374eace120c9c4426b",
+  "source_binding_review": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c",
+  "actual_canonical_QA_job": {
+    "operation": "f519b7f7179341be99de355ac2fe2fe9",
+    "exit_code": 1,
+    "receipt_sha256": "c6d76036bb45a0cb839772bcaead310fbf1aff19d134197e49f9e0f0eaf9b3ae",
+    "log_sha256": "9795112f6e25ebfb76e7b398dd905c32579bfd047deec575fcdb5de1659f372d"
+  },
+  "actual_own_startup": "PASS_7calls_34assertions",
+  "actual_source_binding": "PASS_33temp_cases_80control_checks",
+  "actual_saved_native_PCM": "FAIL_STRESS_TRUEPEAK_PLUS0_1dBFS",
+  "mandatory_open_findings": [
+    "C01-Q03"
+  ],
+  "closed_findings": [
+    "C01-P01",
+    "C01-P02"
+  ],
+  "QA_metadata_bug": "QA-H01 separately corrected; first failed artifact preserved, no productexportfailure",
+  "owner_artistic_record": {
+    "status": "OWNER_REPORTED_ACCEPTED_FOR_P06_PROTOTYPE_SOLO_AND_RUNTIME_ONLY",
+    "record_sha256": "3b6b3c69004668ea73a5cc1102263e80abf2d2757952876dfbd234a4526752d9",
+    "exact_answer": "Прослушал, принимаю для прототипа P06",
+    "stress_listening": "NOT_EXPLICITLY_REPORTED",
+    "new_future_capture_listening": "NOT_CLAIMED",
+    "agent_listening_performed": false
+  },
+  "runtime_technical_approval": false,
+  "agent_artistic_approval": false,
+  "full_C01_approval": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "native_Windows": "NOT_TESTED",
+  "FPS_or_hardware_latency": "NOT_MEASURED",
+  "next": "Author minimal headroom fix+frozen targeted fresh actual mixer capture; separate independent closure, keep all historical FAILs immutable"
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "C01_Q03_INDEPENDENT_PURE_FRESH_PCM_AND_DEV08_TECHNICAL_CLOSURE_ONLY",
+  "passed": true,
+  "components": {
+    "freshPCM": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-02/analysis-01/result.json",
+      "sha256": "87e35b20d2baab0d8a0ad2700dfdb138275507c68ceade75870cd9b5f19d1ab6",
+      "passed": true
+    },
+    "DEV08": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-02/export-audit-01.json",
+      "sha256": "64e92229e6f1355b28b3e5004b999d935ee905647ed2aa9128c004c583ad72f3",
+      "passed": true
+    }
+  },
+  "commands": [
+    {
+      "script": "run_fresh_pcm.py",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-02/run_fresh_pcm.py"
+      ],
+      "exit_code": 0,
+      "seconds": 9.664,
+      "log_sha256": "c9be2ba605aa2bf4e6a1fe2b2e00d9c9db5b1dac56c63109901eedf41172d8cb"
+    },
+    {
+      "script": "audit_fresh_exports.py",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-02/audit_fresh_exports.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.419,
+      "log_sha256": "f923e8f64841148f612cd5d40ee7d0c3b35b6138df6fc507a92930794f75956d"
+    }
+  ],
+  "frozen_inputs_unchanged": true,
+  "actual_Godot_run": false,
+  "actual_agent_listening": false,
+  "full_phase_approval": false,
+  "merge_approval": false
+}

@@ -1,0 +1,106 @@
+{
+  "scope": "INDEPENDENT_C01_TECHNICAL_ATTEMPT1_ACTUAL_MEASUREMENTS",
+  "source_native": "f615b2e6de75e9303a343edca6e873435efb22b3",
+  "exports_source": "5403faa837a32e0fd370bb374eace120c9c4426b",
+  "source_negative_cases": 33,
+  "source_valid_control_checks": 80,
+  "source_negative_denials": 32,
+  "own_isolated_Godot_commands": 7,
+  "own_Godot_assertions": 34,
+  "own_Godot_all_passed": true,
+  "own_Godot_error_logs_clean": true,
+  "actual_native_checks_audited": 518,
+  "actual_native_finisher_contacts": 45,
+  "actual_native_bound_PNG": 45,
+  "actual_PCM_checks": 287,
+  "actual_PCM_passed_checks": 286,
+  "actual_mix_wav": 3,
+  "actual_solo_source_NCC_count": 20,
+  "actual_NCC_range": [
+    0.9899452104227207,
+    0.9994881374229864
+  ],
+  "PCM_source_offset_ms_range_not_hardware_latency": [
+    0.27351473922987424,
+    27.09129024943291
+  ],
+  "actual_stress_bursts": 8,
+  "actual_eachburst": {
+    "played": 12,
+    "active": 12,
+    "dropped": 8
+  },
+  "mixes": {
+    "normal": {
+      "sha256": "05831560534b845a015a9da5f79db02171e18bd949d85ed6bbc33b54900e2c68",
+      "duration_seconds": 110.58503401360544,
+      "PCM_rail_samples": 0,
+      "FFmpeg_truepeak_dBFS_rounded0_1": -9.4,
+      "RMS_channels_dBFS": [
+        -24.34178207765276,
+        -24.36394129504146
+      ],
+      "sample_peak_channels_dBFS": [
+        -9.684870302645116,
+        -10.242373527967823
+      ],
+      "DC_channels": [
+        0.0011625183786307107,
+        0.001161389231994709
+      ]
+    },
+    "solo": {
+      "sha256": "3f5cfb48de41e5867e910de550774ea49e33eb3f5a992b436df71992cd269beb",
+      "duration_seconds": 12.016326530612245,
+      "PCM_rail_samples": 0,
+      "FFmpeg_truepeak_dBFS_rounded0_1": -5.9,
+      "RMS_channels_dBFS": [
+        -27.160644345092333,
+        -27.160644345092333
+      ],
+      "sample_peak_channels_dBFS": [
+        -6.6955876400365,
+        -6.6955876400365
+      ],
+      "DC_channels": [
+        -0.0001074733941451363,
+        -0.0001074733941451363
+      ]
+    },
+    "stress": {
+      "sha256": "56cce2cb503ff9905671781c4e7370eff455d261346fc7dd8e113174227c179c",
+      "duration_seconds": 6.106848072562358,
+      "PCM_rail_samples": 0,
+      "FFmpeg_truepeak_dBFS_rounded0_1": 0.1,
+      "RMS_channels_dBFS": [
+        -12.960167097192087,
+        -12.954824332588938
+      ],
+      "sample_peak_channels_dBFS": [
+        -1.0001519038193567,
+        -1.0001519038193567
+      ],
+      "DC_channels": [
+        0.0008666355573632418,
+        0.0008585402040880443
+      ]
+    }
+  },
+  "actual_DEV07_readonly_audit": {
+    "Linux_renderer_checks": 81,
+    "Wine_headless_checks": 72,
+    "Linux_PNG": 9,
+    "imported_streams_each": 20,
+    "playback_bindings_each": 20,
+    "agent_reran_packaged_builds": false,
+    "native_Windows": "NOT_TESTED"
+  },
+  "source_maps": {
+    "native_all_keys": 1465,
+    "export_domain_keys": 1363,
+    "common_unchanged": 1361,
+    "common_expected_changes": 2,
+    "explicit_native_only_source_audio_or_signal_review_keys": 102
+  },
+  "actual_agent_listening": false
+}

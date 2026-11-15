@@ -1,0 +1,30 @@
+{
+  "scope": "UNCOMMITTED_WIP_STATIC_PREFLIGHT_ONLY",
+  "findings": [
+    {
+      "id": "C01-P01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "evidence_kind": "STATIC_CONFIRMED_CONTROL_FLOW_NOT_ENGINE_REPRODUCED",
+      "title": "Cross-registry cue collision shadows validated character audio entry",
+      "source": "game/scripts/systems/audio_director.gd:80,88",
+      "repro": "Add finish_gabar_unarmed to base manifest or combat_polish, pointing at existing legacy finish_unarmed.wav. Character own manifest remains valid; merge(character_sfx) default overwrite=false preserves conflicting existing entry. Profile returns finish_gabar_unarmed; play_cue reads old registry entry. Actual current shipped registries have no collision.",
+      "impact": "Validated actor/category route may play an unreviewed/wrong file or bus/gain from a different registry.",
+      "required_fix": "Reject duplicate cue keys across registries before startup, or implement explicit strict policy validating final authoritative binding; add isolated startup negative and keep real currentpositive.",
+      "actual_Godot_reproduction": false
+    },
+    {
+      "id": "C01-P02",
+      "severity": "MEDIUM",
+      "status": "ACCEPTANCE_EVIDENCE_REQUIRED",
+      "evidence_kind": "STATIC_GAP_PLUS_CURRENT_SOURCE_BYTES_VERIFIED",
+      "title": "Exact signal-accepted WAV/approval chain not enforced by WIP routing validator",
+      "source": "game/scripts/systems/character_finisher_audio.gd:11-39;audio_director.gd:84-87",
+      "facts": "Validator ignores source_sha256/decisionSHA/recipeSHA. Startup requires ResourceLoader.exists, WAV, loop disabled, duration only. Current20 copied WAV independently exactly match signal-reviewed bytes, so no actual corruption found. Runtime code does not yet prove imported PCM binding.",
+      "required_closure": "Strict pre-build/CI verifier anchored to accepted signal freeze and exact current20 +retained5, plus actual imported stream/cue/playback evidence and changed-WAV/coherent-manifest negative. Runtime raw source SHA reading is optional if export excludes sources.",
+      "actual_Godot_reproduction": false
+    }
+  ],
+  "listening": "NOT_PERFORMED",
+  "runtime": "NOT_EXECUTED"
+}

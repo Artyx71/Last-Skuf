@@ -1,0 +1,66 @@
+{
+  "status": "REVIEWABLE_PLAN_ONLY",
+  "implementer": "root sole author; reviewer read-only noengine",
+  "tasks": [
+    {
+      "id": "C09-01",
+      "priority": "HIGH_REQUIRED_SCOPE_GAP",
+      "title": "Define route-linked NPC presentation map before authoring",
+      "owner": "root only",
+      "scope": "Pure presentation manifest + strict validation",
+      "action": "Map immutable hero/context/style/actionvariant/category\u00d7archetype\u00d7facing to clips, frame0/1/2, contact pose/hold, FullReduced sources/clothing anchors and explicit sharing groups. Pin descriptor at existing melee/projectile/FIN reservation creation; never derive delayed reaction from currentselectedhero. Keep legacyYakuza category route explicit.",
+      "why": "character_style is stamped in FIN definition but discarded by NPC begin_finisher(category,duration); receive_hit receives no presentation descriptor. Multiple physical routes share categoryunarmed/firearm/environmental.",
+      "acceptance": "Unknown/missing/mismatched route/style/context/sourceSHA fails a read-only preparation/content gate atomically; no silent generic fallback accepted as completedP06 style. Existing P04route remains available by explicit allowed legacy mapping; scene authority/equipment allowlists unchanged."
+    },
+    {
+      "id": "C09-02",
+      "priority": "HIGH_REQUIRED_ART",
+      "title": "Draw only missing NPC style contact/hold poses, retain accepted base states",
+      "owner": "root author + later independent ART",
+      "scope": "6styles\u00d73existingarchetypes\u00d74dirs,20allowed FINcategories, signaturevariant mappings",
+      "action": "Use own whole-body drawings for distinguishable power/technique/clinch/acrobatic/environment/improvised contact. Preserve archetype silhouette/garment/pivot. Existing neutral restraint0 and terminal corpse2 may be explicit shared refs where physically compatible; style contact1 cannot just retime/relabel foreign or identical genericcategory sequence. Timka clinch needs a genuine restrained/grapple pose0 when existing generichold does not match grip.",
+      "budget": "240 newhero/category/archetype/direction bindings, not240guaranteed unique drawings. At least6style\u00d73archetype\u00d74dir=72style-direction-archetype contacts is only a planning lowerbound IF owncategory sharing is visually compatible; category/grip differences may require more. Final asset ledger counts realunique sourceSHA/sharedrefs separately. FullReduced same pose/anchors, blood variant not new motion. No change to Timka84player source budget.",
+      "acceptance": "Independent source review wholecells+contactboards for every newunique drawing and declared reuse, then actual source/target paired runtime contact. No new AI, enemyHP, immunity, damage or timing changes for art convenience.",
+      "ART_candidate_not_approval": "Independent ART source-only discussion proposes156wholefigures as an executable initialbudget:6styles\u00d73archetype\u00d74dir\u00d72(contact+release)=144 plus12Timkaprimeclinchrestrainedposes.72remains onlyconditionalfloor. Requires exact boards andcategoryreuse compatibility before productioncommit; additionalframes if mismatched."
+    },
+    {
+      "id": "C09-03",
+      "priority": "HIGH_REQUIRED_INTEGRATION",
+      "title": "Route presentation inside the existing authoritative Core/FSM",
+      "owner": "root only",
+      "scope": "target clip selection, not damage/AI rewrite",
+      "action": "Extend existing targetpresentation data, not create secondattack loop. Bind reaction descriptor to exactepoch/id/target/authority and keep it until corpse/reset or valid cancellation. Pick target contactclip before existing Core sets targetframe1 and _apply_hit. Keep receipt reserved before callbacks, committed guard/cost exactlyonce, _contact_current and _finisher_nodes_current after every potentially emitting presentation callback. Old cleanup must not clear a newepoch/reusedid reaction. Preserve lifetime caps and target.frame1\u2192corpse2 semantics.",
+      "acceptance": "Unchanged normalized contact/damage/health/score/ammo/positions/walls/timings for oldroutes. No gameplay damage from animation/frame_changed callbacks. No hero power from switchingactor/context. Options only swaps actual full/reduced textures.",
+      "frame_role_contract": "LegacyYakuza keeps0hold\u21921contact\u21922corpse exact. Newstyle map declareshold/contact/release/terminal:3frames if release2 is alreadyterminalprone,4if release2 istransitional andoldterminal3 retained. Keep targetcontact1 sameCoretick and immediate health/dead/layer0 atlethalcontact. Extra release staging usesdefeat_elapsed/presentation only; neverdelaydamage/state orchangeFSMpriority."
+    },
+    {
+      "id": "C09-04",
+      "priority": "HIGH_REQUIRED_CAUSAL_PROBES",
+      "title": "Fresh actual all-route and priority/reentry probes",
+      "owner": "root serialized executor; independent QA/GP afterward",
+      "scope": "one existing Core and realInput/geometry",
+      "action": "600 FINlogicalcases from matrix:25allowedhero/category\u00d73archetype\u00d74dir\u00d7FullReduced. Earn stun with actualInputSpace on originalhealth1; actualInputV/Fclinch and true NPCphysics. Add144signaturecases incl successfulOlegparry\u2192separatecounter, rolllanding6, realTegaprop and livePashaprojectile. Present F24nooutgoing plus24existingpeacefulSpace. Add24naturalAI phasecases; do not claim bind_melee alone is naturalAI.",
+      "priority_probes": [
+        "During real telegraph/attack: nonfatalhurt/stun/knockdown cancels oldmelee; player at old hitlocation receives0latecontacts.",
+        "Real lethal melee/projectile while enemyattack pending: death wins, noattack/recover/clips revival; distinctlaterattack IDs still0contacts to corpse.",
+        "Knockdown plus weakerhurt/stun/attack same andnexttick: noattackpose leak; vulnerable timer/restoration finite.",
+        "Reserved FIN plus sourceC/move/hurt/death/targetloss/authorityloss/reset: beforecontact restores propervulnerability, noresidualstyle; aftercontact noresurrection/refund/extrareward.",
+        "Actualoptions O at telegraph/windup/contact/deathhold: clocks/framehold/resource freeze andresume withoutskippedcontact. Existing lab disables actorphysics during options; do not inferpausebug from Enemy._physics_process alone.",
+        "Reachable target.sprite.frame_changed contact1 listener resets/replaces/frees target orsource/opensnewcontext; verify sameCoretick nooldwrite/cost/effect and reusednumericid+newepoch survives. Preserve GP-PAS closures as original targetedbaseline.",
+        "Settings FullReduced/VHS/decals/flashes/shake/reducedmotion: normalized contacts/AI/gameplay RNG invariant, presentation changes only."
+      ],
+      "acceptance": "End-of-Core observer priority>10 plus end-of-process/frame_post_draw; deep immutablecopies. Store epoch/id/source/target/archetype/route/style/authority/sourcepose/targetanimation/frame/state/HP/timer/position/damage/hits/score/cost. Baseline priority tests include directreceive/transition calls; preserve them but add actualCore contacts to qualify newroute integration. Any diagnosticHP>1 fixture declared separately, never productionNPChealth or FINearning workaround."
+    },
+    {
+      "id": "C09-05",
+      "priority": "HIGH_REQUIRED_NATIVE_EVIDENCE",
+      "title": "Bounded native paired contact and phase capture",
+      "owner": "root serialized builder + independent ART/GP",
+      "scope": "actualclips, no generated runtimeproof",
+      "action": "Numeric all600 cases; Full temporal lastwindup\u2192contact\u2192settle/corpse for every distinct300hero/category/archetype/direction binding; Reduced pairedcontact/corpse where sameposemapping proved. Include allsignaturephysicalroutes and24naturalAIcases. Nativeboards can share duplicatedsource/corpse refs by exactSHA, never skip a distinct interaction geometry. Capture targetstate+source/targetpairedregion and wall/floor support, plus fullviewport for UI/occlusion.",
+      "capture_rules": "Recordcontinuousperphysics samples and actualcontact receipt; observerafterCore and completed_process for clothing, actualrendered hold>=2movieframes before nextfixture. capture() movieNOOP must noterasecontact as oldPashamixed did. Keep NPCtruephysics for state0\u2192contact1\u2192corpse2. Save actualindices/timebase/framecount/moviehash/sourcehash and cleanlogs; logical assertions alone are insufficient.",
+      "batching": "Do not render600separatefilms or oneunboundedmovie. Split serialized batches by hero/archetype/mode with declared wallclockbudget (target<90smedia; explicitadequateprocess timeout). Compact shippingboards/rawselectedproofs, canonical original movies/PNGs retained once.",
+      "acceptance": "Independent ART checks own drawings/posecompatibility and GP checks actualclock/contact/support/priority/interruptions. QA and Lead source/evidence bind separately. No authorphasePASS; C09 closure does not closeC01audio/fullP06."
+    }
+  ]
+}

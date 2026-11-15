@@ -1,0 +1,44 @@
+{
+  "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/character-finisher-audio-01/native-02/replay/runtime_mix.wav",
+  "sha256": "377d1c1312a0b850438a0588b77c1acb4f1438d18b5ca78a86327e2cdc4008c7",
+  "header": {
+    "channels": 2,
+    "width": 2,
+    "rate": 44100,
+    "frames": 197632,
+    "compression": "NONE"
+  },
+  "duration_seconds": 4.481451247165533,
+  "monotonic_capture_seconds": 4.485681,
+  "duration_minus_wall_seconds": -0.00422975283446636,
+  "channels": [
+    {
+      "channel": 0,
+      "RMS_dBFS": -23.19531710997195,
+      "DC": 0.001206362340116748,
+      "sample_peak_dBFS": -6.296912866303314
+    },
+    {
+      "channel": 1,
+      "RMS_dBFS": -23.185331357288938,
+      "DC": 0.001208175649297052,
+      "sample_peak_dBFS": -6.214664151184685
+    }
+  ],
+  "PCM_rail_samples": 0,
+  "truepeak_FFmpeg_dBFS": -6.1,
+  "FFmpeg_argv": [
+    "/usr/bin/ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-i",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/character-finisher-audio-01/native-02/replay/runtime_mix.wav",
+    "-af",
+    "ebur128=peak=true",
+    "-f",
+    "null",
+    "-"
+  ],
+  "FFmpeg_exit": 0,
+  "FFmpeg_log_sha256": "58ccfb335eb724b7b5e0cfe14b48036a53e33f606ad8dd5bbfc0bf9e3f089f7e"
+}

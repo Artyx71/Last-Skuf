@@ -1,0 +1,216 @@
+{
+  "status": "PLAN_ONLY_NOT_ACCEPTANCE",
+  "combat_rows": [
+    {
+      "hero": "yakuza",
+      "context": "training",
+      "style": "accepted_yakuza_category_baseline",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "forbidden_FIN": [],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 120,
+      "note": "P04 accepted category reactions; weak slow train FIN only, campaign escape remains no combat grants.",
+      "current_NPC_style_link": "accepted P04 baseline, no new hero-style drawing demand"
+    },
+    {
+      "hero": "gabar",
+      "context": "training",
+      "style": "fast_power_strike",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "firearm"
+      ],
+      "forbidden_FIN": [
+        "sharp",
+        "environmental"
+      ],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 72,
+      "note": "Own power contact: distinguish lunge special from V FIN; keep swept trajectory/impulse.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "olezhka",
+      "context": "training",
+      "style": "learned_training_technique",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "sharp"
+      ],
+      "forbidden_FIN": [
+        "firearm",
+        "environmental"
+      ],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 72,
+      "note": "Counter only after actual parry; defended receipt gives no damage reaction, separate counter contact later.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "timka",
+      "context": "athletic_prime",
+      "style": "prime_grapple",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "forbidden_FIN": [
+        "sharp",
+        "firearm"
+      ],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 72,
+      "note": "Prime clinch F special/originalFINcol7 differs from V-unarmed despite same Core category.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "ryzhik",
+      "context": "training",
+      "style": "acrobatic_contact",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "forbidden_FIN": [
+        "sharp",
+        "firearm"
+      ],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 72,
+      "note": "Roll landing6 damage0/stun.45 differs from lethal FIN categoryunarmed.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "tega",
+      "context": "training",
+      "style": "improvised_environment",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "forbidden_FIN": [
+        "sharp",
+        "firearm"
+      ],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 72,
+      "note": "Real propF collision differs from environmentFIN; source of impact direction is swept object route.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "pasha",
+      "context": "training",
+      "style": "chaotic_improvisation",
+      "allowed_FIN": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "forbidden_FIN": [],
+      "required_archetypes": [
+        "patrol",
+        "rusher",
+        "shooter"
+      ],
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "FullReduced_numeric_FIN_cases": 120,
+      "note": "Moving bullet pose3 launch then flight differs from close firearmFIN; same finiteclip, no new cost.",
+      "current_NPC_style_link": "absent; categoryonly"
+    },
+    {
+      "hero": "timka",
+      "context": "peaceful_present",
+      "allowed_FIN": [],
+      "style": "peaceful_disengage",
+      "F_outgoing_damage_or_stun_or_FIN": false,
+      "Space": "preserve existing permitted damage0/stun shove; no prime clench or weapon grants",
+      "new_aggressive_target_reaction_required": false,
+      "Timka84_unchanged": true,
+      "negative_matrix": "3archetypes\u00d74directions\u00d72settings: F has0outgoingcontacts/reactionstylechanges; InputV+sharp/firearm+contextgrant denied"
+    }
+  ],
+  "FIN_category_routes": 25,
+  "new_6hero_FIN_category_routes": 20,
+  "FIN_numeric_cases": 600,
+  "signature_routes": "6hero signature action variants\u00d73archetypes\u00d74dirs\u00d72settings =144 additional real Core cases; Timka Fclinch distinct from Vunarmed. Primeheavy/normalSpace qualification piggybacks FIN earned-stun preparation.",
+  "present_additional": "24 Fnooutgoing and24 existing peacefulSpace qualified nonlethal cases. Not FIN.",
+  "base_enemy_AI": "3archetypes\u00d74dirs\u00d72settings=24 natural telegraph\u2192attack contact\u2192recovery cases once, not duplicated7times; priority interruptions separate causal cases."
+}

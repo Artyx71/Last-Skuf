@@ -1,0 +1,64 @@
+{
+  "scope": "C01_INDEPENDENT_TECHNICAL_CLOSURE_STARTUP_AND_ACTUAL_PCM_SAVED_EXPORT_AUDIT_ONLY",
+  "passed": false,
+  "commands": [
+    {
+      "script": "run_engine_job.py",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/run_engine_job.py"
+      ],
+      "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
+      "exit_code": 0,
+      "seconds": 16.574,
+      "log_sha256": "9091cfde59ff4d3bdf38f69e4d5957176210085ce7e0f771872d48e19e7173dd"
+    },
+    {
+      "script": "run_pcm_analysis.py",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/run_pcm_analysis.py"
+      ],
+      "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
+      "exit_code": 1,
+      "seconds": 9.739,
+      "log_sha256": "043e3ac629ee67f7671ab63a09cc1865f062a3b30f2120713cc336966c392c6e"
+    },
+    {
+      "script": "analyze_handoff.py",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/analyze_handoff.py"
+      ],
+      "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
+      "exit_code": 1,
+      "seconds": 0.477,
+      "log_sha256": "1d2d0385070e287d1244082acf6a3d4cec5518de04333c02d84e99fda4877ed5"
+    }
+  ],
+  "components": {
+    "startup": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/engine-01/result.json",
+      "sha256": "d8a01dddfdf57701ffc957f97525e37b85e15047ef6a66a6c1337478a929b4fa",
+      "passed": true
+    },
+    "actualPCM": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/pcm-analysis-01/result.json",
+      "sha256": "30e2333527a265cf26659bae8c337c41cf62aab1beac766da0124b47defd0434",
+      "passed": false
+    },
+    "export_owner_audit": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/handoff-analysis-01.json",
+      "sha256": "8c83ca9cd1c44e5fd8e490cc9975f5baca9dc528d7041f8ec1caa1c6a1211469",
+      "passed": false
+    }
+  },
+  "prepared_code_unchanged": true,
+  "source_negative_cases": 33,
+  "actual_agent_listening": false,
+  "owner_listening_status_separately_recorded": "Owner reported solo/runtime acceptance forP06prototype only; stressnotexplicit",
+  "full_C01_or_phase_approval": false,
+  "merge_approval": false,
+  "native_Windows": "NOT_TESTED",
+  "hardware_latency_and_FPS": "NOT_MEASURED"
+}

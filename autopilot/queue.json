@@ -272,7 +272,10 @@
       "phase": "P06",
       "kind": "implementation",
       "depends_on": [
-        "P06/combat-style-audit"
+        "P06/combat-style-audit",
+        "P06/C01-finisher-audio-runtime",
+        "P06/C01-finisher-audio-listening",
+        "P06/C09-npc-style-review"
       ],
       "status": "PENDING",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
@@ -631,6 +634,117 @@
       "Lead_sha256": "de1fb9f5c33c382cf1db6f39d7a2843463862f1974036949fa25e7ca4184588d",
       "ROOT_installed": false,
       "full_readiness_approval": false
+    },
+    {
+      "id": "P06/C01-finisher-audio-source",
+      "kind": "audio",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "SOURCE_SIGNAL_PASS",
+      "evidence": "reports/phases/P06/audio-c01-signal-review-01/decision.json",
+      "decision_sha256": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/C01-finisher-audio-runtime",
+      "kind": "verification",
+      "depends_on": [
+        "P06/C01-finisher-audio-source"
+      ],
+      "status": "PASS_COMPONENT",
+      "evidence": "reports/phases/P06/lead-character-finisher-audio-01/decision.json",
+      "scope": "Prototype C01 runtime/actualPCM/DEV08 local packaged smoke; fullP06/readiness/merge excluded",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "decision_sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+      "qa_sha256": "eed5a827352d31cb7a830d2c3cc056e785ca75895c1170899bc30b511c505ba8",
+      "reviewed_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3"
+    },
+    {
+      "id": "P06/C01-finisher-audio-listening",
+      "kind": "audio_review",
+      "depends_on": [
+        "P06/C01-finisher-audio-source"
+      ],
+      "status": "OWNER_ACCEPTED_FOR_PROTOTYPE",
+      "evidence": "reports/phases/P06/character-finisher-audio-01/owner-listening-acceptance.json",
+      "scope": "Owner heard real solo20 and gameplaymix; no agent-hearing/release/fullphase claim",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/C09-npc-presentation-contract",
+      "kind": "technical",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
+    },
+    {
+      "id": "P06/C09-npc-style-art",
+      "kind": "art",
+      "depends_on": [
+        "P06/C09-npc-presentation-contract"
+      ],
+      "status": "PENDING_INDEPENDENT_SOURCE_ART",
+      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "current_source_candidate": "assets/source_art/npc_styles/gabar/preview-v2/manifest.json",
+      "independent_source_review": "ROOT/reports/phases/P06/art-c09-gabar-source-01"
+    },
+    {
+      "id": "P06/C09-npc-style-integration",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/C09-npc-style-art"
+      ],
+      "status": "PENDING",
+      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
+    },
+    {
+      "id": "P06/C09-npc-style-review",
+      "kind": "verification",
+      "depends_on": [
+        "P06/C09-npc-style-integration"
+      ],
+      "status": "PENDING",
+      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
     }
   ]
 }
