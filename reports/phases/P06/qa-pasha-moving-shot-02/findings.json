@@ -1,0 +1,54 @@
+{
+  "scope": "PASHA17B_COMPONENT_ONLY",
+  "findings": [
+    {
+      "id": "PQ-W01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "proof": [
+        "wall-closure-final/result.json:byteexact16of16",
+        "wall-closure-proof.json"
+      ]
+    },
+    {
+      "id": "PQ-CI01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_FOR_SOURCE_WIRING",
+      "proof": [
+        "CI-routing-results.json:3of3actualmainwithsubprocessesmocks",
+        "code-freeze/tools/verify.py"
+      ],
+      "not_remoteCI": true
+    },
+    {
+      "id": "PQ-FR01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "title": "Four old missing-art assumptions reject now-completeownactors",
+      "proof": [
+        "character-frames/run.log:2203of2207FAIL",
+        "character-frames-fixed/run.log:2215of2215",
+        "source-delta-final.json"
+      ],
+      "fix": "Actual44/56ownclip/atlasidentity positives plus8genuine missingPNG/incompleteframe negatives, originalunknown/corrupt/layoutnegativesretained."
+    },
+    {
+      "id": "PQ-HUD01",
+      "ART_cross_reference": "PASHA-HUD-ARENA-OCCLUSION-01",
+      "severity": "MEDIUM",
+      "status": "OPEN_RESIDUAL_CROWN_OCCLUSION",
+      "structural_above_arena_check_passed": true,
+      "actual": "17b fullwidthbarx380..623y51..52 still crosses upper-rightNPC crown startingy49. Boundsabove54alone insufficient.",
+      "evidence": [
+        "author-evidence/native-02/empty_clip_HUD.png",
+        "author-evidence/ART02-decision.json",
+        "native-artifact-verification.json"
+      ],
+      "remedy": "SeparateUIcandidate b359 short/repositionmeter, then independentnativevisual+boundedrollforward; not accepted by this historicalpacket."
+    }
+  ],
+  "blocking_findings": [
+    "PQ-HUD01"
+  ],
+  "all_runtime_resource_and_sharedCore_currenttests_green_after_validtestfix": true
+}

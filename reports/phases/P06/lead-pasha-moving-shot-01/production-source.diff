@@ -1,0 +1,781 @@
+diff --git a/game/scripts/abilities/moving_shot.gd b/game/scripts/abilities/moving_shot.gd
+new file mode 100644
+index 0000000..9431ba9
+--- /dev/null
++++ b/game/scripts/abilities/moving_shot.gd
+@@ -0,0 +1,116 @@
++extends RefCounted
++## Own eight drawn poses, ordinary swept movement, finite rounds. No immunity.
++const Frames = preload("res://scripts/actors/character_frames.gd")
++const KIND := "moving_shot"
++const WINDUP := 0.10
++const ACTIVE := 0.08
++const RECOVERY := 0.12
++const COOLDOWN := 0.40
++const CLIP := 4
++const REFILL_SECONDS := 0.90
++var ammo := CLIP
++var refill_elapsed := 0.0
++var rounds_spent := 0
++var spent_tokens: Dictionary = {}
++var cost_history: Array[Dictionary] = []
++
++func required_frames(actor_id: String) -> SpriteFrames:
++	var result: SpriteFrames = Frames.moving_shot_frames(actor_id)
++	if result == null: return null
++	for direction in Frames.DIRECTIONS:
++		if not result.get_frame_texture(StringName(KIND+"_"+direction),3).has_meta("muzzle_socket"): return null
++	return result
++
++func reset(_body: CharacterBody2D) -> void:
++	ammo = CLIP
++	refill_elapsed = 0.0
++	rounds_spent = 0
++	spent_tokens.clear()
++	cost_history.clear()
++
++func start(body: CharacterBody2D) -> bool:
++	if body.movement_ability != self or body.prepared_ability != KIND: return false
++	if not body._can_begin_action() or body.ability_cooldown > 0 or ammo <= 0: return false
++	body._face_aim()
++	body.action_windup = WINDUP
++	body.action_active = ACTIVE
++	body.action_recovery = RECOVERY
++	var serial: int = body.action_serial+1
++	var epoch: int = body.lab.combat.encounter_epoch
++	body._play_action(KIND,WINDUP+ACTIVE+RECOVERY)
++	if body.action_serial!=serial or body.lab.combat.encounter_epoch!=epoch or body.movement_ability!=self: return false
++	var id: int = body.lab.combat.moving_shots.begin(body,self)
++	if id == 0:
++		if body.action_serial==serial and body.lab.combat.encounter_epoch==epoch: body.cancel_action()
++		return false
++	body.ranged_action_id = id
++	body.ability_cooldown = COOLDOWN
++	body.ability_uses += 1
++	body.ability_distance = 0.0
++	body.last_ability_path.assign([body.global_position])
++	return true
++
++func present(body: CharacterBody2D) -> void:
++	var phase := 0.0
++	if body.action_elapsed < WINDUP:
++		phase = body.action_elapsed*3.0/WINDUP
++		body.action_frame = mini(2,int(floor(phase)))
++	elif body.action_elapsed < WINDUP+ACTIVE:
++		phase = (body.action_elapsed-WINDUP)*2.0/ACTIVE
++		body.action_frame = 3+mini(1,int(floor(phase)))
++	else:
++		phase = (body.action_elapsed-WINDUP-ACTIVE)*3.0/RECOVERY
++		body.action_frame = 5+mini(2,int(floor(phase)))
++	body.sprite.play(body.action_animation)
++	body.sprite.pause()
++	body.sprite.set_frame_and_progress(body.action_frame,clampf(fmod(phase,1.0),0.0,1.0))
++	body.weapon_visual_update()
++
++func advance_motion(body: CharacterBody2D, _delta: float) -> void:
++	# CharacterBody2D already moved through its existing Input/move_and_slide.
++	# Record that physical path; this ability never teleports or forces a lunge.
++	if body.movement_ability != self or body.action_kind != KIND or not body._action_authorized(): return
++	if not body.last_ability_path.is_empty():
++		body.ability_distance += body.global_position.distance_to(body.last_ability_path.back())
++	body.last_ability_path.append(body.global_position)
++
++func advance_passive(body: CharacterBody2D, delta: float) -> void:
++	if body.movement_ability != self or not body._prepared_policy_matches_live(): return
++	if ammo >= CLIP:
++		refill_elapsed = 0.0
++		return
++	if body.action_kind == KIND: return
++	refill_elapsed += delta
++	while refill_elapsed >= REFILL_SECONDS and ammo < CLIP:
++		ammo += 1
++		refill_elapsed -= REFILL_SECONDS
++
++func can_spend(body: CharacterBody2D) -> bool:
++	return body.movement_ability == self and body.prepared_ability == KIND and body._prepared_policy_matches_live() and body.health > 0 and body.lab.state == "playing" and ammo > 0
++
++func spend_round(body: CharacterBody2D, epoch: int, action_id: int, reason: String) -> bool:
++	if epoch != body.lab.combat.encounter_epoch or body.movement_ability != self or body.prepared_ability != KIND or not body._prepared_policy_matches_live() or body.health<=0 or body.lab.state!="playing": return false
++	var token := str(epoch)+":"+str(action_id)
++	if spent_tokens.has(token): return true
++	if ammo<=0: return false
++	spent_tokens[token] = true
++	if spent_tokens.size()>512: spent_tokens.erase(spent_tokens.keys()[0])
++	ammo -= 1
++	refill_elapsed = 0.0
++	rounds_spent += 1
++	cost_history.append({"epoch":epoch,"id":action_id,"reason":reason,"tick":Engine.get_physics_frames(),"ammo":ammo,"pose":body.sprite.frame})
++	if cost_history.size()>128: cost_history.pop_front()
++	return true
++
++func feedback(body: CharacterBody2D) -> Dictionary:
++	var phase := "unavailable"
++	if body.health<=0: phase="dead"
++	elif body.lab.state=="options": phase="paused"
++	elif body._prepared_policy_matches_live() and body.lab.state=="playing":
++		if body.action_kind==KIND: phase="firing"
++		elif ammo<=0: phase="empty"
++		elif not body.action_kind.is_empty(): phase="busy"
++		elif body.ability_cooldown>0: phase="cooldown"
++		else: phase="ready"
++	return {"phase":phase,"ammo":ammo,"clip":CLIP,"cooldown":body.ability_cooldown,
++		"cooldown_total":COOLDOWN,"refill":refill_elapsed/REFILL_SECONDS,"refill_seconds":REFILL_SECONDS-refill_elapsed}
+diff --git a/game/scripts/abilities/moving_shot.gd.uid b/game/scripts/abilities/moving_shot.gd.uid
+new file mode 100644
+index 0000000..0513c42
+--- /dev/null
++++ b/game/scripts/abilities/moving_shot.gd.uid
+@@ -0,0 +1 @@
++uid://b510tn1nj8ju
+diff --git a/game/scripts/actors/character_frames.gd b/game/scripts/actors/character_frames.gd
+index a5c5442..405bec9 100644
+--- a/game/scripts/actors/character_frames.gd
++++ b/game/scripts/actors/character_frames.gd
+@@ -7,6 +7,7 @@ const ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6
+ const FINISHER_COLUMNS := {"finish_unarmed":[0,1,6], "finish_blunt":[0,2,6], "finish_sharp":[0,3,6], "finish_firearm":[0,4,6], "finish_environmental":[0,5,6], "special":[0,7,6]}
+ const SHEET_COLUMNS := {"world":WORLD_COLUMNS, "action":ACTION_COLUMNS, "finisher":FINISHER_COLUMNS}
+ const ROLL_COLUMNS := {"roll":[0,1,2,3,4,5,6,7]}
++const MOVING_SHOT_COLUMNS := {"moving_shot":[0,1,2,3,4,5,6,7]}
+ const TIMKA_PROFILE := "timka_supported_v1"
+ const TIMKA_SOURCE_COLUMNS := {"world":[0,1,2,3,4,5,6,7], "action":[0,1,2,3,4,5,6], "finisher":[0,1,2,5,6,7]}
+ const TIMKA_ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6]}
+@@ -15,6 +16,8 @@ const SIZE := Vector2(48,64)
+ const PIVOT := Vector2(24,58)
+ 
+ static func _layout_spec(actor_id: String, kind: String) -> Dictionary:
++ if kind=="moving_shot":
++  return {"schema":1,"columns":8,"mapping":MOVING_SHOT_COLUMNS,"count":32} if actor_id=="pasha" else {}
+  if kind=="roll":
+   return {"schema":1,"columns":8,"mapping":ROLL_COLUMNS,"count":32} if actor_id=="ryzhik" else {}
+  if not SHEET_COLUMNS.has(kind) or actor_id not in ["gabar","olezhka","timka","ryzhik","tega","pasha"]: return {}
+@@ -48,6 +51,9 @@ static func finisher_frames(actor_id: String) -> SpriteFrames:
+ static func roll_frames(actor_id: String) -> SpriteFrames:
+  return _sheet_frames(actor_id,"roll")
+ 
++static func moving_shot_frames(actor_id: String) -> SpriteFrames:
++ return _sheet_frames(actor_id,"moving_shot")
++
+ static func timka_present_frames() -> SpriteFrames:
+  # This context has no finisher/ranged clips. Its backward step explicitly
+  # reuses this actor's four walk drawings; it is not a new source-art claim.
+@@ -120,13 +126,20 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
+  var expected: Dictionary = spec.mapping
+  var texture := _sheet_texture(path_value,Vector2(int(spec.columns)*48,256))
+  if texture == null: return null
+- if (spec.schema==2 or kind=="roll") and not _valid_sheet_pixels(texture.get_image(),parsed): return null
++ if (spec.schema==2 or kind in ["roll","moving_shot"]) and not _valid_sheet_pixels(texture.get_image(),parsed): return null
+  var socket_path := path.get_base_dir().path_join(kind+".sockets.json")
+  var sockets: Dictionary = {}
+  if FileAccess.file_exists(socket_path):
+   var socket_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(socket_path))
+   if not _valid_sockets(socket_data,parsed): return null
+   sockets = socket_data
++ var muzzles: Dictionary = {}
++ if kind=="moving_shot":
++  var muzzle_path := path.get_base_dir().path_join(kind+".muzzles.json")
++  if not FileAccess.file_exists(muzzle_path): return null
++  var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(muzzle_path))
++  if not _valid_muzzles(data,parsed,texture.get_image()): return null
++  muzzles = data
+  var frames := SpriteFrames.new()
+  frames.remove_animation(&"default")
+  for row in DIRECTIONS.size():
+@@ -149,9 +162,30 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
+     if not sockets.is_empty():
+      var point: Array = sockets.frames[row*int(spec.columns)+column].clothing
+      atlas.set_meta("clothing_socket",Vector2(point[0],point[1]))
++    if not muzzles.is_empty() and column==3:
++     var muzzle_point: Array = muzzles.frames[row].muzzle
++     atlas.set_meta("muzzle_socket",Vector2(muzzle_point[0],muzzle_point[1]))
+     frames.add_frame(animation,atlas)
+  return frames
+ 
++static func _valid_muzzles(data: Variant, layout: Dictionary, image: Image) -> bool:
++ if not data is Dictionary or image==null: return false
++ if data.get("schema")!=1 or data.get("actor_id")!="pasha" or data.get("kind")!="moving_shot": return false
++ if data.get("sheet_sha256")!=layout.get("sha256"): return false
++ if not _valid_layout(layout,"pasha","moving_shot"): return false
++ var entries: Variant = data.get("frames")
++ if not entries is Array or entries.size()!=4: return false
++ for row in 4:
++  var entry: Variant = entries[row]
++  if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row] or not _matches_numbers([entry.get("column")],[3]): return false
++  var point: Variant = entry.get("muzzle")
++  if not point is Array or point.size()!=2: return false
++  for axis in 2:
++   if not (point[axis] is int or point[axis] is float) or point[axis]!=floor(point[axis]): return false
++   if point[axis]<0 or point[axis]>=[48,64][axis]: return false
++  if image.get_pixel(3*48+int(point[0]),row*64+int(point[1])).a<=0: return false
++ return true
++
+ static func _valid_sockets(sockets: Variant, layout: Dictionary) -> bool:
+  if not sockets is Dictionary: return false
+  var actor: Variant = layout.get("actor_id")
+@@ -222,7 +256,7 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
+   if not _matches_numbers(parsed.get("source_column_mapping"),spec.source_columns): return false
+   if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
+  elif parsed.has("layout_profile"): return false
+- if kind=="roll":
++ if kind in ["roll","moving_shot"]:
+   if not _matches_numbers(parsed.get("dimensions"),[384,256]): return false
+   if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
+  var expected: Dictionary = spec.mapping
+@@ -239,7 +273,7 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
+   if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row]: return false
+   if not _matches_numbers([entry.get("column")],[column]): return false
+   if not _matches_numbers(entry.get("rect"),[column*48,row*64,48,64]): return false
+-  if kind=="roll":
++  if kind in ["roll","moving_shot"]:
+    if not _matches_numbers(entry.get("pivot"),[24,58]) or not _valid_sha(entry.get("rgba_sha256")): return false
+   if spec.schema==2:
+    if not _matches_numbers([entry.get("index"),entry.get("source_column")],[index,spec.source_columns[column]]): return false
+diff --git a/game/scripts/actors/character_player.gd b/game/scripts/actors/character_player.gd
+index 4bb9e72..1ee74b8 100644
+--- a/game/scripts/actors/character_player.gd
++++ b/game/scripts/actors/character_player.gd
+@@ -4,12 +4,13 @@ const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
+ const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
+ const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
+ const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd"),
+-	"environment_kick":preload("res://scripts/abilities/environment_kick.gd")}
++	"environment_kick":preload("res://scripts/abilities/environment_kick.gd"),
++	"moving_shot":preload("res://scripts/abilities/moving_shot.gd")}
+ # Add a fixture only with its actual controller handler and gameplay evidence.
+ const IMPLEMENTED_FIXTURE_ABILITIES := {
+ 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
+ 	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step",
+-	"tega_training":"environment_kick"
++	"tega_training":"environment_kick", "pasha_training":"moving_shot"
+ }
+ var actor_id := ""
+ var scene_policy: RefCounted
+@@ -23,6 +24,8 @@ var ability_distance := 0.0
+ var last_ability_path: Array[Vector2] = []
+ var action_authority_snapshot: Dictionary = {}
+ var action_ability_id := ""
++var ranged_action_id := 0
++var action_serial := 0 # Monotonic across reset, separate from reusable Core IDs.
+ var counter_spent := false
+ var counter_blocks := 0
+ var _clinch_requested := false
+@@ -69,7 +72,8 @@ func prepare_fixture(scene_id: String) -> bool:
+ 		CharacterFrames._append_clips(frames,extra)
+ 	for animation in frames.get_animation_names():
+ 		for frame in frames.get_frame_count(animation):
+-			if not frames.get_frame_texture(animation,frame).has_meta("clothing_socket"): return false
++			var texture := frames.get_frame_texture(animation,frame)
++			if not texture.has_meta("clothing_socket") or texture.get_meta("character_id","")!=id: return false
+ 	actor_id = id
+ 	authored_frames = frames
+ 	prepared_definition = definition
+@@ -126,10 +130,11 @@ func _movement_state() -> String:
+ 	return "run" if Input.is_action_pressed("character_run") else "walk"
+ 
+ func _physics_process(delta: float) -> void:
+-	if action_kind in ["shove","special","disengage","roll"] and not _action_authorized(): cancel_action()
++	if (action_kind=="shove" or _signature_action(action_kind)) and not _action_authorized(): cancel_action()
+ 	if lab.state == "playing" and health > 0:
+ 		ability_cooldown = maxf(0.0,ability_cooldown-delta)
+-	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage","roll"]: cancel_action()
++		if movement_ability!=null and movement_ability.has_method("advance_passive"): movement_ability.advance_passive(self,delta)
++	if Input.is_action_just_pressed("cancel_finisher") and _signature_action(action_kind): cancel_action()
+ 	super._physics_process(delta)
+ 	if lab.state == "playing" and health > 0:
+ 		if Input.is_action_just_pressed("character_ability"): use_ability()
+@@ -154,6 +159,7 @@ func _physics_process(delta: float) -> void:
+ 
+ func reset(at: Vector2) -> void:
+ 	super.reset(at)
++	if movement_ability!=null and movement_ability.has_method("reset"): movement_ability.reset(self)
+ 	move_speed = scene_policy.movement_speed() if _prepared_policy_matches_live() else 0.0
+ 	ability_cooldown = 0.0
+ 	ability_uses = 0
+@@ -169,7 +175,10 @@ func finisher_authority(category: String) -> Dictionary:
+ 	return scene_policy.finisher_authority(actor_id,category,finisher_category)
+ 
+ func can_use_finisher(category: String) -> bool:
+-	return not finisher_authority(category).is_empty()
++	if finisher_authority(category).is_empty(): return false
++	if actor_id=="pasha" and category=="firearm":
++		return movement_ability!=null and movement_ability.can_spend(self)
++	return true
+ 
+ func resolve_finisher(category: String, base: Dictionary) -> Dictionary:
+ 	if not _prepared_policy_matches_live(): return {}
+@@ -184,8 +193,9 @@ func _can_begin_action() -> bool:
+ 	return lab != null and _prepared_policy_matches_live() and lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty()
+ 
+ func _play_action(action: String, duration: float) -> void:
+-	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage","roll"] else {}
+-	action_ability_id = scene_policy.ability_id() if action in ["special","disengage","roll"] else ""
++	action_serial += 1
++	action_authority_snapshot = scene_policy.action_authority(actor_id) if action=="shove" or _signature_action(action) else {}
++	action_ability_id = scene_policy.ability_id() if _signature_action(action) else ""
+ 	super._play_action(action,duration)
+ 	if actor_id == "timka" and prepared_ability == "clinch":
+ 		if action == "shove": action_animation = StringName("prime_strike_"+action_direction)
+@@ -220,7 +230,10 @@ func _present_action() -> void:
+ func _action_authorized() -> bool:
+ 	if action_authority_snapshot.is_empty() or not _prepared_policy_matches_live(): return false
+ 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
+-	return action_kind not in ["special","disengage","roll"] or action_ability_id == scene_policy.ability_id()
++	return not _signature_action(action_kind) or action_ability_id == scene_policy.ability_id()
++
++func _signature_action(action: String) -> bool:
++	return action in ["special","disengage","roll","moving_shot"]
+ 
+ func attack_melee() -> bool:
+ 	if not _can_begin_action() or melee_cooldown > 0: return false
+@@ -241,7 +254,9 @@ func attack_melee() -> bool:
+ 	return true
+ 
+ func attack_ranged() -> bool:
+-	# Normal ranged kits are implemented separately from selecting a finisher tool.
++	if actor_id=="pasha" and prepared_ability=="moving_shot" and movement_ability!=null:
++		return movement_ability.start(self)
++	# Selecting a drawn finisher tool does not grant anyone a ranged kit.
+ 	return false
+ 
+ func use_ability() -> bool:
+@@ -382,8 +397,35 @@ func weapon_visual_update() -> void:
+ 
+ func cancel_action() -> void:
+ 	super.cancel_action()
+-	if lab != null and lab.combat != null: lab.combat.environment_kicks.cancel(self)
++	if lab != null and lab.combat != null:
++		lab.combat.environment_kicks.cancel(self)
++		lab.combat.moving_shots.cancel(self)
++	ranged_action_id = 0
+ 
+ func sync_ability_presentation() -> void:
+ 	_present_action()
+ 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
++
++func visual_muzzle() -> Vector2:
++	if actor_id=="pasha" and action_kind=="moving_shot":
++		var texture := sprite.sprite_frames.get_frame_texture(sprite.animation,sprite.frame)
++		if texture.has_meta("muzzle_socket"):
++			return sprite.global_position-FRAME_SIZE*0.5+texture.get_meta("muzzle_socket")
++	return super.visual_muzzle()
++
++func authorize_ranged_launch(definition: Dictionary) -> bool:
++	if not authorize_committed_projectile(definition) or not _action_authorized(): return false
++	return action_kind=="moving_shot" and action_frame==3 and sprite.frame==3 and ranged_action_id==int(definition.get("_ranged_job_id",-1)) and action_serial==int(definition.get("_ranged_action_serial",-1))
++
++func authorize_committed_projectile(definition: Dictionary) -> bool:
++	if actor_id!="pasha" or prepared_ability!="moving_shot" or not _prepared_policy_matches_live(): return false
++	if lab==null or lab.player!=self or movement_ability==null or is_queued_for_deletion(): return false
++	return definition.get("_ranged_authority",{})==scene_policy.action_authority(actor_id) and int(definition.get("_ranged_strategy_id",0))==movement_ability.get_instance_id() and int(definition.get("_ranged_epoch",-1))==lab.combat.encounter_epoch
++
++func commit_finisher_cost(epoch: int, id: int, category: String) -> bool:
++	if actor_id!="pasha" or category!="firearm": return true
++	return movement_ability!=null and movement_ability.spend_round(self,epoch,id,"firearm_finisher")
++
++func ranged_feedback() -> Dictionary:
++	if actor_id!="pasha" or movement_ability==null: return {"phase":"hidden"}
++	return movement_ability.feedback(self)
+diff --git a/game/scripts/core/character_lab.gd b/game/scripts/core/character_lab.gd
+index 2359e82..495b603 100644
+--- a/game/scripts/core/character_lab.gd
++++ b/game/scripts/core/character_lab.gd
+@@ -7,6 +7,7 @@ var scene_policy := ScenePolicy.new()
+ var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training","pasha_training"]
+ var selection_message := ""
+ var counter_feedback: Control
++var ranged_feedback: Control
+ 
+ func _ready() -> void:
+ 	var view_guard := preload("res://scripts/systems/campaign_view_guard.gd").new()
+@@ -26,6 +27,9 @@ func _ready() -> void:
+ 	counter_feedback = preload("res://scripts/ui/counter_feedback.gd").new()
+ 	counter_feedback.lab = self
+ 	add_child(counter_feedback)
++	ranged_feedback = preload("res://scripts/ui/ranged_feedback.gd").new()
++	ranged_feedback.lab = self
++	add_child(ranged_feedback)
+ 	_update_hud()
+ 
+ func _create_player() -> CharacterBody2D:
+@@ -107,6 +111,8 @@ func _update_hud() -> void:
+ 		hint_label.text = "F: перекат вперёд · WASD/Shift · Space: оттолкнуть · V: добить · C: отмена"
+ 	elif player.actor_id == "tega":
+ 		hint_label.text = "F: пнуть верстак перед собой · WASD/Shift · Space: толчок · V: добить · C: отмена"
++	elif player.actor_id == "pasha":
++		hint_label.text = "F / ПКМ: выстрел на ходу · WASD/Shift · Space: толчок · V: добить · C: отмена"
+ 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
+ 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
+ 	if equipment_label:
+diff --git a/game/scripts/qa/owner_preview_smoke.gd b/game/scripts/qa/owner_preview_smoke.gd
+index 8247b73..8862682 100644
+--- a/game/scripts/qa/owner_preview_smoke.gd
++++ b/game/scripts/qa/owner_preview_smoke.gd
+@@ -11,6 +11,10 @@ func frames(count: int) -> void:
+ 	for i in count:
+ 		await get_tree().physics_frame
+ 		await get_tree().process_frame
++func key(code: Key, pressed: bool) -> void:
++	var event:=InputEventKey.new()
++	event.keycode=code;event.physical_keycode=code;event.pressed=pressed
++	Input.parse_input_event(event)
+ func tap(key: Key) -> void:
+ 	var event := InputEventKey.new()
+ 	event.keycode=key;event.physical_keycode=key;event.pressed=true
+@@ -78,10 +82,15 @@ func run() -> void:
+ 	await frames(24)
+ 	check("Tega_moves_real_bench_with_restored_masks",lab.player.ability_distance>0 and lab.player.ability_distance<=37.81 and lab.training_bench.position.distance_to(bench_start)>0 and lab.training_bench.collision_mask==6 and lab.player.collision_mask==1)
+ 	await capture("tega_environment_kick")
+-	var player_id: int=lab.player.get_instance_id()
+-	var authority: Dictionary=lab.scene_policy.action_authority("tega")
+ 	await tap(KEY_7)
+-	check("unready_Pasha_preserves_Tega_context",lab.player.get_instance_id()==player_id and lab.scene_policy.action_authority("tega")==authority and not lab.selection_message.is_empty())
++	check("Pasha_selects_complete_moving_shot_body",lab.player.actor_id=="pasha" and lab.player.prepared_ability=="moving_shot" and lab.player.authored_frames.get_animation_names().size()==60)
++	lab.player.position=Vector2(274,240);lab.player.set_aim(Vector2.RIGHT)
++	var pasha_start:Vector2=lab.player.position
++	key(KEY_D,true);key(KEY_SHIFT,true);await tap(KEY_F)
++	check("Pasha_moving_shot_starts_from_Input",lab.player.action_kind=="moving_shot" and lab.player.ability_uses==1)
++	await frames(20);key(KEY_D,false);key(KEY_SHIFT,false)
++	check("Pasha_moves_and_spends_one_round_with_HUD",lab.player.position.distance_to(pasha_start)>30 and lab.player.movement_ability.ammo==3 and lab.shots_fired==1 and lab.ranged_feedback.displayed_feedback.ammo==3)
++	await capture("pasha_moving_shot")
+ 	await tap(KEY_ESCAPE)
+ 	await frames(3)
+ 	check("sandbox_returns_to_menu",get_tree().current_scene.get_script().resource_path=="res://scripts/core/bootstrap.gd")
+diff --git a/game/scripts/systems/combat_system.gd b/game/scripts/systems/combat_system.gd
+index df98412..4bbe899 100644
+--- a/game/scripts/systems/combat_system.gd
++++ b/game/scripts/systems/combat_system.gd
+@@ -22,6 +22,7 @@ var finishers: Array[Dictionary] = []
+ var finisher_history: Array[Dictionary] = []
+ var environments: Dictionary = {}
+ var environment_kicks := preload("res://scripts/systems/environment_kick_runtime.gd").new()
++var moving_shots := preload("res://scripts/systems/moving_shot_runtime.gd").new()
+ 
+ func _stamp(definition: Dictionary) -> Dictionary:
+ 	var result := definition.duplicate(true)
+@@ -33,6 +34,7 @@ func _stamp(definition: Dictionary) -> Dictionary:
+ func _ready() -> void:
+ 	process_physics_priority = 10
+ 	environment_kicks.combat = self
++	moving_shots.combat = self
+ 	polish = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/polish.json"))
+ 	finisher_definitions = JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/finishers.json")).definitions
+ 	impact = preload("res://scripts/systems/combat_impact.gd").new()
+@@ -63,6 +65,7 @@ func _melee_phase(attack: Dictionary) -> String:
+ 
+ func reset() -> void:
+ 	environment_kicks.reset()
++	moving_shots.reset()
+ 	for job in finishers.duplicate(): cancel_finisher(job.source, "reset", true)
+ 	finishers.clear()
+ 	finisher_history.clear()
+@@ -93,8 +96,13 @@ func start_melee(source: CharacterBody2D, team: String, direction: Vector2, defi
+ 
+ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition: Dictionary) -> int:
+ 	definition = _stamp(definition)
++	if definition.has("_ranged_authority") and (not source.has_method("authorize_ranged_launch") or not source.authorize_ranged_launch(definition)): return 0
+ 	lab.audio_event.emit(&"weapon_fire", source.global_position)
++	# A sound listener may revoke, reset, replace or free the source immediately.
++	if not is_instance_valid(source) or source.is_queued_for_deletion() or not source.is_inside_tree() or source.health<=0 or lab.state!="playing" or int(definition._epoch)!=encounter_epoch: return 0
++	if definition.has("_ranged_authority") and not source.authorize_ranged_launch(definition): return 0
+ 	next_attack_id += 1
++	var attack_id := next_attack_id
+ 	var aim := direction.normalized()
+ 	var origin := source.global_position + Vector2(0, -7)
+ 	var muzzle := origin + aim * 12.0
+@@ -108,16 +116,17 @@ func fire(source: CharacterBody2D, team: String, direction: Vector2, definition:
+ 		if obstruction.collider.collision_layer & 1:
+ 			wall_impacts += 1
+ 			_wall_contact(obstruction.position, definition, obstruction.collider)
++			if int(definition._epoch)!=encounter_epoch: return attack_id
+ 			last_hit_position = obstruction.position + visual_offset
+ 			hit_flash = 0.15
+ 		else:
+-			_apply_hit(obstruction.collider, definition, next_attack_id, source)
+-		return next_attack_id
+-	projectiles.append({"id": next_attack_id, "source": source, "team": team,
++			_apply_hit(obstruction.collider, definition, attack_id, source)
++		return attack_id
++	projectiles.append({"id": attack_id, "source": source, "team": team,
+ 		"position": muzzle,
+ 		"velocity": aim * float(definition.speed), "time": 0.0, "definition": definition,
+ 		"visual_offset": visual_offset})
+-	return next_attack_id
++	return attack_id
+ 
+ 
+ func clear_line(from: Vector2, to: Vector2) -> bool:
+@@ -174,6 +183,10 @@ func _physics_process(delta: float) -> void:
+ 		if not source.has_method("melee_phase") and attack.time >= float(definition.get("windup", 0.0)) + float(definition.active):
+ 			attacks.erase(attack)
+ 	for bullet in projectiles.duplicate():
++		if bullet.definition.has("_ranged_authority"):
++			if not is_instance_valid(bullet.source) or not bullet.source.authorize_committed_projectile(bullet.definition):
++				projectiles.erase(bullet)
++				continue
+ 		var start: Vector2 = bullet.position
+ 		var finish: Vector2 = start + bullet.velocity * delta
+ 		var mask := 1 | (4 if bullet.team == "player" else 2)
+@@ -186,6 +199,7 @@ func _physics_process(delta: float) -> void:
+ 			if contact.collider.collision_layer & 1:
+ 				wall_impacts += 1
+ 				_wall_contact(contact.position, bullet.definition, contact.collider)
++				if int(bullet.definition._epoch)!=encounter_epoch: continue
+ 				last_hit_position = contact.position + bullet.visual_offset
+ 				hit_flash = 0.15
+ 			else:
+@@ -197,6 +211,7 @@ func _physics_process(delta: float) -> void:
+ 			if bullet.time >= float(bullet.definition.lifetime):
+ 				projectiles.erase(bullet)
+ 	environment_kicks.tick()
++	moving_shots.tick()
+ 	queue_redraw()
+ 
+ 
+@@ -206,6 +221,16 @@ func _wall_contact(at: Vector2, definition: Dictionary, object: Node = null) ->
+ 	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
+ 
+ 
++func _contact_current(target: Variant, source: Variant, epoch: int, token: String, definition: Dictionary) -> bool:
++	# Variant guards run before any typed call or access to a callback-freed node.
++	if epoch!=encounter_epoch or not receipts.has(token): return false
++	if not is_instance_valid(target) or not is_instance_valid(source): return false
++	if not target is Node2D or not source is Node2D: return false
++	if target.is_queued_for_deletion() or source.is_queued_for_deletion() or not target.is_inside_tree() or not source.is_inside_tree(): return false
++	if definition.has("_ranged_authority"):
++		return source.has_method("authorize_committed_projectile") and source.authorize_committed_projectile(definition)
++	return true
++
+ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D, contact_kind := "") -> bool:
+ 	if not is_instance_valid(target) or not is_instance_valid(source) or target.health <= 0:
+ 		return false
+@@ -213,37 +238,46 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source:
+ 		return false
+ 	var token := str(attack_id) + ":" + str(target.get_instance_id())
+ 	if receipts.has(token): return false
++	var epoch := encounter_epoch
++	var target_id := target.get_instance_id()
+ 	receipts[token] = true
+ 	# Only actual melee collision dispatch opts in. Projectiles, finishers and
+ 	# legacy direct contacts keep their existing damage/effect path. Reserve the
+ 	# same once-token before a parry can queue its separate counterattack.
+ 	if contact_kind == "melee" and not definition.get("finisher",false) and target.has_method("defend_melee_contact"):
+ 		if target.defend_melee_contact(definition.duplicate(true),attack_id,source):
+-			var defended := {"epoch":encounter_epoch,"id":attack_id,"target":target.get_instance_id(),
++			if not _contact_current(target,source,epoch,token,definition): return false
++			var defended := {"epoch":epoch,"id":attack_id,"target":target_id,
+ 				"source":source.get_instance_id(),"tick":Engine.get_physics_frames(),"kind":"training_counter_parry","damage":0}
+ 			defended_events.append(defended)
+ 			if defended_events.size() > 512: defended_events.pop_front()
+ 			contact_defended.emit(defended)
+ 			return false
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	damage_events += 1
+ 	var category := String(definition.get("category", "unarmed"))
+ 	var strong := bool(definition.get("strong", int(definition.damage) > 0))
+ 	var direction := (target.global_position - source.global_position).normalized()
++	if definition.get("_impact_direction") is Vector2: direction = definition._impact_direction.normalized()
+ 	last_hit_position = target.global_position + Vector2(0, -28)
+ 	hit_flash = 0.16
+ 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.health > 0 and float(definition.get("knockdown",0)) > 0 and target.has_method("receive_knockdown"):
+ 		target.receive_knockdown(float(definition.knockdown))
++		if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.has_method("apply_impulse"):
+ 		target.apply_impulse(direction * (float(polish.knockback_strong) if strong else float(polish.knockback_weak)))
++		if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.health <= 0 and definition.get("finisher",false) and lab.config_path == lab.CONFIG_PATH:
+ 		lab.score += 100
+ 	var cue := String(definition.get("cue", "impact_" + category + "_body"))
+-	lab.audio_event.emit(StringName(cue), target.global_position)
+-	var event := {"epoch": encounter_epoch, "id": attack_id, "target": target.get_instance_id(),
++	var event := {"epoch": epoch, "id": attack_id, "target": target_id,
+ 		"tick": Engine.get_physics_frames(), "at": target.global_position, "direction": direction,
+ 		"category": category, "strong": strong, "damage": int(definition.damage),
+ 		"lethal": target.health <= 0, "finisher": bool(definition.get("finisher", false)), "cue": cue}
++	lab.audio_event.emit(StringName(cue), event.at)
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	contact_events.append(event)
+ 	if contact_events.size() > 512: contact_events.pop_front()
+ 	contact_committed.emit(event)
+@@ -303,7 +337,7 @@ func eligible(source: CharacterBody2D, target: CharacterBody2D, category: String
+ 		# A legacy actor has no per-character resolver. Its host must explicitly
+ 		# grant the training fixture; an earned chapter stun is not a grant.
+ 		if not lab.has_method("legacy_finishers_allowed") or not lab.legacy_finishers_allowed(source): return false
+-		if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
++	if source.has_method("can_use_finisher") and not source.can_use_finisher(category): return false
+ 	var definition: Dictionary = _finisher_definition(source,category,job)
+ 	if definition.is_empty(): return false
+ 	if source.finisher_weapon != definition.weapon: return false
+@@ -374,6 +408,12 @@ func _record_finisher(job: Dictionary, stage: String, reason := "") -> void:
+ 		"elapsed":job.elapsed,"committed":job.committed,"tick":Engine.get_physics_frames()})
+ 	if finisher_history.size() > 128: finisher_history.pop_front()
+ 
++func _finisher_nodes_current(job: Dictionary) -> bool:
++	if not finishers.has(job) or job.epoch!=encounter_epoch: return false
++	if not is_instance_valid(job.source) or not is_instance_valid(job.target): return false
++	if job.source.is_queued_for_deletion() or job.target.is_queued_for_deletion(): return false
++	return job.source.is_inside_tree() and job.target.is_inside_tree() and is_instance_valid(job.source.sprite) and is_instance_valid(job.target.sprite)
++
+ func _tick_finishers(delta: float) -> void:
+ 	for job in finishers.duplicate():
+ 		if not is_instance_valid(job.source) or not is_instance_valid(job.target):
+@@ -395,10 +435,20 @@ func _tick_finishers(delta: float) -> void:
+ 			if job.elapsed + 0.00001 >= float(definition.windup):
+ 				# Present both registered contact poses on the damage tick. No animation callback damage.
+ 				job.source._present_action()
++				if not _finisher_nodes_current(job): continue
+ 				job.target.sprite.set_frame_and_progress(1,0)
++				# Presentation callbacks cannot charge a newly reset/replaced actor.
++				if not _finisher_nodes_current(job) or not eligible(job.source,job.target,job.category,job): continue
++				if job.source.has_method("commit_finisher_cost") and not job.source.commit_finisher_cost(job.epoch,job.id,job.category):
++					var actor: CharacterBody2D=job.source
++					cancel_finisher(actor,"resource_lost")
++					actor.cancel_action()
++					continue
+ 				job.committed = true # Reentry guard precedes the only existing damage path.
+ 				job.stage = "contact"
+ 				_apply_hit(job.target,definition,job.id,job.source)
++				# Hit audio/contact listeners may reset/free/replace the reservation.
++				if not _finisher_nodes_current(job): continue
+ 				_record_finisher(job,"contact")
+ 		if job.committed and job.elapsed >= float(definition.windup)+float(definition.active): job.stage = "recovery"
+ 		if job.source.action_kind.is_empty() or job.elapsed >= float(definition.windup)+float(definition.active)+float(definition.recovery):
+diff --git a/game/scripts/systems/moving_shot_runtime.gd b/game/scripts/systems/moving_shot_runtime.gd
+new file mode 100644
+index 0000000..3995bad
+--- /dev/null
++++ b/game/scripts/systems/moving_shot_runtime.gd
+@@ -0,0 +1,58 @@
++extends RefCounted
++## Deferred Pasha launch after hostile contacts, on his actual muzzle pose3.
++var combat: Node2D
++var jobs: Array[Dictionary] = []
++var history: Array[Dictionary] = []
++
++func _source_valid(source: Variant, strategy: RefCounted) -> bool:
++	if not is_instance_valid(source) or not source is CharacterBody2D or source.is_queued_for_deletion() or not source.is_inside_tree(): return false
++	return source==combat.lab.player and source.health>0 and combat.lab.state=="playing" and source.has_method("_action_authorized") and source.actor_id=="pasha" and source.prepared_ability=="moving_shot" and source.movement_ability==strategy and source.action_kind=="moving_shot" and source._action_authorized()
++
++func begin(source: CharacterBody2D, strategy: RefCounted) -> int:
++	if jobs.size()>=8 or not _source_valid(source,strategy) or not strategy.can_spend(source): return 0
++	for job in jobs:
++		if job.source==source: return 0
++	combat.next_attack_id += 1
++	jobs.append({"id":combat.next_attack_id,"epoch":combat.encounter_epoch,"source":source,"strategy":strategy,
++		"authority":source.action_authority_snapshot.duplicate(true),"serial":source.action_serial,"aim":source.action_aim,"fired":false})
++	return combat.next_attack_id
++
++func _valid(job: Dictionary) -> bool:
++	return jobs.has(job) and job.epoch==combat.encounter_epoch and _source_valid(job.source,job.strategy) and job.source.ranged_action_id==job.id and job.source.action_serial==job.serial and job.authority==job.source.action_authority_snapshot
++
++func cancel(source: CharacterBody2D) -> void:
++	for job in jobs.duplicate():
++		if job.source==source: jobs.erase(job)
++
++func reset() -> void:
++	jobs.clear()
++	history.clear()
++
++func tick() -> void:
++	for job in jobs.duplicate():
++		if not _valid(job):
++			jobs.erase(job)
++			continue
++		var source: CharacterBody2D = job.source
++		if job.fired or source.action_frame!=3: continue
++		var texture: Texture2D = source.sprite.sprite_frames.get_frame_texture(source.sprite.animation,source.sprite.frame)
++		if source.sprite.frame!=3 or not texture.has_meta("muzzle_socket"): continue
++		# Reserve before any sound/collision callback; a reset cannot replay it.
++		job.fired = true
++		if not job.strategy.spend_round(source,job.epoch,job.id,"moving_shot"): continue
++		var definition: Dictionary = combat.lab.config.attacks.pistol.duplicate(true)
++		definition["_ranged_authority"] = job.authority.duplicate(true)
++		definition["_ranged_job_id"] = job.id
++		definition["_ranged_strategy_id"] = job.strategy.get_instance_id()
++		definition["_ranged_epoch"] = job.epoch
++		definition["_ranged_action_serial"] = job.serial
++		definition["_impact_direction"] = job.aim
++		var at: Vector2 = source.global_position
++		var muzzle: Vector2 = source.visual_muzzle()
++		var bullet_id: int = combat.fire(source,"player",job.aim,definition)
++		# No writes to a replacement actor/strategy after fire's external events.
++		if not _valid(job): continue
++		if bullet_id>0: combat.lab.shots_fired += 1
++		history.append({"epoch":job.epoch,"job_id":job.id,"bullet_id":bullet_id,"tick":Engine.get_physics_frames(),
++			"source_pose":3,"at":[at.x,at.y],"muzzle":[muzzle.x,muzzle.y],"authority":job.authority.duplicate(true)})
++		if history.size()>128: history.pop_front()
+diff --git a/game/scripts/systems/moving_shot_runtime.gd.uid b/game/scripts/systems/moving_shot_runtime.gd.uid
+new file mode 100644
+index 0000000..d535db3
+--- /dev/null
++++ b/game/scripts/systems/moving_shot_runtime.gd.uid
+@@ -0,0 +1 @@
++uid://b0lxi28juo10q
+diff --git a/game/scripts/ui/ranged_feedback.gd b/game/scripts/ui/ranged_feedback.gd
+new file mode 100644
+index 0000000..a1f4255
+--- /dev/null
++++ b/game/scripts/ui/ranged_feedback.gd
+@@ -0,0 +1,55 @@
++extends Control
++## Read-only ammo/refill/cooldown view of the actual Pasha strategy.
++var lab: Node2D
++var title: Label
++var detail: Label
++var meter: ProgressBar
++var displayed_feedback: Dictionary = {}
++
++func _ready() -> void:
++	position=Vector2(380,23)
++	size=Vector2(244,28)
++	z_index=20
++	process_priority=100
++	mouse_filter=Control.MOUSE_FILTER_IGNORE
++	title=Label.new()
++	title.add_theme_font_size_override("font_size",11)
++	title.mouse_filter=Control.MOUSE_FILTER_IGNORE
++	add_child(title)
++	detail=Label.new()
++	detail.position=Vector2(0,12)
++	detail.add_theme_font_size_override("font_size",10)
++	detail.mouse_filter=Control.MOUSE_FILTER_IGNORE
++	add_child(detail)
++	meter=ProgressBar.new()
++	meter.position=Vector2(0,26)
++	meter.max_value=1.0
++	meter.step=0.0
++	meter.show_percentage=false
++	meter.mouse_filter=Control.MOUSE_FILTER_IGNORE
++	var background:=StyleBoxFlat.new()
++	background.bg_color=Color("343342")
++	var fill:=StyleBoxFlat.new()
++	fill.bg_color=Color("e3b36c")
++	meter.add_theme_stylebox_override("background",background)
++	meter.add_theme_stylebox_override("fill",fill)
++	add_child(meter)
++	meter.size=Vector2(144,2)
++
++func _process(_delta: float) -> void:
++	if not is_instance_valid(lab) or not is_instance_valid(lab.player):hide();return
++	displayed_feedback=lab.player.ranged_feedback()
++	visible=displayed_feedback.phase!="hidden"
++	if not visible:return
++	var state:String=displayed_feedback.phase
++	title.text="ПИСТОЛЕТ · %d / %d"%[displayed_feedback.ammo,displayed_feedback.clip]
++	detail.text={"ready":"F / ПКМ · ВЫСТРЕЛ НА ХОДУ","firing":"ВЫСТРЕЛ · МОЖНО ДВИГАТЬСЯ",
++		"busy":"ПРИЁМ ЗАНЯТ","paused":"ПАУЗА","dead":"ПОГИБ · R: ПОВТОР",
++		"unavailable":"СТРЕЛЬБА НЕДОСТУПНА"}.get(state,"")
++	if state=="cooldown":detail.text="ПОВТОР ЧЕРЕЗ %.1f с"%float(displayed_feedback.cooldown)
++	if state=="empty":detail.text="ПУСТО · ПАТРОН ЧЕРЕЗ %.1f с"%float(displayed_feedback.refill_seconds)
++	if displayed_feedback.ammo<displayed_feedback.clip:
++		meter.value=displayed_feedback.refill
++		if state=="ready":detail.text+=" · +1 ЧЕРЕЗ %.1f с"%float(displayed_feedback.refill_seconds)
++	else:meter.value=1.0-float(displayed_feedback.cooldown)/float(displayed_feedback.cooldown_total)
++	title.add_theme_color_override("font_color",Color("edb16c") if state=="empty" else Color("d8d6e8"))
+diff --git a/game/scripts/ui/ranged_feedback.gd.uid b/game/scripts/ui/ranged_feedback.gd.uid
+new file mode 100644
+index 0000000..13f2c09
+--- /dev/null
++++ b/game/scripts/ui/ranged_feedback.gd.uid
+@@ -0,0 +1 @@
++uid://cbrtnf7ea547t

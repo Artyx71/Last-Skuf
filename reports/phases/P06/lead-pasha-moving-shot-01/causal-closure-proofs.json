@@ -1,0 +1,279 @@
+{
+  "GP_PAS01_actual5_pass": true,
+  "GP_PAS02_actual7_pass": true,
+  "targeted_runtime_source": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+  "b359_rollforward_only_changed_source": [
+    "game/scripts/ui/ranged_feedback.gd"
+  ],
+  "Core_exact_to_targeted_source": true,
+  "b359_fresh_wall16": [
+    {
+      "branch": "muzzle",
+      "reset": false,
+      "before": {
+        "action_frame": 3,
+        "ammo": 3,
+        "at": [
+          309.0,
+          233.0
+        ],
+        "epoch": 4,
+        "projectiles": 0,
+        "tick": 17
+      },
+      "after_Core": {
+        "ammo": 3,
+        "damage_events": 0,
+        "epoch": 4,
+        "hit_flash": 0.15,
+        "jobs": 1,
+        "last_hit_position": [
+          315.0,
+          210.0
+        ],
+        "projectiles": 0,
+        "rounds_spent": 1,
+        "score": 0,
+        "source_exceptions": 0,
+        "source_layer": 2,
+        "source_mask": 1,
+        "tick": 17,
+        "wall_impacts": 1
+      }
+    },
+    {
+      "branch": "muzzle",
+      "reset": true,
+      "before": {
+        "action_frame": 3,
+        "ammo": 3,
+        "at": [
+          309.0,
+          233.0
+        ],
+        "epoch": 5,
+        "projectiles": 0,
+        "tick": 45
+      },
+      "after_Core": {
+        "ammo": 4,
+        "damage_events": 0,
+        "epoch": 6,
+        "hit_flash": 0.0,
+        "jobs": 0,
+        "last_hit_position": [
+          0.0,
+          0.0
+        ],
+        "projectiles": 0,
+        "rounds_spent": 0,
+        "score": 0,
+        "source_exceptions": 0,
+        "source_layer": 2,
+        "source_mask": 1,
+        "tick": 45,
+        "wall_impacts": 0
+      }
+    },
+    {
+      "branch": "travel",
+      "reset": false,
+      "before": {
+        "action_frame": 5,
+        "ammo": 3,
+        "at": [
+          343.0,
+          233.0
+        ],
+        "epoch": 7,
+        "projectiles": 1,
+        "tick": 78
+      },
+      "after_Core": {
+        "ammo": 3,
+        "damage_events": 0,
+        "epoch": 7,
+        "hit_flash": 0.15,
+        "jobs": 1,
+        "last_hit_position": [
+          349.0,
+          210.0
+        ],
+        "projectiles": 0,
+        "rounds_spent": 1,
+        "score": 0,
+        "source_exceptions": 0,
+        "source_layer": 2,
+        "source_mask": 1,
+        "tick": 78,
+        "wall_impacts": 1
+      }
+    },
+    {
+      "branch": "travel",
+      "reset": true,
+      "before": {
+        "action_frame": 5,
+        "ammo": 3,
+        "at": [
+          343.0,
+          233.0
+        ],
+        "epoch": 8,
+        "projectiles": 1,
+        "tick": 106
+      },
+      "after_Core": {
+        "ammo": 4,
+        "damage_events": 0,
+        "epoch": 9,
+        "hit_flash": 0.0,
+        "jobs": 0,
+        "last_hit_position": [
+          0.0,
+          0.0
+        ],
+        "projectiles": 0,
+        "rounds_spent": 0,
+        "score": 0,
+        "source_exceptions": 0,
+        "source_layer": 2,
+        "source_mask": 1,
+        "tick": 106,
+        "wall_impacts": 0
+      }
+    }
+  ],
+  "HUD_preflight_actual9_states18checks": [
+    {
+      "detail": "F / ПКМ · ВЫСТРЕЛ НА ХОДУ",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "01_ready",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "ready",
+      "tick": 19,
+      "title": "ПИСТОЛЕТ · 4 / 4"
+    },
+    {
+      "detail": "ВЫСТРЕЛ · МОЖНО ДВИГАТЬСЯ",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "02_firing_windup",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "firing",
+      "tick": 22,
+      "title": "ПИСТОЛЕТ · 4 / 4"
+    },
+    {
+      "detail": "ВЫСТРЕЛ · МОЖНО ДВИГАТЬСЯ",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "03_firing_contact",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "firing",
+      "tick": 28,
+      "title": "ПИСТОЛЕТ · 3 / 4"
+    },
+    {
+      "detail": "ПОВТОР ЧЕРЕЗ 0.1 с",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "04_cooldown",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "cooldown",
+      "tick": 39,
+      "title": "ПИСТОЛЕТ · 3 / 4"
+    },
+    {
+      "detail": "ПУСТО · ПАТРОН ЧЕРЕЗ 0.8 с",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "05_empty",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "empty",
+      "tick": 142,
+      "title": "ПИСТОЛЕТ · 0 / 4"
+    },
+    {
+      "detail": "F / ПКМ · ВЫСТРЕЛ НА ХОДУ · +1 ЧЕРЕЗ 0.7 с",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "06_refill",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "ready",
+      "tick": 203,
+      "title": "ПИСТОЛЕТ · 1 / 4"
+    },
+    {
+      "detail": "ПАУЗА",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "07_paused",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "paused",
+      "tick": 204,
+      "title": "ПИСТОЛЕТ · 1 / 4"
+    },
+    {
+      "detail": "ПРИЁМ ЗАНЯТ",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "08_busy",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "busy",
+      "tick": 209,
+      "title": "ПИСТОЛЕТ · 4 / 4"
+    },
+    {
+      "detail": "ПОГИБ · R: ПОВТОР",
+      "meter": [
+        380.0,
+        49.0,
+        144.0,
+        2.0
+      ],
+      "name": "09_dead",
+      "opaque_NPC_pixels_under_meter": 0,
+      "phase": "dead",
+      "tick": 212,
+      "title": "ПИСТОЛЕТ · 4 / 4"
+    }
+  ],
+  "preflight_cooldown_PNG_sha256": "4722cccacac247bfa2aece2d86b547281aa1cd715b8e01909dfa47555f7da76e",
+  "all9_NPC_pixel_overlap_counts_zero_for_saved_fixtures": true,
+  "all_future_NPC_camera_positions_guaranteed": false,
+  "reviewer_engine_runs": 0
+}

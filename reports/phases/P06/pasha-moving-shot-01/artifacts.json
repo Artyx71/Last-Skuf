@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "scope": "AUTHOR_COMPONENT_EVIDENCE_INDEX_NOT_A_LEAD_VERDICT",
+  "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+  "phase_approval": false,
+  "next_phase_allowed": false,
+  "created_utc": "2026-11-15T19:39:30.061555+00:00",
+  "files": [
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/implementation.md",
+      "sha256": "db4badb1e09fe18ba08efa519253cf28d274f81f2d293268799e8ac2ba00d23c",
+      "bytes": 6117
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-03/validation.json",
+      "sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "bytes": 42846
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-03/source_hashes.json",
+      "sha256": "4c885f6a42e5f4f90280dd71c48d47c68e09231fa6033077abf89f11284e12b0",
+      "bytes": 168769
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-03/live/result.json",
+      "sha256": "b88674b1ca83e1eeb7106f35f9910ef56e25c97d102535a55a543ee80546c5e5",
+      "bytes": 5278483
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-03/movie/result.json",
+      "sha256": "04e6bc7abb6502a2c607151fb00b151c7fc3a0ccb7446d5fe61af7daa1b9c57e",
+      "bytes": 5194731
+    },
+    {
+      "path": "reports/phases/P06/owner-preview-20261115-06/preview.json",
+      "sha256": "5d914e93a0680983939283be5d1a3c525e3503904ed53aa6b5f7be171a675d54",
+      "bytes": 4605
+    },
+    {
+      "path": "reports/phases/P06/owner-preview-20261115-06/owner-handoff.json",
+      "sha256": "ef640ff3302f05886d7a5028252a295de1a0545fa1c9764d6ea830bc498c5ccd",
+      "bytes": 2117
+    },
+    {
+      "path": "reports/phases/P06/art-pasha-moving-shot-03/decision.json",
+      "sha256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+      "bytes": 47580
+    },
+    {
+      "path": "reports/phases/P06/gameplay-pasha-moving-shot-03/decision.json",
+      "sha256": "74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5",
+      "bytes": 3070
+    },
+    {
+      "path": "reports/phases/P06/qa-pasha-moving-shot-03/decision.json",
+      "sha256": "3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2",
+      "bytes": 1523
+    },
+    {
+      "path": "reports/phases/P06/lead-pasha-moving-shot-01/decision.json",
+      "sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+      "bytes": 2210
+    }
+  ],
+  "local_builds": {
+    "friendly": "ROOT/build/P06_DEV_20261115_06",
+    "movie": "build/P06/pasha-moving-shot-03/pasha-moving-shot.mp4"
+  },
+  "source_implementation_commits": [
+    "b359747361c6ac76ccfc0cc8ff262c8327cf33e4 fix(ui): shorten Pasha ammunition meter away from the NPC silhouette",
+    "17b162d9d4320650f7e0422d63c1c2c77882a9d3 test(p06): validate completed cast ownership and preserve mixed-finisher movie contact",
+    "4156c96dd5d7d9ee55d1fc754d4a7df0e132f6fa test(p06): distinguish Pasha fixture resets from measured movement",
+    "817805c883ecc015916f79447d1854fd36d1aa46 fix(p06): clear wall callback residue and keep Pasha HUD above the arena",
+    "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091 fix(combat): guard contact and finisher callbacks across reset and freed actors",
+    "5f5a6fe9d59d5f74dc434d51d31de38a035705e7 test(p06): retain Pasha baseline and sample open lanes after presentation",
+    "e7a1f4f284ed5d6e02186daaf4238e559e460e62 build(p06): record Pasha engine imports and retain strict-guard failure",
+    "af65fc1e9e76155d8ecf3ea233eefcd7a6406839 feat(p06): prototype Pasha moving shots with finite shared ammunition and live HUD",
+    "0e1d0dfb60b80002a690b0d64c20446b782bfb49 art(p06): adopt reviewed Pasha moving-shot poses and preserve source failures"
+  ],
+  "full_phase_open": [
+    "seven individual finisher SFX",
+    "character-style NPC reactions matrix",
+    "full verifier/performance/Root handoff/readiness/CI/Lead/merge"
+  ],
+  "lead_component_decision_sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5"
+}

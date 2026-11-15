@@ -1,0 +1,235 @@
+{
+  "status": "TWO_FIXED_NEGATIVES_VERIFIED",
+  "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+  "WORK1314_exact_before_after": true,
+  "no_prepared_source_delta": true,
+  "unchanged_probe_sha256": {
+    "probes/gp_pasha_finisher_frame_free.gd": "67fcb960c4fb451e05d236bb73bb034c23ead0078985a5f9f90cf582fb426adc",
+    "probes/gp_pasha_impact_reset.gd": "b5af477dbe1880351e1e2961d4c357dd5776c2635fab0462c050ee121aa384d9"
+  },
+  "all_logs_hashed_clean": true,
+  "GP_PAS_01": {
+    "before_baseline": {
+      "ammo": 4,
+      "contact_events": [
+        {
+          "at": "(390.0, 240.0)",
+          "category": "firearm",
+          "cue": "impact_firearm_body",
+          "damage": 1,
+          "direction": "(1.0, 0.0)",
+          "epoch": 5,
+          "finisher": false,
+          "id": 2,
+          "lethal": true,
+          "strong": true,
+          "target": 52529465102,
+          "tick": 25
+        }
+      ],
+      "damage_events": 0,
+      "decals": 2,
+      "epoch": 5,
+      "moving_jobs": 0,
+      "particles": 1,
+      "projectiles": 0,
+      "receipts": {},
+      "rounds_spent": 0,
+      "tick": 25
+    },
+    "after_fix": {
+      "ammo": 4,
+      "contact_events": [],
+      "damage_events": 0,
+      "decals": 0,
+      "epoch": 5,
+      "moving_jobs": 0,
+      "particles": 0,
+      "projectiles": 0,
+      "receipts": {},
+      "rounds_spent": 0,
+      "tick": 25
+    }
+  },
+  "GP_PAS_02": {
+    "before_log_SHA256": "dd1049ae0a40a0e47fef92263d11d94dd18e3dcd92b871df9871e8c80677e588",
+    "after_log_SHA256": "121af041f494d7959f6deb09c3d9ffe35e8cccb11efbd08198dc98a36c49b6dd",
+    "callback_core_proof": {
+      "after_free": {
+        "ammo": 4,
+        "contact_events": [
+          {
+            "at": "(320.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 4,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "strong": false,
+            "target": 52529465102,
+            "tick": 13
+          }
+        ],
+        "damage_events": 1,
+        "epoch": 4,
+        "finishers": [
+          {
+            "committed": false,
+            "epoch": 4,
+            "id": 2,
+            "source_live": true,
+            "target_live": false
+          }
+        ],
+        "receipts": {
+          "1:52529465102": true
+        },
+        "rounds_spent": 0,
+        "score": 0,
+        "target_live": false,
+        "tick": 46
+      },
+      "before_free": {
+        "ammo": 4,
+        "contact_events": [
+          {
+            "at": "(320.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 4,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "strong": false,
+            "target": 52529465102,
+            "tick": 13
+          }
+        ],
+        "damage_events": 1,
+        "epoch": 4,
+        "finishers": [
+          {
+            "committed": false,
+            "epoch": 4,
+            "id": 2,
+            "source_live": true,
+            "target_live": true
+          }
+        ],
+        "receipts": {
+          "1:52529465102": true
+        },
+        "rounds_spent": 0,
+        "score": 0,
+        "target_live": true,
+        "tick": 46
+      },
+      "free_effective": true,
+      "inside_Core_tick_finishers": true,
+      "stack": [
+        {
+          "function": "target_frame_changed",
+          "line": 25,
+          "source": "res://tests/gp_pasha_finisher_frame_free.gd"
+        },
+        {
+          "function": "_tick_finishers",
+          "line": 437,
+          "source": "res://scripts/systems/combat_system.gd"
+        },
+        {
+          "function": "_physics_process",
+          "line": 139,
+          "source": "res://scripts/systems/combat_system.gd"
+        }
+      ],
+      "target_animation": "finish_firearm_left",
+      "target_frame": 1,
+      "target_id": 52529465102,
+      "target_state": "finisher_reaction"
+    },
+    "after_core": {
+      "ammo": 4,
+      "contact_events": [
+        {
+          "at": "(320.0, 240.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 52529465102,
+          "tick": 13
+        }
+      ],
+      "damage_events": 1,
+      "epoch": 4,
+      "finishers": [
+        {
+          "committed": false,
+          "epoch": 4,
+          "id": 2,
+          "source_live": true,
+          "target_live": false
+        }
+      ],
+      "receipts": {
+        "1:52529465102": true
+      },
+      "rounds_spent": 0,
+      "score": 0,
+      "target_live": false,
+      "tick": 46
+    },
+    "checks": [
+      {
+        "details": {},
+        "name": "registered_Pasha_selected",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "vulnerability_earned_by_actual_Input_shove",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "firearm_tool_selected_from_registered_policy",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_contact1_callback_reached_inside_real_Core",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_really_freed_and_observer_same_tick",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_loss_does_not_consume_firearm_round_or_commit_damage",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "freed_target_reservation_eventually_removed",
+        "passed": true
+      }
+    ]
+  },
+  "runtime_component_approval": false,
+  "phase_approval": false,
+  "reviewer_engine_runs": 0,
+  "canonical_operation": "c0db68e94d37416dac21120c2071edb0"
+}

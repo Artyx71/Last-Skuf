@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "INTERMEDIATE_PASHA_MOVING_SHOT_NATIVE02_17b_ONLY",
+  "source_head": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+  "independent_reviewer": "Gameplay",
+  "finding": {
+    "id": "PASHA-HUD-ARENA-OCCLUSION-01",
+    "severity": "MEDIUM",
+    "status": "RESIDUAL_CONFIRMED",
+    "actual": "Actual full-width progress meter y51..52 crosses top of upper-right NPC helmet; arena-only y54 boundary check passes but misses sprite overhang. Native fullviewport and own crop personally inspected.",
+    "required": "Keep finite ammo/state readable while moving meter away from actual actor silhouette; recapture full native/movie on final source."
+  },
+  "positive_proofs": {
+    "native_counts": [
+      581,
+      393,
+      188
+    ],
+    "video_frames": 5662,
+    "trace_samples_per_run": 5644,
+    "contacts_per_run": 105,
+    "unique_contacts_verified": true,
+    "all40_FIN_routes_raw_verified": true,
+    "mixed_FIN_contact_movie_n755_personally_viewed": true,
+    "moving_up30_frame_join_personally_viewed": true,
+    "GP_PAS01_02_final17b_targeted_closure_SHA256": "c9504c7105668bc8e53263627bffebfd018da541cf1f58eaf3ecaf0998ec5775",
+    "QA_wall16_and_metadata24_raw_independently_verified": true
+  },
+  "personally_viewed_new_movies": [
+    "boards/extra-00.png",
+    "boards/moving_up.png"
+  ],
+  "decoded_but_not_personally_viewed_remaining_boards": true,
+  "ART02_decision_SHA256": "1a23bbb350dba3ddbfb4f6f5c61d7150bf7e6b4627f346376a604018027b4963",
+  "no_approval": [
+    "full_P06",
+    "P07",
+    "merge",
+    "exports",
+    "native_Windows",
+    "hardware_latency",
+    "FPS",
+    "audio_listening",
+    "all7SFX"
+  ],
+  "engine_executed_by_reviewer": false,
+  "later_b359_UI_fix_not_accepted_here": true
+}

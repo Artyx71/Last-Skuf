@@ -1,38 +1,33 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T17:21:29.319945+00:00",
+  "updated_utc": "2026-11-15T20:05:53.885378+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "frozen_worktree_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "b6bf331f70f24a168026aa89842b6110",
-    "task": "P06/tega-native-03",
+    "id": "12ad28c4d60f49bbaec7a0a8e1cb2472",
+    "task": "P06/owner-preview-20261115-06",
     "argv": [
       "/usr/bin/python3",
-      "tools/verify_p06_tega.py",
-      "--movie",
-      "--build-output",
-      "build/P06/tega-environment-03",
-      "--output",
-      "reports/phases/P06/tega-environment-01/native-03"
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-owner-preview-job06.py"
     ],
-    "argv_sha256": "14d191f6a2676f229744ec1c683411bc1e02be24a917c3a764c96a0eb0549ee9",
+    "argv_sha256": "68d943fe3e8c4101940ff06dcdd783e485014612c199f8d5704b2144c691b9ef",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
     "timeout": 420,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b6bf331f70f24a168026aa89842b6110/started.json",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/12ad28c4d60f49bbaec7a0a8e1cb2472/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/12ad28c4d60f49bbaec7a0a8e1cb2472/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/12ad28c4d60f49bbaec7a0a8e1cb2472/started.json",
     "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "c45d69fc4cc694167b6e7373cf4d2a6ffe3062bb0f5639f2068c6cb4e8d1aa47",
+    "input_sha256": "ef6ead604f8766fc9338d3b31b3e518353117c8f495dcd00dc1a1d7a6ecd41cd",
     "safe_retry": false,
-    "created_at": "2026-11-15T16:40:40+00:00",
+    "created_at": "2026-11-15T19:23:23+00:00",
     "exit_code": 0
   },
   "independent_gates": {
@@ -150,30 +145,110 @@
       "sha256": "8d7e4bdfead1cc5cbd7b702780bee711f3faa6ab3b85afcfdfdc8c90eba46e7a",
       "source_head": "20cbc322441a80675907bf407f12962778c6c084",
       "next_allowed": "Pasha within P06 only"
+    },
+    "pasha_sources": {
+      "status": "SOURCE_ONLY_ACCEPTED_EXACT_ADOPTED",
+      "action": "ebff5f140ad3dd9e58f5611d739a019af01327ee6f0d2fa5ab267bd63f3b346a",
+      "finisher": "3ea0df6971feded9db095719a445fe66a09a4ae9711b855d9f2390b9be38714a",
+      "moving_shot": "78b846e3e23825351e8302a0bdb16c088bbe7ebfcbcb2cbc676f3b86b7a0fd0d",
+      "runtime_approval": false
+    },
+    "pasha_runtime": {
+      "status": "ACTUAL_NATIVE_AND_QA_GREEN_AWAITING_FINAL_GP_QA_LEAD",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "native_checks": 581,
+      "movie_checks": 393,
+      "PNG": 188,
+      "movie_frames": 5661,
+      "movie_seconds": 94.35,
+      "movie_sha256": "bacc356864061fd5d902fa2a38150c73e9de9199547d3bb5ee0425330ffaa446",
+      "validation_sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "independent_Q03_actual_checks": [
+        393,
+        24,
+        16
+      ],
+      "phase_approval": false
+    },
+    "pasha_callback_targeted_closure": {
+      "status": "TARGETED_CLOSURE_PASS_ONLY",
+      "sha256": "ed2e40e15e3016532f9ba64f2a37510e863bed59d22f1f2cf4ede6a301e8c4ba",
+      "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+      "findings_closed": [
+        "GP-PAS-01",
+        "GP-PAS-02"
+      ],
+      "phase_approval": false
+    },
+    "pasha_QA02": {
+      "status": "FAIL_STALE_FOUR_EXPECTATIONS_FIXED_RECHECK_PENDING",
+      "source_head": "4156c96dd5d7d9ee55d1fc754d4a7df0e132f6fa",
+      "failure": "character_frames_test2203/2207 expects four now-complete actors missing",
+      "actual_green": "wall16/metadata24/Pasha393/combat43/contact48/P04G695/Yakuza21/restart68/Gabar124/Oleg164/counter58/present104/prime214/Ryzhik311/Tega305/readiness85/layout102+33/policy57/sourcepreview31",
+      "runtime_component_approval": false
+    },
+    "pasha_HUD_candidate": {
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "scope": "AUTHOR_NATIVE_PREFLIGHT_ONLY",
+      "checks": 18,
+      "actualPNG": 9,
+      "actual_meter_rect": [
+        380,
+        49,
+        144,
+        2
+      ],
+      "actual_opaque_NPC_pixels_under_meter": 0,
+      "validation": "reports/phases/P06/pasha-moving-shot-01/hud-preflight-01/validation.json",
+      "independent_ART_approval": false
+    },
+    "pasha_ART03": {
+      "status": "PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "sha256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+      "phase_approval": false
+    },
+    "pasha_final_subreviews": {
+      "status": "THREE_SUBREVIEW_AND_LEAD_PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "ART": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+      "Gameplay": "74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5",
+      "QA": "3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2",
+      "phase_approval": false
+    },
+    "pasha_Lead01": {
+      "status": "PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "decision_sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+      "review_sha256": "d69598f617461c5f9c9129c16c62811f13f13d167617381dd5ae8bb4b466390a",
+      "artifact_sha256": "46766a7d34c3756efc6f3570cd8eb3951d2e0bbab8c7f6ad7299d059808532c6",
+      "phase_approval": false,
+      "next_authorized": "remaining tasks inside P06 only"
     }
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "Паша ACTION32sourceART принят ebff5f14 (толькоsource). FIN32 raw сохранён послеbuilt-inimagegen по собственным WORLD/портретам; packaging/ALL32ART ещёнеприняты. Далееmoving-shot32+реальнаяfiniteammo/HUD/проверки, безподменыстатическимfire7. ТегаLead03PASS8d7e4bdf остаётсязакрытымкомпонентомP06.",
+  "next_action": "Паша Lead01 PASS_COMPONENT f43d2434 наb359 и DEV06 Linux40/Wine31 готов. Архивировать metadata/evidence без измененияGame source. Затем один serial C01 offline signal job28959fe8 для20реальныхWAV-кандидатов; исправить доказанные signal defects, интегрировать вGodot и получить runtime/independent/слуховую приёмку. C09 NPCstyles/fullverifier/readiness остаются внутриP06. Fullphase/P07/merge не разрешены.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
   "active_author": {
-    "pid": 244829,
+    "pid": 263334,
     "phase": "P06",
     "attempt": 1,
     "kind": "sole host author with built-in imagegen",
     "safe_retry": false,
-    "started_at": "2026-11-15T16:51:19+00:00",
+    "started_at": "2026-11-15T19:01:23+00:00",
     "worktree": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
-    "checkpoint": "p06-Pasha-FIN32-raw-preserved-SourceART-inspection-next",
-    "updated_at": "2026-11-15T17:16:28+00:00"
+    "checkpoint": "pasha-native-inspect",
+    "ended_at": "2026-11-15T19:02:17+00:00",
+    "outcome": "HUD compact geometry candidate frozen; short actual native9state preflight before full capture; no combat/source-art changes."
   },
   "native02": {
     "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
@@ -197,9 +272,9 @@
     "ryzhik_action_source": "EXACT_SOURCE_ADOPTED SOURCEART18636309; runtime pending",
     "ryzhik_finisher_source": "SOURCE_ACCEPTED3a7bb218 EXACT_ADOPTED native04f92049; bothsourceFAILs preserved"
   },
-  "latest_implementation_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "latest_implementation_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
   "persistent_runner": false,
-  "session_checkpoint": "p06-Pasha-FIN-source-review-moving-shot-next",
+  "session_checkpoint": "Pasha-Lead01-PASS-C01-source-candidates-next",
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
     "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
@@ -231,35 +306,35 @@
     }
   ],
   "open_findings": [
-    "Tega/Pasha own ACTION/FIN/realabilities; sevenhero sounds/NPCstyle/fullmatrix incomplete",
     "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
-    "FullProductionReadiness FAIL b76fa63b unchanged"
+    "FullProductionReadiness FAIL b76fa63b unchanged",
+    "Pasha actual runtime/Input/finiteammo/HUD/art/evidence/reviews WIP; all7 individual sounds and NPC style matrix open"
   ],
-  "pending_component_reviews": [
-    "Pasha FIN source ART"
-  ],
+  "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
-    "directory": "ROOT/build/P06_DEV_20261115_05",
+    "directory": "ROOT/build/P06_DEV_20261115_06",
     "standalone_copy": true,
-    "source": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
-    "Linux_renderer_checks": 33,
-    "Linux_PNG": 7,
-    "Wine_headless_checks": 26,
+    "source": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+    "Linux_renderer_checks": 40,
+    "Linux_PNG": 9,
+    "Wine_headless_checks": 31,
     "native_windows": "NOT_TESTED",
     "available_fixtures": [
       "gabar_training",
       "olezhka_training",
+      "pasha_training",
+      "ryzhik_training",
+      "tega_training",
       "timka_present",
-      "timka_prime",
-      "ryzhik_training"
+      "timka_prime"
     ],
     "full_phase_approval": false
   },
-  "latest_game_source_commit": "20cbc322441a80675907bf407f12962778c6c084",
-  "previous_owner_preview": "DEV01/02/03/04 and their profiles preserved",
+  "latest_game_source_commit": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+  "previous_owner_preview": "DEV01..05 and profiles preserved",
   "checkpoint_commit_before_metadata": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
   "pending_generator_calls": 0,
   "historical_native02": {
@@ -285,5 +360,22 @@
       },
       "superseded_at": "2026-11-15T16:04:30.231732+00:00"
     }
-  ]
+  ],
+  "audio_C01_source_candidates": {
+    "status": "ACTUAL_SOURCE_CANDIDATES_ONLY",
+    "count": 20,
+    "directory": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/audio-pending/p06-finisher-v1/rendered-01",
+    "recipe": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/audio-pending/p06-finisher-v1/render.py",
+    "recipe_sha256": "04ab31ad68ac9b949be17858eb06546cff5bdcb8520569a880cb90df3def7fc0",
+    "manifest_sha256": "74aee14ba1ce319e476634a5c81c6f2475bb9050406ec66e69d21a0081a60573",
+    "integrated_into_Godot": false,
+    "independent_signal_review": "PREPARING_REQUEST",
+    "actual_listening": "NOT_PERFORMED",
+    "artistic_approval": false,
+    "phase_approval": false,
+    "generator_calls_pending": 0,
+    "no_raw_photo_or_voice_upload": true,
+    "retained_original_Yakuza_cues": 5,
+    "present_Timka_new_finisher_cues": 0
+  }
 }

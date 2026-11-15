@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "source_head": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+  "tickets": [
+    {
+      "id": "PASHA-HUD-ARENA-OCCLUSION-01",
+      "severity": "MEDIUM",
+      "status": "OPEN_RESIDUAL_CROWN_OCCLUSION",
+      "blocks_component_ART_acceptance": true,
+      "actual": "Meter y51..52 is above arena y54 but remains full width x380..623. Actual upper-right NPC crown begins near y49, so full bright meter/background still crosses two crown rows. Native and MP4 prove this; the new above-arena rect assertion passes and misses actor overhang.",
+      "expected": "HUD must avoid actual NPC silhouette as well as arena/title overlap.",
+      "evidence": [
+        "preliminary_fresh_HUD_region_6x.png",
+        "preliminary_old_new_full_meter_crown.png",
+        "preliminary_actual_full_viewports.png",
+        "movie_whole_finite_clip_and_refill.png"
+      ],
+      "minimum_remedy": "Reposition/shorten meter, retain readable ammo/refill/state text; verify actual ready/firing/empty/busy/refill/paused/dead/restart viewports and expanded silhouette-safe gate. Narrow144px bar is an author candidate only and not accepted by this review."
+    }
+  ],
+  "phase_approval": false
+}

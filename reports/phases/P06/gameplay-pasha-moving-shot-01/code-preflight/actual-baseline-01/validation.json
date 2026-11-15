@@ -1,0 +1,146 @@
+{
+  "scope": "INDEPENDENT_DESIGNED_SHARED_CORE_BASELINE_PROBES",
+  "actual_execution_by": "sole_ROOT_Controller_job",
+  "phase_approval": false,
+  "component_approval": false,
+  "passed": false,
+  "WORK_source_unchanged": true,
+  "commands": [
+    {
+      "name": "fresh_import",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--editor",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/game",
+        "--import"
+      ],
+      "environment_overrides": {},
+      "code": 0,
+      "log_sha256": "a6c617cc81f67e4f0e89ab37f2f3fe86e035d2d73f2b4a360669571a5f2d170d",
+      "seconds": 3.456541228995775,
+      "fatal_log_matches": []
+    },
+    {
+      "name": "impact-reset",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_impact_reset.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/impact-reset/profile/runtime"
+      },
+      "code": 1,
+      "log_sha256": "9708328e8795979d37f67f1ffd646786ed1fbdfb0a94b28a1a874115f5c82772",
+      "seconds": 0.9725615099887364,
+      "fatal_log_matches": [
+        "ERROR:",
+        "ERROR:"
+      ]
+    },
+    {
+      "name": "finisher-frame-free",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-baseline-01/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_finisher_frame_free.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-baseline-01/finisher-frame-free/profile/runtime"
+      },
+      "code": 0,
+      "log_sha256": "dd1049ae0a40a0e47fef92263d11d94dd18e3dcd92b871df9871e8c80677e588",
+      "seconds": 0.9740095019951696,
+      "fatal_log_matches": [
+        "SCRIPT ERROR:",
+        "Invalid type"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "WORK-source-before.json",
+      "sha256": "30254da92df7fa6d65be24589454053a0ff5c80b5f62dea73f6d2c6f36c1fd65"
+    },
+    {
+      "path": "actual-source-binding.json",
+      "sha256": "a42e32117561038870676326e9b21cc2724900ff867c1e8fbd4dcc69b79a30f7"
+    },
+    {
+      "path": "fresh_import.log",
+      "sha256": "a6c617cc81f67e4f0e89ab37f2f3fe86e035d2d73f2b4a360669571a5f2d170d"
+    },
+    {
+      "path": "commands.json",
+      "sha256": "f5b0788dee313e9b08a73b5497c3ebaece3568dacb83dbedad3038072cb9843c"
+    },
+    {
+      "path": "impact-reset.log",
+      "sha256": "9708328e8795979d37f67f1ffd646786ed1fbdfb0a94b28a1a874115f5c82772"
+    },
+    {
+      "path": "finisher-frame-free.log",
+      "sha256": "dd1049ae0a40a0e47fef92263d11d94dd18e3dcd92b871df9871e8c80677e588"
+    },
+    {
+      "path": "WORK-source-after.json",
+      "sha256": "30254da92df7fa6d65be24589454053a0ff5c80b5f62dea73f6d2c6f36c1fd65"
+    },
+    {
+      "path": "impact-reset/result.json",
+      "sha256": "7bd8141d1b04f1fdd8f8b012fa11e048c4e7eb556983b75d4e2ad185957ba604"
+    },
+    {
+      "path": "finisher-frame-free/result.json",
+      "sha256": "7ffd3813895190f8852982a77d44a57de24450a266371de7b91dbd1406e82109"
+    },
+    {
+      "path": "finisher-frame-free/profile/data/godot/app_userdata/АЫАЫ- Последний скуф/logs/godot.log",
+      "sha256": "97b134278817f5c54e0c7bb1d9532d5856967eab790e700fb9a6fe5b7a7d8ee7"
+    },
+    {
+      "path": "impact-reset/profile/data/godot/app_userdata/АЫАЫ- Последний скуф/logs/godot.log",
+      "sha256": "5ab57a3c4bfc57059915673c02cf076bb3d7c6fadf624422d89f75b9bceefc29"
+    },
+    {
+      "path": "fresh_import/profile/config/godot/editor_settings-4.7.tres",
+      "sha256": "76826a7b21f1ca351570451fa33e736f47d4cb2eae6a948a0494c9fca4ae50bf"
+    },
+    {
+      "path": "fresh_import/profile/data/godot/keystores/debug.keystore",
+      "sha256": "bd2d3f54801d75cf5ec28e7a866fab6403bc2006cc9dafa01f6a589b59121947"
+    }
+  ]
+}

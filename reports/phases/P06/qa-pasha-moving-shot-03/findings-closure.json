@@ -1,0 +1,51 @@
+{
+  "scope": "BOUNDED_PASHA_UI_ROLLFORWARD",
+  "findings": [
+    {
+      "id": "PQ-W01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_REVALIDATED",
+      "proof": [
+        "wall-closure/result.json:immutable16/16",
+        "source-delta.json:Corebyteexact17b"
+      ]
+    },
+    {
+      "id": "PQ-CI01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_BY_UNCHANGED_SOURCE_EQUIVALENCE",
+      "proof": [
+        "source-delta.json:toolsunchanged17b",
+        "priorQA02CI-routing-results.json referencedbyimmutablemanifest"
+      ],
+      "remoteCI_not_claimed": true
+    },
+    {
+      "id": "PQ-FR01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_BY_UNCHANGED_SOURCE_EQUIVALENCE",
+      "proof": [
+        "source-delta.json:frameTestbyteexact17b",
+        "priorQA02character-frames-fixed2215 referencedbyimmutablemanifest"
+      ]
+    },
+    {
+      "id": "PQ-HUD01",
+      "ART_cross_reference": "PASHA-HUD-ARENA-OCCLUSION-01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_FOR_SAVED_COMPONENT_FIXTURES",
+      "actual": "Meter shortened to144 atx380..523,y49..50; actualnine-statepreflight has0 opaqueNPCpixels underbar. Two fullnativeHUDPNGactuallyviewed byQA show clear crown; independentART03PASS bindsfullfreshcorpus.",
+      "evidence": [
+        "native-artifact-verification.json",
+        "HUD-preflight-verification.json",
+        "author-evidence/HUD-preflight/probe.gd",
+        "author-evidence/native-03/empty_clip_HUD.png",
+        "author-evidence/native-03/refill_HUD.png",
+        "author-evidence/ART03-decision.json"
+      ],
+      "limitation": "Not a guarantee for every possible NPCposition/camera/UIvariant in futurecampaign; no blanketARTacceptancebyQA."
+    }
+  ],
+  "blocking_findings": [],
+  "old_QA01_and_QA02_FAIL_preserved": true
+}

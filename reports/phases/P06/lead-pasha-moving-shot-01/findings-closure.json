@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "new_must_fix_findings": [],
+  "historical_finding_closures": [
+    {
+      "id": "GP-PAS-01",
+      "status": "CLOSED_WITHIN_COMPONENT",
+      "proof": "Original unchanged impact-reset probe failed 3/5 at baseline, passes 5/5 clean at 17b. Raw same-tick epoch reset leaves zero stale contacts, costs, jobs, projectiles and effects. Current Core byte-exact; all 1313 non-UI recorded keys exact17b. Fresh b359 callback replay also accepted.",
+      "fresh_b359_original_probe_rerun": false
+    },
+    {
+      "id": "GP-PAS-02",
+      "status": "CLOSED_WITHIN_COMPONENT",
+      "proof": "Baseline 7/7 assertions with SCRIPT ERROR was rejected. Original unchanged target-free frame callback now 7/7 clean at17b. Variant/liveness checks precede typed access after animation callback; no FIN debit or reward. Reservation pruning is eventually checked, not asserted immediate same-tick zero. Current runtime exact17b.",
+      "fresh_b359_original_probe_rerun": false
+    },
+    {
+      "id": "PQ-W01",
+      "status": "CLOSED_WITHIN_COMPONENT",
+      "proof": "Fresh b359 16/16 wall checks cover actual muzzle and travelling-projectile audio resets. Both ordinary branches show .15 flash; reset branches show epoch+1, flash0, last-position0, jobs/projectiles0 and restored ammo4."
+    },
+    {
+      "id": "PASHA-HUD-ARENA-OCCLUSION-01 / PQ-HUD01",
+      "status": "CLOSED_FOR_RECORDED_CONFIGURATIONS",
+      "proof": "Original ART01/02 and GP02 HUD failures preserved. b359 changes only meter y25→23 and width244→144 from17b. Actual rectangle x380..523/y49..50; independent nine-state alpha-pixel test reports zero NPC opaque pixels under bar. Personally viewed eight final native03 images plus separate actual cooldown preflight and fresh movie frames. No guarantee for arbitrary future camera/NPC placement."
+    },
+    {
+      "id": "PQ-FR01",
+      "status": "CLOSED_WITHIN_COMPONENT",
+      "proof": "Historical 2203/2207 stale own-art null expectations retained; 17b actual2215/2215 adds own sheet/actor identity and missing/incomplete-resource negatives. Exact runtime/source equivalence carries this evidence; not claimed fresh b359 broad rerun."
+    },
+    {
+      "id": "PQ-CI01",
+      "status": "CLOSED_FOR_LOCAL_WIRING",
+      "proof": "Saved actual verifier registration/source inspected; independent mocked routing evidence present. Actual GitHub CI, branch protection and merge remain outside acceptance."
+    }
+  ],
+  "unresolved_full_phase_gates": [
+    "seven individual hero SFX and hearing acceptance",
+    "NPC style matrix",
+    "full P06 verifier and ROOT safe handoff",
+    "full independent P06 phase review and required CI",
+    "readiness / MDS / P07 gates"
+  ],
+  "severity_downgrades": []
+}

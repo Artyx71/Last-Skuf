@@ -1,0 +1,889 @@
+{
+  "scope": "PASHA_MOVING_SHOT_COMPONENT_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 573,
+      "total": 573
+    },
+    {
+      "passed": 385,
+      "total": 385
+    }
+  ],
+  "actual_captures": 188,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/pasha_moving_shot_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 93.613,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-pasha-moving-shot-qa/03ba0674b049c2dd5b7b"
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-moving-shot-01/pasha-moving-shot.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/pasha_moving_shot_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 186.178,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-pasha-moving-shot-qa/f9acc22dd77126bd3646"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-moving-shot-01/pasha-moving-shot.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-moving-shot-01/pasha-moving-shot.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-moving-shot-01/pasha-moving-shot.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-moving-shot-01/pasha-moving-shot.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/commands.json",
+      "sha256": "3fcaa3a799afa67ef144cdf95bdb7844fcce08c3f964051fc44627cac63a0e94"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_hurt.png",
+      "sha256": "7712400fec1f8f323599108cbf2f84a258b770c4d316316755617d48b998acf3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose0.png",
+      "sha256": "11f09482fdf4789e16d62b4add0a9c0b1f98fc103f9a4fd65f866071634916f3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose1.png",
+      "sha256": "393cb8c762617c6e77b58c2d12fe430ae9a90bbb51ed31a508081f6d24fa6447"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose2.png",
+      "sha256": "4f15babde39534dd6ef842023dff43da1039bb2b3a8cd6324128b35264d7e27b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose3.png",
+      "sha256": "0d7268145f0d647084f2bc20e09721c943a6f9134a090f67cfecfccf74d3c8e6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose4.png",
+      "sha256": "1a3a7e02da0cf87579cad56c6608fc47c16e8ab92bcf133e8f92da22de7974b4"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose5.png",
+      "sha256": "e9211900c8f0eacac11941c48fc3e1a212d154cd4a9f49d162dfa18d135f40f5"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose6.png",
+      "sha256": "04b04815b037e60337d937385666ddf3502cf74f588497a08efb43d0f639724f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_down_pose7.png",
+      "sha256": "53587bddfde2ff0a9e9815de3241088f52b6ca09327bf18b0ba9e0e1e9623ae4"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_hurt.png",
+      "sha256": "e80233dc3ce6d3a7ac6f1d5b81f8020dd2ea926c3a78068183c39793f94aa3b9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose0.png",
+      "sha256": "9fd8e2b4ddcb0189f45d1db0edab8a5ded66dda7ad540197639b86f350c446e8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose1.png",
+      "sha256": "a6f8a36b6bb2407e39a6e567a11d8d4380592e5ca10c93e3a483d2906715897f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose2.png",
+      "sha256": "6d41cb9853afd4a4795b33681064b6fc7c43ae740d30860f665a4587d02b6974"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose3.png",
+      "sha256": "f875deebea0c616c20430dda3776c9fe9e66c78c18da9bfc3362c3bfd6a2af06"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose4.png",
+      "sha256": "281f4448fc1e60c334b0ea67a1f0e97298d975de2d61f1f3c2bfb63f557a7054"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose5.png",
+      "sha256": "6c6ad4090760b20b853f0147018b988558a6887900d01a607a8e4dd05ecd8e5f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose6.png",
+      "sha256": "dab14d985f3108d2148f5280923acced7df6dceabd8482a24e7af04d06ce01c2"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_left_pose7.png",
+      "sha256": "3095d644a8812c9f27d3a77bb7cfdc7110ca0deb810bdc77ba69493ffbea9001"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_hurt.png",
+      "sha256": "5e0eab020a4abde83004b576128ee5379afc7fbaa9d178995c5ce3b1abcf947b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose0.png",
+      "sha256": "2ffc8f2770200d42503f16dbfe7296b4b67ec51d86376d3f40616c1a79915987"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose1.png",
+      "sha256": "7b700446036b3eef8455908a16308b50db8526fe1414a01e61e9788fd2455e3d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose2.png",
+      "sha256": "bac16a492bc981e5ff90bd15b74a10704e698c7cfbeaa360e43f170c04dbe301"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose3.png",
+      "sha256": "116045b2627381b5bd14f458e0927f3d4d2f04d87ebad536b304e45f6e5f0ed0"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose4.png",
+      "sha256": "a8ced241754bea03a25282fdb20787e94dbc0959f295521b2f835ec219eab020"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose5.png",
+      "sha256": "68adb6633a334484503c518770e835af6303a6b34b0ca3dc321e21e7466d9ff2"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose6.png",
+      "sha256": "5dab0fd080f1e926df2a5730d4be594b4937a0d010a80e20ab6fe3e2f402b335"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_right_pose7.png",
+      "sha256": "1e8649c784d17426068f5ff8f5d19337bea5fb29843b20c5a9d10e27abe266e3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_hurt.png",
+      "sha256": "361f6cb9c960b5f976a26078cba4597cceb42debbc0f5579e242f0eb2eb9a697"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose0.png",
+      "sha256": "9df3df75c3d6eaa24e9a2ced42366b830eef2045d38c52561a17397b4f1b65c9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose1.png",
+      "sha256": "25a1e7e848c54d7aefea8166e760b7c81a8c41174dcebdb38e925749cc06ba18"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose2.png",
+      "sha256": "593d4aaf3047f644ca339aadc1c89a6eeb85a7c1211c51b9447a9ab463a56566"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose3.png",
+      "sha256": "09b270c2eab200bf54c63934361c6a029954472c4a08fc699ba5a2e3469188e4"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose4.png",
+      "sha256": "76a47d72b4609e2c5299567b4d8f467543771a91127880d4dc82d10d8e87110f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose5.png",
+      "sha256": "439f14c06c940fc55e26215d672c3b82d52352d80447be355d8918dae4d0dbc3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose6.png",
+      "sha256": "c27b28d5be0b158e090f32037a10a4111508522e4c80ae47d345a3990cc8e0cd"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/clothing_up_pose7.png",
+      "sha256": "cb47242a2b2de7520ba5ce0a6d526ddf901094250bb0f41a3905f1a066c3f739"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/empty_clip_HUD.png",
+      "sha256": "a38475af2cef007d837112130e54120c5179c65085ac59f86492b75edbfdce01"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_down_contact.png",
+      "sha256": "b1db7a729ce320f18fa19e1841205b517b35e44f3a94e31614d3eb5b3ffe43fe"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_down_corpse.png",
+      "sha256": "43d5416d746865622b983535d63ff7bfd4ae140422e502ede3368526499c23b2"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_down_windup.png",
+      "sha256": "438aa145969a35ea06842e3c8107d3185df6432e51a573d41ec4faa38cacd3d8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_left_contact.png",
+      "sha256": "56fc8ed4b9c23390d20848019231004cc0af91b040f5c9b4817e1e505d8be314"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_left_corpse.png",
+      "sha256": "6f87e47da90dd318dd650eaf52d76ccafc8f5d538005822d378841ad952865f3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_left_windup.png",
+      "sha256": "6df35f2d646313d8a2593d5fb1e064f3809bcf78d9974f7e98843a018132a772"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_right_contact.png",
+      "sha256": "98b7a00fa7525b29887ebe95499b13ab409b384b81b4dddb552f1eeb22747eb3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_right_corpse.png",
+      "sha256": "45ab3a3274f7552c7a16baae0995d1f629f07f6a4417c08e7b5e849ac2e7c482"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_right_windup.png",
+      "sha256": "4d459b896a214438b824ef64cbe3bee88d994dbb5fda2494b97890b92c91a21b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_up_contact.png",
+      "sha256": "05decd401593dada67730aafc83b79f82456c384a5bf92a681249703360d89ab"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_up_corpse.png",
+      "sha256": "95cfdfdee05d17aeec7e1e8d91bab4fd9e0b46dce715bf98a0221254d42ce4aa"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_blunt_up_windup.png",
+      "sha256": "0250b18a0b1bf05715e36d77610df16a21753e4ee3d9ef36078c94e5c67d8a0f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_down_contact.png",
+      "sha256": "2708d66e956de292369f0e62682f395ed061aa61ffe0672181854a07c88b4230"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_down_corpse.png",
+      "sha256": "118bfdc6879eefcd4d08d19a947fec86db934c5334aa714c87e734ce2c4e1df6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_down_windup.png",
+      "sha256": "19d4d415a3dc4f3a0037adae2037f07d7d82908a0fea354676e76e99fd8d65ba"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_left_contact.png",
+      "sha256": "9b01543d389028ccf4bda18e0a01751d3e855a93b79c86c54de504ead5640197"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_left_corpse.png",
+      "sha256": "c6a9303bf8cd800b0f007bc5e399e70597b0c9ff7badab8a45fcc2d93d041f89"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_left_windup.png",
+      "sha256": "5e5c3a1215d74654d629b4cf4e164b0e109ca27167acf96b61499f7ff07b7ff2"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_right_contact.png",
+      "sha256": "5760d95348795a9d564d93f585703b4919b451ff0d759e5f0d55578a94cf385f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_right_corpse.png",
+      "sha256": "c8afcd13d0d6473b7ea1ac0fd4f4f5e839a7e64263cde26312136f46dbb07cf3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_right_windup.png",
+      "sha256": "baeaf9ba1c53d10236fd6a14e015b6b49cc7551461a4c70100a5f2af9b8c38b7"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_up_contact.png",
+      "sha256": "c9bd396bd10512ba01a8bc405dd45f7cf79d54b3bed9835eb2d33afedfde8d26"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_up_corpse.png",
+      "sha256": "fb6a673560b2f897d603e1fe002daa4c4a14b8aeb6d549f64452c3d49f16277b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_environmental_up_windup.png",
+      "sha256": "32e1e59f00872ac51613e7b4d6d6761892ab6881308bc6c5072d1699e5edf8ff"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_down_contact.png",
+      "sha256": "c2962cef9eeff7689a1c31b213f573ec6e08767cb1646fb48fff3cc9acd7fccd"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_down_corpse.png",
+      "sha256": "18c6f59173b535453194bb69de2ae0151c1668950732b3ab4ba494851726d59a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_down_windup.png",
+      "sha256": "303b866ca0481a0030e89556b5f53c971c7a6f7235f6f22c0730764b376d9d25"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_left_contact.png",
+      "sha256": "48e0b066ca866b3fb5dbd2daf551916ddd666af61d05d0c5c25ea69cfae9e3a5"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_left_corpse.png",
+      "sha256": "34881f215202d05d7a51c6b07378f3a16a1c41efb1364f481ce1f7dc3bb45fa9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_left_windup.png",
+      "sha256": "006f54c89226089444d425ee563fff449500a189a2b6c052dce5f8fde2090608"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_right_contact.png",
+      "sha256": "e5adc9defb619ed6f729ab8424bfc3736f7fe2906f0f437fa25ac0c459dbf363"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_right_corpse.png",
+      "sha256": "d59b0126dc6352e3113392f7b3520fea543d843ca5db7dbd6782744b7ee7b3f3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_right_windup.png",
+      "sha256": "ffe22c8041746b488822883f43b3e08cee4416f9dafe3ae2d44a2b5377904d01"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_up_contact.png",
+      "sha256": "c49107b0ecba8537fec24e5d185230dd904fc07ff6c0107aba948e570a43da43"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_up_corpse.png",
+      "sha256": "b6525065e8597dc0c1060fea113d070688df2ce3018281b25d29b4d7ee182732"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_firearm_up_windup.png",
+      "sha256": "073c6a8386e5ff339dab6ddae7cb72bba84817f4f6ce6668fce0ff32cb5090ab"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_down_contact.png",
+      "sha256": "2e81a48738ecf76fa48890e06dcb940ead60006b39ee3650dc793022f98825ff"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_down_corpse.png",
+      "sha256": "6e1966e2d046050f5f38bf964735112c01c9b0eaacef0e46526e1e03f2b4fd53"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_down_windup.png",
+      "sha256": "8184b1a164ab1ba2b4ca97284dd2870ba7d0323b2b46ce577b74cdd8276dc3dc"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_left_contact.png",
+      "sha256": "d90d8ee932ac84c980d21ba53f730cd9d80f0397e740fe4418df736cbd8b14a3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_left_corpse.png",
+      "sha256": "6cc0954bb2d23910ab506f08396ddcfb729a66241f436ac6fddc0983a3202edb"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_left_windup.png",
+      "sha256": "0d40e273186c9c470b0932a8deafce6315ca64e33ca041849de23bbcec8d3f83"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_right_contact.png",
+      "sha256": "be1a803004eb4d8af1199a38c57fc7863cf4fb7b732b9fb72feee45678ca784d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_right_corpse.png",
+      "sha256": "e4fe7d86ec584a9baa7e1d49bf5f0cc6904318ccbc9e5f960f2fb19ebab01657"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_right_windup.png",
+      "sha256": "38f4f4bfccd75aea8b506c92c9fa990d0030a25ffcdfabec0aaea8cf7f45c829"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_up_contact.png",
+      "sha256": "3271d02f2da43e9f9ff7cfb82b8756f11b98d21b82b36cf5ba04f863da5bd720"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_up_corpse.png",
+      "sha256": "cd45418af8e50b6f97c912cde9ff9f53972fe39727a53c2237a9dd06d9ee4532"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_sharp_up_windup.png",
+      "sha256": "06e9a05b1c18e976d4b9bd6d3d06a3e2f1261bdce2a165a2abced324bb6889c8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_down_contact.png",
+      "sha256": "75e5115bce07e4ab704f5a6cf580bd3db32072e6401c7c133569895209059c77"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_down_corpse.png",
+      "sha256": "0a7bc36ac924978acb1e1698597cb71b8cd07cdb8f8f68edf9dfddb398315e3a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_down_windup.png",
+      "sha256": "a7151b2c1840e0b64cc4b06b6c85bb18f840128dcd9dba2b5e8e965710e96170"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_left_contact.png",
+      "sha256": "84150ad0510f730100dabecfdfe6307b9d67fa55f06eb5e04aa745c953f78f83"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_left_corpse.png",
+      "sha256": "07fbbee035e140e876803b9653a9d77224024d21368f6b098070e56ebed23a3e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_left_windup.png",
+      "sha256": "874b948486438371486ea01f6a0f231e8152f6cc94be1f7e6fcd551c541d17f6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_right_contact.png",
+      "sha256": "65d090f003a4195e5da19292a3f249e8c6d8c32d6289c8fbaeac0e1f06105731"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_right_corpse.png",
+      "sha256": "6109108fcd4677391c411ce45eba8ef66c259b0f95e507045b28bc06fb6055cd"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_right_windup.png",
+      "sha256": "2ad4159bd354d6d9bc07cb462c6fcfe80007c2f92c61deb73ccd9ac23003316e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_up_contact.png",
+      "sha256": "dfd60de0b5b97b240635749d8280aa5a2222f746f99a375fee7562853c27697d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_up_corpse.png",
+      "sha256": "2126fa9bcc0aa48aa9d50719cad67e4f4a09db32125ee730c3557fcce735bcfc"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_false_unarmed_up_windup.png",
+      "sha256": "afc7e94e1ad4090030f5032d52a0072808dfabbaaa25ef729a7eb790e45d4364"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_down_contact.png",
+      "sha256": "ac80cd3204cf78a0d150f5ac7f950e5a3fb91734eed5c2fc4aa1bd0016e8a1cf"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_down_corpse.png",
+      "sha256": "0e79ecbf894902c8a91fca3c137675ec6a7e934347544be8fe3d970fda742045"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_down_windup.png",
+      "sha256": "028c24724eb5fc72efe964abfb4c0085524c4a9febdb461d8ec671d922e2ab35"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_left_contact.png",
+      "sha256": "823e9b6fec5f38b8b5ec15cdd945d195045ad611f55691036a84cac1209a3c0d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_left_corpse.png",
+      "sha256": "57bb1f62f0c468b6a7fd6d89ac5dea634304aba13af239061704a67543c00937"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_left_windup.png",
+      "sha256": "820018f7ed8b6a7447d0df6ec0691ac82606be9316ec419f078b6fdff918d229"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_right_contact.png",
+      "sha256": "3f795936bdc6b99f5ad4c81afe2e907350da2f5599b1789351b5d209319f51c1"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_right_corpse.png",
+      "sha256": "31dd0281f6afe592f7ee5c4437af254de598fceafbbfd0295f9f92e6256beb85"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_right_windup.png",
+      "sha256": "5f643cef42f9e5671c96ae5933c0b9fbc1627148467caa37977448e3d2e84a8a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_up_contact.png",
+      "sha256": "848b6c7a66f2724964589b8a6b09c7456d93218f8806d596df59845cc6399d99"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_up_corpse.png",
+      "sha256": "92a6a5d78fea9b5af4ac7c2e0326277fcbf5f77da4d05ff54f9b037ccd184bf7"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_blunt_up_windup.png",
+      "sha256": "872faf570940cb47fe85b6ccacdd9899f8e3e2b601f8e1dd94fea4b47e9892a9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_down_contact.png",
+      "sha256": "d061e3b7fe1cf3fc3eb7a24525d5718f3e7a1bd8914a69ed6f608eadc81a8a8c"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_down_corpse.png",
+      "sha256": "2931cb62b3522d49ad9fde7003a261879756fc03a3a630578d00b8caf2d3a731"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_down_windup.png",
+      "sha256": "dafc4e8a458db7da7bf11598611dcd462111b97c164cb1797486097b98f27c1f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_left_contact.png",
+      "sha256": "217b14407421969d3319cb2a8ece1b72ce541ec2020d7f6b39fcc3cfad21957b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_left_corpse.png",
+      "sha256": "08ab2ce176d15676ba0faadf905ac14a5c8c68b593ffb04ebfdff756b08cbc8c"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_left_windup.png",
+      "sha256": "05c10c4ca1c41a527c2a127e4aada6a1fb84d71c2d2cac037d3c5b8e6f9d2827"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_right_contact.png",
+      "sha256": "d5e3477b6deefa7ed85d38ca47a683602b42f18343017738823ed65a96b84c4b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_right_corpse.png",
+      "sha256": "e138e398e5893ef41a4454132b993870580e3b09054449d8a0f08f1df40f2ce8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_right_windup.png",
+      "sha256": "474dc8ab5001820b06eb4a1fcee724ce2d76caccdff41a6761c7be0abee05ab8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_up_contact.png",
+      "sha256": "9f8a9bcdd46e727e711ce55233667da8ac82e2f9e478d96382dc17255bf04935"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_up_corpse.png",
+      "sha256": "618d380202b973dedc107bb8b8a5785cad5d3eace863612085b2a66dc910d2fd"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_environmental_up_windup.png",
+      "sha256": "55199aed4c0908eb2bee1817be31cfe46da1c98c862866c6463ae89555ee0bb7"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_down_contact.png",
+      "sha256": "a476f910c74058cb344710a7de02633d4fdf04797baaac59c71e349319299a59"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_down_corpse.png",
+      "sha256": "9a5c0609a997d42c9242fb186bac70ad5aab097f1bb559d97aff8eb8c80ac6d2"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_down_windup.png",
+      "sha256": "2801ada4de7b18de820d4090adb85b6020289dc04e6913aafbfbe6439bc0ea06"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_left_contact.png",
+      "sha256": "cf8ceb6314175096a677001abec0fc34e03a9a9c60abac49039e3c3bdd320817"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_left_corpse.png",
+      "sha256": "198dec6da6b979890f714e6a871d8ce5a4b69b7b676ff2a29eeb0c087247c73a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_left_windup.png",
+      "sha256": "afe9782ea7b8a05040e309fdbca42b7c094708124915a01ee36f0cf1e2c70ec0"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_right_contact.png",
+      "sha256": "73570a978845f7b2789f9581064cac8201670f495c2851214e1451167622d70c"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_right_corpse.png",
+      "sha256": "9612a5e2a365588fd498f62ffd7a99660a6422993218cad2b468ba77870b5914"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_right_windup.png",
+      "sha256": "61c44c47e7c3aeec2c65e20bae2a36582c5ce4c91907832c3ace76ac8326ceb8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_up_contact.png",
+      "sha256": "3d0e3f2ded93bbbe9dc412b3741eb3ccf5a09ae53feee01b90480334b6ef92da"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_up_corpse.png",
+      "sha256": "54e54f81f030ff871285f9e25bd16e24db6d5a93472715b3ab537a3dd4d49fea"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_firearm_up_windup.png",
+      "sha256": "045a49a496043a0b4abac7859f9221c10a0ddabe213996332577fda4dc5757da"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_down_contact.png",
+      "sha256": "2839151ad1ea1afa8a0ebe6738cc8af98094cd30eab369729ae466dfdb9683c8"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_down_corpse.png",
+      "sha256": "00540551bc8700f0888a44692bf3e12cbaafc629f0ca98b95d3d35ee67197d3d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_down_windup.png",
+      "sha256": "33662559a8d6bafaf673ac4affa43942af78ffb1e913f5c00e4fbb96c0fec857"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_left_contact.png",
+      "sha256": "38656592a6df32e6c524b0dd4e63ba03589f6903896fe9e35958af568980314e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_left_corpse.png",
+      "sha256": "07626f9416bd54c73fd5d980d9b1196a62875eeca4c0d8e3e117cf8dd193677f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_left_windup.png",
+      "sha256": "f41f47f3a4875a8ab8dbcda7bbfc1b2b7349878e90ecb023ad013c89f4adda31"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_right_contact.png",
+      "sha256": "05f1ebd387646b37d61a55fff5a9ed12e13f8b2216491b6a1e9701178f7dd7a9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_right_corpse.png",
+      "sha256": "c171d8b9862261c4c3c3a948d809d08c28affef120b096716c5fb850b6778811"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_right_windup.png",
+      "sha256": "ae64df2b56da9ab065c9bd8bc1185d70d4405c9e0687c54325b6f768faa71186"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_up_contact.png",
+      "sha256": "a316abb56c80d6f477aff891085dfc70094838167adebd85aa64655d652eefe6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_up_corpse.png",
+      "sha256": "47633939ebbd879d47ee0c2920b67a7eb734a8ff4fe2c87289afdcb6a2146c1a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_sharp_up_windup.png",
+      "sha256": "d0c3bb2d9995d523c67be40a022ccae2de7cb3a01e05ebcfc2eefe9213609f5a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_down_contact.png",
+      "sha256": "4f95bd4bafd459b93c25d434e9a8cda54341688bc1c73447ad581f4cd27c1d75"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_down_corpse.png",
+      "sha256": "831086d5f04a3fee4dfdf20b435371cd8c0887b15c5fad53591716b6f2f21481"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_down_windup.png",
+      "sha256": "8684a70cb6b19c4e0c063efa0821879395fec8aa352dcf7760bc13ce5b9aad1d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_left_contact.png",
+      "sha256": "63c6f746effa8ffde8a0ec6cbe27f8a23e445d7504c7236fad94edd66737db2d"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_left_corpse.png",
+      "sha256": "75e356fb13899dc15e03b787b949641445eded4ace664e02e78363c0f267b583"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_left_windup.png",
+      "sha256": "43adc66393a543c2e4452d4f72acb3b2f81037c61747d6d5452a8857b9ecece0"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_right_contact.png",
+      "sha256": "5890975468371f90e6f437fab61d26c0cda76d40637ebb41dc3dd0119829e285"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_right_corpse.png",
+      "sha256": "71191c354bb7b5aa9c446d5c264c389e7f19cb61722c4825e1f0028e427c6552"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_right_windup.png",
+      "sha256": "490e5f23e9a9999ed5e8656cc7190e63c1c1546e0f7d45f31581ff089bed8ef5"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_up_contact.png",
+      "sha256": "f1d508f2165acd3fc91aeec3d0cc415e81c50bc23786a6c9f0d5b83e7f8799f6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_up_corpse.png",
+      "sha256": "cf4e46d015904d098adc9a1a134a3352969f72ad03560ee08f8a24c63890cc39"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/finisher_true_unarmed_up_windup.png",
+      "sha256": "2a4bde2d10e205e7ee49b7349cb08fbd888d57a947ba1a1d25c449ba5ab823c4"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/incoming_before_launch_false.png",
+      "sha256": "da4e6487577d8184fd037762b58516efb8dbd1e11b690e3240ef16c6f69dac7a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/incoming_before_launch_true.png",
+      "sha256": "bdcd661ea951ac0b918e12cb947a7e674460d1dddc1d03f93c4cc442b861053a"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_down_launch.png",
+      "sha256": "525732634565fd80f60ef353dc512d8d4363006c802915d85ecf92bd21a79b6e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_down_recovered.png",
+      "sha256": "8dad99589e4b3dc33333ac20cf03d796d29cdd1bc3a62983f0cc4588666ba769"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_down_windup.png",
+      "sha256": "b0a67e99d6db2baff921731c74a1d9cbe4f5c05a2e5f9d8ca4e8f5f23bd61e68"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_left_launch.png",
+      "sha256": "8f9b6c202d5aaa297e7476c0c87cac8c28483055add60cb19bff46fa2bf88117"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_left_recovered.png",
+      "sha256": "cacbbf5a0ce11a52f5feb027557a4bee147ee05b82a469cdaea7d3fa18d88cad"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_left_windup.png",
+      "sha256": "47388d190f48957efc2fae4521ed771449227f51a4e55fb03c5726909dd1bdd3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_right_launch.png",
+      "sha256": "6c7c50f73ed3e43a716ecf4a48ef6fe03af4397e6c09058d832268bd31ee3f84"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_right_recovered.png",
+      "sha256": "425fb40213e7cb4f29417e2a940e435ce885dc7bd78fd01b861d50bf9912b248"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_right_windup.png",
+      "sha256": "ecc92cb87eda075869b64c222988f960ae4a3bc66f8149201c0f29752bc6b7c9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_up_launch.png",
+      "sha256": "3353caa0dc708feae1af5fab171e678c7b59d416a4dc9b6484ff0b6c90b5bca9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_up_recovered.png",
+      "sha256": "303c6779c293c6a3a4a1bfa48ed61e159ea7f580f12a35892ab66c03f9cf4998"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_false_up_windup.png",
+      "sha256": "5db90bcd82d2f476fd99cdeb6d23399c091ad187162f5721f9e688c65ce9fe6e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_down_launch.png",
+      "sha256": "525732634565fd80f60ef353dc512d8d4363006c802915d85ecf92bd21a79b6e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_down_recovered.png",
+      "sha256": "cdb7cb9681507e9437859273d61ecfbc354080a682faaea9469fd4c69b4ddfee"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_down_windup.png",
+      "sha256": "b0a67e99d6db2baff921731c74a1d9cbe4f5c05a2e5f9d8ca4e8f5f23bd61e68"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_left_launch.png",
+      "sha256": "8f9b6c202d5aaa297e7476c0c87cac8c28483055add60cb19bff46fa2bf88117"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_left_recovered.png",
+      "sha256": "d239aa0e0360a3da8233fc270c2d3c87ba0a055d7fa9fcf44358742130bc69f6"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_left_windup.png",
+      "sha256": "47388d190f48957efc2fae4521ed771449227f51a4e55fb03c5726909dd1bdd3"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_right_launch.png",
+      "sha256": "6c7c50f73ed3e43a716ecf4a48ef6fe03af4397e6c09058d832268bd31ee3f84"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_right_recovered.png",
+      "sha256": "b93ff0b17a5d4a01e06b1650dbae2a1b37f17b9cc4d2610cb17466ad05b5b375"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_right_windup.png",
+      "sha256": "ecc92cb87eda075869b64c222988f960ae4a3bc66f8149201c0f29752bc6b7c9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_up_launch.png",
+      "sha256": "3353caa0dc708feae1af5fab171e678c7b59d416a4dc9b6484ff0b6c90b5bca9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_up_recovered.png",
+      "sha256": "740c660817715c2df1d988cb69d790de84227cfd925b40f30d75206230375103"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/moving_shot_true_up_windup.png",
+      "sha256": "5db90bcd82d2f476fd99cdeb6d23399c091ad187162f5721f9e688c65ce9fe6e"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/pasha_after_restart.png",
+      "sha256": "6432946f4315e5f9c05e42862a47171488f5ed5a3b320a3946f9e482c65b81e9"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/paused_HUD.png",
+      "sha256": "5661d56ec481a8bf67c44b231400f34ba7d6ff48da3ca5950515069271f2352c"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/refill_HUD.png",
+      "sha256": "77902d27878fe6c53fcd9131e4fd1ae14df32211d5baf3412529420bb4d67a9f"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/result.json",
+      "sha256": "6588a792998a89f6a4cd11e676cede883c8a148d14d8a19c420a91c7c6a984f5"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/shared_clip_firearm_finisher.png",
+      "sha256": "360ce55c538fcdc6ff2c6d537decf05a91d8c10fe5bcb843cfbeb8742c2a286b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live/shot_wall.png",
+      "sha256": "b602c8fa197993c1623bbe6389d067d80e3c03411290435c97456104c7772273"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/live.log",
+      "sha256": "cdccfe9d30a49e0a9de1e21b96fe63ad4db013a9c06cd4e44062cc1168be7e02"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/movie/result.json",
+      "sha256": "d1457590dfe19e7d52de7c860548c6d541e9a30c999c65d9bbfd4bb5bcfb2498"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/movie.log",
+      "sha256": "0a79d80b5ad0c88b57f74754d83b30a89f5cdf5994aec4bf407d5735e2505e89"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/movie_probe.json",
+      "sha256": "1c583aa7e955349151e855bdd55e094745fcda9e26bf230fde6f5168a37f942b"
+    },
+    {
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-01/source_hashes.json",
+      "sha256": "282a35cb60dc0faddd2b44818c11cbcbe962375fb986f4aeccfdb92b42fd6a43"
+    }
+  ]
+}

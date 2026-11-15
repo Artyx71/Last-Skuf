@@ -1,0 +1,144 @@
+{
+  "actual_input": true,
+  "callback": {
+    "after_reset": {
+      "ammo": 4,
+      "contact_events": [],
+      "damage_events": 0,
+      "decals": 0,
+      "epoch": 5,
+      "moving_jobs": 0,
+      "particles": 0,
+      "projectiles": 0,
+      "receipts": {},
+      "rounds_spent": 0,
+      "tick": 25
+    },
+    "before_reset": {
+      "ammo": 3,
+      "contact_events": [],
+      "damage_events": 1,
+      "decals": 0,
+      "epoch": 4,
+      "moving_jobs": 1,
+      "particles": 0,
+      "projectiles": 1,
+      "receipts": {
+        "2:52529465102": true
+      },
+      "rounds_spent": 1,
+      "tick": 25
+    },
+    "cue": "impact_firearm_body",
+    "stack": [
+      {
+        "function": "on_audio",
+        "line": 22,
+        "source": "res://tests/gp_pasha_impact_reset.gd"
+      },
+      {
+        "function": "_apply_hit",
+        "line": 256,
+        "source": "res://scripts/systems/combat_system.gd"
+      },
+      {
+        "function": "_physics_process",
+        "line": 204,
+        "source": "res://scripts/systems/combat_system.gd"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "details": {},
+      "name": "registered_Pasha_selected",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "actual_impact_callback_and_same_tick_after_Core_observer",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "normal_reset_changed_epoch_and_cleared_collections_inside_callback",
+      "passed": true
+    },
+    {
+      "details": {
+        "published_after_reset": [
+          {
+            "at": "(390.0, 240.0)",
+            "category": "firearm",
+            "cue": "impact_firearm_body",
+            "damage": 1,
+            "direction": "(1.0, 0.0)",
+            "epoch": 5,
+            "finisher": false,
+            "id": 2,
+            "lethal": true,
+            "strong": true,
+            "target": 52529465102,
+            "tick": 25
+          }
+        ]
+      },
+      "name": "old_hit_cannot_publish_contact_into_new_epoch",
+      "passed": false
+    },
+    {
+      "details": {},
+      "name": "old_hit_cannot_recreate_effects_or_damage_after_reset",
+      "passed": false
+    }
+  ],
+  "committed_after_reset": [
+    {
+      "at": "(390.0, 240.0)",
+      "category": "firearm",
+      "cue": "impact_firearm_body",
+      "damage": 1,
+      "direction": "(1.0, 0.0)",
+      "epoch": 5,
+      "finisher": false,
+      "id": 2,
+      "lethal": true,
+      "strong": true,
+      "target": 52529465102,
+      "tick": 25
+    }
+  ],
+  "passed": false,
+  "phase_approval": false,
+  "requires_clean_engine_log": true,
+  "runtime_approval": false,
+  "same_tick_after_Core": {
+    "ammo": 4,
+    "contact_events": [
+      {
+        "at": "(390.0, 240.0)",
+        "category": "firearm",
+        "cue": "impact_firearm_body",
+        "damage": 1,
+        "direction": "(1.0, 0.0)",
+        "epoch": 5,
+        "finisher": false,
+        "id": 2,
+        "lethal": true,
+        "strong": true,
+        "target": 52529465102,
+        "tick": 25
+      }
+    ],
+    "damage_events": 0,
+    "decals": 2,
+    "epoch": 5,
+    "moving_jobs": 0,
+    "particles": 1,
+    "projectiles": 0,
+    "receipts": {},
+    "rounds_spent": 0,
+    "tick": 25
+  },
+  "scope": "GP_PASHA_PREFLIGHT_IMPACT_RESET_BASELINE"
+}

@@ -1,0 +1,75 @@
+{
+  "scope": "CODE_PREFLIGHT_ACTUAL_NEGATIVE_BASELINE_ONLY",
+  "source_head": "5f5a6fe9d59d5f74dc434d51d31de38a035705e7",
+  "prepared_head": "e7a1f4f284ed5d6e02186daaf4238e559e460e62",
+  "Core_SHA256": "e97cc174600b8c074b95d3ffec5267019e75313279a8c86a6a176a63bf049dc9",
+  "WORK_source_before_after_equal": true,
+  "declared_input_delta": {
+    "game/tests/pasha_moving_shot_replay.gd": {
+      "prepared": "48553fe5ed71ad5cd4606813c9f7ce879b77737b69aa148a418bf2f7570988a4",
+      "actual": "b36252c006e2453d2da1a2164ae07d39482d8d5745b4b2cb1e12f4af188f0dbc"
+    }
+  },
+  "probe_SHA256": {
+    "probes/gp_pasha_finisher_frame_free.gd": "67fcb960c4fb451e05d236bb73bb034c23ead0078985a5f9f90cf582fb426adc",
+    "probes/gp_pasha_impact_reset.gd": "b5af477dbe1880351e1e2961d4c357dd5776c2635fab0462c050ee121aa384d9"
+  },
+  "actual_Controller_operation": "6f26fcc9f3f243cdabca7eb4199bd8a9",
+  "reviewer_engine_runs": 0,
+  "logs_verified": [
+    {
+      "name": "fresh_import",
+      "exit_code": 0,
+      "log_sha256": "a6c617cc81f67e4f0e89ab37f2f3fe86e035d2d73f2b4a360669571a5f2d170d",
+      "fatal_log_matches": []
+    },
+    {
+      "name": "impact-reset",
+      "exit_code": 1,
+      "log_sha256": "9708328e8795979d37f67f1ffd646786ed1fbdfb0a94b28a1a874115f5c82772",
+      "fatal_log_matches": [
+        "ERROR:",
+        "ERROR:"
+      ]
+    },
+    {
+      "name": "finisher-frame-free",
+      "exit_code": 0,
+      "log_sha256": "dd1049ae0a40a0e47fef92263d11d94dd18e3dcd92b871df9871e8c80677e588",
+      "fatal_log_matches": [
+        "SCRIPT ERROR:",
+        "Invalid type"
+      ]
+    }
+  ],
+  "GP_PAS_01": {
+    "tick": 25,
+    "old_epoch": 4,
+    "new_epoch": 5,
+    "inside_callback_postreset_contacts": 0,
+    "inside_callback_postreset_effects": 0,
+    "after_Core_new_epoch_stale_events": 1,
+    "old_id": 2,
+    "after_Core_decals": 2,
+    "after_Core_particles": 1,
+    "after_Core_damage_events": 0,
+    "after_Core_receipts": {},
+    "checks_passed": 3,
+    "checks_total": 5
+  },
+  "GP_PAS_02": {
+    "tick": 46,
+    "enemy_frame1_callback_inside_Core": true,
+    "target_free_effective": true,
+    "result_checks": 7,
+    "result_checks_passed": 7,
+    "engine_exit": 0,
+    "clean_log_gate": false,
+    "error": "Invalid type in eligible arg2 previously freed at CombatSystem._tick_finishers:414",
+    "ammo": 4,
+    "rounds_spent": 0,
+    "score": 0
+  },
+  "runtime_component_approval": false,
+  "phase_approval": false
+}
