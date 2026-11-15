@@ -4,9 +4,9 @@
 
 ## Реальный DEV build для владельца
 
-ROOT/build/P06_DEV_20261115_02/PLAY_LINUX.sh и PLAY_WINDOWS.cmd. Linux ELF и Windows PE реально экспортированы из frozen sourcef844e4d3cb2c5a7d851337fdf49a00bf51c67b6c. Actual Linux X11 smoke22/22 +4PNG; actual WindowsPE под Wine headless18/18. Native Windows NOT_TESTED. Source game после этого не менялся. Сборка/профили/лицензии и launcher README находятся в build; hashes/evidence — reports/phases/P06/owner-preview-20261115-02. Предыдущая DEV01 сохранена. Это DEV preview, не P06 acceptance/release.
+ROOT/build/P06_DEV_20261115_03/PLAY_LINUX.sh и PLAY_WINDOWS.cmd. ActualLinux ELF/Windows PE экспортированы изf66995892c8fdf8782e389a76c8ff05d628714d0: Linux renderer26/26+5PNG, WindowsPE Wineheadless21/21. NativeWindows NOT_TESTED. Evidence reports/phases/P06/owner-preview-20261115-03 (включаяavailability-erratum для старого hardcoded hero-list). DEV01/02 и профили сохранены. Это DEV preview, не P06/release. Новая клавиша3 выбирает мирного Тимку; F — настоящее отступление с collision/cooldown/отменой, без invulnerability/FIN/prime.
 
-F5 открывает sandbox Габара/Олежки; F6 —9портретных/диалоговых наборов. CH01/journal доступны из меню. Остальные новые combat heroes корректно не выбираются до готовности. Preview не доказывает sevenhero combat/fullcampaign/FPS/listening.
+F5: sandbox Габар/Олежка/современный Тимка; F6:9портретных/диалоговых наборов. CH01/journal доступны из меню. Prime/Рыжик/Тега/Паша корректно не выбираются до готовности. Preview не доказывает sevenhero combat/fullcampaign/FPS/listening.
 
 ## Независимый PRE-P07 audit
 
@@ -20,11 +20,11 @@ F5 открывает sandbox Габара/Олежки; F6 —9портретн
 
 ## P06: реализованное и оставшееся
 
-Габар/Oleg реальные lunge/parry handlers переиспользуются. Timka owner84 решение automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json:WORLD32+ACTION28 уже source-accepted/adopted,FIN24 ещёне adopted. Четыре exact legacy backups сохранены; миграцию не повторять. Independent compact QA b9484565 и import QA c50b9b92 — ограниченные component PASS, не abilities/ART/fullphase. Hidden RGB только при alpha0 канонизирован, видимые пиксели/alpha строго сверяются. WORLD padding generation-request deviations явно записаны, не заявлен>=16 hardgate.
+Габар/Oleg реальные lunge/parry handlers переиспользуются. Timka owner84 решение automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json:WORLD32+ACTION28 ранее source-accepted/adopted; новыйFIN24supported_v2/v4a послеfreshindependentARTf3f8e29f… source-onlyadopted be554f0. Все24 заново просмотрены, новаяwholeUPenvpose закрылаfamilyfinding; остальные31source/23compact byte-exact. ИсходныйweaponFAIL/отказсохранён, excludedweaponrequestнеповторялся. НетFINruntime/primeapproval. Четыре exact legacy backups сохранены; миграцию не повторять. Independent compact QA b9484565 и import QA c50b9b92 — ограниченные component PASS, не abilities/ART/fullphase. Hidden RGB только при alpha0 канонизирован, видимые пиксели/alpha строго сверяются. WORLD padding generation-request deviations явно записаны, не заявлен>=16 hardgate.
 
 HIGH legacyYakuza finisher leak воспроизведён и исправлен; independent2a8da1c7 подтверждает baseline11pass/10fail→801afterfix assertions; training authority и слабый campaignYakuza сохранены. Gameplay audit fcefbeae… остаётся историческим ограниченным аудитом, не fullP06review.
 
-До P06 PASS обязательны Timka FINenv/distinct present-prime drawings/abilities/sockets; Ryzhik original ACTION/FIN+actualroll; Tega actualenvironment; Pasha movingshot/finiteammo/cd/recoveryHUD; собственные7hero finisher poses/timings/sounds/NPCreactions и полная Input/native/settings/restart/build/performance matrix. Source/world/9staticportraits не заменяют это. См.specs/P06_COMBAT_ACCEPTANCE.md.
+До P06 PASS обязательны Timka distinct present-prime stance/movement/actions, primeclinch/FINruntime+24sockets; Ryzhik original ACTION/FIN+actualroll; Tega actualenvironment; Pasha movingshot/finiteammo/cd/recoveryHUD; собственные7hero finisher poses/timings/sounds/NPCreactions и полная Input/native/settings/restart/build/performance matrix. Source/world/9staticportraits не заменяют это. См.specs/P06_COMBAT_ACCEPTANCE.md.
 
 ## Принятый компонент P06: индикация защиты Олежки
 
@@ -36,6 +36,14 @@ Final57headless/78native с21PNG иmovie57; independentQA freshimport+57+31bound
 
 Условное разрешение P07: automation/decisions/P07_CONDITIONAL_CONTINUATION.json. Требуются fullP06PASS/обязательныйCI/confirmedprotectedmerge +independent readinessPASS, все21MDSLead-approved передmassproduction. Кандидат guard проверяет typed FULL approvals/currenthashes/frozenGitgame/21uniqueMDS. Фактические предпроизводственные capabilities отделены от HIGH OPEN будущих content obligations; полная P07 приёмка и оба fresh merge checks требуют closure по canonicalReadinessSHA/currentP07head/exactIDs/actualhashevidence. StrictJSON отвергает повторные decodedkeys/NaN/Infinity, phasefindings требуютarray. Final v4: **independentQA f2c1d176… и Lead de1fb9f5… PASS_COMPONENT**, actual55+47tests и16ingress/23stage/10oldprobes. Исторические FAIL/снимки сохранены. Это не Root installation/fullreadiness/phase approval. Протокол autopilot/PRODUCTION_GATES.md. **ROOT runner не заменён, stopP06 сохраняется**, безопасный handoff/fullverifier ещёне готовы. P08/release/purchases не разрешены. GitHub merge guards/SHA/CI/protection не обходятся.
 
-Authority только ROOT/automation/phase_state.json. Статус единственного author lease/PID проверять в canonical state и kernel перед resume; последние code/checkpoint/receipt сохранены, одному Markdown не доверять. Последний ownerpreview02 job9a94401ac76c49189e6403fb4c50dc7c CONSUMED_EXIT0 (старыйaa420…такжепотреблён), повторный запуск запрещён. Нет pending generators. ROOT dirty/stashes/private ignoredphotos сохранять. Постоянный daemon не настроен.
+Authority только ROOT/automation/phase_state.json. Статус единственного author lease/PID проверять в canonical state и kernel перед resume; последние code/checkpoint/receipt сохранены, одному Markdown не доверять. Последний ownerpreview03 job738b87f6a425418fbffa06d62e9d8cb9 CONSUMED_EXIT0; native02aa48250aa17740bdaf85d444216380c5 и все предшествующиеjobsтакжепотреблены, повторный запуск запрещён. Нет pending generators. ROOT dirty/stashes/private ignoredphotos сохранять. Постоянный daemon не настроен.
 
 Resume: reports/phases/P06/resume/decision.json и current-operation.json. Новые отчёты/коммиты не означают разрешение перехода фазы.
+
+## Новый компонент: современный Тимка / disengage
+
+Реальные собственные WORLD/ACTION60garmentsockets, guardedregisteredcontext иcollisionbackstep: windup0.12/active0.24/recovery0.18/cooldown1.8,140px/s,max33.6px. Шесть явно shared ownrefs: ACTION0→WORLDwalk5,4,3,2→ACTION2. Present не загружаетFIN и не получает прайм. CharacterFrames/Player расширены, Core/Gabar/Oleg не переписаны.
+
+Source2780e9e: headless104/104, native137/137+33PNG, movie104/104,7настоящихincomingCorecontacts(guard/active/recovery×hurt/fatal+projectile); проверкиC/hurt/death/revocation/reopen/ownerreplacement/pause/wall/cost/reset/masks/FullReduced, no outgoing/repeat/score. Первые70/2fixtureFAIL иindependentGP01/QA01coverageFAIL сохранены; directreceivehit не подменяет настоящиеcontacts. Common verifier теперь планирует новый replay; фактическийGitHubCI этим не заявлен.
+
+НезависимыеART743fb701…/Gameplay7e784deb…/QA757f7aa5… — PASS_COMPONENT. QA02actual104+104+62 иmockedCIerrorrouting, QA01исторически554checks включаяGabar124/Oleg164/layout102/readiness62/extra30. Lead component сейчас RUNNING, не fullphase. Новыхaudio/слуховойприёмки/FPS/hardwarelatency/liveAIfeel/nativeWindows нет. Отчёт reports/phases/P06/timka-present-01/implementation.md; nativevideo build/P06/timka-present-02/timka-present.mp4. ПолныйP06-CBT03 остаётсяOPEN до обоихcontexts/prime.

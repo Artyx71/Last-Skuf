@@ -1,20 +1,20 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T09:45:59.853904+00:00",
+  "updated_utc": "2026-11-15T10:29:25.898480+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
   "last_pass_phase": "P05",
   "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
-  "frozen_worktree_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+  "frozen_worktree_head": "f66995892c8fdf8782e389a76c8ff05d628714d0",
   "canonical_state": "ROOT/automation/phase_state.json",
   "operation": {
-    "id": "9a94401ac76c49189e6403fb4c50dc7c",
-    "task": "P06/owner-preview-20261115-02",
+    "id": "738b87f6a425418fbffa06d62e9d8cb9",
+    "task": "P06/owner-preview-20261115-03",
     "status": "CONSUMED_EXIT0",
     "safe_retry": false,
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/9a94401ac76c49189e6403fb4c50dc7c/receipt.json"
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/738b87f6a425418fbffa06d62e9d8cb9/receipt.json"
   },
   "independent_gates": {
     "gameplay_controller": "Gabar124bounded preserved; Oleg164+guardUI57/78+ART/Gameplay/QA/LeadcomponentPASS;TimkaWORLDInput1344 historical, otherabilities pending",
@@ -51,13 +51,30 @@
       "QA": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
       "Lead": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67",
       "full_phase_approval": false
+    },
+    "timka_finisher_source": {
+      "status": "ACCEPTABLE_SUPPORTED_LAYOUT_SOURCE_CANDIDATE",
+      "review_sha256": "f3f8e29f760dff803500deaa0cb782169bad5c65402ad3547107d3040a870feb",
+      "FIN24_adopted": true,
+      "runtime_approval": false
+    },
+    "timka_present": {
+      "status": "THREE_SUBREVIEWS_PASS_LEAD_RUNNING",
+      "production_source": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+      "ART": "743fb701eb101f0509261f9a1ba5e9d1c05a54957f917952043d38aacaf0f064",
+      "Gameplay": "7e784deb11b976b0cf984dbd9803db3681786fd1934687352d42cf3624e9dcd9",
+      "QA": "757f7aa5560fe66bf9d4967384306853f757330ed27adab3982477ea62492dc4",
+      "Lead": "RUNNING reports/phases/P06/lead-timka-present-01",
+      "checks": "104headless/137native33PNG/104movie;7realCorecontacts",
+      "prime_approval": false,
+      "full_phase_approval": false
     }
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "Continue P06 remainingheroart/abilities:Timka FINenvironment/distinctcontexts/sockets+disengage/clinch, Ryzhikroll/ACTION/FIN, Tegaobject,Pashamovingshot/ammoHUD; sevenownfinisher/audio/NPCmatrix. Olegguardfeedback accepted; no unnecessaryrerun. Fullverifier/safeRoot/Readiness/21MDS remainrequired;noP07advance.",
+  "next_action": "Read pending Lead component verdict; FAIL→fix/review, componentPASS→continue withinP06 prime distinctstance/motion/clinch/FIN24sockets, thenRyzhik/Tega/Pasha/audio/NPC/fullverifier. NoP07advance.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
@@ -142,17 +159,15 @@
   "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
-    "status": "ACTUAL_EXPORTED_AND_SMOKE_VERIFIED",
-    "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
-    "friendly_directory": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/build/P06_DEV_20261115_02",
-    "linux_checks": 22,
-    "linux_captures": 4,
-    "Wine_headless_checks": 18,
+    "directory": "ROOT/build/P06_DEV_20261115_03",
+    "source": "f66995892c8fdf8782e389a76c8ff05d628714d0",
+    "Linux_renderer_checks": 26,
+    "Wine_headless_checks": 21,
     "native_windows": "NOT_TESTED",
-    "phase_approval": false,
-    "user_profiles_isolated": true,
-    "source_game_unchanged_since_export": true
+    "full_phase_approval": false
   },
   "latest_game_source_commit": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
-  "previous_owner_preview": "ROOT/build/P06_DEV_20261115_01 preserved"
+  "previous_owner_preview": "ROOT/build/P06_DEV_20261115_01 preserved",
+  "checkpoint_commit_before_metadata": "d5bd78c63a42d641b3684142442e781e84152017",
+  "pending_generator_calls": 0
 }
