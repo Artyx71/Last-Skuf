@@ -101,6 +101,9 @@ def main():
                 'timka_prime': ['prime_Timka_selects_separate_body_contract', 'prime_cannot_grab_without_vulnerable_target'],
                 'ryzhik_training': ['Ryzhik_selects_complete_own_roll_body', 'Ryzhik_roll_starts_from_Input',
                                     'Ryzhik_roll_moves_with_live_collision'],
+                'tega_training': ['Tega_selects_complete_environment_body',
+                                  'Tega_kick_starts_with_registered_object_Input',
+                                  'Tega_moves_real_bench_with_restored_masks'],
             }
             row['verified_combat_fixtures'] = [key for key, required in fixture_checks.items()
                                                if data.get('passed') and all(check_results.get(name, False) for name in required)]
