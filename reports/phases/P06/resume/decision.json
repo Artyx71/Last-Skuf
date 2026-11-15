@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T10:29:25.898480+00:00",
+  "updated_utc": "2026-11-15T10:32:15.932566+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
@@ -81,18 +81,20 @@
     "private ignored raw references",
     "formal attempt budget"
   ],
-  "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+  "source_head": "f66995892c8fdf8782e389a76c8ff05d628714d0",
   "active_author": {
-    "pid": 141167,
-    "status": "RELEASED_AT_SAFE_SESSION_CHECKPOINT",
-    "ended_at": "2026-11-15T09:44:45+00:00",
-    "canonical_checkpoint_head": "026c6d3dee7a1123a2591ea8dec1b1179c6ccd34"
+    "pid": 148604,
+    "status": "HELD_VERIFY_CANONICAL_LEASE_BEFORE_RESUME",
+    "checkpoint": "p06-timka-present-fixes-reviewed-dev03-lead-pending",
+    "canonical_state": "ROOT/automation/phase_state.json"
   },
   "native02": {
-    "operation": "c788ed6782ef4e5cbccc00cbff99523f",
+    "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
+    "operation": "aa48250aa17740bdaf85d444216380c5",
     "status": "CONSUMED_EXIT0",
-    "checks": "194/194",
-    "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
+    "checks": "137native/104movie/33PNG/7Corecontacts",
+    "source_head": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+    "full_phase_approval": false
   },
   "recovery_evidence": "reports/phases/P06/resume/server-restart-recovery-20261114-01.json",
   "saved_generated_candidates": {
@@ -105,18 +107,20 @@
     "pasha_world_v3d_native_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
     "pasha_world_v3d_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED"
   },
-  "latest_implementation_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+  "latest_implementation_head": "f66995892c8fdf8782e389a76c8ff05d628714d0",
   "persistent_runner": false,
   "session_checkpoint": {
     "phase_complete": false,
     "pending_generator_calls": 0,
     "last_full_phase": "P05",
     "P06_PR": null,
-    "P06_export": "DEV_PREVIEW02_ONLY Linux22/Wine18,notfullphase",
-    "pending_component_reviews": [],
-    "full_phase_reviews": "P06_NOT_READY; OLEG_HUD_COMPONENT_ACCEPTED",
-    "author_lease_released": true,
-    "canonical_checkpoint_head": "026c6d3dee7a1123a2591ea8dec1b1179c6ccd34"
+    "P06_export": "DEV_PREVIEW03_ONLY Linux26/5PNG/Wine21,notfullphase",
+    "pending_component_reviews": [
+      "Lead timka-present component RUNNING; ART/Gameplay/QA02 already PASS_COMPONENT"
+    ],
+    "full_phase_reviews": "P06_NOT_READY; TIMKA_PRESENT_THREE_SUBREVIEWS_PASS_LEAD_RUNNING",
+    "author_lease_released": false,
+    "canonical_checkpoint_head": "93b0863"
   },
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
@@ -145,18 +149,19 @@
       "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
       "applied": true,
       "not_phase_approval": true,
-      "implementation_status": "WORLD32_ACTION28_MIGRATED_FIN24_NOT_ADOPTED"
+      "implementation_status": "WORLD32_ACTION28_PRESERVED_FIN24_SOURCE_ADOPTED; PRIME_RUNTIME_PENDING"
     }
   ],
   "open_findings": [
-    "Timka environmental contact family/readability",
-    "Distinct present/prime visual stance/motion and actual abilities/sockets",
+    "Prime actual clinch/FIN24sockets, distinct present/prime stance/motion/actions; present disengage three-subreview PASS",
     "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
     "FullProductionReadiness FAIL b76fa63b unchanged"
   ],
-  "pending_component_reviews": [],
+  "pending_component_reviews": [
+    "Lead timka-present component RUNNING; ART/Gameplay/QA02 already PASS_COMPONENT"
+  ],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
   "owner_preview": {
     "directory": "ROOT/build/P06_DEV_20261115_03",
@@ -166,8 +171,14 @@
     "native_windows": "NOT_TESTED",
     "full_phase_approval": false
   },
-  "latest_game_source_commit": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
-  "previous_owner_preview": "ROOT/build/P06_DEV_20261115_01 preserved",
+  "latest_game_source_commit": "f66995892c8fdf8782e389a76c8ff05d628714d0",
+  "previous_owner_preview": "ROOT/build/P06_DEV_20261115_01 and P06_DEV_20261115_02 preserved with profiles",
   "checkpoint_commit_before_metadata": "d5bd78c63a42d641b3684142442e781e84152017",
-  "pending_generator_calls": 0
+  "pending_generator_calls": 0,
+  "historical_native02": {
+    "operation": "c788ed6782ef4e5cbccc00cbff99523f",
+    "status": "CONSUMED_EXIT0",
+    "checks": "194/194",
+    "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
+  }
 }
