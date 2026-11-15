@@ -185,13 +185,49 @@ func run() -> void:
 	check("pause_freezes_clock_cost_motion",lab.player.action_elapsed==clock and lab.player.position==start and lab.player.ability_cooldown==cost)
 	lab._set_options_visible(false);await frames(36)
 	check("resume_finishes_finite_roll",lab.player.action_kind.is_empty() and absf(lab.player.ability_distance-57.6)<0.04)
+	var overlay_proofs:Array=[]
 	var outcomes:Array=[]
 	for reduced in [false,true]:
 		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false);root.get_node("OptionsStore").set_value(&"decals",not reduced,false);root.get_node("OptionsStore").set_value(&"shake",0 if reduced else 100,false);root.get_node("OptionsStore").set_value(&"flashes",not reduced,false)
 		await roll_fixture(2);segment="settings_"+str(reduced);await tap(KEY_F);await frames(38)
 		outcomes.append([lab.player.health,lab.score,lab.combat.damage_events,lab.enemies[0].health,lab.enemies[0].hits_received,snappedf(lab.player.ability_distance,0.01)])
 	check("Full_Reduced_same_combat_logic",outcomes[0]==outcomes[1])
-	await tap(KEY_R);await capture("ryzhik_ready_after_restart")
+	# Real nonfatal Core damage creates a persistent clothing decal. Wait out
+	# hurt, then roll UP without restarting/clearing the real effect pool.
+	root.get_node("OptionsStore").set_value(&"reduced_gore",false,false)
+	root.get_node("OptionsStore").set_value(&"decals",true,false)
+	root.get_node("OptionsStore").set_value(&"shake",0,false)
+	root.get_node("OptionsStore").set_value(&"flashes",false,false)
+	var source:=await roll_fixture(3,false)
+	segment="persistent_blood_UP_roll"
+	source.position=lab.player.position+Vector2(20,0)
+	source.locked_aim=Vector2.LEFT
+	lab.player.health=2 # Declared nonfatal test durability, not a story grant.
+	await frames(2)
+	var blood_attack:int=lab.combat.start_melee(source,"enemy",Vector2.LEFT,lab.config.attacks.enemy_melee)
+	await frames(1)
+	check("clothing_case_real_nonfatal_Core_contact",lab.player.health==1 and lab.player.hits_received==1 and lab.combat.damage_events==1 and source.attack_id==blood_attack)
+	await frames(15)
+	check("hurt_ends_without_restart_or_clearing_decals",lab.player.action_kind.is_empty() and lab.player.ability_cooldown==0 and lab.combat.impact.decals.any(func(entry:Dictionary):return entry.get("actor")==lab.player and entry.column in [6,7]))
+	await tap(KEY_F)
+	check("injured_player_can_roll_without_immunity",lab.player.action_kind=="roll" and lab.player.health==1 and lab.player.hits_received==1)
+	for f in range(8):
+		var budget:=45
+		while lab.player.action_kind=="roll" and lab.player.action_frame<f and budget>0:await frames(1);budget-=1
+		await frames(1) # The live effect process follows this pose, not a stale hurt socket.
+		await capture("persistent_blood_UP_roll"+str(f))
+		var blood:Array=lab.combat.impact.decals.filter(func(entry:Dictionary):return entry.get("actor")==lab.player and entry.column in [6,7])
+		var expected:Vector2=lab.player.global_position+preload("res://scripts/actors/polish_frames.gd").clothing_offset(lab.player.sprite)
+		var t:Texture2D=lab.player.sprite.sprite_frames.get_frame_texture(lab.player.sprite.animation,lab.player.sprite.frame)
+		var live_at:Vector2=blood[0].at if not blood.is_empty() else Vector2.INF
+		check("actual_blood_tracks_own_UP_pose"+str(f),lab.player.action_kind=="roll" and lab.player.action_frame==f and t.get_meta("source_kind","")=="roll" and not blood.is_empty() and live_at.distance_to(expected)<=3.2)
+		var socket:Vector2=t.get_meta("clothing_socket",Vector2.INF)
+		overlay_proofs.append({"tick":Engine.get_physics_frames(),"animation":String(lab.player.sprite.animation),"frame":lab.player.sprite.frame,"source_column":t.get_meta("source_column",-1),"clothing_socket":[socket.x,socket.y],"world_anchor":[expected.x,expected.y],"live_decal_at":[live_at.x,live_at.y],"remaining_ttl":blood[0].ttl if not blood.is_empty() else 0,"renderer":DisplayServer.get_name()})
+	await frames(10)
+	check("blood_case_has_no_ghost_damage_or_score",lab.player.health==1 and lab.player.hits_received==1 and lab.combat.damage_events==1 and lab.score==0)
+	await tap(KEY_R)
+	check("restart_clears_real_clothing_decal",lab.combat.impact.decals.is_empty() and lab.player.hits_received==0 and lab.player.health==1)
+	await capture("ryzhik_ready_after_restart")
 	var failed:=checks.filter(func(item:Dictionary):return not item.passed).size()
-	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"not_tested":["full sevenhero finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
+	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"clothing_overlay":overlay_proofs,"not_tested":["full sevenhero finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
 	print("RESULT P06_RYZHIK passed=%d failed=%d"%[checks.size()-failed,failed]);preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)

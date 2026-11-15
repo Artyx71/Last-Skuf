@@ -69,7 +69,8 @@ def main():
         argv += ['--script', 'res://tests/ryzhik_roll_replay.gd']
         started = time.monotonic()
         try:
-            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True, timeout=100)
+            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True,
+                                 timeout=180 if mode == 'movie' else 120)
             code, log = run.returncode, run.stdout + run.stderr
         except subprocess.TimeoutExpired as error:
             code, log = 124, 'TIMEOUT\n' + str(error.stdout) + str(error.stderr)

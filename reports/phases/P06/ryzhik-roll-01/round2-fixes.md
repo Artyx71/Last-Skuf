@@ -11,3 +11,5 @@ TPR-R02: valid_replay требует точного renderer изheadless либ
 Production Core/NPC/GroundRoll clocks и collision не менялись. Новоеигровое evidence ещё не собрано. FullP06 остаётсяIMPLEMENTINGattempt1, noP07/merge/release.
 
 Headless02 наa33581e не выполнил gameplay checks: GDScriptParseError inference route, exit1. Старыйresult/log сохранён, zeroactualchecks невыдаётся за298. УточнёнStringтипимениroute; нужен новыйheadless03.
+
+Native02на8c10: LIVE418/418/120PNG прошёл58.3s, ноmovie subprocess100s timeout124@100.128s; исходныйpartialAVI икоманды сохранены, полноценнымmovie/combinedPASS не считаются. Rootoperationa0189f6aa91a4a438307490d318ad9b0 consumedFAIL. Timeout изменён доmovie180/live120. ART/GPpreliminarylive02 подтвердилиUPdirection/24FINvisual, но ждутcompleteMovie. Добавлен boundedactualCorehurt→ожиданиеhurt→UProllбезR/clear, чтобыeightownclothinganchors (вт.ч.26/29) снимались сживымblooddecal; послеR проверяетсяреальноеудаление. Productioncode/изображения не менялись относительно8c10. Новыйheadless/native03 ещёнужны.
