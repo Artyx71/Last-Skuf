@@ -5,7 +5,8 @@ const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
 const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
-	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter"
+	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
+	"timka_present":"disengage"
 }
 var actor_id := ""
 var scene_policy: RefCounted
@@ -26,6 +27,11 @@ const COUNTER_WINDUP := 0.28
 const COUNTER_ACTIVE := 0.10
 const COUNTER_RECOVERY := 0.34
 const COUNTER_COOLDOWN := 2.0
+const DISENGAGE_WINDUP := 0.12
+const DISENGAGE_ACTIVE := 0.24
+const DISENGAGE_RECOVERY := 0.18
+const DISENGAGE_COOLDOWN := 1.8
+const DISENGAGE_SPEED := 140.0
 
 func configure(id: String, policy: RefCounted) -> bool:
 	if is_inside_tree() or not policy is ScenePolicy or policy.definition().get("actor_id") != id: return false
@@ -44,7 +50,7 @@ func prepare_fixture(scene_id: String) -> bool:
 	if not proposed.open(scene_id) or proposed.ability_id() != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
 	var definition: Dictionary = proposed.definition()
 	var id := String(definition.actor_id)
-	var frames := _load_combat_frames(id)
+	var frames := CharacterFrames.timka_present_frames() if scene_id == "timka_present" else _load_combat_frames(id)
 	if frames == null: return false
 	for animation in frames.get_animation_names():
 		for frame in frames.get_frame_count(animation):
@@ -96,20 +102,29 @@ func _process(_delta: float) -> void:
 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
 
 func _movement_multiplier() -> float:
-	if action_kind == "special": return 0.0
+	if action_kind in ["special","disengage"]: return 0.0
 	return 1.44 if Input.is_action_pressed("character_run") else 1.0
 
 func _movement_state() -> String:
 	return "run" if Input.is_action_pressed("character_run") else "walk"
 
 func _physics_process(delta: float) -> void:
-	if action_kind in ["shove","special"] and not _action_authorized(): cancel_action()
+	if action_kind in ["shove","special","disengage"] and not _action_authorized(): cancel_action()
 	if lab.state == "playing" and health > 0:
 		ability_cooldown = maxf(0.0,ability_cooldown-delta)
-	if Input.is_action_just_pressed("cancel_finisher") and action_kind == "special": cancel_action()
+	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage"]: cancel_action()
 	super._physics_process(delta)
 	if lab.state == "playing" and health > 0:
 		if Input.is_action_just_pressed("character_ability"): use_ability()
+		if action_kind == "disengage" and _action_authorized():
+			# Only the active part of this physics tick moves. No teleport, damage,
+			# changed collision mask or invulnerability; interruption stops the path.
+			var active_end := action_windup+action_active
+			var step := maxf(0.0,minf(action_elapsed,active_end)-maxf(action_elapsed-delta,action_windup))
+			var before := global_position
+			move_and_collide(-action_aim*DISENGAGE_SPEED*step)
+			ability_distance += global_position.distance_to(before)
+			last_ability_path.append(global_position)
 		if action_kind == "special" and action_frame == 1 and scene_policy.ability_id() == "gabar_lunge":
 			var before := global_position
 			# A short swept body move: walls stop it; collision masks never change.
@@ -144,14 +159,34 @@ func _can_begin_action() -> bool:
 	return lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty() and scene_policy.definition().get("actor_id") == actor_id
 
 func _play_action(action: String, duration: float) -> void:
-	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special"] else {}
-	action_ability_id = scene_policy.ability_id() if action == "special" else ""
+	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage"] else {}
+	action_ability_id = scene_policy.ability_id() if action in ["special","disengage"] else ""
 	super._play_action(action,duration)
+
+func _present_action() -> void:
+	if action_kind != "disengage":
+		super._present_action()
+		return
+	var progress := 0.0
+	if action_elapsed < action_windup:
+		action_frame = 0
+		progress = action_elapsed/action_windup
+	elif action_elapsed < action_windup+action_active:
+		var walk_phase := (action_elapsed-action_windup)*4.0/action_active
+		action_frame = 1+mini(3,int(floor(walk_phase)))
+		progress = fmod(walk_phase,1.0)
+	else:
+		action_frame = 5
+		progress = (action_elapsed-action_windup-action_active)/action_recovery
+	sprite.play(action_animation)
+	sprite.pause()
+	sprite.set_frame_and_progress(action_frame,clampf(progress,0.0,1.0))
+	weapon_visual_update()
 
 func _action_authorized() -> bool:
 	if action_authority_snapshot.is_empty() or scene_policy == null: return false
 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
-	return action_kind != "special" or action_ability_id == scene_policy.ability_id()
+	return action_kind not in ["special","disengage"] or action_ability_id == scene_policy.ability_id()
 
 func attack_melee() -> bool:
 	if not _can_begin_action() or melee_cooldown > 0: return false
@@ -172,6 +207,8 @@ func attack_ranged() -> bool:
 
 func use_ability() -> bool:
 	if not _can_begin_action() or ability_cooldown > 0: return false
+	if actor_id == "timka" and scene_policy.ability_id() == "disengage":
+		return _start_disengage()
 	if actor_id == "olezhka" and scene_policy.ability_id() == "training_counter":
 		return _start_training_counter()
 	# Other abilities remain unavailable until their actual actor integration exists.
@@ -187,6 +224,18 @@ func use_ability() -> bool:
 	_play_action("special",action_windup+action_active+action_recovery)
 	var definition := {"damage":1,"stun":0.45,"cooldown":1.6,"windup":action_windup,"active":action_active,"recovery":action_recovery,"reach":19.0,"radius":14.0,"category":"unarmed","strong":true}
 	melee_attack_id = lab.combat.start_melee(self,"player",action_aim,definition)
+	return true
+
+func _start_disengage() -> bool:
+	_face_aim()
+	action_windup = DISENGAGE_WINDUP
+	action_active = DISENGAGE_ACTIVE
+	action_recovery = DISENGAGE_RECOVERY
+	ability_cooldown = DISENGAGE_COOLDOWN
+	ability_uses += 1
+	ability_distance = 0.0
+	last_ability_path.assign([global_position])
+	_play_action("disengage",action_windup+action_active+action_recovery)
 	return true
 
 func _start_training_counter() -> bool:

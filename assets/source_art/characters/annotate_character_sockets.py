@@ -14,6 +14,7 @@ ROOT=Path(__file__).resolve().parents[3]
 # explicit metadata overrides below correct the one ambiguous component.
 GABAR_SHIRT={tuple(bytes.fromhex(h)) for h in ['4e202c','67243b','963450','994a63','8b3146','bc6573','c04b66','6d354b']}
 OLEZHKA_SHIRT={tuple(bytes.fromhex(h)) for h in ['4c3c56','352b3d']}
+TIMKA_SHIRT={tuple(bytes.fromhex(h)) for h in ['15151e','252332','353244','4c3c56','352b3d','211b29']}
 
 def anchor(frame, palette=GABAR_SHIRT):
     remaining={(x,y) for y in range(64) for x in range(48)
@@ -34,25 +35,31 @@ def anchor(frame, palette=GABAR_SHIRT):
     return chosen,len(component)
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('actor',choices=['gabar','olezhka']);parser.add_argument('--output',default='reports/phases/P06/author-checks/socket-candidates-01');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('actor',choices=['gabar','olezhka','timka']);parser.add_argument('--output',default='reports/phases/P06/author-checks/socket-candidates-01');parser.add_argument('--kinds',nargs='+',choices=['world','action','finisher'],default=['world','action','finisher']);args=parser.parse_args()
     folder=ROOT/'game/assets/art/characters'/args.actor
     diagnostics=(ROOT/args.output).resolve();assert diagnostics.is_relative_to(ROOT/'reports/phases/P06');assert not diagnostics.exists();diagnostics.mkdir()
-    for kind in ['world','action','finisher']:
+    for kind in args.kinds:
         target=folder/(kind+'.sockets.json');assert not target.exists(),'Preserve annotations; use an explicit reviewed revision'
         layout=json.loads((folder/(kind+'.json')).read_text());source=folder/(kind+'_sheet.png')
         assert hashlib.sha256(source.read_bytes()).hexdigest()==layout['sha256']
         image=Image.open(source).convert('RGBA');board=Image.new('RGBA',image.size,(36,48,44,255));board.alpha_composite(image);draw=ImageDraw.Draw(board)
         entries=[]
-        for i in range(32):
-            x,y=i%8*48,i//8*64
-            frame=image.crop((x,y,x+48,y+64));point,pixels=anchor(frame,GABAR_SHIRT if args.actor=='gabar' else OLEZHKA_SHIRT)
+        palette={'gabar':GABAR_SHIRT,'olezhka':OLEZHKA_SHIRT,'timka':TIMKA_SHIRT}[args.actor]
+        columns=image.width//48
+        for i in range(layout['source_cells']):
+            x,y=i%columns*48,i//columns*64
+            frame=image.crop((x,y,x+48,y+64));point,pixels=anchor(frame,palette)
             entries.append({'index':i,'clothing':list(point),'garment_component_pixels':pixels,'source_frame_rgba_sha256':hashlib.sha256(frame.tobytes()).hexdigest()})
+            if layout['schema']==2:
+                entries[-1].update({key:layout['frames'][i][key] for key in ['direction','column','source_column']})
             px,py=x+point[0],y+point[1]
             draw.line((px-2,py,px+2,py),fill='#7bd2df');draw.line((px,py-2,px,py+2),fill='#7bd2df')
         if args.actor=='gabar' and kind=='finisher':
             entry=entries[19];entry['palette_candidate_clothing']=entry['clothing'];entry['clothing']=[20,32]
             entry['annotation_note']='Manual torso correction after inspecting the diagnostic: palette shared with hair made the automatic component choose the head.'
-        data={'schema':1,'actor_id':args.actor,'kind':kind,'sheet_sha256':layout['sha256'],'status':'CANDIDATE_REQUIRES_ACTUAL_OVERLAY_ART_REVIEW','method':'largest connected authored garment palette component, nearest opaque garment pixel to centroid; metadata only, no bitmap changes','garment_palette':[list(color) for color in sorted(GABAR_SHIRT if args.actor=='gabar' else OLEZHKA_SHIRT)],'frames':entries}
+        data={'schema':layout['schema'],'actor_id':args.actor,'kind':kind,'sheet_sha256':layout['sha256'],'status':'CANDIDATE_REQUIRES_ACTUAL_OVERLAY_ART_REVIEW','method':'largest connected authored garment palette component, nearest opaque garment pixel to centroid; metadata only, no bitmap changes','garment_palette':[list(color) for color in sorted(palette)],'frames':entries}
+        if layout['schema']==2:
+            data.update({key:layout[key] for key in ['layout_profile','source_cells','source_column_mapping']})
         if args.actor=='gabar' and kind=='finisher': data['manual_overrides']={'19':{'from':[21,18],'to':[20,32],'reason':'visible maroon torso, not hair'}}
         target.write_text(json.dumps(data,indent=2)+'\n')
         board.resize((1536,1024),Image.Resampling.NEAREST).save(diagnostics/(kind+'_anchors_4x.png'))

@@ -85,7 +85,9 @@ func run() -> void:
 		check(kind+":boolean_socket_denied",not Frames._valid_sockets(broken,layout))
 		broken=sockets.duplicate(true);broken.frames[0].clothing=[24,64]
 		check(kind+":out_of_cell_socket_denied",not Frames._valid_sockets(broken,layout))
-	check("no_FIN_adoption_or_complete_combat_claim",not FileAccess.file_exists("res://assets/art/characters/timka/finisher.json") and Frames.combat_frames("timka")==null)
+	var prime := preload("res://scripts/actors/character_player.gd").new()
+	check("source_adoption_does_not_grant_prime_ability",not prime.prepare_fixture("timka_prime"))
+	prime.free()
 	var passed := checks.all(func(item: Dictionary):return item.passed)
 	var output := OS.get_environment("AYAY_TIMKA_LAYOUT_OUTPUT")
 	if not output.is_empty():

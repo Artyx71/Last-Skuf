@@ -99,10 +99,13 @@ func _update_hud() -> void:
 	hint_label.text = "WASD/Shift · Space: толчок · F: приём · V: добивание · Tab: инструмент · O: эффекты"
 	if player.actor_id == "olezhka":
 		hint_label.text = "F: блок удара спереди · WASD/Shift · Space: толчок · V: добить · C: отмена · O: эффекты"
+	elif player.actor_id == "timka" and context == "peaceful_present":
+		hint_label.text = "F: отступить спиной · WASD/Shift · Space: оттолкнуть · C: отмена · O: эффекты"
 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
 	if equipment_label:
 		equipment_label.text = "Инструмент: "+["Кулаки","Труба","Нож","Пистолет","Верстак"][equipment_index]+" · Tab: сменить инструмент"
+		if context == "peaceful_present": equipment_label.text = "Мирный Тимка · без оружия и добиваний"
 	if damage_portrait:
 		damage_portrait.texture = load(actor.portrait_file)
 		damage_portrait.region_rect = Rect2(480,0,160,160)

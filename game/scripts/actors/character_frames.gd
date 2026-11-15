@@ -42,19 +42,36 @@ static func action_frames(actor_id: String) -> SpriteFrames:
 static func finisher_frames(actor_id: String) -> SpriteFrames:
  return _sheet_frames(actor_id,"finisher")
 
+static func timka_present_frames() -> SpriteFrames:
+ # This context has no finisher/ranged clips. Its backward step explicitly
+ # reuses this actor's four walk drawings; it is not a new source-art claim.
+ var result := world_frames("timka")
+ var action := action_frames("timka")
+ if result == null or action == null: return null
+ _append_clips(result,action)
+ for direction in DIRECTIONS:
+  var name := StringName("disengage_"+direction)
+  result.add_animation(name)
+  result.set_animation_loop(name,false)
+  for item in [["shove_",0],["walk_",3],["walk_",2],["walk_",1],["walk_",0],["shove_",2]]:
+   result.add_frame(name,result.get_frame_texture(StringName(item[0]+direction),item[1]))
+ return result
+
+static func _append_clips(result: SpriteFrames, addition: SpriteFrames) -> void:
+ for name in addition.get_animation_names():
+  result.add_animation(name)
+  result.set_animation_speed(name,addition.get_animation_speed(name))
+  result.set_animation_loop(name,addition.get_animation_loop(name))
+  for index in addition.get_frame_count(name):
+   result.add_frame(name,addition.get_frame_texture(name,index),addition.get_frame_duration(name,index))
+
 static func combat_frames(actor_id: String) -> SpriteFrames:
  # A missing authored sheet prevents construction; there is no Yakuza fallback.
  var result := world_frames(actor_id)
  var action := action_frames(actor_id)
  var finisher := finisher_frames(actor_id)
  if result == null or action == null or finisher == null: return null
- for addition in [action,finisher]:
-  for name in addition.get_animation_names():
-   result.add_animation(name)
-   result.set_animation_speed(name,addition.get_animation_speed(name))
-   result.set_animation_loop(name,addition.get_animation_loop(name))
-   for index in addition.get_frame_count(name):
-    result.add_frame(name,addition.get_frame_texture(name,index),addition.get_frame_duration(name,index))
+ for addition in [action,finisher]: _append_clips(result,addition)
  return result
 
 static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
