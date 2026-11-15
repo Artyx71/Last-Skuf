@@ -1,0 +1,15 @@
+import sys,subprocess,json,os
+from pathlib import Path
+w=Path.cwd();sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import GODOT,sources,write,ERRORS
+base=w/'reports/phases/P06/guard-feedback-01';before=sources();out=base/'final-validation-03';out.mkdir(parents=True,exist_ok=False);records=[]
+old=json.loads((base/'regression-01/source_hashes.json').read_text());delta=sorted(k for k in set(before)|set(old) if before.get(k)!=old.get(k));assert delta==['game/scripts/core/character_lab.gd','game/scripts/ui/counter_feedback.gd','game/tests/olezhka_feedback_replay.gd'],delta
+def run(label,argv,env=None):
+ p=subprocess.run(list(map(str,argv)),cwd=w,env=env,capture_output=True,text=True,timeout=150);log=p.stdout+p.stderr;(out/(label+'.log')).write_text(log+'\nexit_code='+str(p.returncode)+'\n');ok=p.returncode==0 and not ERRORS.search(log);records.append({'name':label,'argv':list(map(str,argv)),'exit_code':p.returncode,'passed':ok});print(label,'PASS' if ok else 'FAIL',flush=True)
+run('headless-03',[sys.executable,'tools/verify_p06_counter_feedback.py','--headless','--output',str(base/'headless-03')])
+run('native-03',[sys.executable,'tools/verify_p06_counter_feedback.py','--output',str(base/'native-03'),'--movie','--build-output','build/P06/guard-feedback-01/native-03'])
+for test in ['restart','character_readiness']:
+ profile=w/'.tools/p06-counter-final03'/test;profile.mkdir(parents=True,exist_ok=False);env=os.environ|{'XDG_CONFIG_HOME':str(profile/'config'),'XDG_DATA_HOME':str(profile/'data'),'AYAY_STORY_SAVE_PATH':str(profile/'story.json'),'AYAY_CHAPTER_SAVE_PATH':str(profile/'chapter.json'),'AYAY_OPTIONS_PATH':str(profile/'options.json'),'AYAY_DIALOGUE_SAVE_PATH':str(profile/'dialogue.json')}
+ run(test,[GODOT,'--headless','--path',w/'game','--script','res://tests/'+test+'_test.gd'],env)
+run('lab_isolation',[sys.executable,'tools/verify_p06_lab_isolation.py','--output',str(out/'lab_isolation')])
+ok=all(x['passed'] for x in records) and before==sources();write(out/'result.json',{'scope':'FINAL_OLEG_HUD_SOURCE_VALIDATION','phase_approval':False,'passed':ok,'source_unchanged':before==sources(),'commands':records,'changed_sources_vs_regression01':delta,'old_combat_body_Core_configs_assets_unchanged':True});raise SystemExit(0 if ok else 1)

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "scope": "BYTE_AND_SOURCE_COMPARISON_NOT_ENGINE_TEST",
+  "old_actor_source_sha256": "e3f37c49521a02d9f2598cb129c12cf5d3b33517b18513866df59144ca960607",
+  "current_actor_source_sha256": "4b53369bcb16e697b09229d07b4d5892432b5413d54548518f9be56dafa79288",
+  "old_source_label_from_independent_Gameplay_Git_extraction": "ec6d470",
+  "defense_category_geometry_receipt_counter_queue_tail_byte_identical": true,
+  "counter_constants": {
+    "COUNTER_GUARD_OPEN": 0.06,
+    "COUNTER_GUARD_CLOSE": 0.26,
+    "COUNTER_WINDUP": 0.28,
+    "COUNTER_ACTIVE": 0.1,
+    "COUNTER_RECOVERY": 0.34,
+    "COUNTER_COOLDOWN": 2.0
+  },
+  "old_boundary_predicate": "not counter_spent; frame0; elapsed>=0.06 and<=0.26; actor/health/authority checks",
+  "new_shared_predicate": "same conditions plus null-safe lab guard",
+  "UI_has_no_Input_physics_or_Timer": true,
+  "full_phase_approval": false
+}

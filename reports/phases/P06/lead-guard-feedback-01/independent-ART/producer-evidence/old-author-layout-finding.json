@@ -1,0 +1,14 @@
+{
+  "scope": "AUTHOR_VISUAL_INSPECTION_NOT_INDEPENDENT_REVIEW",
+  "status": "FAIL_UI_LAYOUT",
+  "source_head": "8fae8caff2af2d488e9e92435417184d5a98e878",
+  "id": "COUNTER-HUD-01",
+  "severity": "HIGH",
+  "actual_evidence": [
+    "native-01/live/03_guard_open.png",
+    "native-01/live/07_block_right.png"
+  ],
+  "observed": "Default ProgressBar minimum clamped early size assignment to27px; screenshot y50..77 overlapsarena y62+. Existing automatedlayoutassert checkedparentrect, not renderedchild. Alloldtestpasses retained but notARTacceptance.",
+  "fix": "Assignactualchildrect aftershowpercentage/theme/parent initialization; sampleactualbarrect eachprocessframe, require5px/arena-clear. Freshnative02+movie and independentreviewrequired.",
+  "phase_approval": false
+}

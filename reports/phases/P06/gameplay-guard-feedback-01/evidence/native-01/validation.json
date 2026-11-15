@@ -1,0 +1,221 @@
+{
+  "scope": "OLEZHKA_GUARD_READABILITY_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "8fae8caff2af2d488e9e92435417184d5a98e878",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 76,
+      "total": 76
+    },
+    {
+      "passed": 55,
+      "total": 55
+    }
+  ],
+  "actual_captures": 21,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_feedback_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.761,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-counter-qa/17ae559d4ee7f47986eb"
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-01/counter-feedback.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_feedback_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 9.238,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-counter-qa/ba94d8ea68c235d0f75c"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-01/counter-feedback.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-01/counter-feedback.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-01/counter-feedback.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-01/counter-feedback.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/commands.json",
+      "sha256": "6d0c8351d03dd39fcf7fef66b0fbaba1e01d01ecb37a4680039ca60cee64b3e6"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/01_ready.png",
+      "sha256": "b663c9bc1530cc856d58cfbebcdd82cc000e55ea90d4940de99736fbe479d5f9"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/02_preparing.png",
+      "sha256": "21e48913a7775759aa5de26f0f5b187dc37567634239c7ead2e6b2d22a658c15"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/03_guard_open.png",
+      "sha256": "867fb56af22c20d2fa8ffaa3c5db26bababcd64256c72e378aa1f428b6585d49"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/04_window_closed.png",
+      "sha256": "dbe178ac474663d8eb931d7ef417815f7279dbeb4f8cefb5dfa85b92e8c59849"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/05_recovery.png",
+      "sha256": "54ae68006c53bf7d581a0f0dcb6a97a573788c24f21414f09fce60dd778bb252"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/06_cooldown.png",
+      "sha256": "492568e9521a1882c06218e8ae8aed64b5021070658a7002cea37d0ed17611ad"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/07_block_down.png",
+      "sha256": "5e2d9f80d4d7486556a1a4fde4c9790535e56347c9ae8bc08ce86d510ce05d28"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/07_block_left.png",
+      "sha256": "ec6cf7c51f297eada1f40b938560c9d87f96297ff045b067f30407edd672c3d7"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/07_block_right.png",
+      "sha256": "8002e5778e2a863f0caa20daa28237cc5f976a56ab84b2e277aca775861b5cef"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/07_block_up.png",
+      "sha256": "c80775ff79bd615ffa339592769d2c07c53071f190172d9480cb5f50c4b612d4"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/08_counter_recovery_down.png",
+      "sha256": "2de8a1f275d0b91df3a73704d350b0757274988a1a675e83957c19f3bc281159"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/08_counter_recovery_left.png",
+      "sha256": "05cbc98be3c3730303077d9aeaa244706b0db65859428dc68ff89da9f0168f14"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/08_counter_recovery_right.png",
+      "sha256": "5107d928adff1336cec8dde1f6663882a62628411f9fbb8ee9f0d9598e7dde74"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/08_counter_recovery_up.png",
+      "sha256": "39ace1bbacc9966176de33227b79283d7e42298ab5fdf8e8b624a41fc62f60bf"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/09_cancel.png",
+      "sha256": "ffc46cb132a783ab10125123fa3cacdd91caf426a6a6edf0582305707da52384"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/10_dead.png",
+      "sha256": "efe2e7a014492385d4a9ce08a0bd68d658babc9dea1447190f4f25017b068ac7"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/11_paused.png",
+      "sha256": "28d1bcac225c9baf98b9647bc907459a54bcd9f7e6c7a62447dade5d23fe2258"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/12_revoked.png",
+      "sha256": "f154367d3dede23a5f60b43b2b9319f6e438a7ab05396946af0d0b978479370f"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/13_unsupported_keeps_Oleg.png",
+      "sha256": "62998822dae7622bedb2fbcd80d4f28abc64fa792e6831b2220dd86e1f779b4d"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/14_settings_guard_false.png",
+      "sha256": "41eaa2d06f6b9a1bac501bf8c8fbaba83307053801648f380ebd95beba9e5105"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/14_settings_guard_true.png",
+      "sha256": "8a98d0df85cd399d8556bb3727488799aab2b83a6d7c50429936ac54eba0f7c9"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/result.json",
+      "sha256": "99cee939bef81fcadbcfcaf04df07e5b2492a9c0a47f8b9a1475a9667b496f9e"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live.log",
+      "sha256": "8e83b3d4ffad401eff31788903293a42193d1c4f0a85d6c958c17b4080c09c35"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/movie/result.json",
+      "sha256": "79fe3347d30f5cbe5b48fce2b3e094c26cf77886c796f55f7a267d940e1c11ad"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/movie.log",
+      "sha256": "f1eb198064e93a4255100c73085f870191ccd123b4b1e1af7bad9ab0c6136006"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/movie_probe.json",
+      "sha256": "887dacb9b21ee7edeae7675b0c5e04b2979e97b8b9ca5af95d8283a54ef64365"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/native-01/source_hashes.json",
+      "sha256": "5eb703192e5b5e40fb7ad5a1da1ea249aaeaeb6c5994fe6bd4016fb980772237"
+    }
+  ]
+}

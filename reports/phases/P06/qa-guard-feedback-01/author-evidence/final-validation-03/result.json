@@ -1,0 +1,77 @@
+{
+  "scope": "FINAL_OLEG_HUD_SOURCE_VALIDATION",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "commands": [
+    {
+      "name": "headless-03",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_counter_feedback.py",
+        "--headless",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/headless-03"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "native-03",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_counter_feedback.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/native-03",
+        "--movie",
+        "--build-output",
+        "build/P06/guard-feedback-01/native-03"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "restart",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/restart_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "character_readiness",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_readiness_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "lab_isolation",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_lab_isolation.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/final-validation-03/lab_isolation"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "changed_sources_vs_regression01": [
+    "game/scripts/core/character_lab.gd",
+    "game/scripts/ui/counter_feedback.gd",
+    "game/tests/olezhka_feedback_replay.gd"
+  ],
+  "old_combat_body_Core_configs_assets_unchanged": true
+}

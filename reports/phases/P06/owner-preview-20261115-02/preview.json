@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "scope": "LOCAL_OWNER_P06_DEV_PREVIEW_ONLY",
+  "passed": true,
+  "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+  "source_unchanged": true,
+  "phase_approval": false,
+  "release_approval": false,
+  "last_full_PASS": "P05",
+  "available_combat_heroes": [
+    "gabar",
+    "olezhka"
+  ],
+  "portrait_cast_count": 9,
+  "other_combat_heroes": "INCOMPLETE; selection must preserve current ready actor",
+  "native_windows": "NOT_TESTED",
+  "audio_listening": "NOT_CLAIMED",
+  "FPS_acceptance": "NOT_CLAIMED",
+  "exports": [
+    {
+      "platform": "Linux",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-02/linux/last-skuf.x86_64",
+      "native_windows": null,
+      "sha256": "ca44b646b17f4f88c35533611902c999a0ce554a65f6704a0fd045665a29c85a",
+      "bytes": 77298816,
+      "runtime_smoke_passed": true,
+      "runtime_scope": "Linux renderer + Input menu/available fixtures",
+      "captures": 4
+    },
+    {
+      "platform": "Windows",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-02/windows/last-skuf.exe",
+      "native_windows": "NOT_TESTED",
+      "sha256": "f0bef4aa6cc1404c81dfbee827aba4c7bc23ce22d2b2165a3af5b2728532eb94",
+      "bytes": 113047888,
+      "runtime_smoke_passed": true,
+      "runtime_scope": "Actual Windows PE under Wine headless + Input menu/available fixtures",
+      "captures": 0
+    }
+  ],
+  "commands": [
+    {
+      "name": "export_linux",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--export-release",
+        "Linux",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-02/linux/last-skuf.x86_64"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.968,
+      "log_sha256": "1b2213ce4fff5d5e3f696ad4b48dbb18ac32724410738ff9bd5e8ed0e67f51ff"
+    },
+    {
+      "name": "linux_smoke",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-02/linux/last-skuf.x86_64",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--",
+        "--p06-owner-preview-smoke"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 1.623,
+      "log_sha256": "3e4d48ccc15dc3e1b761a6a2e873c272d938392ae8b09c997ea85da60b792d4d"
+    },
+    {
+      "name": "export_windows",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--export-release",
+        "Windows",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-02/windows/last-skuf.exe"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.97,
+      "log_sha256": "82d6119944d0bd1fb05b7814492b52783f2cc88dd0657d6d6fc97a6f7fb1be19"
+    },
+    {
+      "name": "windows_smoke",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/wine/usr/bin/wine",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-02/windows/last-skuf.exe",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--",
+        "--p06-owner-preview-smoke"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 12.265,
+      "log_sha256": "7daf867aeddcdbc04a24ec4ef31567972975b5ee934f3bc340473576fc8f0538"
+    }
+  ]
+}

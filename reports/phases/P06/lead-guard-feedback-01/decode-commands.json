@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "failed_attempts": [
+    {
+      "option": "-vsync 0",
+      "exit_code": 8,
+      "error": "Unrecognized option vsync; this installed ffmpeg requires fps_mode",
+      "engine_or_native_run": false
+    },
+    {
+      "option": "-vsync 0 -threads 1",
+      "exit_code": 8,
+      "error": "Unrecognized option vsync"
+    }
+  ],
+  "successful_decode": {
+    "argv": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-i",
+      "AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/guard-feedback-01/native-03/counter-feedback.mp4",
+      "-fps_mode",
+      "passthrough",
+      "-threads",
+      "1",
+      "AYAY_SDD_v1.0/reports/phases/P06/lead-guard-feedback-01/diagnostics/movie-frames/frame_%03d.png"
+    ],
+    "exit_code": 0,
+    "decoded_frames": 286
+  },
+  "source_media_not_changed": true
+}

@@ -1,0 +1,159 @@
+{
+  "scope": "COUNTER_UI_AND_EXISTING_GAMEPLAY_REGRESSION",
+  "source_unchanged": true,
+  "passed": true,
+  "commands": [
+    {
+      "name": "native_counter",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_counter_feedback.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/native-01",
+        "--movie",
+        "--build-output",
+        "build/P06/guard-feedback-01/native-01"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 16.418
+    },
+    {
+      "name": "old_Olezhka",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_olezhka.py",
+        "--headless",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/regression-01/olezhka"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 3.728
+    },
+    {
+      "name": "old_Gabar",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_gabar.py",
+        "--headless",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/regression-01/gabar"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.601
+    },
+    {
+      "name": "lab_isolation",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_lab_isolation.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/guard-feedback-01/regression-01/lab_isolation"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 1.87
+    },
+    {
+      "name": "contact_timing",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/contact_timing_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.139
+    },
+    {
+      "name": "restart",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/restart_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 14.678
+    },
+    {
+      "name": "character_readiness",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_readiness_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.883
+    },
+    {
+      "name": "character_policy_integration",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_policy_integration_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 16.527
+    },
+    {
+      "name": "yakuza_finisher_authority",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/yakuza_finisher_authority_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.386
+    },
+    {
+      "name": "options",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/options_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.596
+    },
+    {
+      "name": "p04g",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/p04g_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 31.149
+    }
+  ],
+  "phase_approval": false
+}

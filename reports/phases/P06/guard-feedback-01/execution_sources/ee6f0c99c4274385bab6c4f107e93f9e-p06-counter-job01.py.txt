@@ -1,0 +1,7 @@
+import sys,subprocess,json
+from pathlib import Path
+w=Path.cwd();r=w.parents[2];out=w/'reports/phases/P06/guard-feedback-01/headless-01';pre=w/'reports/phases/P06/guard-feedback-01/preflight';pre.mkdir(parents=True,exist_ok=False)
+for name,tool in [('references','validate_pack.py'),('privacy','check_privacy.py')]:
+ run=subprocess.run([sys.executable,str(r/'tools'/tool)],cwd=r,capture_output=True,text=True);(pre/(name+'.log')).write_text(run.stdout+run.stderr+'\nexit_code='+str(run.returncode)+'\n');print(name,run.returncode,flush=True)
+ if run.returncode:raise SystemExit(run.returncode)
+raise SystemExit(subprocess.run([sys.executable,'tools/verify_p06_counter_feedback.py','--headless','--output',str(out)],cwd=w).returncode)

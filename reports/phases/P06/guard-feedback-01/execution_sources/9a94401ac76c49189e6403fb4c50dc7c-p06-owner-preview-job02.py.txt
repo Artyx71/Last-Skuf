@@ -1,0 +1,14 @@
+import sys,subprocess,json,shutil,hashlib,os
+from pathlib import Path
+w=Path.cwd();r=w.parents[2];sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import sources,write,sha
+base=w/'reports/phases/P06/owner-preview-20261115-02';build=w/'build/P06/owner-preview-20261115-02';friendly=r/'build/P06_DEV_20261115_02';assert not friendly.exists() and not friendly.is_symlink();frozen=json.loads((w/'reports/phases/P06/guard-feedback-01/native-03/source_hashes.json').read_text());assert frozen==sources()
+argv=[sys.executable,'tools/export_p06_preview.py','--output',str(base),'--build-output',str(build)];code=subprocess.run(argv,cwd=w).returncode
+if code:raise SystemExit(code)
+old=w/'build/P06/owner-preview-20261115-01'
+for name in ['PLAY_LINUX.sh','PLAY_WINDOWS.cmd','GODOT_COPYRIGHT.txt','GODOT_LICENSE.txt']:shutil.copy2(old/name,build/name)
+text=(old/'ПРОЧТИ_МЕНЯ.txt').read_text().replace('2026-11-15 / 01','2026-11-15 / 02');text+='\nОбновление02: у Олежки сверху справа видны подготовка, окно фронтального блока, ответ, восстановление и cooldown. Нажать2, смотреть на противника и нажатьF в момент его ближнего удара. Отражается только один подходящий удар; пули не парируются. C отменяет приём без возврата cooldown; R очищает бой и старое предупреждение о выборе. Цвет продублирован текстом, Full/Reduced и эффекты не меняют механику.\n';(build/'ПРОЧТИ_МЕНЯ.txt').write_text(text)
+files=[{'path':str(p.relative_to(build)),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(build.rglob('*')) if p.is_file()];preview=json.loads((base/'preview.json').read_text());linux=json.loads((base/'linux_smoke/result.json').read_text());win=json.loads((base/'windows_smoke/result.json').read_text());handoff={'schema':1,'scope':'LOCAL_OWNER_DEV_PREVIEW','phase_approval':False,'source_head':preview['source_head'],'friendly_directory':str(friendly),'files':files,'linux_checks':len(linux['checks']),'Wine_headless_checks':len(win['checks']),'native_windows':'NOT_TESTED','new_feature':'Oleg livecounterwindow HUD, unchanged attack logic'};write(base/'owner-handoff.json',handoff);write(build/'BUILD_MANIFEST.json',handoff)
+assert not subprocess.run(['bash','-n',str(build/'PLAY_LINUX.sh')]).returncode
+for f in files:assert sha(build/f['path'])==f['sha256']
+friendly.parent.mkdir(exist_ok=True);friendly.symlink_to(build,target_is_directory=True);print('OWNER_PREVIEW_READY',friendly,'linux',len(linux['checks']),'Wineheadless',len(win['checks']),flush=True)
