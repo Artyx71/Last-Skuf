@@ -12,6 +12,10 @@ func _valid_object(object: Variant) -> bool:
 
 func _near_foot(source: CharacterBody2D, object: PhysicsBody2D, aim: Vector2) -> bool:
 	if not _valid_object(object): return false
+	# A callback's Node2D transform may not yet have reached PhysicsServer2D.
+	# Queries and the subsequent sweep must use the same current transforms.
+	source.force_update_transform()
+	object.force_update_transform()
 	var offset := object.global_position-source.global_position
 	if offset.length() < 12.0 or offset.length() > 38.0 or aim.dot(offset.normalized()) < 0.85: return false
 	# Test the existing collider with a short foot reach, excluding only self.
@@ -71,7 +75,7 @@ func _contact_eligible(job: Dictionary) -> bool:
 func _stop_job(job: Dictionary) -> void:
 	jobs.erase(job)
 	# Do not cancel a replacement action created by an external listener.
-	if _authorized_source(job.source) and job.source.melee_attack_id == job.id:
+	if job.epoch == combat.encounter_epoch and _authorized_source(job.source) and job.authority == job.source.action_authority_snapshot and job.source.melee_attack_id == job.id:
 		job.source.cancel_action()
 
 func request_step(source: CharacterBody2D, distance: float) -> void:
