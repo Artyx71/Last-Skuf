@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--output', required=True)
     parser.add_argument('--headless', action='store_true')
     parser.add_argument('--import-assets', action='store_true')
+    parser.add_argument('--replay-only', action='store_true', help='Keep earlier unchanged-source regressions; run actual contact replay only')
     args = parser.parse_args()
     output = (ROOT / args.output).resolve()
     if output.exists(): parser.error('Use a fresh output; consumed jobs are never blindly repeated')
@@ -60,7 +61,7 @@ def main():
     allowed |= {'game/scripts/systems/character_finisher_audio.gd.uid','game/tests/character_finisher_audio_test.gd.uid','game/tests/character_finisher_audio_replay.gd.uid'}
     write(output/'import_source_delta.json',{'changed':sorted(changed),'allowed':sorted(allowed),'unexpected':sorted(set(changed)-allowed)})
     ok = ok and (not changed or args.import_assets and set(changed)<=allowed)
-    if ok:
+    if ok and not args.replay_only:
         for test in ['character_finisher_audio','character_combat_profile','audio','contact_timing','p04g','yakuza_finisher_authority','restart']:
             # The legacy contact test counts render observations of fixed physics
             # poses. Lock one physics step per frame, preserving its full-window

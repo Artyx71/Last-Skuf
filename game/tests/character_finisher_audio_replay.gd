@@ -57,7 +57,10 @@ func on_contact(event: Dictionary) -> void:
 
 func prepare(category: String, equipment_allowed := true) -> CharacterBody2D:
  lab.reset_encounter();lab.auto_retry=false
- lab.player.position=Vector2(250,270);lab.player.set_aim(Vector2.RIGHT)
+ # Same close initial spacing as the accepted prime fixture: the heavy shove
+ # moves the NPC ~6px. Starting at30 lets that real impulse leave unarmed35
+ # range before contact; initial26 retains legal geometry without changing it.
+ lab.player.position=Vector2(254,270);lab.player.set_aim(Vector2.RIGHT)
  for enemy in lab.enemies:
   enemy.set_physics_process(false);enemy.position=Vector2(560,100)
  var target: CharacterBody2D=lab.enemies[0]
