@@ -86,7 +86,10 @@ func run() -> void:
 		broken=sockets.duplicate(true);broken.frames[0].clothing=[24,64]
 		check(kind+":out_of_cell_socket_denied",not Frames._valid_sockets(broken,layout))
 	var prime := preload("res://scripts/actors/character_player.gd").new()
-	check("source_adoption_does_not_grant_prime_ability",not prime.prepare_fixture("timka_prime"))
+	prime.actor_id="timka"
+	prime.scene_policy=preload("res://scripts/systems/character_scene_policy.gd").new()
+	prime.scene_policy.open("timka_prime")
+	check("source_and_policy_alone_do_not_grant_unprepared_body_power",not prime.can_use_finisher("unarmed") and not prime.use_ability())
 	prime.free()
 	var passed := checks.all(func(item: Dictionary):return item.passed)
 	var output := OS.get_environment("AYAY_TIMKA_LAYOUT_OUTPUT")

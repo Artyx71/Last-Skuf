@@ -191,7 +191,7 @@ func run() -> void:
 	check("Full_Reduced_preserve_logic",options_results[0]==options_results[1])
 	var original: int=lab.player.get_instance_id()
 	var generation: int=lab.scene_policy.action_authority("timka").generation
-	check("unfinished_prime_rejected_without_replacing_present",not lab.select_fixture("timka_prime") and lab.player.get_instance_id()==original and lab.scene_policy.action_authority("timka").generation==generation)
+	check("unfinished_Ryzhik_rejected_without_replacing_present",not lab.select_fixture("ryzhik_training") and lab.player.get_instance_id()==original and lab.scene_policy.action_authority("timka").generation==generation)
 	check("failed_selection_leaves_present_usable",lab.player.actor_id=="timka" and lab.player.prepared_ability=="disengage")
 	await tap(KEY_R)
 	await capture("present_ready_after_restart")

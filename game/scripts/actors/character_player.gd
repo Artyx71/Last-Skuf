@@ -6,7 +6,7 @@ const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
 # Add a fixture only with its actual controller handler and gameplay evidence.
 const IMPLEMENTED_FIXTURE_ABILITIES := {
 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
-	"timka_present":"disengage"
+	"timka_present":"disengage", "timka_prime":"clinch"
 }
 var actor_id := ""
 var scene_policy: RefCounted
@@ -21,6 +21,7 @@ var action_authority_snapshot: Dictionary = {}
 var action_ability_id := ""
 var counter_spent := false
 var counter_blocks := 0
+var _clinch_requested := false
 const COUNTER_GUARD_OPEN := 0.06
 const COUNTER_GUARD_CLOSE := 0.26
 const COUNTER_WINDUP := 0.28
@@ -50,7 +51,10 @@ func prepare_fixture(scene_id: String) -> bool:
 	if not proposed.open(scene_id) or proposed.ability_id() != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
 	var definition: Dictionary = proposed.definition()
 	var id := String(definition.actor_id)
-	var frames := CharacterFrames.timka_present_frames() if scene_id == "timka_present" else _load_combat_frames(id)
+	var frames: SpriteFrames
+	if scene_id == "timka_present": frames = CharacterFrames.timka_present_frames()
+	elif scene_id == "timka_prime": frames = CharacterFrames.timka_prime_frames()
+	else: frames = _load_combat_frames(id)
 	if frames == null: return false
 	for animation in frames.get_animation_names():
 		for frame in frames.get_frame_count(animation):
@@ -81,7 +85,7 @@ func _build_world_frames() -> SpriteFrames:
 	return authored_frames
 
 func _configure_action_frames() -> void:
-	# All 56 clips already come from this actor's three authored sheets.
+	# The exact prepared context already contains all its required own clips.
 	pass
 
 func _ready() -> void:
@@ -102,6 +106,7 @@ func _process(_delta: float) -> void:
 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
 
 func _movement_multiplier() -> float:
+	if not _prepared_policy_matches_live(): return 0.0
 	if action_kind in ["special","disengage"]: return 0.0
 	return 1.44 if Input.is_action_pressed("character_run") else 1.0
 
@@ -135,33 +140,45 @@ func _physics_process(delta: float) -> void:
 
 func reset(at: Vector2) -> void:
 	super.reset(at)
-	move_speed = scene_policy.movement_speed()
+	move_speed = scene_policy.movement_speed() if _prepared_policy_matches_live() else 0.0
 	ability_cooldown = 0.0
 	ability_uses = 0
 	ability_distance = 0.0
 	last_ability_path.clear()
 	counter_spent = false
 	counter_blocks = 0
+	_clinch_requested = false
 	PixelPresentation.align(sprite,self,FRAME_SIZE*0.5-FRAME_PIVOT)
 
 func finisher_authority(category: String) -> Dictionary:
-	if scene_policy == null: return {}
+	if not _prepared_policy_matches_live(): return {}
 	return scene_policy.finisher_authority(actor_id,category,finisher_category)
 
 func can_use_finisher(category: String) -> bool:
 	return not finisher_authority(category).is_empty()
 
 func resolve_finisher(category: String, base: Dictionary) -> Dictionary:
-	if scene_policy == null: return {}
+	if not _prepared_policy_matches_live(): return {}
 	return scene_policy.resolve_finisher(actor_id,category,finisher_category,base)
 
+func _prepared_policy_matches_live() -> bool:
+	# A real policy for the same actor but another context cannot grant powers
+	# to an already prepared body. Only the host's atomic fixture switch can.
+	return scene_policy is ScenePolicy and not prepared_definition.is_empty() and scene_policy.definition()==prepared_definition and scene_policy.ability_id()==prepared_ability
+
 func _can_begin_action() -> bool:
-	return lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty() and scene_policy.definition().get("actor_id") == actor_id
+	return lab != null and _prepared_policy_matches_live() and lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty()
 
 func _play_action(action: String, duration: float) -> void:
 	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage"] else {}
 	action_ability_id = scene_policy.ability_id() if action in ["special","disengage"] else ""
 	super._play_action(action,duration)
+	if actor_id == "timka" and prepared_ability == "clinch":
+		if action == "shove": action_animation = StringName("prime_strike_"+action_direction)
+		elif action == "finish_unarmed" and _clinch_requested:
+			action_animation = StringName("special_"+action_direction)
+			action_ability_id = "clinch"
+		_present_action()
 
 func _present_action() -> void:
 	if action_kind != "disengage":
@@ -184,7 +201,7 @@ func _present_action() -> void:
 	weapon_visual_update()
 
 func _action_authorized() -> bool:
-	if action_authority_snapshot.is_empty() or scene_policy == null: return false
+	if action_authority_snapshot.is_empty() or not _prepared_policy_matches_live(): return false
 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
 	return action_kind not in ["special","disengage"] or action_ability_id == scene_policy.ability_id()
 
@@ -192,6 +209,11 @@ func attack_melee() -> bool:
 	if not _can_begin_action() or melee_cooldown > 0: return false
 	# A drawn finisher tool does not grant a normal lethal knife attack.
 	var definition: Dictionary = lab.config.attacks.shove.duplicate(true)
+	if actor_id == "timka" and prepared_ability == "clinch":
+		# Keep the one-hit baseline enemy alive for an earned grapple. Strength
+		# comes from the heavy contact/impulse and control, not inflated NPC HP.
+		definition.merge({"damage":0,"stun":1.25,"cooldown":0.9,"windup":0.20,
+			"active":0.12,"recovery":0.28,"strong":true},true)
 	melee_cooldown = float(definition.cooldown)
 	_face_aim()
 	action_windup = float(definition.windup)
@@ -209,6 +231,8 @@ func use_ability() -> bool:
 	if not _can_begin_action() or ability_cooldown > 0: return false
 	if actor_id == "timka" and scene_policy.ability_id() == "disengage":
 		return _start_disengage()
+	if actor_id == "timka" and scene_policy.ability_id() == "clinch":
+		return _start_clinch()
 	if actor_id == "olezhka" and scene_policy.ability_id() == "training_counter":
 		return _start_training_counter()
 	# Other abilities remain unavailable until their actual actor integration exists.
@@ -237,6 +261,22 @@ func _start_disengage() -> bool:
 	last_ability_path.assign([global_position])
 	_play_action("disengage",action_windup+action_active+action_recovery)
 	return true
+
+func _start_clinch() -> bool:
+	# Grapple only a genuinely vulnerable, reachable target with empty hands.
+	# The existing Core owns reservation, contact, damage and once-only reward.
+	if finisher_category != "unarmed" or finisher_weapon != "unarmed": return false
+	for target in lab.enemies:
+		_clinch_requested = true
+		var started: bool = lab.combat.start_finisher(self,target,"unarmed")
+		_clinch_requested = false
+		if started:
+			ability_cooldown = 2.4
+			ability_uses += 1
+			ability_distance = 0.0
+			last_ability_path.assign([global_position])
+			return true
+	return false
 
 func _start_training_counter() -> bool:
 	_face_aim()

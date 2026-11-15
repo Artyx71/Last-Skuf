@@ -57,6 +57,31 @@ static func timka_present_frames() -> SpriteFrames:
    result.add_frame(name,result.get_frame_texture(StringName(item[0]+direction),item[1]))
  return result
 
+static func timka_prime_frames() -> SpriteFrames:
+ var result := combat_frames("timka")
+ if result == null: return null
+ for direction in DIRECTIONS:
+  # Own drawn ready-to-grapple poses replace the present relaxed idle. Prime
+  # strides use the two authored running poses, not a faster present walk.
+  var idle := StringName("idle_"+direction)
+  var walk := StringName("walk_"+direction)
+  var finish := StringName("finish_unarmed_"+direction)
+  var shove := StringName("shove_"+direction)
+  var run := StringName("run_"+direction)
+  result.clear(idle)
+  result.add_frame(idle,result.get_frame_texture(finish,0))
+  result.add_frame(idle,result.get_frame_texture(shove,0))
+  result.clear(walk)
+  result.set_animation_speed(walk,6.0)
+  for frame in result.get_frame_count(run):
+   result.add_frame(walk,result.get_frame_texture(run,frame))
+  var strike := StringName("prime_strike_"+direction)
+  result.add_animation(strike)
+  result.set_animation_loop(strike,false)
+  for frame in result.get_frame_count(finish):
+   result.add_frame(strike,result.get_frame_texture(finish,frame))
+ return result
+
 static func _append_clips(result: SpriteFrames, addition: SpriteFrames) -> void:
  for name in addition.get_animation_names():
   result.add_animation(name)
