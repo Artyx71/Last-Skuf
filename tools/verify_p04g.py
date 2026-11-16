@@ -161,6 +161,9 @@ def main():
    data=json.loads(metadata.read_text()) if metadata.is_file() else {}
    check('p04_actual_movie_flag',{'actual_movie_metadata':data.get('frame_timings',{}).get('movie_maker') is True,'actual_mp4':(output/'p04_regression/mission.mp4').is_file()})
  if not args.headless:
-  run('detailed_audio',[sys.executable,ROOT/'tools/analyze_p04g_audio.py','--runtime-dir',output,'--output',output/'audio_detailed.json'],env('audio_detailed'),300)
+  audio_command=[sys.executable,ROOT/'tools/analyze_p04g_audio.py','--runtime-dir',output,'--output',output/'audio_detailed.json']
+  names=['full_replay','reduced_replay']+(['movie_replay'] if args.movie else [])+(['linux_export_replay','wine_export_replay'] if args.exports else [])
+  for name in names:audio_command+=['--runtime-name',name]
+  run('detailed_audio',audio_command,env('audio_detailed'),300)
  return finish()
 if __name__=='__main__':raise SystemExit(main())
