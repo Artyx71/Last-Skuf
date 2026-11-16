@@ -143,6 +143,7 @@ def main():
             parser.error('Immutable attempt: inspect previous evidence and use a fresh directory')
         folder.mkdir(parents=True, exist_ok=True)
     (output / 'logs').mkdir()
+    head_before = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     before = inventory()
     write(output / 'source_hashes_before.json', before)
     stages = plan(output, build, args.exports, args.movie, args.headless)
@@ -164,10 +165,11 @@ def main():
             break
     after = inventory()
     write(output / 'source_hashes_after.json', after)
+    head_after = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     summary = {'schema': 1, 'scope': 'P06_HEADLESS_TECHNICAL_ONLY' if args.headless else 'P06_NATIVE_VERIFICATION_PIPELINE',
-               'passed': len(rows) == len(stages) and all(x['passed'] for x in rows) and before == after,
+               'passed': len(rows) == len(stages) and all(x['passed'] for x in rows) and before == after and head_before == head_after,
                'phase_approval': False, 'merge_approval': False, 'native_evidence_requested': not args.headless, 'native_acceptance_approval': False,
-               'source_unchanged': before == after, 'source_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+               'source_unchanged': before == after, 'source_head': head_before, 'head_after': head_after, 'head_unchanged': head_before == head_after,
                'stages_expected': len(stages), 'stages_completed': len(rows), 'commands': rows,
                'exports_requested': args.exports, 'movies_requested': args.movie,
                'independent_review': 'REQUIRED; technical completion is not Lead PASS',
