@@ -131,6 +131,10 @@ def main():
     engine = ROOT / '.tools/godot' / ('Godot_v' + lock['release'] + '_linux.x86_64')
     if pipeline.sha(engine) != lock['linux_binary_sha256']:
         parser.error('Pinned engine changed')
+    pinned_bindings = {'contract': contract_sha, 'approval': args.approval_sha256}
+    binding_paths = {'contract': contract_path, 'approval': approval_path}
+    if binding_hashes(binding_paths) != pinned_bindings:
+        parser.error('Continuation proof changed before fixture parse')
     parse = pipeline.run_command([engine, '--headless', '--path', ROOT / 'game', '--check-only',
                                   '--script', 'res://tests/pasha_moving_shot_replay.gd'],
                                  output / 'logs/current_fixture_parse.log', 60)
@@ -139,6 +143,9 @@ def main():
         return 1
     commands = []
     for name, argv, timeout in stages:
+        if binding_hashes(binding_paths) != pinned_bindings:
+            rows.append({'name': name, 'origin': 'NOT_EXECUTED_PROOF_BINDINGS_CHANGED', 'passed': False})
+            break
         print('START', name, flush=True)
         item = pipeline.run_command(argv, output / 'logs' / (name + '.log'), timeout)
         item.update(name=name, report_passed=pipeline.valid_report(output / name / 'validation.json'))
@@ -154,8 +161,8 @@ def main():
     head_after = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     pipeline.write(output / 'source_hashes_after.json', after)
     verify_artifacts(ROOT, contract['artifacts'])
-    final_bindings = binding_hashes({'contract': contract_path, 'approval': approval_path})
-    bindings_stable = final_bindings == {'contract': contract_sha, 'approval': args.approval_sha256}
+    final_bindings = binding_hashes(binding_paths)
+    bindings_stable = final_bindings == pinned_bindings
     summary = {'schema': 1, 'scope': 'P06_COMPOSED_NATIVE_EVIDENCE_NOT_PHASE_APPROVAL',
                'passed': len(rows) == 13 and all(x['passed'] for x in rows) and before == after and head == head_after and bindings_stable,
                'phase_approval': False, 'merge_approval': False, 'stages': rows,
