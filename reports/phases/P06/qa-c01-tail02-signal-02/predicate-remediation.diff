@@ -1,0 +1,11 @@
+--- signal01/run_signal.py
++++ signal02/run_signal.py
+@@ -46,7 +46,7 @@
+  for c in contacts:
+   events=[e for e in data['audio_events'] if (e['segment'],e['cue'],e['tick'],e['epoch'])==(c['segment'],c['cue'],c['tick'],c['epoch'])];voices=events[0]['streams'] if len(events)==1 else [];entry=entries[c['cue']]
+   check(len(events)==1 and events[0]['source_pose']==1 and len(voices)==1 and voices[0]['path']==entry['path'] and voices[0]['bus']=='SFX' and voices[0]['gain_db']==-2.5 and voices[0]['pitch']==1 and voices[0]['loop']==0,'same Core contact cue/epoch/tick/pose1 and actual stream '+c['segment'])
+- for r in data['route_results']:check(r['health']==0 and r['hits']==2 and r['damage_events']==2 and r['kills']==1 and r['score']==100 and r['audio_events']==1,'actual once damage/kill/score/audio '+r['segment'])
++ for r in data['route_results']:check(r['health']==0 and r['hits']==2 and r['damage_events']==2 and r['kills']==1 and r['score']==100 and isinstance(r['audio_events'],list) and len(r['audio_events'])==1 and r['audio_events']==[e for e in data['audio_events'] if e['segment']==r['segment']],'actual once damage/kill/score/audio '+r['segment'])
+  decoded={};metrics={}
+  for name in ['runtime_mix','solo_cues','stress_mix']:
+   meta=data['mixer_captures'][name];p=native/'replay'/(name+'.wav');check(Path(meta['path'])==p,'actual recording path '+name)

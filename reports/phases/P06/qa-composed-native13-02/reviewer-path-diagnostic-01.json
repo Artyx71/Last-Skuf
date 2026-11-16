@@ -1,0 +1,11 @@
+{
+  "scope": "QA_PATH_NORMALIZATION_DIAGNOSTIC_NOT_PRODUCT_FAILURE",
+  "failed_probe": "audit_tail02_v1.py",
+  "actual_error": "FileNotFoundError resolving Wine Z:\\home... as a POSIX literal in PNG header reader",
+  "prior_partial_outputs_retained": [
+    "contract-reference-rehash.json",
+    "recorded-source-current-comparison.json"
+  ],
+  "fix": "Translate only actual Wine Z: path prefix and backslash separators to matching host absolute path before opening; no changes to product or assertion",
+  "prior_original_script_retained": true
+}

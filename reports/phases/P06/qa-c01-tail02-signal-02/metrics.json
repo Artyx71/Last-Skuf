@@ -1,0 +1,152 @@
+{
+  "actual_checks": 215,
+  "actual_PCM_files": 3,
+  "actual_Core_Input_routes": 3,
+  "actual_solo_streams": 20,
+  "actual_stress_bursts": 8,
+  "old45_routes_reused_not_rerun": true,
+  "PCM": {
+    "runtime_mix": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/runtime_mix.wav",
+      "sha256": "d248a135994135a453063e9a7c578324ba64d6a477efa0e8a1f331c076cb2e06",
+      "header": {
+        "channels": 2,
+        "width": 2,
+        "rate": 44100,
+        "frames": 196608,
+        "compression": "NONE"
+      },
+      "duration_seconds": 4.458231292517007,
+      "monotonic_capture_seconds": 4.475076,
+      "duration_minus_wall_seconds": -0.016844707482992938,
+      "channels": [
+        {
+          "channel": 0,
+          "RMS_dBFS": -23.089775072840673,
+          "DC": 0.0014106820647915204,
+          "sample_peak_dBFS": -6.272320089707345
+        },
+        {
+          "channel": 1,
+          "RMS_dBFS": -23.114086077043833,
+          "DC": 0.0014018919318914413,
+          "sample_peak_dBFS": -6.317185887120492
+        }
+      ],
+      "PCM_rail_samples": 0,
+      "truepeak_FFmpeg_dBFS": -6.3,
+      "FFmpeg_argv": [
+        "/usr/bin/ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/runtime_mix.wav",
+        "-af",
+        "ebur128=peak=true",
+        "-f",
+        "null",
+        "-"
+      ],
+      "FFmpeg_exit": 0,
+      "FFmpeg_log_sha256": "e9e2472a6d8f5176bf83d0e7761ea67483776f6667233ef3bd8048768c5bec9d"
+    },
+    "solo_cues": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/solo_cues.wav",
+      "sha256": "a206ba9aaa6157ce05cb17cd787120701ff3323b29758aba5b664b16a5cfc6d2",
+      "header": {
+        "channels": 2,
+        "width": 2,
+        "rate": 44100,
+        "frames": 528896,
+        "compression": "NONE"
+      },
+      "duration_seconds": 11.993106575963719,
+      "monotonic_capture_seconds": 11.999657,
+      "duration_minus_wall_seconds": -0.006550424036280589,
+      "channels": [
+        {
+          "channel": 0,
+          "RMS_dBFS": -27.152244062359173,
+          "DC": -0.00010768147428868931,
+          "sample_peak_dBFS": -6.6955876400365
+        },
+        {
+          "channel": 1,
+          "RMS_dBFS": -27.152244062359173,
+          "DC": -0.00010768147428868931,
+          "sample_peak_dBFS": -6.6955876400365
+        }
+      ],
+      "PCM_rail_samples": 0,
+      "truepeak_FFmpeg_dBFS": -5.9,
+      "FFmpeg_argv": [
+        "/usr/bin/ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/solo_cues.wav",
+        "-af",
+        "ebur128=peak=true",
+        "-f",
+        "null",
+        "-"
+      ],
+      "FFmpeg_exit": 0,
+      "FFmpeg_log_sha256": "f21fa3866b844f4b0fae7fcce40a49264dd911731ec2ff99f7ce55a2f9cb0e45"
+    },
+    "stress_mix": {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/stress_mix.wav",
+      "sha256": "35d7a4e48d72a2c196de92d70a35bf17638e2a256999a5f137df90e3b805ecc0",
+      "header": {
+        "channels": 2,
+        "width": 2,
+        "rate": 44100,
+        "frames": 269312,
+        "compression": "NONE"
+      },
+      "duration_seconds": 6.106848072562358,
+      "monotonic_capture_seconds": 6.09955,
+      "duration_minus_wall_seconds": 0.007298072562358371,
+      "channels": [
+        {
+          "channel": 0,
+          "RMS_dBFS": -13.803465101087875,
+          "DC": 0.0008610130036285169,
+          "sample_peak_dBFS": -3.0003622493859567
+        },
+        {
+          "channel": 1,
+          "RMS_dBFS": -13.79826848699151,
+          "DC": 0.0008016314796621809,
+          "sample_peak_dBFS": -3.0003622493859567
+        }
+      ],
+      "PCM_rail_samples": 0,
+      "truepeak_FFmpeg_dBFS": -1.9,
+      "FFmpeg_argv": [
+        "/usr/bin/ffmpeg",
+        "-hide_banner",
+        "-nostdin",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-02/finisher_audio/replay/stress_mix.wav",
+        "-af",
+        "ebur128=peak=true",
+        "-f",
+        "null",
+        "-"
+      ],
+      "FFmpeg_exit": 0,
+      "FFmpeg_log_sha256": "b60eb300011b1f14863ee9d00aad6cce120cbd24d11c41e62293c2d8778e519b"
+    }
+  },
+  "minimum_source_NCC": 0.9899452104227207,
+  "maximum_abs_quiet_gain_delta_dB": 0.0,
+  "minimum_old_new_quiet_PCM_NCC": 1.0,
+  "historical_QA01_final": {
+    "decision_sha256": "6d1a3cb24b3ac4dd6484fdead14bc00b3f75e6132702cd6367d06a8a4360b418",
+    "artifacts_sha256": "d3afcdd977156330f5660c4a1788c071c3a4d210d5cafe335c5ebfe6a9ca075e",
+    "portable_files": 18,
+    "portable_bytes": 158224,
+    "immutable": true
+  }
+}

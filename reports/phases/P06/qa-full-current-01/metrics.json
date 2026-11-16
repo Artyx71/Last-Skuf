@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "source_head": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+  "source_keys_exact_before_after_current": 1456,
+  "actual_final_readonly_audit_checks": 51,
+  "actual_missing_continuation_canonical_exit": 0,
+  "actual_missing_continuation_seconds": 523.955,
+  "P04_actual_5profiles": {
+    "engine_replay": {
+      "checks": 59,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.528,
+      "PNG": 9,
+      "source_report_sha256": "7050fa83eef5ecf36b0738d586347b58c5fccfb3f86f93263216d6ebcd82d453",
+      "movie_maker": false,
+      "rendered_status": "CAPTURED",
+      "audio_driver": "PulseAudio"
+    },
+    "reduced_visual_replay": {
+      "checks": 59,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.569,
+      "PNG": 9,
+      "source_report_sha256": "ad901b206cfbe94421bc6c439950c82e6fc1c5b0769931bfed02e1feaf71e3cd",
+      "movie_maker": false,
+      "rendered_status": "CAPTURED",
+      "audio_driver": "PulseAudio"
+    },
+    "movie_replay": {
+      "checks": 59,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 554.483,
+      "PNG": 9,
+      "source_report_sha256": "54f8c3444e28063e0945a42a9bf657c2501bca524c1aaa935a058272ebc90463",
+      "movie_maker": true,
+      "rendered_status": "CAPTURED",
+      "audio_driver": "Dummy"
+    },
+    "linux_export_replay": {
+      "checks": 59,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.655,
+      "PNG": 9,
+      "source_report_sha256": "058e91da538082df470c6162db7760e481bf262a8563a9b816f1612684a954a4",
+      "movie_maker": false,
+      "rendered_status": "CAPTURED",
+      "audio_driver": "PulseAudio"
+    },
+    "windows_export_replay": {
+      "checks": 59,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.49,
+      "PNG": 9,
+      "source_report_sha256": "fb81d3420fa9c3d051fa9e4b8bae09ee29983182afca7c9b03a156c7f9e4996b",
+      "movie_maker": false,
+      "rendered_status": "CAPTURED",
+      "audio_driver": "WASAPI"
+    }
+  },
+  "P04_actual_24typed_wrapper_rows": 24,
+  "C5_actual_5numeric_profiles": {
+    "full_replay.wav": {
+      "true_peak_dbfs": -3.9,
+      "rails": 0,
+      "duration": 87.06321995464853,
+      "rate": 44100,
+      "driver": "PulseAudio"
+    },
+    "linux_export_replay.wav": {
+      "true_peak_dbfs": -4.8,
+      "rails": 0,
+      "duration": 87.04,
+      "rate": 44100,
+      "driver": "PulseAudio"
+    },
+    "movie_replay.wav": {
+      "true_peak_dbfs": -4.3,
+      "rails": 0,
+      "duration": 87.072,
+      "rate": 48000,
+      "driver": "Dummy"
+    },
+    "reduced_replay.wav": {
+      "true_peak_dbfs": -4.4,
+      "rails": 0,
+      "duration": 87.06321995464853,
+      "rate": 44100,
+      "driver": "PulseAudio"
+    },
+    "wine_export_replay.wav": {
+      "true_peak_dbfs": -4.5,
+      "rails": 0,
+      "duration": 87.06133333333334,
+      "rate": 48000,
+      "driver": "WASAPI"
+    }
+  },
+  "C5_actual_29typed_signal_checks": 29,
+  "C5_actual_nonMovie_performance_summaries": {
+    "full_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.961573,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.677,
+      "p95_ms": 16.896,
+      "p99_ms": 17.03,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "reduced_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.96173700000001,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.669,
+      "p95_ms": 16.923,
+      "p99_ms": 17.03,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "linux_export_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.963761,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.66,
+      "p95_ms": 16.894,
+      "p99_ms": 17.044,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "wine_export_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "Windows",
+      "duration_seconds": 9.957944,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Windows",
+      "p50_ms": 16.669,
+      "p95_ms": 16.886,
+      "p99_ms": 17.075,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    }
+  },
+  "performance_method_limits": "Real wallframe fixture summaries from actual nonMovie recordings. Raw600interval arrays not retained; percentiles not independently recomputed. MovieMaker metrics excluded from host FPS evidence.",
+  "retained49local_regressions": true,
+  "current_Game_vs49_regression_delta": [
+    {
+      "path": "game/scripts/qa/cast_replay.gd",
+      "then": "0ef99615285318cf5cf46528fb9b47b11d4646e87eddb55b840f424821d23f71",
+      "current": "84d55a53e0a5e4d15a3cb4cd5559c3413fde0997d2b432e74ae2e62d269ca4fd"
+    },
+    {
+      "path": "game/tests/pasha_moving_shot_replay.gd",
+      "then": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+      "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+    }
+  ],
+  "prior905_proof_pins_still_exact": true,
+  "completed_C5_1131_artifact_pins_still_exact": true,
+  "prior_independent_C01_numeric_checks": 215,
+  "prior_independent_tail_raw_audit_checks": 279,
+  "actual_new_engine_invocations_in_this_final_review": 0,
+  "actual_agent_listening": false,
+  "actual_native_Windows": "NOT_TESTED_WINE_SEPARATE"
+}

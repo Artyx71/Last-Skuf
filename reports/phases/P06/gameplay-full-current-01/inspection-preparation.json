@@ -1,0 +1,1454 @@
+{
+  "schema": 1,
+  "status": "INSPECTION_PREPARATION_PENDING_ATOMIC_COMBAT",
+  "reviewer": "independent Gameplay Reviewer /root/p06_full_gameplay",
+  "source_head_observed_readonly": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+  "source_worktree_tracked_clean_observed": true,
+  "critical_text_source_inventory": {
+    "game/scripts/actors/character_player.gd": {
+      "sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+      "bytes": 20931
+    },
+    "game/scripts/actors/combat_player.gd": {
+      "sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+      "bytes": 12158
+    },
+    "game/scripts/actors/character_frames.gd": {
+      "sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+      "bytes": 15478
+    },
+    "game/scripts/actors/pixel_presentation.gd": {
+      "sha256": "a6dfc9819d5f710f2ad33c1fd01ee1d1beb3fc7eca8ce95839da483b5add88a0",
+      "bytes": 363
+    },
+    "game/scripts/systems/character_scene_policy.gd": {
+      "sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+      "bytes": 3172
+    },
+    "game/scripts/systems/combat_system.gd": {
+      "sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+      "bytes": 23444
+    },
+    "game/scripts/core/character_lab.gd": {
+      "sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+      "bytes": 6915
+    },
+    "game/scripts/core/combat_lab.gd": {
+      "sha256": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+      "bytes": 21352
+    },
+    "game/scripts/abilities/ground_roll.gd": {
+      "sha256": "b290e1d466e4cb82b0e84c52b0c7ad4140febd4c8abcc274ed0509ab7ff57d13",
+      "bytes": 2745
+    },
+    "game/scripts/abilities/moving_shot.gd": {
+      "sha256": "3dac565c6bf72a98f592336cd008204b6e3dc7cc4c91ade8a174b5d259547dac",
+      "bytes": 5011
+    },
+    "game/scripts/abilities/environment_kick.gd": {
+      "sha256": "6e434715cc5934f6c2138d927a4c22d44a9c75f2436b331578fe6f356f571c2b",
+      "bytes": 1629
+    },
+    "game/scripts/systems/environment_kick_runtime.gd": {
+      "sha256": "c7648953d6f4869f5ebc77c9373bf97a730c6b6009902cf10956498d3541071f",
+      "bytes": 8789
+    },
+    "game/scripts/systems/moving_shot_runtime.gd": {
+      "sha256": "36f8015220aee4623076ffed345c7b0132bec69a40c5993fdd5c56abdece8ebf",
+      "bytes": 3223
+    },
+    "game/scripts/ai/enemy_actor.gd": {
+      "sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+      "bytes": 11755
+    },
+    "game/scripts/systems/character_combat_profile.gd": {
+      "sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+      "bytes": 1595
+    },
+    "game/scripts/systems/character_finisher_audio.gd": {
+      "sha256": "a1602cc99afda0f30b170299909a520f52c27d443edf5dbf0614a0eaad1d1fde",
+      "bytes": 2310
+    },
+    "game/scripts/systems/audio_director.gd": {
+      "sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+      "bytes": 12059
+    },
+    "game/resources/characters/sandbox_scenes.json": {
+      "sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+      "bytes": 1149
+    },
+    "game/resources/characters/combat_profiles.json": {
+      "sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+      "bytes": 884
+    },
+    "game/resources/combat/finishers.json": {
+      "sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+      "bytes": 1192
+    },
+    "tools/continue_p06_native.py": {
+      "sha256": "8531a755afab9ba8efb4ed8ffc4bb3e7fda378ae8f401c082366d570e29c7ba5",
+      "bytes": 10412
+    },
+    "tools/verify_p06_pasha.py": {
+      "sha256": "180ef33e20c6bcba2a24de21d2cc569d263ce638445c9f2f9d550463faf87541",
+      "bytes": 7159
+    },
+    "tools/verify_p04g.py": {
+      "sha256": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c",
+      "bytes": 14072
+    },
+    "tools/verify_p04.py": {
+      "sha256": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339",
+      "bytes": 10833
+    },
+    "game/tests/pasha_moving_shot_replay.gd": {
+      "sha256": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655",
+      "bytes": 29391
+    }
+  },
+  "actual_native_corpus_metrics": [
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/result.json",
+      "passed": true,
+      "checks": 194,
+      "failed_checks": [],
+      "trace_samples": 1721,
+      "contacts": 37,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 12,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.26666667
+      ],
+      "captures": 68
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/result.json",
+      "passed": true,
+      "checks": 248,
+      "failed_checks": [],
+      "trace_samples": 1875,
+      "contacts": 57,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 12,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.35
+      ],
+      "captures": 82
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/result.json",
+      "passed": true,
+      "checks": 79,
+      "failed_checks": [],
+      "trace_samples": 0,
+      "contacts": 7,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 0,
+      "outgoing_FIN_poses": [],
+      "outgoing_FIN_clocks": [],
+      "captures": 21
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/timka_present/live/result.json",
+      "passed": true,
+      "checks": 137,
+      "failed_checks": [],
+      "trace_samples": 1098,
+      "contacts": 7,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 0,
+      "outgoing_FIN_poses": [],
+      "outgoing_FIN_clocks": [],
+      "captures": 33
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/timka_prime/live/result.json",
+      "passed": true,
+      "checks": 304,
+      "failed_checks": [],
+      "trace_samples": 3589,
+      "contacts": 49,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 18,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.48333333
+      ],
+      "captures": 90
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/ryzhik/live/result.json",
+      "passed": true,
+      "checks": 439,
+      "failed_checks": [],
+      "trace_samples": 3483,
+      "contacts": 61,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 24,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.38333333
+      ],
+      "captures": 128
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/tega/live/result.json",
+      "passed": true,
+      "checks": 433,
+      "failed_checks": [],
+      "trace_samples": 4792,
+      "contacts": 66,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 24,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.43333333
+      ],
+      "captures": 128
+    },
+    {
+      "path": "reports/phases/P06/pasha-input-diagnostic-01/native/live/result.json",
+      "passed": true,
+      "checks": 589,
+      "failed_checks": [],
+      "trace_samples": 5644,
+      "contacts": 105,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 41,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.3
+      ],
+      "captures": 188
+    },
+    {
+      "path": "reports/phases/P06/pasha-input-diagnostic-01/native/movie/result.json",
+      "passed": true,
+      "checks": 401,
+      "failed_checks": [],
+      "trace_samples": 5644,
+      "contacts": 105,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 41,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [
+        0.3
+      ],
+      "captures": 0
+    },
+    {
+      "path": "reports/phases/P06/native-remaining5-02/npc_baseline/result.json",
+      "passed": true,
+      "checks": 204,
+      "failed_checks": [],
+      "trace_samples": 1360,
+      "contacts": 28,
+      "duplicate_contact_tokens": 0,
+      "outgoing_FIN_contacts": 14,
+      "outgoing_FIN_poses": [
+        1
+      ],
+      "outgoing_FIN_clocks": [],
+      "captures": 42
+    }
+  ],
+  "Pasha_independent_held_recalculation": [
+    {
+      "mode": "live",
+      "segment": "moving_shot_false_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_false_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_false_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_false_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_true_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_true_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_true_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "live",
+      "segment": "moving_shot_true_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_false_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_false_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_false_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_false_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_true_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_true_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_true_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "movie",
+      "segment": "moving_shot_true_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_false_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_false_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_false_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_false_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_true_down",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_true_left",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_true_right",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    },
+    {
+      "mode": "headless",
+      "segment": "moving_shot_true_up",
+      "samples": 32,
+      "Input_all_held": true,
+      "physical_ticks_match": true,
+      "strict_monotonic_ticks": true,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "travel_px": 93.0
+    }
+  ],
+  "old_partial_combat_individually_valid_branches": [
+    {
+      "name": "full_replay",
+      "checks": 413,
+      "all_checks_passed": true,
+      "FIN_cases": 20,
+      "AI_cases": 12,
+      "all_FIN_two_hits_once_kill100score_and_pair_pose1": true,
+      "performance": {
+        "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+        "display": "X11",
+        "duration_seconds": 9.96141199999999,
+        "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+        "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+        "movie_maker": false,
+        "movie_path": "",
+        "os": "Linux",
+        "p50_ms": 16.67,
+        "p95_ms": 17.051,
+        "p99_ms": 17.268,
+        "rendered": true,
+        "samples": 600,
+        "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+      }
+    },
+    {
+      "name": "reduced_replay",
+      "checks": 413,
+      "all_checks_passed": true,
+      "FIN_cases": 20,
+      "AI_cases": 12,
+      "all_FIN_two_hits_once_kill100score_and_pair_pose1": true,
+      "performance": {
+        "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+        "display": "X11",
+        "duration_seconds": 9.961773,
+        "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+        "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+        "movie_maker": false,
+        "movie_path": "",
+        "os": "Linux",
+        "p50_ms": 16.67,
+        "p95_ms": 16.966,
+        "p99_ms": 17.095,
+        "rendered": true,
+        "samples": 600,
+        "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+      }
+    },
+    {
+      "name": "linux_export_replay",
+      "checks": 413,
+      "all_checks_passed": true,
+      "FIN_cases": 20,
+      "AI_cases": 12,
+      "all_FIN_two_hits_once_kill100score_and_pair_pose1": true,
+      "performance": {
+        "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+        "display": "X11",
+        "duration_seconds": 9.965131,
+        "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+        "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+        "movie_maker": false,
+        "movie_path": "",
+        "os": "Linux",
+        "p50_ms": 16.663,
+        "p95_ms": 16.903,
+        "p99_ms": 17.009,
+        "rendered": true,
+        "samples": 600,
+        "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+      }
+    },
+    {
+      "name": "wine_export_replay",
+      "checks": 413,
+      "all_checks_passed": true,
+      "FIN_cases": 20,
+      "AI_cases": 12,
+      "all_FIN_two_hits_once_kill100score_and_pair_pose1": true,
+      "performance": {
+        "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+        "display": "Windows",
+        "duration_seconds": 9.957751,
+        "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+        "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+        "movie_maker": false,
+        "movie_path": "",
+        "os": "Windows",
+        "p50_ms": 16.668,
+        "p95_ms": 16.92,
+        "p99_ms": 17.223,
+        "rendered": true,
+        "samples": 600,
+        "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+      }
+    }
+  ],
+  "old_partial_combat_completed_nested_P04": [
+    {
+      "name": "engine_replay",
+      "passed": true,
+      "checks": 59,
+      "all_checks_passed": true,
+      "warps": 0,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.598,
+      "final_state": "complete",
+      "kills": 0,
+      "shots": 0,
+      "frame_timings": {
+        "backend": "NVIDIA GeForce GTX 1050 Ti",
+        "display": "X11",
+        "movie_maker": false,
+        "p50_ms": 16.6666666666667,
+        "p95_ms": 16.6666666666667,
+        "p99_ms": 16.6666666666667,
+        "samples": 4017
+      }
+    },
+    {
+      "name": "reduced_visual_replay",
+      "passed": true,
+      "checks": 59,
+      "all_checks_passed": true,
+      "warps": 0,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.586,
+      "final_state": "complete",
+      "kills": 0,
+      "shots": 0,
+      "frame_timings": {
+        "backend": "NVIDIA GeForce GTX 1050 Ti",
+        "display": "X11",
+        "movie_maker": false,
+        "p50_ms": 16.6666666666667,
+        "p95_ms": 16.6666666666667,
+        "p99_ms": 16.6666666666667,
+        "samples": 4017
+      }
+    },
+    {
+      "name": "movie_replay",
+      "passed": true,
+      "checks": 59,
+      "all_checks_passed": true,
+      "warps": 0,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 548.799,
+      "final_state": "complete",
+      "kills": 0,
+      "shots": 0,
+      "frame_timings": {
+        "backend": "NVIDIA GeForce GTX 1050 Ti",
+        "display": "X11",
+        "movie_maker": true,
+        "p50_ms": 16.6666666666667,
+        "p95_ms": 16.6666666666667,
+        "p99_ms": 16.6666666666667,
+        "samples": 4018
+      }
+    },
+    {
+      "name": "linux_export_replay",
+      "passed": true,
+      "checks": 59,
+      "all_checks_passed": true,
+      "warps": 0,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.642,
+      "final_state": "complete",
+      "kills": 0,
+      "shots": 0,
+      "frame_timings": {
+        "backend": "NVIDIA GeForce GTX 1050 Ti",
+        "display": "X11",
+        "movie_maker": false,
+        "p50_ms": 16.6666666666667,
+        "p95_ms": 16.6666666666667,
+        "p99_ms": 16.6666666666667,
+        "samples": 4016
+      }
+    },
+    {
+      "name": "windows_export_replay",
+      "passed": true,
+      "checks": 59,
+      "all_checks_passed": true,
+      "warps": 0,
+      "actual_AI_deaths": 10,
+      "max_retry_ms": 265.466,
+      "final_state": "complete",
+      "kills": 0,
+      "shots": 0,
+      "frame_timings": {
+        "backend": "NVIDIA GeForce GTX 1050 Ti",
+        "display": "Windows",
+        "movie_maker": false,
+        "p50_ms": 16.6666666666667,
+        "p95_ms": 16.6666666666667,
+        "p99_ms": 16.6666666666667,
+        "samples": 4016
+      }
+    }
+  ],
+  "old_P04G_Movie": "FAIL_TIMEOUT480_UNKNOWN_CAUSE_NOT_ACCEPTED",
+  "fresh_atomic_combat": "PENDING_ROOT_EXECUTION",
+  "engine_runs_by_reviewer": 0,
+  "media_decode_by_reviewer": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "P07_approval": false,
+  "must_fix": [],
+  "bounded_nonblocking_observation": {
+    "id": "GP-OBS-MELEE-EMIT-01",
+    "location": "combat_system.gd:start_melee lines87–94",
+    "fact": "weapon_melee signal precedes job stamp/source callback guards",
+    "actual_production_listener": "combat_lab.gd connects AudioDirector.on_gameplay_audio only; no lifecycle mutation found",
+    "classification": "hypothetical external lifecycle-mutating observer; no runtime reproduction and no current P06 must-fix",
+    "future_note": "If lifecycle-mutating launch observers are supported, pin epoch/action serial before emit and reject stale/freed source after; verify reset-new-action survives."
+  },
+  "Pasha_actual_held_samples_all3_modes": 768,
+  "cast_actual_state_readability_and_isolation": [
+    {
+      "mode": "cast",
+      "checks": 328,
+      "all_passed": true,
+      "trace_samples": 180,
+      "revealed_before_capture_all45": true,
+      "reveal_preserves_expected_state_all45": true,
+      "reload": {
+        "actual_new_process": true,
+        "campaign_file_unchanged": true,
+        "line": 1,
+        "passed": true,
+        "resource": "res://resources/dialogue/missed_fight_intro.json",
+        "visible_count": 0
+      }
+    },
+    {
+      "mode": "cast_large_text",
+      "checks": 328,
+      "all_passed": true,
+      "trace_samples": 180,
+      "revealed_before_capture_all45": true,
+      "reveal_preserves_expected_state_all45": true,
+      "reload": {
+        "actual_new_process": true,
+        "campaign_file_unchanged": true,
+        "line": 1,
+        "passed": true,
+        "resource": "res://resources/dialogue/missed_fight_intro.json",
+        "visible_count": 0
+      }
+    }
+  ],
+  "critical_source_manifest_comparisons": [
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/gabar/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/olezhka/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/counter_feedback/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/timka_present/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/timka_prime/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/ryzhik/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/full-native-current-source-01/tega/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/pasha-input-diagnostic-01/native/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        },
+        "game/tests/pasha_moving_shot_replay.gd": {
+          "recorded": "399348af23037d1c7b218c45e163fb527a46d61e195884ae9607143fd9bd23ec",
+          "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/native-remaining5-02/cast/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/native-remaining5-02/cast_large_text/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/native-remaining5-02/npc_baseline/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {
+        "tools/verify_p04g.py": {
+          "recorded": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "current": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+        },
+        "tools/verify_p04.py": {
+          "recorded": "38f653a619b097aba3cac303ac8fe71996aa4114fa5fd64a5bfedf2a7e5e30a0",
+          "current": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+        }
+      }
+    },
+    {
+      "manifest": "reports/phases/P06/native-remaining5-02/combat_baseline/source_hashes.json",
+      "current_exact_production_critical": [
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/pixel_presentation.gd",
+        "game/scripts/systems/character_scene_policy.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/abilities/ground_roll.gd",
+        "game/scripts/abilities/moving_shot.gd",
+        "game/scripts/abilities/environment_kick.gd",
+        "game/scripts/systems/environment_kick_runtime.gd",
+        "game/scripts/systems/moving_shot_runtime.gd",
+        "game/scripts/ai/enemy_actor.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/character_finisher_audio.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/resources/characters/sandbox_scenes.json",
+        "game/resources/characters/combat_profiles.json",
+        "game/resources/combat/finishers.json"
+      ],
+      "changed_production_critical": {},
+      "absent_production_critical": [],
+      "changed_selected_QA_files": {}
+    }
+  ]
+}

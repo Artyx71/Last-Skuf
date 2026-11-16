@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_LEAD_VERDICT",
-  "updated_utc": "2026-11-16T22:41:06.836850+00:00",
+  "updated_utc": "2026-11-16T23:40:32.252003+00:00",
   "phase": "P06",
   "status": "IMPLEMENTING",
   "formal_attempt": 1,
@@ -11,65 +11,81 @@
   "canonical_state": "ROOT/automation/phase_state.json",
   "worktree": "ROOT/.autopilot/worktrees/P06",
   "branch": "phase/p06-implementation",
-  "launcher_source_commit": "8705f04c",
+  "execution_source_head": "fa8693a36eaba56825f02ef74c09bbec38050a35",
   "production_runtime_commit": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
-  "production_runtime_qualification": "Production actors/Core/assets/audio unchanged; QA replays and tooling changed explicitly.",
   "latest_operation": {
-    "id": "311fdc08f73e43169295d6a2d67786b0",
-    "task": "P06/reviewed-native-remaining5-02",
+    "id": "69b305de0c5c4e65a1fa90433c4c7e97",
+    "task": "P06/reviewed-only-missing-P04-and-C5-signal-continuation-01",
     "argv": [
       "/usr/bin/python3",
-      "tools/continue_p06_native.py",
-      "--contract",
-      "reports/phases/P06/native-continuation-contract-02/contract.json",
-      "--approval",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-cast-continuation-preflight-01/decision.json",
-      "--approval-sha256",
-      "f3acaab752e1ff8a677987c2e0f076762b7763b6136ba0ff949aac1dfe4fabb0",
-      "--output",
-      "reports/phases/P06/native-remaining5-02",
-      "--build-output",
-      "build/P06/native-remaining5-02"
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-combat-missing-continuation-job01.py"
     ],
-    "argv_sha256": "09be1ed835daa9a6f4dd85da0238f70a8c4cfbfb33ef114dab87c817d792b1d3",
+    "argv_sha256": "5d9c96243cda33ed2f514733446d0c5eb4bf30509a89aad99fda0fa7a6214c45",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
-    "timeout": 7200,
+    "timeout": 1800,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/311fdc08f73e43169295d6a2d67786b0/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/311fdc08f73e43169295d6a2d67786b0/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/311fdc08f73e43169295d6a2d67786b0/started.json",
-    "status": "FAILED",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/69b305de0c5c4e65a1fa90433c4c7e97/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/69b305de0c5c4e65a1fa90433c4c7e97/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/69b305de0c5c4e65a1fa90433c4c7e97/started.json",
+    "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "e09d026d1001cad8bab08abd00fdd0275c0941b98362442734e0e81f76c8990e",
+    "input_sha256": "b338166495b7dc51732d179173f116fdaf59ed13930288e88efbbe76f55faab9",
     "safe_retry": false,
-    "created_at": "2026-11-16T22:12:13+00:00",
-    "exit_code": 1
+    "created_at": "2026-11-16T23:23:32+00:00",
+    "exit_code": 0
   },
-  "native_composed_report": "reports/phases/P06/native-remaining5-02/validation.json",
-  "technical_positive_stages": 12,
-  "fresh_atomic_combat_recovery": "NOT_RUN",
-  "C01_fresh_PCM_analysis": "PENDING_INDEPENDENT_NUMERIC_JOB",
-  "privacy_last_pass": {
-    "operation": "ec5ba675f3ef410ca34c7e910a56a285",
-    "report": "reports/phases/P06/final-private11-audit-03/validation.json",
-    "checks": 35,
-    "raw_files": 11,
-    "reachable_objects": 17156,
-    "before_new_publication": "RECHECK_NEW_INDEX_REFS_REQUIRED"
+  "technical_composition": "reports/phases/P06/combat-interruption-continuation-01/composed13.json",
+  "technical13_passed": true,
+  "technical13_phase_approval": false,
+  "ART_domain": {
+    "status": "PASS_ART_P06_CURRENT_SCOPE",
+    "sha256": "e084b0e5f5d347d4e6d63ea8a3258d63c2e2b586670a3daefb823727cac30439"
   },
+  "Gameplay_domain": {
+    "status": "PASS",
+    "sha256": "e43c34229072421e1e27f23e73b9cb5166260ac648d2ebcbd86684751c7b2121"
+  },
+  "full_QA": {
+    "status": "PASS_FULL_QA_P06_CURRENT_SCOPE",
+    "path": "reports/phases/P06/qa-full-current-01/decision.json",
+    "sha256": "2df9528c6b5b58d0e498bc6beb1529b7ad373ab62f186efbdc69cde2cb663629"
+  },
+  "full_Lead": "PENDING_FINAL_ARCHIVE_HEAD_AND_CI",
+  "P06_PR": "https://github.com/Artyx71/Last-Skuf/pull/11",
+  "publication": "fa869 published nonforce; finalmetadataHEAD notyetpublished",
+  "CI": "bootstrapfa869SUCCESS; afterarchive newHEADneedsnewCI",
+  "new_currentindex_privacy_audit": "REQUIRED_AFTER_FINAL_ARCHIVE",
+  "original130": {
+    "operation": "5766e682ba6546a0b4eb0dab35cca6be",
+    "cause": "UNKNOWN",
+    "old_report_not_rewritten": true
+  },
+  "fresh_missing_continuation": {
+    "operation": "69b305de0c5c4e65a1fa90433c4c7e97",
+    "exit_code": 0,
+    "consumed": true,
+    "P04_rows": 24,
+    "C5_numeric_checks": 29,
+    "C5_or_other12_retake": false
+  },
+  "C01_signal": {
+    "scope": "PASS_SIGNAL_ONLY",
+    "checks": 215,
+    "owner_historical_prototype_listening": true,
+    "agent_listening": false
+  },
+  "owner_preview": "ROOT/build/P06_DEV_20261117_09",
   "full_phase_approval": false,
   "merge_approval": false,
-  "P06_PR": null,
   "pending_generator_calls": 0,
-  "owner_preview": "ROOT/build/P06_DEV_20261116_08",
-  "deferred_P08": "P08-NPC-STYLE-01: extra hero-style NPC visuals only; baseline mandatory",
   "P07_gates": [
     "P06 full PASS/current CI/confirmed protected squash",
-    "safe ROOT/WORK handoff",
+    "safe ROOT/WORK runtime and Game handoff",
     "independent FULL Production Readiness",
-    "21 exact full MDS approval before mass production"
+    "21 full Lead-approved MDS before mass"
   ],
-  "historical_resumes": "reports/phases/P06/resume/history/20261116-before-combat-movie-recovery",
-  "next_action": "Only atomic combat_baseline recovery + fresh C01 numeric QA; preserve first12 and prior failures.",
-  "always_on_runner": false
+  "historical_resumes": "reports/phases/P06/resume/history/",
+  "next_action": "Commit checked metadata only; fresh private11/currentPR11CI/exactLead/guardedsquash, no more engine tests without new finding",
+  "always_on_runner": false,
+  "owner_preview_kind": "BYTE_EXACT_COPY_OF_ACTUALLY_VALIDATED_LINUX_WINE_EXPORTS"
 }

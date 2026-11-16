@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "scope": "READ_ONLY_OBSERVATION_NOT_FINAL_MERGE_SNAPSHOT",
+  "head": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+  "snapshots": {
+    "pr": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "url": "https://github.com/Artyx71/Last-Skuf/pull/11",
+          "number": 11,
+          "state": "open",
+          "merged": false,
+          "mergeable": true,
+          "draft": true,
+          "body": "Расширяет существующую боевую архитектуру шестью героями и отдельными контекстами Тимки present/prime. Добавлены направленный выпад Габара, контратака Олежки после успешной защиты, акробатический перекат Рыжика, работа Теги с реальным предметом и выстрел Паши в движении с конечными патронами и HUD. Слабый Якудза и маршрут CH01 сохранены. У персонажей собственные player-анимации, портреты и звуковые акценты; дополнительные hero-style рисунки NPC перенесены владельцем в P08, базовые реакции остаются обязательными.\n\nПроверка: первые12 частей составного native-прогона положительны с явно указанным переиспользованием неизменных доказательств. Боевой Full/Reduced и оба экспортных runtime прошли по413 проверок; Windows запускалась под Wine, native Windows не проверена. Регрессия CH01 прошла24/24. Анализ трёх свежих C01 PCM прошёл215/215, клиппинга нет; владелец ранее принял звучание для прототипа, агент прослушивания не заявляет. Raw-фото и приватные логи исключены; актуальные11 reference hashes, reachable objects и оба index проверены перед push.\n\nDraft: общая видеозапись боевого полигона превысила лимит времени; исходный FAIL сохранён. Две строки QA launcher приведены к существующим параметрам native P06, требуется новый atomic combat_baseline. Итоговые независимые ART/Gameplay/QA/Lead и обязательный bootstrap CI текущего SHA ещё ожидаются. Merge запрещён до полного PASS и свежей проверки SHA, прав, rules, CI и review threads.\n\nЭто прототип P06: сюжетно playable только CH01. Полная кампания,21 MDS и цель7–9 часов ещё не приняты. Основные материалы: reports/phases/P06/, reports/STATUS.md и reports/NEXT_ACTION.md.\n",
+          "title": "P06: семь боевых стилей, портреты и индивидуальные звуки добиваний",
+          "base": "main",
+          "base_sha": "be4d59e9f68f32833719c82dee36bf731bb43ad0",
+          "head": "phase/p06-implementation",
+          "head_sha": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+          "head_repo_id": 1455873586,
+          "head_repo_full_name": "Artyx71/Last-Skuf",
+          "merge_commit_sha": "d389e5f93e90aee19bdbb1c241ae67705e276952",
+          "user": {
+            "login": "Artyx71",
+            "name": "Artyx71",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/46446380?v=4",
+            "id": 46446380
+          },
+          "requested_reviewers": null,
+          "requested_team_reviewers": null,
+          "diff": null,
+          "comments": null,
+          "created_at": "2026-11-16T22:52:50Z",
+          "updated_at": "2026-11-16T22:54:56Z",
+          "closed_at": null,
+          "merged_at": null,
+          "commits": 156,
+          "changed_files": 19401,
+          "additions": 17348940,
+          "deletions": 101,
+          "display_url": "https://github.com/Artyx71/Last-Skuf/pull/11",
+          "display_title": "P06: семь боевых стилей, портреты и индивидуальные звуки добиваний"
+        },
+        "isError": false
+      }
+    },
+    "workflow": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "workflow_runs": [
+            {
+              "id": 43974231985,
+              "name": "Native Godot validation",
+              "status": "completed",
+              "conclusion": "success",
+              "run_number": 27,
+              "jobs_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43974231985/jobs",
+              "logs_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43974231985/logs",
+              "workflow_id": 416626113
+            }
+          ]
+        },
+        "isError": false
+      }
+    },
+    "reviews": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "reviews": []
+        },
+        "isError": false
+      }
+    }
+  }
+}

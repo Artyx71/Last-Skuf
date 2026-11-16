@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "scope": "COMPOSED_TECHNICAL_EVIDENCE_ONLY_NOT_PHASE_REVIEW",
+  "passed": true,
+  "phase_approval": false,
+  "merge_approval": false,
+  "source_head": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+  "source_unchanged": true,
+  "stages": [
+    {
+      "name": "gabar",
+      "report": "reports/phases/P06/full-native-current-source-01/gabar/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "olezhka",
+      "report": "reports/phases/P06/full-native-current-source-01/olezhka/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "counter_feedback",
+      "report": "reports/phases/P06/full-native-current-source-01/counter_feedback/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_present",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_present/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_prime",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_prime/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "ryzhik",
+      "report": "reports/phases/P06/full-native-current-source-01/ryzhik/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "tega",
+      "report": "reports/phases/P06/full-native-current-source-01/tega/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "pasha",
+      "origin": "TARGETED_651_CONTROLLED_INPUT_PLUS_7A76_GUARD_RECOMPUTATION",
+      "passed": true,
+      "reports": [
+        "reports/phases/P06/pasha-input-diagnostic-01/headless/validation.json",
+        "reports/phases/P06/pasha-input-diagnostic-01/native/validation.json"
+      ],
+      "original_failure_cause": "UNKNOWN"
+    },
+    {
+      "name": "cast",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/cast/validation.json"
+    },
+    {
+      "name": "cast_large_text",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/cast_large_text/validation.json"
+    },
+    {
+      "name": "finisher_audio",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/finisher_audio/validation.json"
+    },
+    {
+      "name": "npc_baseline",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/npc_baseline/validation.json"
+    },
+    {
+      "name": "combat_baseline",
+      "passed": true,
+      "origin": "COMPLETED_C5_CHILDREN_FROM_INTERRUPTED130_PLUS_REVIEWED_MISSING_CONTINUATION",
+      "completed_C5_parent": "reports/phases/P06/combat-movie-recovery-01/combat_baseline",
+      "supplement": "reports/phases/P06/combat-interruption-continuation-01/validation.json",
+      "original_parent_overall_passed": false
+    }
+  ],
+  "retained_proof_scope_explicit": true,
+  "old_failures_and_interruptions_unchanged": true,
+  "old_parent_report": {
+    "path": "reports/phases/P06/native-remaining5-02/validation.json",
+    "sha256": "96bdffecde3908c3de521126c478489ee6c0a01d7c0a0e565b6c351d87a4f1ca",
+    "passed": false
+  },
+  "fresh_C01_numeric_closure": "ROOT/reports/phases/P06/qa-c01-tail02-signal-02/decision.json",
+  "independent_full_phase_review": "PENDING"
+}

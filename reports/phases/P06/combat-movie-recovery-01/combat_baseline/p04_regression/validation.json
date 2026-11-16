@@ -1,0 +1,57 @@
+[
+  {
+    "name": "pinned_engine",
+    "passed": true,
+    "checks": {
+      "sha256": true
+    },
+    "details": null
+  },
+  {
+    "name": "engine_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/p04_regression/logs/engine_replay.log",
+    "elapsed_seconds": 68.202
+  },
+  {
+    "name": "engine_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "actual_input_no_route_warps": true,
+      "ten_ai_deaths": true,
+      "retry_under_1s": true,
+      "zero_kills": true,
+      "durable_once_completion": true,
+      "correct_original_score": true,
+      "one_mixer_player": true,
+      "actual_rendered_captures": true,
+      "expected_audio_driver": true
+    },
+    "details": {
+      "capture_status": "CAPTURED",
+      "scope": "Rendered actual engine run"
+    }
+  },
+  {
+    "name": "engine_replay_signal",
+    "passed": true,
+    "checks": {
+      "pcm16_stereo": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "sample_rate": 44100,
+      "channels": 2,
+      "sample_width": 2,
+      "frames": 2951168,
+      "duration": 66.91990929705216,
+      "peak": 0.509002685546875,
+      "rms": 0.09595077989735783,
+      "full_scale_samples": 0,
+      "scope": "Numeric signal analysis only; actual runtime mixer capture; no listening claim"
+    }
+  }
+]

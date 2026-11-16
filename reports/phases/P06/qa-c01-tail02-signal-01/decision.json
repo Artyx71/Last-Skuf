@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "reviewer": "independent_QA_qa_resume_recovery",
+  "verdict": "FAIL_REVIEWER_PROBE_SCHEMA",
+  "scope": "ORIGINAL_SIGNAL01_EXECUTION_PRESERVED",
+  "phase_approval": false,
+  "findings": [
+    {
+      "id": "C01-TAIL-QA01",
+      "severity": "MEDIUM",
+      "owner": "QA probe",
+      "status": "CLOSED_IN_SEPARATE_SIGNAL02",
+      "summary": "Audio route schema is a list of one event; reviewer wrongly compared list == integer1. Three false predicates; no audio/product defect inferred."
+    }
+  ],
+  "actual_checks": 212,
+  "actual_failed_checks": 3,
+  "product_failure_claimed": false,
+  "engine_invocations": 0,
+  "listening_performed": false
+}

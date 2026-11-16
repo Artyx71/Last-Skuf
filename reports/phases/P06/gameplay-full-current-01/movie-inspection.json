@@ -1,0 +1,806 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "actor": "gabar",
+      "segment": "special_right",
+      "source_movie": "build/P06/full-native-current-source-01/gabar/gabar.mp4",
+      "source_movie_sha256": "c5453603c7c6a36fb83943c757bf13e1f0d98a40ff6dac9bc868134e99934a46",
+      "selected": [
+        {
+          "target_tick": 372,
+          "frame_index": 371,
+          "phase": 0,
+          "position": [
+            250.0,
+            240.0
+          ],
+          "action_elapsed": 0.0833333333333333
+        },
+        {
+          "target_tick": 381,
+          "frame_index": 380,
+          "phase": 1,
+          "position": [
+            264.0,
+            240.0
+          ],
+          "action_elapsed": 0.233333333333333
+        },
+        {
+          "target_tick": 394,
+          "frame_index": 393,
+          "phase": 2,
+          "position": [
+            274.5,
+            240.0
+          ],
+          "action_elapsed": 0.45
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "6.183333333333334",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.mp4",
+        "-t",
+        "0.4",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,9)+eq(n\\,22),crop=600:330:360:250,tile=3x1",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/gabar-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/gabar-sequence.png",
+      "board_sha256": "53e382e421170e03faf965d3c75acadb46cd5d4d49277c6da817d0a13a1cc6e2"
+    },
+    {
+      "actor": "olezhka",
+      "segment": "counter_right",
+      "source_movie": "build/P06/full-native-current-source-01/olezhka/olezhka.mp4",
+      "source_movie_sha256": "f101d2eff05fb4dc49ab0e7428c65b17f3372db3374b6652e1ab1894c7e75f77",
+      "selected": [
+        {
+          "target_tick": 369,
+          "frame_index": 368,
+          "phase": 0,
+          "position": [
+            250.0,
+            240.0
+          ],
+          "action_elapsed": 0.05
+        },
+        {
+          "target_tick": 376,
+          "frame_index": 375,
+          "phase": 1,
+          "position": [
+            250.0,
+            240.0
+          ],
+          "action_elapsed": 0.33
+        },
+        {
+          "target_tick": 389,
+          "frame_index": 388,
+          "phase": 2,
+          "position": [
+            250.0,
+            240.0
+          ],
+          "action_elapsed": 0.546666666666667
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "6.133333333333334",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.mp4",
+        "-t",
+        "0.36666666666666664",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,7)+eq(n\\,20),crop=600:330:360:250,tile=3x1",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/olezhka-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/olezhka-sequence.png",
+      "board_sha256": "c45260f648af8c539fd4a7037d69568af92fd44b032552692e40a14a08bab84f"
+    },
+    {
+      "actor": "timka_present",
+      "segment": "disengage_right",
+      "source_movie": "build/P06/full-native-current-source-01/timka_present/timka-present.mp4",
+      "source_movie_sha256": "73cfe331e65d1c5bf3da9fdc0bb354643bc66abf9735cde8c474045ebd232cd7",
+      "selected": [
+        {
+          "target_tick": 284,
+          "frame_index": 283,
+          "phase": 0,
+          "position": [
+            250.0,
+            240.0
+          ],
+          "action_elapsed": 0.0666666666666667
+        },
+        {
+          "target_tick": 289,
+          "frame_index": 288,
+          "phase": 1,
+          "position": [
+            245.800003051758,
+            240.0
+          ],
+          "action_elapsed": 0.15
+        },
+        {
+          "target_tick": 293,
+          "frame_index": 292,
+          "phase": 2,
+          "position": [
+            236.466690063477,
+            240.0
+          ],
+          "action_elapsed": 0.216666666666667
+        },
+        {
+          "target_tick": 296,
+          "frame_index": 295,
+          "phase": 3,
+          "position": [
+            229.466705322266,
+            240.0
+          ],
+          "action_elapsed": 0.266666666666667
+        },
+        {
+          "target_tick": 300,
+          "frame_index": 299,
+          "phase": 4,
+          "position": [
+            220.133392333984,
+            240.0
+          ],
+          "action_elapsed": 0.333333333333333
+        },
+        {
+          "target_tick": 307,
+          "frame_index": 306,
+          "phase": 5,
+          "position": [
+            216.40007019043,
+            240.0
+          ],
+          "action_elapsed": 0.45
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "4.716666666666667",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/timka_present/timka-present.mp4",
+        "-t",
+        "0.4166666666666667",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,5)+eq(n\\,9)+eq(n\\,12)+eq(n\\,16)+eq(n\\,23),crop=600:330:360:250,tile=4x2",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/timka_present-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/timka_present-sequence.png",
+      "board_sha256": "24573b066516160e9565d4a3c7e45df7bcad20263b38f493a6abbfc3bf66c788"
+    },
+    {
+      "actor": "timka_prime",
+      "segment": "clinch_right",
+      "source_movie": "build/P06/full-native-current-source-01/timka_prime/timka-prime.mp4",
+      "source_movie_sha256": "18344d7111a8a65315ffcdfdcd319551eb02e3b6f9d6714f0f316568d7c24e51",
+      "selected": [
+        {
+          "target_tick": 1159,
+          "frame_index": 1158,
+          "phase": 0,
+          "position": [
+            254.0,
+            240.0
+          ],
+          "action_elapsed": 0.233333333333333
+        },
+        {
+          "target_tick": 1177,
+          "frame_index": 1176,
+          "phase": 1,
+          "position": [
+            254.0,
+            240.0
+          ],
+          "action_elapsed": 0.533333333333333
+        },
+        {
+          "target_tick": 1192,
+          "frame_index": 1191,
+          "phase": 2,
+          "position": [
+            254.0,
+            240.0
+          ],
+          "action_elapsed": 0.783333333333334
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "19.3",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/timka_prime/timka-prime.mp4",
+        "-t",
+        "0.5833333333333334",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,18)+eq(n\\,33),crop=600:330:360:250,tile=3x1",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/timka_prime-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/timka_prime-sequence.png",
+      "board_sha256": "6562f3590c72c51e9c7b9d0c4a041b6e0cbed381db25394b3034e2ae530041fd"
+    },
+    {
+      "actor": "ryzhik",
+      "segment": "walk_roll_walk_right",
+      "source_movie": "build/P06/full-native-current-source-01/ryzhik/ryzhik-roll.mp4",
+      "source_movie_sha256": "72fc8343aba8df45949d1efff1937acd1a4e9c099042b732f9d5bf585f2ca166",
+      "selected": [
+        {
+          "target_tick": 223,
+          "frame_index": 222,
+          "phase": 0,
+          "position": [
+            264.0,
+            240.0
+          ],
+          "action_elapsed": 0.0333333333333333
+        },
+        {
+          "target_tick": 228,
+          "frame_index": 227,
+          "phase": 1,
+          "position": [
+            270.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.116666666666667
+        },
+        {
+          "target_tick": 232,
+          "frame_index": 231,
+          "phase": 2,
+          "position": [
+            282.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.183333333333333
+        },
+        {
+          "target_tick": 236,
+          "frame_index": 235,
+          "phase": 3,
+          "position": [
+            294.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.25
+        },
+        {
+          "target_tick": 240,
+          "frame_index": 239,
+          "phase": 4,
+          "position": [
+            306.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.316666666666667
+        },
+        {
+          "target_tick": 244,
+          "frame_index": 243,
+          "phase": 5,
+          "position": [
+            318.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.383333333333333
+        },
+        {
+          "target_tick": 248,
+          "frame_index": 247,
+          "phase": 6,
+          "position": [
+            321.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.45
+        },
+        {
+          "target_tick": 252,
+          "frame_index": 251,
+          "phase": 7,
+          "position": [
+            321.600006103516,
+            240.0
+          ],
+          "action_elapsed": 0.516666666666667
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "3.7",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/ryzhik/ryzhik-roll.mp4",
+        "-t",
+        "0.5166666666666667",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,5)+eq(n\\,9)+eq(n\\,13)+eq(n\\,17)+eq(n\\,21)+eq(n\\,25)+eq(n\\,29),crop=600:330:360:250,tile=4x2",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/ryzhik-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/ryzhik-sequence.png",
+      "board_sha256": "2589b6a77368fdb3cc8098c01704474c6610ef92f235a783ea3014fc09502a38"
+    },
+    {
+      "actor": "tega",
+      "segment": "object_hit_false_right",
+      "source_movie": "build/P06/full-native-current-source-01/tega/tega-environment.mp4",
+      "source_movie_sha256": "7c391aa38f2de3e99bb54ac68c4026cd090da82e509f696d006a8a043b7796f1",
+      "selected": [
+        {
+          "target_tick": 156,
+          "frame_index": 155,
+          "phase": 0,
+          "position": [
+            283.066650390625,
+            240.0
+          ],
+          "action_elapsed": 0.0833333333333333
+        },
+        {
+          "target_tick": 167,
+          "frame_index": 166,
+          "phase": 1,
+          "position": [
+            299.065490722656,
+            240.0
+          ],
+          "action_elapsed": 0.266666666666667
+        },
+        {
+          "target_tick": 182,
+          "frame_index": 181,
+          "phase": 2,
+          "position": [
+            299.065490722656,
+            240.0
+          ],
+          "action_elapsed": 0.516666666666667
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "2.5833333333333335",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/tega/tega-environment.mp4",
+        "-t",
+        "0.4666666666666667",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,11)+eq(n\\,26),crop=600:330:360:250,tile=3x1",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/tega-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/tega-sequence.png",
+      "board_sha256": "076c44cc6b9b900230054db47d91e8e695fd316dc6947318e9539622c584bf92"
+    },
+    {
+      "actor": "pasha",
+      "segment": "moving_shot_false_right",
+      "source_movie": "build/P06/pasha-input-diagnostic-01/pasha-moving-shot.mp4",
+      "source_movie_sha256": "0ee4dce91d2f23c48dc3e6db7185632fa8d419500190434e3545717646805728",
+      "selected": [
+        {
+          "target_tick": 129,
+          "frame_index": 128,
+          "phase": 0,
+          "position": [
+            306.0,
+            240.0
+          ],
+          "action_elapsed": 0.0166666666666667
+        },
+        {
+          "target_tick": 131,
+          "frame_index": 130,
+          "phase": 1,
+          "position": [
+            312.0,
+            240.0
+          ],
+          "action_elapsed": 0.05
+        },
+        {
+          "target_tick": 133,
+          "frame_index": 132,
+          "phase": 2,
+          "position": [
+            318.0,
+            240.0
+          ],
+          "action_elapsed": 0.0833333333333333
+        },
+        {
+          "target_tick": 136,
+          "frame_index": 135,
+          "phase": 3,
+          "position": [
+            327.0,
+            240.0
+          ],
+          "action_elapsed": 0.133333333333333
+        },
+        {
+          "target_tick": 138,
+          "frame_index": 137,
+          "phase": 4,
+          "position": [
+            333.0,
+            240.0
+          ],
+          "action_elapsed": 0.166666666666667
+        },
+        {
+          "target_tick": 140,
+          "frame_index": 139,
+          "phase": 5,
+          "position": [
+            339.0,
+            240.0
+          ],
+          "action_elapsed": 0.2
+        },
+        {
+          "target_tick": 143,
+          "frame_index": 142,
+          "phase": 6,
+          "position": [
+            348.0,
+            240.0
+          ],
+          "action_elapsed": 0.25
+        },
+        {
+          "target_tick": 145,
+          "frame_index": 144,
+          "phase": 7,
+          "position": [
+            354.0,
+            240.0
+          ],
+          "action_elapsed": 0.283333333333333
+        }
+      ],
+      "mapping": "Movie fixed60; frame index target physics tick minus1; bounded center-phase samples, not latency measurement",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "2.1333333333333333",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-input-diagnostic-01/pasha-moving-shot.mp4",
+        "-t",
+        "0.3",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,2)+eq(n\\,4)+eq(n\\,7)+eq(n\\,9)+eq(n\\,11)+eq(n\\,14)+eq(n\\,16),crop=600:330:360:250,tile=4x2",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/pasha-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/pasha-sequence.png",
+      "board_sha256": "d192bae9a83b30e1f0e693d03dcf23a5fe69dc95ce9f6f3a8807c6bf46219a4f"
+    },
+    {
+      "actor": "existing_yakuza_plus_three_NPC_archetypes",
+      "source_movie": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/combat_polish.mp4",
+      "source_movie_sha256": "2a22eb0b9036b52d0a601a26c905c2ca8a7ed4a44d7c1415a908cded45a101ca",
+      "selected_captures": [
+        {
+          "code": 0,
+          "draw_frame": 272,
+          "name": "unarmed_right_windup",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/unarmed_right_windup.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 273
+        },
+        {
+          "code": 0,
+          "draw_frame": 317,
+          "name": "unarmed_right_contact",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/unarmed_right_contact.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 318
+        },
+        {
+          "code": 0,
+          "draw_frame": 325,
+          "name": "unarmed_right_recovery",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/unarmed_right_recovery.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 326
+        },
+        {
+          "code": 0,
+          "draw_frame": 387,
+          "name": "unarmed_right_corpse_clear",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/unarmed_right_corpse_clear.png",
+          "player_at": [
+            219.933288574219,
+            240.0
+          ],
+          "tick": 388
+        },
+        {
+          "code": 0,
+          "draw_frame": 3095,
+          "name": "patrol_right_telegraph",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/patrol_right_telegraph.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3096
+        },
+        {
+          "code": 0,
+          "draw_frame": 3137,
+          "name": "patrol_right_attack",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/patrol_right_attack.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3138
+        },
+        {
+          "code": 0,
+          "draw_frame": 3175,
+          "name": "patrol_right_stun_settled",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/patrol_right_stun_settled.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3176
+        },
+        {
+          "code": 0,
+          "draw_frame": 3199,
+          "name": "patrol_right_knockdown_settled",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/patrol_right_knockdown_settled.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3200
+        },
+        {
+          "code": 0,
+          "draw_frame": 3675,
+          "name": "rusher_right_telegraph",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/rusher_right_telegraph.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3676
+        },
+        {
+          "code": 0,
+          "draw_frame": 3716,
+          "name": "rusher_right_attack",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/rusher_right_attack.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3717
+        },
+        {
+          "code": 0,
+          "draw_frame": 3739,
+          "name": "rusher_right_hurt_settled",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/rusher_right_hurt_settled.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3740
+        },
+        {
+          "code": 0,
+          "draw_frame": 3802,
+          "name": "rusher_right_death_settled",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/rusher_right_death_settled.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 3803
+        },
+        {
+          "code": 0,
+          "draw_frame": 4289,
+          "name": "shooter_right_telegraph",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/shooter_right_telegraph.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 4290
+        },
+        {
+          "code": 0,
+          "draw_frame": 4346,
+          "name": "shooter_right_attack",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/shooter_right_attack.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 4347
+        },
+        {
+          "code": 0,
+          "draw_frame": 4354,
+          "name": "shooter_right_recovery",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/shooter_right_recovery.png",
+          "player_at": [
+            244.41667175293,
+            240.0
+          ],
+          "tick": 4355
+        },
+        {
+          "code": 0,
+          "draw_frame": 4432,
+          "name": "shooter_right_death_settled",
+          "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/movie_replay_frames/shooter_right_death_settled.png",
+          "player_at": [
+            250.0,
+            240.0
+          ],
+          "tick": 4433
+        }
+      ],
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-filter_threads",
+        "1",
+        "-ss",
+        "4.533333333333333",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline/combat_polish.mp4",
+        "-t",
+        "69.36666666666666",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,45)+eq(n\\,53)+eq(n\\,115)+eq(n\\,2823)+eq(n\\,2865)+eq(n\\,2903)+eq(n\\,2927)+eq(n\\,3403)+eq(n\\,3444)+eq(n\\,3467)+eq(n\\,3530)+eq(n\\,4017)+eq(n\\,4074)+eq(n\\,4082)+eq(n\\,4160),crop=600:330:360:250,tile=4x4",
+        "-frames:v",
+        "1",
+        "-update",
+        "1",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-full-current-01/movie-samples/fresh-combat-sequence.png"
+      ],
+      "command_exit": 0,
+      "board": "movie-samples/fresh-combat-sequence.png",
+      "board_sha256": "5da379354b85e0c4927967dae31bc2b6489cba9bdc3d7adf667ca5667967af44",
+      "mapping": "Exact recorded draw_frame == physics tick-1; order by draw_frame, names in selected_captures"
+    }
+  ],
+  "total_frames": 50,
+  "personally_viewed": true,
+  "phase_approval": false,
+  "viewed_all_eight_boards": true,
+  "observations": {
+    "Gabar": "Distinct prepared/forward power contact/finite recovery with actual spatial advance",
+    "Oleg": "Guard then actual extended counter contact then closed recovery; no damage granted by HUD",
+    "Timka_present": "Guard→four backwards walk phases→recovery, increasing enemy separation and no damage",
+    "Timka_prime": "Own ready/contact/recovery with category NPC contact1/corpse2; baseline shared NPC drawing permitted, no hero-style NPC claim",
+    "Ryzhik": "Eight supported crouch/tumble/inversion/landing/recovery drawings; translated body and landing control onlypose6",
+    "Tega": "Foot extends against visible bench; bench sweeps into NPC; recovery closes, physicalbench remains visible",
+    "Pasha": "Eight gun draw/raise/muzzle/recoil/recover drawings while world position advances; visible bullet launch before later NPC reaction",
+    "fresh_C5": "Existing Yakuza windup/contact/recovery/corpse and3archetype telegraph/attack/hurt/stun/knockdown/death samples coherent; no revival"
+  }
+}

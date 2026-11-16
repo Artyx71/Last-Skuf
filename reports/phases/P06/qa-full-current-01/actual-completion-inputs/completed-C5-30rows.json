@@ -1,0 +1,359 @@
+[
+  {
+    "name": "pinned_engine",
+    "passed": true,
+    "checks": {
+      "sha256": true
+    },
+    "details": null
+  },
+  {
+    "name": "native_probe",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/native_probe.log",
+    "elapsed_seconds": 0.9290893849974964
+  },
+  {
+    "name": "full_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/full_replay.log",
+    "elapsed_seconds": 88.33980843400059
+  },
+  {
+    "name": "full_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "full_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 44100,
+      "frames": 3839488,
+      "duration": 87.06321995464853,
+      "peak": 0.638885498046875,
+      "rms": 0.1045537229142382,
+      "full_scale_samples": 0,
+      "sha256": "39d4a42c54bd386aa999fe03a82fa00d408a12d30894b81fcd59805a45845c96",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "reduced_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/reduced_replay.log",
+    "elapsed_seconds": 88.30671466101194
+  },
+  {
+    "name": "reduced_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "reduced_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 44100,
+      "frames": 3839488,
+      "duration": 87.06321995464853,
+      "peak": 0.6031494140625,
+      "rms": 0.10369170425291883,
+      "full_scale_samples": 0,
+      "sha256": "835a9d328a6aeec4d2fac1ce9f19da29ec8a7495cc0d039a872aeb11ce1ab95a",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "full_reduced_gameplay_invariance",
+    "passed": true,
+    "checks": {
+      "nonempty": true,
+      "same_outcomes": true
+    },
+    "details": null
+  },
+  {
+    "name": "movie_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/movie_replay.log",
+    "elapsed_seconds": 173.47745632000442
+  },
+  {
+    "name": "movie_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "movie_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 48000,
+      "frames": 4179456,
+      "duration": 87.072,
+      "peak": 0.60552978515625,
+      "rms": 0.10383065029844138,
+      "full_scale_samples": 0,
+      "sha256": "4593c8cf7410695d8bfc82abbff4ca2c1c6760e68cdc54b322fd796db66f2c17",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "movie_tools",
+    "passed": true,
+    "checks": {
+      "actual_avi": true,
+      "ffmpeg": true
+    },
+    "details": null
+  },
+  {
+    "name": "encode_movie",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/encode_movie.log",
+    "elapsed_seconds": 15.160380761997658
+  },
+  {
+    "name": "clip_unarmed",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/clip_unarmed.log",
+    "elapsed_seconds": 0.37463434699748177
+  },
+  {
+    "name": "clip_blunt",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/clip_blunt.log",
+    "elapsed_seconds": 0.3784170040016761
+  },
+  {
+    "name": "clip_sharp",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/clip_sharp.log",
+    "elapsed_seconds": 0.3959950230055256
+  },
+  {
+    "name": "clip_firearm",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/clip_firearm.log",
+    "elapsed_seconds": 0.38788234400271904
+  },
+  {
+    "name": "clip_environmental",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/clip_environmental.log",
+    "elapsed_seconds": 0.3820702219964005
+  },
+  {
+    "name": "export_linux",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/export_linux.log",
+    "elapsed_seconds": 3.1562582830083556
+  },
+  {
+    "name": "export_linux_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "linux_export_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/linux_export_replay.log",
+    "elapsed_seconds": 88.18268265099323
+  },
+  {
+    "name": "linux_export_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "linux_export_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 44100,
+      "frames": 3838464,
+      "duration": 87.04,
+      "peak": 0.57135009765625,
+      "rms": 0.1043287417913211,
+      "full_scale_samples": 0,
+      "sha256": "f0474eb81cd07133fb8a4c92c0118b630e0cfbf3b80d41d0d4eefc3fa65681a2",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "export_windows",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/export_windows.log",
+    "elapsed_seconds": 2.6893966430070577
+  },
+  {
+    "name": "export_windows_artifact",
+    "passed": true,
+    "checks": {
+      "executable_magic": true
+    },
+    "details": null
+  },
+  {
+    "name": "wine_probe",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/wine_probe.log",
+    "elapsed_seconds": 13.290903125001932
+  },
+  {
+    "name": "wine_export_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/combat-movie-recovery-01/combat_baseline/logs/wine_export_replay.log",
+    "elapsed_seconds": 94.31932890501048
+  },
+  {
+    "name": "wine_export_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "wine_export_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 48000,
+      "frames": 4178944,
+      "duration": 87.06133333333334,
+      "peak": 0.59661865234375,
+      "rms": 0.10528542218874795,
+      "full_scale_samples": 0,
+      "sha256": "10bccbc231925952148e9a328b08e8360be783b12122ac460d2bef7997b1ef79",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  }
+]
