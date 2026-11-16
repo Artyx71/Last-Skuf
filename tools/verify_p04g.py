@@ -22,6 +22,9 @@ import wave
 ROOT=Path(__file__).resolve().parents[1]
 LOCK=json.loads((ROOT/'tools/toolchain.lock.json').read_text())
 GODOT=ROOT/'.tools/godot'/f'Godot_v{LOCK["release"]}_linux.x86_64'
+# Same native launch conditions as the accepted P06 component replays.
+# Real process-frame timing remains enabled; this is neither fixed-fps nor MovieMaker.
+NATIVE_FLAGS=['--disable-vsync','--max-fps','60']
 ERRORS=re.compile(r'SCRIPT ERROR:|ERROR:|FAIL:|ObjectDB instances were leaked|resources still in use')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
@@ -79,14 +82,14 @@ def main():
   print(name,'PASS' if ok else 'FAIL_OR_BLOCKED',flush=True);return ok
  def finish():
   check('sources_unchanged',{'exact_hashes':before==sources()})
-  write(output/'environment.json',{'os':platform.platform(),'machine':platform.machine(),'cpu':platform.processor(),'scope':'HEADLESS_TECHNICAL_ONLY' if args.headless else 'ACTUAL_RENDERER_REQUESTED','native_windows':'NOT_TESTED; Wine is a separate runtime','listening':'PENDING_ACTUAL_LISTENING; numerical analysis is not artistic acceptance','review':'PENDING_INDEPENDENT_ART_GAMEPLAY_QA_LEAD','author_phase_pass':False,'git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'source_hashes_authoritative_for_this_capture':True,'source_dirty':bool(subprocess.check_output(['git','status','--porcelain','--','game','tools','assets'],cwd=ROOT).strip())})
+  write(output/'environment.json',{'os':platform.platform(),'machine':platform.machine(),'cpu':platform.processor(),'scope':'HEADLESS_TECHNICAL_ONLY' if args.headless else 'ACTUAL_RENDERER_REQUESTED','native_windows':'NOT_TESTED; Wine is a separate runtime','listening':'PENDING_ACTUAL_LISTENING; numerical analysis is not artistic acceptance','review':'PENDING_INDEPENDENT_ART_GAMEPLAY_QA_LEAD','author_phase_pass':False,'git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'source_hashes_authoritative_for_this_capture':True,'native_launch_flags':NATIVE_FLAGS if not args.headless else None,'native_timing':'monotonic wall-frame samples; no fixed-fps or MovieMaker' if not args.headless else 'accelerated headless; not FPS evidence','display_environment':{k:os.environ.get(k) for k in ['DISPLAY','WAYLAND_DISPLAY','XDG_SESSION_TYPE']},'source_dirty':bool(subprocess.check_output(['git','status','--porcelain','--','game','tools','assets'],cwd=ROOT).strip())})
   write(output/'artifacts.json',[{'path':str(p.relative_to(ROOT)),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(output.rglob('*')) if p.is_file() and p.name!='artifacts.json'])
   return 0 if all(r['passed'] for r in results) else 1
  check('pinned_engine',{'sha256':sha(GODOT)==LOCK['linux_binary_sha256']})
  # One actual native probe. If display/audio sockets are denied, persist exact failure
  # and STOP native stages. Caller can run the separate --headless technical scope.
  if not args.headless:
-  if not run('native_probe',[GODOT,'--path',ROOT/'game','--','--smoke-bootstrap'],env('native_probe'),20):
+  if not run('native_probe',[GODOT]+NATIVE_FLAGS+['--path',ROOT/'game','--','--smoke-bootstrap'],env('native_probe'),20):
    write(output/'blocker.json',{'scope':'native renderer/audio; exports/movie/Wine deferred to authorized host','next_command':f'python3 tools/verify_p04g.py --exports --movie --output reports/phases/P04G/attempt1/native-host-01 --build-output build/P04G/native-host-01','headless_command':'python3 tools/verify_p04g.py --headless --output reports/phases/P04G/attempt1/technical-host-01 --build-output build/P04G/technical-host-01','phase_gate':'NOT_DECIDED'})
    return finish()
  def replay(name,command,wine=False,reduced=False,movie=False):
@@ -110,6 +113,7 @@ def main():
   return data
  command=[GODOT,'--path',ROOT/'game']
  if args.headless:command+=['--headless','--fixed-fps','60','--disable-vsync','--max-fps','0']
+ else:command+=NATIVE_FLAGS
  full=replay('full_replay',command)
  reduced=replay('reduced_replay',command,reduced=True)
  signature=lambda d:[(f['category'],f['direction'],f['hits'],f['kills'],f['score']) for f in d.get('finishers',[])]
@@ -140,10 +144,10 @@ def main():
    if present:
     row.update(sha256=sha(target),bytes=target.stat().st_size)
     if folder=='linux':
-     target.chmod(0o755);replay('linux_export_replay',[target]+(['--headless','--fixed-fps','60'] if args.headless else []))
+     target.chmod(0o755);replay('linux_export_replay',[target]+(['--headless','--fixed-fps','60'] if args.headless else NATIVE_FLAGS))
     else:
      wine=[ROOT/'.tools/wine/usr/bin/wine',target]
-     if args.headless:wine+=['--headless']
+     wine+=(['--headless'] if args.headless else NATIVE_FLAGS)
      probe=run('wine_probe',wine+['--','--smoke-bootstrap'],env('wine_probe',True),30);row['wine_actual_probe']=probe
      if probe:replay('wine_export_replay',wine,wine=True)
    exports.append(row);write(output/'exports.json',exports)
