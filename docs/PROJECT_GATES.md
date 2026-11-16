@@ -30,7 +30,7 @@ Every phase has PASS/FAIL/BLOCKED status, decided by `Lead Reviewer` in independ
 
 ## P06 combat acceptance before P07
 
-Все P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md обязательны. Независимые Gameplay и ART смотрят реальные покадровые анимации/взаимодействия, QA и Lead сверяют полный frozen source/evidence. Старые bounded component PASS не равны новому полному gate. P08 допускает только явно учтённые дополнительные косметические варианты с критериями; никакая обязательная механика/звук/реакция туда не переносится.
+Все P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md обязательны. Независимые Gameplay и ART смотрят реальные покадровые анимации/взаимодействия, QA и Lead сверяют полный frozen source/evidence. Старые bounded component PASS не равны новому полному gate. Решение владельца automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json переносит оставшуюся визуальную hero-style индивидуализацию NPC C09 в P08-NPC-STYLE-01. Принятые shared category NPC clips допустимы для P06; базовые реакции/AI/контакт/once/settings/смерть/restart остаются обязательными. Собственные player-анимации/механики/звук/HUD не переносятся. Source FAIL не превращается в ART PASS; полная P06 всё ещё требует общей верификации и независимой приёмки.
 
 ## PRE-P07 production readiness и MDS
 

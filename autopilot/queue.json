@@ -274,13 +274,14 @@
       "depends_on": [
         "P06/combat-style-audit",
         "P06/C01-finisher-audio-runtime",
-        "P06/C01-finisher-audio-listening",
-        "P06/C09-npc-style-review"
+        "P06/C01-finisher-audio-listening"
       ],
       "status": "PENDING",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
       "must_pass_before_P07": true,
-      "phase_approval": false
+      "phase_approval": false,
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "scope": "Own seven player finisher animations/timings/audio plus working baseline NPC category reactions/correctness. Additional C09 visual individualization deferred to P08-NPC-STYLE-01."
     },
     {
       "id": "P06/seven-hero-combat-independent-review",
@@ -497,12 +498,14 @@
       "status": "OPEN",
       "severity": "CRITICAL",
       "depends_on": [],
-      "scope": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "scope": "Finish existing authorized P06: seven own player finisher/sound styles and baseline NPC category reactions/correctness, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
       "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute.",
       "gate": "BEFORE_P07_ENTRY",
       "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
       "phase_approval": false,
-      "triggered_by": "PREP07/independent-lead-readiness"
+      "triggered_by": "PREP07/independent-lead-readiness",
+      "scope_before_owner_NPC_deferral": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json"
     },
     {
       "id": "PREP07/READINESS-C02",
@@ -686,15 +689,22 @@
       "depends_on": [
         "P06/combat-style-audit"
       ],
-      "status": "PENDING",
-      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
       "phase": "P06",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
-      "must_pass_before_P07": true,
+      "must_pass_before_P07": false,
       "phase_approval": false,
       "brief": "planning/P06_C09_TASKS.md",
       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "deferred_to": "P08/npc-style-contract",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
     },
     {
       "id": "P06/C09-npc-style-art",
@@ -702,11 +712,11 @@
       "depends_on": [
         "P06/C09-npc-presentation-contract"
       ],
-      "status": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
-      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
       "phase": "P06",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
-      "must_pass_before_P07": true,
+      "must_pass_before_P07": false,
       "phase_approval": false,
       "brief": "planning/P06_C09_TASKS.md",
       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
@@ -715,10 +725,13 @@
       "independent_source_review": "reports/phases/P06/art-c09-gabar-reuse-feasibility-01/decision.json",
       "decision_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
       "reason": "4shooter contact wholeposes missing; requested imagegen fix rejectedmoderation;19retained+1oldrelease is partial inventory only",
-      "independent_unaffected_tasks": [
-        "P06/C09-npc-presentation-contract",
-        "PREP07/READINESS-C02"
-      ]
+      "status_before_owner_deferral": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
+      "scope_before_owner_deferral": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "deferred_to": "P08/npc-style-art",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
     },
     {
       "id": "P06/C09-npc-style-integration",
@@ -726,15 +739,22 @@
       "depends_on": [
         "P06/C09-npc-style-art"
       ],
-      "status": "PENDING",
-      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
       "phase": "P06",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
-      "must_pass_before_P07": true,
+      "must_pass_before_P07": false,
       "phase_approval": false,
       "brief": "planning/P06_C09_TASKS.md",
       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "deferred_to": "P08/npc-style-integration",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
     },
     {
       "id": "P06/C09-npc-style-review",
@@ -742,15 +762,111 @@
       "depends_on": [
         "P06/C09-npc-style-integration"
       ],
-      "status": "PENDING",
-      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
       "phase": "P06",
       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
-      "must_pass_before_P07": true,
+      "must_pass_before_P07": false,
       "phase_approval": false,
       "brief": "planning/P06_C09_TASKS.md",
       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "deferred_to": "P08/npc-style-review",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
+    },
+    {
+      "id": "P08/npc-style-contract",
+      "phase": "P08",
+      "kind": "technical",
+      "depends_on": [
+        "P07:PASS",
+        "P07:MERGED"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-presentation-contract",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-art",
+      "phase": "P08",
+      "kind": "art",
+      "depends_on": [
+        "P08/npc-style-contract"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-art",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-integration",
+      "phase": "P08",
+      "kind": "implementation",
+      "depends_on": [
+        "P08/npc-style-art"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-integration",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-review",
+      "phase": "P08",
+      "kind": "verification",
+      "depends_on": [
+        "P08/npc-style-integration"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-review",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
     }
   ]
 }

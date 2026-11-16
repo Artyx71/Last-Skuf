@@ -64,3 +64,7 @@ Factory готовит exact registered context/required clips/sockets/реал�
 ## Уточнение combat gate всех7 героев
 
 Обязателен specs/P06_COMBAT_ACCEPTANCE.md (P06-CBT-01..10). Индивидуальные finisher animations/sounds/reactions, present/prime differences, Pasha HUD, Ryzhik roll и реальные environment mechanics не считаются выполненными по наличию timings/PNG.
+
+## Решение владельца о NPC polish
+
+Только оставшаяся визуальная C09 индивидуализация NPC перенесена в P08-NPC-STYLE-01 (automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json). Собственные player sheets/тайминги/способности/звук/HUD семи героев и Timka84/context ограничения остаются P06. Принятые category NPC реакции разрешены как baseline при обязательных actual correctness проверках.

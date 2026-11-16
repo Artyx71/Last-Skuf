@@ -33,7 +33,7 @@ Kaban/Ellana/Elya supporting, не playable. Ellana — партнёр Yakuza, E
 
 ## P06-CBT — уточнение всех7 стилей
 
-Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own finisher sound/animation/reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.
+Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own player finisher sound/animation и рабочая baseline category NPC reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.
 
 ## Принятый компонент Олежки: читаемое окно защиты
 
@@ -46,3 +46,7 @@ Guard feedback на f844e4d принят независимыми ART/Gameplay/Q
 - [ ] Проверить собственные unarmed/blunt/environmental добивания, hurt/death/restart, persistent clothing overlays, Full/Reduced.
 - [ ] Снять native кадры и запись; независимые ART/Gameplay/QA/Lead принимают только замороженный исходный код и реальные материалы.
 - [ ] Обновить пользовательский DEV после scoped приёмки. Не считать этот пакет полным PASS P06.
+
+## Уточнение владельца: визуальная C09 в P08
+
+Решение automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json переносит новые hero-linked NPC sheets/presentation routing и их style-specific review в P08-NPC-STYLE-01. Базовые реакции/контакт/приоритеты/once/settings/реальные общие проверки P06 не перенесены. Старые C09 task IDs сохранены как DEFERRED_BY_OWNER_TO_P08, не выполнены; родитель P06 больше от них не зависит. Следующий обязательный шаг — полный прогон актуального P06 и независимый Lead, без автоматического PASS по owner prototype feedback.

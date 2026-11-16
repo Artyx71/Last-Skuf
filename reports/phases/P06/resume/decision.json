@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
-  "updated_utc": "2026-11-15T21:49:30.613821+00:00",
+  "updated_utc": "2026-11-16T18:52:45.527989+00:00",
   "phase": "P06",
   "formal_attempt": 1,
   "status": "IMPLEMENTING",
@@ -245,13 +245,13 @@
       "agent_listening": false,
       "phase_approval": false
     },
-    "NPC_C09_source": "ART18dfe9a8 BLOCKED contact4;19newsource+1existingrelease only, noPackage/runtimeapproval;2sourceFAILs preserved"
+    "NPC_C09_source": "Historical ART_BLOCKED18df remains; owner58abd098 defers visual-only source/routing toP08, no P06visual prerequisite. Baseline correctness/actual NPC reactions still mandatory inP06."
   },
   "merge_allowed": false,
   "phase_approval": false,
   "next_phase_allowed": false,
   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
-  "next_action": "C01 Lead031cc8c1/QAeed5 PASS_COMPONENT onGame0dd1cc4; DEV08 actualLinux81/Wine72 готов. C09 Gabar source ledger:19new retainable+1existingP04release+4missing shootercontacts; independentART18dfe9a8 BLOCKED, source03NOT_STARTED. Imagegen correction09e29275 denied moderation_blocked violence, noPNG/no retries/bypass. Do not adopt5badgun cells or call20refs complete. WithinP06 continue independent stamped-presentation contract preparation and existing PREP07/READINESS-C02 full-verifier/safeRoot–WORKhandoff tasks while art dependency unresolved; keep P06attempt1/oldphasePASS, do not enterP07.",
+  "next_action": "Owner58abd098 defers remaining C09 NPC visual individualization/routing to P08-NPC-STYLE-01; no newart/P06PASS inferred. Existing NPCcategorystates/contact/priority/once/settings remain mandatory P06. Stop image generation and C09visual work inP06. Run current-source fullbaseline tools/verify.py under one canonical serial stage, inspect actual results and current component/source equivalence; close remaining baseline/native/performance/build gaps, then independent fullLead/CI/protectedmerge. P07 still gated by confirmedP06merge+fullReadiness+21MDS. Do not resetP06attempt1.",
   "preserve": [
     "ROOT dirty state/user changes",
     "all prior PASS/failure evidence",
@@ -288,7 +288,7 @@
   },
   "latest_implementation_head": "0ef418677d5b5891e2c656b4e493efab3c13a992",
   "persistent_runner": false,
-  "session_checkpoint": "C01-PASS-C09-sourceART-blocked4-independent-prep-queued",
+  "session_checkpoint": "OWNER_C09_VISUAL_DEFERRED_TO_P08_FULL_P06_VALIDATION_PENDING",
   "owner_approved_scope": {
     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
     "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
@@ -323,8 +323,7 @@
     "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
-    "FullProductionReadiness FAIL b76fa63b unchanged",
-    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
+    "FullProductionReadiness FAIL b76fa63b unchanged"
   ],
   "pending_component_reviews": [],
   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
@@ -411,7 +410,7 @@
     "full_P06_approval": false
   },
   "C09_current": {
-    "status": "ART_BLOCKED_CONTACT4_WITH_ONE_RELEASE_REUSE_REF",
+    "status": "DEFERRED_BY_OWNER_TO_P08_SOURCE_STILL_UNACCEPTED",
     "source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
     "source_native_sha256": "00955ed93b5ec38db1ce914c5f53771f1f0d31258a27b502d5defcf1936e374b",
     "planned_FIN_wholepose_candidate_budget": 156,
@@ -430,7 +429,11 @@
     "existing_P04_release_refs": 1,
     "reuse_feasibility_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
     "source_ART03": "NOT_STARTED_NO_COMPLETE_PACKAGE",
-    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992"
+    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992",
+    "deferred_to": "P08-NPC-STYLE-01",
+    "required_before_P06_PASS": false,
+    "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+    "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a"
   },
   "owner_preview_history": [
     {
@@ -465,5 +468,16 @@
     "operation": "47fd8cc8473540deb4efd32eb765448c",
     "exit_code": 0,
     "all_tracked_sources_checked": true
-  }
+  },
+  "owner_NPC_visual_deferral": {
+    "decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+    "sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+    "debt_id": "P08-NPC-STYLE-01",
+    "scope_only": true,
+    "baseline_P06_gates_retained": true,
+    "phase_approval": false
+  },
+  "deferred_findings_P08": [
+    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
+  ]
 }
