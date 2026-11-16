@@ -16,17 +16,44 @@ class PipelineGateTest(unittest.TestCase):
             path = Path(folder) / 'validation.json'
             self.assertFalse(pipeline.valid_report(path))
             for value in [[], {}, [{'passed': 1}], {'passed': True, 'phase_approval': False},
-                          {'passed': True, 'phase_approval': True, 'commands': [{'passed': True}]},
-                          {'passed': True, 'phase_approval': False, 'commands': [{'passed': True}], 'source_unchanged': False}]:
+                          {'passed': True, 'phase_approval': True, 'commands': [{'name': 'actual', 'argv': ['tool'], 'exit_code': 0, 'passed': True}]},
+                          {'passed': True, 'phase_approval': False, 'commands': [{'name': 'actual', 'argv': ['tool'], 'exit_code': 0, 'passed': True}], 'source_unchanged': False}]:
                 path.write_text(json.dumps(value))
                 self.assertFalse(pipeline.valid_report(path), repr(value))
             path.write_text(json.dumps([{'passed': True}, {'passed': False}]))
             self.assertFalse(pipeline.valid_report(path))
             path.write_text(json.dumps({'passed': True, 'phase_approval': False,
-                                        'commands': [{'passed': True}], 'source_unchanged': True}))
+                                        'commands': [{'name': 'actual', 'argv': ['tool'], 'exit_code': 0, 'passed': True}], 'source_unchanged': True}))
             self.assertTrue(pipeline.valid_report(path))
-            path.write_text(json.dumps([{'passed': True}]))
+            path.write_text(json.dumps([{'name': 'pinned_engine', 'checks': {'sha256': True}, 'passed': True}]))
             self.assertTrue(pipeline.valid_report(path))
+
+    def test_ambiguous_json_and_contradictory_child_exit_fail(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'validation.json'
+            for text in ['[{"name":"gate","checks":{"real":true},"passed":false,"passed":true}]',
+                         '[{"name":"gate","checks":{"real":true},"passed":true,"value":NaN}]',
+                         '[{"passed":true}]',
+                         '{"passed":true,"phase_approval":false,"source_unchanged":true,"commands":[{"name":"child","argv":["tool"],"exit_code":1,"passed":true}]}']:
+                path.write_text(text)
+                self.assertFalse(pipeline.valid_report(path), text)
+
+    def test_orphan_after_parent_exit_is_contained_on_timeout_and_success(self):
+        with tempfile.TemporaryDirectory() as folder:
+            for silent in [False, True]:
+                with self.subTest(silent=silent):
+                    pidfile = Path(folder) / ('silent.pid' if silent else 'pipe.pid')
+                    log = Path(folder) / ('silent.log' if silent else 'pipe.log')
+                    redirect = ',stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL' if silent else ''
+                    child_code = 'import time; time.sleep(90)'
+                    code = 'import subprocess,sys,pathlib; p=subprocess.Popen([sys.executable,"-c",' + repr(child_code) + ']' + redirect + '); pathlib.Path(' + repr(str(pidfile)) + ').write_text(str(p.pid))'
+                    row = pipeline.run_command([sys.executable, '-c', code], log, .3)
+                    self.assertFalse(row['passed'])
+                    self.assertEqual(row['exit_code'], 0 if silent else 124)
+                    child = int(pidfile.read_text())
+                    proc = Path('/proc') / str(child) / 'stat'
+                    self.assertTrue(not proc.exists() or proc.read_text().rsplit(')', 1)[1].split()[0] == 'Z')
+                    self.assertEqual(row['descendant_cleanup']['remaining_live_children'], [])
 
     def test_zero_exit_with_script_error_is_failure(self):
         with tempfile.TemporaryDirectory() as folder:

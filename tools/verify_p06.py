@@ -7,6 +7,7 @@ The AUTOPILOT runs tools/verify.py separately before this native stage.
 Use a fresh output. Interrupted attempts are preserved; never automatically replay them.
 """
 import argparse
+import ctypes
 import hashlib
 import json
 import os
@@ -36,24 +37,61 @@ def inventory():
             if p.is_file() and '.godot' not in p.parts and '__pycache__' not in p.parts}
 
 
+def strict_report(text):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError('Duplicate JSON key: ' + key)
+            result[key] = value
+        return result
+    def constant(value):
+        raise ValueError('Non-finite JSON number: ' + value)
+    return json.loads(text, object_pairs_hook=pairs, parse_constant=constant)
+
+
+def clean_command(row):
+    return (isinstance(row, dict) and row.get('passed') is True
+            and type(row.get('exit_code')) is int and row['exit_code'] == 0
+            and isinstance(row.get('name'), str) and bool(row['name'])
+            and isinstance(row.get('argv'), list) and bool(row['argv']))
+
+
 def valid_report(path):
     try:
-        value = json.loads(path.read_text())
+        value = strict_report(path.read_text())
     except (OSError, ValueError):
         return False
-    # Some legacy native wrappers emit a list; never accept an empty/vacuous list.
     if isinstance(value, list):
-        return bool(value) and all(isinstance(x, dict) and x.get('passed') is True for x in value)
+        # P04G's legacy command/check rows require an actual structured payload.
+        if not value:
+            return False
+        for row in value:
+            if not isinstance(row, dict) or row.get('passed') is not True or not row.get('name'):
+                return False
+            if 'exit_code' in row:
+                if type(row['exit_code']) is not int or row['exit_code'] != 0 or not row.get('log'):
+                    return False
+            elif not (isinstance(row.get('checks'), dict) and row['checks']
+                      and all(x is True for x in row['checks'].values())):
+                return False
+        return True
     return (isinstance(value, dict) and value.get('passed') is True
             and isinstance(value.get('commands'), list) and bool(value['commands'])
-            and all(isinstance(x, dict) and x.get('passed') is True for x in value['commands'])
+            and all(clean_command(x) for x in value['commands'])
             and value.get('phase_approval') is False
             and value.get('source_unchanged', value.get('source_unchanged_after_import')) is True)
 
 
-def stop_descendants(parent_pid):
-    # Keep the ROOT worker's process-group containment: do not start new sessions.
-    # Per-stage timeout must also stop wrapper children before any next engine run.
+def enable_subreaper():
+    # Linux PR_SET_CHILD_SUBREAPER: orphaned descendants stay owned by this
+    # single serial verifier even after the wrapper itself exits.
+    libc = ctypes.CDLL(None, use_errno=True)
+    if libc.prctl(36, 1, 0, 0, 0) != 0:
+        raise OSError(ctypes.get_errno(), 'Cannot contain orphaned verifier descendants')
+
+
+def owned_descendants(parent_pid):
     found = {parent_pid}
     identities = {}
     changed = True
@@ -67,39 +105,82 @@ def stop_descendants(parent_pid):
                 pid, ppid, start = int(item.name), int(stat[1]), stat[19]
             except (OSError, ValueError, IndexError):
                 continue
-            if pid == parent_pid or ppid in found:
+            if pid == parent_pid or ppid in found or ppid == os.getpid():
                 identities[pid] = start
                 if pid not in found:
                     found.add(pid)
                     changed = True
-    for sig in [signal.SIGTERM, signal.SIGKILL]:
-        for pid, start in sorted(identities.items(), reverse=True):
+    return identities
+
+
+def live_descendants(parent_pid):
+    alive = []
+    for pid, start in owned_descendants(parent_pid).items():
+        try:
+            stat = (Path('/proc') / str(pid) / 'stat').read_text().rsplit(')', 1)[1].split()
+            if stat[19] == start and stat[0] != 'Z':
+                alive.append(pid)
+        except (OSError, IndexError):
+            pass
+    return alive
+
+
+def stop_descendants(parent_pid):
+    # No new process groups/sessions: the ROOT worker still owns the whole job.
+    had_live = live_descendants(parent_pid)
+    for sig in [signal.SIGTERM, signal.SIGKILL, signal.SIGKILL]:
+        for pid, start in owned_descendants(parent_pid).items():
             try:
                 now = (Path('/proc') / str(pid) / 'stat').read_text().rsplit(')', 1)[1].split()[19]
                 if now == start:
                     os.kill(pid, sig)
             except (OSError, IndexError):
                 pass
-        if sig == signal.SIGTERM:
-            time.sleep(.2)
+        time.sleep(.1)
+    # Reap adopted children, leaving Popen to reap its own direct wrapper.
+    for pid in owned_descendants(parent_pid):
+        if pid != parent_pid:
+            try:
+                os.waitpid(pid, os.WNOHANG)
+            except ChildProcessError:
+                pass
+    return {'unexpected_live_children': bool(had_live), 'remaining_live_children': live_descendants(parent_pid)}
 
 
 def run_command(argv, log, timeout):
+    enable_subreaper()
     started = time.monotonic()
     process = subprocess.Popen(list(map(str, argv)), cwd=ROOT, stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT, text=True)
+    cleanup_events = []
     try:
         text, _ = process.communicate(timeout=timeout)
         code = process.returncode
     except subprocess.TimeoutExpired:
-        stop_descendants(process.pid)
-        text, _ = process.communicate(timeout=10)
+        cleanup_events.append(stop_descendants(process.pid))
+        try:
+            text, _ = process.communicate(timeout=2)
+        except subprocess.TimeoutExpired as error:
+            text = error.output.decode(errors='replace') if isinstance(error.output, bytes) else (error.output or '')
+            log.write_text(text + '\nCONTAINMENT_FAILURE: job group must stop; no next stage\n')
+            if os.getpid() == os.getpgrp():
+                os.killpg(os.getpgrp(), signal.SIGKILL)
+            raise RuntimeError('Containment failed; no next stage is permitted')
         text += '\nTIMEOUT: wrapper and its descendants terminated; no automatic retry\n'
         code = 124
+    cleanup = stop_descendants(process.pid)
+    cleanup_events.append(cleanup)
+    if cleanup['unexpected_live_children']:
+        text += '\nFAIL: wrapper left live descendants; cleaned before returning\n'
+    if cleanup['remaining_live_children']:
+        log.write_text(text + '\nCONTAINMENT_FAILURE: live descendants remain\n')
+        if os.getpid() == os.getpgrp():
+            os.killpg(os.getpgrp(), signal.SIGKILL)
+        raise RuntimeError('Live descendants remain; no next stage is permitted')
     log.write_text(text + '\nexit_code=' + str(code) + '\n')
     return {'argv': list(map(str, argv)), 'exit_code': code,
             'passed': code == 0 and not ERRORS.search(text),
-            'seconds': round(time.monotonic() - started, 3), 'log_sha256': sha(log)}
+            'seconds': round(time.monotonic() - started, 3), 'log_sha256': sha(log), 'descendant_cleanup': cleanup, 'cleanup_events': cleanup_events}
 
 
 def plan(output, build, exports=False, movie=False, headless=False):
