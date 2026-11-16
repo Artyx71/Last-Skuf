@@ -39,7 +39,11 @@ def main():
             ('movement', base + ['--script', 'res://tests/movement_test.gd']),
         ])
     if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
-        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+        # contact_timing counts observations of fixed-physics contact poses.
+        # Match the already validated C01 harness clock so a cold render/cache
+        # catch-up cannot drop observations and produce the preserved47/48 FAIL.
+        commands.extend((name, base + (['--fixed-fps', '60'] if name == 'contact_timing' else [])
+                         + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
     if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
