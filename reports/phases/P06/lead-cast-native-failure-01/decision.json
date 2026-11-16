@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD_TARGETED_FAILURE_QUALIFICATION",
+  "status": "FAIL_COMPONENT",
+  "scope": "CAST_FIRST_FRESH_STAGE_WRONG_LINE_CAPTURE_EVIDENCE_ONLY",
+  "operation": "d56af6d9cc6b4b13be4a0436e4a13a21",
+  "source_commit": "6dfa2a769a8189bdfeaf64c340a7806bc4a241bd",
+  "findings": [
+    {
+      "id": "CAST-L01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "summary": "Blind Space reveal-or-advance protocol produces wrong-line captures; actual2PNG and source hazard confirmed, initial triggerUNKNOWN",
+      "fix": "State-aware actualInput driver withpre/postsource lineID/index/active checks andoneadvance; preservealloriginalcaptures/asserts."
+    }
+  ],
+  "actual_checks_passed": 191,
+  "actual_checks_total": 193,
+  "actual_PNG": 45,
+  "personally_viewed_failed_PNG": 2,
+  "actual_parse7a_passed": true,
+  "remaining4": "NOT_RUN",
+  "past_trigger": "UNKNOWN",
+  "production_bug_established": false,
+  "phase_approval": false,
+  "execution_approval": false,
+  "merge_approval": false,
+  "formal_phase_attempt_consumed": false
+}

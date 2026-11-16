@@ -1,0 +1,59 @@
+[
+  {
+    "name": "cast",
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p06_cast.py",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-01/cast"
+    ],
+    "timeout": 300
+  },
+  {
+    "name": "cast_large_text",
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p06_cast.py",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-01/cast_large_text",
+      "--large-text"
+    ],
+    "timeout": 300
+  },
+  {
+    "name": "finisher_audio",
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p06_finisher_audio.py",
+      "--headroom-only",
+      "--replay-only",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-01/finisher_audio"
+    ],
+    "timeout": 300
+  },
+  {
+    "name": "npc_baseline",
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p06_npc_baseline.py",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-01/npc_baseline"
+    ],
+    "timeout": 420
+  },
+  {
+    "name": "combat_baseline",
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p04g.py",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-remaining5-01/combat_baseline",
+      "--build-output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/native-remaining5-01/combat_baseline",
+      "--exports",
+      "--movie"
+    ],
+    "timeout": 2400
+  }
+]

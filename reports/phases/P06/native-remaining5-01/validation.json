@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "scope": "P06_COMPOSED_NATIVE_EVIDENCE_NOT_PHASE_APPROVAL",
+  "passed": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "stages": [
+    {
+      "name": "gabar",
+      "report": "reports/phases/P06/full-native-current-source-01/gabar/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "olezhka",
+      "report": "reports/phases/P06/full-native-current-source-01/olezhka/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "counter_feedback",
+      "report": "reports/phases/P06/full-native-current-source-01/counter_feedback/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_present",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_present/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_prime",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_prime/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "ryzhik",
+      "report": "reports/phases/P06/full-native-current-source-01/ryzhik/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "tega",
+      "report": "reports/phases/P06/full-native-current-source-01/tega/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "pasha",
+      "origin": "TARGETED_651_CONTROLLED_INPUT_PLUS_7A76_GUARD_RECOMPUTATION",
+      "passed": true,
+      "reports": [
+        "reports/phases/P06/pasha-input-diagnostic-01/headless/validation.json",
+        "reports/phases/P06/pasha-input-diagnostic-01/native/validation.json"
+      ],
+      "original_failure_cause": "UNKNOWN"
+    },
+    {
+      "name": "cast",
+      "origin": "FRESH_CONTINUATION",
+      "passed": false,
+      "report": "reports/phases/P06/native-remaining5-01/cast/validation.json"
+    }
+  ],
+  "reused_original_successes": 7,
+  "separately_targeted_Pasha": 1,
+  "fresh_remaining_expected": 5,
+  "fresh_remaining_completed": 1,
+  "current_fixture_parse_passed": true,
+  "source_unchanged": true,
+  "source_head": "6dfa2a769a8189bdfeaf64c340a7806bc4a241bd",
+  "head_after": "6dfa2a769a8189bdfeaf64c340a7806bc4a241bd",
+  "contract_sha256": "f9335cc1c7bfa15563be43b5195a36701a6c9785ca487fc8aaed07f9439a45bb",
+  "proof_bindings_unchanged": true,
+  "final_binding_hashes": {
+    "contract": "f9335cc1c7bfa15563be43b5195a36701a6c9785ca487fc8aaed07f9439a45bb",
+    "approval": "1ab3e9786928a534e6cff798f5c9ea90fdf72f7d68cbb8c954c1e46e13485a9d"
+  },
+  "approval_sha256": "1ab3e9786928a534e6cff798f5c9ea90fdf72f7d68cbb8c954c1e46e13485a9d",
+  "original_failed_attempt_rewritten": false,
+  "original_failed_attempt": "reports/phases/P06/full-native-current-source-01/validation.json",
+  "Pasha_original_cause": "UNKNOWN",
+  "listening": "NOT_CLAIMED",
+  "native_Windows": "NOT_TESTED_WINE_LABELLED_SEPARATELY",
+  "hardware_latency": "NOT_MEASURED",
+  "campaign_duration": "NOT_MEASURED"
+}
