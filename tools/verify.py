@@ -86,6 +86,8 @@ def main():
                          '--headless', '--output', str(output / 'tega_environment_controller')]))
         commands.append(('pasha_moving_shot_controller', [sys.executable, 'tools/verify_p06_pasha.py',
                          '--headless', '--output', str(output / 'pasha_moving_shot_controller')]))
+        commands.append(('character_finisher_audio_contacts', [sys.executable, 'tools/verify_p06_finisher_audio.py',
+                         '--headless', '--replay-only', '--output', str(output / 'character_finisher_audio_contacts')]))
         commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
                          '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
     env = dict(os.environ)
