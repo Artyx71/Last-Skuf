@@ -18,6 +18,8 @@ var wall_reset_pending := false
 var wall_reset_executed := false
 var wall_observe_pending := false
 var wall_observation: Dictionary = {}
+var input_focus_events: Array[Dictionary] = []
+var movie_window_no_focus_requested := false
 var despawn_target: Variant
 var despawn_armed := false
 var despawn_executed := false
@@ -25,6 +27,10 @@ var despawn_executed := false
 func check(label: String, ok: bool, details: Dictionary = {}) -> void:
 	checks.append({"name":label,"passed":ok,"details":details.duplicate(true)})
 	if not ok: push_error("FAIL P06_PASHA "+label)
+
+func note_input_focus(focused: bool) -> void:
+	input_focus_events.append({"focused":focused,"tick":Engine.get_physics_frames(),
+		"wall_usec":Time.get_ticks_usec(),"segment":segment})
 
 func frames(count: int) -> void:
 	for i in count:
@@ -34,10 +40,14 @@ func frames(count: int) -> void:
 		await create_timer(0.0).timeout
 		if trace_enabled and is_instance_valid(lab.player) and lab.player.actor_id=="pasha":
 			var p: CharacterBody2D=lab.player
+			var observed_input:Vector2=Input.get_vector("move_left","move_right","move_up","move_down")
 			ammo_trace.append({"segment":segment,"tick":Engine.get_physics_frames(),"ammo":p.movement_ability.ammo,
 				"refill":p.movement_ability.refill_elapsed,"cooldown":p.ability_cooldown,"action":p.action_kind,
 				"pose":p.sprite.frame,"jobs":lab.combat.moving_shots.jobs.size(),"bullets":lab.combat.projectiles.size(),
-				"hud":lab.ranged_feedback.displayed_feedback.duplicate(true)})
+				"hud":lab.ranged_feedback.displayed_feedback.duplicate(true),
+				"input_vector":[observed_input.x,observed_input.y],
+				"run_pressed":Input.is_action_pressed("character_run"),"window_focused":root.has_focus(),
+				"window_no_focus":root.get_flag(Window.FLAG_NO_FOCUS) if not headless else false})
 
 func on_audio(cue: StringName, _at: Vector2) -> void:
 	if cue==&"impact_firearm_concrete" and wall_reset_pending:
@@ -128,6 +138,13 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	root.content_scale_size=Vector2i(640,360)
 	root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	# Existing WORLD replay uses this same QA-only MovieMaker window isolation.
+	# Scripted Input events remain ordinary Input; never reassert dropped keys.
+	if not headless and not Engine.get_write_movie_path().is_empty():
+		root.set_flag(Window.FLAG_NO_FOCUS,true)
+		movie_window_no_focus_requested=true
+	root.focus_entered.connect(func():note_input_focus(true))
+	root.focus_exited.connect(func():note_input_focus(false))
 	root.get_node("OptionsStore").set_value(&"vhs",false,false)
 	root.get_node("OptionsStore").set_value(&"shake",0,false)
 	lab=Lab.new();root.add_child(lab);current_scene=lab
@@ -166,6 +183,7 @@ func run() -> void:
 			segment="moving_shot_"+str(reduced)+"_"+NAMES[di]
 			var start:Vector2=lab.player.position
 			var first_trace:=trace.size()
+			var first_input_trace:=ammo_trace.size()
 			key(MOVE_KEYS[di],true);key(KEY_SHIFT,true)
 			await tap(KEY_F)
 			check(segment+":windup_no_early_round_or_damage",lab.player.action_kind=="moving_shot" and lab.player.action_frame==0 and lab.player.movement_ability.ammo==4 and target.hits_received==0)
@@ -177,6 +195,11 @@ func run() -> void:
 			check(segment+":muzzle_tracks_current_drawn_gun",not record.is_empty() and Vector2(record.muzzle[0],record.muzzle[1]).distance_to(lab.player.visual_muzzle())<0.01)
 			await capture(segment+"_launch")
 			await frames(24)
+			var actual_held:=true
+			for i in range(first_input_trace,ammo_trace.size()):
+				var observed:Dictionary=ammo_trace[i]
+				actual_held=actual_held and observed.run_pressed and Vector2(observed.input_vector[0],observed.input_vector[1]).is_equal_approx(DIRECTIONS[di])
+			check(segment+":actual_Input_vector_and_run_remain_held",actual_held,{"samples":ammo_trace.size()-first_input_trace,"movie_window_no_focus":movie_window_no_focus_requested})
 			key(MOVE_KEYS[di],false);key(KEY_SHIFT,false)
 			var phases:Array=[]
 			var continuous:=true
@@ -403,5 +426,5 @@ func run() -> void:
 	await setup(2);await capture("pasha_after_restart")
 	var failed:=checks.filter(func(e:Dictionary):return not e.passed).size()
 	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE)
-	file.store_string(JSON.stringify({"schema":1,"scope":"PASHA_MOVING_SHOT_COMPONENT_ONLY","phase_approval":false,"passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"checks":checks,"trace":trace,"ammo_trace":ammo_trace,"launches":launches,"costs":costs,"contacts":contacts,"captures":captures,"clothing_overlay":overlay_proofs,"not_tested":["all7 unique audio and NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
+	file.store_string(JSON.stringify({"schema":1,"scope":"PASHA_MOVING_SHOT_COMPONENT_ONLY","phase_approval":false,"passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"checks":checks,"trace":trace,"ammo_trace":ammo_trace,"input_focus_events":input_focus_events,"movie_window_no_focus_requested":movie_window_no_focus_requested,"launches":launches,"costs":costs,"contacts":contacts,"captures":captures,"clothing_overlay":overlay_proofs,"not_tested":["all7 unique audio and NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
 	print("RESULT P06_PASHA passed=%d failed=%d"%[checks.size()-failed,failed]);preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)
