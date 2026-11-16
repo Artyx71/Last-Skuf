@@ -1,0 +1,13 @@
+# Полная техническая проверка P06
+
+Canonical ROOT Controller остаётся единственным executor/lease. Перед native pipeline он выполняет `tools/verify.py` (полная headless-регрессия). Новый `tools/verify_p06.py --exports --movie --output <fresh> --build-output <fresh>` последовательно вызывает существующие проверяющие скрипты. Это технический пакет, не независимое принятие фазы. Для pure/headless scope используется отдельный `--headless`, несовместимый с exports/movie.
+
+План:8текущих механических fixtures (Gabar, Olezhka, guardUI, Timka present/prime, Ryzhik, Tega, Pasha); cast normal/large text с новым процессом; C01 headroom/20solo/12voice stress; baseline NPC supplement7pairs×FullReduced; P04G FullReduced/AI/performance/mission-regression/audio и реальные exports/movie по флагам. Дополнительные6WORLD прогоны и генерация ассетов не нужны: ранее принятые пиксели/ART сохраняются при проверке точных hashes. Старые runtime прогоны не объявляются свежими: новые механические fixtures проверяют изменявшиеся общие controller/frames/Core зависимости.
+
+Все13шагов сериализованы; обязательны exit0, отсутствие engineERROR, непустой machine-readable passed-report и неизменный source inventory до/после. Каждый завершённый шаг сохраняет commands.json/отдельный log, весь план — plan.json. Остановка на первой ошибке сохраняет исходные материалы. Необязательные movie/export шаги не изображаются завершёнными без флагов/артефактов; полное фазовое принятие требует запрошенного `--exports --movie` пакета и отдельного Lead.
+
+Outer native AUTOPILOT budget7200s сохраняет stop_after_phase=P06; каждый hero600s, cast300s, audio300s, NPC420s, combinedP04G2400s. Это верхние таймауты, не измеренное время игры. На timeout verifier завершает дочернее дерево процесса перед возвратом; ROOT worker продолжает владеть process group и durable receipt. При прерывании не запускается слепой retry: inspect consumed receipt/plan/последний completedstage/source hashes, затем отдельное решение о точном продолжении/новомoutput. Ни состояние фазы, ни attempts verifier не меняет.
+
+Реальные wall-frame измерения берутся только из native P04G stress без fixed-fps и MovieMaker; movie clocks для FPS не используются. NativeWindows/hardwarelatency/длительность кампании не заявляются. Анализ PCM не является прослушиванием; owner prototype acceptance и новые художественные аудиоприёмки отслеживаются отдельно.
+
+Новый verifier, перенос independent probe в tools/probes, бюджет и фактический full run требуют независимого QA/Lead. ROOT runner этим документом не установлен и не заменён; безопасная ROOT/WORK передача остаётся отдельной задачей. Полный PASS/CI/protection/актуальный SHA/защищённый squash и PRE-P07 readiness/21MDS gates не снимаются.
