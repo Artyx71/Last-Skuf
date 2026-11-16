@@ -1,0 +1,93 @@
+{
+  "scope": "INDEPENDENT_FROZEN454E_VALID_REPORT_PURE_ADVERSARIAL_REPRO",
+  "source_sha256": "0357a6824dfb263fbdebb65f9852cd28ee8f01b24481a35bc2944b8921801b32",
+  "cases": [
+    {
+      "name": "valid_dictionary_control",
+      "raw_JSON": "{\"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}]}",
+      "expected_safe_acceptance": true,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": true
+    },
+    {
+      "name": "valid_legacy_checks_control",
+      "raw_JSON": "[{\"name\": \"pins\", \"checks\": {\"SHA\": true}, \"passed\": true}]",
+      "expected_safe_acceptance": true,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": true
+    },
+    {
+      "name": "empty_list_rejected_control",
+      "raw_JSON": "[]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "matches_failclosed_contract": true
+    },
+    {
+      "name": "string_pass_rejected_control",
+      "raw_JSON": "{\"passed\": \"true\", \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}]}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "matches_failclosed_contract": true
+    },
+    {
+      "name": "duplicate_contradictory_pass",
+      "raw_JSON": "{\"passed\": false, \"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}]}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "escaped_duplicate_pass",
+      "raw_JSON": "{\"passed\": false, \"\\u0070assed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}]}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "NaN_const",
+      "raw_JSON": "{\"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}], \"metric\": NaN}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "Infinity_const",
+      "raw_JSON": "{\"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"exit_code\": 0, \"passed\": true}], \"metric\": Infinity}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "nested_exit1_passedtrue",
+      "raw_JSON": "{\"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only\"], \"exit_code\": 1, \"passed\": true}]}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "nested_exit_string0",
+      "raw_JSON": "{\"passed\": true, \"phase_approval\": false, \"source_unchanged\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only\"], \"exit_code\": \"0\", \"passed\": true}]}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "legacy_bare_passed",
+      "raw_JSON": "[{\"passed\":true}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    },
+    {
+      "name": "legacy_false_checks",
+      "raw_JSON": "[{\"name\": \"acceptance\", \"passed\": true, \"checks\": {\"actual_native\": false}}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "matches_failclosed_contract": false
+    }
+  ],
+  "controls_passed": 4,
+  "unsafe_acceptance_cases": 8,
+  "actual_Godot_runner_Controller_Git_or_network_calls": false
+}

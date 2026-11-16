@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "scope": "FROZEN_454E_COMPONENT_PREFLIGHT_NOT_PHASE",
+  "findings": [
+    {
+      "id": "NPIPE-L01",
+      "severity": "HIGH",
+      "status": "CONFIRMED_ACTUAL_PURE_FIXTURE",
+      "title": "Exited-wrapper descendants escape timeout cleanup and can survive reported PASS",
+      "source": "454e tools/verify_p06.py stop_descendants/run_command",
+      "proofs": [
+        "own-probe-result.json",
+        "silent-orphan-result.json"
+      ],
+      "observed": "Inherited pipe: wrapper exits0, timeout .2s leads unhandled second communicate TimeoutExpired after10.424s with live reparented child. Silent child: wrapper exits0, run_command reports PASS after.026s while child is still running. Reviewer killed only exact own child PID/start identity in both fixtures.",
+      "impact": "A prior stage-owned engine could remain alive while the next stage starts, violating serialized execution; failure/retry can leave untracked descendants.",
+      "minimal_fix": "Contain stage-owned descendants across parent exit without escaping canonical ROOT process-group ownership; cleanup/reap on success, failure and timeout; bounded structured failure and no next stage if cleanup cannot be proved. Preserve all original failures.",
+      "required_controls": [
+        "parent live timeout",
+        "parent exits0 with inherited pipe",
+        "parent exits0 with silent child",
+        "parent exits nonzero with silent child",
+        "ordinary success"
+      ]
+    },
+    {
+      "id": "NPIPE-L02",
+      "severity": "MEDIUM",
+      "status": "CONFIRMED_ACTUAL_REPORT_PARSER_FIXTURES",
+      "title": "Ambiguous/nonfinite/contradictory reports are accepted",
+      "source": "454e tools/verify_p06.py valid_report",
+      "proof": "own-probe-result.json",
+      "observed": "Actual parser accepts contradictory duplicate passed=false/true, NaN metadata, nested command exit_code1 with passed=true, and a bare legacy [{passed:true}] without actual named command/check payload. Empty list and passed string controls correctly reject.",
+      "minimal_fix": "Strict decoded JSON keys/nonfinite rejection, consistent typed passed/exit metadata, and nonvacuous named command/check payload while preserving genuine legacy reports; add negative and valid-format controls."
+    }
+  ],
+  "fixed_11f_candidate": "Separate pending review; does not rewrite this old source finding",
+  "full_native_execution_approval": false,
+  "phase_approval": false,
+  "independent_QA_crossrefs": {
+    "NPIPE-L01": "PIPE-Q01",
+    "NPIPE-L02": "PIPE-Q02"
+  }
+}

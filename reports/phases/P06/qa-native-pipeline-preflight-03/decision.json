@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "INDEPENDENT_READ_ONLY_NATIVE_PIPELINE_PREFLIGHT_8E_ONLY",
+  "reviewer": "qa_resume_recovery",
+  "source_commit": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+  "source_sha256": "6bdc3edd0ea4bebd2ad190d0bab9fe9a53522e9bd776f15fe17675de442ce7bc",
+  "findings_closed": [
+    "PIPE-Q01_PROCESS_OWNERSHIP_BY_EXACT11F_REUSE",
+    "PIPE-Q02_STRICT_JSON_TYPED_REPORTS"
+  ],
+  "open_findings": [],
+  "execution_recommendation": "GO_FOR_BOUNDED_CANONICAL_SERIAL_TECHNICAL_NATIVE13_RUN_ONLY",
+  "execution_preconditions": [
+    "Independent Lead preflight decision remains separate",
+    "Sole canonical ROOT worker, author released, fresh immutable output/build paths",
+    "Exact reviewed toolchain/code/source freeze and 7200-second outer budget",
+    "No automatic retry of interrupted/failed attempt; retain original receipts/logs; stop on remaining children"
+  ],
+  "checks": {
+    "independent_parser_cases": 34,
+    "independent_parser_passed": 34,
+    "real_retained_reports_read_and_hashed": 16,
+    "real_retained_reports_compatible": 16,
+    "selected_existing_pure_unittests": 3,
+    "process_functions_text_exact_to_actual11f_tested_version": 5,
+    "reused_independent_actual_orphan_negative_cases": 3,
+    "reused_independent_actual_valid_process_control": 1,
+    "pure_plan_variants": 3,
+    "native_stages_planned": 13,
+    "source_inputs_final_unchanged": true
+  },
+  "full13_actual_execution": "NOT_RUN",
+  "Godot_or_Controller_invoked_by_this_review": false,
+  "phase_approval": false,
+  "native_acceptance_approval": false,
+  "merge_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "readiness_approval": false,
+  "original_QA01_QA02_FAILURES": "PRESERVED_IMMUTABLE",
+  "limitations": [
+    "This is harness preflight, not actual native evidence or all-stage runtime PASS.",
+    "Existing process tests cover synthetic Linux children under a dedicated serial verifier; uninterruptible kernel or hostile process escape is not claimed.",
+    "No new visual/audio/listening/FPS/hardware-latency/native-Windows judgment.",
+    "Local unittest evidence is not remote GitHub CI."
+  ]
+}

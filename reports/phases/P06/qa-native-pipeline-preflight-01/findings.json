@@ -1,0 +1,26 @@
+{
+  "scope": "ORIGINAL454E_NATIVE_PIPELINE_PREFLIGHT_ONLY",
+  "mandatory_findings": [
+    {
+      "id": "PIPE-Q01",
+      "severity": "HIGH",
+      "status": "OPEN_IN_ORIGINAL454E",
+      "title": "Owned process descendants can survive both stage success and timeout",
+      "mechanism": "run_command only scans descendants after timeout, startingfromwrapperPID. Already exitedwrapper has reparentedchild outside thattree; success path doesnotinspectchildren. Timeout branch secondcommunicate10sec canthrowunhandled and leavechildalive.",
+      "actual_proof": "IndependentLead purePython fixtures: inheritedstdout orphan survivedafter10.424sec TimeoutExpired; silentstdout child survived reportedPASS0.026sec. Exactchild PID/start identities recorded and cleaned. QA independently readsource/raw/probes; didnotduplicateprocessworkers.",
+      "required_fix": "Contain/adopt/track stage-owned children acrosswrapperexit, cleanup/reap on everyexit, structuredtimeout/failure, noNextstage withleftovers, preserveRootworkergroup and avoidunrelatedprocesses.",
+      "actual_Godot_or_controller_used": false
+    },
+    {
+      "id": "PIPE-Q02",
+      "severity": "MEDIUM",
+      "status": "OPEN_IN_ORIGINAL454E",
+      "title": "Malformed/contradictory child reports accepted as evidence",
+      "actual_own_pure_cases": "Original frozen valid_report accepted8badcases: duplicatecontradictorypassed, Unicodeescapedduplicate, NaN,Infinity, exit1passedtrue, exitstring0, barelegacy passed, falseactualchecks. Fourvalid/rejectedcontrols behaved as expected.",
+      "required_fix": "Rejectduplicate decodedJSONkeys andnonfinite values; typed consistentcommandexit0/name/argv/passed; typedsubstantivelegacychecks/log receipts; rerun adversarialcases onfixedsource.",
+      "actual_engine_or_pipeline_run": false
+    }
+  ],
+  "newer11f_fix": "Not accepted by thisoriginalverdict; separatereview required",
+  "QA_provenance_error": "Initial6232 snapshotwasalreadyintermediatefixWIP; failedASTinstrumentNameError preservedandclarified, neverproductproof"
+}

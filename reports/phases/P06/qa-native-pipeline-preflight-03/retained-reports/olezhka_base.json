@@ -1,0 +1,475 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "7a9972772ed3b4bbab962ab535cb715a6444dcb9",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 248,
+  "checks_total": 248,
+  "actual_captures": 82,
+  "contacts": 57,
+  "actual_input": true,
+  "movie_recorded": true,
+  "engine_recording": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/attempt1/olezhka-combat-native-01/live/engine_mix.wav",
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-combat-native-01/olezhka.mp4",
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 32.533,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-combat-native-01/olezhka.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 62.61,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-combat-native-01/olezhka.avi",
+        "-c:a",
+        "aac",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-combat-native-01/olezhka.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 4.988,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-combat-native-01/olezhka.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.051,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/commands.json",
+      "sha256": "127d8b2cba1b0495c277404c2c11cfaf62600458125aa0d8be0254d8f6178f85"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_down_back_to_run.png",
+      "sha256": "7a82c08be906d9d76e3556f22fa5ff47052fb6fbb3138b0e1a4843bd2b36a359"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_down_guard.png",
+      "sha256": "03d1301ab1fde3442bbb011e9eeacc5ce4de9145db819456f2ad1f0d698bc862"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_down_run.png",
+      "sha256": "46a9fc6bbb6f662418d4aa93296e733e357dadd231b21d485e03769d97310880"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_down_walk.png",
+      "sha256": "94aec159191ea31f9e17981a8a7ac24a480a9d59f725c809f1d7b5f4b916d42b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_left_back_to_run.png",
+      "sha256": "9a1125e4ecf5a1443237df153c230bd6217b2da79d74621268befd5dffa3916d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_left_guard.png",
+      "sha256": "a6413bdcabaa65bb5c8a64a6f370aef2368dc1f9aa5d728fb7dd50ad4ed28131"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_left_run.png",
+      "sha256": "b239d32037356ca0a504bafe16f6cb954805b1044240e1a7d9845dd2767e2edd"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_left_walk.png",
+      "sha256": "460b158f38aec27ba45dfd7a300585afd2149f1be8b7bd79b3fd16e09e60edc4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_right_back_to_run.png",
+      "sha256": "a6759ba4a0d76d539bf6694ea91e3270f24ceec1bce2a39cd7cc46c04dbcac65"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_right_guard.png",
+      "sha256": "09cb6c90c6441a5099f47eff2ac9d24add06a8d5afd846db1d5d92b81d59bb32"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_right_run.png",
+      "sha256": "0af86b53394e3f13854e856c3792a230b84f0daa5770e60fd9faec3a6c866ee3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_right_walk.png",
+      "sha256": "8f0b3c1ceaea4047c1b52263a3ea9623a6e86b812fbbc3b6fd2aeda7ad936dae"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_up_back_to_run.png",
+      "sha256": "86ffe70537306d537e2e391602f0186a96855579e992cae1e1e74b2c55e7878f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_up_guard.png",
+      "sha256": "9feb6c0ce91954a473268701521bfded3bce22bdeed1bfe5f346dd361a089c11"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_up_run.png",
+      "sha256": "be3511667833b7bfcdb207408c72b8bc8567679d7f90738456b658a779adc96f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/continuous_run_guard_up_walk.png",
+      "sha256": "34e8467185bd34a03072b4a23d6de316526982562323606e618eb81d7568f3bc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_down_contact.png",
+      "sha256": "d644b60617c78a8c46ce4fa8a399ba09a25e5ce0f6cb7aa36375bdda43fe0e7d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_down_guard.png",
+      "sha256": "ce6acc1f32e0a93848c92e91ee1e1b10ec41a7ebda4fac78e217141544d98457"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_down_parry.png",
+      "sha256": "bfaab2a6fea5efb4f4ff0edbb24a546b94693676ad34809f8164d4d248c7f743"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_down_recovery.png",
+      "sha256": "348d341bfa4409e81e17a4423c1f63d25685df502fc2ac49c19138be92eb5ef3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_left_contact.png",
+      "sha256": "72f584446d8f8028f4077f4f3b755ab53cf276b54485020495cd66c1ba0528dc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_left_guard.png",
+      "sha256": "5e34b12a38352d7b73c3c90944a3c9c8439b1906c2b3a1198120e4976082be2a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_left_parry.png",
+      "sha256": "e860e6a97849240247e442e4170297de3fc35cce9a49265a8688ebd448c8e694"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_left_recovery.png",
+      "sha256": "417a1c0bd7eee0102bd07c2f4f925b7da0ea74ae496ef28b454ffd2a5fca81d6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_reduced_false.png",
+      "sha256": "2c535030010d55ed5349a9e3ff0e6a235f78d7a55eb0c5af555458b9e333c245"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_reduced_true.png",
+      "sha256": "3dcc35bad36bd0838e07c217e588d6b28fb8555cd0cdbbfb7c78bc9bfdec6473"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_right_contact.png",
+      "sha256": "20e1638681314a464fc828fcadb9a2dad93d5d7b40289cb149062169b55158be"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_right_guard.png",
+      "sha256": "a8ba509c9e02aed9ba690546d3738f7299110c7ca0c1c8e98dbe89593bc568b4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_right_parry.png",
+      "sha256": "57aea989c8a09c591dab463ce0ac2a9494f9cf3d5bd6eabe7629a0b2be236dc6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_right_recovery.png",
+      "sha256": "5f196f005752db08731bcd559f36de91509371f6309caeab3fca8eb807d4f604"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_up_contact.png",
+      "sha256": "1f31dca5fb9df1ee735e5baf9d85987f86245f5e5db12afca37e6ca7222e1f9d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_up_guard.png",
+      "sha256": "062e8aead45a44fab711e0eec295de3db39b30c0e4951627bfe1c12758e9f069"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_up_parry.png",
+      "sha256": "34444a4541debb9bceba6e845cececbb9863fb0317aa8a5e82eddd726bddb566"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/counter_up_recovery.png",
+      "sha256": "1aa65f85d3ebb9a2fbc3064c430b817466be96426bd8f6efa8318b9c30f9a31b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/engine_mix.wav",
+      "sha256": "1e6474db5f507945aec5c4fd33c6da324017bd6e23ba451dd457c59c8c6cd460"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_down_contact.png",
+      "sha256": "186556c86517cf5f292a981eb3ea08ad93b8c7b170c117ee44e24b805834ebea"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_down_recovery.png",
+      "sha256": "14dd1d962ebff1ffd8f2e363f7c015297e7263be8e87c2140a35dd6e1616fa50"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_down_windup.png",
+      "sha256": "b73b880d92f38f66791fea9682a590a3f7f01cd15c49f1ccd3d947a963444c52"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_left_contact.png",
+      "sha256": "a95882675e9b8f938d85ad61de37007cc4014618aacf7f823f7c8e44406e503d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_left_recovery.png",
+      "sha256": "1127dc566653a559242011f16080dd348f14f813ce7066bedcbbff433876376d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_left_windup.png",
+      "sha256": "75f0c14494613e79831cc791ad3fc43f90b672e400a12aa6565a119ed69bfd36"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_right_contact.png",
+      "sha256": "6f7ca1d2a8af95ff39682302c5b5079cdb25b65d0431a234c9ad588282e49f75"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_right_recovery.png",
+      "sha256": "70137e257927f2c63430e3ac6ea790888f1ea96b3fcb4c95ae0a2033945355ab"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_right_windup.png",
+      "sha256": "5024b100bb033804778c67332523c10ffa7d6b125c4cef8cb78cd0ae1714c40c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_up_contact.png",
+      "sha256": "1b0783a9a0ab4f4b92736b127ea5cb3c946fc1d0ff9504932740de54531ce0ea"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_up_recovery.png",
+      "sha256": "d6c55c8f68e643d608e972581f55e21f66b1549cc260174032f65347a4f5bbb7"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_blunt_up_windup.png",
+      "sha256": "0b126c84d8a7700153513ca364c3899e6bbcd44f1b40e0e09138531b396528fb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_down_contact.png",
+      "sha256": "0c3c9464ea5fbff350ffdd396ec5b600ef862d00d4bdc798d45e204f9b6d3e44"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_down_recovery.png",
+      "sha256": "6fe8566575dab08775fe8dd88ee55e715b4dd0e0a96d33f003d8685e0ec85e19"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_down_windup.png",
+      "sha256": "7f40dadd237751a6100ef0eb4e0bdbbd28ab48c356ab0cae5d4288feed97bedf"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_left_contact.png",
+      "sha256": "24a9ca62d6a3f50943841ebf57c45fda03c7c3b6351f742b7671a3a0208cd519"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_left_recovery.png",
+      "sha256": "d89169eb65c6d56003967c89dc501410af3bcdac3e353bb390f400216e0434b0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_left_windup.png",
+      "sha256": "6fcb3c0e7f7c40b652c31d9cf317693e64d09fcf16cca70db947dd0f0e18780e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_right_contact.png",
+      "sha256": "e9ec885436455fe2d46fcfca2ef85156b4d77f6cd7be6ae968de0de973234572"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_right_recovery.png",
+      "sha256": "82de0d94146479163e5fd4fcb2cc1637862252916b0e592018684d0bd4b86703"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_right_windup.png",
+      "sha256": "c2997760daf67de39953288b052a9b7317a9ce4b0f5d8ab1c69f624748b41f17"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_up_contact.png",
+      "sha256": "15e50ab4be5a5cd4cc11772380128b11ac8b619891bf72c070dc05ffebde788d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_up_recovery.png",
+      "sha256": "7633f71a6ca46fd76c23630fa4f1dbadd2cea395780b10ef4c3d3acc5583968b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_sharp_up_windup.png",
+      "sha256": "0c3d53816b21def92a723a27b2aed06aaeb53dc9a78f82620710de6ab3160dd2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_down_contact.png",
+      "sha256": "a74110df744558d56fc376f55058f195ad60ceaed0b5c92c98f09a82b33dc76a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_down_recovery.png",
+      "sha256": "5a2dc705766f16472aff6a0fd6bda074cb8f4a702ccf24a5ae2ea9d4fc74d5d5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_down_windup.png",
+      "sha256": "3a46a84d9e6946e1edc9238c9bf5c9023c5fa7de0414d4f86b8a4216bac16850"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_left_contact.png",
+      "sha256": "64036f3bd9406eaad108275983eea3f9fe1c4b6830a5c1f7b9645e9b2628ec22"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_left_recovery.png",
+      "sha256": "e4383cd81aec960e2066adb4dbf6d44a2528f8acb29072b674b002ca39bec2ca"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_left_windup.png",
+      "sha256": "b4503e755651999379444f3ef9e964b55ca0ff08aafb806e3f4384254f559945"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_right_contact.png",
+      "sha256": "58088d9c67475428f74065c7c2c83bbddc6a83aa22e41ef2fb275f746102bca9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_right_recovery.png",
+      "sha256": "cb9b9bbe03ae24ab8c4549840ff4f16e821fd9addefa8bb0da441b37dce211a4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_right_windup.png",
+      "sha256": "2a87d9076d50e3a4633b3ee96ccc0db2fdb84c9f3c8da90c3e68c27da0a38a72"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_up_contact.png",
+      "sha256": "c13bcafac6540faadaa085c6a3238a96e91a7bb7baddbfaa7ca7ac835569dcfb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_up_recovery.png",
+      "sha256": "6439c1b85d16c98b34190036d698cb06cca901eab39edb5ce09a8c8942760bde"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/finisher_unarmed_up_windup.png",
+      "sha256": "db31c20a1705093b8cf17b210d1ea860e9a380810ab7daf3e6a3e5dd198695c4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_down_death_hold.png",
+      "sha256": "688efe8c438e89ab933782ade0dfed4e591b79e89a3b71ec5c5d6cf3e82c371d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_down_fall.png",
+      "sha256": "b4e77955f4706902262cad6a5c75058213fade51b5d7e9476cdc2600d2aacdff"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_down_hurt.png",
+      "sha256": "b84931418a1e09c84a48a103e8922d872808fc562bea938d0485a3aff974da1b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_left_death_hold.png",
+      "sha256": "ff944dbf24647b2da5c6d1b2e8d18879ed710f7756fd2c56577942439ba62e98"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_left_fall.png",
+      "sha256": "1c0b63c8aa2ec659badad2ef39b3c408cf4de4ef700d1a74d8b1750aaf281c67"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_left_hurt.png",
+      "sha256": "dd83d29a2ab3ee70b0045695689611bbde934055b5be801f1f62869d69369f5f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_right_death_hold.png",
+      "sha256": "392d499a0e0b839f1570a95f6e29ed1be2df0b78d968af24266b001ad13be65e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_right_fall.png",
+      "sha256": "b441c53347314e25f1cb8610c3b31017bdddac7fa4cd8dab021a62d426326bd9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_right_hurt.png",
+      "sha256": "9b9c04dfb97d689177b01f171b3c5f0a9db6307296dc8d3443ab07addf95f4ba"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_up_death_hold.png",
+      "sha256": "c6794ce1af8ed4964413d7049e0ff0f64378f22d42a8c34372e26fc87bb021ee"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_up_fall.png",
+      "sha256": "4269316aeada89181740dda3b4863415b57ba5f05c2908631963451889342ef6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/reactions_up_hurt.png",
+      "sha256": "918589a7b3117a57852cac8e04039bb770a167083585b795aeea73b69abc9cdf"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/result.json",
+      "sha256": "f46c9b96c3cd41bb2cd8f6184ed8a9d47037c49c041704ccc05ea158164a2747"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live.log",
+      "sha256": "c15a2c3a0cd9b5044b475fc2d123953f7de81f060cde93c6610d38f6cbb161ae"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie/engine_mix.wav",
+      "sha256": "50338fe8d904146a2b4db88c96c8ea7c54ad594e74d1a8e0c459a476c7853e60"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie/result.json",
+      "sha256": "cea0df9f8a21b4743d5283a1eeb33339c2b2008895868cd576a7c157d4f817ba"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie.log",
+      "sha256": "d2367174a1d3c0ec7235f2bcaf92f0191141fb4e59ead9882c7b04596b7d51cc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie_probe.json",
+      "sha256": "34ae57d01b9129a58393318c02fab255d5756f510f4750a17a1edc18ddc1c81e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/probe_movie.log",
+      "sha256": "53bc4b927720207a1155197dd66ffac9249546b0b88574c303ae5f0b020a9f82"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    }
+  ]
+}

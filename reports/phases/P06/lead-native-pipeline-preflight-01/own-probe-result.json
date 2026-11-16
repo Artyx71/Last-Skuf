@@ -1,0 +1,67 @@
+{
+  "scope": "INDEPENDENT_PURE_PROCESS_TREE_AND_REPORT_BOUNDARIES_NO_ENGINES",
+  "input": {
+    "source": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/tools/verify_p06.py",
+    "sha256": "0357a6824dfb263fbdebb65f9852cd28ee8f01b24481a35bc2944b8921801b32",
+    "head": "454e5329b517f461e899760e0ba43156393f555c"
+  },
+  "orphan_probe": {
+    "wall_seconds": 10.424,
+    "returned_result": null,
+    "exception": {
+      "type": "TimeoutExpired",
+      "message": "Command '['/usr/bin/python', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/orphan_fixture.py', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/fixture-child.json']' timed out after 10 seconds",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/tools/verify_p06.py\", line 92, in run_command\n    text, _ = process.communicate(timeout=timeout)\n              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1221, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 2154, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1268, in _check_timeout\n    raise TimeoutExpired(\n    ...<2 lines>...\n            stderr=b''.join(stderr_seq) if stderr_seq else None)\nsubprocess.TimeoutExpired: Command '['/usr/bin/python', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/orphan_fixture.py', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/fixture-child.json']' timed out after 0.2 seconds\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/probe_process_and_reports.py\", line 12, in <module>\n    ret=m.run_command([sys.executable,str(wrapper),str(pidfile)],O/'orphan-stage.log',.20)\n  File \"/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/tools/verify_p06.py\", line 96, in run_command\n    text, _ = process.communicate(timeout=10)\n              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1221, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 2154, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1268, in _check_timeout\n    raise TimeoutExpired(\n    ...<2 lines>...\n            stderr=b''.join(stderr_seq) if stderr_seq else None)\nsubprocess.TimeoutExpired: Command '['/usr/bin/python', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/orphan_fixture.py', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-01/fixture-child.json']' timed out after 10 seconds\n"
+    },
+    "synthetic_child": {
+      "pid": 345210,
+      "start": "19067002"
+    },
+    "child_stat_after_runner": {
+      "state": "S",
+      "ppid": 1027,
+      "start": "19067002"
+    },
+    "synthetic_child_still_running_after_timeout": true,
+    "own_cleanup_SIGKILL_only_exact_child_start_identity": true,
+    "Godot_or_controller_used": false
+  },
+  "report_probes": [
+    {
+      "fixture": "valid_current_minimal",
+      "accepted": true,
+      "path": "valid_current_minimal.json"
+    },
+    {
+      "fixture": "duplicate_contradictory_pass",
+      "accepted": true,
+      "path": "duplicate_contradictory_pass.json"
+    },
+    {
+      "fixture": "nonfinite_numeric",
+      "accepted": true,
+      "path": "nonfinite_numeric.json"
+    },
+    {
+      "fixture": "contradictory_nested_exit",
+      "accepted": true,
+      "path": "contradictory_nested_exit.json"
+    },
+    {
+      "fixture": "empty_legacy_list",
+      "accepted": false,
+      "path": "empty_legacy_list.json"
+    },
+    {
+      "fixture": "vacuous_named_legacy_stage",
+      "accepted": true,
+      "path": "vacuous_named_legacy_stage.json"
+    },
+    {
+      "fixture": "string_pass",
+      "accepted": false,
+      "path": "string_pass.json"
+    }
+  ],
+  "production_or_state_writes": false
+}

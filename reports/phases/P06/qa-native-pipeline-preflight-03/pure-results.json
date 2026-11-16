@@ -1,0 +1,811 @@
+{
+  "scope": "PURE8E_PARSER_PLAN_AND_EXACT_PROCESS_FUNCTION_EQUIVALENCE",
+  "source_sha256": "6bdc3edd0ea4bebd2ad190d0bab9fe9a53522e9bd776f15fe17675de442ce7bc",
+  "parser_cases": [
+    {
+      "name": "valid_dict",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "valid_legacy_checks",
+      "raw_JSON": "[{\"name\": \"pins\", \"checks\": {\"SHA\": true}, \"passed\": true}]",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "valid_legacy_command",
+      "raw_JSON": "[{\"name\": \"live\", \"passed\": true, \"exit_code\": 0, \"log\": \"native.log\"}]",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "duplicate_root",
+      "raw_JSON": "{\"passed\": false, \"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "escaped_duplicate",
+      "raw_JSON": "{\"passed\": false, \"\\u0070assed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "NaN",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true, \"metric\": NaN}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "Infinity",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true, \"metric\": Infinity}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "exp_overflow",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":1e309}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "negative_exp_overflow",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":-1e309}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "contradictory_exit1",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": 1}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "exit_bool",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": false}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "exit_str",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": \"0\"}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "bare_legacy",
+      "raw_JSON": "[{\"passed\":true}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "false_legacychecks",
+      "raw_JSON": "[{\"name\": \"pins\", \"passed\": true, \"checks\": {\"required\": false}}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "legacy_name_int",
+      "raw_JSON": "[{\"name\": 7, \"passed\": true, \"checks\": {\"required\": true}}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "legacy_log_int",
+      "raw_JSON": "[{\"name\": \"live\", \"passed\": true, \"exit_code\": 0, \"log\": 7}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "legacy_name_list",
+      "raw_JSON": "[{\"name\": [\"x\"], \"passed\": true, \"checks\": {\"required\": true}}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "argv_nonstring",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [null, {}], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "nested_exp_overflow",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true, \"arr\": [{\"metric\": 1e309}]}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "phase_true",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": true, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "phase_missing",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "source_false",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": false}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "commands_empty",
+      "raw_JSON": "{\"passed\": true, \"commands\": [], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "blank_name",
+      "raw_JSON": "[{\"name\": \" \", \"log\": \"live.log\", \"passed\": true, \"exit_code\": 0}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "blank_log",
+      "raw_JSON": "[{\"name\": \"live\", \"log\": \"\\t\", \"passed\": true, \"exit_code\": 0}]",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "blank_arg",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\" \"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "empty_arg",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "numeric_arg",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [0], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "mixed_arg",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"actual\", null], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "bool_arg",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [true], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "finite_boundary",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":1e308}",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "unicode_name",
+      "raw_JSON": "[{\"name\": \"\\u043f\\u0440\\u043e\\u0432\\u0435\\u0440\\u043a\\u0430\", \"checks\": {\"\\u0440\\u0435\\u0430\\u043b\\u044c\\u043d\\u044b\\u0439\": true}, \"passed\": true}]",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "zero_float",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":-0.0}",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "nested_decoded_duplicate",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"meta\":{\"a\":false,\"\\u0061\":true}}",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "real_report_compatibility": [
+    {
+      "id": "gabar_base",
+      "path": "reports/phases/P06/attempt1/gabar-combat-native-02/validation.json",
+      "actual_sha256": "5da1c89743be948dadc65eff2a67e77a589c4f9bf8d89947b740e88b176c12ea",
+      "expected_sha256": "5da1c89743be948dadc65eff2a67e77a589c4f9bf8d89947b740e88b176c12ea",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "olezhka_base",
+      "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/validation.json",
+      "actual_sha256": "ab4c58ad6dc35b73f1b7102be07adb4b2faa09e4af4cdfbfd8ba5309cca6ba5b",
+      "expected_sha256": "ab4c58ad6dc35b73f1b7102be07adb4b2faa09e4af4cdfbfd8ba5309cca6ba5b",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "oleg_guard",
+      "path": "reports/phases/P06/guard-feedback-01/native-03/validation.json",
+      "actual_sha256": "7ee778f17faa061bbe8278740563324c30cc1ef5d4997c23e86d6babfa0339e5",
+      "expected_sha256": "7ee778f17faa061bbe8278740563324c30cc1ef5d4997c23e86d6babfa0339e5",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "timka_present",
+      "path": "reports/phases/P06/timka-present-01/native-02/validation.json",
+      "actual_sha256": "3274916bc66ef5a89017b71cf9182abfed1fcfc009828d4e4978de23d4599c10",
+      "expected_sha256": "3274916bc66ef5a89017b71cf9182abfed1fcfc009828d4e4978de23d4599c10",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "timka_prime",
+      "path": "reports/phases/P06/timka-prime-01/native-03/validation.json",
+      "actual_sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+      "expected_sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "ryzhik_roll",
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/validation.json",
+      "actual_sha256": "be585bde6dc654a6d5db1bac4d5bd090bec628a626f180c6b8930295126890a9",
+      "expected_sha256": "be585bde6dc654a6d5db1bac4d5bd090bec628a626f180c6b8930295126890a9",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "tega_environment",
+      "path": "reports/phases/P06/tega-environment-01/native-03/validation.json",
+      "actual_sha256": "57da4543532eb476fc066fd026637fe2fc8742a027e6dd029421fb8d0ff72946",
+      "expected_sha256": "57da4543532eb476fc066fd026637fe2fc8742a027e6dd029421fb8d0ff72946",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "pasha_moving_shot",
+      "path": "reports/phases/P06/pasha-moving-shot-01/native-03/validation.json",
+      "actual_sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "expected_sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "cast_portrait_dialogue",
+      "path": "reports/phases/P06/attempt1/cast-native-02/validation.json",
+      "actual_sha256": "e656691770bd00a876df16a72c681500d0c424b06c595d78dcd7656a7da954e1",
+      "expected_sha256": "e656691770bd00a876df16a72c681500d0c424b06c595d78dcd7656a7da954e1",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "gabar_world",
+      "path": "reports/phases/P06/attempt1/world-native-02/validation.json",
+      "actual_sha256": "9a183136f643108fbce03d5ece3bb2f91374033267de5a69c83d3cc30515d64c",
+      "expected_sha256": "9a183136f643108fbce03d5ece3bb2f91374033267de5a69c83d3cc30515d64c",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "olezhka_world",
+      "path": "reports/phases/P06/attempt1/olezhka-world-native-01/validation.json",
+      "actual_sha256": "025129e43a7ba5fb5bd869c6f160e645834e2e161836669bb2ce63ff5a1e0057",
+      "expected_sha256": "025129e43a7ba5fb5bd869c6f160e645834e2e161836669bb2ce63ff5a1e0057",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "timka_world",
+      "path": "reports/phases/P06/attempt1/timka-world-native-02/validation.json",
+      "actual_sha256": "67a16612c1e36d99f131e4c8fba8167c85b2d0858a3417003a2252118f64f16d",
+      "expected_sha256": "67a16612c1e36d99f131e4c8fba8167c85b2d0858a3417003a2252118f64f16d",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "ryzhik_world",
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/validation.json",
+      "actual_sha256": "aa4db74343d0d6fff8c9538a08d7be0d2537642e3fdb2662d5beb4923375fd57",
+      "expected_sha256": "aa4db74343d0d6fff8c9538a08d7be0d2537642e3fdb2662d5beb4923375fd57",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "tega_world",
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/validation.json",
+      "actual_sha256": "e2f61f8c09b15523199fcf40a154257cb0e53cb7a60e29cf5e55f091f2434cf8",
+      "expected_sha256": "e2f61f8c09b15523199fcf40a154257cb0e53cb7a60e29cf5e55f091f2434cf8",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "pasha_world",
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/validation.json",
+      "actual_sha256": "d53bf53812966bb22106e92a392071bf4838586ee1c7744307f19a7e6a96ede7",
+      "expected_sha256": "d53bf53812966bb22106e92a392071bf4838586ee1c7744307f19a7e6a96ede7",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "id": "C01_audio",
+      "path": "reports/phases/P06/character-finisher-audio-01/native-02/validation.json",
+      "actual_sha256": "d36d4dd4159232abcd816b3ba3798601b6c5266ea75e0c2a31feee3a7f3e47eb",
+      "expected_sha256": "d36d4dd4159232abcd816b3ba3798601b6c5266ea75e0c2a31feee3a7f3e47eb",
+      "hash_matches": true,
+      "valid": true,
+      "passed": true
+    }
+  ],
+  "process_function_equivalence": [
+    {
+      "name": "enable_subreaper",
+      "exact_AST_unchanged": true,
+      "AST_sha256": "aaf1b4ec65d3b352457c2d83c94f64d4fdf05bdd6469fb04a9a57ecca512aa0c"
+    },
+    {
+      "name": "owned_descendants",
+      "exact_AST_unchanged": true,
+      "AST_sha256": "04709c964a7132d4a8c3d5e9cb2a0eb281dbe0d6e88dfac681858f687422e94b"
+    },
+    {
+      "name": "live_descendants",
+      "exact_AST_unchanged": true,
+      "AST_sha256": "612f42133e7bd452b81f5b310cdfdd1df66be6085893b7ecaef727f2fcd1dcfa"
+    },
+    {
+      "name": "stop_descendants",
+      "exact_AST_unchanged": true,
+      "AST_sha256": "73a8f2940bbd44b54d43413312ef8a07ff8bfe7e7bb57c48f3bf18d3929c5efe"
+    },
+    {
+      "name": "run_command",
+      "exact_AST_unchanged": true,
+      "AST_sha256": "224456e2ce9210595c05f4882ce8bd46765513c365f06b1e367428e21cff2400"
+    }
+  ],
+  "plan_checks": [
+    {
+      "exports": false,
+      "movie": false,
+      "headless": false,
+      "stage_count": 13,
+      "timeout_sum": 8520,
+      "stages": [
+        {
+          "name": "gabar",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_gabar.py",
+            "--output",
+            "REPORT/gabar"
+          ],
+          "timeout": 600,
+          "script_sha256": "f1229d2d5c4391bc370d7a3b2a64bf9319abb854d685c6456acc9ce235cf3d30",
+          "unknown_options": []
+        },
+        {
+          "name": "olezhka",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_olezhka.py",
+            "--output",
+            "REPORT/olezhka"
+          ],
+          "timeout": 600,
+          "script_sha256": "806a3f6fa665f202aee3d3a9361ca140bbf5352fd4f60fa93d672397774988b3",
+          "unknown_options": []
+        },
+        {
+          "name": "counter_feedback",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_counter_feedback.py",
+            "--output",
+            "REPORT/counter_feedback"
+          ],
+          "timeout": 600,
+          "script_sha256": "bd9ffb62800b5b5f66e4d8a769ebc5dbeba7c04f727700036d37e88fff07dfe3",
+          "unknown_options": []
+        },
+        {
+          "name": "timka_present",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_timka_present.py",
+            "--output",
+            "REPORT/timka_present"
+          ],
+          "timeout": 600,
+          "script_sha256": "ca7ccb3d8f8fd071b33f4856d7efb8aeca4bfe12471cfb80d12fb14657fcd571",
+          "unknown_options": []
+        },
+        {
+          "name": "timka_prime",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_timka_prime.py",
+            "--output",
+            "REPORT/timka_prime"
+          ],
+          "timeout": 600,
+          "script_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+          "unknown_options": []
+        },
+        {
+          "name": "ryzhik",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_ryzhik.py",
+            "--output",
+            "REPORT/ryzhik"
+          ],
+          "timeout": 600,
+          "script_sha256": "ac4722c44645b04b94175d01e8ae1059a5d48eaeaed1bda315143bdc09fbc2f6",
+          "unknown_options": []
+        },
+        {
+          "name": "tega",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_tega.py",
+            "--output",
+            "REPORT/tega"
+          ],
+          "timeout": 600,
+          "script_sha256": "88fbcd5ff00311673661f495dd691562d39d889e138708c1e7716dd519dcee9c",
+          "unknown_options": []
+        },
+        {
+          "name": "pasha",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_pasha.py",
+            "--output",
+            "REPORT/pasha"
+          ],
+          "timeout": 600,
+          "script_sha256": "180ef33e20c6bcba2a24de21d2cc569d263ce638445c9f2f9d550463faf87541",
+          "unknown_options": []
+        },
+        {
+          "name": "cast",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_cast.py",
+            "--output",
+            "REPORT/cast"
+          ],
+          "timeout": 300,
+          "script_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "unknown_options": []
+        },
+        {
+          "name": "cast_large_text",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_cast.py",
+            "--output",
+            "REPORT/cast_large_text",
+            "--large-text"
+          ],
+          "timeout": 300,
+          "script_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "unknown_options": []
+        },
+        {
+          "name": "finisher_audio",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_finisher_audio.py",
+            "--headroom-only",
+            "--replay-only",
+            "--output",
+            "REPORT/finisher_audio"
+          ],
+          "timeout": 300,
+          "script_sha256": "573789361ce1e2e0c4d7fadf03da455df9d0393c81984b6a092ad36a14ca9d37",
+          "unknown_options": []
+        },
+        {
+          "name": "npc_baseline",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_npc_baseline.py",
+            "--output",
+            "REPORT/npc_baseline"
+          ],
+          "timeout": 420,
+          "script_sha256": "3a1d376a869c6a95d40c632b5d6431b5fa9c5cf9ed236af673b3c5062acef01c",
+          "unknown_options": []
+        },
+        {
+          "name": "combat_baseline",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p04g.py",
+            "--output",
+            "REPORT/combat_baseline",
+            "--build-output",
+            "BUILD/combat_baseline"
+          ],
+          "timeout": 2400,
+          "script_sha256": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "unknown_options": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "exports": true,
+      "movie": true,
+      "headless": false,
+      "stage_count": 13,
+      "timeout_sum": 8520,
+      "stages": [
+        {
+          "name": "gabar",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_gabar.py",
+            "--output",
+            "REPORT/gabar",
+            "--movie",
+            "--build-output",
+            "BUILD/gabar"
+          ],
+          "timeout": 600,
+          "script_sha256": "f1229d2d5c4391bc370d7a3b2a64bf9319abb854d685c6456acc9ce235cf3d30",
+          "unknown_options": []
+        },
+        {
+          "name": "olezhka",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_olezhka.py",
+            "--output",
+            "REPORT/olezhka",
+            "--movie",
+            "--build-output",
+            "BUILD/olezhka"
+          ],
+          "timeout": 600,
+          "script_sha256": "806a3f6fa665f202aee3d3a9361ca140bbf5352fd4f60fa93d672397774988b3",
+          "unknown_options": []
+        },
+        {
+          "name": "counter_feedback",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_counter_feedback.py",
+            "--output",
+            "REPORT/counter_feedback",
+            "--movie",
+            "--build-output",
+            "BUILD/counter_feedback"
+          ],
+          "timeout": 600,
+          "script_sha256": "bd9ffb62800b5b5f66e4d8a769ebc5dbeba7c04f727700036d37e88fff07dfe3",
+          "unknown_options": []
+        },
+        {
+          "name": "timka_present",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_timka_present.py",
+            "--output",
+            "REPORT/timka_present",
+            "--movie",
+            "--build-output",
+            "BUILD/timka_present"
+          ],
+          "timeout": 600,
+          "script_sha256": "ca7ccb3d8f8fd071b33f4856d7efb8aeca4bfe12471cfb80d12fb14657fcd571",
+          "unknown_options": []
+        },
+        {
+          "name": "timka_prime",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_timka_prime.py",
+            "--output",
+            "REPORT/timka_prime",
+            "--movie",
+            "--build-output",
+            "BUILD/timka_prime"
+          ],
+          "timeout": 600,
+          "script_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+          "unknown_options": []
+        },
+        {
+          "name": "ryzhik",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_ryzhik.py",
+            "--output",
+            "REPORT/ryzhik",
+            "--movie",
+            "--build-output",
+            "BUILD/ryzhik"
+          ],
+          "timeout": 600,
+          "script_sha256": "ac4722c44645b04b94175d01e8ae1059a5d48eaeaed1bda315143bdc09fbc2f6",
+          "unknown_options": []
+        },
+        {
+          "name": "tega",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_tega.py",
+            "--output",
+            "REPORT/tega",
+            "--movie",
+            "--build-output",
+            "BUILD/tega"
+          ],
+          "timeout": 600,
+          "script_sha256": "88fbcd5ff00311673661f495dd691562d39d889e138708c1e7716dd519dcee9c",
+          "unknown_options": []
+        },
+        {
+          "name": "pasha",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_pasha.py",
+            "--output",
+            "REPORT/pasha",
+            "--movie",
+            "--build-output",
+            "BUILD/pasha"
+          ],
+          "timeout": 600,
+          "script_sha256": "180ef33e20c6bcba2a24de21d2cc569d263ce638445c9f2f9d550463faf87541",
+          "unknown_options": []
+        },
+        {
+          "name": "cast",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_cast.py",
+            "--output",
+            "REPORT/cast"
+          ],
+          "timeout": 300,
+          "script_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "unknown_options": []
+        },
+        {
+          "name": "cast_large_text",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_cast.py",
+            "--output",
+            "REPORT/cast_large_text",
+            "--large-text"
+          ],
+          "timeout": 300,
+          "script_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "unknown_options": []
+        },
+        {
+          "name": "finisher_audio",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_finisher_audio.py",
+            "--headroom-only",
+            "--replay-only",
+            "--output",
+            "REPORT/finisher_audio"
+          ],
+          "timeout": 300,
+          "script_sha256": "573789361ce1e2e0c4d7fadf03da455df9d0393c81984b6a092ad36a14ca9d37",
+          "unknown_options": []
+        },
+        {
+          "name": "npc_baseline",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p06_npc_baseline.py",
+            "--output",
+            "REPORT/npc_baseline"
+          ],
+          "timeout": 420,
+          "script_sha256": "3a1d376a869c6a95d40c632b5d6431b5fa9c5cf9ed236af673b3c5062acef01c",
+          "unknown_options": []
+        },
+        {
+          "name": "combat_baseline",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify_p04g.py",
+            "--output",
+            "REPORT/combat_baseline",
+            "--build-output",
+            "BUILD/combat_baseline",
+            "--exports",
+            "--movie"
+          ],
+          "timeout": 2400,
+          "script_sha256": "144b4e0c9da576e73929349fe9bd2001ea0f3beb3f2b4fca1842ca4ed0b9c65b",
+          "unknown_options": []
+        }
+      ],
+      "passed": true
+    },
+    {
+      "exports": false,
+      "movie": false,
+      "headless": true,
+      "stage_count": 1,
+      "timeout_sum": 600,
+      "stages": [
+        {
+          "name": "headless_technical_only",
+          "argv": [
+            "/usr/bin/python3",
+            "tools/verify.py",
+            "--output",
+            "REPORT/headless"
+          ],
+          "timeout": 600,
+          "script_sha256": "f843047fb36a7e2c102d96540302cdba3ddedd15386baa648a5946b672b99bde",
+          "unknown_options": []
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "engines_or_pipeline_or_Controller_invoked": false,
+  "passed": true
+}

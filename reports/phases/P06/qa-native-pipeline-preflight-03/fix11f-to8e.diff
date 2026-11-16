@@ -1,0 +1,49 @@
+--- fixed11f-verify_p06.py
++++ candidate8e-verify_p06.py
+@@ -10,6 +10,7 @@
+ import ctypes
+ import hashlib
+ import json
++import math
+ import os
+ from pathlib import Path
+ import re
+@@ -47,14 +48,20 @@
+         return result
+     def constant(value):
+         raise ValueError('Non-finite JSON number: ' + value)
+-    return json.loads(text, object_pairs_hook=pairs, parse_constant=constant)
++    def finite(value):
++        number = float(value)
++        if not math.isfinite(number):
++            raise ValueError('Non-finite JSON number: ' + value)
++        return number
++    return json.loads(text, object_pairs_hook=pairs, parse_constant=constant, parse_float=finite)
+ 
+ 
+ def clean_command(row):
+     return (isinstance(row, dict) and row.get('passed') is True
+             and type(row.get('exit_code')) is int and row['exit_code'] == 0
+-            and isinstance(row.get('name'), str) and bool(row['name'])
+-            and isinstance(row.get('argv'), list) and bool(row['argv']))
++            and isinstance(row.get('name'), str) and bool(row['name'].strip())
++            and isinstance(row.get('argv'), list) and bool(row['argv'])
++            and all(isinstance(x, str) and bool(x.strip()) for x in row['argv']))
+ 
+ 
+ def valid_report(path):
+@@ -67,10 +74,12 @@
+         if not value:
+             return False
+         for row in value:
+-            if not isinstance(row, dict) or row.get('passed') is not True or not row.get('name'):
++            if (not isinstance(row, dict) or row.get('passed') is not True
++                    or not isinstance(row.get('name'), str) or not row['name'].strip()):
+                 return False
+             if 'exit_code' in row:
+-                if type(row['exit_code']) is not int or row['exit_code'] != 0 or not row.get('log'):
++                if (type(row['exit_code']) is not int or row['exit_code'] != 0
++                        or not isinstance(row.get('log'), str) or not row['log'].strip()):
+                     return False
+             elif not (isinstance(row.get('checks'), dict) and row['checks']
+                       and all(x is True for x in row['checks'].values())):

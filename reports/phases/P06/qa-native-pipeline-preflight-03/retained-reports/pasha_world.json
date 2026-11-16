@@ -1,0 +1,338 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "pasha",
+  "passed": true,
+  "source_head": "7de98e7459d12d55aff53f073a912b62550f19d9",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 40,
+  "phase_captures": 32,
+  "transition_captures": 8,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": true,
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/pasha-world-native-01/world.mp4",
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 13.205,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/pasha-world-native-01/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 23.733,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/pasha-world-native-01/world.avi",
+        "-an",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/pasha-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 1.251,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/pasha-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.047,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "pasha",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    },
+    "movie": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "pasha",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/commands.json",
+      "sha256": "d7f9ea8166d8f3a12fc0e0ed2af232bf332fdd00735d1afb6066cd8e61acb56c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_down_0.png",
+      "sha256": "c305fac8dd49d204855070885135990f2b837869f3d4ea1c8ce21e51033278b9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_down_1.png",
+      "sha256": "79a2c8d4440ad6649c80062f933fa086daa5738497c00500b290efcecce7d88a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_left_0.png",
+      "sha256": "14ae39a16b41458162fd6b5ee4569b97322838195ca110570e87523fe68ffc2b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_left_1.png",
+      "sha256": "e4ee722fbf1152658683275f718e9ffaae193e7e56e9ba46660a38105e83ebb9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_right_0.png",
+      "sha256": "99bf0c8b9dfb42cd60d62e2049907030cd4be814b3498615af8d3d02bd99c855"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_right_1.png",
+      "sha256": "873efbba0a00222cdec397dccda5b6964573aa251c36db4a7d98f5d07d3feb72"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_up_0.png",
+      "sha256": "c7c28b6a26b0e59775715763887c2e38b5a357a44b1eaae33985b875dd1fef85"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/idle_up_1.png",
+      "sha256": "db9fb822d70821c4cfe7fde3f3b6d758c22d9b0ad36ace76b18c4ad3a95da960"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/input_gate.json",
+      "sha256": "721ba54b6b5c9c5112eeee38c73214bd98e4f224d80a091e662266a75c6449c1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/result.json",
+      "sha256": "1b5780cbaf294664572c7981a46ce9ae7bcbd4e2283ddf7e7b85228eb4eb0df4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_down_0.png",
+      "sha256": "39447534ba075054f89b6da9e686145c48a29afa417ae7aead490d534eb01508"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_down_1.png",
+      "sha256": "f0aa7d61e0937c628d01914ff7a12242998ce4ffc1a40c1d454fb1e93cbc2840"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_left_0.png",
+      "sha256": "b3e21090b2d4a0e42a1ba0ea5add9307e03d78ed15879502aadb23e0cc767e57"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_left_1.png",
+      "sha256": "6d13cfe961b8cfad127789a8d636693b73c0a86310f4bab4be32944e319c3996"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_right_0.png",
+      "sha256": "8d83614f1cca43bd519cb6ca8b61c09a14d7640a847e8694841cf0d52dfb710f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_right_1.png",
+      "sha256": "ceaa1399ea13ecd33ba6ec75fb99ff158e285198a764df643580f78193f6752a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_up_0.png",
+      "sha256": "cd0fece8f90134f0c0418460ba6ff74ed0095aa00f20d92d2c061b32ecd7c414"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/run_up_1.png",
+      "sha256": "2bb4f4f0830a02e41755552a280f0ab3ea8ecb649ce75146dd59bdcf633ceb43"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_504_idle_up.png",
+      "sha256": "c348074c8298a720e3d8e2f5147e612fe9a91fd0f5f4339299db67f6c89e8dc3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_528_walk_right.png",
+      "sha256": "d000c5a847b894a7ce7de9c448bb4e373495bab23f12343b63d8f9d38568a39a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_552_run_right.png",
+      "sha256": "92ce4c7efb85b7f2f00c4c7b066f397d03f70f420d017eb7c1fe333fb633ca24"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_576_idle_right.png",
+      "sha256": "0c4f441ef983f06ca77db35dbe4e303766e9e4350376c5251712ac5d8048edcc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_600_walk_down.png",
+      "sha256": "c70a1b52fcfb46ef22314f1f569cc27ad3fd131e98ad499ad501c38677439370"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_624_run_left.png",
+      "sha256": "80418a84ee9c568c7a18b88188bb9fbd4decdada85b2bdac6a71c38262915c00"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_648_walk_up.png",
+      "sha256": "bbe27830f77de9ae04cddd7f2282da8ef9a509ce2cd98d5d28f9854bf54049d5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/transition_672_idle_up.png",
+      "sha256": "a9f0929a88b89ea76f57e301b2d4aa6430a4dcbef5c7e12d1cba3d0c1b5f0d46"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_down_0.png",
+      "sha256": "7e325665b27498994e1fc3389feef80c954a37a30a0d1cacdbb58dfed02f456a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_down_1.png",
+      "sha256": "5b63ed0aacae3dac76619a28b99c9151c5a943295763daddae681833db897eca"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_down_2.png",
+      "sha256": "af20833be2a9278b4780836d848de3f21bf0bd636fc8f47a72d2f11478838254"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_down_3.png",
+      "sha256": "852e216d69f310415481a208579b694a042b4cb39db2ad435e2eee7f228b3639"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_left_0.png",
+      "sha256": "5242e30e2bc4086b9b70120d3400ecc4cec6bc2a8d9d59c7121a06886cb1e820"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_left_1.png",
+      "sha256": "286ebfae232203f816fad9fe4290314d89e79deea21e0d9b97455576306b710c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_left_2.png",
+      "sha256": "453dbd91d2838528c7caaf1556d25ad98ef0dd845ab939690a31f615f451f9e6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_left_3.png",
+      "sha256": "51917a7d6e0b38a8e75eed8e2899121b5d2d83f15747bdd289a0bd5965dd5f01"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_right_0.png",
+      "sha256": "d8fd44e6942ff6c4f5ec807ecddf1cf2bddec1cb10b1e5a1a0511f6b6567002b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_right_1.png",
+      "sha256": "476f6aaf2233851bd8ad2d6ea892aa38bb2d9fc10447f70a22f2ce6ad66403c6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_right_2.png",
+      "sha256": "a0e13984d184a398c5765be1e61e0ffbe14544543d8cb7ac075379c7cfbc8b8b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_right_3.png",
+      "sha256": "27bd50edbd583263ee0ce86e2ece900f4808e3146578207067ea22bde0585ecb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_up_0.png",
+      "sha256": "a870a4c2b4c516e75cee2e3649d69e9d788fb1bcad08466fb0cfea4347279c71"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_up_1.png",
+      "sha256": "10e4861a34c44c4ab7bbe11c0ea5224742b4dc46eddfc86b24594c3117c79d60"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_up_2.png",
+      "sha256": "fab833de61012a77095eadd8da8e1172dbf6f57f22113fb62638703ec2e60069"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live/walk_up_3.png",
+      "sha256": "c2c2de143d8d5829a56a254e7f4807ca8582b43729e39b8b79d0837dddec8512"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/live.log",
+      "sha256": "0c33d6276de67058dae4414e63a930e24f6728268f9c364d8b5f017acd977568"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/movie/input_gate.json",
+      "sha256": "721ba54b6b5c9c5112eeee38c73214bd98e4f224d80a091e662266a75c6449c1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/movie/result.json",
+      "sha256": "94b6fe62fb67eb0f1d1c8d141c48079bb7b99061c91e3ae78b792aad97d69dbb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/movie.log",
+      "sha256": "16fef467cda7028cbcbb3320650d1c3e200c40b044e254d64a6c2bc8328f65da"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/movie_probe.json",
+      "sha256": "171989dd9df2d112264397007dbe4b26e428d552af8cb091e0ce6f65257a6119"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/probe_movie.log",
+      "sha256": "cef41907661fccb6ac213da92cfb909a4768780af24bb1ff81ec9448f807aa79"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/pasha-world-native-01/source_hashes.json",
+      "sha256": "3ee93db5d97fb5e7600b8f0c4c147aa5022f92e89c3fd86d1ab80823a9d1578b"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+"""Reproducible phase regression checks with actual logs and isolated save files."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--references', action='store_true', help='Local private manifest check (not in public CI)')
+    parser.add_argument('--capture', action='store_true', help='Real desktop renderer required')
+    parser.add_argument('--output', default='reports/phases/P00')
+    args = parser.parse_args()
+    output = ROOT / args.output
+    output.mkdir(parents=True, exist_ok=True)
+    (output / 'logs').mkdir(exist_ok=True)
+    lock = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
+    binary = ROOT / '.tools/godot' / f'Godot_v{lock["release"]}_linux.x86_64'
+    if not binary.is_file():
+        raise SystemExit('Run python3 tools/install_deps.py first')
+    assert hashlib.sha256(binary.read_bytes()).hexdigest() == lock['linux_binary_sha256']
+    base = [str(binary), '--headless', '--path', 'game']
+    commands = [('privacy', [sys.executable, 'tools/check_privacy.py']),
+                ('version', [str(binary), '--version']),
+                ('import', base + ['--editor', '--quit']),
+                ('smoke', base + ['--', '--smoke-bootstrap']),
+                ('integration', base + ['--script', 'res://tests/bootstrap_test.gd'])]
+    if args.references:
+        commands.insert(0, ('references', [sys.executable, 'tools/validate_pack.py']))
+    if (ROOT / 'game/assets/art/yakuza/world_sheet.png').is_file():
+        commands.extend([
+            ('art_structure', base + ['--script', 'res://tests/art_structure_test.gd']),
+            ('movement', base + ['--script', 'res://tests/movement_test.gd']),
+        ])
+    if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
+        # contact_timing counts observations of fixed-physics contact poses.
+        # Match the already validated C01 harness clock so a cold render/cache
+        # catch-up cannot drop observations and produce the preserved47/48 FAIL.
+        commands.extend((name, base + (['--fixed-fps', '60'] if name == 'contact_timing' else [])
+                         + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
+    if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['portrait_motion', 'dialogue', 'audio', 'options'])
+    if (ROOT / 'game/scenes/levels/missed_fight.tscn').is_file():
+        commands.append(('mission', base + ['--script', 'res://tests/mission_test.gd']))
+        commands.append(('mission_normal_exit', base + ['--verbose', '--', '--open-mission', '--p04-replay']))
+        commands.append(('mission_fast_exit', base + ['--verbose', '--fixed-fps', '60', '--disable-vsync', '--max-fps', '0', '--', '--open-mission', '--p04-replay']))
+    if (ROOT / 'game/tests/p04g_test.gd').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['p04g', 'p04g_art'])
+    if (ROOT / 'game/tests/story_graph_test.gd').is_file():
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
+    if (ROOT / 'game/tests/character_frames_test.gd').is_file():
+        commands.append(('character_finisher_audio_source', [sys.executable, 'tools/verify_character_finisher_audio.py']))
+        commands.append(('world_input_gate', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_world_input.py']))
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['character_combat_profile', 'character_finisher_audio', 'character_scene_policy',
+                                     'character_policy_integration', 'character_dialogue', 'character_frames',
+                                     'character_readiness', 'timka_layout', 'ryzhik_roll_layout', 'yakuza_finisher_authority'])
+        commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
+                         '--output', str(output / 'character_lab_isolation')]))
+        commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
+                         '--headless', '--output', str(output / 'gabar_controller')]))
+        commands.append(('olezhka_controller', [sys.executable, 'tools/verify_p06_olezhka.py',
+                         '--headless', '--output', str(output / 'olezhka_controller')]))
+        commands.append(('olezhka_counter_feedback', [sys.executable, 'tools/verify_p06_counter_feedback.py',
+                         '--headless', '--output', str(output / 'olezhka_counter_feedback')]))
+        commands.append(('timka_present_controller', [sys.executable, 'tools/verify_p06_timka_present.py',
+                         '--headless', '--output', str(output / 'timka_present_controller')]))
+        commands.append(('timka_prime_controller', [sys.executable, 'tools/verify_p06_timka_prime.py',
+                         '--headless', '--output', str(output / 'timka_prime_controller')]))
+        commands.append(('ryzhik_roll_controller', [sys.executable, 'tools/verify_p06_ryzhik.py',
+                         '--headless', '--output', str(output / 'ryzhik_roll_controller')]))
+        commands.append(('ryzhik_report_schema', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_ryzhik_report.py']))
+        commands.append(('tega_environment_controller', [sys.executable, 'tools/verify_p06_tega.py',
+                         '--headless', '--output', str(output / 'tega_environment_controller')]))
+        commands.append(('pasha_moving_shot_controller', [sys.executable, 'tools/verify_p06_pasha.py',
+                         '--headless', '--output', str(output / 'pasha_moving_shot_controller')]))
+        commands.append(('character_finisher_audio_contacts', [sys.executable, 'tools/verify_p06_finisher_audio.py',
+                         '--headless', '--replay-only', '--output', str(output / 'character_finisher_audio_contacts')]))
+        commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
+    env = dict(os.environ)
+    for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
+        isolated = output / 'isolated_saves' / folder
+        isolated.mkdir(parents=True, exist_ok=True)
+        env[key] = str(isolated.resolve())
+    env['AYAY_CAPTURE_PATH'] = str(output / 'bootstrap.png')
+    if args.capture:
+        commands.append(('render', [str(binary), '--path', 'game', '--', '--capture-bootstrap']))
+    results = []
+    for name, command in commands:
+        # Autoloads must never load or overwrite the owner's real settings/seen ledger.
+        # Distinct paths also prevent one test or capture from masking another's defaults.
+        saves = output / 'isolated_saves' / name
+        saves.mkdir(parents=True, exist_ok=True)
+        for filename in ['options.json', 'dialogue.json', 'chapter.json', 'story.json']:
+            path = saves / filename
+            path.unlink(missing_ok=True)
+            path.with_suffix(path.suffix + '.tmp').unlink(missing_ok=True)
+        env['AYAY_OPTIONS_PATH'] = str(saves / 'options.json')
+        env['AYAY_DIALOGUE_SAVE_PATH'] = str(saves / 'dialogue.json')
+        env['AYAY_CHAPTER_SAVE_PATH'] = str(saves / 'chapter.json')
+        env['AYAY_STORY_SAVE_PATH'] = str(saves / 'story.json')
+        env['AYAY_STORY_GRAPH_PATH'] = str(output / 'story_graph.json')
+        env['AYAY_P04_RESULT_PATH'] = str(saves / 'replay.json')
+        env['AYAY_P04_AUDIO_PATH'] = str(saves / 'replay.wav')
+        try:
+            result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=90)
+            text = result.stdout + result.stderr
+            code = result.returncode
+        except subprocess.TimeoutExpired as error:
+            text, code = str(error), 124
+        # Godot may exit zero after a parse error: logs are part of the gate.
+        ok = code == 0 and not any(token in text for token in ['SCRIPT ERROR:', 'ERROR:', 'FAIL:', 'ObjectDB instances were leaked', 'resources still in use'])
+        if name == 'version':
+            ok = ok and text.startswith(lock['godot_version'] + '.stable.')
+        log = output / 'logs' / (name + '.log')
+        log.write_text('$ ' + ' '.join(command) + '\n' + text + f'\nexit_code={code}\n')
+        results.append({'name': name, 'exit_code': code, 'passed': ok, 'log': str(log.relative_to(ROOT))})
+        print(name, 'PASS' if ok else 'FAIL', 'exit', code)
+    (output / 'validation.json').write_text(json.dumps(results, indent=2) + '\n')
+    return not all(r['passed'] for r in results)
+
+
+if __name__ == '__main__':
+    sys.exit(main())
