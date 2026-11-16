@@ -4,6 +4,7 @@ Never rewrites the failed original attempt or reruns its seven successful stages
 Requires a hash-bound independent Lead contract; produces technical evidence only.
 """
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -42,6 +43,16 @@ def verify_artifacts(root, artifacts):
             raise ValueError('Changed/missing artifact: ' + item['path'])
 
 
+def binding_hashes(paths):
+    result = {}
+    for name, path in paths.items():
+        try:
+            result[name] = pipeline.sha(path)
+        except OSError:
+            result[name] = None
+    return result
+
+
 def held_data(path):
     data = pipeline.strict_report(path.read_text())
     for reduced in ['false', 'true']:
@@ -70,13 +81,16 @@ def main():
         directory.mkdir(parents=True, exist_ok=True)
     (output / 'logs').mkdir()
     contract_path = checked_path(ROOT, args.contract)
-    contract = pipeline.strict_report(contract_path.read_text())
+    contract_bytes = contract_path.read_bytes()
+    contract_sha = hashlib.sha256(contract_bytes).hexdigest()
+    contract = pipeline.strict_report(contract_bytes.decode())
     approval_path = Path(args.approval).resolve()
-    if pipeline.sha(approval_path) != args.approval_sha256:
+    approval_bytes = approval_path.read_bytes()
+    if hashlib.sha256(approval_bytes).hexdigest() != args.approval_sha256:
         parser.error('Independent approval hash mismatch')
-    approval = pipeline.strict_report(approval_path.read_text())
+    approval = pipeline.strict_report(approval_bytes.decode())
     if (approval.get('status') != 'PASS_COMPONENT_EXECUTION_ONLY'
-            or approval.get('contract_sha256') != pipeline.sha(contract_path)
+            or approval.get('contract_sha256') != contract_sha
             or approval.get('phase_approval') is not False):
         parser.error('Missing exact independent continuation approval')
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
@@ -140,12 +154,15 @@ def main():
     head_after = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     pipeline.write(output / 'source_hashes_after.json', after)
     verify_artifacts(ROOT, contract['artifacts'])
+    final_bindings = binding_hashes({'contract': contract_path, 'approval': approval_path})
+    bindings_stable = final_bindings == {'contract': contract_sha, 'approval': args.approval_sha256}
     summary = {'schema': 1, 'scope': 'P06_COMPOSED_NATIVE_EVIDENCE_NOT_PHASE_APPROVAL',
-               'passed': len(rows) == 13 and all(x['passed'] for x in rows) and before == after and head == head_after,
+               'passed': len(rows) == 13 and all(x['passed'] for x in rows) and before == after and head == head_after and bindings_stable,
                'phase_approval': False, 'merge_approval': False, 'stages': rows,
                'reused_original_successes': 7, 'separately_targeted_Pasha': 1, 'fresh_remaining_expected': 5,
                'fresh_remaining_completed': len(commands), 'current_fixture_parse_passed': parse['passed'], 'source_unchanged': before == after,
-               'source_head': head, 'head_after': head_after, 'contract_sha256': pipeline.sha(contract_path),
+               'source_head': head, 'head_after': head_after, 'contract_sha256': contract_sha,
+               'proof_bindings_unchanged': bindings_stable, 'final_binding_hashes': final_bindings,
                'approval_sha256': args.approval_sha256, 'original_failed_attempt_rewritten': False,
                'original_failed_attempt': contract['old_validation'], 'Pasha_original_cause': 'UNKNOWN',
                'listening': 'NOT_CLAIMED', 'native_Windows': 'NOT_TESTED_WINE_LABELLED_SEPARATELY',

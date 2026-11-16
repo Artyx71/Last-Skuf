@@ -4,7 +4,7 @@ import sys
 import tempfile
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from continue_p06_native import check_changes, checked_path, verify_artifacts
+from continue_p06_native import check_changes, checked_path, verify_artifacts, binding_hashes
 from verify_p06 import sha
 
 
@@ -24,6 +24,22 @@ class ContinuationSafetyTest(unittest.TestCase):
             for path in ['../outside', '/outside', None]:
                 with self.subTest(path=path), self.assertRaises(ValueError):
                     checked_path(root, path)
+
+    def test_midrun_contract_or_approval_change_is_visible(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            contract, approval = root / 'contract', root / 'approval'
+            contract.write_text('approved contract')
+            approval.write_text('independent approval')
+            paths = {'contract': contract, 'approval': approval}
+            initial = binding_hashes(paths)
+            self.assertEqual(initial, binding_hashes(paths))
+            contract.write_text('changed during run')
+            self.assertNotEqual(initial, binding_hashes(paths))
+            contract.write_text('approved contract')
+            approval.unlink()
+            self.assertNotEqual(initial, binding_hashes(paths))
+            self.assertIsNone(binding_hashes(paths)['approval'])
 
     def test_missing_duplicate_or_modified_proof_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
