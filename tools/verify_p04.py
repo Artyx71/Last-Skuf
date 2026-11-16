@@ -112,7 +112,7 @@ def main():
  replay('reduced_visual_replay',native,preferences={'reduced_gore':True,'vhs':False,'reduced_motion':True,'text_scale':1.25})
  if args.movie:
   movie=build/'missed_fight.avi'
-  replay('movie_replay',[GODOT,'--path',ROOT/'game','--write-movie',movie,'--fixed-fps','60'],movie=True)
+  replay('movie_replay',[GODOT]+NATIVE_FLAGS+['--path',ROOT/'game','--write-movie',movie,'--fixed-fps','60'],movie=True)
   run('encode_movie',['ffmpeg','-v','error','-y','-i',movie,'-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-c:a','aac',output/'mission.mp4'],environment('encode_movie'))
  if args.exports:
   exports=[]

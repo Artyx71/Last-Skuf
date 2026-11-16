@@ -120,7 +120,7 @@ def main():
  check('full_reduced_gameplay_invariance',{'nonempty':bool(signature(full)),'same_outcomes':signature(full)==signature(reduced)})
  if args.movie:
   movie=build/'combat_polish.avi'
-  data=replay('movie_replay',[GODOT,'--path',ROOT/'game','--write-movie',movie,'--fixed-fps','60'],movie=True)
+  data=replay('movie_replay',[GODOT]+NATIVE_FLAGS+['--path',ROOT/'game','--write-movie',movie,'--fixed-fps','60'],movie=True)
   ffmpeg=shutil.which('ffmpeg')
   if not ffmpeg:
    candidate=ROOT/'.tools/ci-media/bin/ffmpeg';ffmpeg=str(candidate) if candidate.is_file() else None
