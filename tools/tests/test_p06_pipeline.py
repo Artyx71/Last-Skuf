@@ -38,6 +38,23 @@ class PipelineGateTest(unittest.TestCase):
                 path.write_text(text)
                 self.assertFalse(pipeline.valid_report(path), text)
 
+    def test_float_overflow_and_nonstring_report_fields_fail(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'validation.json'
+            for value in ['1e309', '-1e309']:
+                path.write_text('[{"name":"real","checks":{"source":true},"passed":true,"metadata":' + value + '}]')
+                self.assertFalse(pipeline.valid_report(path))
+            for name in [7, ['x'], '   ']:
+                path.write_text(json.dumps([{'name': name, 'checks': {'source': True}, 'passed': True}]))
+                self.assertFalse(pipeline.valid_report(path))
+            for log in [7, '  ']:
+                path.write_text(json.dumps([{'name': 'run', 'exit_code': 0, 'log': log, 'passed': True}]))
+                self.assertFalse(pipeline.valid_report(path))
+            for argv in [[None, {}], [''], ['   ']]:
+                path.write_text(json.dumps({'passed': True, 'phase_approval': False, 'source_unchanged': True,
+                                            'commands': [{'name': 'run', 'argv': argv, 'exit_code': 0, 'passed': True}]}))
+                self.assertFalse(pipeline.valid_report(path))
+
     def test_orphan_after_parent_exit_is_contained_on_timeout_and_success(self):
         with tempfile.TemporaryDirectory() as folder:
             for silent in [False, True]:
