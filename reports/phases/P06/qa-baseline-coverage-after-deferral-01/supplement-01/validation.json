@@ -1,0 +1,373 @@
+{
+  "scope": "INDEPENDENT_P06_BASELINE_NPC_SUPPLEMENT_ONLY",
+  "passed": true,
+  "checks": [
+    {
+      "label": "exact supplemental baseline/no deferred art claim",
+      "passed": true
+    },
+    {
+      "label": "actual native renderer, no headless acceptance",
+      "passed": true
+    },
+    {
+      "label": "actual204 native assertions",
+      "passed": true
+    },
+    {
+      "label": "actual exactlyseven missingpairs×FullReduced",
+      "passed": true
+    },
+    {
+      "label": "actual14 paired contact1 receipts",
+      "passed": true
+    },
+    {
+      "label": "actual42 native PNG phases0/1/2",
+      "passed": true
+    },
+    {
+      "label": "unique actual capturepaths",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_unarmed_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_sharp_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_firearm_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_unarmed_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_blunt_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_firearm_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_environmental_full",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_unarmed_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_sharp_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming rusher_firearm_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_unarmed_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_blunt_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_firearm_reduced",
+      "passed": true
+    },
+    {
+      "label": "once damage/score/ammo/no incoming shooter_environmental_reduced",
+      "passed": true
+    },
+    {
+      "label": "isolated production source unchanged; only import metadata generated",
+      "passed": true
+    },
+    {
+      "label": "original frozen snapshot unchanged",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "fresh-import",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/qa-baseline-coverage-after-deferral-01/supplement-scratch-01/game",
+        "--editor",
+        "--import"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 4.21,
+      "log_sha256": "4cb27e0d1463d0606dc3c1f7b0138028af33bdfcec92c861dc9d5f63e8ba2275"
+    },
+    {
+      "name": "native-seven-pair",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/qa-baseline-coverage-after-deferral-01/supplement-scratch-01/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/qa_npc_baseline_supplement.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 24.862,
+      "log_sha256": "453f9fe8f7b9374aacd5fcbc51829ce6ec04f0de753115b586c0bd7651902796"
+    }
+  ],
+  "new_art_or_Game_WORK_mutation": false,
+  "phase_approval": false,
+  "deferred_P08_style_approval": false,
+  "FPS": "NOT_MEASURED; separate existing nativeP04G workload",
+  "hardware_latency": "NOT_MEASURED scriptedEngineInputonly",
+  "actual_agent_listening": false,
+  "native_windows": "NOT_TESTED",
+  "source_game_inventory_sha256": "ca48588cf4c7ae2fa6635f9eba780438164c49d441be921b0ba0ff268fa4e191",
+  "test_probe_sha256": "3426ba78647fa7dea10bd66b0505080343a17a676afa77a590402cfd71f12975",
+  "artifacts": [
+    {
+      "path": "supplement-01/commands.json",
+      "sha256": "e3bbd55854784d416de3c9d6fcd9930b21b204104c34939a018e7a0932c8396b",
+      "bytes": 1197
+    },
+    {
+      "path": "supplement-01/fresh-import.log",
+      "sha256": "4cb27e0d1463d0606dc3c1f7b0138028af33bdfcec92c861dc9d5f63e8ba2275",
+      "bytes": 33541
+    },
+    {
+      "path": "supplement-01/native-seven-pair.log",
+      "sha256": "453f9fe8f7b9374aacd5fcbc51829ce6ec04f0de753115b586c0bd7651902796",
+      "bytes": 217
+    },
+    {
+      "path": "supplement-01/result.json",
+      "sha256": "8eb18c0772d69b4dfb6c87ab6d86b77fc603a8e05b90d75923bcffc400a5f62e",
+      "bytes": 553366
+    },
+    {
+      "path": "supplement-01/rusher_firearm_full_contact.png",
+      "sha256": "6d24ce18a7342812026a55484311638c29d9757323f62e1d8fb0c70c19a21f16",
+      "bytes": 36514
+    },
+    {
+      "path": "supplement-01/rusher_firearm_full_corpse.png",
+      "sha256": "d5b8007a3d025035669fb257d181adb10de58a9b598f27492d7524c24e69a329",
+      "bytes": 35814
+    },
+    {
+      "path": "supplement-01/rusher_firearm_full_windup.png",
+      "sha256": "6e7069d83f23bca3542f189bdc237cf6e26a2c07e792902d1f8a94c53fbe4a6a",
+      "bytes": 36396
+    },
+    {
+      "path": "supplement-01/rusher_firearm_reduced_contact.png",
+      "sha256": "2d24278e5a7362b1d2a2f350f9e7f0d553403169c439618dceeb174ebe10ff9c",
+      "bytes": 34593
+    },
+    {
+      "path": "supplement-01/rusher_firearm_reduced_corpse.png",
+      "sha256": "4e27e9dc23fe78db71578392f93eba532b4b92198ba013fcd5eb45948fe3e4db",
+      "bytes": 33994
+    },
+    {
+      "path": "supplement-01/rusher_firearm_reduced_windup.png",
+      "sha256": "66a2df0d18191c91cda79786fa5f3716796ce31af2f790555e15fb932c06fe0b",
+      "bytes": 34604
+    },
+    {
+      "path": "supplement-01/rusher_sharp_full_contact.png",
+      "sha256": "aef3b7a225b8fe9871ed94283e867ec9dd9fd7d4aa4291bf0f69543a0dbf7189",
+      "bytes": 36313
+    },
+    {
+      "path": "supplement-01/rusher_sharp_full_corpse.png",
+      "sha256": "fccb8894d01f138b9e695ca0f9de2d7c698e69843328841e57110d6ec6f5ccc6",
+      "bytes": 35709
+    },
+    {
+      "path": "supplement-01/rusher_sharp_full_windup.png",
+      "sha256": "9ac3748ca6573576c20d4b78beac47368b5c702326cac9a3c267e160f68147c9",
+      "bytes": 36288
+    },
+    {
+      "path": "supplement-01/rusher_sharp_reduced_contact.png",
+      "sha256": "2312768bcdd7f63833d9186a006b962bf8df685b9ec082c0ebbc0972622f1e10",
+      "bytes": 34352
+    },
+    {
+      "path": "supplement-01/rusher_sharp_reduced_corpse.png",
+      "sha256": "8ebdf4b6f954133b612c05764568e8853f5db2817e657005ba639fb0b1877dde",
+      "bytes": 33866
+    },
+    {
+      "path": "supplement-01/rusher_sharp_reduced_windup.png",
+      "sha256": "1437a494d6a134bcd857281b47323d23d7d3cf470d24ec58aa86670739ae259f",
+      "bytes": 34499
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_full_contact.png",
+      "sha256": "95fdc9fa85d464ae57d84df8a48ea7edbea8c793c0f7d6f362b2900d30cfd489",
+      "bytes": 36273
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_full_corpse.png",
+      "sha256": "8cdb6cab370152ea1b532e394ce6a6d350850f79363d7b70bfcad0639537d6eb",
+      "bytes": 35802
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_full_windup.png",
+      "sha256": "e83cc629b936ce7e85e93bb7a0ef1870f82d707a7ef3137d02fb0ac2ebbe9620",
+      "bytes": 36344
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_reduced_contact.png",
+      "sha256": "9516a6ec9b35f625767f6deea9e304ef4e23914a573b252195599690346314db",
+      "bytes": 34413
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_reduced_corpse.png",
+      "sha256": "0d752df1e4aa3c22d0ccfcb7bb1c33d6e4f178a7f48d827885d601e82546ed3f",
+      "bytes": 33968
+    },
+    {
+      "path": "supplement-01/rusher_unarmed_reduced_windup.png",
+      "sha256": "dde5c5e25f31ad83e1951f6c631408da8dbc91326c043ea96e9acbe2b2f8c785",
+      "bytes": 34620
+    },
+    {
+      "path": "supplement-01/shooter_blunt_full_contact.png",
+      "sha256": "8ee84ca02e049e66a9d578e2167deaa00201a26a7a533f2573ab0f075489bfaa",
+      "bytes": 36031
+    },
+    {
+      "path": "supplement-01/shooter_blunt_full_corpse.png",
+      "sha256": "5f95f5eece81ecf24222a7cac4b356139a26e7c121e6784b1f3fc5d011567d3b",
+      "bytes": 35206
+    },
+    {
+      "path": "supplement-01/shooter_blunt_full_windup.png",
+      "sha256": "de585f5fe1d3ddd24b7179311ebd4aadb8932599e322e9a8f6a9b1543f49d8d7",
+      "bytes": 35956
+    },
+    {
+      "path": "supplement-01/shooter_blunt_reduced_contact.png",
+      "sha256": "dc4e76355b7ea340786edfa18e38bd7b40469905cf687ef9d429ba649ec995ff",
+      "bytes": 34274
+    },
+    {
+      "path": "supplement-01/shooter_blunt_reduced_corpse.png",
+      "sha256": "fe00a4a3774b39818903fc5fd9b213f3bacc432f21bf8c3d42918ee16dc9bd0d",
+      "bytes": 33388
+    },
+    {
+      "path": "supplement-01/shooter_blunt_reduced_windup.png",
+      "sha256": "5a34e8717911187caa406a0b0bf13c091e0a91708eb24dd4f31671b840573865",
+      "bytes": 34260
+    },
+    {
+      "path": "supplement-01/shooter_environmental_full_contact.png",
+      "sha256": "dac777ef1b27decb17e69039e47918e2480e7e6fadf69a40003f6e3c21be8845",
+      "bytes": 35950
+    },
+    {
+      "path": "supplement-01/shooter_environmental_full_corpse.png",
+      "sha256": "aca79f45bff053015c6cf3462396d8be63b07ed2166846bb9c22bc64c95a7c2f",
+      "bytes": 35409
+    },
+    {
+      "path": "supplement-01/shooter_environmental_full_windup.png",
+      "sha256": "9a64da59e1cf16ed4f4d0dd703afd6a61b0ad64bcaf49570f6d6316819253332",
+      "bytes": 36149
+    },
+    {
+      "path": "supplement-01/shooter_environmental_reduced_contact.png",
+      "sha256": "dc41dbe19f1feaabc5dabe98f974e6e64f01f063f845dbe39a91d029154136b7",
+      "bytes": 34178
+    },
+    {
+      "path": "supplement-01/shooter_environmental_reduced_corpse.png",
+      "sha256": "b4db3808b1fdfd0fed390f31e445f661499af0b5d8ce67b92f0ee049a6dd1f97",
+      "bytes": 33566
+    },
+    {
+      "path": "supplement-01/shooter_environmental_reduced_windup.png",
+      "sha256": "931d7da99fdde7902e1e9a04a50b01fb82e65d588f6afdaae9b4d2ab7f36e483",
+      "bytes": 34450
+    },
+    {
+      "path": "supplement-01/shooter_firearm_full_contact.png",
+      "sha256": "1f3d5325737dd434698d3b23e81206b0655c7c62b950370d571b7bcabd5d7022",
+      "bytes": 36003
+    },
+    {
+      "path": "supplement-01/shooter_firearm_full_corpse.png",
+      "sha256": "c7048a7296dc3bf3059cb756cc08a5056e01a845c479757ecffd1e21d8818e8b",
+      "bytes": 35389
+    },
+    {
+      "path": "supplement-01/shooter_firearm_full_windup.png",
+      "sha256": "755d540446516a8d6648434b31e853e8b5ef8377433a83e12073fbea728d354f",
+      "bytes": 36033
+    },
+    {
+      "path": "supplement-01/shooter_firearm_reduced_contact.png",
+      "sha256": "60c3142be57a88aa4b6f0c65b634dcabc23bdc0ba7f06c6f7e5c61100c71ad17",
+      "bytes": 34261
+    },
+    {
+      "path": "supplement-01/shooter_firearm_reduced_corpse.png",
+      "sha256": "097b2775b7f9f40493de34e0fdda0593c09663400087b1a65728afa6128fa283",
+      "bytes": 33528
+    },
+    {
+      "path": "supplement-01/shooter_firearm_reduced_windup.png",
+      "sha256": "d45d2a423a38e0e02abbea7bb7999ae4a2244dcbe0de454a5d829e8abe7348df",
+      "bytes": 34363
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_full_contact.png",
+      "sha256": "65c2a5290ba48b5ddbe3294d01e833cb2653069a6ba3ed503a02ec5d9faf407e",
+      "bytes": 35798
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_full_corpse.png",
+      "sha256": "e3401060a008fde47b3fad6f11b5cec48dbdd7ebf03d815f97032f12bcde7e5a",
+      "bytes": 35336
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_full_windup.png",
+      "sha256": "f0e9674a2ebcfcb3128ace916e9a3768336f44e9beda2edf3505b55476d3e7b6",
+      "bytes": 35786
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_reduced_contact.png",
+      "sha256": "82f10567b11b9cc7a768fdaa06109270fa25ec1308fcdacfb98879853788824b",
+      "bytes": 34069
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_reduced_corpse.png",
+      "sha256": "5b41b4c0f7e3a1e293ce7ce416ead46a400ab781de95cfc99b0c4e0c9d7d972c",
+      "bytes": 33466
+    },
+    {
+      "path": "supplement-01/shooter_unarmed_reduced_windup.png",
+      "sha256": "7ccf2096cab93030597df12462390019be4d57fc4051c3a3a1b2c849894f80fe",
+      "bytes": 34334
+    }
+  ]
+}

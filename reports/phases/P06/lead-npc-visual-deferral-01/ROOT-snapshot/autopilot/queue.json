@@ -1,0 +1,872 @@
+{
+  "schema": 1,
+  "tasks": [
+    {
+      "id": "P03/audio-qa",
+      "phase": "P03",
+      "kind": "technical",
+      "depends_on": [],
+      "independent_of_artistic_audio": true
+    },
+    {
+      "id": "prepare-p04",
+      "phase": "P03",
+      "kind": "preparation_only",
+      "depends_on": [],
+      "independent_of_artistic_audio": true
+    },
+    {
+      "id": "P04/vertical-slice",
+      "phase": "P04",
+      "kind": "implementation",
+      "depends_on": [
+        "P03:PASS",
+        "P03:MERGED"
+      ],
+      "spec": "planning/P04_READINESS.md"
+    },
+    {
+      "id": "P04G/impact",
+      "phase": "P04G",
+      "kind": "implementation",
+      "depends_on": [
+        "P02:PASS",
+        "P03:PASS",
+        "P04:PASS"
+      ],
+      "requirements": [
+        "IMP-01",
+        "IMP-02"
+      ]
+    },
+    {
+      "id": "P04G/art-reactions",
+      "phase": "P04G",
+      "kind": "art",
+      "depends_on": [
+        "P04G/impact"
+      ],
+      "requirements": [
+        "ART-G01",
+        "ART-G02",
+        "AI-G01"
+      ]
+    },
+    {
+      "id": "P04G/finishers",
+      "phase": "P04G",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G/art-reactions"
+      ],
+      "requirements": [
+        "FIN-01",
+        "FIN-02",
+        "FIN-03",
+        "OPT-G01"
+      ]
+    },
+    {
+      "id": "P04G/verification",
+      "phase": "P04G",
+      "kind": "verification",
+      "depends_on": [
+        "P04G/finishers"
+      ],
+      "requirements": [
+        "QA-G01",
+        "PERF-G01",
+        "REV-G01"
+      ]
+    },
+    {
+      "id": "P06/character-finishers",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G:PASS",
+        "P06:CHARACTER_ABILITY_ART_GATES"
+      ]
+    },
+    {
+      "id": "P07/campaign",
+      "phase": "P07",
+      "kind": "implementation",
+      "depends_on": [
+        "P04:PASS",
+        "P04G:PASS",
+        "P05:PASS",
+        "P06:PASS",
+        "P06/seven-hero-combat-independent-review",
+        "PREP07/independent-lead-readiness:PASS",
+        "P07/lead-mission-spec-approval:PASS"
+      ]
+    },
+    {
+      "id": "P06/reconcile-timka-reference",
+      "phase": "P06",
+      "kind": "reference_integrity",
+      "depends_on": [],
+      "status": "RESOLVED",
+      "reason": "Владелец подтвердил намеренную замену фото; локальный приватный manifest обновлён, остальные хеши совпали. Исходник не опубликован.",
+      "evidence": "reports/phases/P06/private/reference-update-2026-11-13/receipt.json"
+    },
+    {
+      "id": "P05/story-infrastructure",
+      "phase": "P05",
+      "kind": "implementation",
+      "depends_on": [
+        "P04G:PASS",
+        "P04G:MERGED"
+      ],
+      "spec": "specs/STORY_SPEC.md",
+      "brief": "planning/P05_EXECUTION_BRIEF.md",
+      "boundaries": [
+        "No fake campaign levels",
+        "P06 character/art gates unchanged",
+        "Canonical saves survive migration and replay"
+      ],
+      "status": "PASS",
+      "reviewed_head": "154de14c90d159c68afdbfe5c7a62755df49f04d",
+      "confirmed_merge": "be4d59e9f68f32833719c82dee36bf731bb43ad0"
+    },
+    {
+      "id": "P06/character-expansion",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P05:PASS",
+        "P05:MERGED",
+        "P06/reconcile-timka-reference"
+      ],
+      "spec": "planning/P06_TASKS.md",
+      "scope": "Six additional playable characters, three photographed supporting, original art and per-character abilities/finishers; no campaign chapter production"
+    },
+    {
+      "id": "P06/timka-supported-animation-contract",
+      "phase": "P06",
+      "kind": "scope_decision",
+      "depends_on": [],
+      "status": "OWNER_APPROVED",
+      "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json"
+    },
+    {
+      "id": "P06/timka-compact-layout",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-supported-animation-contract"
+      ],
+      "status": "IMPLEMENTED_BOUNDED_QA_PASS",
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "evidence": "reports/phases/P06/qa-timka-runtime-import-01/decision.json"
+    },
+    {
+      "id": "P06/timka-compact-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review",
+        "P06/timka-finisher-source-review"
+      ],
+      "status": "PENDING",
+      "scope": "Fresh all required32/28/24 source cells; rejected environment still must fix; no placeholder cells."
+    },
+    {
+      "id": "P06/timka-present-disengage",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review"
+      ],
+      "status": "PENDING",
+      "scope": "Registered peaceful_present WORLD/ACTION/sockets and real disengage; no prime/finishers."
+    },
+    {
+      "id": "P06/timka-prime-clinch",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/timka-world-source-review",
+        "P06/timka-action-source-review",
+        "P06/timka-finisher-source-review",
+        "P06/timka-context-visual-differences"
+      ],
+      "status": "PENDING",
+      "scope": "Registered athletic_prime with full approved art/sockets and real clinch via existing Core."
+    },
+    {
+      "id": "P06/timka-context-native-review",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/timka-present-disengage",
+        "P06/timka-prime-clinch",
+        "P06/timka-context-visual-differences"
+      ],
+      "status": "PENDING",
+      "scope": "Both real Input/native contexts, independent ART/GAMEPLAY/QA/Lead component evidence; no phasePASS inference."
+    },
+    {
+      "id": "P06/combat-style-audit",
+      "phase": "P06",
+      "kind": "technical",
+      "depends_on": [],
+      "status": "AUDITED_IMPLEMENTATION_GAPS_RECORDED",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/ryzhik-roll",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-context-visual-differences",
+      "phase": "P06",
+      "kind": "art",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/pasha-moving-shot-hud",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/tega-real-environment-action",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/seven-hero-finisher-art-sound-reactions",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit",
+        "P06/C01-finisher-audio-runtime",
+        "P06/C01-finisher-audio-listening"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "scope": "Own seven player finisher animations/timings/audio plus working baseline NPC category reactions/correctness. Additional C09 visual individualization deferred to P08-NPC-STYLE-01."
+    },
+    {
+      "id": "P06/seven-hero-combat-independent-review",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/ryzhik-roll",
+        "P06/timka-context-visual-differences",
+        "P06/pasha-moving-shot-hud",
+        "P06/tega-real-environment-action",
+        "P06/seven-hero-finisher-art-sound-reactions",
+        "P06/timka-context-native-review",
+        "P06/yakuza-campaign-finisher-scope",
+        "P06/oleg-guard-feedback",
+        "P06/gabar-combat-readability-gate"
+      ],
+      "status": "PENDING",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/timka-world-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "SOURCE_ACCEPTED_AND_MIGRATED_RUNTIME_INTEGRITY_VERIFIED",
+      "required_source_cells": 32,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false,
+      "decision": "reports/phases/P06/art-preflight/timka_world_supported_v2.json"
+    },
+    {
+      "id": "P06/timka-action-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "SOURCE_ACCEPTED_AND_MIGRATED_RUNTIME_INTEGRITY_VERIFIED",
+      "required_source_cells": 28,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false,
+      "decision": "reports/phases/P06/art-preflight/timka_action_supported_v2.json"
+    },
+    {
+      "id": "P06/timka-finisher-source-review",
+      "phase": "P06",
+      "kind": "art_review",
+      "depends_on": [
+        "P06/timka-compact-layout"
+      ],
+      "status": "PENDING_ENVIRONMENT_ART_FIX",
+      "required_source_cells": 24,
+      "spec": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "phase_approval": false
+    },
+    {
+      "id": "P06/yakuza-campaign-finisher-scope",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "SCOPED_FIX_INDEPENDENTLY_CLOSED",
+      "scope": "Actual earned-stun Input V inCH01 mustdeny; preserve explicittraining fivefinishers and interruption; actualbefore11/10FAIL after21/21",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false,
+      "decision": "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json"
+    },
+    {
+      "id": "P06/oleg-guard-feedback",
+      "phase": "P06",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PASS_COMPONENT",
+      "scope": "Preserve actual parry-before-damage; make reaction window readable and independently inspectactualInput/nativeHUD",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false,
+      "evidence": "reports/phases/P06/guard-feedback-01/implementation.md",
+      "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+      "independent_reviews": {
+        "ART": "7666fcc6fb8da035a206c945110314580c33e517a15fe92239508378f97bf200",
+        "Gameplay": "a896505e72a1642a219f8c6258b7c8f5267196c8d0683de67829f7719193d94c",
+        "QA": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
+        "Lead": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67"
+      },
+      "full_phase_approval": false
+    },
+    {
+      "id": "P06/gabar-combat-readability-gate",
+      "phase": "P06",
+      "kind": "verification",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "PENDING",
+      "scope": "Reuseactual sweptlunge/ownsprites; validate readablehitboxes/contact/recovery in fullproduction Input matrix",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "phase_approval": false
+    },
+    {
+      "id": "PREP07/production-readiness",
+      "phase": "P06",
+      "kind": "audit",
+      "depends_on": [],
+      "status": "AUDIT_COMPLETE_NOT_READY",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true,
+      "evidence": "reports/pre_p07/production-readiness-01/audit.json",
+      "decision": "reports/pre_p07/production-readiness-01/audit.json",
+      "phase_approval": false
+    },
+    {
+      "id": "PREP07/mission-design-template-and-registry",
+      "phase": "P06",
+      "kind": "preparation_only",
+      "depends_on": [],
+      "status": "TEMPLATE_AND_21_PLUS_7_DESIGN_REGISTRY_CREATED",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true,
+      "evidence": [
+        "planning/MISSION_DESIGN_TEMPLATE.md",
+        "planning/CAMPAIGN_PRODUCTION_REGISTRY.json"
+      ]
+    },
+    {
+      "id": "P07/mission-design-specs-21",
+      "phase": "P06",
+      "kind": "nonconflicting_preparation_for_P07",
+      "depends_on": [
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "PENDING_20_NEW_AND_CH01_EXTENSION",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "PREP07/independent-lead-readiness",
+      "phase": "P06",
+      "kind": "review",
+      "depends_on": [
+        "PREP07/production-readiness",
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "FAIL",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true,
+      "decision": "reports/pre_p07/lead-readiness-01/decision.json",
+      "phase_approval": false
+    },
+    {
+      "id": "P07/lead-mission-spec-approval",
+      "phase": "P06",
+      "kind": "preproduction_review",
+      "depends_on": [
+        "P07/mission-design-specs-21"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P07/gameplay-pacing-review",
+      "phase": "P07",
+      "kind": "review",
+      "depends_on": [
+        "P07/campaign"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "P08/gameplay-pacing-review",
+      "phase": "P08",
+      "kind": "review",
+      "depends_on": [
+        "P07/gameplay-pacing-review"
+      ],
+      "status": "PENDING",
+      "requirements": "planning/PRE_P07_REQUIREMENTS.md",
+      "authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+      "not_content_completion": true
+    },
+    {
+      "id": "PREP07/two-secret-concepts-narrative-lead",
+      "phase": "P06",
+      "kind": "preparation_review",
+      "depends_on": [
+        "PREP07/mission-design-template-and-registry"
+      ],
+      "status": "PASS_CONCEPT_ONLY",
+      "owner_scope": "automation/decisions/P07_TWO_OPTIONAL_CONCEPT_PROPOSALS.json",
+      "concept_only": true,
+      "phase_approval": false,
+      "canon_integrated": false,
+      "decision": "reports/pre_p07/lead-readiness-01/concept-decision.json"
+    },
+    {
+      "id": "PREP07/READINESS-C01",
+      "phase": "P06",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "CRITICAL",
+      "depends_on": [],
+      "scope": "Finish existing authorized P06: seven own player finisher/sound styles and baseline NPC category reactions/correctness, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute.",
+      "gate": "BEFORE_P07_ENTRY",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness",
+      "scope_before_owner_NPC_deferral": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json"
+    },
+    {
+      "id": "PREP07/READINESS-C02",
+      "phase": "P06",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "CRITICAL",
+      "depends_on": [],
+      "scope": "Compose full P06 verifier from existing helpers; implement/test typed exact-source Readiness gate and21unique main-MDS approval before mass, then safe ROOT/WORK code/state/lease handoff. Do not merely raise stop limit or overwrite ROOT/history.",
+      "acceptance": "Negative tests for missing/FAIL/BLOCKED/stale/wrong-kind receipts (including CONCEPT_ONLY PASS), missing MDS/changed source, unmergedP06/failedCI/manualapproval; preserve confirmed merge/currentSHA/protection and single executor. Existing worker not hot-swapped.",
+      "gate": "BEFORE_P07_ENTRY_AND_MASS_STAGE",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Author21 substantive separate MDS with canonical IDs/POV, rooms/connections/spawns/objectives/encounters/boss only when justified/dialogue/music/flags/assets/tests; compare topology and decisions with≥2similar MDS; multi-stage CyberX/PRIME, purposeful quiet scenes.",
+      "acceptance": "Independent Narrative/Gameplay/Lead receipt on all21 exact document hashes; no copied placeholders/renamed arena or HP/count-only escalation.",
+      "gate": "BEFORE_MASS_CHAPTER_PRODUCTION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H02",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Test representative U-obstacle/dynamic-door/choke/alternate-route fixtures with all3archetypes and allowed hero body/ability clearance. Introduce minimum routing adapter only on demonstrated need; preserve existing FSM/telegraph/contact.",
+      "acceptance": "Real bounded reachability/door change/retry/LOS/contact proofs without stuck actors, unavoidable random death or new blanket AI rewrite.",
+      "gate": "BEFORE_MASS_AFFECTED_MULTIROOM_CONTENT",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H03",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Plan chapter sound/music production, explicit Exploration→EXPLORE/Tension→SUSPICION/Combat→COMBAT/Aftermath→CLEAR mapping; pilot actual mixer playback-position/loop/bar/fade/duck/retry/scene reload plus real new-file decode/signal/listening.",
+      "acceptance": "No stacked/restarted layers or abrupt unexplained cuts, typed contact sync; actual listener for new material. Agent/file metadata/pitch label does not confer artistic approval. Preserve prior owner prototype acceptance.",
+      "gate": "P06_HERO_AUDIO_BEFORE_P06_PASS_AND_NEW_MISSION_AUDIO_BEFORE_RELEVANT_PRODUCTION_ACCEPTANCE",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H04",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Instrument software Input→accepted/first-visible separately from intended windup, retry<1000ms, meaningful-action intervals/deaths/causes/route/story/traversal/AFK/skip and monotonic frame p50/p95/p99; calibrate representative pilot thresholds before acceptance runs.",
+      "acceptance": "Current hardware/backend/build/settings/sample conditions and first-play distribution, include real deaths; OS/hardware latency only if actually measured. No requirement for completed7–9h proof before levels exist, no padding or summing mutually exclusive endings.",
+      "gate": "INSTRUMENTATION_AND_PILOT_BASELINE_BEFORE_MASS;ACTUAL_CAMPAIGN_DURATION_AFTER_CONTENT_IMPLEMENTATION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-H05",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "HIGH",
+      "depends_on": [],
+      "scope": "Complete distinct bonus MDS and decide noncanonical journal/unlock/completion namespace; explicit save migration/defaultfalse/once/replay/old-save tests before integration; preserve existing5/history/relationships/WIFE_CALLING/REAL_PRIME conditions unless separately approved.",
+      "acceptance": "Narrative/Lead full-MDS and actual Gameplay/ART/QA/geometry/pacing/audio evidence; concept PASS is never readiness/phase/runtime permission.",
+      "gate": "BEFORE_NEW_SECRET_CANONICAL_OR_RUNTIME_INTEGRATION_AND_LEVEL_PRODUCTION",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-M01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "MEDIUM",
+      "depends_on": [],
+      "scope": "Attach chapter-specific polish tickets with actual source assets/native readability/settings/skip tests; keep mandatory scenes/dialogue functional before cosmetic acceptance.",
+      "acceptance": "Specific shot/text/transition comparison and independent review; no missing required scene hidden as cosmetic debt.",
+      "gate": "RELEVANT_P07_CHAPTER_OR_P08_OPTIONAL_POLISH",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/READINESS-L01",
+      "phase": "P07",
+      "kind": "remediation",
+      "status": "OPEN",
+      "severity": "LOW",
+      "depends_on": [],
+      "scope": "Retain concrete debt IDs P08-VAR01/02/VHS01; add genuine source/provenance and native comparison only when that authorized phase is reached.",
+      "acceptance": "Full/Reduced/off noninterference, lifetime/caps/wall-frame checks and ART/QA; no mandatory combat/sound/HUD deferral.",
+      "gate": "OPTIONAL_P08_DEBT_ONLY",
+      "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+      "phase_approval": false,
+      "triggered_by": "PREP07/independent-lead-readiness"
+    },
+    {
+      "id": "PREP07/production-entry-guard",
+      "phase": "P06",
+      "kind": "implementation_verification",
+      "depends_on": [],
+      "status": "PASS_COMPONENT_CANDIDATE_NOT_ROOT_INSTALLED",
+      "scope": "Typed exact-source Readiness/21MDS prerequisite; not ROOT installation/full readiness closure",
+      "spec": "autopilot/PRODUCTION_GATES.md",
+      "phase_approval": false,
+      "evidence": "reports/pre_p07/guard-author-04/result.json",
+      "prior_QA": "reports/pre_p07/qa-production-guard-02/decision.json",
+      "prior_Lead": "reports/pre_p07/lead-production-guard-01/decision.json",
+      "QA_decision": "reports/pre_p07/qa-production-guard-04/decision.json",
+      "QA_sha256": "f2c1d17647186ccc90f0aa5e0a6974924b48168b156b46311e1df998283dfb86",
+      "Lead_decision": "reports/pre_p07/lead-production-guard-03/decision.json",
+      "Lead_sha256": "de1fb9f5c33c382cf1db6f39d7a2843463862f1974036949fa25e7ca4184588d",
+      "ROOT_installed": false,
+      "full_readiness_approval": false
+    },
+    {
+      "id": "P06/C01-finisher-audio-source",
+      "kind": "audio",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "SOURCE_SIGNAL_PASS",
+      "evidence": "reports/phases/P06/audio-c01-signal-review-01/decision.json",
+      "decision_sha256": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/C01-finisher-audio-runtime",
+      "kind": "verification",
+      "depends_on": [
+        "P06/C01-finisher-audio-source"
+      ],
+      "status": "PASS_COMPONENT",
+      "evidence": "reports/phases/P06/lead-character-finisher-audio-01/decision.json",
+      "scope": "Prototype C01 runtime/actualPCM/DEV08 local packaged smoke; fullP06/readiness/merge excluded",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false,
+      "decision_sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+      "qa_sha256": "eed5a827352d31cb7a830d2c3cc056e785ca75895c1170899bc30b511c505ba8",
+      "reviewed_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3"
+    },
+    {
+      "id": "P06/C01-finisher-audio-listening",
+      "kind": "audio_review",
+      "depends_on": [
+        "P06/C01-finisher-audio-source"
+      ],
+      "status": "OWNER_ACCEPTED_FOR_PROTOTYPE",
+      "evidence": "reports/phases/P06/character-finisher-audio-01/owner-listening-acceptance.json",
+      "scope": "Owner heard real solo20 and gameplaymix; no agent-hearing/release/fullphase claim",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": true,
+      "phase_approval": false
+    },
+    {
+      "id": "P06/C09-npc-presentation-contract",
+      "kind": "technical",
+      "depends_on": [
+        "P06/combat-style-audit"
+      ],
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": false,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "deferred_to": "P08/npc-style-contract",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
+    },
+    {
+      "id": "P06/C09-npc-style-art",
+      "kind": "art",
+      "depends_on": [
+        "P06/C09-npc-presentation-contract"
+      ],
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": false,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "current_source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "independent_source_review": "reports/phases/P06/art-c09-gabar-reuse-feasibility-01/decision.json",
+      "decision_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+      "reason": "4shooter contact wholeposes missing; requested imagegen fix rejectedmoderation;19retained+1oldrelease is partial inventory only",
+      "status_before_owner_deferral": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
+      "scope_before_owner_deferral": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "deferred_to": "P08/npc-style-art",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
+    },
+    {
+      "id": "P06/C09-npc-style-integration",
+      "kind": "implementation",
+      "depends_on": [
+        "P06/C09-npc-style-art"
+      ],
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": false,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "deferred_to": "P08/npc-style-integration",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
+    },
+    {
+      "id": "P06/C09-npc-style-review",
+      "kind": "verification",
+      "depends_on": [
+        "P06/C09-npc-style-integration"
+      ],
+      "status": "DEFERRED_BY_OWNER_TO_P08",
+      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+      "phase": "P06",
+      "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+      "must_pass_before_P07": false,
+      "phase_approval": false,
+      "brief": "planning/P06_C09_TASKS.md",
+      "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+      "status_before_owner_deferral": "PENDING",
+      "scope_before_owner_deferral": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "deferred_to": "P08/npc-style-review",
+      "debt_id": "P08-NPC-STYLE-01",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "blocking_for_P06": false
+    },
+    {
+      "id": "P08/npc-style-contract",
+      "phase": "P08",
+      "kind": "technical",
+      "depends_on": [
+        "P07:PASS",
+        "P07:MERGED"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-presentation-contract",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-art",
+      "phase": "P08",
+      "kind": "art",
+      "depends_on": [
+        "P08/npc-style-contract"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-art",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-integration",
+      "phase": "P08",
+      "kind": "implementation",
+      "depends_on": [
+        "P08/npc-style-art"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-integration",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    {
+      "id": "P08/npc-style-review",
+      "phase": "P08",
+      "kind": "verification",
+      "depends_on": [
+        "P08/npc-style-integration"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-review",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    }
+  ]
+}

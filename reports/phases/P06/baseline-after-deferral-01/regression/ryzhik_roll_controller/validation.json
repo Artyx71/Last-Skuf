@@ -1,0 +1,60 @@
+{
+  "scope": "RYZHIK_ROLL_COMPONENT_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "d80339829ed32a5d491657339ebe4c7df77e1252",
+  "headless": true,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 311,
+      "total": 311
+    }
+  ],
+  "actual_captures": 0,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/ryzhik_roll_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 6.451,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-ryzhik-roll-qa/175c97fcfd4d9c30abd6"
+    }
+  ],
+  "movie_path": null,
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/ryzhik_roll_controller/commands.json",
+      "sha256": "a5e28e4c6ca6f97a843c6ae4c182191f4a1381f2fa5499266f34ce219a22687c"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/ryzhik_roll_controller/live/result.json",
+      "sha256": "7e3f752611875ccebb87a99f07dace5d68bf4b35d0f8f2c45be0673b3cb7501e"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/ryzhik_roll_controller/live.log",
+      "sha256": "ed4eeb62f2ef31b3d70b743456c7281047842ec64a86795c35e9e163077fda58"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/ryzhik_roll_controller/source_hashes.json",
+      "sha256": "d3f9ace8a10a7217b96532b41959e476c06da69c27b15ead0f455be390ab9f66"
+    }
+  ]
+}

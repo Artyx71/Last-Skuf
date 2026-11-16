@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "scope": "NUMERIC_AUDIO_INVENTORY_CLOSURE_FOR_EXISTING_NATIVE02_ONLY",
+  "passed": true,
+  "checks": {
+    "analysis_exit_zero": true,
+    "all_signal_checks": true,
+    "selected_scope_only": true,
+    "exact_requested_two": true,
+    "old_reports_PCM_and_tools_unchanged": true,
+    "runtime_sources_unchanged": true
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "tools/analyze_p04g_audio.py",
+    "--runtime-dir",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-baseline-after-deferral-02",
+    "--runtime-name",
+    "full_replay",
+    "--runtime-name",
+    "reduced_replay",
+    "--output",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/audio-runtime-scope-closure-01/audio_detailed.json"
+  ],
+  "seconds": 11.518217771998025,
+  "original_native_wrapper_exit": 1,
+  "original_report_rewritten": false,
+  "original_failure": "Analyzer expected five recordings despite no exports/movie request",
+  "replay_reexecuted": false,
+  "fresh_PCM_or_listening_claim": false,
+  "phase_approval": false,
+  "P06_PASS": false,
+  "exports_movie_and_full_phase_verifier": "STILL_SEPARATE",
+  "source_head": "cc9dfbef45ba27d7339a59b69837142065258a52",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/audio-runtime-scope-closure-01/analysis.log",
+      "sha256": "d70758a70ef99ebb992dedd41a0031c2065a5e696b35b30687d778913ccf6f29",
+      "bytes": 56
+    },
+    {
+      "path": "reports/phases/P06/audio-runtime-scope-closure-01/audio_detailed.json",
+      "sha256": "e2f7df219bf901599169d564d6dbc2acd35909b19718e70d43c3cb2bfb8acbd7",
+      "bytes": 51135
+    },
+    {
+      "path": "reports/phases/P06/audio-runtime-scope-closure-01/inputs.json",
+      "sha256": "de5ee17c696a46f3d32a8fed38c286b3be6aedf9e5974200b3f2704bff909e3c",
+      "bytes": 1319
+    }
+  ]
+}

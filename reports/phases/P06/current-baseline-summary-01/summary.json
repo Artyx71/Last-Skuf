@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "scope": "CURRENT_P06_BASELINE_TECHNICAL_EVIDENCE_NOT_FULL_PHASE_APPROVAL",
+  "author_report": true,
+  "phase_approval": false,
+  "last_full_PASS": "P05",
+  "current_tooling_head": "cc9dfbef45ba27d7339a59b69837142065258a52",
+  "runtime_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "runtime_changed": false,
+  "operations": {
+    "headless49": "0dfb4296e9e74d2d8699e0e4622d37b2",
+    "native01_preserved_failure": "d9a8de30eabd43f19fdc5c4bba2f1433",
+    "npc7pairs": "fbf98588596a4b78885be613548e323d",
+    "native02_preserved_scope_failure": "0c81d8ef1a014d3a8215e61f33ba605a",
+    "numeric_scope_closure": "eff2bf83ff07439898dd292821486bb3"
+  },
+  "headless": {
+    "commands_passed": 49,
+    "commands_total": 49,
+    "source_unchanged": true
+  },
+  "native02": {
+    "Full_checks": 413,
+    "Reduced_checks": 413,
+    "PNGs_each": 218,
+    "outcome_invariance": true,
+    "stress_each": {
+      "actors": 32,
+      "contacts": 4800,
+      "real_wall_frames": 600
+    },
+    "Full_p95_ms": 16.917,
+    "Reduced_p95_ms": 16.957,
+    "Full_p99_ms": 17.027,
+    "Reduced_p99_ms": 17.181,
+    "hardware": "Ryzen5 3600 / GTX1050Ti / X11",
+    "launch_flags": [
+      "--disable-vsync",
+      "--max-fps",
+      "60"
+    ],
+    "movie_maker": false,
+    "nested_P04_checks_passed": 9,
+    "original_wrapper_exit": 1,
+    "sole_failure": "Analyzer unconditionally required five captures although exports/movie not requested",
+    "numeric_closure_passed": true,
+    "old_report_rewritten": false,
+    "runtime_PCM_truepeak_dbFS": -4.3,
+    "listening_claim": false
+  },
+  "npc_supplement": {
+    "native_checks": 204,
+    "cases": 14,
+    "PNGs": 42,
+    "scope": "Seven missing NPC/category pairs x FullReduced, one facing only; completes factorized baseline coverage, not newC09styles"
+  },
+  "independent_review": "Baseline independent QA PASS_COMPONENT7e5de205; Leadpreflight e31ec718 GAPS_OPEN, notfullP06",
+  "still_required": [
+    "Actual full13nativepipeline after independentpreflight/negativeclosures",
+    "Safely reviewed ROOT/WORK runner handoff",
+    "Independent full P06 exacthead/base review",
+    "Current mandatory GitHubCI and protected PR merge",
+    "Separate FULL production readiness and21MDS approval beforemassP07"
+  ],
+  "build": "ROOT/build/P06_DEV_20261116_08; unchanged runtime; local prototype only",
+  "native_windows": "NOT_TESTED",
+  "hardware_input_latency": "NOT_MEASURED",
+  "campaign_duration": "NOT_MEASURED"
+}
