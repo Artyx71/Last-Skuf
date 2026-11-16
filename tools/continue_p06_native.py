@@ -14,7 +14,7 @@ import verify_p06 as pipeline
 ROOT = pipeline.ROOT
 REUSED = ['gabar', 'olezhka', 'counter_feedback', 'timka_present', 'timka_prime', 'ryzhik', 'tega']
 TAIL = ['cast', 'cast_large_text', 'finisher_audio', 'npc_baseline', 'combat_baseline']
-ALLOWED_CHANGES = {'game/tests/pasha_moving_shot_replay.gd', 'tools/continue_p06_native.py',
+ALLOWED_CHANGES = {'game/tests/pasha_moving_shot_replay.gd', 'game/scripts/qa/cast_replay.gd', 'tools/continue_p06_native.py',
                    'tools/tests/test_p06_continuation.py'}
 
 
