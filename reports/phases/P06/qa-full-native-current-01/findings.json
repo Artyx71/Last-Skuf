@@ -1,0 +1,27 @@
+[
+  {
+    "id": "FULL-Q01",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "mandatory": true,
+    "summary": "Pasha MovieMaker Reduced down/left fail sustained held-run and displacement; four actual assertions fail. Actual Input/Shift/focus telemetry is missing, so failure cause remains unqualified.",
+    "actual_failure": "movie389/393; native581/581 passes; all8 authored phases present in every failing route.",
+    "repro_evidence": "Pasha-moving-route-comparison.json",
+    "observations": [
+      "Reduced down tick208 velocity180->0, source initial[380,200] final[380,236], final14samples idle_down.",
+      "Reduced left tick237 velocity-180->-125 then tick253->0; initial[300,240] final[245.666580200195,240], final9samples idle_left.",
+      "All route traces have32samples; acceptedb359 and currentnative same routes retain180 and endrun; no step-size teleport overflow.",
+      "Nine critical actor/base/strategy/Core/replay/wrapper sources exactly match acceptedb359.",
+      "Source Input/focus events were not recorded; external interference, focus change and product defect are hypotheses, not established causes."
+    ],
+    "required_next": "Fresh isolated/serial Pasha diagnostic with actual Engine Input vector/run/pressed keys and focus/window mode per sample, preserving existing all8/end-run/distance/once/collision oracles. Controlled MovieMaker-only NO_FOCUS may be evaluated without changing manual/native behavior; never reassert keys, force velocity, relax distance or silently replay failed operation. If input remains correct, investigate actual collision/health/policy path."
+  },
+  {
+    "id": "FULL-Q02",
+    "severity": "LOW",
+    "status": "OPEN",
+    "mandatory": false,
+    "summary": "Gabar child summary retains stale text claiming five other hero bodies/abilities pending.",
+    "required_next": "Preserve old output; publish an explicit coverage erratum/current matrix and correct future report text separately. No gameplay rerun required only for wording."
+  }
+]

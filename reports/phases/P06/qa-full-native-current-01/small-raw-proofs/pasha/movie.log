@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 580.178.04 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1050 Ti
+
+Movie Maker mode enabled, recording movie in 1280×720 @ 60 FPS...
+RESULT P06_PASHA passed=389 failed=4
+--------------------------------------------------------------------------------
+Done recording movie at path: /home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/pasha/pasha-moving-shot.avi
+5662 frames at 60 FPS (movie length: 00:01:34:22), recorded in 00:02:59 (52% of real-time speed).
+CPU render time: 1.78 seconds (average: 0.31 ms/frame)
+GPU render time: 0.48 seconds (average: 0.08 ms/frame)
+Encoding time: 57.66 seconds (average: 10.18 ms/frame)
+--------------------------------------------------------------------------------
+ERROR: FAIL P06_PASHA moving_shot_true_down:all8_ordered_poses_then_held_run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:27)
+       [1] run (res://tests/pasha_moving_shot_replay.gd:190)
+       [2] frames (res://tests/pasha_moving_shot_replay.gd:37)
+ERROR: FAIL P06_PASHA moving_shot_true_down:physical_run_no_teleport_or_immunity
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:27)
+       [1] run (res://tests/pasha_moving_shot_replay.gd:191)
+       [2] frames (res://tests/pasha_moving_shot_replay.gd:37)
+ERROR: FAIL P06_PASHA moving_shot_true_left:all8_ordered_poses_then_held_run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:27)
+       [1] run (res://tests/pasha_moving_shot_replay.gd:190)
+       [2] frames (res://tests/pasha_moving_shot_replay.gd:37)
+ERROR: FAIL P06_PASHA moving_shot_true_left:physical_run_no_teleport_or_immunity
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:27)
+       [1] run (res://tests/pasha_moving_shot_replay.gd:191)
+       [2] frames (res://tests/pasha_moving_shot_replay.gd:37)
+
+exit_code=1

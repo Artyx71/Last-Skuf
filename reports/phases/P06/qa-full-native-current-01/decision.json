@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "INDEPENDENT_ACTUAL_FULL_NATIVE01_ATTEMPT_EVIDENCE_REVIEW_NOT_FULL_PHASE_DECISION",
+  "reviewer": "qa_resume_recovery",
+  "actual_canonical_operation": "8e8ab4a27ccd47ebacf5a66dd3b6780c",
+  "source_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+  "pipeline_source_review": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+  "actual_exit_code": 1,
+  "actual_stages_completed": 8,
+  "actual_stages_planned": 13,
+  "first7_actual_native_and_movie": "PASS",
+  "stage8": {
+    "name": "pasha",
+    "native": {
+      "passed": 581,
+      "total": 581,
+      "PNG": 188
+    },
+    "movie": {
+      "passed": 389,
+      "total": 393,
+      "accepted_MP4": false,
+      "failed_AVI_retained": true
+    }
+  },
+  "remaining5": [
+    "cast",
+    "cast_large_text",
+    "finisher_audio",
+    "npc_baseline",
+    "combat_baseline"
+  ],
+  "mandatory_findings": [
+    "FULL-Q01"
+  ],
+  "low_findings": [
+    "FULL-Q02"
+  ],
+  "cause_of_movement_drop": "UNKNOWN_WITHOUT_ACTUAL_INPUT_AND_FOCUS_TELEMETRY",
+  "missing8poses_claim": false,
+  "evidence_integrity": {
+    "canonical_receipt_log_argv_history_binding_verified": true,
+    "first7_clean_stop_on_stage8_verified": true,
+    "source_map_before_after_and_HEAD_unchanged": true,
+    "actual_frozen_files_rehashed_after_receipt_before_author_fix": 1454,
+    "actual_artifact_records_rehashed": 806,
+    "actual_native_PNG_headers_checked": 738,
+    "actual_MP4_containers_independently_probed": 7,
+    "Core_once_OUTgoingFIN_FullReduced_saved_numeric_invariants_recomputed": true,
+    "preceding_local_unit175_raw_log_verified": true,
+    "ROOT_worker_and_aggregator_original_identities_gone": true,
+    "9criticalPashaSourceFiles_exact_b359": true,
+    "Game533_exact_old0dd_at_original_postreceipt_audit": true
+  },
+  "next_step": "Targeted serial Pasha diagnostic/fixture correction with actual per-sample Input+run+focus telemetry, preserved old assertions, no pressed-key reassertion; preserve old failure. Completion of remaining stages requires separate reviewed continuation evidence.",
+  "current_parent_next_candidate": "651d730bfdf6750d92511b841256435eed2f6dd9 NOT_REVIEWED_BY_THIS_DECISION",
+  "no_engine_or_rerun_by_reviewer": true,
+  "no_ROOT_WORK_production_mutation_by_reviewer": true,
+  "formal_phase_attempt_reset_or_increment_by_reviewer": false,
+  "phase_approval": false,
+  "native_acceptance_approval": false,
+  "merge_approval": false,
+  "P07_readiness_approval": false,
+  "ROOT_install_approval": false,
+  "new_exports_or_new_realwallframe_performance_in_this_attempt": "NOT_RUN",
+  "native_Windows": "NOT_TESTED",
+  "remote_GitHub_CI": "NOT_RUN_BY_THIS_REVIEW",
+  "actual_agent_listening": "UNAVAILABLE_NOT_CLAIMED",
+  "subjective_ART_or_GAMEPLAY_acceptance": "NOT_GRANTED_BY_THIS_TECHNICAL_REVIEW",
+  "unexecuted_analysis_script_note": "audit_final_integrity.py was prepared for successful13-stage completion and not executed; actual failed-attempt audit is separate."
+}

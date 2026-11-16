@@ -1,0 +1,475 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 248,
+  "checks_total": 248,
+  "actual_captures": 82,
+  "contacts": 57,
+  "actual_input": true,
+  "movie_recorded": true,
+  "engine_recording": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/full-native-current-source-01/olezhka/live/engine_mix.wav",
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.mp4",
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 32.608,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 64.045,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.avi",
+        "-c:a",
+        "aac",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 5.209,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.05,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/commands.json",
+      "sha256": "38964508ba71991eaa9cbb315a45d2994e7b00e906d59f932ab7391e547b2856"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_down_back_to_run.png",
+      "sha256": "fdc2f95c3e571821b2383e0e03c8d7abd05504607f315826ecdee2c1b7112d96"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_down_guard.png",
+      "sha256": "f30d8deead284a2a95527c95b2c0d307ae424cad82fba942128996c78b0da415"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_down_run.png",
+      "sha256": "0ce4d9e947d838e8b040172c658ff9c329586906a7c6aef2a476f5b2fcae06fb"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_down_walk.png",
+      "sha256": "97a25271d8444bbe06eef968d57803753ab72ff050f797b345318b9d72cc7fe4"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_left_back_to_run.png",
+      "sha256": "cb2f52ca40a22c8c508c8d3de361a367c80811258fa4ff0f93d97f0f188aae94"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_left_guard.png",
+      "sha256": "f238debd62021564736d0d5b3d6c8b404b130b58d0162349c11fdf386221e6a4"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_left_run.png",
+      "sha256": "14c1672f5b77556876fb45d1a122bf8462a137dee97cd3c3d3cb26017bd93d1e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_left_walk.png",
+      "sha256": "083734f8c16b4c4a2f3f0bd17c594d173ab574148cf115fb05c63b734e77c274"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_right_back_to_run.png",
+      "sha256": "86c6fb6b50663a610469ab4973350946b5aa62b0a5cb787e0248caf2e2f70f99"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_right_guard.png",
+      "sha256": "f81bed1a7aadc4adcf5033727cca815decb232163cbbcc810a75858b2d4b7221"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_right_run.png",
+      "sha256": "7f0e2e0ee6324ae99a21cfbc1095bb0aad1e2b5c07f36b5593ca03ddb5b83342"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_right_walk.png",
+      "sha256": "a881ae33e0254212fe96db17aa5798e96b97463c6a7278557c942c56ada71a28"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_up_back_to_run.png",
+      "sha256": "b3fae41a8d3fc2663ad73d4eaa6bd32e42229c2a3013f9b17b327a72448924f8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_up_guard.png",
+      "sha256": "647c577e5e4c76ac22bfa17821ae9d0e82ff81f1301e88b79968df43734f025b"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_up_run.png",
+      "sha256": "f100d1fac4baacba8614bf464e899687e38b61be00a9d6625a537b758719485a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/continuous_run_guard_up_walk.png",
+      "sha256": "4a81d4a1674fb4ea90c47d16fac4eb6773ddad2e6b8e0487cafe5d013d43580d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_down_contact.png",
+      "sha256": "6c0c676c96eb83ee701f190025e9048ecc0d63ddca3578e6214a18de00beb379"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_down_guard.png",
+      "sha256": "830acc8c6a6b12a3ee9157f4cb39870904230133feb06c916f355689c8838a68"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_down_parry.png",
+      "sha256": "02f40b13b6ca2218f2b278822294042bf4d5f1643e58ab20974afae43fd5cc49"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_down_recovery.png",
+      "sha256": "ca172c4be5e26bc27a2b6893dea46d821b3b670a3fb2a6813afee9aa6ba2c5e9"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_left_contact.png",
+      "sha256": "935cc594511bdbf563e624108ae0bb3d58fbacb21b199269bce1bff691be4c12"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_left_guard.png",
+      "sha256": "57a81aa6238a39b4efb9ca1d05d0d24838f2648aeb648e65e62d6ee7cf5318af"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_left_parry.png",
+      "sha256": "70315a23739d73392aaa0bca8d83668f9563bb065af4cd40385abbc07d86ef7a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_left_recovery.png",
+      "sha256": "65664eb21fd8886177d36639252a1322ae7cc4fc0dbf72e8e87a1e09ce6ef48e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_reduced_false.png",
+      "sha256": "e62838446cc4fe724fb24e3987d9abe0e1e034f82e0cd310472aa2383905a4b5"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_reduced_true.png",
+      "sha256": "69deb24b83c4eabfcbf3df606bfd2d520f873a51ef5a86a2b5c1b1f268058f16"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_right_contact.png",
+      "sha256": "0c09b1827c10851cb8329279048e6c351d84309e2e6c62efde8e87d246e97395"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_right_guard.png",
+      "sha256": "d91e30d8792bb73d8c97ea3ce5fd515d9d61e7d71b9376497c503ae90ed62bf8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_right_parry.png",
+      "sha256": "bf6ae9145d94df71e3140161512ca8f768dd97ea03d200b9d176187634f14e35"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_right_recovery.png",
+      "sha256": "ebe0e309df9dc9cdd9cc8c40df3d9838127b7c783754dbd87061775637e4cad2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_up_contact.png",
+      "sha256": "dfe2e3fd3a538e87ed5fb2c3b8c63fb1615ea03b6fc82cd709743fb44f2dd6ec"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_up_guard.png",
+      "sha256": "67e1a45bacb0521a70a6cd783a8138d3c05a1d8ebd08d17548d75ed6b10dcced"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_up_parry.png",
+      "sha256": "439dd0802421d8835b4e1dcd2e596c34a14400d72364f966d2b14eeb29668efd"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/counter_up_recovery.png",
+      "sha256": "bde0d15ce08ad25d5edee781ad1253fb2381f4f4b9e9cf93d01e75293d085b27"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/engine_mix.wav",
+      "sha256": "8cbe8de33e17844c5533528c79f6d04f284a6d86fa0659bd6a455cd11bf71604"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_down_contact.png",
+      "sha256": "11ce55ada91d56eb754695bd8c1eda21d17cd1aaf9cf9253fc45415a14f803a8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_down_recovery.png",
+      "sha256": "c3c2910038c0588a944076b8320a9c606c53aae964b0ed384c28243541d8e915"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_down_windup.png",
+      "sha256": "bc92fe5cd336003893b379d9ce5a6cf7e3eaae84276e9d7ad606caf543d20355"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_left_contact.png",
+      "sha256": "9180cb872455487ad17201a574baf599fc5a4facfe75c267638bc4507dbba700"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_left_recovery.png",
+      "sha256": "78ae64437cf3bc78e50eb6af0c0792b2b5746d498227f0e992e3baa46b9223a6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_left_windup.png",
+      "sha256": "275b8cd969cada67bf6fb035f4ee31d7d10b35666894a3b3cbb4b4d67b5cd2fa"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_right_contact.png",
+      "sha256": "de7b2be730a4dfe694346f48bc40a12001c60b7e28aabb0be17d78975a0a39d9"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_right_recovery.png",
+      "sha256": "541edef38efc56483c403a4e086c3dcb46bace09ee2ae180652f52f4807c5648"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_right_windup.png",
+      "sha256": "4b4d5aa5e3bd81f123d1fcbce748da58f2e0151a26401a56e428299a43225fe2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_up_contact.png",
+      "sha256": "11b2bb440d8edf813a43d98f1817c7d7725a6ca7059e7ec011a9afac8e01be74"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_up_recovery.png",
+      "sha256": "af0d0d519df107cbdd3a70ad9efaad1f919a629cf6245ea284c6a11f7d197aa2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_blunt_up_windup.png",
+      "sha256": "c741e446de2089e8d4850f447b2f4dec7ce19823c96ff9ada18a1dc4b427383a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_down_contact.png",
+      "sha256": "14f4e8fc59681b441da170a1262300595594670a42ebe5002d71a43013977b49"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_down_recovery.png",
+      "sha256": "2b13e6921b11ef998ea2cd67bab9a552565f8792efe11dbd7cb49726a333fda4"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_down_windup.png",
+      "sha256": "9cbe7eb83d04b64847204088cd0a8550fde856751f3f48c32c198931882de90e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_left_contact.png",
+      "sha256": "faff01d2a5609968ce90c89413dcc7dfdfe51250f909c87e88e7e02cf82d897f"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_left_recovery.png",
+      "sha256": "ddf1c179c431ef8bef3737b5da4cb29337cb4ee0ec893eb8f9f33b65eef20922"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_left_windup.png",
+      "sha256": "cb11618282ccc9c2e82393289213fcb81e54a8979247fde90a160e2d56d50610"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_right_contact.png",
+      "sha256": "4f4fd6abf603cb817d13b23576cbb43147998a8b066889626b856e01a0aa254e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_right_recovery.png",
+      "sha256": "afa594aadeab10a30256b1dc7cfedeb8960a4a869cc3bfcb53fb6a3a0f9848fa"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_right_windup.png",
+      "sha256": "bfef2075c1e40c24166bb598aea013612f132807368800408e4ab72a20e42bf1"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_up_contact.png",
+      "sha256": "4d5d5b746ca5cdcc28fe6840de7efd02e7ccbe4d45bbf17637e4a36c61df9d2b"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_up_recovery.png",
+      "sha256": "dbe1de58ad8f6c4cffe7866910a0236a156cf7e5a63979e93d67dfebc2dea256"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_sharp_up_windup.png",
+      "sha256": "e462b2083d1e8b380eed2cc02387214c0b5f194b6cd34fdeea5219ec2e5150f7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_down_contact.png",
+      "sha256": "49a3db32e52e2016eff1b56b11ee32f95e26c76e944741d4b8f2d5de86f3e175"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_down_recovery.png",
+      "sha256": "07def11af21823ed3e6a3527a08c2b68d4fe53f0eb2b70e7401166e5094c4a60"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_down_windup.png",
+      "sha256": "d2146dbdba27893b3e9d07f1bb5cf90a39734e0f4825d845bb8eed5a7ee7ebee"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_left_contact.png",
+      "sha256": "a13e87a84858411498c96a91a3073d599051a6f3a0a79afa259f4a212a776fac"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_left_recovery.png",
+      "sha256": "0e3038a694dec884c722604165d32201597b9ca3a86c1778ac9fa58ffcf09873"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_left_windup.png",
+      "sha256": "66043497ce902c71ca29db2491d2ebf57a0f58cc7f18f2433b89890e83b11f04"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_right_contact.png",
+      "sha256": "e1e17ef14a59166e651ca8cf7ab72c2b6e72ba86e3ff3fbeedd0edb334b698d6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_right_recovery.png",
+      "sha256": "2707b5dad0375bb95fb0462b829d01d808de5bc6cf51bf58d0d629dfac16fb03"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_right_windup.png",
+      "sha256": "3f29d92714674be799ba25b5b32c7b4c7eed10467eccae5f1976924be7c12a9e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_up_contact.png",
+      "sha256": "4ec5e336d4639460d298b87b906c7553313c78e080e85249939b2c616c95b343"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_up_recovery.png",
+      "sha256": "f9d84ca920b47721c68e0c7ece5ff1ecca8baef3211444d2a5d2e25212c220ba"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/finisher_unarmed_up_windup.png",
+      "sha256": "032ffa82bf39d76a3d36ebf96db4f65356a27c516360a9bd0423a8e6887c1c31"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_down_death_hold.png",
+      "sha256": "0ebadf5916f427585904ac4784704f8162650d4c61473c76f1cfc748a9e87aa6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_down_fall.png",
+      "sha256": "3b1e4abdd98c69db93468facac245da59f666f24bf7ca1f5411749b2e3e66b20"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_down_hurt.png",
+      "sha256": "5a27966c3e379cb57fe0e606aeb7f8cb55f985262b68c9e34c04740ca5f052ea"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_left_death_hold.png",
+      "sha256": "7ed62f2d5898341c746422cef6d3b04bb5fe5b08760f4ebeba2d337042c83312"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_left_fall.png",
+      "sha256": "55b297febb70edb548a5ebcc92bc54026a2613d2d7ac7378b1e591e38a101c18"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_left_hurt.png",
+      "sha256": "774b85ac30cd5c2530507eb6b87dcaf8dc6c26b487c46f80f01a1371041f2a40"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_right_death_hold.png",
+      "sha256": "3d675613d6ae71dc1a8421353392114a107ab37f060507d860f0175554f492df"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_right_fall.png",
+      "sha256": "3629b03f598a023a5e4acd17bf93893bcdb9438d770c87a1eefb4e46ca7f1a6a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_right_hurt.png",
+      "sha256": "e3a10d206ab3a82ff7ab8692b3d5751ffaf3b5cfe1336d2f3a19a761e27069b6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_up_death_hold.png",
+      "sha256": "3263e46842e19804654ad1245a0b395dac127ee4dbf011f0b629327977bdcb56"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_up_fall.png",
+      "sha256": "56fa9e393c310131e4dfac0abc511a43f71d1c419449b1ff6c33ca4c3e92267a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/reactions_up_hurt.png",
+      "sha256": "6460f5094a23fee07d9f5fa29793de17710c04ded2522c0f21a73fc7216a82a7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live/result.json",
+      "sha256": "9b32fb1a8305dd3d87f8b50b2a144aca5e3ca97ca9550e66053e89a7d6a72c92"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/live.log",
+      "sha256": "c15a2c3a0cd9b5044b475fc2d123953f7de81f060cde93c6610d38f6cbb161ae"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/movie/engine_mix.wav",
+      "sha256": "098bd89a6dcebba2f1621df19ea5948d29cd86fdb8ad40ea8cdc3f1ff341c65a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/movie/result.json",
+      "sha256": "24ac66284ea6b55408c0095dfd2f2575bf71d10071fd3c6aa65f123e7be5b201"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/movie.log",
+      "sha256": "e7610616f4e1af62e80db2738af42d549c266d77ebadf948d62d0559af0cc86d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/movie_probe.json",
+      "sha256": "18f6225eff3015c73b0aaaa8e25eb17563d0cb0df4e13569f8a016bcc21ef1c2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/probe_movie.log",
+      "sha256": "2bf0b5d8cf577cd792a1b6d25b6aa8dbfab1c438d25791c23a08f221af47c0ea"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/olezhka/source_hashes.json",
+      "sha256": "2a1731abf68fe3857b90bbf5b02adafca563a03d89c560f51c9d8a410ef8a104"
+    }
+  ]
+}
