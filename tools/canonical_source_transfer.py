@@ -72,6 +72,7 @@ class CanonicalSourceTransfer(Bootstrap):
         return files
 
     def begin_transfer(self, payloads, expected_before, protected, installed_b):
+        protected = list(protected)
         self.check_lock()
         if checked(self.root, MARKER).exists():
             raise Refused('Recover pending maintenance first')
