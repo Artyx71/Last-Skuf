@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT_PRIMARY_CONNECTOR_FINAL_CURRENT_HEAD_CI",
+  "head": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+  "snapshots": {
+    "workflow": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "workflow_runs": [
+            {
+              "id": 43983165690,
+              "name": "Native Godot validation",
+              "status": "completed",
+              "conclusion": "success",
+              "run_number": 28,
+              "jobs_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43983165690/jobs",
+              "logs_url": "https://api.github.com/repos/Artyx71/Last-Skuf/actions/runs/43983165690/logs",
+              "workflow_id": 416626113
+            }
+          ]
+        },
+        "isError": false
+      }
+    },
+    "jobs": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "jobs": [
+            {
+              "id": 133704512046,
+              "name": "bootstrap",
+              "status": "completed",
+              "conclusion": "success",
+              "run_id": 43983165690,
+              "logs_url": null,
+              "steps": [
+                {
+                  "name": "Set up job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 1
+                },
+                {
+                  "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 2
+                },
+                {
+                  "name": "Run python3 tools/install_deps.py --templates",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 3
+                },
+                {
+                  "name": "Run python3 tools/verify.py --output reports/ci",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 4
+                },
+                {
+                  "name": "Install pinned user-local audio decoder",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 5
+                },
+                {
+                  "name": "Verify sequential autopilot recovery and merge gates",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 6
+                },
+                {
+                  "name": "Decode and analyze actual audio signals",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 7
+                },
+                {
+                  "name": "Analyze original P04 audio signals",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 8
+                },
+                {
+                  "name": "Verify sequential P04G technical replay (no rendered/listening claim)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 9
+                },
+                {
+                  "name": "Verify P05 story graph, saves and actual headless Input replay",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 10
+                },
+                {
+                  "name": "Decode all original P04G SFX (signal only)",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 11
+                },
+                {
+                  "name": "Export native bootstrap binaries",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 12
+                },
+                {
+                  "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 13
+                },
+                {
+                  "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 26
+                },
+                {
+                  "name": "Complete job",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "number": 27
+                }
+              ]
+            }
+          ]
+        },
+        "isError": false
+      }
+    }
+  }
+}
