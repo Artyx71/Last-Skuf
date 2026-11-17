@@ -1,0 +1,112 @@
+{
+  "scope": "PURE_TEST_ONLY_FILESYSTEM_BOUNDARY_PROBES_NO_REAL_ROOT",
+  "source": {
+    "schema": 1,
+    "reported_HEAD": "6c4f030e28afa7b561a218c44fd240311f0ee2bd",
+    "sources": [
+      {
+        "path": "tools/bootstrap_runtime_fence.py",
+        "sha256": "16d0c64f331ce651647b70bbb81fad51d6b855e13f5ec29dbb763a3f4eb557e3",
+        "snapshot": "bootstrap_runtime_fence.py"
+      },
+      {
+        "path": "tools/cold_bootstrap.py",
+        "sha256": "7a2bb3e1966dcfac14603bf37284973320fe19d5bcc791c6a4dd92bc3c66ad68",
+        "snapshot": "cold_bootstrap.py"
+      },
+      {
+        "path": "tools/tests/test_cold_bootstrap.py",
+        "sha256": "23c563d79a705ee5a4da446f80b64cde7e05865a4c8cdfdd6513849acfa40b92",
+        "snapshot": "test_cold_bootstrap.py.txt"
+      },
+      {
+        "path": "tools/tests/test_runtime_fence.py",
+        "sha256": "7496c0a0883f43201ec79383f6886d30e8493ce74fbb40c9550ac1fda7d793cb",
+        "snapshot": "test_runtime_fence.py.txt"
+      },
+      {
+        "path": "tools/fixtures/autopilot_legacy_02b.py.txt",
+        "sha256": "02b59b6d33b35b1eb147f889562be697519c648d48c19129ddb4af8747e19856",
+        "snapshot": "legacy.py.txt"
+      },
+      {
+        "path": "autopilot/runner.py",
+        "sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+        "snapshot": "fence.py.txt"
+      }
+    ],
+    "no_actual_ROOT_changes": true
+  },
+  "results": [
+    {
+      "case": "positive",
+      "expected": "VERIFIED",
+      "actual": "VERIFIED",
+      "contract_passed": true,
+      "error": null,
+      "state_before_preserved": true,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": false,
+      "prepare_journal_sha": "cdfd38bb25036a7fd772ef70d46b0c87640a5c8965cbca914e157623e0262df8",
+      "extra": {}
+    },
+    {
+      "case": "journal_protected_removed",
+      "expected": "REFUSED",
+      "actual": "VERIFIED",
+      "contract_passed": false,
+      "error": null,
+      "state_before_preserved": false,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": false,
+      "prepare_journal_sha": "74b57dcb3bee47f75a5e249d8e041809e7eb7a469f1a8129d6fc34661e373122",
+      "extra": {}
+    },
+    {
+      "case": "journal_target_mode_changed",
+      "expected": "REFUSED",
+      "actual": "VERIFIED",
+      "contract_passed": false,
+      "error": null,
+      "state_before_preserved": true,
+      "runner_mode": "0o700",
+      "lock_inode_preserved": true,
+      "marker_exists": false,
+      "prepare_journal_sha": "e198bf9a29507fca7a8c8396b1dba46e62687720c4652bbd78be210659443046",
+      "extra": {}
+    },
+    {
+      "case": "canonical_lock_replaced_before_commit",
+      "expected": "REFUSED",
+      "actual": "VERIFIED",
+      "contract_passed": false,
+      "error": null,
+      "state_before_preserved": true,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": false,
+      "marker_exists": false,
+      "prepare_journal_sha": "2bb6c51a051ea45411f0b2ff265cfe5598d25c11c3a1f7fec516f17744c9af6d",
+      "extra": {
+        "replacement_canonical_lock_acquirable_while_old_lease_held": true
+      }
+    },
+    {
+      "case": "protected_changed_after_commit",
+      "expected": "REFUSED",
+      "actual": "VERIFIED",
+      "contract_passed": false,
+      "error": null,
+      "state_before_preserved": false,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": false,
+      "prepare_journal_sha": "5593038a6f2acdf32455db3676ee85d2fc75797ecf7dbfa7075efe35400e1969",
+      "extra": {}
+    }
+  ],
+  "Controller_calls": 0,
+  "engine_calls": 0,
+  "actual_ROOT_or_Git_mutations": 0
+}

@@ -1,0 +1,110 @@
+{
+  "scope": "EXACT_FROZEN_BOOTSTRAP_A_TEMP_CHECKOUT_FAULT_PROBES",
+  "target_sha256": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "old_sha256": "02b59b6d33b35b1eb147f889562be697519c648d48c19129ddb4af8747e19856",
+  "rows": [
+    {
+      "case": "valid_control",
+      "expected_refuse": false,
+      "actual_refuse": false,
+      "passed": true,
+      "error": null,
+      "actual_returned_status": "VERIFIED",
+      "marker_present_after": false,
+      "runner_is_target_after": true,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "d0df9d551743871bb84ec84345978be5766639af86448f7e42c53dedfba59576",
+      "actual_journal_hash_before_finish": "d0df9d551743871bb84ec84345978be5766639af86448f7e42c53dedfba59576",
+      "marker_bytes_before_finish": "{\n  \"id\": \"39802151f5d84ab7834eaf8a9dff4f23\",\n  \"journal_sha256_at_prepare\": \"d0df9d551743871bb84ec84345978be5766639af86448f7e42c53dedfba59576\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "state_changed_control",
+      "expected_refuse": true,
+      "actual_refuse": true,
+      "passed": true,
+      "error": {
+        "type": "Refused",
+        "message": "Protected data changed; do not restore stale state"
+      },
+      "actual_returned_status": null,
+      "marker_present_after": true,
+      "runner_is_target_after": false,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": false,
+      "marker_prepare_hash_at_begin": "b2c0dea62e841ec4fbe14f785a7a850ba9b5429234b8dc96954729a00296f1f2",
+      "actual_journal_hash_before_finish": "b2c0dea62e841ec4fbe14f785a7a850ba9b5429234b8dc96954729a00296f1f2",
+      "marker_bytes_before_finish": "{\n  \"id\": \"8f6761f74bab4baca4387db2b976c96f\",\n  \"journal_sha256_at_prepare\": \"b2c0dea62e841ec4fbe14f785a7a850ba9b5429234b8dc96954729a00296f1f2\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "marker_hash_corruption",
+      "expected_refuse": true,
+      "actual_refuse": false,
+      "passed": false,
+      "error": null,
+      "actual_returned_status": "VERIFIED",
+      "marker_present_after": false,
+      "runner_is_target_after": true,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "d613dab16934c77b307027276c07c2b0c700e1bb1e933d1290c7f78aa4783058",
+      "actual_journal_hash_before_finish": "d613dab16934c77b307027276c07c2b0c700e1bb1e933d1290c7f78aa4783058",
+      "marker_bytes_before_finish": "{\n  \"id\": \"cdcdb4f24cb94f8a86f4e07eb2230c0d\",\n  \"journal_sha256_at_prepare\": \"0000000000000000000000000000000000000000000000000000000000000000\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "journal_drop_protected_and_state_change",
+      "expected_refuse": true,
+      "actual_refuse": false,
+      "passed": false,
+      "error": null,
+      "actual_returned_status": "VERIFIED",
+      "marker_present_after": false,
+      "runner_is_target_after": true,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": false,
+      "marker_prepare_hash_at_begin": "380e0c4f188e5636bd5e8669e44ccfe39a825f0e1bdd6fdcaf3eacd6fdce3e1c",
+      "actual_journal_hash_before_finish": "5abc0da34a1aa5b46bbb5b91e91b597bbbd182c55ea0f9d8d1c713711b08e7bb",
+      "marker_bytes_before_finish": "{\n  \"id\": \"1493a9f9c95f4ec78d8d96c863cf6194\",\n  \"journal_sha256_at_prepare\": \"380e0c4f188e5636bd5e8669e44ccfe39a825f0e1bdd6fdcaf3eacd6fdce3e1c\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "journal_target_mode_corruption",
+      "expected_refuse": true,
+      "actual_refuse": false,
+      "passed": false,
+      "error": null,
+      "actual_returned_status": "VERIFIED",
+      "marker_present_after": false,
+      "runner_is_target_after": true,
+      "runner_mode_after": "0o777",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "5d3751d236e4511a50cd82bdae1304dc73cbb352aef25b662fe9f85f81dd292d",
+      "actual_journal_hash_before_finish": "4d5fad11a9c9b602dd5a9ff6f0bc3990b710d2ea7357bf492b5319ff4213e741",
+      "marker_bytes_before_finish": "{\n  \"id\": \"2906ed097a77459bb7b38a482754dcaf\",\n  \"journal_sha256_at_prepare\": \"5d3751d236e4511a50cd82bdae1304dc73cbb352aef25b662fe9f85f81dd292d\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    }
+  ],
+  "passed": false,
+  "ROOT_Controller_or_engine_calls": 0,
+  "production_writes": 0,
+  "actual_disposable_Bootstrap_leases": 10,
+  "note": "Bootstrap methods are actual unmodified candidate. No actual Root maintenance/installation occurred."
+}

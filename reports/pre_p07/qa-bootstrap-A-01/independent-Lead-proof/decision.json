@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD_ARCHITECTURE",
+  "status": "FAIL_COMPONENT",
+  "scope": "CONCRETE_BOOTSTRAP_A_GENERATOR_INSTALLER_AND_RECOVERY_CANDIDATE_ONLY",
+  "source_commit": "6c4f030e28afa7b561a218c44fd240311f0ee2bd",
+  "generated_runner_target_sha256": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "findings": [
+    {
+      "id": "BA-L01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "tools/cold_bootstrap.py",
+      "lines": "163,167–194",
+      "message": "Unbound mutable journal controls protected map/target mode; retained prepare hash not verified. Two corrupted-intent fixtures return VERIFIED and remove marker.",
+      "proof_cases": [
+        "journal_protected_removed",
+        "journal_target_mode_changed"
+      ],
+      "remedy": "Pin immutable typed intent bytes separately from mutable outcome journal; validate the same originally prepared digest and metadata at recovery and every commit boundary."
+    },
+    {
+      "id": "BA-L02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "tools/cold_bootstrap.py",
+      "lines": "213–224",
+      "message": "Canonical lock inode replacement before_commit is admitted; new canonical flock is acquirable while old fd held, yet installer returns VERIFIED.",
+      "proof_cases": [
+        "canonical_lock_replaced_before_commit"
+      ],
+      "remedy": "Revalidate canonical lease/path/fd identity after boundary hooks and before commit and marker removal; lost ownership blocks without deleting unknown lock."
+    },
+    {
+      "id": "BA-L03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "tools/cold_bootstrap.py",
+      "lines": "218–224",
+      "message": "Unknown protected-state change at after_commit is certified VERIFIED and recovery marker removed. This is pure deterministic fault injection, not an actual concurrent Controller.",
+      "proof_cases": [
+        "protected_changed_after_commit"
+      ],
+      "remedy": "Revalidate bound intent/source/protected/lease/marker before final release; retain recovery evidence and block on unexpected drift, never restore stale authority."
+    }
+  ],
+  "independent_pure_cases": 5,
+  "valid_controls_passed": 1,
+  "actual_contract_negative_failures": 4,
+  "author217_receipt0_verified": true,
+  "author_run": "96738d6091444ff2bcb51e9f5526ba35",
+  "author_positive_tests_do_not_cover_new_findings": true,
+  "actual_ROOT_installation": false,
+  "execution_approval": false,
+  "full_C02_approval": false,
+  "readiness_approval": false,
+  "P07_approval": false,
+  "phase_attempt_consumed": false,
+  "P06_PASS_MERGED_unchanged": true,
+  "Controller_engine_worker_network_Git_calls": 0,
+  "actual_production_mutations": 0,
+  "next_action": "Fix BA-L01..03 on a new frozen candidate; retain original217 and FAIL. Repeat unchanged five pure counterexamples plus focused boundary controls; independent QA/Lead re-review before any actual ROOT change. Actual planned quiescence and protected allowlist/backup inputs remain prerequisites.",
+  "review_sha256": "8fea404848ff12743581c9ff18850e9c420ab06bd51803050a35656c12c56fd2",
+  "source_freeze_sha256": "a893ee641b72a35fd7ede22addfe1191d9cea3882a7862223b31b08d221d657d",
+  "proof_sha256": "03318ceaa41d265788e56f717c6d764f535ae3fb2f724b37e27f0eff7166c008"
+}

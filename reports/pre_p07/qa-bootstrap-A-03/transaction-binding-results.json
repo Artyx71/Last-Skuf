@@ -1,0 +1,119 @@
+{
+  "scope": "EXACT_FROZEN_BOOTSTRAP_A_TEMP_CHECKOUT_FAULT_PROBES",
+  "target_sha256": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "old_sha256": "02b59b6d33b35b1eb147f889562be697519c648d48c19129ddb4af8747e19856",
+  "rows": [
+    {
+      "case": "valid_control",
+      "expected_refuse": false,
+      "actual_refuse": false,
+      "passed": true,
+      "error": null,
+      "actual_returned_status": "VERIFIED",
+      "marker_present_after": false,
+      "runner_is_target_after": true,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "de83bcad6cef9551db1b8ea0b2aacb8512b328f412328c5cd5eebce15756c855",
+      "actual_journal_hash_before_finish": "de83bcad6cef9551db1b8ea0b2aacb8512b328f412328c5cd5eebce15756c855",
+      "marker_bytes_before_finish": "{\n  \"id\": \"cf119f67a66d4bdc95b1a489d0c55178\",\n  \"intent_sha256\": \"de83bcad6cef9551db1b8ea0b2aacb8512b328f412328c5cd5eebce15756c855\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "state_changed_control",
+      "expected_refuse": true,
+      "actual_refuse": true,
+      "passed": true,
+      "error": {
+        "type": "Refused",
+        "message": "Protected data changed; do not restore stale state"
+      },
+      "actual_returned_status": null,
+      "marker_present_after": true,
+      "runner_is_target_after": false,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": false,
+      "marker_prepare_hash_at_begin": "5fb6605e9579649e07794730858b4a3608269689d095892acb47a8bc6e044d17",
+      "actual_journal_hash_before_finish": "5fb6605e9579649e07794730858b4a3608269689d095892acb47a8bc6e044d17",
+      "marker_bytes_before_finish": "{\n  \"id\": \"4933cfbc7e8443e6a7e86e8abb413929\",\n  \"intent_sha256\": \"5fb6605e9579649e07794730858b4a3608269689d095892acb47a8bc6e044d17\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "marker_hash_corruption",
+      "expected_refuse": true,
+      "actual_refuse": true,
+      "passed": true,
+      "error": {
+        "type": "Refused",
+        "message": "Another transaction or corrupt intent marker"
+      },
+      "actual_returned_status": null,
+      "marker_present_after": true,
+      "runner_is_target_after": false,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "396b3862f0ecd7b1a27e34708341e04fb7582d517ea17b414b8a17918e17d405",
+      "actual_journal_hash_before_finish": "396b3862f0ecd7b1a27e34708341e04fb7582d517ea17b414b8a17918e17d405",
+      "marker_bytes_before_finish": "{\n  \"id\": \"afad26e35b2a4e3fbb9deb5ddf8daa6a\",\n  \"intent_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "journal_drop_protected_and_state_change",
+      "expected_refuse": true,
+      "actual_refuse": true,
+      "passed": true,
+      "error": {
+        "type": "Refused",
+        "message": "Immutable intent binding failed"
+      },
+      "actual_returned_status": null,
+      "marker_present_after": true,
+      "runner_is_target_after": false,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": false,
+      "marker_prepare_hash_at_begin": "a108118ac9a893e97224b422c9e242d76676e6fd09046dfae1ee22590b7dd4b0",
+      "actual_journal_hash_before_finish": "3df17f4d442ccaf5e39648a5a01ba7dd6ea961a5575efc8da015499bfdca238d",
+      "marker_bytes_before_finish": "{\n  \"id\": \"28c6bca81b174ba28cccd8423a2667a2\",\n  \"intent_sha256\": \"a108118ac9a893e97224b422c9e242d76676e6fd09046dfae1ee22590b7dd4b0\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    },
+    {
+      "case": "journal_target_mode_corruption",
+      "expected_refuse": true,
+      "actual_refuse": true,
+      "passed": true,
+      "error": {
+        "type": "Refused",
+        "message": "Immutable intent binding failed"
+      },
+      "actual_returned_status": null,
+      "marker_present_after": true,
+      "runner_is_target_after": false,
+      "runner_mode_after": "0o755",
+      "state_bytes_preserved_from_prebegin": true,
+      "marker_prepare_hash_at_begin": "caf87972b2cebb544750469545754f443b15ed27bfe63c13ad9090be1c5e0ca2",
+      "actual_journal_hash_before_finish": "82e441dfc6b270a3bae76bdfb7432d489a97687979b7048f058570df37244f13",
+      "marker_bytes_before_finish": "{\n  \"id\": \"8abdeab2c8924db9b7df8e31e8569f12\",\n  \"intent_sha256\": \"caf87972b2cebb544750469545754f443b15ed27bfe63c13ad9090be1c5e0ca2\"\n}\n",
+      "journal_protected_paths_at_begin": [
+        "automation/phase_state.json",
+        "autopilot/config.json"
+      ]
+    }
+  ],
+  "passed": true,
+  "ROOT_Controller_or_engine_calls": 0,
+  "production_writes": 0,
+  "actual_disposable_Bootstrap_leases": 10,
+  "note": "Bootstrap methods are actual unmodified candidate. No actual Root maintenance/installation occurred."
+}

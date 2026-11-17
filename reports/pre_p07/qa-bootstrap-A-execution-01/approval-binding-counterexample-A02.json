@@ -1,0 +1,19 @@
+{
+  "scope": "EXACT_PRIVATE_WRAPPER_APPROVAL_LOOP_ONLY_PURE_DISPOSABLE_FILES",
+  "wrapper_sha256": "2aad22563d7df60d175358ec9ee7430891daac68ed1907119ceb759448b23589",
+  "loop_admitted": true,
+  "recorded_approvals": [
+    {
+      "recorded_digest_matches_current_file": true,
+      "current_status": "FAIL",
+      "current_execution_approval": false
+    },
+    {
+      "recorded_digest_matches_current_file": true,
+      "current_status": "FAIL",
+      "current_execution_approval": false
+    }
+  ],
+  "actual_ROOT_or_Controller_or_installation_called": false,
+  "cause": "readjson uses oldPASS bytes but sha rereads currentFAIL file; no samebuffer hash or beforebegin approval drift recheck"
+}

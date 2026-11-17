@@ -1,0 +1,21 @@
+{
+  "scope": "PRIVATE_EXECUTION_WRAPPER_ONLY_NOT_PUBLIC_A_COMPONENT",
+  "must_fix": [],
+  "closed": [
+    {
+      "id": "EXEC-A-PLAN-BIND",
+      "status": "CLOSED_BEFORE_EXECUTION",
+      "summary": "UnusedA01 parsedplan versus laterdigest gap corrected: currentA03 one planblob/hash/parse, explicit expectedSHA and finalrawbytes equality."
+    },
+    {
+      "id": "EXEC-A-APPROVAL-BIND",
+      "status": "CLOSED_BEFORE_EXECUTION",
+      "summary": "PreservedunusedA02 loop admits oldPASS while records newFAIL digest. CurrentA03 reads eachapprovalonce, parses/hashes sameblob, rechecks bothrawblobs immediatelybeforebegin. ExactAST7controls allpass."
+    }
+  ],
+  "unused_plans": [
+    "bootstrap-actual-A-01",
+    "bootstrap-actual-A-02"
+  ],
+  "source_component_changes_required_for_private_fixes": false
+}
