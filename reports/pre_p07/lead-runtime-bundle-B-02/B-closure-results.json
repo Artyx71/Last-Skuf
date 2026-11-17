@@ -1,0 +1,53 @@
+{
+  "scope": "PURE_TEST_ONLY_FIXED_B_ENTRY_CLOSURE",
+  "results": [
+    {
+      "case": "exact_genuine_installed_A_receipt_and_bound_baseline",
+      "receipt_sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308",
+      "expected": "ACCEPTED",
+      "actual": "ACCEPTED",
+      "baseline_entries": 10,
+      "error": null,
+      "contract_passed": true
+    },
+    {
+      "case": "same_marker_creation_failure_recovery",
+      "rollback": false,
+      "preparation": "PermissionError: TEST_ONLY pending marker creation denied",
+      "initial_prepared": true,
+      "initial_marker_absent": true,
+      "new_begin_before_recovery": "REFUSED",
+      "new_begin_error": "Refused: Recover existing preparation before starting a new bundle",
+      "original_id_recovery": "COMMIT_VERIFIED",
+      "expected": "COMMIT_VERIFIED",
+      "same_transaction_id": true,
+      "final_marker_absent": true,
+      "ledger_retained_count": 1,
+      "runtime_exact_desired": true,
+      "protected_state_unchanged": true,
+      "error": null,
+      "contract_passed": true
+    },
+    {
+      "case": "same_marker_creation_failure_recovery",
+      "rollback": true,
+      "preparation": "PermissionError: TEST_ONLY pending marker creation denied",
+      "initial_prepared": true,
+      "initial_marker_absent": true,
+      "new_begin_before_recovery": "REFUSED",
+      "new_begin_error": "Refused: Recover existing preparation before starting a new bundle",
+      "original_id_recovery": "ROLLED_BACK",
+      "expected": "ROLLED_BACK",
+      "same_transaction_id": true,
+      "final_marker_absent": true,
+      "ledger_retained_count": 1,
+      "runtime_exact_desired": true,
+      "protected_state_unchanged": true,
+      "error": null,
+      "contract_passed": true
+    }
+  ],
+  "adaptation": "Real wire gains required byte-exact baseline; original marker fault repeated on separate identical initial states per commit/rollback to respect immutable terminal outcome. No expected oracle weakened.",
+  "actual_ROOT_Controller_engine_network_Git_calls": 0,
+  "actual_Root_production_mutations": 0
+}

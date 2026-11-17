@@ -1,0 +1,34 @@
+"""Unmodified B methods; disposable TEST_ONLY receipts never actual approvals."""
+from pathlib import Path
+import importlib.util,json,sys
+sys.dont_write_bytecode=True
+Q=Path(__file__).resolve().parent;S=Q/'source';sys.path.insert(0,str(S/'tools'));sys.path.insert(0,str(S/'tools/tests'))
+spec=importlib.util.spec_from_file_location('frozen_B_test_fixtures',S/'tools/tests/test_cold_runtime_bundle.py');t=importlib.util.module_from_spec(spec);spec.loader.exec_module(t);rows=[]
+for mode in ['valid','missing_marker','wrong_marker_owner','malformed_ledger_dict','missing_ledger','terminal_source_drift','after_commit_resume','partial_missing_marker']:
+ c=t.BundleTests('test_complete_bundle_fresh_process_preserves_authority');c.setUp();root=c.root;error=None;actual='UNKNOWN'
+ try:
+  ident=c.prepare();marker=root/t.bundle.MARKER;ledger=root/t.bundle.LEDGER
+  if mode=='missing_marker':marker.unlink()
+  if mode=='partial_missing_marker':
+   (root/'autopilot/readiness.py').write_bytes(t.PAYLOADS['autopilot/readiness.py']);marker.unlink()
+  if mode=='wrong_marker_owner':m=json.loads(marker.read_text());m['id']='0'*32;marker.write_text(json.dumps(m))
+  if mode=='malformed_ledger_dict':ledger.write_text(json.dumps({'schema':1,'transactions':{ident:'CORRUPT_TEST_ONLY_NOT_A_LIST'}}))
+  if mode=='missing_ledger':ledger.unlink()
+  if mode=='terminal_source_drift':
+   with t.RuntimeBundle(root).lease() as b:b.finish_bundle(ident)
+   (root/'autopilot/github.py').write_text('# OLD TEST_ONLY, no network\n')
+  if mode=='after_commit_resume':
+   def interrupt(stage):
+    if stage=='after_commit':raise InterruptedError('TEST_ONLY after durable commit')
+   try:
+    with t.RuntimeBundle(root,hook=interrupt).lease() as b:b.finish_bundle(ident)
+   except InterruptedError:pass
+   assert marker.exists()
+  try:
+   with t.RuntimeBundle(root).lease() as b:result=b.finish_bundle(ident)
+   actual=result['status']
+  except Exception as exc:actual='REFUSED';error=type(exc).__name__+': '+str(exc)
+  expected='COMMIT_VERIFIED' if mode in ['valid','after_commit_resume','missing_marker'] else 'REFUSED'
+  rows.append({'case':mode,'expected':expected,'actual':actual,'passed':actual==expected,'error':error,'marker_after':marker.exists(),'state_unchanged':c.state.read_bytes()==c.state_bytes,'ledger_after':json.loads(ledger.read_text()) if ledger.exists() else None,'receipt_scope':'TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL'})
+ finally:c.tearDown()
+out={'scope':'DISPOSABLE_B_METADATA_TERMINAL_AND_RECOVERY_PROBES_ONLY','rows':rows,'passed':all(x['passed'] for x in rows),'actual_ROOT_Controller_engine_Git_or_network_calls':0,'actual_ROOT_B_installation':False};(Q/'metadata-and-terminal-results.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'passed':out['passed'],'cases':len(rows),'failed':[x['case'] for x in rows if not x['passed']]}))

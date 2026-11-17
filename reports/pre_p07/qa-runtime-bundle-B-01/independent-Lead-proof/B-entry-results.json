@@ -1,0 +1,40 @@
+{
+  "scope": "PURE_TEST_ONLY_B_ENTRY_AND_RECOVERY",
+  "results": [
+    {
+      "case": "exact_genuine_installed_A_receipt",
+      "receipt_sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308",
+      "expected": "ACCEPTED",
+      "actual": "REFUSED",
+      "error": "Refused: A component/execution GO is not installed-A verification",
+      "contract_passed": false
+    },
+    {
+      "case": "marker_creation_failure_after_durable_ledger",
+      "preparation": "PermissionError: TEST_ONLY pending marker creation denied",
+      "old_transaction": "4ccc412dbcf046b188c3c9d57f0ea4e5",
+      "old_journal_status": "PREPARED",
+      "marker_absent_before_retry": true,
+      "current_runtime_exact_post_A_baseline": true,
+      "protected_state_unchanged": true,
+      "original_resume_and_rollback": [
+        {
+          "rollback": false,
+          "actual": "REFUSED",
+          "error": "Refused: Pending bundle marker missing"
+        },
+        {
+          "rollback": true,
+          "actual": "REFUSED",
+          "error": "Refused: Pending bundle marker missing"
+        }
+      ],
+      "new_begin_while_old_prepared": "ADMITTED_NEW_TRANSACTION",
+      "second_id": "e8e8276dc0fc419a8fbb230317839a5b",
+      "ledger_entries": 2,
+      "contract_passed": false
+    }
+  ],
+  "actual_ROOT_Controller_engine_network_Git_calls": 0,
+  "actual_Root_production_mutations": 0
+}
