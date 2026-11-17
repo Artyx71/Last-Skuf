@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "scope": "MANUAL_PAPER_SOURCE_AND_CONTRACT_INSPECTION_NOT_ENGINE_TESTS",
+  "canonical_checks": {
+    "CH02": {
+      "POV": "TIMKA",
+      "period": "past",
+      "event": "EV_CH02_COMPLETE",
+      "prerequisite": "EV_CH01_SERVICE_ESCAPE",
+      "timestamp_status": "production_pending",
+      "campaign_scene_currently_implemented": false
+    },
+    "CH03": {
+      "POV": "TEGA",
+      "period": "past",
+      "event": "EV_CH03_COMPLETE",
+      "prerequisite": "EV_CH02_COMPLETE",
+      "timestamp_status": "production_pending",
+      "only_optional_existing_record": "EV_MEMORABILIA_1",
+      "automatic_secret_unlock": false
+    },
+    "CH04": {
+      "POV": "YAKUZA",
+      "period": "present",
+      "event": "EV_CH04_COMPLETE",
+      "prerequisite": "EV_CH03_COMPLETE",
+      "new_EV_PRIME_SIGNED_or_D_flag_granted": false,
+      "Max_public_face_Kaban_late_reveal_preserved": true
+    }
+  },
+  "CH03_new_interaction_necessity": {
+    "judgement": "JUSTIFIED_FOR_THE_SELECTED_PLAYABLE_CANONICAL_ARM_WRESTLING_MEMORY",
+    "reason": "The approved slot is former arm-wrestling strength; a single nonviolent timing/decision interaction expresses that selected playable intent and differs materially from CH02 combat. Existing damage/finisher rules do not represent sport without false injury/HP semantics.",
+    "allowed_budget": "ONE_SCENE_LOCAL_PHASE_INPUT_CONTROLLER_REUSING_INPUT_CLOCK_UI_DIALOGUE_SAVE",
+    "global_CombatSystem_rewrite_new_hero_ability_or_permanent_stats_allowed": false,
+    "not_a_claim_it_is_the_only_possible_narrative_staging": true,
+    "new_original_two_arm_seated_poses_UI_cues_runtime_required": true,
+    "minimum_net_successes_from_zero": 2,
+    "duration_range_is_hypothesis_not_minimum_to_fill": true,
+    "implementation_guardrails": [
+      "Exclusive seated Input owner; revoke ordinary movement/ability and clear Core jobs; F cannot also kick/finish.",
+      "Unique cancellable action/match identity separate from cycling attemptindex; exactly-once settle and no stale callback after round reset/scene change.",
+      "Pause/history/window freeze and held-input rearm must be explicit and verified; no automatic outcome from stale release.",
+      "Native accessibility/timing calibration before accepting0.25s; original two-arm contact frames and SFX/HUD share phaseclock."
+    ]
+  },
+  "paper_geometry_and_stages": {
+    "CH02_optional_CP1_requires_two_named_deadIDs_not_short_stun": true,
+    "CH02_nonkill_exit_still_uses_CP0": true,
+    "CH02_trusted_prime_factory_campaign_grant_not_currently_implemented": true,
+    "CH03_win_pending_then_visible_dialogue_then_exit_ready": true,
+    "CH03_save_failure_does_not_claim_durable_win_or_chaptercomplete": true,
+    "CH04_niche_left_boundary_64door_plus48wall_equals112height": true,
+    "CH04_north_service_door_width128_matches_portal128": true,
+    "CH04_west_public_door_height128_matches_portal128": true,
+    "CH04_safehandoff_uses_actual_physical_doors_not_AIleash_or_invulnerability": true,
+    "CH04_failed_F_keeps_folder_AI_and_pending_attack_live": true,
+    "actual_collision_escape_or_checkpoint_runtime_verified": false
+  },
+  "distinctness": {
+    "CH02": "Strong past Timka control/contact-to-clinch or nonkill passage; combat turn+yard/two lines; optional safeCP requires deadIDs.",
+    "CH03": "One nonviolent table, release timing and safe local round loss, social memory and optionalmemorabilia; no combat enemies.",
+    "CH04": "Weak present Yakuza deliberately signs/read-confirm UI; paper retrieval and dangerousreturn; physically seal dispatch beforehandoff.",
+    "CH02_CH04_graphs_isomorphic": true,
+    "isomorphic_edges": "start-hub-north-east-south-hub",
+    "CH03_topology": "entry-hall with optionallocker/exit triangle",
+    "layout_risk": "Not a graph-only blocker: contexts/verbs/encounters/covers/stage rules materially differ. Must compare actual rooms/art/pacing before finallevel acceptance; do not ship reskinned shared arena."
+  },
+  "future_HIGH_production_obligations": {
+    "CH02": [
+      "Trustedcampaignprimefactory/policy, unchangedTimka84/categorylimits and context cancellation",
+      "Typedstages/optionalcheckpoint/rod-singleownership/realbench",
+      "Originalworld/props/dialogue/music/stems/listening and actualInput/nativeplaytests"
+    ],
+    "CH03": [
+      "Scene-owned tabletop phases/Inputarbitration/identity/pause rearm with no Core damage",
+      "Originalseatedtwo-arm poses/opponent/HUD/cues and nativewindowcalibration",
+      "Typedatomic match_ready/win_pending/exit_ready checkpoint, corruption/writefail/replay/once",
+      "Originalworld/dialogues/music/stems/listening; no runtime result by paper"
+    ],
+    "CH04": [
+      "Trustedweakescape/F2off/legacyFINoff chapterpolicy",
+      "Documentread/confirm and folderownership/stages/checkpoint atomicity",
+      "Selectedphysical2door/bodyclearance/navsync/denyF/safehandoff policy; no existingAIleashassumption",
+      "Originalmap/advert/props/dialogues/music/stems/listening; realnonkillroutes/retries/fairness"
+    ]
+  },
+  "current_observed_main_MDS_draft_files": 8,
+  "all21_main_MDS_approval": false,
+  "all21_or_Readiness_or_runtime_or_production_gates_opened": false,
+  "new_runtime_engine_or_other_executor_invocations": 0
+}
