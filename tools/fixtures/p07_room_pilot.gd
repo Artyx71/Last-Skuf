@@ -2,6 +2,7 @@ extends SceneTree
 ## Production CH01 scene/host/geometry; route actors are positioned only for
 ## targeted navigation diagnostics, never presented as a chapter playthrough.
 const Mission = preload("res://scenes/levels/missed_fight.tscn")
+const Progress = preload("res://scripts/levels/chapter_progress.gd")
 var checks: Array[Dictionary] = []
 var rows: Array[Dictionary] = []
 var mission: Node2D
@@ -75,7 +76,6 @@ func run() -> void:
 	mission.player.position = Vector2(432,544)
 	mission._checkpoint_if_crossed()
 	check("checkpoint_persisted",mission.checkpoint == "service" and mission.progress.data.checkpoint == "service")
-	var Progress = preload("res://scripts/levels/chapter_progress.gd")
 	var restored := Progress.new()
 	check("fresh_save_object",restored.load_progress() and restored.data.checkpoint == "service")
 	mission.player_died()
