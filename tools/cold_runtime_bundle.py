@@ -37,8 +37,27 @@ class RuntimeBundle(Bootstrap):
         if sha(blob) != proof['sha256']:
             raise Refused('Installed-A receipt changed')
         data = parsejson(blob)
-        if data.get('status') != 'PASS' or data.get('actual_A_verified') is not True or data.get('installed_runner_sha256') != BOOTSTRAP_SHA or not data.get('reviewer'):
+        if data.get('schema') != 1 or data.get('role') != 'INDEPENDENT_LEAD_ACTUAL_INSTALL_VERIFIER' or data.get('scope') != 'ACTUAL_SINGLE_FILE_BOOTSTRAP_A_INSTALLED_AND_POST_A_BASELINE_ONLY' or data.get('status') != 'PASS' or data.get('actual_A_verified') is not True or data.get('installed_runner_sha256') != BOOTSTRAP_SHA or data.get('journal_status') != 'VERIFIED' or data.get('state_continuity_verified') is not True:
             raise Refused('A component/execution GO is not installed-A verification')
+        baseline_path = data.get('post_A_runtime_baseline_path', '')
+        if not baseline_path.startswith('reports/pre_p07/'):
+            raise Refused('Installed-A runtime baseline path missing')
+        baseline_blob = checked(self.root, baseline_path).read_bytes()
+        if sha(baseline_blob) != data.get('post_A_runtime_baseline_sha256'):
+            raise Refused('Installed-A baseline binding failed')
+        baseline = parsejson(baseline_blob)
+        files = baseline.get('runtime_files')
+        if not isinstance(files, dict) or set(files) != set(TARGETS) | {'autopilot/worker.py','tools/verify.py','tools/verify_p06.py'} or files['autopilot/runner.py']['sha256'] != BOOTSTRAP_SHA:
+            raise Refused('Incomplete post-A runtime baseline')
+        return files
+
+    def refuse_unfinished_preparation(self):
+        parent = checked(self.root, '.autopilot/runtime-bundles')
+        if parent.exists():
+            for directory in parent.iterdir():
+                journal = checked(self.root, str(directory.relative_to(self.root)) + '/journal.json')
+                if journal.exists() and readjson(journal).get('status') not in ('COMMIT_VERIFIED','ROLLED_BACK'):
+                    raise Refused('Recover existing preparation before starting a new bundle')
 
     def begin_bundle(self, payloads, expected_before, protected_paths, installed_a):
         self.check_lock()
@@ -46,7 +65,10 @@ class RuntimeBundle(Bootstrap):
             raise Refused('Exactly seven runtime targets required')
         if set(protected_paths) & set(TARGETS):
             raise Refused('Writable runtime cannot be a protected input')
-        self.verify_a(installed_a)
+        a_baseline = self.verify_a(installed_a)
+        if self.protected(a_baseline) != a_baseline:
+            raise Refused('Current runtime differs from independently verified A')
+        self.refuse_unfinished_preparation()
         if checked(self.root, MARKER).exists() or checked(self.root, '.autopilot/BOOTSTRAP_PENDING.json').exists():
             raise Refused('Earlier maintenance is pending')
         before = self.protected(TARGETS)
@@ -103,7 +125,7 @@ class RuntimeBundle(Bootstrap):
         self.hook('prepared')
         return folder.name
 
-    def load_bundle(self, ident):
+    def load_bundle(self, ident, allow_prepare_repair=False):
         self.check_lock()
         if len(ident) != 32 or any(c not in '0123456789abcdef' for c in ident):
             raise Refused('Invalid bundle ID')
@@ -121,7 +143,12 @@ class RuntimeBundle(Bootstrap):
             raise Refused('Runtime allowlist changed')
         if intent['before']['autopilot/runner.py']['sha256'] != BOOTSTRAP_SHA:
             raise Refused('Rollback would remove bootstrap fence')
-        self.verify_a(intent['installed_a'])
+        a_baseline = self.verify_a(intent['installed_a'])
+        if intent['before'] != {p:a_baseline[p] for p in TARGETS}:
+            raise Refused('Intent rollback baseline differs from installed-A receipt')
+        unchanged = set(a_baseline) - set(TARGETS)
+        if self.protected(unchanged) != {p:a_baseline[p] for p in unchanged}:
+            raise Refused('Verify-only runtime dependency changed')
         if self.protected(intent['protected']) != intent['protected']:
             raise Refused('Protected data changed; never restore stale authority')
         for i, relative_path in enumerate(TARGETS):
@@ -145,11 +172,18 @@ class RuntimeBundle(Bootstrap):
             if readjson(marker) != {'id': ident, 'intent_sha256': intent_sha}:
                 raise Refused('Bundle marker ownership changed')
         elif journal['status'] == 'PREPARED':
-            raise Refused('Pending bundle marker missing')
+            if not allow_prepare_repair or self.protected(TARGETS) != intent['before']:
+                raise Refused('Pending marker missing outside coherent post-A preparation')
         return folder, dict(intent, status=journal['status'], intent_sha256=intent_sha)
 
     def finish_bundle(self, ident, rollback=False):
-        folder, intent = self.load_bundle(ident)
+        folder, intent = self.load_bundle(ident, allow_prepare_repair=True)
+        marker = checked(self.root, MARKER)
+        if not marker.exists() and intent['status'] == 'PREPARED':
+            # Marker-write failure copied no code. Repair only the exact,
+            # hash-bound preparation on the independently verified A baseline.
+            writejson(marker, {'id':ident, 'intent_sha256':intent['intent_sha256']})
+            self.load_bundle(ident)
         terminal = 'ROLLED_BACK' if rollback else 'COMMIT_VERIFIED'
         if intent['status'] != 'PREPARED' and intent['status'] != terminal:
             raise Refused('Completed bundle cannot switch outcome')

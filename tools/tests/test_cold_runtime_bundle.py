@@ -41,8 +41,14 @@ class BundleTests(unittest.TestCase):
         self.state.write_text('{"active_phase":"P07","attempts":2,"autopilot":{"history":["retain"],"phases":{},"paused":false}}')
         self.state_bytes = self.state.read_bytes()
         receipt = self.root / 'reports/pre_p07/installed-A.json'
-        receipt.write_text(json.dumps({'status':'PASS', 'actual_A_verified':True,
-            'installed_runner_sha256':fs.BOOTSTRAP_SHA, 'reviewer':'INDEPENDENT_TEST_ONLY', 'TEST_ONLY':True}))
+        # Use the actual installed-A wire schema; notably it has role, not reviewer.
+        record=json.loads((ROOT/'reports/pre_p07/lead-bootstrap-A-installed-01/decision.json').read_text())
+        baseline=self.root/'reports/pre_p07/baseline-TEST_ONLY.json'
+        names=set(TARGETS)|{'autopilot/worker.py','tools/verify.py','tools/verify_p06.py'}
+        baseline.write_text(json.dumps({'schema':1,'TEST_ONLY':True,'runtime_files':RuntimeBundle(self.root).protected(names)}))
+        record.update(TEST_ONLY=True,post_A_runtime_baseline_path=str(baseline.relative_to(self.root)),
+                      post_A_runtime_baseline_sha256=hashlib.sha256(baseline.read_bytes()).hexdigest())
+        receipt.write_text(json.dumps(record))
         self.proof = {'path':str(receipt.relative_to(self.root)), 'sha256':hashlib.sha256(receipt.read_bytes()).hexdigest()}
         self.protected = ['automation/phase_state.json','autopilot/worker.py','.git/index',self.proof['path']]
         self.before = RuntimeBundle(self.root).protected(TARGETS)
@@ -171,6 +177,40 @@ class BundleTests(unittest.TestCase):
                     self.assertTrue((root/bundle.MARKER).exists())
                     install.finish_bundle(ident,rollback=True)
                 self.assertEqual(RuntimeBundle(root).protected(TARGETS),self.before)
+                self.assertEqual(RuntimeBundle(root).protected(self.protected),self.kept)
+
+    def test_actual_147c_installed_receipt_wire_is_accepted_without_reviewer_field(self):
+        src=ROOT/'reports/pre_p07/lead-bootstrap-A-installed-01'
+        record=json.loads((src/'decision.json').read_text())
+        self.assertNotIn('reviewer',record)
+        target=self.root/'reports/pre_p07/real-A-wire.json'
+        target.write_bytes((src/'decision.json').read_bytes())
+        baseline=self.root/record['post_A_runtime_baseline_path']
+        baseline.parent.mkdir(parents=True,exist_ok=True)
+        baseline.write_bytes((src/'post-A-runtime-baseline.json').read_bytes())
+        with RuntimeBundle(self.root).lease() as install:
+            verified=install.verify_a({'path':str(target.relative_to(self.root)),
+                'sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
+        self.assertEqual(verified['autopilot/runner.py']['sha256'],fs.BOOTSTRAP_SHA)
+
+    def test_failed_pending_marker_repairs_same_prepare_and_blocks_new_begin(self):
+        for rollback in [False,True]:
+            with self.subTest(rollback=rollback),tempfile.TemporaryDirectory() as scratch:
+                root=Path(scratch)/'checkout';shutil.copytree(self.root,root)
+                real_write=bundle.writejson
+                def fail_marker(path,data):
+                    if path==root/bundle.MARKER:raise PermissionError('TEST_ONLY marker write')
+                    return real_write(path,data)
+                with RuntimeBundle(root).lease() as install:
+                    with patch.object(bundle,'writejson',side_effect=fail_marker):
+                        with self.assertRaises(PermissionError):
+                            install.begin_bundle(PAYLOADS,self.before,self.protected,self.proof)
+                    ident=json.loads((root/bundle.LEDGER).read_text())['transactions'][-1]
+                    with self.assertRaises(Refused):
+                        install.begin_bundle(PAYLOADS,self.before,self.protected,self.proof)
+                    result=install.finish_bundle(ident,rollback=rollback)
+                self.assertEqual(result['status'],'ROLLED_BACK' if rollback else 'COMMIT_VERIFIED')
+                self.assertEqual(len(json.loads((root/bundle.LEDGER).read_text())['transactions']),1)
                 self.assertEqual(RuntimeBundle(root).protected(self.protected),self.kept)
 
     def test_component_or_stale_A_receipt_cannot_authorize_bundle(self):
