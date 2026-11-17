@@ -158,9 +158,11 @@ class Bootstrap:
         target = dict(before, sha256=sha(candidate))
         record = {'schema': 1, 'kind': 'BOOTSTRAP_A_NOT_BUNDLE', 'root': str(self.root),
                   'id': folder.name, 'before': before, 'target': target,
-                  'protected': protected, 'lock': list(self.identity), 'status': 'PREPARED'}
-        writejson(folder / 'journal.json', record)
-        writejson(checked(self.root, MARKER), {'id': folder.name, 'journal_sha256_at_prepare': sha((folder / 'journal.json').read_bytes())})
+                  'protected': protected, 'lock': list(self.identity)}
+        writejson(folder / 'intent.json', record)
+        intent_sha = sha((folder / 'intent.json').read_bytes())
+        writejson(folder / 'journal.json', {'id': folder.name, 'intent_sha256': intent_sha, 'status': 'PREPARED'})
+        writejson(checked(self.root, MARKER), {'id': folder.name, 'intent_sha256': intent_sha})
         self.hook('prepared')
         return folder.name
 
@@ -169,7 +171,18 @@ class Bootstrap:
         if len(ident) != 32 or any(c not in '0123456789abcdef' for c in ident):
             raise Refused('Invalid transaction ID')
         folder = checked(self.root, '.autopilot/bootstrap/' + ident)
-        record = readjson(checked(self.root, str(folder.relative_to(self.root)) + '/journal.json'))
+        relative = str(folder.relative_to(self.root))
+        journal = readjson(checked(self.root, relative + '/journal.json'))
+        intent = checked(self.root, relative + '/intent.json')
+        intent_sha = sha(intent.read_bytes())
+        if journal.get('intent_sha256') != intent_sha or journal.get('id') != ident:
+            raise Refused('Immutable intent binding failed')
+        if journal.get('status') not in ('PREPARED', 'VERIFIED', 'ROLLED_BACK'):
+            raise Refused('Invalid journal outcome')
+        record = readjson(intent)
+        if 'status' in record or record.get('schema') != 1 or record.get('kind') != 'BOOTSTRAP_A_NOT_BUNDLE':
+            raise Refused('Invalid immutable intent')
+        record = dict(record, status=journal['status'])
         if record['root'] != str(self.root) or record['id'] != ident or record['lock'] != list(self.identity):
             raise Refused('Wrong maintenance identity')
         if any(checked(self.root, p).exists() for p in (B_MARKER, B_HISTORY)):
@@ -187,8 +200,8 @@ class Bootstrap:
             raise Refused('Unknown runner mutation')
         marker = checked(self.root, MARKER)
         if marker.exists():
-            if readjson(marker)['id'] != ident:
-                raise Refused('Another transaction owns maintenance')
+            if readjson(marker) != {'id': ident, 'intent_sha256': intent_sha}:
+                raise Refused('Another transaction or corrupt intent marker')
         elif record['status'] not in ('VERIFIED', 'ROLLED_BACK'):
             raise Refused('Missing maintenance intent')
         return folder, record
@@ -211,14 +224,21 @@ class Bootstrap:
         if fingerprint(runner) != target or self.protected(record['protected']) != record['protected']:
             raise Refused('Post-replace verification failed')
         self.hook('before_commit')
+        self.load(ident)
         if fingerprint(runner) != target or self.protected(record['protected']) != record['protected']:
             raise Refused('Commit inputs changed')
         record['status'] = terminal
-        writejson(folder / 'journal.json', record)
+        intent_sha = sha((folder / 'intent.json').read_bytes())
+        writejson(folder / 'journal.json', {'id': ident, 'intent_sha256': intent_sha, 'status': terminal})
         self.hook('after_commit')
+        # Commit and marker removal each require the original inode, immutable
+        # ownership and protected-input checks, including idempotent recovery.
+        self.load(ident)
+        if fingerprint(runner) != target:
+            raise Refused('Verified outcome changed before marker removal')
         marker = checked(self.root, MARKER)
         if marker.exists():
-            if readjson(marker)['id'] != ident:
+            if readjson(marker) != {'id': ident, 'intent_sha256': intent_sha}:
                 raise Refused('Marker ownership changed')
             marker.unlink()
             syncdir(marker.parent)

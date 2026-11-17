@@ -174,6 +174,60 @@ class BootstrapTests(unittest.TestCase):
             with self.assertRaises(Refused): install.finish(ident)
         self.assertEqual(self.runner.read_bytes(), OLD)
 
+    def test_immutable_intent_and_marker_corruption_are_refused(self):
+        for mutation in ['protected', 'mode', 'marker']:
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as scratch:
+                root = Path(scratch) / 'checkout'
+                shutil.copytree(self.root, root)
+                with Bootstrap(root).lease() as install:
+                    ident = install.begin(NEW, self.protected)
+                    intent = root / '.autopilot/bootstrap' / ident / 'intent.json'
+                    if mutation == 'marker':
+                        marker = root / cb.MARKER
+                        d = json.loads(marker.read_text())
+                        d['intent_sha256'] = '0' * 64
+                        marker.write_text(json.dumps(d))
+                    else:
+                        d = json.loads(intent.read_text())
+                        if mutation == 'protected':
+                            d['protected'] = {}
+                            (root / 'automation/phase_state.json').write_bytes(b'NEW HISTORY')
+                        else:
+                            d['target']['mode'] = 0o777
+                        intent.write_text(json.dumps(d))
+                    with self.assertRaises(Refused): install.finish(ident)
+                    self.assertEqual((root / cb.RUNNER).read_bytes(), OLD)
+                    self.assertTrue((root / cb.MARKER).exists())
+
+    def test_precommit_lock_replacement_cannot_clear_marker(self):
+        # Separate fixture: replacement itself is the injected fault, so the
+        # enclosing test's persistent-lock invariant must not be weakened.
+        with tempfile.TemporaryDirectory() as scratch:
+            root = Path(scratch) / 'checkout'
+            shutil.copytree(self.root, root)
+            lock = root / 'automation/.executor.lock'
+            def replace_lock(stage):
+                if stage == 'before_commit':
+                    lock.rename(lock.with_name('old-inode'))
+                    lock.touch(mode=0o600)
+            with Bootstrap(root, hook=replace_lock).lease() as install:
+                ident = install.begin(NEW, self.protected)
+                with self.assertRaises(Refused): install.finish(ident)
+            self.assertTrue((root / cb.MARKER).exists())
+            journal = root / '.autopilot/bootstrap' / ident / 'journal.json'
+            self.assertEqual(json.loads(journal.read_text())['status'], 'PREPARED')
+
+    def test_after_commit_mutation_preserves_intent_for_independent_recovery(self):
+        ident = self.begin()
+        def mutate(stage):
+            if stage == 'after_commit':
+                (self.root / 'autopilot/config.json').write_bytes(b'NEW CONFIG')
+        with Bootstrap(self.root, hook=mutate).lease() as install:
+            with self.assertRaises(Refused): install.finish(ident)
+        self.assertTrue((self.root / cb.MARKER).exists())
+        self.assertEqual((self.root / 'autopilot/config.json').read_bytes(), b'NEW CONFIG')
+        self.assert_state()
+
     def test_candidate_must_be_exact_reviewed_build(self):
         with Bootstrap(self.root).lease() as install:
             with self.assertRaises(Refused): install.begin(NEW+b'\n', self.protected)
