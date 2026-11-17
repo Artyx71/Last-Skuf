@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "CH03_CH04_PAPER_GAMEPLAY_DESIGN_COMPONENT_ONLY",
+  "status": "FAIL_COMPONENT",
+  "verdict": "FAIL",
+  "source_head": "d00435ceca3ab6e5b198773b071c0fbb411c41e2",
+  "source_sha256": {
+    "planning/missions/CH03_THE_LAST_ARMRESTLER.md": "b11d8493f07cee7658234edc38d66213de0eba1d4423b099b0b9dd58159c56ac",
+    "planning/missions/CH04_THE_FINAL_SKUF.md": "7c3439cee918cfe6524d490ea4ad2b5c56b743c93baf455a47f5258b5509ddb8",
+    "game/scripts/core/input_bindings.gd": "0aebea4af98c797393ec3f22c1a6af8930c57156359e6bfb1448efc14672a6d1",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+    "game/scripts/ai/room_navigation_host.gd": "4ea40b7cb7e7de8cce10eeebc889fcabef8525fa08ee4ccae5c1d6dc9d9b5cd5",
+    "game/scripts/core/combat_lab.gd": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/levels/missed_fight.gd": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+    "game/scripts/levels/chapter_progress.gd": "5e3ea63e36d9ba98396b5767a71ab737b32460009b0fcf453a68fb05f6a09cfe",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "specs/STORY_SPEC.md": "a2848fedb28ee1a8594d3e79b18a31d79320b4c48b57a0f71580db37bd352438",
+    "specs/GAMEPLAY_SPEC.md": "6aaf91c7845ff30ce1d1895d589193287d7ab7a0f4d02b1d53ffc44f1701deaa"
+  },
+  "per_document": [
+    {
+      "chapter": "CH03_THE_LAST_ARMRESTLER",
+      "status": "PASS_PAPER_COMPONENT",
+      "blocking_findings": [],
+      "new_sports_interaction": "JUSTIFIED_SCENE_LOCAL_PROPOSAL_NOT_IMPLEMENTED_OR_RUNTIME_ACCEPTED"
+    },
+    {
+      "chapter": "CH04_THE_FINAL_SKUF",
+      "status": "FAIL_PAPER_COMPONENT",
+      "blocking_findings": [
+        "ACT1-MDS-G01"
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "ACT1-MDS-G01",
+      "severity": "MEDIUM",
+      "chapter": "CH04_THE_FINAL_SKUF",
+      "status": "PAPER_DESIGN_FIX_REQUIRED",
+      "location": "DISPATCH safezone and E3 southportal/returnpolicy",
+      "summary": "Safe handoff requires guards never enter SK4, but the design does not select a boundary/return policy that enforces this across the open SK3→SK4 portal. Existing patrol_end does not constrain pursue.",
+      "existing_code_basis": "EnemyActor._physics_process pursue calls _walk_to(lab.player.position,chase_speed) while sees_player; no room leash. Rusher chase94 vs weakYakuza82. Optional router supplies pathfinding, not permission/leash.",
+      "qualification": "Not a new observed runtime death/softlock. Both chapters are unbuilt. Existing cover may break LOS, but cannot prove the stronger never-enter-SK4 invariant. Paper already admits need for future host behavior; it must choose the rule rather than defer its semantics to acceptance.",
+      "minimal_requested_change": "Specify one concrete chapter-local ownership/return/room-bound or authored physical transition policy before paper acceptance. Define exact trigger at SK3/SK4, what current pursue/telegraph/melee/projectiles do, and how living guards return/stay without teleport/resurrection/global invulnerability; keep both routes and safe failed DISPATCH retry. Mark the required host policy HIGH NOT_IMPLEMENTED; do not claim generic NPC already enforces it. An authored geometric solution is also acceptable if its state transitions preserve stated return routes.",
+      "paper_closure_test": "An implementer can determine if an alerted guard may cross the south portal and when handoff becomes safe; no reliance on arbitrary waiting, escape speed assumption, or damage suppression at UI."
+    }
+  ],
+  "future_HIGH_NOT_IMPLEMENTED": {
+    "CH03": [
+      "TrustedpastTegafree-roam factory/policy and exclusive seatedInputownership/revoke",
+      "Onephaseclock/tabletopFSM+edge settling/boundary/pause rearm; new originalbotharm poses/HUD/cues",
+      "Typedchapterstage/checkpoint atomicity/reload/corruption/once",
+      "Neworiginalmusic/stems/listening/scenes/map/assets and native calibration"
+    ],
+    "CH04": [
+      "TrustedweakYakuzaescapepolicy/F2off/legacyFINoff and chapterdirector",
+      "Typedstages/documentUI/confirm+readseparation/checkpoint/folderownership",
+      "Authoredniche/door/nav/return-safehandoff contract (ACT1-MDS-G01)",
+      "Originalenvironment/contract/folder/advert/scenes/music/stems/listening/native calibration"
+    ]
+  },
+  "paper_checks": {
+    "CH03_actor_clinch_or_environment_kick_granted_by_table": false,
+    "CH03_advice_window_seconds": 0.25,
+    "CH03_advantage_range": [
+      -2,
+      2
+    ],
+    "CH03_minimum_net_successes_from_reset": 2,
+    "CH03_single_outcome_settle_token_and_phaseclock_specified": true,
+    "CH03_win_pending_then_visible_dialogue_then_exit_ready": true,
+    "CH03_only_optional_registry_event": "EV_MEMORABILIA_1",
+    "CH04_escape_shove_coin_parameters_match_P06": true,
+    "CH04_niche_leftboundary_door480_544_plus_wall544_592_closes480_592": true,
+    "CH04_source_no_global_EV_PRIME_SIGNED": true,
+    "CH04_story_signature_linear_confirm_not_auto_seen_skip": true,
+    "actual_collision_LOS_escape_or_input_calibration_verified": false
+  },
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false,
+  "actual_runtime_feel_FPS_all21_Readiness_H02_P07_phase_approval": false
+}

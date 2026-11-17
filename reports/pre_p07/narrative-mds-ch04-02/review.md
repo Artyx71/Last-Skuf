@@ -1,0 +1,9 @@
+# CH04 Narrative review02 — bounded closure
+
+**PASS_COMPONENT — только текущий Narrative/paper-contract draft CH04.** N-MDS-CH04-01 закрыт. CH04 SHA `7c3439cee918cfe6524d490ea4ad2b5c56b743c93baf455a47f5258b5509ddb8`, заявленный HEAD prefix `d00435ce`. Старый01 immutable остаётся CHANGES_REQUESTED на прежних байтах.
+
+В actual source45 теперь заданы top(1776,464,128,16), bottom(1776,592,128,16), right(1888,480,16,112), leftbelowdoor(1776,544,16,48). Door y480..544 плюс left segment y544..592 без разрыва закрывают левую сторону interior y480..592. Верх/низ/право замыкают остальные стороны. Прежний48px зазор отсутствует на бумаге; NPC до PAPER_TAKEN действительно может быть физически отделён названными деталями. Когда дверь открыта,64px passage и реальный body/nav/LOS ещё должен проверить Gameplay/H02; чтение не объявляет runtime контакт/путь принятым.
+
+Actual diff содержит только это исправление и замену случайного нерусского слова в запрете преждевременной выдачи kimono_truth/ответственности. Canonical recruitment/Max public face/поздние раскрытия/явная подпись, local typed stages вместо EV_PRIME_SIGNED, weak kit и ending/flags контракты остальных разделов не изменены. Контракты и код прошлого01 повторно сверены по SHA; предыдущая положительная Narrative оценка этих частей переносится на exact current draft.
+
+Это поддерживает NARRATIVE_REVIEWED только CH04. Campaign policy/director/checkpoints, document UI, safe dispatch/return policy, actual geometry, арт/музыка остаются declared High. Нет Gameplay/ART/Audio/QA/Lead/all21/Readiness/runtime/production/phase/merge/release approval. Reviewer не менял source/registry/status; engine/Controller/generator/network/Git не запускались. Только owned report02, exact snapshot/diff/reused-source checks и FINAL_HASHES; после verdict packet immutable.

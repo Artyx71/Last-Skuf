@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "TARGETED_TIMKA_MDS_G01_CLOSURE_AND_UNCHANGED_CH11_PAPER_COMPONENT_ONLY",
+  "status": "PASS_COMPONENT",
+  "verdict": "PASS",
+  "source_head": "b40d73081098868e54dd21ce04e9f19aeb16ae4c",
+  "source_sha256": {
+    "planning/missions/CH02_THE_TITAN.md": "298bbc224ce72c06ac36a0d3d7052d19d163598e45f01741b8e0066565bc7080",
+    "planning/missions/CH11_THE_DOG_WALKER.md": "be372f97ae68a2f9b082ae760b24ca21d34c9dc733188b967c56413eba4462ab",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/scripts/systems/character_combat_profile.gd": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/levels/chapter_progress.gd": "5e3ea63e36d9ba98396b5767a71ab737b32460009b0fcf453a68fb05f6a09cfe",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/characters/combat_profiles.json": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "game/resources/combat/finishers.json": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4"
+  },
+  "closed_findings": [
+    "TIMKA-MDS-G01"
+  ],
+  "new_blocking_design_findings": [],
+  "closure_checks": [
+    {
+      "requirement": "Alive E2 cannot qualify by short stun/LOS loss",
+      "paper_verified": true,
+      "evidence": "CP1 requires E1/E2 health0/state dead and explicitly refuses anyliveE2 regardlessstun/knockdown/distance/LOS."
+    },
+    {
+      "requirement": "No mandatory killgate introduced",
+      "paper_verified": true,
+      "evidence": "All doors/exit remain available; CP1optional/HUDnonpromise; nonkillroute continuesusingCP0 and actualfairnessreplaytime futuretest."
+    },
+    {
+      "requirement": "Atomic admission and fixedsafe snapshot",
+      "paper_verified": true,
+      "evidence": "playeralive/rect(1296,256,128,96);E3inactive;activejobsnone;yard_ready/player(1344,288),health1,aimRIGHT,unarmed,ability/meleeCD0."
+    },
+    {
+      "requirement": "Closed NPC/props/door/pickup restore policy",
+      "paper_verified": true,
+      "evidence": "Exactly2deadIDsE1/E2;E3initialfixedspawns/patrol/timer0inactiveuntilYARD_ENTER;benchinitial;shortcutclosed/passeddoorsopen;rodworldonlynoinventoryduplication."
+    },
+    {
+      "requirement": "Validate before mutation and preservefailedsave",
+      "paper_verified": true,
+      "evidence": "Fulltypedstage validation precedes clearingjobs/installsnapshot/enablingcontrolAI;invalidCP1preservesfile;writefailnoHUDorinmemorycommit."
+    },
+    {
+      "requirement": "P06abilities and unchanged CH11 remainbound",
+      "paper_verified": true,
+      "evidence": "All14otherreviewedinputs byteexact old7d97;CH11samebe372hash;noengineorGamechanges accepted."
+    }
+  ],
+  "per_document": [
+    {
+      "chapter": "CH02_THE_TITAN",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "298bbc224ce72c06ac36a0d3d7052d19d163598e45f01741b8e0066565bc7080"
+    },
+    {
+      "chapter": "CH11_THE_DOG_WALKER",
+      "status": "PASS_PAPER_COMPONENT_UNCHANGED",
+      "sha256": "be372f97ae68a2f9b082ae760b24ca21d34c9dc733188b967c56413eba4462ab"
+    }
+  ],
+  "old_FAIL_decision_sha256": "771e412839027842f73fba5a95efec742580b72500212ddb29814764f527343f",
+  "old_FAIL_review_sha256": "195d4a578e84b8ad0b4cd1c7eaeaf4c6f5eafb0f9241e766e64c31ebf7740254",
+  "future_high_dependencies": [
+    {
+      "chapter": "CH02_THE_TITAN",
+      "severity": "HIGH",
+      "status": "FUTURE_PRODUCTION_OBLIGATION_NOT_PAPER_FAILURE",
+      "items": [
+        "Trusted CH02 athletic_prime scene policy + implemented factory/frames binding, generation/cancel tests; sandboxfixture does not grantcampaign",
+        "Validated multiroom collision/navigation/camera/doors/bench and optionalpickup",
+        "Chaptercheckpoint schema/atomic state and once progression",
+        "Original props/scenes/arrangement/stems/listening/art and actual Input/native acceptance"
+      ]
+    },
+    {
+      "chapter": "CH11_THE_DOG_WALKER",
+      "severity": "HIGH",
+      "status": "FUTURE_PRODUCTION_OBLIGATION_NOT_PAPER_FAILURE",
+      "items": [
+        "Trusted CH11 peaceful_present scene/factory binding explicitly retain noFIN/noequipment; currentimplemented whitelist accepts onlysandboxkeys",
+        "Jack follower/art/footprint/speed/separation recovery and pairedCP/exit semantics",
+        "Shotcamera/composition and real LOS/readability for witnessbeat; crate not visible in playercentered640x360view",
+        "ValidatedchapterCP/eventcheckpoint write-failure recovery and deterministicguardstage",
+        "New originalworld/transferposes/companion/SFX/arrangement/stems/listening and actualInput/native acceptance"
+      ]
+    }
+  ],
+  "actual_runtime_checkpoint_collision_or_gameplay_feel_acceptance": false,
+  "all21MDS_fullReadiness_H02_P07_phase_approval": false,
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}

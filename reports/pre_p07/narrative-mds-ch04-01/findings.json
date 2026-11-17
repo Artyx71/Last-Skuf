@@ -1,0 +1,22 @@
+{
+  "findings": [
+    {
+      "id": "N-MDS-CH04-01",
+      "priority": "MEDIUM",
+      "status": "CHANGES_REQUIRED_PAPER_GEOMETRY",
+      "path": "planning/missions/CH04_THE_FINAL_SKUF.md",
+      "lines": [
+        43,
+        45
+      ],
+      "title": "E3 ниша не замкнута слева ниже двери",
+      "evidence": "Interior x1792..1888,y480..592; стены перечислены сверху/снизу/справа. Doorrect1776,480,16,64 покрывает левую сторону лишь y480..544. Левая сторона y544..592 (48px) не имеет указанного wall/door. E3 spawn1808,544 расположен рядом с этой незаданной частью.",
+      "impact": "Текст обещает физически закрытый до PAPER_TAKEN отсек и отсутствие LOS/атак через границу, но перечисленные детали не замыкают его. Это противоречие бумажного барьера, не доказанная атака в несуществующем runtime.",
+      "minimum_fix": "Добавить согласованный left wall segment, например1776,544,16,48, или изменить door/bounds так, чтобы вся левая граница была закрыта до trigger и opening сохранял реальный проход. Достаточно одного bounded room-authoring уточнения, без новой FSM/способности/переноса папки/новой арены.",
+      "verification": "Проверить замкнутость room boundary по указанным координатам; actual collider/LOS/nav/contact после создания отдельно Gameplay/H02."
+    }
+  ],
+  "HIGH": 0,
+  "MEDIUM": 1,
+  "new_unapproved_canon_conflicts_observed": []
+}

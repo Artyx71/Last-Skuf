@@ -1,0 +1,68 @@
+{
+  "scope": "physical dispatch isolation delta only",
+  "canonical_recruitment_signature_EV_dialogue_unchanged": true,
+  "physical_barriers": {
+    "north_portal_x": [
+      1472,
+      1600
+    ],
+    "north_door": [
+      1472,
+      624,
+      128,
+      16
+    ],
+    "west_portal_y": [
+      832,
+      960
+    ],
+    "west_door": [
+      1136,
+      832,
+      16,
+      128
+    ],
+    "rest_SK4_perimeter_solid": true
+  },
+  "closing_conditions": [
+    "door rect grow12 clear of all actor footprints",
+    "no live hostile footprint inside SK4",
+    "actual enabled collider/nav revision settled before safe handoff"
+  ],
+  "handoff_conditions": [
+    "paper_taken with single owned folder",
+    "both real doors closed/settled",
+    "SK4 free of live hostile/attacks/projectiles/finishers/reservations",
+    "normal dialogue pause then successful localstage write"
+  ],
+  "open_door_AI_boundary_claim": false,
+  "new_AI_leash_or_invulnerability_or_warp": false,
+  "noise_example": {
+    "player": [
+      1536,
+      688
+    ],
+    "aim": "UP",
+    "max_range": 110,
+    "noise": [
+      1536,
+      578
+    ],
+    "door_must_be_open": true,
+    "hear_range": 260,
+    "investigate_seconds": 2.1,
+    "cooldown_seconds": 3.2,
+    "matches_inspected_existing_code": true,
+    "guarantees_eviction_or_escape_for_every_position": false
+  },
+  "CP1_restore": [
+    "SERVICE_RETURN open",
+    "PUBLIC_RETURN closed and initial latch",
+    "SK4 empty",
+    "both NPC initial SK3 positions/states",
+    "all transient jobs empty"
+  ],
+  "door_room_policy_is_HIGH_NOT_IMPLEMENTED": true,
+  "actual_close_route_navigation_or_Gameplay_feel_verified": false,
+  "new_Narrative_findings": []
+}

@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "TARGETED_CH04_ACT1_MDS_G01_CLOSURE_WITH_UNCHANGED_CH03_PAPER_DESIGN_ONLY",
+  "status": "PASS_COMPONENT",
+  "verdict": "PASS",
+  "source_head": "3591ebcf5ef18d559cb80e8a7d3668b44a2f5f2f",
+  "source_sha256": {
+    "planning/missions/CH03_THE_LAST_ARMRESTLER.md": "b11d8493f07cee7658234edc38d66213de0eba1d4423b099b0b9dd58159c56ac",
+    "planning/missions/CH04_THE_FINAL_SKUF.md": "15b50298b1eee452e079c186a205b2ab2fc6a03080544bc2827afda135698225",
+    "game/scripts/core/input_bindings.gd": "0aebea4af98c797393ec3f22c1a6af8930c57156359e6bfb1448efc14672a6d1",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+    "game/scripts/ai/room_navigation_host.gd": "4ea40b7cb7e7de8cce10eeebc889fcabef8525fa08ee4ccae5c1d6dc9d9b5cd5",
+    "game/scripts/core/combat_lab.gd": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/levels/missed_fight.gd": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+    "game/scripts/levels/chapter_progress.gd": "5e3ea63e36d9ba98396b5767a71ab737b32460009b0fcf453a68fb05f6a09cfe",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "specs/STORY_SPEC.md": "a2848fedb28ee1a8594d3e79b18a31d79320b4c48b57a0f71580db37bd352438",
+    "specs/GAMEPLAY_SPEC.md": "6aaf91c7845ff30ce1d1895d589193287d7ab7a0f4d02b1d53ffc44f1701deaa"
+  },
+  "closed_findings": [
+    "ACT1-MDS-G01"
+  ],
+  "new_blocking_design_findings": [],
+  "closure_checks": [
+    {
+      "requirement": "No invented existing AIleash",
+      "paper_verified": true,
+      "evidence": "Actors may pursue/attack insideSK4 whenever realdoorsopen; documents actualrusher94>82 and no patrol_end chasebound."
+    },
+    {
+      "requirement": "Every SK4 ingress physically sealed",
+      "paper_verified": true,
+      "evidence": "SERVICE_RETURN(1472,624,128,16) spansnorthportal1472..1600;PUBLIC_RETURN(1136,832,16,128) spanswestportal832..960;otherSK4boundarieswalls."
+    },
+    {
+      "requirement": "No crushing/teleporting/trapping livehostile",
+      "paper_verified": true,
+      "evidence": "Closeonlyrect.grow12freeofanyfootprint+no livehostileinsideSK4;denyclosewithhint;unlatchedopenpossiblebothsides."
+    },
+    {
+      "requirement": "Real safehandoff, not visualclosedflag/invulnerability",
+      "paper_verified": true,
+      "evidence": "Waitenabledactualcolliders/navrevision;requirepaper_taken+bothclosed+noSK4hostile/jobs;failedFnotconsume/pause/cancelactiveattacks."
+    },
+    {
+      "requirement": "Recover after hostile entry using existing mechanics",
+      "paper_verified": true,
+      "evidence": "Fixedcover1280,768,96,128/LOS, realnoise110rayclamp/hear260/investigate2.1/ECD3.2/shove/alternatepaths;no forcedwarp/resurrection/cancel."
+    },
+    {
+      "requirement": "Deterministic safe CP1 retry and future implementation honesty",
+      "paper_verified": true,
+      "evidence": "CP1SERVICEopen/PUBLIClatchedclosed/SK4clear/NPCoriginalSK3/transientempty;newdoorroompolicyHIGHNOT_IMPLEMENTED;actualfairness/LOS/closurelater."
+    }
+  ],
+  "per_document": [
+    {
+      "chapter": "CH03_THE_LAST_ARMRESTLER",
+      "status": "PASS_PAPER_COMPONENT_UNCHANGED",
+      "sha256": "b11d8493f07cee7658234edc38d66213de0eba1d4423b099b0b9dd58159c56ac"
+    },
+    {
+      "chapter": "CH04_THE_FINAL_SKUF",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "15b50298b1eee452e079c186a205b2ab2fc6a03080544bc2827afda135698225"
+    }
+  ],
+  "paper_geometry_controls": {
+    "northdoor_spans_only_northportal": true,
+    "westdoor_spans_only_westportal": true,
+    "newcover_leaves_both_handle_routes": true,
+    "SERVICE_handle_to_center56_less_than_existingCH01door_interaction80": true,
+    "noise_example_open_vertical_ray": [
+      1536,
+      688,
+      1536,
+      578
+    ],
+    "patrol_investigate_speed": 53.6,
+    "rusher_investigate_speed": 75.2,
+    "approx_nearby_NPC_688_to_door_grown612_seconds": [
+      1.417910447761194,
+      1.0106382978723405
+    ],
+    "investigate_seconds": 2.1,
+    "qualification": "Analyticalnearbyexample, no guaranteeofallAIpositions or nativefairness; realcollisions/statepriority need productiontests."
+  },
+  "future_HIGH_NOT_IMPLEMENTED": {
+    "CH03": [
+      "TrustedpastTegafree-roam factory/policy and exclusive seatedInputownership/revoke",
+      "Onephaseclock/tabletopFSM+edge settling/boundary/pause rearm; new originalbotharm poses/HUD/cues",
+      "Typedchapterstage/checkpoint atomicity/reload/corruption/once",
+      "Neworiginalmusic/stems/listening/scenes/map/assets and native calibration"
+    ],
+    "CH04": [
+      "TrustedweakYakuzaescapepolicy/F2off/legacyFINoff and chapterdirector",
+      "Typedstages/documentUI/confirm+readseparation/checkpoint/folderownership",
+      "Selected physical2door/collider/navsync/clearance/denyF policy is HIGH NOT_IMPLEMENTED; no AIleash requirement remains",
+      "Originalenvironment/contract/folder/advert/scenes/music/stems/listening/native calibration"
+    ]
+  },
+  "nonblocking_layout_risk": "CH02andCH04 fivezonehub-loop graphsareisomorphic; verbs/contexts/encounters/covers/document+two-doorclosure materiallydiffer inpaper. Futureactualart/layout/pacingcomparisonrequired, no graph-onlyFAIL.",
+  "old_FAIL_decision_sha256": "ea2041cb29e6a9f8828fea4db400be49d8b61533fba16302af9d198593ba96c0",
+  "old_FAIL_review_sha256": "1ed756b802d26262cfd73c4193a38827036f791358e216c79facb7a44641afae",
+  "actual_runtime_input_escape_feel_FPS_verified": false,
+  "all21_Readiness_H02_P07_phase_approval": false,
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}
