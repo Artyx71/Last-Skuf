@@ -213,6 +213,20 @@ class BundleTests(unittest.TestCase):
                 self.assertEqual(len(json.loads((root/bundle.LEDGER).read_text())['transactions']),1)
                 self.assertEqual(RuntimeBundle(root).protected(self.protected),self.kept)
 
+    def test_load_rejects_the_same_malformed_ledgers_as_begin(self):
+        for kind in ['dictionary','string','duplicate','invalid_id','boolean_schema']:
+            with self.subTest(kind=kind),tempfile.TemporaryDirectory() as scratch:
+                root=Path(scratch)/'checkout';shutil.copytree(self.root,root)
+                with RuntimeBundle(root).lease() as install:
+                    ident=install.begin_bundle(PAYLOADS,self.before,self.protected,self.proof)
+                    values={'dictionary':{ident:True},'string':ident,'duplicate':[ident,ident],
+                            'invalid_id':[ident,'../escape'],'boolean_schema':[ident]}
+                    data={'schema':True if kind=='boolean_schema' else 1,'transactions':values[kind]}
+                    (root/bundle.LEDGER).write_text(json.dumps(data))
+                    with self.assertRaises(Refused):install.finish_bundle(ident)
+                    self.assertEqual(RuntimeBundle(root).protected(TARGETS),self.before)
+                    self.assertTrue((root/bundle.MARKER).exists())
+
     def test_component_or_stale_A_receipt_cannot_authorize_bundle(self):
         path=self.root/self.proof['path'];d=json.loads(path.read_text());d['actual_A_verified']=False;path.write_text(json.dumps(d))
         proof=dict(self.proof,sha256=hashlib.sha256(path.read_bytes()).hexdigest())

@@ -51,6 +51,16 @@ class RuntimeBundle(Bootstrap):
             raise Refused('Incomplete post-A runtime baseline')
         return files
 
+    def ledger(self, allow_absent=False):
+        path = checked(self.root, LEDGER)
+        data = readjson(path) if path.exists() else ({'schema':1,'transactions':[]} if allow_absent else None)
+        if not isinstance(data,dict) or set(data) != {'schema','transactions'} or type(data.get('schema')) is not int or data['schema'] != 1 or not isinstance(data.get('transactions'),list):
+            raise Refused('Invalid bundle-start ledger')
+        ids = data['transactions']
+        if any(not isinstance(i,str) or len(i)!=32 or any(c not in '0123456789abcdef' for c in i) for i in ids) or len(set(ids)) != len(ids):
+            raise Refused('Invalid/duplicate bundle transaction IDs')
+        return data
+
     def refuse_unfinished_preparation(self):
         parent = checked(self.root, '.autopilot/runtime-bundles')
         if parent.exists():
@@ -69,6 +79,7 @@ class RuntimeBundle(Bootstrap):
         if self.protected(a_baseline) != a_baseline:
             raise Refused('Current runtime differs from independently verified A')
         self.refuse_unfinished_preparation()
+        ledger = self.ledger(allow_absent=True)
         if checked(self.root, MARKER).exists() or checked(self.root, '.autopilot/BOOTSTRAP_PENDING.json').exists():
             raise Refused('Earlier maintenance is pending')
         before = self.protected(TARGETS)
@@ -116,9 +127,8 @@ class RuntimeBundle(Bootstrap):
             raise Refused('Prepared intent changed before binding')
         writejson(folder / 'journal.json', {'id': folder.name, 'intent_sha256': intent_sha, 'status': 'PREPARED'})
         ledger_path = checked(self.root, LEDGER)
-        ledger = readjson(ledger_path) if ledger_path.exists() else {'schema': 1, 'transactions': []}
-        if ledger.get('schema') != 1 or not isinstance(ledger.get('transactions'), list):
-            raise Refused('Invalid bundle-start ledger')
+        if self.ledger(allow_absent=True) != ledger:
+            raise Refused('Bundle-start ledger changed during preparation')
         ledger['transactions'].append(folder.name)
         writejson(ledger_path, ledger)  # remains after rollback: never un-fence A
         writejson(checked(self.root, MARKER), {'id': folder.name, 'intent_sha256': intent_sha})
@@ -164,7 +174,7 @@ class RuntimeBundle(Bootstrap):
                 raise Refused('Unknown runtime mutation: ' + relative_path)
             if journal['status'] == 'COMMIT_VERIFIED' and current != target or journal['status'] == 'ROLLED_BACK' and current != before:
                 raise Refused('Durable terminal outcome changed')
-        ledger = readjson(checked(self.root, LEDGER))
+        ledger = self.ledger()
         if ledger.get('schema') != 1 or ident not in ledger.get('transactions', []):
             raise Refused('Bundle-start history missing')
         marker = checked(self.root, MARKER)
