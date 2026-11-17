@@ -32,6 +32,7 @@ def main():
     engine = project / '.tools/godot' / f'Godot_v{lock["release"]}_linux.x86_64'
     assert digest(engine) == lock['linux_binary_sha256']
     runs = []
+    export_report = 'pre-p07-export-' + hashlib.sha256(str(out).encode()).hexdigest()[:16]
 
     def run(name, argv, env, timeout=240):
         process = subprocess.run(list(map(str, argv)), cwd=project, env=env,
@@ -52,8 +53,8 @@ def main():
     # Existing exporter owns the same export/runtime checks used for P06 DEV.
     # Its old P06/P05 labels are historical; the outer manifest is the PRE-P07 scope.
     run('exports-and-character-input', [sys.executable, project / 'tools/export_p06_preview.py',
-        '--output', 'export-checks', '--build-output', 'build'], env)
-    raw = json.loads((project / 'export-checks/preview.json').read_text())
+        '--output', export_report, '--build-output', 'build'], env)
+    raw = json.loads((project / export_report / 'preview.json').read_text())
     assert raw['passed'] and raw['source_unchanged'] and len(raw['exports']) == 2
     checks = []
     for platform, folder, filename in [('Linux', 'linux', 'last-skuf.x86_64'),
@@ -61,7 +62,7 @@ def main():
         target = project / 'build' / folder / filename
         row = next(x for x in raw['exports'] if x['platform'] == platform)
         assert row['sha256'] == digest(target) and row['runtime_smoke_passed'] is True
-        probe = project / 'export-checks' / (folder + '_smoke/result.json')
+        probe = project / export_report / (folder + '_smoke/result.json')
         actual = json.loads(probe.read_text())
         assert actual['passed'] is True and len(actual['checks']) == 72
         home = out / 'isolated_saves' / folder
@@ -77,7 +78,7 @@ def main():
             home.mkdir(parents=True, exist_ok=True)
             env[variable] = convert(home / name)
         if folder == 'windows':
-            env.update(WINEPREFIX=str(project / '.tools/owner-preview/export-checks/wine-prefix'),
+            env.update(WINEPREFIX=str(project / '.tools/owner-preview' / export_report / 'wine-prefix'),
                        WINEARCH='win64', WINEDEBUG='-all',
                        WINEDLLOVERRIDES='winemenubuilder.exe=d;mscoree,mshtml=')
             command = [project / '.tools/wine/usr/bin/wine', target]
@@ -108,7 +109,8 @@ def main():
               'last_full_PASS': 'P06', 'source_game_and_tools_unchanged': before == inventory(),
               'build': str(build), 'exports': checks, 'phase_or_release_approval': False,
               'full_H02_Readiness_or_P07_approval': False, 'new_audio_listening_FPS_claim': False,
-              'legacy_helper_label_note': 'Raw export-checks/preview.json P06/P05 scope labels are not phase decisions'}
+              'legacy_export_report': str(project / export_report / 'preview.json'),
+              'legacy_helper_label_note': 'Raw helper P06/P05 scope labels are not phase decisions'}
     write(out / 'validation.json', result)
     write(build / 'build_manifest.json', result)
     write(out / 'source_after.json', inventory())
