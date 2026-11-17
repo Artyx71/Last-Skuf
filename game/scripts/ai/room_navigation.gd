@@ -78,6 +78,11 @@ func velocity_for(body: CharacterBody2D, goal: Vector2, speed: float, delta: flo
 	if foot.size.x <= 0 or foot.size.y <= 0:
 		last_reason = "unsupported_collider"
 		return Vector2.ZERO
+	# The direct sweep only knows physical walls. Respect the host's navigation
+	# boundary even when no wall was authored along its edge.
+	if not bounds.encloses(Rect2(body.global_position+foot.position,foot.size).grow(MARGIN)) or not bounds.encloses(Rect2(goal+foot.position,foot.size).grow(MARGIN)):
+		last_reason = "outside_endpoint"
+		return Vector2.ZERO
 	if body.global_position.distance_to(goal) <= 3.0:
 		last_reason = "arrived"
 		return Vector2.ZERO
