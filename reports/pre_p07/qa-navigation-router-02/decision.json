@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_READ_ONLY_QA",
+  "reviewer": "/root/qa_resume_recovery",
+  "status": "PASS_COMPONENT",
+  "verdict": "PASS",
+  "scope": "OPTIONAL_ROOM_ROUTER_BOUNDS_DOOR_CLEARANCE_DYNAMIC_LOS_CONTRACT_COMPONENT_ONLY",
+  "source_head": "0712e3de8b506dac45c33a40781cda8f800f6f10",
+  "closed_findings": [
+    "NAV-Q01"
+  ],
+  "new_must_fix": [],
+  "source_and_evidence_sha256": {
+    "FROZEN_COMMIT/game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+    "FROZEN_COMMIT/game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "FROZEN_COMMIT/tools/fixtures/p07_navigation_host.gd": "b03d242753f77217262585f3305701e157c8c5d679c14d411c9777f40d09728a",
+    "FROZEN_COMMIT/tools/fixtures/p07_navigation_contract.gd": "b4698998af7327034d10ad1563f33ba6b27c5ad2b96b3235c1861bbdbe288961",
+    "FROZEN_COMMIT/tools/p07_navigation_contract.py": "7f1d7a7fedc2d8db19888fcd94fdd94cafc309ffbb8b64136e29ea63ae64937f",
+    "reports/pre_p07/navigation-contract-01/engine_result.json": "72cbee66759f922df2dcb1ef9d0b638d9945348a68dd416a6b109e7bff7221c1",
+    "reports/pre_p07/navigation-contract-01/validation.json": "f372f920a849acb7b99a6bf87da5997aa1c44914e4f6ca0323a897a9134fbf3d",
+    "reports/pre_p07/navigation-contract-01/source_before.json": "f300cca93b58528a9d1851ccddcabf807162ddcc912c6090861718280d3e782e",
+    "reports/pre_p07/navigation-contract-01/source_after.json": "f300cca93b58528a9d1851ccddcabf807162ddcc912c6090861718280d3e782e",
+    "reports/pre_p07/navigation-contract-01/import.log": "c0e042538fb10b59474ca516e532a28621d040eb08309ebb95267e50e05c4954",
+    "reports/pre_p07/navigation-contract-01/diagnostic.log": "94e4f544aa7d64c5b6bcffd6b4de896c35be7308dcd68427fc96becabd5a0f40",
+    "ROOT/.autopilot/jobs/396075f54d664d929c75cfac69f2a205/input.json": "4095f71703659218ca0a850fe88f7a32892909c26bb67926fbcfe5535e225f4e",
+    "ROOT/.autopilot/jobs/396075f54d664d929c75cfac69f2a205/receipt.json": "bf342b494118682a64ab4060881a9f6732fd4ef3e982e8952e7b05a84d2460e1",
+    "ROOT/.autopilot/jobs/396075f54d664d929c75cfac69f2a205/output.log": "eb7690ee9d864b222edc24dc1ef0e0e4d4d01dbd5ee78bbb0cd6021c777b2053"
+  },
+  "actual_canonical_operation": "396075f54d664d929c75cfac69f2a205",
+  "actual_receipt_exit": 0,
+  "actual_checks": 70,
+  "actual_rows": [
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "patrol",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 524
+      },
+      "replans": 1,
+      "requests": 710,
+      "scenario": "door"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "patrol",
+      "opened": {},
+      "replans": 1,
+      "requests": 183,
+      "scenario": "narrow"
+    },
+    {
+      "closed": {},
+      "kind": "patrol",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 524
+      },
+      "replans": 0,
+      "requests": 527,
+      "scenario": "wide"
+    },
+    {
+      "closed": {},
+      "kind": "patrol",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 692
+      },
+      "replans": 1,
+      "requests": 695,
+      "scenario": "alternate"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "patrol",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 501
+      },
+      "replans": 1,
+      "requests": 710,
+      "scenario": "dynamic"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "rusher",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 449
+      },
+      "replans": 1,
+      "requests": 635,
+      "scenario": "door"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "rusher",
+      "opened": {},
+      "replans": 1,
+      "requests": 183,
+      "scenario": "narrow"
+    },
+    {
+      "closed": {},
+      "kind": "rusher",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 449
+      },
+      "replans": 0,
+      "requests": 452,
+      "scenario": "wide"
+    },
+    {
+      "closed": {},
+      "kind": "rusher",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 591
+      },
+      "replans": 1,
+      "requests": 594,
+      "scenario": "alternate"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "rusher",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 426
+      },
+      "replans": 1,
+      "requests": 635,
+      "scenario": "dynamic"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "shooter",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 674
+      },
+      "replans": 1,
+      "requests": 860,
+      "scenario": "door"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "shooter",
+      "opened": {},
+      "replans": 1,
+      "requests": 183,
+      "scenario": "narrow"
+    },
+    {
+      "closed": {},
+      "kind": "shooter",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 674
+      },
+      "replans": 0,
+      "requests": 677,
+      "scenario": "wide"
+    },
+    {
+      "closed": {},
+      "kind": "shooter",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 894
+      },
+      "replans": 1,
+      "requests": 897,
+      "scenario": "alternate"
+    },
+    {
+      "closed": {
+        "jump": false,
+        "overlap": false,
+        "reached": false,
+        "ticks": 180
+      },
+      "kind": "shooter",
+      "opened": {
+        "jump": false,
+        "overlap": false,
+        "reached": true,
+        "ticks": 651
+      },
+      "replans": 1,
+      "requests": 860,
+      "scenario": "dynamic"
+    },
+    {
+      "attacks": 0,
+      "kind": "patrol",
+      "player_health": 1,
+      "scenario": "los_closed",
+      "states": [
+        "patrol"
+      ],
+      "total_deaths": 0
+    },
+    {
+      "attacks": 1,
+      "kind": "patrol",
+      "player_health": 0,
+      "scenario": "los_open",
+      "states": [
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack"
+      ],
+      "total_deaths": 1
+    },
+    {
+      "attacks": 0,
+      "kind": "rusher",
+      "player_health": 1,
+      "scenario": "los_closed",
+      "states": [
+        "patrol"
+      ],
+      "total_deaths": 0
+    },
+    {
+      "attacks": 1,
+      "kind": "rusher",
+      "player_health": 0,
+      "scenario": "los_open",
+      "states": [
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack"
+      ],
+      "total_deaths": 1
+    },
+    {
+      "attacks": 0,
+      "kind": "shooter",
+      "player_health": 1,
+      "scenario": "los_closed",
+      "states": [
+        "patrol"
+      ],
+      "total_deaths": 0
+    },
+    {
+      "attacks": 1,
+      "kind": "shooter",
+      "player_health": 0,
+      "scenario": "los_open",
+      "states": [
+        "alert",
+        "pursue",
+        "telegraph",
+        "attack",
+        "recover"
+      ],
+      "total_deaths": 1
+    }
+  ],
+  "old_FAIL_preserved": true,
+  "broader_unproven": [
+    "Headless fixed-fps ticks only: no live performance/FPS/latency claim",
+    "One NPC per synthetic fixture; no crowd/path fairness or many-node scaling proof",
+    "Dynamic barrier appears during initially direct movement, not mid already-cached multi-waypoint path; moving-goal cache deviation remains untested",
+    "No investigate/noise/stun/death priority under active detour; LOS positive is direct pursuit/contact",
+    "Only actual unrotated rectangle collider; no unsupported/rotated/multi-shape negative",
+    "Whole tool/host/driver before-after freeze absent in runner; frozenGit and actual copied scripts independently rehashed here",
+    "No new open/U rerender after five-line bounds fix; prior positive data reused with explicit source-only delta"
+  ],
+  "full_H02_Readiness_P07_approved": false,
+  "actual_QA_Godot_Controller_Gitwrite_state_calls": 0
+}

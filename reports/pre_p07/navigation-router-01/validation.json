@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scope": "READINESS_H02_OPTIONAL_ROUTER_OPEN_AND_U_PATROL_COMPONENT_ONLY",
+  "diagnostic_completed": true,
+  "classification": "OPEN_AND_U_PATROL_ROUTES_COMPLETED",
+  "open_controls_reached": 3,
+  "U_route_unreached": 0,
+  "actual_engine_runs": [
+    {
+      "name": "import",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--editor",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/navigation-router-01/isolated_project/game",
+        "--quit"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "diagnostic",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/navigation-router-01/isolated_project/game",
+        "--script",
+        "res://tests/p07_navigation_routed.gd"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_unchanged": true,
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "driver_sha256": "f3e787c7700c6be4234681103f6e711d57116b7781301dadba730167996b904e",
+  "real_collision_AI_reused": true,
+  "P06_PASS_reopened": false,
+  "navigation_ready_for_P07": false,
+  "FPS_hardware_latency_or_playthrough_claim": false
+}
