@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "chapter": {
+    "id": "CH11_THE_DOG_WALKER",
+    "event_id": "EV_CH11_COMPLETE",
+    "title_ru": "Собачник",
+    "presentation": 11,
+    "chronology": 11,
+    "period": "present",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "TIMKA"
+    ],
+    "location": "planned_ch11",
+    "prerequisites": [
+      "EV_CH10_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "witness": {
+    "id": "EV_WITNESS_TRANSFER",
+    "chapter": "CH11_THE_DOG_WALKER",
+    "kind": "record",
+    "effects": {
+      "flags.witness_transfer": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "secret": {
+    "id": "EV_SECRET_JACK_REVENGE",
+    "chapter": "CH11_THE_DOG_WALKER",
+    "kind": "record",
+    "effects": {
+      "secrets.SECRET_JACK_REVENGE": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "later_verified_operations": {
+    "id": "EV_VERIFIED_OPERATIONS",
+    "chapter": "CH20_THE_ARCHITECT",
+    "kind": "record",
+    "effects": {
+      "evidence.illegal_operations": true
+    },
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "evidence.founding_records",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.witness_transfer",
+            true
+          ]
+        }
+      ]
+    },
+    "prerequisites": []
+  },
+  "identity_matches_draft": true,
+  "walk_window": "19:30–20:30; relative scene window only, no invented pending date/minute or OS-clock gating",
+  "Timka_present_catalog": {
+    "speed": 84,
+    "context_rules": {
+      "speed": 84,
+      "lethal": false,
+      "finishers": false,
+      "ability": "disengage"
+    },
+    "equipment": []
+  },
+  "actual_disengage": {
+    "file": "game/scripts/actors/character_player.gd",
+    "windup": 0.12,
+    "active": 0.24,
+    "recovery": 0.18,
+    "cooldown": 1.8,
+    "speed": 140,
+    "max_free_motion": 33.6,
+    "direction": "negative pinned action_aim",
+    "movement": "move_and_collide only during active overlap",
+    "damage_invulnerability_mask_change_or_teleport": false,
+    "ordinary_movement_during_cooldown_is_required_by_draft_not_actual_playtested": true
+  },
+  "paper_LOS": {
+    "observer": [
+      688,
+      576
+    ],
+    "transfer": [
+      848,
+      288
+    ],
+    "boundary_y": 512,
+    "portal_x": [
+      640,
+      736
+    ],
+    "segment_cross_x": 723.5555555555555,
+    "inside_portal": true,
+    "default_centered_camera_top": 396,
+    "transfer_y": 288,
+    "default_camera_target_outside_vertical_frame": true,
+    "draft_already_requires_authored_camera_framing_and_actual_readability_proof": true,
+    "actual_wall_thickness_colliders_pixels_or_camera_capture_verified": false
+  },
+  "Jack_runtime_or_sprite_created_claim": false,
+  "Jack_allowed_concept_source": "GAMEPLAY_SPEC proposed identities + explicit owner scope; production implementation remains HIGH dependency",
+  "witness_alone_grants_illegal_operations": false,
+  "D01_D06_mutated": false,
+  "WIFE_CALLING_condition_remains_unconditional": true,
+  "REAL_PRIME_other_conditions_unchanged": true,
+  "accepted_other_four_MDS_unchanged": true
+}

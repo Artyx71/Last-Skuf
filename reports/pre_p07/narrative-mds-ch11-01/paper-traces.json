@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "kind": "manual_document_trace_not_engine_test",
+  "traces": [
+    {
+      "name": "south_ordinary_escape_at_cooldown",
+      "steps": [
+        "DW0 Timka+Jack -> DW1 watch point",
+        "F -> shown transfer/allowed seen-skip -> durable EV_WITNESS_TRANSFER",
+        "safe paired CP1 before E3; resume lock then fixed warning/guard approaches",
+        "DW1 south around fence -> east portal y736..832 -> DW3 -> exit with Jack",
+        "DW11_HOME -> EV_CH11_COMPLETE/reward once"
+      ],
+      "requires_disengage_or_FIN_or_kills": false,
+      "actual_feel_or_success_proven": false
+    },
+    {
+      "name": "north_route",
+      "steps": [
+        "same witness/paired CP1",
+        "DW1 north portal -> DW2 -> east y320..416 -> DW3",
+        "avoid nearer west-facing guard, ordinary movement remains valid requirement",
+        "return with Jack, no teleport/follower shield -> exit/home/complete once"
+      ],
+      "actual_clearance_proven": false
+    },
+    {
+      "name": "failed_write_or_death",
+      "steps": [
+        "failed witness write does not falsely set event or complete chapter; scene/exit remain repeatable",
+        "death after durable witness does not roll event back",
+        "CP1 retry restores Timka+Jack safe pair and E3 stage/seed, no witness reward farm",
+        "before CP1 retry starts DW0 with standard seen-policy"
+      ],
+      "runtime_save_behavior_verified": false
+    },
+    {
+      "name": "secret_skip_or_take",
+      "steps": [
+        "optional safe point928,928 after CP1 outside threat LOS",
+        "skip -> main exit still available",
+        "completed scene/allowed seen-skip -> existing EV_SECRET_JACK_REVENGE once only",
+        "no immunity/combat exploit/damage/equipment/mandatory gate"
+      ],
+      "actual_safe_LOS_proven": false
+    }
+  ]
+}
