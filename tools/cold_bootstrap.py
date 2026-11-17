@@ -75,7 +75,7 @@ def atomic(path, data, mode=0o600):
         tmp.unlink(missing_ok=True)
 
 
-def readjson(path):
+def parsejson(raw):
     def pairs(items):
         d = {}
         for k, v in items:
@@ -83,7 +83,11 @@ def readjson(path):
                 raise Refused('Ambiguous JSON')
             d[k] = v
         return d
-    return json.loads(path.read_text(), object_pairs_hook=pairs)
+    return json.loads(raw, object_pairs_hook=pairs)
+
+
+def readjson(path):
+    return parsejson(path.read_bytes())
 
 
 def writejson(path, data):
@@ -174,15 +178,16 @@ class Bootstrap:
         relative = str(folder.relative_to(self.root))
         journal = readjson(checked(self.root, relative + '/journal.json'))
         intent = checked(self.root, relative + '/intent.json')
-        intent_sha = sha(intent.read_bytes())
+        intent_bytes = intent.read_bytes()
+        intent_sha = sha(intent_bytes)
         if journal.get('intent_sha256') != intent_sha or journal.get('id') != ident:
             raise Refused('Immutable intent binding failed')
         if journal.get('status') not in ('PREPARED', 'VERIFIED', 'ROLLED_BACK'):
             raise Refused('Invalid journal outcome')
-        record = readjson(intent)
-        if 'status' in record or record.get('schema') != 1 or record.get('kind') != 'BOOTSTRAP_A_NOT_BUNDLE':
+        record = parsejson(intent_bytes)
+        if set(record) != {'schema','kind','root','id','before','target','protected','lock'} or record.get('schema') != 1 or record.get('kind') != 'BOOTSTRAP_A_NOT_BUNDLE':
             raise Refused('Invalid immutable intent')
-        record = dict(record, status=journal['status'])
+        record = dict(record, status=journal['status'], intent_sha256=intent_sha)
         if record['root'] != str(self.root) or record['id'] != ident or record['lock'] != list(self.identity):
             raise Refused('Wrong maintenance identity')
         if any(checked(self.root, p).exists() for p in (B_MARKER, B_HISTORY)):
@@ -228,7 +233,7 @@ class Bootstrap:
         if fingerprint(runner) != target or self.protected(record['protected']) != record['protected']:
             raise Refused('Commit inputs changed')
         record['status'] = terminal
-        intent_sha = sha((folder / 'intent.json').read_bytes())
+        intent_sha = record['intent_sha256']
         writejson(folder / 'journal.json', {'id': ident, 'intent_sha256': intent_sha, 'status': terminal})
         self.hook('after_commit')
         # Commit and marker removal each require the original inode, immutable

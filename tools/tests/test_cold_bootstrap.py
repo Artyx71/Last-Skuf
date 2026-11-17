@@ -228,6 +228,31 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual((self.root / 'autopilot/config.json').read_bytes(), b'NEW CONFIG')
         self.assert_state()
 
+    def test_intent_hash_and_parse_use_the_same_bytes(self):
+        ident = self.begin()
+        intent = self.root / '.autopilot/bootstrap' / ident / 'intent.json'
+        original = intent.read_bytes()
+        real_readjson = cb.readjson
+        observed = []
+        def replace_during_path_parse(path):
+            # Old code hashed intent, then called readjson(path) and trusted a
+            # different read. Correct code parses the already hashed bytes.
+            if path == intent:
+                observed.append('unsafe_second_read')
+                d = json.loads(original)
+                d['protected'] = {}
+                intent.write_text(json.dumps(d))
+                try: return real_readjson(path)
+                finally: intent.write_bytes(original)
+            return real_readjson(path)
+        (self.root / 'autopilot/config.json').write_bytes(b'NEW CONFIG')
+        with Bootstrap(self.root).lease() as install:
+            with patch.object(cb, 'readjson', side_effect=replace_during_path_parse):
+                with self.assertRaises(Refused): install.finish(ident)
+        self.assertEqual(observed, [])
+        self.assertEqual(self.runner.read_bytes(), OLD)
+        self.assertTrue((self.root / cb.MARKER).exists())
+
     def test_candidate_must_be_exact_reviewed_build(self):
         with Bootstrap(self.root).lease() as install:
             with self.assertRaises(Refused): install.begin(NEW+b'\n', self.protected)
