@@ -17,6 +17,19 @@ RUNNER_B = 'd700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0'
 
 
 class CanonicalSourceTransfer(Bootstrap):
+    def relative_name(self, name):
+        if not isinstance(name,str) or not name or name != str(Path(name)) or Path(name).is_absolute():
+            raise Refused('Noncanonical relative path')
+        checked(self.root,name)
+        return name
+
+    def source_name(self, name):
+        self.relative_name(name)
+        parts=Path(name).parts
+        if len(parts)<2 or parts[0] not in PREFIXES or any(p in ('.godot','__pycache__') for p in parts):
+            raise Refused('Only canonical source file paths are writable')
+        return name
+
     def inventory(self):
         result = {}
         for prefix in sorted(PREFIXES):
@@ -71,9 +84,11 @@ class CanonicalSourceTransfer(Bootstrap):
         if not payloads or set(payloads) != set(expected_before):
             raise Refused('Explicit before state for every target, including absences, required')
         for name in payloads:
-            if Path(name).parts[0] not in PREFIXES or any(p in ('.godot','__pycache__') for p in Path(name).parts):
-                raise Refused('Only canonical game/tools source is writable')
-            checked(self.root,name)
+            self.source_name(name)
+        for name in protected:
+            self.relative_name(name)
+        if self.protected(expected_before) != expected_before:
+            raise Refused('Physical before state differs, including declared absences')
         current = self.inventory()
         if current != {p:f for p,f in expected_before.items() if f is not None}:
             raise Refused('Unknown/missing/modified source; preserve user changes')
@@ -134,8 +149,9 @@ class CanonicalSourceTransfer(Bootstrap):
         if set(data['before'])!=set(data['target']):
             raise Refused('Source path set changed')
         for name in data['target']:
-            if Path(name).parts[0] not in PREFIXES or any(p in ('.godot','__pycache__') for p in Path(name).parts):raise Refused('Escaped source target')
-            checked(self.root,name)
+            self.source_name(name)
+        for name in data['protected']:
+            self.relative_name(name)
         if self.protected(data['protected'])!=data['protected']:
             raise Refused('Protected state changed; never restore stale authority')
         baseline=self.verify_b(data['installed_b']);unchanged={p:v for p,v in baseline.items() if not p.startswith('tools/')}

@@ -162,6 +162,33 @@ class SourceTransferTests(unittest.TestCase):
             journal=root/'.autopilot/canonical-transfers'/ident/'journal.json'
             self.assertEqual(json.loads(journal.read_text())['status'],'PREPARED')
 
+    def test_alias_keys_refused_before_any_prepare_or_source_write(self):
+        for alias in ['game//old.gd','game/./old.gd','game/old.gd/']:
+            with self.subTest(alias=alias):
+                payloads=dict(self.payloads)
+                payloads['game/old.gd']=(self.root/'game/old.gd').read_bytes()
+                payloads[alias]=b'ALIAS WOULD OVERWRITE EXISTING TEST_ONLY'
+                before=dict(self.before);before[alias]=None
+                with CanonicalSourceTransfer(self.root).lease() as m:
+                    with self.assertRaisesRegex(Refused,'Noncanonical'):
+                        m.begin_transfer(payloads,before,self.kept_paths,self.proof)
+                self.assertEqual((self.root/'game/old.gd').read_bytes(),b'extends Node\n# OLD TEST_ONLY\n')
+                self.assertFalse((self.root/'.autopilot/canonical-transfers').exists())
+                self.assertFalse((self.root/source.MARKER).exists())
+
+    def test_recovery_checks_path_canonicality_even_with_consistent_hash_binding(self):
+        ident=self.prepare();folder=self.root/'.autopilot/canonical-transfers'/ident
+        intent=folder/'intent.json';data=json.loads(intent.read_text())
+        alias='game//old.gd';data['before'][alias]=None;data['target'][alias]=data['target']['game/old.gd']
+        raw=(json.dumps(data)+'\n').encode();intent.write_bytes(raw)
+        digest=hashlib.sha256(raw).hexdigest()
+        (folder/'journal.json').write_text(json.dumps({'id':ident,'intent_sha256':digest,'status':'PREPARED'}))
+        (self.root/source.MARKER).write_text(json.dumps({'id':ident,'intent_sha256':digest,'kind':'CANONICAL_SOURCE_TRANSFER'}))
+        with CanonicalSourceTransfer(self.root).lease() as m:
+            with self.assertRaisesRegex(Refused,'Noncanonical'):m.finish_transfer(ident,rollback=True)
+        self.assertEqual((self.root/'game/old.gd').read_bytes(),b'extends Node\n# OLD TEST_ONLY\n')
+        self.assertTrue((self.root/source.MARKER).exists())
+
     def test_write_fsync_rename_failures_preserve_pending(self):
         for syscall in ['fsync','replace']:
             with self.subTest(syscall=syscall),tempfile.TemporaryDirectory() as scratch:
