@@ -1,0 +1,76 @@
+{
+  "scope": "EXACT_CANDIDATE_HELPERS_PURE_FIXTURE_ONLY",
+  "source_sha256": "3a81cc81ff2bbc64093768625502bf82c0feb2f9f7aaa0e5795c2910ad796092",
+  "method": "Exact two AST function bodies compiled unchanged in explicit temporary namespaces. No Controller import/construction, no child subprocess, no engine or canonical state/Git writes. Integration applicability assessed separately from actual constructor/exclusive source calls.",
+  "rows": [
+    {
+      "name": "valid unchanged module-root control",
+      "target_role": "MODULE_ROOT",
+      "expected": "ADMITTED",
+      "actual": "ADMITTED",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "same-root pending blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "same-root loaded source change blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT runtime changed after import; start a fresh controller process"
+    },
+    {
+      "name": "same-root phase worktree blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "Run the controller from the canonical checkout, not a phase worktree"
+    },
+    {
+      "name": "phase-source library targeting another canonical root with pending install MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "ADMITTED",
+      "passed": false,
+      "error": null
+    },
+    {
+      "name": "canonical-source library targeting another canonical root with pending install MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "ADMITTED",
+      "passed": false,
+      "error": null
+    },
+    {
+      "name": "changed loaded source library targeting another canonical root MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "ADMITTED",
+      "passed": false,
+      "error": null
+    },
+    {
+      "name": "other target phase worktree remains denied",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "Run the controller from the canonical checkout, not a phase worktree"
+    }
+  ],
+  "passed": false,
+  "Controller_calls": 0,
+  "child_processes": 0,
+  "network_calls": 0,
+  "production_state_writes": 0
+}

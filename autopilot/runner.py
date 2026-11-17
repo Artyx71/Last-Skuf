@@ -48,16 +48,20 @@ _LOADED_RUNTIME=_runtime_signature()
 
 
 def _require_current_runtime(root):
-    # Library tests use temporary roots; production instances use this module's
-    # actual root. A separate worktree may never become a second authority.
-    if (Path(root)/'.git').is_file():
+    root=Path(root).resolve()
+    # A custom root must never bypass either the source or target transaction.
+    # Library fixtures have no installed runner; operational roots must load
+    # their own runtime instead of borrowing code from another checkout.
+    if (root/'.git').is_file():
         raise Blocked('Run the controller from the canonical checkout, not a phase worktree')
-    if Path(root).resolve()!=ROOT:
-        return
-    if HANDOFF_PENDING.exists() or HANDOFF_PENDING.is_symlink():
-        raise Blocked('AUTOPILOT handoff pending; repair/rollback is required')
+    for marker in {HANDOFF_PENDING,root/'.autopilot/HANDOFF_PENDING.json'}:
+        if marker.exists() or marker.is_symlink():
+            raise Blocked('AUTOPILOT handoff pending; repair/rollback is required')
     if _runtime_signature()!=_LOADED_RUNTIME:
         raise Blocked('AUTOPILOT runtime changed after import; start a fresh controller process')
+    entry=root/'autopilot/runner.py'
+    if root!=ROOT and (entry.exists() or entry.is_symlink()):
+        raise Blocked('Load the controller from the requested canonical checkout; cross-root runtime is forbidden')
 
 DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
 

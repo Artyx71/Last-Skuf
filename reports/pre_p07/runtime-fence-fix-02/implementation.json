@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "scope": "RF-Q01_CUSTOM_ROOT_ADMISSION_FIX_ONLY",
+  "reviewed_failure_sha256": "4e18386a37c747fe9e42f48c5ba0a25a6b107f78d116cea57e5db3a370f64d07",
+  "fix": "Always check both source and requested-root pending markers and loaded source fingerprint; operational target with installed runner must load its own code. Isolated library roots without runner remain supported, with no pending/source-change exemption.",
+  "new_tests": "four additional actual Controller subprocess fixtures: pending target, foreign operational runtime, stale source with custom fixture, pending source with custom fixture",
+  "old_execution": "runtime-fence-author-02 actual187pass beforefix; oldnegativeindependentFAIL preserved",
+  "installation_performed": false,
+  "readiness_or_phase_approval": false,
+  "tests_after_fix": "NOT_RUN"
+}

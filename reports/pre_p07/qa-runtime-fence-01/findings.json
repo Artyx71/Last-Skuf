@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "RF-Q01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "scope": "Implemented production runtime-admission fence with custom-root/SourceRoot library entry",
+      "path": "autopilot/runner.py",
+      "lines": "_require_current_runtime root!=ROOT early return; constructor/exclusive call sites",
+      "actual": "Exact candidate helper admits a production-shaped second canonical root with HANDOFF_PENDING; phase-source module .gitfile does not matter when Controller target differs. Same early return also admits a changed loaded source runtime for another canonical root.",
+      "repro": "pure-helper-probes.py + pure-helper-results.json rows4..6, exact AST bodies, temporary roots only; no Controller or process was invoked. Constructor and both exclusive admission calls delegate to this unchanged helper, so repeating it does not restore the skipped checks.",
+      "expected": "Production authority targets must receive pending/runtime/phase-source admission checks; arbitrary unequal-root must not be sufficient proof that target is a library fixture.",
+      "fix_guidance": "Make fixture exemption explicit and bounded, or reject unsupported production root targeting; check the production target pending marker and applicable source/canonical authority before any exemption. Preserve intentional isolated unit fixtures and canonical-only production callbacks. Add a two-root/phase-source→canonical-target regression.",
+      "limit": "No actual ROOT pending marker, Controller, lease, Game/state, install or GitHub endpoint was exercised. This is actual helper/control-flow evidence, not a claimed real installation bypass event."
+    }
+  ]
+}

@@ -147,6 +147,64 @@ else: raise AssertionError('not blocked')
         self.assertEqual(run.returncode, 0, run.stderr)
         self.assert_untouched()
 
+    def test_custom_target_pending_is_not_a_library_exemption(self):
+        run = self.probe("""
+import runner
+other=runner.ROOT/'other'
+(other/'autopilot').mkdir(parents=True)
+(other/'.git').mkdir()
+(other/'.autopilot').mkdir()
+(other/'autopilot/runner.py').write_bytes((runner.ROOT/'autopilot/runner.py').read_bytes())
+(other/'.autopilot/HANDOFF_PENDING.json').write_text('{"TEST_ONLY":true}')
+try: runner.Controller(other)
+except runner.Blocked as error: assert 'handoff pending' in str(error)
+else: raise AssertionError('cross-root pending target admitted')
+""")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assert_untouched()
+
+    def test_other_operational_root_must_load_its_own_runtime(self):
+        run = self.probe("""
+import runner
+other=runner.ROOT/'other'
+(other/'autopilot').mkdir(parents=True)
+(other/'.git').mkdir()
+(other/'autopilot/runner.py').write_bytes((runner.ROOT/'autopilot/runner.py').read_bytes())
+try: runner.Controller(other)
+except runner.Blocked as error: assert 'cross-root runtime' in str(error)
+else: raise AssertionError('foreign installed runtime admitted')
+""")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assert_untouched()
+
+    def test_stale_loaded_source_cannot_use_another_fixture_root(self):
+        run = self.probe("""
+import runner
+other=runner.ROOT/'library-fixture'
+other.mkdir()
+p=runner.ROOT/'autopilot/github.py'
+p.write_bytes(p.read_bytes()+b'\\n# changed TEST_ONLY\\n')
+try: runner.Controller(other)
+except runner.Blocked as error: assert 'runtime changed' in str(error)
+else: raise AssertionError('stale library source admitted')
+""")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assert_untouched()
+
+    def test_source_pending_cannot_be_avoided_with_another_fixture_root(self):
+        run = self.probe("""
+import runner
+other=runner.ROOT/'library-fixture'
+other.mkdir()
+runner.HANDOFF_PENDING.parent.mkdir()
+runner.HANDOFF_PENDING.write_text('{"TEST_ONLY":true}')
+try: runner.Controller(other)
+except runner.Blocked as error: assert 'handoff pending' in str(error)
+else: raise AssertionError('pending source admitted through custom root')
+""")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assert_untouched()
+
 
 if __name__ == '__main__':
     unittest.main()
