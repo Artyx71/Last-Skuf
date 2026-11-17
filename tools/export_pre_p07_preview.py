@@ -104,7 +104,7 @@ def main():
     (build / 'PLAY_LINUX.sh').chmod(0o755)
     shutil.copy2(ROOT / 'tools/preview_launchers/PLAY_WINDOWS.cmd', build / 'PLAY_WINDOWS.cmd')
     (build / 'README_RU.txt').write_text('PRE-P07 local DEV preview. P06 accepted; P07 campaign production not accepted.\n'
-        'Launch starts CH01 with room navigation. Escape/menu: F5 character combat, F6 cast.\n'
+        'Main menu: Enter CH01 with room navigation, F5 character combat, F6 cast.\n'
         'Only CH01 is a playable story chapter; CH11 specification is not a playable level.\n'
         'Separate profile; earlier DEV09 and user saves preserved. Windows runtime checked under Wine only.\n')
     result = {'schema': 1, 'scope': 'LOCAL_PRE_P07_DEV_PREVIEW_ONLY', 'passed': True,
