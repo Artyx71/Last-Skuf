@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "scope": "BOUNDED_TEGA_COMPONENT_CLOSURE_ONLY",
+  "findings": [
+    {
+      "id": "TEGA-L01",
+      "QA_reference": "TEG-Q03",
+      "status": "CLOSED_COMPONENT",
+      "evidence": [
+        "causal-closure-proofs.json",
+        "current-runtime-proofs.json"
+      ],
+      "reason": "Original range cases and full current bench foot-geometry eligibility after callbacks now reject stale motion."
+    },
+    {
+      "id": "TEGA-L02",
+      "QA_reference": "TEG-Q03",
+      "status": "CLOSED_COMPONENT",
+      "evidence": [
+        "QA08-proof-subset/clean-geometry/result.json",
+        "QA08-proof-subset/qa_tega_clean_geometry.gd",
+        "source-snapshot/game/scripts/systems/environment_kick_runtime.gd"
+      ],
+      "reason": "Clean listener does not call eligibility/force; production Core synchronizes current Node/PhysicsServer state and yields zero deltas/jobs."
+    },
+    {
+      "id": "TEGA-L03",
+      "QA_reference": "TEG-Q04",
+      "status": "CLOSED_COMPONENT",
+      "evidence": [
+        "QA08-proof-subset/physics-qualification/result.json",
+        "current-runtime-proofs.json"
+      ],
+      "reason": "Epoch/authority/id-qualified cleanup preserves new epoch7/id1 action; new F completes35.700012px without old ghost movement/damage."
+    }
+  ],
+  "blocking_findings": [],
+  "old_FAIL_decisions_unchanged": true,
+  "phase_approval": false
+}

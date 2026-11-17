@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "kind": "OWNER_APPROVED_SCOPE_EXCEPTION_NOT_PHASE_ACCEPTANCE",
+  "phase": "P06",
+  "actor_id": "timka",
+  "status": "APPROVED",
+  "recorded_utc": "2026-11-14T21:11:14.240699+00:00",
+  "owner_quote": "давай да",
+  "source": "Actual latest owner message accepting the immediately preceding explanation of Timka84 necessary cells instead96 and removal of unused knife/pistol/fire animations.",
+  "proposal": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
+  "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
+  "technical_addendum": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL_V2.md",
+  "technical_addendum_sha256": "d20a236d5c93d0186f83fcda98950aa9334a692923a0e275ddadcb295705c024",
+  "profile": "timka_supported_v1",
+  "source_cells": {
+    "world": 32,
+    "action": 28,
+    "finisher": 24
+  },
+  "total_source_cells": 84,
+  "excluded": [
+    "finish_sharp",
+    "finish_firearm",
+    "fire"
+  ],
+  "required_contexts": {
+    "peaceful_present": [
+      "world",
+      "action",
+      "implemented_disengage"
+    ],
+    "athletic_prime": [
+      "world",
+      "action",
+      "finisher_unarmed_blunt_environmental",
+      "implemented_clinch"
+    ]
+  },
+  "remaining_must_fix": [
+    "Environmental UP5 source family/readability finding",
+    "Per-context actual ability mechanics and clothing sockets",
+    "Independent source/runtime ART and GAMEPLAY/QA/Lead",
+    "Full P06 harness and real builds/current CI before merge"
+  ],
+  "moderation_rejection_preserved": true,
+  "retry_blocked_weapon_request": false,
+  "implementation_complete": false,
+  "phase_approval": false,
+  "merge_approval": false
+}

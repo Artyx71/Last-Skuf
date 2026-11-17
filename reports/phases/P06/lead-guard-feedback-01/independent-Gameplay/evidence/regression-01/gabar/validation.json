@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "GABAR_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "8fae8caff2af2d488e9e92435417184d5a98e878",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 124,
+  "checks_total": 124,
+  "actual_captures": 0,
+  "contacts": 37,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Gabar only; five other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gabar_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.199,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/guard-feedback-01/regression-01/gabar/commands.json",
+      "sha256": "89b139ff40aeee68327d4eb2ceb17e4d736c1b958d6e17a7e79c64d84d8d1586"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/regression-01/gabar/live/result.json",
+      "sha256": "91e38549a4ad2ce0e04f939e9244f89bce635e658eb7634caeadc2bd61c2c534"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/regression-01/gabar/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/guard-feedback-01/regression-01/gabar/source_hashes.json",
+      "sha256": "5eb703192e5b5e40fb7ad5a1da1ea249aaeaeb6c5994fe6bd4016fb980772237"
+    }
+  ]
+}

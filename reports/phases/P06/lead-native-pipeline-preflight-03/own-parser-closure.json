@@ -1,0 +1,365 @@
+{
+  "scope": "DRAFT8E_SOURCE_PARSE_PLAN_CLOSURE_ONLY_NO_GO_PENDING_QA03",
+  "source_commit": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+  "source_sha256": "6bdc3edd0ea4bebd2ad190d0bab9fe9a53522e9bd776f15fe17675de442ce7bc",
+  "five_process_functions_exact_to_independently_probed11f": [
+    {
+      "function": "enable_subreaper",
+      "source_segment_sha256": "4d38a604dd4134682bfb5b3ba4dd2813156a9fdda92720e7f20c3dfdee3d5fc0",
+      "exact_to_11f": true
+    },
+    {
+      "function": "owned_descendants",
+      "source_segment_sha256": "5009811cdab01e395b3328dbbba70046eb832be7df2e3923aface3d31482189d",
+      "exact_to_11f": true
+    },
+    {
+      "function": "live_descendants",
+      "source_segment_sha256": "72de8e51f13647d8df2113fef3ee37c6005a210b57c6fdaf757cd37081c18b51",
+      "exact_to_11f": true
+    },
+    {
+      "function": "stop_descendants",
+      "source_segment_sha256": "16d0bcfb2ed6de457c9760ad7276a634f1b0b136d76215b492ac522f650c7599",
+      "exact_to_11f": true
+    },
+    {
+      "function": "run_command",
+      "source_segment_sha256": "aadfcc35b2f026e7532e195b07719a1983781c21457642ce04da16cc29197f6e",
+      "exact_to_11f": true
+    }
+  ],
+  "unchanged_raw_QA02_parser_cases": [
+    {
+      "name": "valid_dict",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "valid_legacy_checks",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "valid_legacy_command",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "duplicate_root",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "escaped_duplicate",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "NaN",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "Infinity",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "exp_overflow",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "negative_exp_overflow",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "contradictory_exit1",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "exit_bool",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "exit_str",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "bare_legacy",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "false_legacychecks",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "legacy_name_int",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "legacy_log_int",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "legacy_name_list",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "argv_nonstring",
+      "expected": false,
+      "actual": false
+    }
+  ],
+  "real_child_report_format_controls": [
+    {
+      "path": "attempt1/gabar-combat-native-02/validation.json",
+      "sha256": "5da1c89743be948dadc65eff2a67e77a589c4f9bf8d89947b740e88b176c12ea",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "attempt1/olezhka-combat-native-01/validation.json",
+      "sha256": "ab4c58ad6dc35b73f1b7102be07adb4b2faa09e4af4cdfbfd8ba5309cca6ba5b",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "guard-feedback-01/native-03/validation.json",
+      "sha256": "7ee778f17faa061bbe8278740563324c30cc1ef5d4997c23e86d6babfa0339e5",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "timka-present-01/native-02/validation.json",
+      "sha256": "3274916bc66ef5a89017b71cf9182abfed1fcfc009828d4e4978de23d4599c10",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "timka-prime-01/native-03/validation.json",
+      "sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "ryzhik-roll-01/native-03/validation.json",
+      "sha256": "be585bde6dc654a6d5db1bac4d5bd090bec628a626f180c6b8930295126890a9",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "tega-environment-01/native-03/validation.json",
+      "sha256": "57da4543532eb476fc066fd026637fe2fc8742a027e6dd029421fb8d0ff72946",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "pasha-moving-shot-01/native-03/validation.json",
+      "sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "attempt1/cast-native-02/validation.json",
+      "sha256": "e656691770bd00a876df16a72c681500d0c424b06c595d78dcd7656a7da954e1",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "character-finisher-audio-01/native-02/validation.json",
+      "sha256": "d36d4dd4159232abcd816b3ba3798601b6c5266ea75e0c2a31feee3a7f3e47eb",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "baseline-after-deferral-01/regression/validation.json",
+      "sha256": "7ebdb4cbe631424854ad233b1adc43caae218362851ef310f4eb9448379e37fc",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "path": "native-baseline-after-deferral-02/validation.json",
+      "sha256": "384b1c0adb5e51684a384c8277628907268ac73da9c6728c5d86ea6dcfd72e18",
+      "expected": false,
+      "actual": false
+    }
+  ],
+  "native_plan_stages": [
+    {
+      "name": "gabar",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_gabar.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/gabar",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/gabar"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "olezhka",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_olezhka.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/olezhka",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/olezhka"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "counter_feedback",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_counter_feedback.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/counter_feedback",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/counter_feedback"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "timka_present",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_timka_present.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/timka_present",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/timka_present"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "timka_prime",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_timka_prime.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/timka_prime",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/timka_prime"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "ryzhik",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_ryzhik.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/ryzhik",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/ryzhik"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "tega",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_tega.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/tega",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/tega"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "pasha",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_pasha.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/pasha",
+        "--movie",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/pasha"
+      ],
+      "timeout": 600
+    },
+    {
+      "name": "cast",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_cast.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/cast"
+      ],
+      "timeout": 300
+    },
+    {
+      "name": "cast_large_text",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_cast.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/cast_large_text",
+        "--large-text"
+      ],
+      "timeout": 300
+    },
+    {
+      "name": "finisher_audio",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_finisher_audio.py",
+        "--headroom-only",
+        "--replay-only",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/finisher_audio"
+      ],
+      "timeout": 300
+    },
+    {
+      "name": "npc_baseline",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_npc_baseline.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/npc_baseline"
+      ],
+      "timeout": 420
+    },
+    {
+      "name": "combat_baseline",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p04g.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/out/combat_baseline",
+        "--build-output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-03/build/combat_baseline",
+        "--exports",
+        "--movie"
+      ],
+      "timeout": 2400
+    }
+  ],
+  "headless_plan_separate": true,
+  "source_freeze_main_logic_exact_to11f": true,
+  "process_probes_repeated": false,
+  "Game_or_engine_or_controller_mutations": false
+}

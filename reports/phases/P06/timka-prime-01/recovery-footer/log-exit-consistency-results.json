@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "scope": "READ_ONLY_FROZEN_HELPER_ON_ROOT_REBASED_ACTUAL_CACHE_ONLY",
+  "helper_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+  "cases": [
+    {
+      "case": "rebased_actual_native03_positive_control",
+      "accepted": true,
+      "error": null,
+      "value": {
+        "validation": "reports/native/validation.json",
+        "sha256": "bb7f4f8eba6ba98b3da8e796e47b24738201c1fd406fad73cc0cd66595ecc0db",
+        "source_head": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+        "checks": [
+          {
+            "passed": 304,
+            "total": 304
+          }
+        ],
+        "captures": 90,
+        "all_artifacts_verified": true
+      },
+      "validation_command_exit": 0,
+      "bound_command_exit": 0,
+      "log_last_nonempty_line": "exit_code=0"
+    },
+    {
+      "case": "rebound_live_log_last_exit17_but_both_commands_exit0",
+      "accepted": true,
+      "error": null,
+      "value": {
+        "validation": "reports/native/validation.json",
+        "sha256": "e0d6fd20dadae90d51d5e04a7d9a16c8254959f331cf39c0928c860deb33f793",
+        "source_head": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+        "checks": [
+          {
+            "passed": 304,
+            "total": 304
+          }
+        ],
+        "captures": 90,
+        "all_artifacts_verified": true
+      },
+      "validation_command_exit": 0,
+      "bound_command_exit": 0,
+      "log_last_nonempty_line": "exit_code=17"
+    }
+  ],
+  "actual_WORK_or_native_evidence_mutated": false,
+  "engine_Git_controller_network_calls": 0
+}

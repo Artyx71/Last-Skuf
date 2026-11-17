@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "kind": "AUTHOR_PRODUCTION_READINESS_AUDIT_PENDING_INDEPENDENT_LEAD",
+  "recorded_utc": "2026-11-14T22:41:33.190408+00:00",
+  "source_head": "6daa6e473dd4e536e71f10580b53c2bf591047da",
+  "overall": "NOT_READY_FOR_P07_MASS_PRODUCTION",
+  "P06_status": "IMPLEMENTING_NO_FULL_PASS",
+  "phase_status_changes": false,
+  "readiness_approval": false,
+  "P07_mass_production_allowed": false,
+  "nonconflicting_preparation_allowed": true,
+  "domains": [
+    {
+      "id": "combat",
+      "name": "Combat feel и добивания",
+      "implemented": "Существующий Core/once-ledger,5trainingcategories,weakYakuzaescape; Gabar sweptlunge/Olegparry до incomingdamage; legacyCH01grantfixed.",
+      "tests": [
+        "game/tests/p04g_test.gd",
+        "game/tests/contact_timing_test.gd",
+        "game/tests/yakuza_finisher_authority_test.gd",
+        "tools/verify_p06_gabar.py",
+        "tools/verify_p06_olezhka.py"
+      ],
+      "evidence": [
+        "reports/phases/P06/gameplay-yakuza-authority-fix-01/decision.json",
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/commands.json",
+        "reports/phases/P06/gameplay-combat-gate-audit-01/decision.json"
+      ],
+      "partial": "Только G/O дополнительные способности playable; все7 individual finisher/sound/pairedreaction matrix ещёне готовы.",
+      "blockers": [
+        "PR-C01"
+      ],
+      "P08_allowed": "Только дополнительные косметические варианты после базового PASS, не механика/контакт/звук."
+    },
+    {
+      "id": "animation",
+      "name": "Анимации игроков/NPC",
+      "implemented": "Шесть WORLD source sheets, G/O complete ownatlases; Timka supported32+28 source/adopted,9staticportraitsets; baseNPC reactions/goreFullReduced.",
+      "tests": [
+        "game/tests/character_frames_test.gd",
+        "game/tests/timka_layout_test.gd",
+        "game/tests/p04g_art_test.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/qa-timka-runtime-import-01/decision.json",
+        "reports/phases/P06/qa-timka-compact-02/decision.json",
+        "reports/phases/P06/asset_inventory.json"
+      ],
+      "partial": "Timka FINenv/style/context stance+abilities/sockets; Ryzhik/Tega/Pasha ACTION/FIN/ability; fullproductionwalk/overlaymatrix. Source approval ≠ actualanimation/finisher approval.",
+      "blockers": [
+        "PR-C01"
+      ],
+      "P08_allowed": "Необязательные дополнительные рисунки, если базовые complete иприняты."
+    },
+    {
+      "id": "ai",
+      "name": "Enemy AI и навигация",
+      "implemented": "Patrol/rusher/shooter FSM, LOS,telegraph,collision,noise investigation; реальныеAI32 в targetedregression.",
+      "tests": [
+        "game/tests/ai_test.gd",
+        "game/tests/contact_timing_test.gd",
+        "game/tests/restart_test.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/ai.log",
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/restart.log"
+      ],
+      "partial": "_walk_to задаёт прямой вектор до point; нет доказанного поиска обхода U-shaped препятствий/динамических дверей/многоэтажных маршрутов. Это static capability gap, не новый runtime-confirmed defect старого arenaAI.",
+      "blockers": [
+        "PR-H02"
+      ],
+      "P08_allowed": "Косметическая вариативность patrol, не required traversal/telegraph."
+    },
+    {
+      "id": "dialogue",
+      "name": "Диалоговая режиссура",
+      "implemented": "Typewriter/history/skipseen/portrait expressions/fictionalbleeps; отдельная P06session/campaignpauseguard; CH01director/source/view сохранены.",
+      "tests": [
+        "game/tests/dialogue_test.gd",
+        "game/tests/character_dialogue_test.gd",
+        "game/tests/character_lab_isolation_test.gd",
+        "game/tests/character_dialogue_reload.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/common-character-gate-02/logs/dialogue.log",
+        "reports/phases/P06/author-checks/timka-supported-runtime-02/isolation/validation.json",
+        "reports/phases/P06/owner-preview-20261115-01/preview.json"
+      ],
+      "partial": "9castdemonstrations не являются режиссурой21глав. Индивидуальные сценарии/cutscene beats иMDS ещё нужны.",
+      "blockers": [
+        "PR-H01"
+      ],
+      "P08_allowed": "Дополнительная косметическая polishподачи после обязательной постановки, не сюжетные сцены."
+    },
+    {
+      "id": "audio",
+      "name": "Музыкальные переходы",
+      "implemented": "ОдинAudioStreamSynchronized; EXPLORE/SUSPICION/COMBAT/CLEAR, beat/bar commit,fade/duck, boundedSFXpool; samepathselectidempotent иretryне вызываетmusic.stop/play. Старые2prototypeoriginalthemes приняты ранее владельцем.",
+      "tests": [
+        "game/tests/audio_test.gd",
+        "tools/audio_qa.py",
+        "tools/analyze_p04_audio.py",
+        "tools/analyze_p04g_audio.py"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/common-character-gate-02/logs/audio.log"
+      ],
+      "partial": "Старый45/45scheduler/APItest неhearing и не всеmissiontransitions. НовыеperheroSFX/missionmusic packages/realretryplayback+listening ещёнужны. Модель не заявляет слышимость.",
+      "blockers": [
+        "PR-C01",
+        "PR-H03"
+      ],
+      "P08_allowed": "Дополнительный mastering/варианты после принятого базового sounddesign; missingcues/abruptcuts неP08отговорка."
+    },
+    {
+      "id": "story",
+      "name": "Сюжетные флаги/сохранения",
+      "implemented": "Canonicalledger,atomicwrites,replayfork,routeplanning,4endingeligibility; historicalgraph6344partitionpaths/22828states/662778assertions, не полныйпереборinterleavings. CH01 playable, остальные20slots planned.",
+      "tests": [
+        "game/tests/story_registry_test.gd",
+        "game/tests/story_state_test.gd",
+        "game/tests/story_graph_test.gd",
+        "game/tests/story_integration_test.gd",
+        "game/tests/mission_test.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/common-character-gate-02/logs/story_state.log",
+        "reports/phases/P06/author-checks/common-character-gate-02/logs/story_graph.log",
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/mission.log"
+      ],
+      "partial": "21 реальная игровая ветка не проверена по схемному графу. 5canonicalsecrets+2новыхproposal; runtimecanonical не изменён. Перед интеграцией2 необходимы Narrative/Lead, explicitmigration/defaultfalse/историческиеendinggates unchanged.",
+      "blockers": [
+        "PR-H01",
+        "PR-H05"
+      ],
+      "P08_allowed": "Необязательная косметика журнала; deadlocks/savecorruption недопустимы."
+    },
+    {
+      "id": "ui",
+      "name": "UI/VHS/переходы сцен",
+      "implemented": "Эффектныеtoggles/масштабтекста; existingCH01pause/retry; F5/F6 иactualpackagedownerpreview22Linux/18Wine. Previewlauncherprofile изолирован.",
+      "tests": [
+        "game/tests/options_test.gd",
+        "game/tests/character_lab_isolation_test.gd",
+        "game/scripts/qa/owner_preview_smoke.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/common-character-gate-02/logs/options.log",
+        "reports/phases/P06/owner-preview-20261115-01/preview.json"
+      ],
+      "partial": "Oleg readabledefensewindow/Pashaammo-cd-recoveryHUD ещё не готовы; главы20 новыеtransition/cutscene designs.",
+      "blockers": [
+        "PR-C01",
+        "PR-H01"
+      ],
+      "P08_allowed": "ДополнительнаяVHSстилизация с off/readability gate, не исправление обязательного HUD."
+    },
+    {
+      "id": "performance",
+      "name": "Производительность/эффекты",
+      "implemented": "VFXlifetime/caps/pool иFullReducedlogic tested; историческийP04G native32actors/4800contacts/600realprocessframes baseline.",
+      "tests": [
+        "game/tests/p04g_test.gd",
+        "game/scripts/qa/p04g_replay.gd",
+        "game/tests/restart_test.gd"
+      ],
+      "evidence": [
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/p04g.log",
+        "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/restart.log"
+      ],
+      "partial": "Baselineна1050Ti/старыхasset fixtures не доказывает текущую P06campaign нагрузку/FPS/firstplaylatency. Новыеwallframe/profiling наrepresentativepilot+actualfirstplaytiming нужны.",
+      "blockers": [
+        "PR-H04"
+      ],
+      "P08_allowed": "Дополнительный cosmeticsqualityscaling, но не criticalleaks/stutter/непроходимость."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "PR-C01",
+      "priority": "Critical",
+      "scope": "Before P07",
+      "problem": "FullP06 sevenstyle/animation/sound/reaction/ability/context gates incomplete.",
+      "acceptance": "СуществующиеP06-CBT01..10 и6newheroes/7fixtures реально реализованы; source/nativeGameplay/ART/QA/Lead, once/settings/restart/build checks. Старые2goodhandlers переиспользовать."
+    },
+    {
+      "id": "PR-C02",
+      "priority": "Critical",
+      "scope": "Before automatic P07",
+      "problem": "Fullverify_p06.py отсутствует; ROOT/candidate runner safehandoff иновый ProductionReadiness/21MDS guard ещёне завершены. Текущий stopP06failclosed сохраняетзащиту.",
+      "acceptance": "Добавлены testedfailclosed gates: P06 fullPASS+confirmedmerge+exactReadinessPASS;21MDSLead approval beforemass; SHA/currentCI/protections. Preserve dirtyROOT/history/leases, no unsafehotswap."
+    },
+    {
+      "id": "PR-H01",
+      "priority": "High",
+      "scope": "Before mass chapter content",
+      "problem": "Шаблон/реестрсозданы, но20индивидуальныхMDS ещёнет; existingCH01spec needs P07fields. Ни21 спецификацияLeadapproved, ни fullchapterdialoguestaging не готовы.",
+      "acceptance": "Заполнить21содержательнуюMDS согласноtemplate, map/zones/spawns/encounters/character/music/story/flags/criteria; compareuniqueness, independentNarrative/Gameplay/Lead approveall21 beforemass. Не генерировать21пустуюкопию."
+    },
+    {
+      "id": "PR-H02",
+      "priority": "High",
+      "scope": "Before multiroom map mass production",
+      "problem": "Много-комнатнаяnavigation/dynamicdoor обходы не доказаны; observeddirectvectorsteering.",
+      "acceptance": "Дваrepresentativepilotlayout:U-shaped/dynamicdoor/choke иalternatepath, all3archetypes+7bodyclearance, reachable/objective/AIretrytests. Изменятьrouting adapter лишьприactualrepro, не переписыватьFSM."
+    },
+    {
+      "id": "PR-H03",
+      "priority": "High",
+      "scope": "Before corresponding chapter audio production/acceptance",
+      "problem": "Нет принятой per-chapter музыкальнойproduction matrix/новыхindividualhero cues; waveform/APIнеоценказвучания.",
+      "acceptance": "Pilotmusicfourstates→runtime/retrycontinuousclock/transition/volume/clipping/loopQA+actual listening; newmaterialstatus честный. Existingacceptedprototype sourceSHA сохраняется."
+    },
+    {
+      "id": "PR-H04",
+      "priority": "High",
+      "scope": "Before mass production and chapter acceptance",
+      "problem": "7–9h, actualcurrent input latency/idle/deaths/wallframeFPS наplannedmaps не измерены.",
+      "acceptance": "Сначалаinstrument+pilotbaseline, пороги/условия доacceptancerun; firstplaytestswithroute/death/AFK/skipcontext, p50/p95/p99; не использоватьfixedfps/physicsdelta какwallframe илиcalculation какduration."
+    },
+    {
+      "id": "PR-H05",
+      "priority": "High",
+      "scope": "Before production of two new secrets",
+      "problem": "Два новыхoptionalconcept draft разрешены владельцем, но поканеNarrative/Leadapproved инеruntimeинтегрированы.",
+      "acceptance": "ОтдельныйNarrative/Leadconceptapproval, затемполныеMDS/assets/tests иexplicit save schema migration сpreservation5oldsecrets/history/4endings; не добавлять новыеrequirementsREAL_PRIME без отдельногоstorydecision."
+    },
+    {
+      "id": "PR-M01",
+      "priority": "Medium",
+      "scope": "P07 chapter production / P08 final polish",
+      "problem": "Дополнительнаястилистика/необязательныеварианты иконкретныеchapter dialogues ещёproductionwork.",
+      "acceptance": "Соответствующийchapter narrative gate и planning/P08_TECH_DEBT.md; обязательные боевые/сюжетныефункции не переносить."
+    },
+    {
+      "id": "PR-L01",
+      "priority": "Low",
+      "scope": "Cosmetic",
+      "problem": "Необязательныеcosmetic blood/decal/VHS variants.",
+      "acceptance": "P08-VAR01/02/VHS01 actualassets/nativecomparison/settingsnoninterference/lifetime/caps/ARTQA; сейчаснеcompleted."
+    }
+  ],
+  "existing_accepted_phases": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P04G",
+    "P05"
+  ],
+  "new_duration_goal_minutes": [
+    420,
+    540
+  ],
+  "duration_status": "TARGET_NOT_MEASURED",
+  "canonical_story_unchanged": true,
+  "secret_registry": "21main +5canonicalsecret concepts+2proposed;not28playablemissions",
+  "independent_lead": "PENDING_SEPARATE_REVIEW_CONTEXT"
+}

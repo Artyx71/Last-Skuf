@@ -1,0 +1,127 @@
+{
+  "scope": "SEPARATE_FIX11_CLOSURE_DRAFT_ONLY_NO_NATIVE_PERMISSION",
+  "commit": "11f0666d7f9c62896f57a3980c1c4b1d2c9eb1af",
+  "source_sha256": "e06515fc2a02481cf345d46ee7a3037337f52bfe36b56ad74c135870680f72d9",
+  "negative_cases": [
+    {
+      "case": "pipe_parent_exit0",
+      "record": {
+        "argv": [
+          "/usr/bin/python",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/pipe_parent_exit0/wrapper.py",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/pipe_parent_exit0/child.json"
+        ],
+        "exit_code": 124,
+        "passed": false,
+        "seconds": 0.965,
+        "log_sha256": "3a1caa7aefc6a363eaa002f3b66f3ba515d1d1d2c93516159a89cf5a8575d3e7",
+        "descendant_cleanup": {
+          "unexpected_live_children": false,
+          "remaining_live_children": []
+        },
+        "cleanup_events": [
+          {
+            "unexpected_live_children": true,
+            "remaining_live_children": []
+          },
+          {
+            "unexpected_live_children": false,
+            "remaining_live_children": []
+          }
+        ]
+      },
+      "seconds": 0.9650645209912909,
+      "own_child_identity": {
+        "pid": 346255,
+        "start": "19113255"
+      },
+      "child_live_after_runner": false,
+      "emergency_own_cleanup_needed": false
+    },
+    {
+      "case": "silent_parent_exit0",
+      "record": {
+        "argv": [
+          "/usr/bin/python",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/silent_parent_exit0/wrapper.py",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/silent_parent_exit0/child.json"
+        ],
+        "exit_code": 0,
+        "passed": false,
+        "seconds": 0.43,
+        "log_sha256": "b58e9685ed28a04d6d317f42d8cf1ecca47df9b86240c8a6ef4ac2d3d5846182",
+        "descendant_cleanup": {
+          "unexpected_live_children": true,
+          "remaining_live_children": []
+        },
+        "cleanup_events": [
+          {
+            "unexpected_live_children": true,
+            "remaining_live_children": []
+          }
+        ]
+      },
+      "seconds": 0.429803153994726,
+      "own_child_identity": {
+        "pid": 346257,
+        "start": "19113351"
+      },
+      "child_live_after_runner": false,
+      "emergency_own_cleanup_needed": false
+    },
+    {
+      "case": "silent_parent_exit7",
+      "record": {
+        "argv": [
+          "/usr/bin/python",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/silent_parent_exit7/wrapper.py",
+          "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-native-pipeline-preflight-02/silent_parent_exit7/child.json"
+        ],
+        "exit_code": 7,
+        "passed": false,
+        "seconds": 0.428,
+        "log_sha256": "ddba251c61a58d48ae674c12b64677ce0b36eb9fe888e1050c345ece31cd0180",
+        "descendant_cleanup": {
+          "unexpected_live_children": true,
+          "remaining_live_children": []
+        },
+        "cleanup_events": [
+          {
+            "unexpected_live_children": true,
+            "remaining_live_children": []
+          }
+        ]
+      },
+      "seconds": 0.42829843299114145,
+      "own_child_identity": {
+        "pid": 346260,
+        "start": "19113395"
+      },
+      "child_live_after_runner": false,
+      "emergency_own_cleanup_needed": false
+    }
+  ],
+  "valid_control": {
+    "argv": [
+      "/usr/bin/python",
+      "-c",
+      "print(\"ordinaryfixture\")"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 0.368,
+    "log_sha256": "b048fabc755082e9330a3a4068a075ef1da021a8edf876ac833e42d13b538d19",
+    "descendant_cleanup": {
+      "unexpected_live_children": false,
+      "remaining_live_children": []
+    },
+    "cleanup_events": [
+      {
+        "unexpected_live_children": false,
+        "remaining_live_children": []
+      }
+    ]
+  },
+  "engine_or_Game_or_state_mutations": false,
+  "formal_QA2_and_Lead_final_pending": true
+}

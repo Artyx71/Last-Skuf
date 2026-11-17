@@ -1,0 +1,64 @@
+extends SceneTree
+## QA-only direct API/metadata adversaries, never input/visual/production evidence.
+const Frames=preload("res://scripts/actors/character_frames.gd")
+const Player=preload("res://scripts/actors/character_player.gd")
+const Lab=preload("res://scripts/core/character_lab.gd")
+var checks:Array[Dictionary]=[]
+var delta_results:Array=[]
+func _initialize()->void:call_deferred("run")
+func check(label:String,ok:bool)->void:
+ checks.append({"name":label,"passed":ok})
+ if not ok:push_error("FAIL QA_TIMKA_NEGATIVE "+label)
+func write_file(path:String,text:String)->void:
+ var f=FileAccess.open(path,FileAccess.WRITE);f.store_string(text);f.close()
+func snap(lab:Node)->Dictionary:
+ return {"id":lab.player.get_instance_id(),"authority":lab.scene_policy.action_authority(lab.player.actor_id),"epoch":lab.combat.encounter_epoch,"jobs":lab.combat.attacks.duplicate(true),"receipts":lab.combat.receipts.duplicate(true),"projectiles":lab.combat.projectiles.duplicate(true),"action":lab.player.action_kind,"cooldown":lab.player.ability_cooldown,"position":lab.player.position,"state":lab.state,"options":lab.options_panel.visible,"score":lab.score}
+func freeze(node:Node)->void:
+ node.set_process(false);node.set_physics_process(false)
+ for child in node.get_children():freeze(child)
+func run()->void:
+ var base="res://assets/art/characters/timka/"
+ var fin_path=base+"finisher.json";var fin=FileAccess.get_file_as_string(fin_path)
+ write_file(fin_path,"null")
+ check("finisher_loader_really_missing",Frames.finisher_frames("timka")==null)
+ var candidate=Player.new()
+ check("present_constructs_without_any_valid_FIN_metadata",candidate.prepare_fixture("timka_present") and candidate.authored_frames.get_animation_names().size()==32)
+ check("prime_denied_even_if_present_art_is_complete",not candidate.prepare_fixture("timka_prime") and candidate.authored_frames==null)
+ candidate.free();write_file(fin_path,fin)
+ var lab=Lab.new();root.add_child(lab);current_scene=lab;lab.auto_retry=false
+ await physics_frame;await process_frame;freeze(lab)
+ check("actual_Oleg_prepared",lab.select_fixture("olezhka_training"));freeze(lab)
+ check("actual_old_action_started",lab.player.use_ability())
+ lab._set_options_visible(true);var before=snap(lab)
+ var action_path=base+"action.json";var action=FileAccess.get_file_as_string(action_path)
+ write_file(action_path,"null")
+ check("missing_ACTION_refuses_selection",not lab.select_fixture("timka_present"))
+ check("missing_ACTION_preserves_existing_body_context_jobs_options",snap(lab)==before)
+ write_file(action_path,action)
+ var socket_path=base+"action.sockets.json";var socket=FileAccess.get_file_as_string(socket_path);var bad:Dictionary=JSON.parse_string(socket)
+ bad.sheet_sha256="0".repeat(64);write_file(socket_path,JSON.stringify(bad))
+ check("stale_garment_binding_refuses_selection",not lab.select_fixture("timka_present"))
+ check("stale_garment_preserves_existing_body_context_jobs_options",snap(lab)==before)
+ write_file(socket_path,socket)
+ check("restored_exact_metadata_selects_present",lab.select_fixture("timka_present"));freeze(lab)
+ await physics_frame;await process_frame
+ var p=lab.player
+ for deltas in [[0.13,0.23,0.18],[0.2,0.2,0.14],[0.4,0.14],[1.0]]:
+  p.reset(Vector2(320,300));p.set_aim(Vector2.RIGHT)
+  var mask=p.collision_mask;var layer=p.collision_layer;var start:Vector2=p.position
+  check("direct_ability_start_"+str(deltas),p.use_ability())
+  for dt in deltas:p._physics_process(dt)
+  var dist=start.distance_to(p.position)
+  check("overlap_bounded_"+str(deltas),dist<=33.601 and p.ability_distance<=33.601 and p.position.x<=start.x and absf(p.position.y-start.y)<0.001)
+  if deltas.size()>1:check("normal_cross_boundary_delta_integrates_exact_active_overlap_"+str(deltas),absf(dist-33.6)<0.03)
+  check("no_damage_or_collision_change_"+str(deltas),lab.combat.attacks.is_empty() and lab.combat.damage_events==0 and lab.score==0 and p.collision_mask==mask and p.collision_layer==layer)
+  delta_results.append({"deltas":deltas,"distance":dist,"ability_distance":p.ability_distance,"action":p.action_kind})
+  p.cancel_action();var stopped:Vector2=p.position;p._physics_process(0.1)
+  check("cancel_no_later_ghost_movement_"+str(deltas),p.position.distance_to(stopped)<0.001)
+ check("metadata_restored_byte_exact",FileAccess.get_file_as_string(fin_path)==fin and FileAccess.get_file_as_string(action_path)==action and FileAccess.get_file_as_string(socket_path)==socket)
+ root.remove_child(lab);lab.queue_free();await process_frame
+ var passed=checks.all(func(c:Dictionary):return c.passed)
+ var out=OS.get_environment("AYAY_QA_TIMKA_OUTPUT");var f=FileAccess.open(out.path_join("result.json"),FileAccess.WRITE)
+ f.store_string(JSON.stringify({"passed":passed,"scope":"QA_DIRECT_API_AND_ISOLATED_METADATA_ONLY","phase_approval":false,"checks":checks,"delta_results":delta_results},"  "));f.close()
+ print("RESULT QA_TIMKA_NEGATIVE passed=%d failed=%d"%[checks.filter(func(c:Dictionary):return c.passed).size(),checks.filter(func(c:Dictionary):return not c.passed).size()])
+ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if passed else 1)

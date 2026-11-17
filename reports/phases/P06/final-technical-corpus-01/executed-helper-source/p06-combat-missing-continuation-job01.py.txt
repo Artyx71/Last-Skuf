@@ -1,0 +1,50 @@
+import hashlib,json,subprocess,sys
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];W=R/'.autopilot/worktrees/P06';sys.path.insert(0,str(W/'tools'))
+import verify_p06 as p
+from continue_p06_native import verify_artifacts
+sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
+head=lambda:subprocess.check_output(['git','rev-parse','HEAD'],cwd=W,text=True).strip()
+Q=R/'reports/phases/P06/qa-combat-interruption-continuation-01'
+inputs={Q/'decision.json':'4d78ca82b60b28aa822fde22ea4a4a9e9b6148b58ab01cbb3c128a2ae6c76a03',Q/'expected-commands-manifest.json':'388811074ecc23bf1c35e95ca7e128ddc964d1cfb575d21473765eab04be283d',R/'reports/phases/P06/lead-full-phase-review-01/continuation-execution-only.json':'3c55a6f50408a3b904710c621a0937692098360e7b8677f1e727db45fd1084f0'}
+for f,h in inputs.items():assert sha(f)==h,f
+m=p.strict_report((Q/'expected-commands-manifest.json').read_text());q=p.strict_report((Q/'decision.json').read_text());assert q['verdict']=='PASS_COMPONENT_EXECUTION_ONLY' and q['phase_approval'] is False
+O=W/m['output'];B=W/m['build_output'];assert not O.exists() and not B.exists()
+before_path=W/m['full_source_before'];assert sha(before_path)==m['full_source_before_sha256'];before=p.strict_report(before_path.read_text());assert len(before)==1456
+contract_path=W/m['original_contract'];assert sha(contract_path)==m['original_contract_sha256'];contract=p.strict_report(contract_path.read_text());assert len(contract['artifacts'])==905
+receipt=R/'.autopilot/jobs'/m['interrupted_operation']/'receipt.json';assert sha(receipt)==m['interrupted_receipt_sha256'] and p.strict_report(receipt.read_text())['exit_code']==130
+assert len(m['completed_c5_records'])==1131
+prior=W/'reports/phases/P06/native-remaining5-02/validation.json';prior_sha=sha(prior);old=p.strict_report(prior.read_text());assert old['passed'] is False and len(old['stages'])==13 and all(x['passed'] is True for x in old['stages'][:12])
+def bound():
+ assert head()==m['source_head'] and p.inventory()==before
+ for f,h in inputs.items():assert sha(f)==h,f
+ assert sha(prior)==prior_sha and sha(receipt)==m['interrupted_receipt_sha256'] and sha(contract_path)==m['original_contract_sha256']
+ verify_artifacts(W,contract['artifacts']);verify_artifacts(W,m['completed_c5_records'])
+bound();O.mkdir(parents=True);B.mkdir(parents=True);(O/'logs').mkdir();p.write(O/'source_hashes_before.json',before);p.write(O/'reviewed_plan.json',m)
+commands=[];ok=True
+for planned in m['commands']:
+ bound();assert planned['cwd']==str(W)
+ print('START '+planned['name'],flush=True)
+ item=p.run_command(planned['argv'],O/'logs'/(planned['name']+'.log'),planned['timeout_seconds']);item['name']=planned['name'];commands.append(item);p.write(O/'commands.json',commands)
+ print('END '+planned['name']+(' PASS' if item['passed'] else ' FAIL'),flush=True)
+ if not item['passed']:ok=False;break
+ bound()
+checks={}
+if ok:
+ rows=p.strict_report((O/'p04_regression/validation.json').read_text());movie=p.strict_report((O/'p04_regression/movie_replay.json').read_text());audio=p.strict_report((O/'audio_detailed.json').read_text())
+ checks['P04_exact24_typed_rows']=len(rows)==24 and p.valid_report(O/'p04_regression/validation.json')
+ needed={'engine_replay','reduced_visual_replay','movie_replay','encode_movie','linux_export_replay','windows_export_replay','windows_wine_probe','detailed_audio_signal','sources_unchanged'}
+ checks['P04_all_requested_profiles_present']=needed<={x['name'] for x in rows}
+ checks['P04_actual_Movie_flag_and_MP4']=movie.get('passed') is True and movie.get('frame_timings',{}).get('movie_maker') is True and (O/'p04_regression/mission.mp4').is_file() and (O/'p04_regression/mission.mp4').stat().st_size>1000
+ exports=p.strict_report((O/'p04_regression/exports.json').read_text());checks['P04_two_actual_export_artifacts']=len(exports)==2 and all(x.get('artifact_present') is True and x.get('export_log_clean') is True for x in exports)
+ checks['C5_exact_five_numeric_scope']=audio.get('status')=='PASS_SIGNAL_AND_RETAINED_RUNTIME' and audio.get('runtime_expected_names')==m['completed_C5_profiles'] and set(audio.get('runtime',{}))=={n+'.wav' for n in m['completed_C5_profiles']}
+ checks['C5_all_typed_signal_checks']=bool(audio.get('checks')) and all(x.get('passed') is True for x in audio['checks'])
+ ok=all(checks.values())
+bound();after=p.inventory();p.write(O/'source_hashes_after.json',after)
+summary={'schema':1,'scope':'P06_MISSING_WRAPPER_AND_NUMERIC_CONTINUATION_ONLY','passed':bool(ok),'phase_approval':False,'merge_approval':False,'source_head':head(),'source_unchanged':before==after,'commands':commands,'checks':checks,'original130_receipt_preserved':{'path':str(receipt.relative_to(R)),'sha256':sha(receipt),'exit_code':130,'cause':'UNKNOWN'},'original905_and_completed1131_unchanged':True,'C5_or_first12_retake':False,'listening_performed':False,'native_Windows':'NOT_TESTED_WINE_SEPARATE','hardware_latency':'NOT_MEASURED'}
+p.write(O/'validation.json',summary)
+if ok:
+ stages=old['stages'][:12]+[{'name':'combat_baseline','passed':True,'origin':'COMPLETED_C5_CHILDREN_FROM_INTERRUPTED130_PLUS_REVIEWED_MISSING_CONTINUATION','completed_C5_parent':'reports/phases/P06/combat-movie-recovery-01/combat_baseline','supplement':str((O/'validation.json').relative_to(W)),'original_parent_overall_passed':False}]
+ p.write(O/'composed13.json',{'schema':1,'scope':'COMPOSED_TECHNICAL_EVIDENCE_ONLY_NOT_PHASE_REVIEW','passed':True,'phase_approval':False,'merge_approval':False,'source_head':head(),'source_unchanged':True,'stages':stages,'retained_proof_scope_explicit':True,'old_failures_and_interruptions_unchanged':True,'old_parent_report':{'path':str(prior.relative_to(W)),'sha256':prior_sha,'passed':False},'fresh_C01_numeric_closure':'ROOT/reports/phases/P06/qa-c01-tail02-signal-02/decision.json','independent_full_phase_review':'PENDING'})
+files=[{'path':str(f.relative_to(W)),'sha256':sha(f),'bytes':f.stat().st_size} for f in sorted(O.rglob('*')) if f.is_file()];p.write(O/'artifacts.json',files)
+print(json.dumps({'passed':summary['passed'],'checks':checks,'phase_approval':False}),flush=True);raise SystemExit(0 if ok else 1)

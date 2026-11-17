@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "V4_BOUNDED_RAW_JSON_AND_PHASE_CONTAINER_FIXES",
+  "actual_baselines": {
+    "production": {
+      "passed": 55,
+      "total": 55,
+      "exit_code": 0
+    },
+    "autopilot_regression": {
+      "passed": 47,
+      "total": 47,
+      "exit_code": 0
+    }
+  },
+  "independent_ingress_probes": {
+    "passed": 16,
+    "total": 16
+  },
+  "staged_controls": {
+    "passed": 23,
+    "total": 23
+  },
+  "old_adversarial_cases": {
+    "passed": 10,
+    "total": 10
+  },
+  "same_QA3_raw_verdict_actual_pipeline": {
+    "loader_blocked": true,
+    "validation_calls": 0,
+    "snapshot_count": 0,
+    "request_count": 0,
+    "raw_bytes_preserved": true
+  },
+  "malformed_findings_actual_pipeline": "VALID_JSON_LOADED_THEN_VALIDATION_AND_MERGE_BLOCKED_0_REQUESTS",
+  "second_snapshot_changed_ReadySHA_or_evidence": {
+    "cases": 2,
+    "snapshots_each": 2,
+    "request_count_each": 0
+  },
+  "newP07head_canonicalRoot_state_resolution": "PASS_TEMP_LINKED_WORKTREE",
+  "actual_network_or_engine_calls": 0,
+  "production_state_mutations_by_reviewer": 0,
+  "resolved_findings": [
+    "PG-C05",
+    "PG-C06"
+  ],
+  "must_fix": [],
+  "phase_approval": false,
+  "full_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false
+}

@@ -1,0 +1,13 @@
+# P06: два состояния Тимки — принятый компонент
+
+Lead02 PASS_COMPONENT на c193119deac0e5d65655e0cd97ced7fdf596eb6c, decision SHA932667a4a89296fde9ee2639e6088dc69a20b39caa1d3d059cfb406299d77272. Полная P06 IMPLEMENTING attempt1; P07/merge/release не разрешены.
+
+Современный present использует собственные WORLD/ACTION, отступление без урона и неуязвимости. Prime имеет собственные FIN24, готовую стойку, другие собственные кадры движения, силовой удар Space с нулевым damage и stun1.25 для earned grapple; F — только unarmed захват уязвимой цели через существующий Core once-token. Три разрешённые категории V и четыре направления проверены. Точная prepared-definition/ability блокирует подмену context/policy; современный Тимка не получает прайм. 84 рисунка и утверждённое исключение неизменны. Полной новой аудиоприёмки и семигеройной матрицы это не заменяет.
+
+Доказательства: headless03 214/214, native03 304/304 и90PNG, отдельный movie03 214/214, фактические3599frames/59.983333s. Runtime/source5899074, Game эквивалентен9b42/c193; native02/db84 также214/304/90 и3600frames. Независимые ARTbfe6a6d8/Gameplay37034514/mainQA9d69eb46; Lead01 FAIL769926cd нашёл несогласованный log footer. Исправлен helper, 15 pure-unit методов, footerQA c86a97b7 и Lead02 подтвердили closure TPR-L01. Нового GPU-прогона на c193 не заявляем: Game не менялся, CLI корректно отвергает старый cache как stale при текущем source-map. Сохранены ранний incomplete movie exit130, старый counter51/57 и исправленный57/57; старые FAIL не переписаны. Текущий Oleg тест меняет только unready key3→5, все assertions сохранены.
+
+DEV04 из9b42: настоящий Linux renderer29/29+6PNG, настоящий WindowsPE под Wine headless23/23. NativeWindows NOT_TESTED. Четыре fixtures: gabar_training,olezhka_training,timka_present,timka_prime; три heroIDs. ROOT/build/P06_DEV_20261115_04/PLAY_LINUX.sh и PLAY_WINDOWS.cmd; прежние сборки/профили сохранены. Не release, не доказательство hardwarelatency/FPS/listening.
+
+Пакеты шести независимых финальных/исторических ревью скопированы по portable manifests; 692 перечисленных файла проверены по SHA, отдельно manifests/decisions. См.review-transfer-verification.json. Отдельные внешние ROOT-relative references Lead требуют сохранения исходного corpus, не означают fresh run в другом пути. Корпус Timka-present и исторический исходный source-review сохранены отдельно.
+
+Следующая задача P06: исходные ACTION/FIN и настоящий collision-roll Рыжика. ROLL32 источник принят Art Reviewer; ACTION32 v1a прошёл канонический source-only pack, художественное ревью ожидается. Наличие PNG не открывает fixture. Затем Тега/Паша, собственные финальные cues/NPC matrix, fullverifier/readiness handoff и полный независимый phase gate.

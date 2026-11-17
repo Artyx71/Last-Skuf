@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
+  "updated_utc": "2026-11-16T21:27:02.242711+00:00",
+  "phase": "P06",
+  "formal_attempt": 1,
+  "status": "IMPLEMENTING",
+  "last_pass_phase": "P05",
+  "last_pass_pr": "https://github.com/Artyx71/Last-Skuf/pull/10",
+  "frozen_worktree_head": "63a8f11716b0b3c07436dec2d64db1609f5b8460",
+  "canonical_state": "ROOT/automation/phase_state.json",
+  "operation": {
+    "id": "eff2bf83ff07439898dd292821486bb3",
+    "task": "P06/audio-runtime-requested-scope-closure-01",
+    "argv": [
+      "/usr/bin/python3",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/p06-audio-runtime-scope-closure-job01.py"
+    ],
+    "argv_sha256": "97809858249a7877f50dccccc6cd8dfbad8d2eccdfbbde525abc9ed5bb2719b2",
+    "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "timeout": 240,
+    "stdin": "",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/eff2bf83ff07439898dd292821486bb3/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/eff2bf83ff07439898dd292821486bb3/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/eff2bf83ff07439898dd292821486bb3/started.json",
+    "status": "COMPLETED",
+    "consumed": true,
+    "input_sha256": "e8208e2e1086e9459839c7717f3ace56333c12f12f60aecaead5a6f57b13cfab",
+    "safe_retry": false,
+    "created_at": "2026-11-16T19:29:33+00:00",
+    "exit_code": 0
+  },
+  "independent_gates": {
+    "gameplay_controller": "All7 ownstyle components exist and scopedaccepted; current49negative/controllerregressionPASS; older changedshareddependencies getfreshnativepipeline, nooldrunfreshclaim",
+    "art": "Tega actual captured WORLD ART dcd902b4 accepted; Pasha actual captured WORLD ART c6767b48 accepted (all32/12loops/7joins/749frames/40PNG). No productioncombat/ability/fullphase approval.",
+    "full_QA": "Current49headless+FullReduced413each+NPC204 technicalpositive; pipelinecandidate13stages pendingindependentpreflight/freshfullrun; fullQA/phasePASSnotyet",
+    "full_Lead": "PENDING; no P06 PASS",
+    "input_QA": "strict672samplegate independentlyverified;14unit+1008faultinjections+12wrapper+2CIwiring; actualRyzhik1344samples pass",
+    "readiness_QA": "PASS_COMPONENT f3b8fbd0: independently actual56+21 headless in isolated ROOTcopy. Author Gabar124/Oleg164/isolation25+reload evidence inspected, not independently rerun. CIregistration mocked, not GitHubCI.",
+    "compact_QA": "b9484565 PASS_COMPONENT closesTC01/02",
+    "runtime_import_QA": "c50b9b92 PASS_COMPONENT 2207+102+30; notability/visual/phase",
+    "yakuza_scope_fix": "2a8da1c7 CLOSED_SCOPED_FIX independent actualbaseline11/10 andafter801/801",
+    "production_readiness": "b76fa63b FAIL_PREP07_ONLY;9tickets;priorPASS/P06attemptunchanged",
+    "two_optional_concepts": "Narrativef047ffba andLead179ae29f CONCEPT_ONLY_PASS;notcanon/MDS/runtime/readiness",
+    "production_guard": {
+      "status": "PASS_COMPONENT_NOT_ROOT_INSTALLED",
+      "QA": "f2c1d17647186ccc90f0aa5e0a6974924b48168b156b46311e1df998283dfb86",
+      "Lead": "de1fb9f5c33c382cf1db6f39d7a2843463862f1974036949fa25e7ca4184588d",
+      "tests": "55+47unit;16ingress/23stage/10oldindependent",
+      "closed": [
+        "PG-C01",
+        "PG-C02",
+        "PG-C03",
+        "PG-C04",
+        "PG-C05",
+        "PG-C06",
+        "PG-L05"
+      ],
+      "full_readiness_approval": false
+    },
+    "olezhka_guard_feedback": {
+      "status": "PASS_COMPONENT",
+      "ART": "7666fcc6fb8da035a206c945110314580c33e517a15fe92239508378f97bf200",
+      "Gameplay": "a896505e72a1642a219f8c6258b7c8f5267196c8d0683de67829f7719193d94c",
+      "QA": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
+      "Lead": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67",
+      "full_phase_approval": false
+    },
+    "timka_finisher_source": {
+      "status": "ACCEPTABLE_SUPPORTED_LAYOUT_SOURCE_CANDIDATE",
+      "review_sha256": "f3f8e29f760dff803500deaa0cb782169bad5c65402ad3547107d3040a870feb",
+      "FIN24_adopted": true,
+      "runtime_approval": false
+    },
+    "timka_present": {
+      "status": "PASS_COMPONENT",
+      "production_source": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+      "ART": "743fb701eb101f0509261f9a1ba5e9d1c05a54957f917952043d38aacaf0f064",
+      "Gameplay": "7e784deb11b976b0cf984dbd9803db3681786fd1934687352d42cf3624e9dcd9",
+      "QA": "757f7aa5560fe66bf9d4967384306853f757330ed27adab3982477ea62492dc4",
+      "Lead": "de6418fb51769ec3a86638de8ef0d7df85af80de4bb5d7d4bc6b898a2b6985e7",
+      "checks": "104headless/137native33PNG/104movie;7realCorecontacts",
+      "prime_approval": false,
+      "full_phase_approval": false
+    },
+    "timka_prime": {
+      "status": "PASS_COMPONENT",
+      "Lead": "932667a4a89296fde9ee2639e6088dc69a20b39caa1d3d059cfb406299d77272",
+      "ART": "bfe6a6d8e3eea478b25586b318371e5dd93c901e859ba5658325acdce5b5723e",
+      "Gameplay": "37034514ed9bd6e6d2d4a30a07849100f35b0c8f66af1eb5106c0307640c1ba2",
+      "QA": "9d69eb46e328a6b0c1650054e7c4efb7e13bb0f6cd2ffd01698560533ed15a74",
+      "footer_QA": "c86a97b7a4deeb1444005f1c31679391d51a55ccbfbde0f40a899eb01d3843d0",
+      "checks": "214headless/304native90PNG/214movie3599frames/15unit; actual589 evidence, Gameequivalence9b42/c193",
+      "full_phase_approval": false
+    },
+    "ryzhik_source": {
+      "ROLL": "ACCEPTABLE_SOURCE_CANDIDATE3678206e;exactadopted",
+      "ACTION": "ACCEPTABLE_SOURCE_CANDIDATE18636309;exactadopted",
+      "FIN1": "FAIL_SOURCE_ONLY796ba0b8 direction15/23/31 preserved",
+      "FIN2": "FAIL_SOURCE_ONLY9aecef29 preserved sleeves/head",
+      "FIN3": "ACCEPTABLE_SOURCE_CANDIDATE3a7bb218 exactadopted; other29raw/nativeexact; nofullbodyapproval",
+      "runtime_approval": false,
+      "phase_approval": false
+    },
+    "ryzhik_runtime": {
+      "status": "PASS_COMPONENT_NOT_FULL_PHASE",
+      "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+      "headless_checks": 311,
+      "native_checks": 439,
+      "native_PNG": 128,
+      "movie_checks": 311,
+      "movie_video_frames": 3513,
+      "movie_duration_seconds": 58.55,
+      "movie_sha256": "b32d70789ff24bf6afc997a65222e7da66779d2124d16ef7862ee721d67e9fa6",
+      "actual_Core_contacts": 61,
+      "fixture_registered": true,
+      "phase_approval": false,
+      "independent_component_approval": true,
+      "ART": "1bff5aa09a90cc7350316ac9af896082c5b38e4b3b301b58705b7c87a39aa72e",
+      "Gameplay": "bb8880ccace31061391289675412494d76917aaf3619438d504f034200194b21",
+      "current_source_approval": "UPv2a14200fc4 SOURCE_ONLY_NOT_RUNTIME",
+      "historical407_reviews": {
+        "ART": "2871c101ff8608f3182e02679b271c47217b6d1e1c3965a59fcc72d92effe054",
+        "Gameplay": "199b981dca95c001e118a0b1859fd1452719c7b19c2f466ab33743d2ad073cac",
+        "QA": "4c1dcef9f724b29149858e61046f9dd68c3b423fecc7ff930f82457a25835b1b"
+      },
+      "QA": "46b4b458f127fd60b0482eb9bfd322b4a8658a0415e276351c5f452861adef47",
+      "actual_clothing_overlay_poses": 8,
+      "Lead": "bd49a4ffe44a1874f5e252c6889a6d9850a6909db8d0598dbd62c95bdab659cc"
+    },
+    "tega_source_art": {
+      "action": "ef71ab4c0a6dea00d529ab7beb21934c09ad0bae88598264160c011f10cd7d88",
+      "finisher": "bb18d0809616647ca7746e7f96ac550a4a6571146e71f92dfa4e395d6acd8cae",
+      "scope": "SOURCE_ONLY"
+    },
+    "tega_lead01": {
+      "status": "FAIL_COMPONENT",
+      "sha256": "88896295546536b486bf7ff46dfa417650af7232145c213deb4f9190f1247cb4",
+      "must_fix": "TEGA-L01",
+      "subsequent_fix": "c8f4658",
+      "closure": "PENDING_QA07"
+    },
+    "tega_lead03": {
+      "status": "PASS_COMPONENT",
+      "sha256": "8d7e4bdfead1cc5cbd7b702780bee711f3faa6ab3b85afcfdfdc8c90eba46e7a",
+      "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+      "next_allowed": "Pasha within P06 only"
+    },
+    "pasha_sources": {
+      "status": "SOURCE_ONLY_ACCEPTED_EXACT_ADOPTED",
+      "action": "ebff5f140ad3dd9e58f5611d739a019af01327ee6f0d2fa5ab267bd63f3b346a",
+      "finisher": "3ea0df6971feded9db095719a445fe66a09a4ae9711b855d9f2390b9be38714a",
+      "moving_shot": "78b846e3e23825351e8302a0bdb16c088bbe7ebfcbcb2cbc676f3b86b7a0fd0d",
+      "runtime_approval": false
+    },
+    "pasha_runtime": {
+      "status": "ACTUAL_NATIVE_AND_QA_GREEN_AWAITING_FINAL_GP_QA_LEAD",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "native_checks": 581,
+      "movie_checks": 393,
+      "PNG": 188,
+      "movie_frames": 5661,
+      "movie_seconds": 94.35,
+      "movie_sha256": "bacc356864061fd5d902fa2a38150c73e9de9199547d3bb5ee0425330ffaa446",
+      "validation_sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+      "independent_Q03_actual_checks": [
+        393,
+        24,
+        16
+      ],
+      "phase_approval": false
+    },
+    "pasha_callback_targeted_closure": {
+      "status": "TARGETED_CLOSURE_PASS_ONLY",
+      "sha256": "ed2e40e15e3016532f9ba64f2a37510e863bed59d22f1f2cf4ede6a301e8c4ba",
+      "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+      "findings_closed": [
+        "GP-PAS-01",
+        "GP-PAS-02"
+      ],
+      "phase_approval": false
+    },
+    "pasha_QA02": {
+      "status": "FAIL_STALE_FOUR_EXPECTATIONS_FIXED_RECHECK_PENDING",
+      "source_head": "4156c96dd5d7d9ee55d1fc754d4a7df0e132f6fa",
+      "failure": "character_frames_test2203/2207 expects four now-complete actors missing",
+      "actual_green": "wall16/metadata24/Pasha393/combat43/contact48/P04G695/Yakuza21/restart68/Gabar124/Oleg164/counter58/present104/prime214/Ryzhik311/Tega305/readiness85/layout102+33/policy57/sourcepreview31",
+      "runtime_component_approval": false
+    },
+    "pasha_HUD_candidate": {
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "scope": "AUTHOR_NATIVE_PREFLIGHT_ONLY",
+      "checks": 18,
+      "actualPNG": 9,
+      "actual_meter_rect": [
+        380,
+        49,
+        144,
+        2
+      ],
+      "actual_opaque_NPC_pixels_under_meter": 0,
+      "validation": "reports/phases/P06/pasha-moving-shot-01/hud-preflight-01/validation.json",
+      "independent_ART_approval": false
+    },
+    "pasha_ART03": {
+      "status": "PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "sha256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+      "phase_approval": false
+    },
+    "pasha_final_subreviews": {
+      "status": "THREE_SUBREVIEW_AND_LEAD_PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "ART": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+      "Gameplay": "74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5",
+      "QA": "3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2",
+      "phase_approval": false
+    },
+    "pasha_Lead01": {
+      "status": "PASS_COMPONENT",
+      "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "decision_sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+      "review_sha256": "d69598f617461c5f9c9129c16c62811f13f13d167617381dd5ae8bb4b466390a",
+      "artifact_sha256": "46766a7d34c3756efc6f3570cd8eb3951d2e0bbab8c7f6ad7299d059808532c6",
+      "phase_approval": false,
+      "next_authorized": "remaining tasks inside P06 only"
+    },
+    "finisher_audio_C01": {
+      "status": "PASS_COMPONENT_FOR_PROTOTYPE",
+      "lead_sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+      "qa02_sha256": "eed5a827352d31cb7a830d2c3cc056e785ca75895c1170899bc30b511c505ba8",
+      "reviewed_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+      "new_cues": 20,
+      "legacy_Yakuza": 5,
+      "source_signal": "c69fe500",
+      "historical_fullInput_headless": 438,
+      "historical_fullInput_native": 518,
+      "fresh_targeted_native": 61,
+      "fresh_targeted_Input_routes": 3,
+      "fresh_PCM_checks": 199,
+      "DEV08_audit_checks": 49,
+      "stress_truepeak_dbTP": -1.7,
+      "PCM_rails": 0,
+      "owner_listening": "OLD_SOLO_GAMEPLAY_ACCEPTED_FOR_PROTOTYPE;newstress_not_explicitly_heard",
+      "agent_listening": false,
+      "phase_approval": false
+    },
+    "NPC_C09_source": "Historical ART_BLOCKED18df remains; owner58abd098 defers visual-only source/routing toP08, no P06visual prerequisite. Baseline correctness/actual NPC reactions still mandatory inP06.",
+    "current_baseline_QA": {
+      "status": "PASS_COMPONENT",
+      "decision_sha256": "7e5de205de9dc49b3213a6ba5bc1bb41249fbf98eab0833c171530652ea7c716",
+      "full_phase_approval": false
+    }
+  },
+  "merge_allowed": false,
+  "phase_approval": false,
+  "next_phase_allowed": false,
+  "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
+  "next_action": "IndependentexactGO on5stagecontinuation contractf933; preserveoriginalFAIL7positive/Pasha651controlledPASS; privacyv2 pending beforepublication",
+  "preserve": [
+    "ROOT dirty state/user changes",
+    "all prior PASS/failure evidence",
+    "private ignored raw references",
+    "formal attempt budget"
+  ],
+  "source_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "active_author": {
+    "scope": "SNAPSHOT_NOT_A_LEASE",
+    "canonical_authority": "ROOT/automation/phase_state.json",
+    "check_canonical_lease_before_resuming": true
+  },
+  "native02": {
+    "scope": "TIMKA_PRESENT_COMPONENT_ONLY",
+    "operation": "aa48250aa17740bdaf85d444216380c5",
+    "status": "CONSUMED_EXIT0",
+    "checks": "137native/104movie/33PNG/7Corecontacts",
+    "source_head": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+    "full_phase_approval": false
+  },
+  "recovery_evidence": "reports/phases/P06/resume/server-restart-recovery-20261114-01.json",
+  "saved_generated_candidates": {
+    "tega_world_v5d_native_sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f",
+    "tega_world_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED",
+    "pasha_left4_v3_native_sha256": "304adf39789af2282d26785ffdb882e69e725843fe99040be50f9b4876b0fc47",
+    "pasha_left4_status": "SINGLE_CELL12_SOURCE_ACCEPTED_ONLY",
+    "remaining_pasha_camera_generations_started": true,
+    "pending_generator_calls": 0,
+    "pasha_world_v3d_native_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
+    "pasha_world_v3d_status": "SOURCE_ACCEPTED_EXACT_ADOPTED_NATIVE_CAPTURED_ART_ACCEPTED",
+    "ryzhik_roll_source": "UPv2a SOURCE14200fc4 EXACT_ADOPTED; runtimeART02/GP02 accepted8ad; Leadpending",
+    "ryzhik_action_source": "EXACT_SOURCE_ADOPTED SOURCEART18636309; runtime pending",
+    "ryzhik_finisher_source": "SOURCE_ACCEPTED3a7bb218 EXACT_ADOPTED native04f92049; bothsourceFAILs preserved"
+  },
+  "latest_implementation_head": "0ef418677d5b5891e2c656b4e493efab3c13a992",
+  "persistent_runner": false,
+  "session_checkpoint": "OWNER_C09_VISUAL_DEFERRED_TO_P08_FULL_P06_VALIDATION_PENDING",
+  "owner_approved_scope": {
+    "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
+    "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
+    "status": "APPROVED_RECORDED_IN_SDD",
+    "implementation_status": "WORLD32_ACTION28_FIN24_AND_BOTH_CONTEXTS_COMPONENT_ACCEPTED; FULL_P06_PENDING",
+    "source_cells": {
+      "world": 32,
+      "action": 28,
+      "finisher": 24
+    },
+    "gameplay_or_phase_approval": false
+  },
+  "resolved_scope_dependencies": [
+    {
+      "component": "timka_finisher_UP4_reference",
+      "status": "HISTORICAL_REJECTION_EXCLUDED_FROM_REQUIRED_SCOPE",
+      "request_id": "2f18a694-ee56-482f-888a-361ee16f492d",
+      "no_retry_or_bypass": true,
+      "not_phase_approval": true
+    },
+    {
+      "component": "timka_supported_animation_exception",
+      "status": "OWNER_APPROVED_EXCEPTION_RECORDED",
+      "proposal": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
+      "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
+      "applied": true,
+      "not_phase_approval": true,
+      "implementation_status": "BOTH_CONTEXTS_COMPONENT_ACCEPTED; FULL_P06_PENDING"
+    }
+  ],
+  "open_findings": [
+    "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
+    "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
+    "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
+    "FullProductionReadiness FAIL b76fa63b unchanged"
+  ],
+  "pending_component_reviews": [],
+  "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+  "owner_preview": {
+    "directory": "ROOT/build/P06_DEV_20261116_08",
+    "standalone_copy": true,
+    "source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+    "Linux_renderer_checks": 81,
+    "Linux_PNG": 9,
+    "Wine_headless_checks": 72,
+    "native_windows": "NOT_TESTED",
+    "full_phase_approval": false
+  },
+  "latest_game_source_commit": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "previous_owner_preview": "DEV01..05 and profiles preserved",
+  "checkpoint_commit_before_metadata": "b25e604e1f2fe06059e252fd4d56558ede54788b",
+  "pending_generator_calls": 0,
+  "historical_native02": {
+    "operation": "c788ed6782ef4e5cbccc00cbff99523f",
+    "status": "CONSUMED_EXIT0",
+    "checks": "194/194",
+    "art_depth_finding": "INDEPENDENTLY_CLOSED_BOUNDED"
+  },
+  "source_dirty_author_fix_in_progress": false,
+  "component_checkpoint_history": [
+    {
+      "previous_source": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+      "previous_checkpoint": {
+        "phase_complete": false,
+        "pending_generator_calls": 0,
+        "last_full_phase": "P05",
+        "P06_PR": null,
+        "P06_export": "DEV05 actualLinux33/7PNG/Wine26;notfullphase",
+        "pending_component_reviews": [],
+        "full_phase_reviews": "P06_NOT_READY; RYZHIK_COMPONENT_LEAD_ACCEPTED",
+        "author_lease_released": false,
+        "canonical_checkpoint_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e"
+      },
+      "superseded_at": "2026-11-15T16:04:30.231732+00:00"
+    }
+  ],
+  "audio_C01_source_candidates": {
+    "status": "ACTUAL_SOURCE_CANDIDATES_ONLY",
+    "count": 20,
+    "directory": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/audio-pending/p06-finisher-v1/rendered-01",
+    "recipe": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.tools/audio-pending/p06-finisher-v1/render.py",
+    "recipe_sha256": "04ab31ad68ac9b949be17858eb06546cff5bdcb8520569a880cb90df3def7fc0",
+    "manifest_sha256": "74aee14ba1ce319e476634a5c81c6f2475bb9050406ec66e69d21a0081a60573",
+    "integrated_into_Godot": false,
+    "independent_signal_review": "PREPARING_REQUEST",
+    "actual_listening": "NOT_PERFORMED",
+    "artistic_approval": false,
+    "phase_approval": false,
+    "generator_calls_pending": 0,
+    "no_raw_photo_or_voice_upload": true,
+    "retained_original_Yakuza_cues": 5,
+    "present_Timka_new_finisher_cues": 0
+  },
+  "audio_C01_current": {
+    "status": "PASS_COMPONENT_FOR_PROTOTYPE",
+    "lead_sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+    "qa02_sha256": "eed5a827352d31cb7a830d2c3cc056e785ca75895c1170899bc30b511c505ba8",
+    "reviewed_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+    "new_cues": 20,
+    "legacy_Yakuza": 5,
+    "source_signal": "c69fe500",
+    "historical_fullInput_headless": 438,
+    "historical_fullInput_native": 518,
+    "fresh_targeted_native": 61,
+    "fresh_targeted_Input_routes": 3,
+    "fresh_PCM_checks": 199,
+    "DEV08_audit_checks": 49,
+    "stress_truepeak_dbTP": -1.7,
+    "PCM_rails": 0,
+    "owner_listening": "OLD_SOLO_GAMEPLAY_ACCEPTED_FOR_PROTOTYPE;newstress_not_explicitly_heard",
+    "agent_listening": false,
+    "phase_approval": false
+  },
+  "latest_owner_preview": {
+    "path": "ROOT/build/P06_DEV_20261116_08",
+    "linux": 81,
+    "Wine_headless": 72,
+    "native_windows": "NOT_TESTED",
+    "full_P06_approval": false
+  },
+  "C09_current": {
+    "status": "DEFERRED_BY_OWNER_TO_P08_SOURCE_STILL_UNACCEPTED",
+    "source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+    "source_native_sha256": "00955ed93b5ec38db1ce914c5f53771f1f0d31258a27b502d5defcf1936e374b",
+    "planned_FIN_wholepose_candidate_budget": 156,
+    "queue_prefix": "P06/C09-",
+    "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+    "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+    "phase_approval": false,
+    "source_ART01_sha256": "985592e6d599a9c1abc13703f4c7f71bd5385e5441e2dca688f821b4b4d7376e",
+    "source_ART02_sha256": "073430cdbf7c500d29d0eb4a57d1099cbc16e9d1d8289ebda0027d83e39e61c1",
+    "retained_new_source_poses": 19,
+    "unresolved_shooter_wholepose_cells": 4,
+    "tool_block_request_id": "09e29275-f3c1-49ed-95d9-24ae4e20719b",
+    "pending_reuse_feasibility": null,
+    "runtime_integration": false,
+    "source_package_complete": false,
+    "existing_P04_release_refs": 1,
+    "reuse_feasibility_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+    "source_ART03": "NOT_STARTED_NO_COMPLETE_PACKAGE",
+    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992",
+    "deferred_to": "P08-NPC-STYLE-01",
+    "required_before_P06_PASS": false,
+    "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+    "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a"
+  },
+  "owner_preview_history": [
+    {
+      "directory": "ROOT/build/P06_DEV_20261115_06",
+      "standalone_copy": true,
+      "source": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "Linux_renderer_checks": 40,
+      "Linux_PNG": 9,
+      "Wine_headless_checks": 31,
+      "native_windows": "NOT_TESTED",
+      "available_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "pasha_training",
+        "ryzhik_training",
+        "tega_training",
+        "timka_present",
+        "timka_prime"
+      ],
+      "full_phase_approval": false
+    }
+  ],
+  "historical_resume_findings": [
+    "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
+    "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
+    "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
+    "FullProductionReadiness FAIL b76fa63b unchanged",
+    "Pasha actual runtime/Input/finiteammo/HUD/art/evidence/reviews WIP; all7 individual sounds and NPC style matrix open"
+  ],
+  "latest_worktree_checkpoint": "b25e604e1f2fe06059e252fd4d56558ede54788b",
+  "privacy_evidence": {
+    "operation": "47fd8cc8473540deb4efd32eb765448c",
+    "exit_code": 0,
+    "all_tracked_sources_checked": true
+  },
+  "owner_NPC_visual_deferral": {
+    "decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+    "sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+    "debt_id": "P08-NPC-STYLE-01",
+    "scope_only": true,
+    "baseline_P06_gates_retained": true,
+    "phase_approval": false
+  },
+  "deferred_findings_P08": [
+    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
+  ],
+  "runtime_source_head": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "full_phase_approval": false,
+  "current_baseline_summary": "reports/phases/P06/current-baseline-summary-01/summary.json",
+  "native_pipeline_candidate": {
+    "head": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+    "status": "QA03_AND_LEAD03_EXECUTION_ONLY_GO_NOT_PHASE_PASS",
+    "stages": 13,
+    "outer_timeout": 7200,
+    "phase_approval": false,
+    "ROOT_installed": false,
+    "pure_tests": 6,
+    "old_failed_candidate": "454e5329b517f461e899760e0ba43156393f555c",
+    "QA03_sha256": "745469b173586b580a9f938eee645e6517e433aa23c7c36004ded758ba2352b8",
+    "full_native_actual": "NOT_RUN",
+    "Lead03_sha256": "461d67a41662da18df5be0a9efb6b4326c804def82572df200afdfe64f85fa40"
+  },
+  "runtime_source_qualification": "Productionruntime/assets unchanged; PashaQA replay changed by651/7a76, continuationtool new",
+  "pasha_diagnostic": {
+    "source": "651d730bfdf6750d92511b841256435eed2f6dd9",
+    "guard_source": "7a76f7bff2e583ae7a49bf3c6d23135740e6bc81",
+    "headless_checks": 401,
+    "native_checks": 589,
+    "movie_checks": 401,
+    "PNG": 188,
+    "QA_sha256": "ede0658a123bb2875f7d4e6fe41e5b30835119f974bd90f40db5be7acaef0eac",
+    "original_cause": "UNKNOWN",
+    "phase_approval": false
+  },
+  "native_continuation": {
+    "status": "PREFLIGHT_PENDING_NOT_RUN",
+    "source": "63a8f11716b0b3c07436dec2d64db1609f5b8460",
+    "contract_sha256": "f9335cc1c7bfa15563be43b5195a36701a6c9785ca487fc8aaed07f9439a45bb",
+    "reused7": true,
+    "new_targeted_Pasha": true,
+    "remaining5": "NOT_RUN",
+    "phase_approval": false
+  }
+}

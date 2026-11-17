@@ -1,0 +1,10 @@
+import sys,subprocess,json,os,hashlib
+from pathlib import Path
+w=Path.cwd();sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import GODOT,sources,write,ERRORS
+out=w/'reports/phases/P06/guard-feedback-01/import-01';out.mkdir(parents=True,exist_ok=False);before=sources();write(out/'before.json',before)
+profile=w/'.tools/p06-counter-import-01';profile.mkdir(parents=True,exist_ok=False);env=os.environ|{'XDG_CONFIG_HOME':str(profile/'config'),'XDG_DATA_HOME':str(profile/'data'),'AYAY_STORY_SAVE_PATH':str(profile/'story.json'),'AYAY_OPTIONS_PATH':str(profile/'options.json'),'AYAY_DIALOGUE_SAVE_PATH':str(profile/'dialogue.json')}
+argv=[str(GODOT),'--headless','--path',str(w/'game'),'--editor','--quit'];p=subprocess.run(argv,cwd=w,env=env,capture_output=True,text=True,timeout=100);log=p.stdout+p.stderr;(out/'import.log').write_text(log);after=sources();write(out/'after.json',after)
+added=sorted(set(after)-set(before));changed=sorted(k for k in before if k in after and before[k]!=after[k]);removed=sorted(set(before)-set(after));allowed={'game/scripts/ui/counter_feedback.gd.uid','game/tests/olezhka_feedback_replay.gd.uid'}
+ok=p.returncode==0 and not ERRORS.search(log) and set(added)<=allowed and not changed and not removed
+write(out/'result.json',{'scope':'EDITOR_UID_IMPORT_ONLY','phase_approval':False,'argv':argv,'exit_code':p.returncode,'added':added,'changed':changed,'removed':removed,'passed':ok});print(json.dumps({'passed':ok,'added':added,'changed':changed,'removed':removed}),flush=True);raise SystemExit(0 if ok else 1)

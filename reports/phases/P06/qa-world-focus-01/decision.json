@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "phase": "P06",
+  "review_kind": "independent_world_preview_focus_observability_and_native02_input_audit",
+  "reviewer": "/root/qa_resume_recovery",
+  "independent_review": true,
+  "status": "OBSERVABILITY_PATCH_AND_NATIVE02_ENGINE_INPUT_VERIFIED_SCOPE_ONLY",
+  "phase_approval": false,
+  "merge_allowed": false,
+  "next_phase_allowed": false,
+  "native02_input_replay_verified": true,
+  "manual_focus_behavior_approved": false,
+  "no_focus_efficacy_proven": false,
+  "old_failure_cause_proven": false,
+  "native02_freeze": "915e1c6b9672e55bed20d9de2bfb317ab09349aa",
+  "fixture_sha256": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+  "old01_still_failed": true,
+  "new_native02": {
+    "live_checks": "110/110",
+    "movie_checks": "70/70",
+    "live_png": 40,
+    "source_sha_entries_verified": 782,
+    "artifacts_verified": 49,
+    "actual_input_samples_per_capture": 672,
+    "actual_input_mismatches": 0,
+    "velocity_mismatches": 0,
+    "actual_avi_frames": 750,
+    "receipt_exit_code": 0,
+    "source_unchanged": true
+  },
+  "source_patch": {
+    "insertion_blocks": 4,
+    "gate_thresholds_and_input_driver_unchanged": true,
+    "input_reassertions_added": false,
+    "live_nofocus_flag_requested": false,
+    "movie_nofocus_flag_requested": true
+  },
+  "observed_focus": {
+    "live_true_samples": 672,
+    "movie_true_samples": 672,
+    "focus_events": 0,
+    "meaning": "nofocus request observed, no assertion that window became unfocused or that external focus interruption is solved"
+  },
+  "findings": [],
+  "limits": [
+    "No physical OS keyboard/manual focus acceptance",
+    "FLAG_NO_FOCUS efficacy/old passwordwindow causality unproven",
+    "No independent rerun of native game; actual saved evidence independently checked",
+    "No ART/audio/FPS/exports/full P06 acceptance; full verify_p06.py absent and runner handoff gap remains"
+  ],
+  "report_sha256": "8605880ee02ce1eb319116a106b915e49d2e41b488adeb42b12af60c6cda022d",
+  "artifacts_sha256": "77489b550c7dfadbd4191c7cc60e9d7bb69dc3852bbc388c83c30feed5a99f04",
+  "next": "Pass actual native02 captures to independent ART; retain native01 FAIL; continue scoped P06 tasks without phase/merge approval"
+}

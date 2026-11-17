@@ -1,0 +1,44 @@
+{
+  "scope": "TEGA_C8_CALLBACK_FIX_QA_ONLY",
+  "blocking_findings": [
+    "TEG-Q03",
+    "TEG-Q04"
+  ],
+  "findings": [
+    {
+      "id": "TEG-Q03",
+      "lead_cross_reference": "TEGA-L01",
+      "severity": "MEDIUM",
+      "status": "OPEN_PARTIAL_FIX",
+      "title": "Cached PhysicsServer shape can authorize movement at a different current Node transform",
+      "closed_part": "Original byteexact far-source/far-prop geometry8 now8/8; explicit LOS obstruction also stops safely.",
+      "remaining": "Unforced propNode+16Y: direct Shape2D.collide currentNodeFALSE,Nodebody(308,256)/shape(308,250),PhysicsServerbody(308,240)/shape(308,234),DirectSpaceState/runtime_nearfootTRUE. AfterCore SAMEtick propNode(308.700012,256) andactor+.700012,job1.",
+      "control": "Calling force_update_transform in QA callback updates PhysicsServerto256, directcollide/space/runtimefootFALSE; Corethenmoves0/job0. This control qualifies the missing production transform consistency; addingforceonlytoQA is not a fix.",
+      "evidence": [
+        "physics-qualification-07/result.json",
+        "physics-qualification-07/run.log",
+        "callback-extended/result.json",
+        "qa_tega_callback_physics.gd"
+      ],
+      "remediation": "Production must check actual current Node collision geometry consistently with its movement source; sync/validate current object transforms before spatial query or use direct current-shape narrow phase. Preserve existing full eligibility and fail-closed guards."
+    },
+    {
+      "id": "TEG-Q04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Old job cancellation can cancel a new same-kind action after reset reuses numeric attack id",
+      "actual": "Callback calls normal combat.reset()+player.reset(currentposition)+use_ability(), no manual cooldown override. Oldepoch6/id1; immediate newepoch7/id1, actionstartedTRUE/job1. AfterCore actionempty/id0/jobs0; replacement incorrectly canceled.",
+      "cause": "CombatSystem.reset clears next_attack_id=0. _stop_job compares only current authorized source+numericid, omits encounter epoch/action identity.",
+      "positive_control": "Previous extended callback cancelF→newshove is preserved correctly, so different-kind control alone was insufficient.",
+      "evidence": [
+        "physics-qualification-07/result.json",
+        "physics-qualification-07/run.log",
+        "qa_tega_callback_physics.gd",
+        "code-freeze/game/scripts/systems/environment_kick_runtime.gd",
+        "code-freeze/game/scripts/systems/combat_system.gd"
+      ],
+      "remediation": "Cancel only the exact old action/reservation, qualified by its encounter epoch and current authority/id (or equivalently strong unique identity); preserve replacement action/new job even when numeric ids repeat."
+    }
+  ],
+  "no_actual_damage_or_score_from_negative_cases": true
+}

@@ -1,0 +1,146 @@
+{
+  "actual_fresh_imports": {
+    "action": {
+      "alpha_mismatches": 0,
+      "hidden_RGB_mismatches": 21830,
+      "new_validator_accepted": true,
+      "old_validator_rejected": true,
+      "single_validation_usec_diagnostic_only": 6618,
+      "visible_RGB_mismatches": 0
+    },
+    "world": {
+      "alpha_mismatches": 0,
+      "hidden_RGB_mismatches": 25045,
+      "new_validator_accepted": true,
+      "old_validator_rejected": true,
+      "single_validation_usec_diagnostic_only": 7501,
+      "visible_RGB_mismatches": 0
+    }
+  },
+  "checks": [
+    {
+      "name": "world:raw_source_exact_under_old_and_new",
+      "passed": true
+    },
+    {
+      "name": "world:actual_visible_and_hidden_pixels_exist",
+      "passed": true
+    },
+    {
+      "name": "world:all_hidden_RGB_changes_allowed",
+      "passed": true
+    },
+    {
+      "name": "world:transparent_alpha0_to1_rejected",
+      "passed": true
+    },
+    {
+      "name": "world:opaque_alpha255_to254_rejected",
+      "passed": true
+    },
+    {
+      "name": "world:erase_visible_alpha_to0_rejected",
+      "passed": true
+    },
+    {
+      "name": "world:last_visible_pixel_RGB_tamper_rejected",
+      "passed": true
+    },
+    {
+      "name": "world:hidden_RGB_permission_does_not_mask_visible_tamper",
+      "passed": true
+    },
+    {
+      "name": "world:fresh_import_only_hidden_RGB_changed",
+      "passed": true
+    },
+    {
+      "name": "world:actual_old_rejection_and_new_acceptance",
+      "passed": true
+    },
+    {
+      "name": "action:raw_source_exact_under_old_and_new",
+      "passed": true
+    },
+    {
+      "name": "action:actual_visible_and_hidden_pixels_exist",
+      "passed": true
+    },
+    {
+      "name": "action:all_hidden_RGB_changes_allowed",
+      "passed": true
+    },
+    {
+      "name": "action:transparent_alpha0_to1_rejected",
+      "passed": true
+    },
+    {
+      "name": "action:opaque_alpha255_to254_rejected",
+      "passed": true
+    },
+    {
+      "name": "action:erase_visible_alpha_to0_rejected",
+      "passed": true
+    },
+    {
+      "name": "action:last_visible_pixel_RGB_tamper_rejected",
+      "passed": true
+    },
+    {
+      "name": "action:hidden_RGB_permission_does_not_mask_visible_tamper",
+      "passed": true
+    },
+    {
+      "name": "action:fresh_import_only_hidden_RGB_changed",
+      "passed": true
+    },
+    {
+      "name": "action:actual_old_rejection_and_new_acceptance",
+      "passed": true
+    },
+    {
+      "name": "finisher:raw_source_exact_under_old_and_new",
+      "passed": true
+    },
+    {
+      "name": "finisher:actual_visible_and_hidden_pixels_exist",
+      "passed": true
+    },
+    {
+      "name": "finisher:all_hidden_RGB_changes_allowed",
+      "passed": true
+    },
+    {
+      "name": "finisher:transparent_alpha0_to1_rejected",
+      "passed": true
+    },
+    {
+      "name": "finisher:opaque_alpha255_to254_rejected",
+      "passed": true
+    },
+    {
+      "name": "finisher:erase_visible_alpha_to0_rejected",
+      "passed": true
+    },
+    {
+      "name": "finisher:last_visible_pixel_RGB_tamper_rejected",
+      "passed": true
+    },
+    {
+      "name": "finisher:hidden_RGB_permission_does_not_mask_visible_tamper",
+      "passed": true
+    },
+    {
+      "name": "actual_runtime_world_and_action_load",
+      "passed": true
+    },
+    {
+      "name": "FIN_and_complete_combat_still_unavailable",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "phase_approval": false,
+  "schema": 1,
+  "scope": "HIDDEN_RGB_IMPORT_AND_ALPHA_VISIBLE_INTEGRITY_ONLY"
+}

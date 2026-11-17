@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "scope": "C01_BOUNDED_INDEPENDENT_TECHNICAL_COMPONENT_HEADROOM_CLOSURE02",
+  "status": "PASS_COMPONENT",
+  "reviewer": {
+    "agent": "/root/qa_resume_recovery",
+    "role": "INDEPENDENT_QA",
+    "author_of_production_audio_or_Game": false
+  },
+  "source_runtime_and_actual_DEV08": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "closed_findings": [
+    "C01-Q03"
+  ],
+  "prior_closed_findings_reused": [
+    "C01-P01",
+    "C01-P02",
+    "QA-H01 metadata correction"
+  ],
+  "mandatory_open_findings": [],
+  "own_actual_QA_job": {
+    "operation": "44134ae147ee4e39b41aae0b80d3685d",
+    "exit_code": 0,
+    "seconds": 10.21,
+    "receipt_sha256": "0a2dedc698e309b4324282a9639544385465be0d429459d86ed719cea06d08a3",
+    "log_sha256": "8fe4df34477809c8ee0a717b9528aaded881e9d9612510f36e216fbdf37518d0"
+  },
+  "actual_new_independent_offline_checks": {
+    "PCM": 199,
+    "DEV08": 49,
+    "extra_direct_aligned_PCM16_equality": 20
+  },
+  "actual_evidence": {
+    "new_native61_checks_with3_CoreInput_FIN": "independently audited actualcapturedrawrecords",
+    "new_solo20": "sourceNCC and old/new fit preserved, direct alignedstereoPCM16exact",
+    "new_stress8": "12active/12played/8drops each; fullfiletruepeak−1.7dBFS,0rails",
+    "DEV08": "actual ELF/PE hashes, source subset,4export/smoke logs,81Linux/72Wine/9PNG; not rerunbyQA"
+  },
+  "runtime_technical_approval": true,
+  "agent_listening_performed": false,
+  "agent_artistic_approval": false,
+  "owner_artistic_record": {
+    "sha256": "3b6b3c69004668ea73a5cc1102263e80abf2d2757952876dfbd234a4526752d9",
+    "status": "OWNER_REPORTED_PROTOTYPE_ACCEPTANCE_OF_ORIGINAL_F615_SOLO_AND_RUNTIME",
+    "stress_listening": "NOT_EXPLICIT",
+    "new_capture_listening": "NOT_CLAIMED",
+    "exact_original_solo_content_preserved": "20 aligned playedsource-duration stereoPCM16segments exact; wholeWAVtimingsdifferent"
+  },
+  "prior_FAIL_decisions_preserved": [
+    "658f4ef87158b1689f18ea0f51a4d5d1360b6a1ca30ffe93478e250491eec2a6",
+    "29a002f0b2068fedafded20840abf8926933d5e9d364300f01940254b49c09c4"
+  ],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "final_C01_Lead_approval": "Requires independent Lead aggregate decision; QA verdict istechnicalcomponentonly",
+  "native_Windows": "NOT_TESTED",
+  "FPS_or_hardware_latency": "NOT_MEASURED",
+  "new_or_current_Global_AUTOPILOT_installation": "NOT_REVIEWED"
+}

@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "scope": "FOCUS_OBSERVABILITY_SOURCE_PATCH_AND_EXISTING_EVIDENCE_ONLY",
+  "phase_approval": false,
+  "before_fixture_sha256": "de8683ac2fb50812e2f1292417dad81ba4fea63ac90bfce107842661281a8126",
+  "current_fixture_sha256": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+  "patch_sha256": "5fa1da97909944ac205f73e728f35d4cab7da437e6edd143b1ac72f11b218b6e",
+  "only_insertions": true,
+  "insertion_blocks": [
+    {
+      "tag": "insert",
+      "before_line_range": [
+        18,
+        17
+      ],
+      "after_line_range": [
+        18,
+        22
+      ],
+      "inserted_text": "var focus_events: Array[Dictionary] = []\nvar movie_window_no_focus_requested := false\n\nfunc note_focus(focused: bool) -> void:\n focus_events.append({\"focused\":focused,\"physics_tick\":Engine.get_physics_frames(),\"wall_usec\":Time.get_ticks_usec(),\"sequence\":sequence})\n",
+      "removed_text": ""
+    },
+    {
+      "tag": "insert",
+      "before_line_range": [
+        68,
+        67
+      ],
+      "after_line_range": [
+        73,
+        76
+      ],
+      "inserted_text": " var actual_input := Input.get_vector(\"move_left\",\"move_right\",\"move_up\",\"move_down\")\n at[\"input_vector\"] = [actual_input.x,actual_input.y]\n at[\"run_pressed\"] = Input.is_action_pressed(\"p06_preview_run\")\n at[\"window_focused\"] = root.call(\"has_focus\") if root.has_method(\"has_focus\") else null\n",
+      "removed_text": ""
+    },
+    {
+      "tag": "insert",
+      "before_line_range": [
+        80,
+        79
+      ],
+      "after_line_range": [
+        89,
+        96
+      ],
+      "inserted_text": " if not headless and not capture_images:\n  # MovieMaker is an automated engine-Input replay, not a manual keyboard test.\n  # Keep its rendering window out of desktop focus changes; losing focus can\n  # otherwise release a scripted held key midway through a recorded segment.\n  root.set_flag(Window.FLAG_NO_FOCUS,true)\n  movie_window_no_focus_requested = true\n if root.has_signal(\"focus_entered\"): root.connect(\"focus_entered\",func():note_focus(true))\n if root.has_signal(\"focus_exited\"): root.connect(\"focus_exited\",func():note_focus(false))\n",
+      "removed_text": ""
+    },
+    {
+      "tag": "insert",
+      "before_line_range": [
+        166,
+        165
+      ],
+      "after_line_range": [
+        183,
+        185
+      ],
+      "inserted_text": " result[\"focus_events\"] = focus_events\n result[\"focus_observation\"] = \"Window focus signals and actual movement/run input sampled; no input reassertion or timing changes\"\n result[\"movie_window_no_focus_requested\"] = movie_window_no_focus_requested\n",
+      "removed_text": ""
+    }
+  ],
+  "headless_checks": [
+    {
+      "version": "01",
+      "validation_sha256": "ab6598c1642b2c47ba5d445a395ce680fae3e78d237486fc6c655bae44c51965",
+      "validation_passed": true,
+      "checks_passed": 70,
+      "checks_total": 70,
+      "source_unchanged": true,
+      "recorded_fixture_sha256": "19a413e202cb6f3e14ea17f6beb0d854a0887fde53845ea165e9999125f783e7",
+      "artifact_sha_mismatches": [],
+      "trace_count": 672,
+      "expected_input_samples": 672,
+      "all_trace_observability_fields": true,
+      "input_state_mismatches": [],
+      "focus_event_count": 0,
+      "focus_values": {
+        "True": 672
+      },
+      "movie_window_no_focus_requested": null,
+      "renderer": "headless",
+      "movie_recorded": false
+    },
+    {
+      "version": "02",
+      "validation_sha256": "8df774a419b4d8ec27630243bb244aa97b77ba175524ea3eece629b4bac15876",
+      "validation_passed": true,
+      "checks_passed": 70,
+      "checks_total": 70,
+      "source_unchanged": true,
+      "recorded_fixture_sha256": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+      "artifact_sha_mismatches": [],
+      "trace_count": 672,
+      "expected_input_samples": 672,
+      "all_trace_observability_fields": true,
+      "input_state_mismatches": [],
+      "focus_event_count": 0,
+      "focus_values": {
+        "True": 672
+      },
+      "movie_window_no_focus_requested": false,
+      "renderer": "headless",
+      "movie_recorded": false
+    }
+  ],
+  "failed_native01": {
+    "validation_passed": false,
+    "live_passed_checks": 110,
+    "live_total": 110,
+    "live_png": 40,
+    "movie_passed_checks": 67,
+    "movie_total": 70,
+    "movie_failed_checks": [
+      {
+        "details": {
+          "distance": 8.39996337890625
+        },
+        "name": "movement:walk_down",
+        "passed": false
+      },
+      {
+        "details": {},
+        "name": "actual_animation_phase:walk_down:2",
+        "passed": false
+      },
+      {
+        "details": {},
+        "name": "actual_animation_phase:walk_down:3",
+        "passed": false
+      }
+    ],
+    "first_walk_animation_samples": {
+      "walk_down": 6,
+      "idle_down": 30
+    },
+    "first_walk_ticks": [
+      58,
+      93
+    ],
+    "first_idle_sample": {
+      "animation": "idle_down",
+      "frame": 0,
+      "physics_tick": 64,
+      "position": [
+        320.0,
+        191.199951171875
+      ],
+      "sequence": "grid",
+      "velocity": [
+        0.0,
+        0.0
+      ],
+      "visual_origin": [
+        320.0,
+        165.0
+      ],
+      "wall_usec": 2314152
+    },
+    "old_receipt_sha256": "162b02138790ff3f5a4091c2dbd5d0df3d7d5f0c85dc10647ab708223e77a136",
+    "old_receipt_exit_code": 1,
+    "old_receipt_log_sha_valid": true,
+    "native01_probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mjpeg",
+          "avg_frame_rate": "60/1",
+          "duration": "12.500000",
+          "nb_frames": "750",
+          "nb_read_frames": "750"
+        }
+      ]
+    }
+  },
+  "new_native02_evidence_reviewed": false,
+  "window_cause": "Unknown owner-reported passwordwindow identity; source of original release unproven",
+  "test_input_kind": "actual Godot Engine Input.parse_input_event, not physical OS keyboard",
+  "exact_unchanged_regions": {
+    "production_preview_actor_entire_class": true,
+    "input_driver_frames_and_record_functions": true,
+    "all_grid_continuous_movement_and_coverage_gates": true,
+    "failure_recording_shutdown_suffix": true
+  },
+  "source_boundary_observation": "Only MovieMaker/non-headless branch requests FLAG_NO_FOCUS before key injection; live/manual branch gains observers only, no flag request",
+  "headless_limit": "Neither70/70 headless run executes native FLAG_NO_FOCUS branch; fresh frozen native02 mandatory to assess backend behavior",
+  "native01_recorded_source_deltas": [
+    "game/tests/character_world_preview.gd"
+  ],
+  "native01_artifact_hash_mismatches": [],
+  "native01_validation_artifacts_checked": 46
+}

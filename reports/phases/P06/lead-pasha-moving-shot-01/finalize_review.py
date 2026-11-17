@@ -1,0 +1,100 @@
+from pathlib import Path
+import json, hashlib, subprocess, datetime
+R=Path('/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0')
+W=R/'.autopilot/worktrees/P06'; P=R/'reports/phases/P06/lead-pasha-moving-shot-01'
+def sha(p):
+ h=hashlib.sha256()
+ with p.open('rb') as f:
+  for b in iter(lambda:f.read(1048576),b''): h.update(b)
+ return h.hexdigest()
+def put(n,d): (P/n).write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+def read(n): return json.loads((P/n).read_text())
+freeze=read('source-freeze.json')
+assert subprocess.check_output(['git','-C',str(W),'rev-parse','HEAD'],text=True).strip()==freeze['source_head']=='b359747361c6ac76ccfc0cc8ff262c8327cf33e4'
+for k,v in freeze['source_hashes'].items(): assert sha(W/k)==v,k
+refs=read('external-reference-bindings.json')
+for e in refs['references']:
+ p=R/e['root_relative_path']; assert p.stat().st_size==e['bytes'] and sha(p)==e['sha256'],str(p)
+# Supplemental immutable report and independently inspected image bindings; no user profiles.
+extras=[W/'reports/phases/P06/pasha-moving-shot-01/native-03/validation.json']
+for role in ['art','gameplay','qa']:
+ d=R/f'reports/phases/P06/{role}-pasha-moving-shot-03'
+ for n in ['portable-manifest.json','artifacts.json','FINAL_HASHES.json','review.md','decision.json']:
+  if (d/n).is_file(): extras.append(d/n)
+for n in ['art-pasha-moving-shot-01','art-pasha-moving-shot-02','qa-pasha-moving-shot-01','qa-pasha-moving-shot-02','gameplay-pasha-moving-shot-02']:
+ extras.append(R/f'reports/phases/P06/{n}/decision.json')
+seen={e['root_relative_path'] for e in refs['references']}
+for p in extras:
+ rel=str(p.relative_to(R))
+ if rel not in seen: refs['references'].append({'root_relative_path':rel,'sha256':sha(p),'bytes':p.stat().st_size}); seen.add(rel)
+refs['references'].sort(key=lambda e:e['root_relative_path']); put('external-reference-bindings.json',refs)
+put('final-rehash.json',{'source_head':freeze['source_head'],'recorded_source_keys_exact':len(freeze['source_hashes']),'external_immutable_files_rehashed':len(refs['references']),'same_recorded_inventory_only':True,'new_unrecorded_files_not_asserted_frozen':True,'Lead_engine_runs':0,'WORK_writes':0,'canonical_controller_writes':0,'remote_requests':0,'new_C01_audio_candidates_excluded':True})
+closures=[
+ {'id':'GP-PAS-01','status':'CLOSED_WITHIN_COMPONENT','proof':'Original unchanged impact-reset probe failed 3/5 at baseline, passes 5/5 clean at 17b. Raw same-tick epoch reset leaves zero stale contacts, costs, jobs, projectiles and effects. Current Core byte-exact; all 1313 non-UI recorded keys exact17b. Fresh b359 callback replay also accepted.','fresh_b359_original_probe_rerun':False},
+ {'id':'GP-PAS-02','status':'CLOSED_WITHIN_COMPONENT','proof':'Baseline 7/7 assertions with SCRIPT ERROR was rejected. Original unchanged target-free frame callback now 7/7 clean at17b. Variant/liveness checks precede typed access after animation callback; no FIN debit or reward. Reservation pruning is eventually checked, not asserted immediate same-tick zero. Current runtime exact17b.','fresh_b359_original_probe_rerun':False},
+ {'id':'PQ-W01','status':'CLOSED_WITHIN_COMPONENT','proof':'Fresh b359 16/16 wall checks cover actual muzzle and travelling-projectile audio resets. Both ordinary branches show .15 flash; reset branches show epoch+1, flash0, last-position0, jobs/projectiles0 and restored ammo4.'},
+ {'id':'PASHA-HUD-ARENA-OCCLUSION-01 / PQ-HUD01','status':'CLOSED_FOR_RECORDED_CONFIGURATIONS','proof':'Original ART01/02 and GP02 HUD failures preserved. b359 changes only meter y25→23 and width244→144 from17b. Actual rectangle x380..523/y49..50; independent nine-state alpha-pixel test reports zero NPC opaque pixels under bar. Personally viewed eight final native03 images plus separate actual cooldown preflight and fresh movie frames. No guarantee for arbitrary future camera/NPC placement.'},
+ {'id':'PQ-FR01','status':'CLOSED_WITHIN_COMPONENT','proof':'Historical 2203/2207 stale own-art null expectations retained; 17b actual2215/2215 adds own sheet/actor identity and missing/incomplete-resource negatives. Exact runtime/source equivalence carries this evidence; not claimed fresh b359 broad rerun.'},
+ {'id':'PQ-CI01','status':'CLOSED_FOR_LOCAL_WIRING','proof':'Saved actual verifier registration/source inspected; independent mocked routing evidence present. Actual GitHub CI, branch protection and merge remain outside acceptance.'}
+]
+put('findings-closure.json',{'schema':1,'new_must_fix_findings':[],'historical_finding_closures':closures,'unresolved_full_phase_gates':['seven individual hero SFX and hearing acceptance','NPC style matrix','full P06 verifier and ROOT safe handoff','full independent P06 phase review and required CI','readiness / MDS / P07 gates'],'severity_downgrades':[]})
+metrics={'schema':1,'frozen_commit':freeze['source_head'],'recorded_source_keys':1314,'subreview_manifest_files_rehashed':{'ART03':41,'Gameplay03':456,'QA03':58},'actual_native_artifacts_rehashed':196,'live_checks':581,'native_PNG':188,'movie_checks':393,'movie_decoded_frames':5661,'movie_seconds':94.35,'per_live_and_movie':{'actor_trace_rows':5644,'HUD_observations':5642,'unique_Core_contacts':105,'FIN_contacts':41,'clothing_overlay_records':32},'source_cells_losslessly_reconstructed':128,'source_garment_anchors_checked':128,'declared_clips':60,'source_muzzles_checked':4,'Lead_actual_movie_frames_viewed':52,'Lead_native03_whole_PNG_viewed':8,'Lead_separate_preflight_cooldown_PNG_viewed':1,'Lead_packaged_Linux_PNG_viewed':2,'fresh_independent_QA03':{'Pasha':393,'metadata_resource':24,'wall_callback':16,'total_assertions':433,'fresh_import':True},'Linux_packaged_renderer_smoke':{'checks':40,'PNG':9},'Windows_PE_Wine_headless_smoke':{'checks':31,'native_Windows':'NOT_TESTED'},'friendly_standalone_files_hash_equal':7,'Lead_engine_runs':0,'new_audio_C01_candidates_reviewed':False}
+put('metrics.json',metrics)
+(P/'review.md').write_text('''# Pasha moving-shot — independent Lead component review
+
+**PASS_COMPONENT** for frozen `b359747361c6ac76ccfc0cc8ff262c8327cf33e4`, bounded to the captured P06 training mechanic, own source/runtime animations, finite-ammunition/HUD paths, documented callback regressions, and local DEV06 packaged smoke. No new must-fix finding remains in this scope. Continue the remaining work **inside P06**. This is not a full P06 decision or phase attempt.
+
+## Independent examination
+
+I read AGENTS, the Lead protocol, saved combat/character acceptance contracts, actual strategy/runtime/CharacterPlayer/CombatSystem/Frames/HUD/replay/verifier code and the production diff. I independently rehashed the 1314 recorded native inputs, all196 native artifacts and ART03/Gameplay03/QA03 recorded manifests; inspected their actual raw results and causal probes rather than treating their verdicts as proof. Critical production source and diffs are copied here. The full original GP probe packet was used, including files omitted from its compact shipping subset.
+
+I reconstructed all128 source cells losslessly from the masters using the recorded NN/palette/translation operations, checked128 hash-bound opaque garment anchors, four opaque muzzle points and60 declared clips. These checks support the independent ART acceptance; uniqueness or file counts alone do not establish animation quality.
+
+I decoded the actual MP4, independently counted5661 frames/94.35s, extracted52 original whole frames and personally inspected all of them through nine labelled diagnostic boards. This includes all eight moving-shot poses in four directions, Reduced launches, clothing/muzzle alignment, UP finishers in five categories and both modes, and mixed shared-clip contact frames. I also personally viewed eight actual native03 whole-viewport images, the separate nine-state preflight's actual cooldown image, and packaged Linux Pasha/Tega images. This is sampled Lead viewing plus the independently hash-bound ART/Gameplay wider review, not a claim that I personally watched every movie frame or physically played the game.
+
+## Resulting behaviour and timing
+
+The existing controller and Core are extended rather than replaced. Ground movement continues during the shot: the actual primary routes move at most3px per60Hz tick, show poses0..7 in order and return to held run. F and RMB use the same strategy; held RMB does not auto-repeat. Launch and ammo debit occur together at actual pose3, observed .116667s with60Hz quantization; subsequent projectile contact in the primary fixture occurs later at source pose6. The projectile uses the existing ground-plane collision origin with a render offset; the visible muzzle matches the own source annotation. This review does not describe a sprite-barrel point as the logical physics origin.
+
+The clip is four rounds. Actual depletion follows4→3→2→1→0; passive recovery caps at4, pauses freeze it, and damage/death/revoke/reset cancel the relevant action. Shot and firearm finisher consume separate rounds from the same clip; mixed evidence reaches minimum2. All5642 recorded HUD observations in each actual run match strategy ammo/cooldown/refill values. Other busy actions may refill by the saved contract. The primary finite-clip fixtures establish launches/debits, not four target hits. A committed projectile can survive ordinary action recovery/cancel within the same authority; reset/revoke denies old contacts.
+
+I checked all40 category/direction/mode finisher cases and20 Full/Reduced outcome pairs in each actual raw run: one earned shove plus one lethal FIN contact, score100, no duplicate contact receipt, minimum ammo3 for firearm and4 otherwise. The mixed shot→firearm case is the41st FIN contact and has two distinct debits. Both runs record105 unique Core contact keys and32 clothing overlays at expected positions. This is32 actual rendered clothing poses plus128 source anchors, not128 actual blood-render configurations. The fixture's two incoming prelaunch hurt/fatal cases do not prove every phase/direction against uncontrolled AI.
+
+## Historical failures and regression closure
+
+`findings-closure.json` records each closure precisely. The original impact-reset probe remains byte-identical: baseline3/5 rejected, final17b5/5 clean. The freed-target baseline had7/7 assertions but a real SCRIPT ERROR and was correctly rejected; the original final17b probe is7/7 clean. Current Core and1313 non-UI recorded inputs are exactly17b, while b359 changes only two HUD lines. These causal originals are reused through exact source equivalence, not relabelled fresh b359 executions. The actual fresh b359 QA import,393 replay assertions,24 metadata/resource assertions and16 wall-callback assertions are separate proof.
+
+After reset callbacks, current epoch/serial/identity and liveness guards prevent stale cost/contact/effect writes. Muzzle and travel wall positives show flash.15; actual reset counterparts show flash0/last-position0, zero jobs/projectiles and restored ammo4. Target-free FIN reserves no firearm debit/reward after the callback. Invalid-target reservation removal is checked eventually; no claim is made that the reservation dictionary is empty in the same callback tick.
+
+Historical ART01/02, QA01/02 and GP02 FAIL decisions and original raw evidence are retained. Their HUD crown collision is corrected by the actual144×2 bar at x380..523/y49..50. The nine recorded native preflight states have zero opaque NPC pixels underneath, and sampled final native/movie/packaged images are clear. This accepts those configurations; arbitrary future camera/NPC placement still requires ordinary UI regression coverage. The old2203/2207 Frames expectation failure is preserved; corrected2215/2215 includes missing/incomplete-resource negatives, with production equivalence explicitly recorded. Local CI routing mocks do not establish remote CI success.
+
+## Independent subreviews and packaged DEV06
+
+ART03 `bc5241ca…`, Gameplay03 `74d50ecb…`, and QA03 `3ca607fb…` are all immutable PASS_COMPONENT and independently verified against their artifacts. Their wider evidence supplements my own subset, without expanding its limits. QA's baseline broad hero/combat/P04G regressions and targeted17b remediation are bound through explicit production comparisons; they are not asserted to be a single fresh b359 all-suite run.
+
+DEV06 is actual source-b359 output, not source smoke: Linux ELF77,902,304 bytes SHA `02cf0e0d65fbc3526a2d3921cf874ce8b36034c9f53b6df5f79c5db12d0c9613`, real X11 smoke40/40 with9PNG; Windows PE113,651,376 bytes SHA `c0a15d629eed3a13dd80f80816410923be2c05d12092c348b89ea46824302235`, real Wine headless31/31. I checked binary headers, hashes, source-map equality, logs/exit receipts, seven fixture mappings on both platforms and seven standalone-copy files plus manifest. Native Windows is NOT_TESTED. The friendly build directory is a standalone copy; shell syntax and launcher profile separation were checked without executing them or reading/changing existing user profiles. No fresh engine/export was run by me.
+
+## Privacy, rights and remaining gates
+
+The local manifest's eleven private references match their hashes; raw references/ZIP are ignored and not tracked. My diagnostics contain no raw photo copies or uploads. The four recorded Pasha generation records reference own art and declare no raw photo upload. Source/license provenance remains the existing prototype record, including commercial-release verification limits. Export logs show no private/reference paths; I did not perform a complete embedded-PCK privacy extraction audit.
+
+The newly prepared C01 audio WAV candidates outside WORK are excluded. Seven individual hero SFX, subjective hearing, the NPC style matrix, full P06 verifier, ROOT safe handoff, full independent phase review, required remote CI and later readiness/MDS gates remain open. No audio quality, physical input latency, live AI difficulty, FPS, native Windows, release, public publication, GitHub merge, Root installation or P07 approval is granted. P06 stays IMPLEMENTING attempt1; last full PASS remains P05/PR10. Existing Tega Lead03 is not reopened.
+
+## Reproducibility and disposition
+
+The scripts, numeric/causal/export checks, original selected frames, diagnostic boards, critical source snapshot and receipt subset are in this compact report. `external-reference-bindings.json` hashes the larger immutable corpus in place; it does not copy thousands of frames or binaries. Final hashes bind the exact reviewed bytes. No WORK source, Git state, controller, phase state or external service was mutated. Continue the remaining authorized P06 tasks and submit a separate full phase gate only when its outstanding requirements are actually met.
+''')
+# Portable files owned by this reviewer, with reference bindings for the larger corpus.
+exclude={'artifacts.json','decision.json','FINAL_HASHES.json'}
+files=[]
+for p in sorted(P.rglob('*')):
+ if p.is_file() and p.name not in exclude:
+  assert not p.is_symlink(); files.append({'path':str(p.relative_to(P)),'bytes':p.stat().st_size,'sha256':sha(p)})
+put('artifacts.json',{'schema':1,'base':'directory containing manifest','files':files,'external_manifest':'external-reference-bindings.json','external_manifest_sha256':sha(P/'external-reference-bindings.json'),'private_photos_included':False,'binaries_or_engine_copies_included':False})
+flags={k:False for k in ['phase_approval','full_P06_approval','phase_advance','P07_approval','readiness_approval','merge_approval','release_approval','ROOT_installation_approval','all_seven_individual_audio_approval','subjective_audio_approval','FPS_approval','hardware_latency_approval','native_Windows_approval','uncontrolled_AI_difficulty_approval']}
+put('decision.json',{'schema':1,'review_role':'INDEPENDENT_LEAD','status':'PASS_COMPONENT','scope':'P06 Pasha moving-shot / own animation / finite ammunition / documented callback and HUD regressions, plus local DEV06 packaged smoke','frozen_commit':freeze['source_head'],'recorded_source_keys':1314,'component_approval':True,'local_DEV06_smoke_approval':True,**flags,'formal_phase_attempt_consumed':False,'last_full_PASS':'P05 / PR10','P06_formal_attempt':1,'P06_state':'IMPLEMENTING','next_authorized_work':'Continue remaining mandatory tasks inside P06 only; retain full phase/readiness/CI gates.','new_must_fix_findings':[],'independent_subreviews':{'ART03':'bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0','Gameplay03':'74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5','QA03':'3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2'},'proofs':{n:sha(P/n) for n in ['review.md','metrics.json','findings-closure.json','artifacts.json','source-freeze.json','final-rehash.json','external-reference-bindings.json']},'historical_FAIL_decisions_unchanged':True,'reviewer_engine_runs':0,'WORK_or_controller_writes':0})
+put('FINAL_HASHES.json',{n:sha(P/n) for n in ['decision.json','review.md','artifacts.json','metrics.json','findings-closure.json','external-reference-bindings.json']})
+# Final self-contained manifest verification.
+for e in json.loads((P/'artifacts.json').read_text())['files']:
+ p=P/e['path']; assert p.stat().st_size==e['bytes'] and sha(p)==e['sha256']
+print(json.dumps({'status':'PASS_COMPONENT','portable_files':len(files),'portable_bytes':sum(e['bytes'] for e in files),'external_references':len(refs['references']),'final_hashes':read('FINAL_HASHES.json')},indent=2))

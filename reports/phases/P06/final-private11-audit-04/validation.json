@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "scope": "LOCAL_ROOT_PRIVATE11_AND_SHARED_GIT_RAW_IDENTITY_PRIVACY_ONLY",
+  "passed": true,
+  "checks": [
+    {
+      "name": "pinned_local_private_manifest",
+      "passed": true
+    },
+    {
+      "name": "eleven_reference_records",
+      "passed": true
+    },
+    {
+      "name": "same_shared_Git_common_directory",
+      "passed": true
+    },
+    {
+      "name": "pinned_ROOT_helper:tools/validate_pack.py",
+      "passed": true
+    },
+    {
+      "name": "pinned_ROOT_helper:tools/check_privacy.py",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:assets/references/characters/yakuza_ref01.png",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:bundle.zip",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:.env",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:.env.local",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:.secrets/token",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:.tools/test",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:reports/phases/P06/private/test.png",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:debug.keystore",
+      "passed": true
+    },
+    {
+      "name": "ROOT:ignored:reports/phases/P06/isolated_saves/data/godot/keystores/debug.keystore",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:assets/references/characters/yakuza_ref01.png",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:bundle.zip",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:.env",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:.env.local",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:.secrets/token",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:.tools/test",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:reports/phases/P06/private/test.png",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:debug.keystore",
+      "passed": true
+    },
+    {
+      "name": "WORK:ignored:reports/phases/P06/isolated_saves/data/godot/keystores/debug.keystore",
+      "passed": true
+    },
+    {
+      "name": "ROOT:no_sensitive_index_paths_or_conflicts",
+      "passed": true
+    },
+    {
+      "name": "WORK:no_sensitive_index_paths_or_conflicts",
+      "passed": true
+    },
+    {
+      "name": "actual_ROOT:tools/validate_pack.py",
+      "passed": true
+    },
+    {
+      "name": "actual_ROOT:tools/check_privacy.py",
+      "passed": true
+    },
+    {
+      "name": "WORK_extra_unreachable_index_raw_identity_absent",
+      "passed": true
+    },
+    {
+      "name": "all_eleven_current_private_files_match_manifest",
+      "passed": true
+    },
+    {
+      "name": "private_manifest_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_refs_unchanged_during_scan",
+      "passed": true
+    },
+    {
+      "name": "ROOT_index_unchanged_during_scan",
+      "passed": true
+    },
+    {
+      "name": "WORK_index_unchanged_during_scan",
+      "passed": true
+    },
+    {
+      "name": "helper_unchanged:tools/validate_pack.py",
+      "passed": true
+    },
+    {
+      "name": "helper_unchanged:tools/check_privacy.py",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "validate_pack",
+      "argv": [
+        "/usr/bin/python",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/tools/validate_pack.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.04211351499543525,
+      "private_log_sha256": "354c21d728b5a9d9f529b87cded9f973efe61a2fc7e1ba73e293ab1e1e2d04ad"
+    },
+    {
+      "name": "check_privacy",
+      "argv": [
+        "/usr/bin/python",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/tools/check_privacy.py"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.0390067499974975,
+      "private_log_sha256": "01292589f33e758d5283c6b07b10bc5c9788883ad3814eb48587a33da9804d3a"
+    }
+  ],
+  "reference_manifest_sha256": "fa6f407946c3d4f60c526f22af142452c230874b725862dabf29fbf6ab1e8400",
+  "reference_records": 11,
+  "validated_current_raw_files": 11,
+  "unique_declared_raw_SHA256": 11,
+  "raw_seed_set_sha256": "11334bcd991a9dbe0da545ea18f51f8c48dbb7b87541a95a392b1921ab30e6ea",
+  "shared_reachable_object_ids": 17761,
+  "ROOT_index_entries": 2328,
+  "WORK_index_entries": 21694,
+  "additional_unreachable_WORK_index_objects_checked": 0,
+  "additional_raw_identity_matches": 0,
+  "refs_snapshot_sha256": "089ef3585b813acebbedc6d6d8c8f9d5fe99143da7245fcca5bf6f6378e54a7d",
+  "ROOT_HEAD": "be4d59e9f68f32833719c82dee36bf731bb43ad0",
+  "WORK_HEAD": "fa8693a36eaba56825f02ef74c09bbec38050a35",
+  "seconds": 5.310146338000777,
+  "private_reference_or_raw_blob_bytes_copied": false,
+  "private_helper_logs_not_for_public_copy": true,
+  "not_proven": [
+    "Absence of transformed/re-encoded/cropped photos",
+    "Absence of every unlisted retired/private input",
+    "Absence of arbitrary renamed secrets by semantic inspection",
+    "Storefront/voice/public-release rights clearance",
+    "Embedded exported PCK content/privacy extraction"
+  ],
+  "phase_approval": false,
+  "publication_approval": false,
+  "release_approval": false,
+  "Game_or_Controller_or_Git_mutation": false
+}

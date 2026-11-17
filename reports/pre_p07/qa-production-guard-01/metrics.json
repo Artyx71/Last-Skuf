@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "scope": "CANDIDATE_P07_GUARD_V1_COMPONENT_ONLY",
+  "status": "FAIL_COMPONENT",
+  "actual_tests": {
+    "production": {
+      "passed": 24,
+      "total": 24,
+      "exit_code": 0
+    },
+    "autopilot_regression": {
+      "passed": 47,
+      "total": 47,
+      "exit_code": 0
+    }
+  },
+  "additional_cases": 10,
+  "unexpected_acceptances": 6,
+  "correct_controls": 4,
+  "state_unchanged_all_adversarial_cases": true,
+  "legitimate_worktree_resume_control_passed": true,
+  "production_or_canonical_controller_invocations": 0,
+  "ROOT_runner_upgraded": false,
+  "phase_approval": false,
+  "production_readiness_approval": false,
+  "merge_approval": false,
+  "must_fix": [
+    {
+      "id": "PG-C01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Untracked game directory symlink hides readable unreviewed source from whole-game file-set",
+      "repro": "adversarial.py: untracked_game_directory_symlink_with_unreviewed_source",
+      "required_fix": "Detect and reject/reconcile all production symlinks including untracked directories before full tree comparison"
+    },
+    {
+      "id": "PG-C02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Resolved report prefix may itself escape repository, allowing external full decisions",
+      "repro": "adversarial.py: reports_pre_p07_prefix_symlink_escapes_repository",
+      "required_fix": "Require canonical root containment for both prefix and file, handle escaping symlink ancestors fail-closed"
+    },
+    {
+      "id": "PG-C03",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "OPEN High whitespace severity and malformed severity types silently bypass blocking findings filter",
+      "repro": "adversarial.py: malformed_finding_severity cases",
+      "required_fix": "Validate known typed severity/status enums; normalize explicitly or reject whitespace/unknown/missing values"
+    },
+    {
+      "id": "PG-C04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "autopilot/readiness.py",
+      "summary": "Boolean schema true accepted as schema1",
+      "repro": "adversarial.py: boolean_decision_schema",
+      "required_fix": "Strict integer schema and malformed record type validation"
+    }
+  ]
+}

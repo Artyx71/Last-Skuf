@@ -39,7 +39,11 @@ def main():
             ('movement', base + ['--script', 'res://tests/movement_test.gd']),
         ])
     if (ROOT / 'game/scenes/world/combat_lab.tscn').is_file():
-        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+        # contact_timing counts observations of fixed-physics contact poses.
+        # Match the already validated C01 harness clock so a cold render/cache
+        # catch-up cannot drop observations and produce the preserved47/48 FAIL.
+        commands.extend((name, base + (['--fixed-fps', '60'] if name == 'contact_timing' else [])
+                         + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['combat_art', 'combat', 'ai', 'restart', 'contact_timing'])
     if (ROOT / 'game/scenes/world/dialogue_audio_lab.tscn').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
@@ -54,6 +58,38 @@ def main():
     if (ROOT / 'game/tests/story_graph_test.gd').is_file():
         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
                         for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
+    if (ROOT / 'game/tests/character_frames_test.gd').is_file():
+        commands.append(('character_finisher_audio_source', [sys.executable, 'tools/verify_character_finisher_audio.py']))
+        commands.append(('world_input_gate', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_world_input.py']))
+        commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                        for name in ['character_combat_profile', 'character_finisher_audio', 'character_scene_policy',
+                                     'character_policy_integration', 'character_dialogue', 'character_frames',
+                                     'character_readiness', 'timka_layout', 'ryzhik_roll_layout', 'yakuza_finisher_authority'])
+        commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
+                         '--output', str(output / 'character_lab_isolation')]))
+        commands.append(('gabar_controller', [sys.executable, 'tools/verify_p06_gabar.py',
+                         '--headless', '--output', str(output / 'gabar_controller')]))
+        commands.append(('olezhka_controller', [sys.executable, 'tools/verify_p06_olezhka.py',
+                         '--headless', '--output', str(output / 'olezhka_controller')]))
+        commands.append(('olezhka_counter_feedback', [sys.executable, 'tools/verify_p06_counter_feedback.py',
+                         '--headless', '--output', str(output / 'olezhka_counter_feedback')]))
+        commands.append(('timka_present_controller', [sys.executable, 'tools/verify_p06_timka_present.py',
+                         '--headless', '--output', str(output / 'timka_present_controller')]))
+        commands.append(('timka_prime_controller', [sys.executable, 'tools/verify_p06_timka_prime.py',
+                         '--headless', '--output', str(output / 'timka_prime_controller')]))
+        commands.append(('ryzhik_roll_controller', [sys.executable, 'tools/verify_p06_ryzhik.py',
+                         '--headless', '--output', str(output / 'ryzhik_roll_controller')]))
+        commands.append(('ryzhik_report_schema', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_ryzhik_report.py']))
+        commands.append(('tega_environment_controller', [sys.executable, 'tools/verify_p06_tega.py',
+                         '--headless', '--output', str(output / 'tega_environment_controller')]))
+        commands.append(('pasha_moving_shot_controller', [sys.executable, 'tools/verify_p06_pasha.py',
+                         '--headless', '--output', str(output / 'pasha_moving_shot_controller')]))
+        commands.append(('character_finisher_audio_contacts', [sys.executable, 'tools/verify_p06_finisher_audio.py',
+                         '--headless', '--replay-only', '--output', str(output / 'character_finisher_audio_contacts')]))
+        commands.append(('prime_evidence_recovery', [sys.executable, '-m', 'unittest', 'discover',
+                         '-s', 'tools/tests', '-p', 'test_p06_prime_recovery.py']))
     env = dict(os.environ)
     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
         isolated = output / 'isolated_saves' / folder

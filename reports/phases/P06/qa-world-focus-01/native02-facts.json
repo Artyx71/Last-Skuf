@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "scope": "NATIVE02_OBSERVABILITY_AND_ENGINE_INPUT_RECORDING_ONLY",
+  "phase_approval": false,
+  "reviewed_utc": "2026-11-14T16:04:41.004026+00:00",
+  "native02_validation_sha256": "67a16612c1e36d99f131e4c8fba8167c85b2d0858a3417003a2252118f64f16d",
+  "source_head": "915e1c6b9672e55bed20d9de2bfb317ab09349aa",
+  "source_unchanged": true,
+  "validation_passed": true,
+  "checks": "110/110",
+  "actual_captures": 40,
+  "movie_recorded": true,
+  "recorded_fixture_sha256": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+  "matches_preflight_fixture": true,
+  "recorded_source_entries": 782,
+  "recorded_source_mismatches": [],
+  "artifact_count": 49,
+  "artifact_mismatches": [],
+  "captures": [
+    {
+      "capture": "live",
+      "result_sha256": "be390655f9a4eebfcfe9af8187b53fff53ebd79f4917a11929394e05eaa85684",
+      "passed": true,
+      "checks_passed": 110,
+      "checks_total": 110,
+      "trace_count": 672,
+      "expected_input_samples": 672,
+      "input_mismatches": [],
+      "velocity_mismatches": [],
+      "focus_observation": "Window focus signals and actual movement/run input sampled; no input reassertion or timing changes",
+      "movie_window_no_focus_requested": false,
+      "window_focus_values": {
+        "True": 672
+      },
+      "focus_events": [],
+      "first_walk_animation_samples": {
+        "walk_down": 36
+      },
+      "first_walk_distance_check": {
+        "details": {
+          "distance": 50.3997802734375
+        },
+        "name": "movement:walk_down",
+        "passed": true
+      }
+    },
+    {
+      "capture": "movie",
+      "result_sha256": "78d27436513572122176c999647634249d6278c11ae9f9611d50fb4ff49ad48d",
+      "passed": true,
+      "checks_passed": 70,
+      "checks_total": 70,
+      "trace_count": 672,
+      "expected_input_samples": 672,
+      "input_mismatches": [],
+      "velocity_mismatches": [],
+      "focus_observation": "Window focus signals and actual movement/run input sampled; no input reassertion or timing changes",
+      "movie_window_no_focus_requested": true,
+      "window_focus_values": {
+        "True": 672
+      },
+      "focus_events": [],
+      "first_walk_animation_samples": {
+        "walk_down": 36
+      },
+      "first_walk_distance_check": {
+        "details": {
+          "distance": 50.3997802734375
+        },
+        "name": "movement:walk_down",
+        "passed": true
+      }
+    }
+  ],
+  "receipt": {
+    "operation": "745f437d765d485c8ef6b63c9ae9c79d",
+    "argv_sha256": "b201cd6bfc2252817397717040b6cdede1b5623a2c71620e090a9ac520596a75",
+    "exit_code": 0,
+    "log_sha256": "5abc9f469be178c8dcf30b38f64d999f71e4095ebc263b9b89af52a040307585",
+    "seconds": 37.229
+  },
+  "receipt_file_sha256": "67e1e9f80bff0702def9cf026976daa583cce063413a45ef7ff20fa371f8ea97",
+  "receipt_log_sha_matches": true,
+  "old01_receipt_sha_unchanged": true,
+  "old01_validation_still_failed": true,
+  "native02_video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mjpeg",
+        "avg_frame_rate": "60/1",
+        "duration": "12.500000",
+        "nb_frames": "750",
+        "nb_read_frames": "750"
+      }
+    ]
+  },
+  "manual_physical_keyboard_acceptance": false,
+  "old_failure_cause_proven": false
+}

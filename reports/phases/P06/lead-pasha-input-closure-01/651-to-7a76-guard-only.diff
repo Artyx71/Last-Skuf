@@ -1,0 +1,19 @@
+diff --git a/game/tests/pasha_moving_shot_replay.gd b/game/tests/pasha_moving_shot_replay.gd
+index 5f4a9415..dea26b1f 100644
+--- a/game/tests/pasha_moving_shot_replay.gd
++++ b/game/tests/pasha_moving_shot_replay.gd
+@@ -195,10 +195,12 @@ func run() -> void:
+ 			check(segment+":muzzle_tracks_current_drawn_gun",not record.is_empty() and Vector2(record.muzzle[0],record.muzzle[1]).distance_to(lab.player.visual_muzzle())<0.01)
+ 			await capture(segment+"_launch")
+ 			await frames(24)
+-			var actual_held:=true
++			var actual_held:=ammo_trace.size()>first_input_trace
++			var previous_input_tick:=-1
+ 			for i in range(first_input_trace,ammo_trace.size()):
+ 				var observed:Dictionary=ammo_trace[i]
+-				actual_held=actual_held and observed.run_pressed and Vector2(observed.input_vector[0],observed.input_vector[1]).is_equal_approx(DIRECTIONS[di])
++				actual_held=actual_held and observed.segment==segment and int(observed.tick)>previous_input_tick and observed.run_pressed and Vector2(observed.input_vector[0],observed.input_vector[1]).is_equal_approx(DIRECTIONS[di])
++				previous_input_tick=int(observed.tick)
+ 			check(segment+":actual_Input_vector_and_run_remain_held",actual_held,{"samples":ammo_trace.size()-first_input_trace,"movie_window_no_focus":movie_window_no_focus_requested})
+ 			key(MOVE_KEYS[di],false);key(KEY_SHIFT,false)
+ 			var phases:Array=[]

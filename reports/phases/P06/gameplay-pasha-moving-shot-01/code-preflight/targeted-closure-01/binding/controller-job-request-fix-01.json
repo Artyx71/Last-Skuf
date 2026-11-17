@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "status": "PREPARED_REQUEST_ONLY_NOT_EXECUTED",
+  "scope": "PASHA_SHARED_CORE_REENTRY_TARGETED_FIX_REPLAY_ONLY",
+  "runtime_or_component_approval": false,
+  "owner_serial_Controller_execution_required": true,
+  "reviewer_engine_runs": 0,
+  "prepared_HEAD": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+  "prepared_source_map": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/source-hashes-fix-prepared.json",
+  "prepared_source_map_sha256": "282a35cb60dc0faddd2b44818c11cbcbe962375fb986f4aeccfdb92b42fd6a43",
+  "prepared_source_files": 1314,
+  "probe_sha256": {
+    "probes/gp_pasha_finisher_frame_free.gd": "67fcb960c4fb451e05d236bb73bb034c23ead0078985a5f9f90cf582fb426adc",
+    "probes/gp_pasha_impact_reset.gd": "b5af477dbe1880351e1e2961d4c357dd5776c2635fab0462c050ee121aa384d9"
+  },
+  "staging": {
+    "source_root": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "destination": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01",
+    "copy_only_bound_approved_inputs": true,
+    "folders": [
+      "game",
+      "tools",
+      "assets/source_art/characters"
+    ],
+    "exclude": [
+      ".godot",
+      "__pycache__"
+    ],
+    "copy_probe_files_to": "game/tests/",
+    "Godot_original": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+    "Godot_staged": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "Godot_required_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "pre_execution_gate": [
+    "Wait for current author/headless02 job release; one serial ROOT Controller operation only.",
+    "Freeze exact fb5ca9bdf0e82e315c08197877e1f39a2a6c4091 and verify source/probes against this request; source delta from actualbaseline is exactly Core+Pasha replay.",
+    "Copy approved bound inputs to distinct staged-project-fix-01; no WORK engine or source mutation.",
+    "Use fresh actual-fix-01 outputs and perprobe XDG/save profiles.",
+    "Run both BYTE-EXACT original probes even if first fails; retain all logs/results.",
+    "A clean script result without clean engine log is not PASS; no weakening oldoracles."
+  ],
+  "commands_serial": [
+    {
+      "name": "fresh_import",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--editor",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/game",
+        "--import"
+      ],
+      "timeout_seconds": 120
+    },
+    {
+      "name": "impact-reset",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_impact_reset.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/impact-reset/profile/runtime"
+      },
+      "timeout_seconds": 45,
+      "expected_contract": "exit0 + all unchanged probe checks + no fatal log matches; this only closes the two negative findings",
+      "continue_to_next_probe_on_failure": true
+    },
+    {
+      "name": "finisher-frame-free",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-01/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_finisher_frame_free.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-01/finisher-frame-free/profile/runtime"
+      },
+      "timeout_seconds": 45,
+      "expected_contract": "exit0 + all unchanged probe checks + no fatal log matches; this only closes the two negative findings",
+      "continue_to_next_probe_on_failure": true
+    }
+  ],
+  "required_receipts": [
+    "exact argv/env paths/timeouts/exit code/logSHA for every command",
+    "pre/post staging+WORK source hashes and probe hashes",
+    "both result.json files if created, including intended FAIL",
+    "fatal log scan independent of result.passed",
+    "all spawned engine processes waited; no parallel job or controller from reviewer"
+  ],
+  "fatal_log_regex": "SCRIPT ERROR:|ERROR:|Invalid type|freed instance|instances were leaked|resources still in use",
+  "expected_oracles": {
+    "impact_reset": [
+      "Initial KEY7 selection and KEYF actual Input reaches impact_firearm_body inside _apply_hit.",
+      "Callback normal combat.reset+player.reset advances epoch and clears receipts/events/effects.",
+      "After Core same tick no old contact_events/contact_committed/effects/damage should reappear; current baseline is statically expected to violate event/effect part."
+    ],
+    "finisher_frame_free": [
+      "Initial actual Input Space earns stun; actual InputV reserves firearm FIN. NPC actual physics enabled.",
+      "Only enemy finisher_reaction frame1 callback whose get_stack contains Core._tick_finishers may free target. Source early-frame callbacks are not treated as Core evidence.",
+      "Target.free must actually succeed; otherwise mark this trigger INCONCLUSIVE, retain error, do not infer the alleged typed-call defect.",
+      "No postloss firearm cost/damage/reward; no subsequent reset of freed enemy; eventually old job removed.",
+      "SCRIPT ERROR/typed freed-argument error means FAIL even if result JSON checks pass."
+    ]
+  },
+  "source_delta_from_actual_baseline": {
+    "game/scripts/systems/combat_system.gd": {
+      "baseline": "e97cc174600b8c074b95d3ffec5267019e75313279a8c86a6a176a63bf049dc9",
+      "fix": "9b159afd21191e1376b66aefcca4de462742603c571644a4a2e8ada66fc2df44"
+    },
+    "game/tests/pasha_moving_shot_replay.gd": {
+      "baseline": "b36252c006e2453d2da1a2164ae07d39482d8d5745b4b2cb1e12f4af188f0dbc",
+      "fix": "24afce57c712044676028ddff65c81b05a3583784f3b88d6fcb42996f2a881cd"
+    }
+  },
+  "original_request_SHA256": "80cc77d394e01cbd2d07a0e21c314ee79e7ce7b335804ee5ba351f90d4c748b8",
+  "original_actual_baseline": "actual-baseline-01",
+  "probe_byte_exact_originals": true
+}

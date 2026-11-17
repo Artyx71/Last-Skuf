@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "scope": "P06_COMPOSED_NATIVE_EVIDENCE_NOT_PHASE_APPROVAL",
+  "passed": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "stages": [
+    {
+      "name": "gabar",
+      "report": "reports/phases/P06/full-native-current-source-01/gabar/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "olezhka",
+      "report": "reports/phases/P06/full-native-current-source-01/olezhka/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "counter_feedback",
+      "report": "reports/phases/P06/full-native-current-source-01/counter_feedback/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_present",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_present/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "timka_prime",
+      "report": "reports/phases/P06/full-native-current-source-01/timka_prime/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "ryzhik",
+      "report": "reports/phases/P06/full-native-current-source-01/ryzhik/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "tega",
+      "report": "reports/phases/P06/full-native-current-source-01/tega/validation.json",
+      "origin": "REUSED_ORIGINAL_SUCCESS_NOT_FRESH",
+      "passed": true
+    },
+    {
+      "name": "pasha",
+      "origin": "TARGETED_651_CONTROLLED_INPUT_PLUS_7A76_GUARD_RECOMPUTATION",
+      "passed": true,
+      "reports": [
+        "reports/phases/P06/pasha-input-diagnostic-01/headless/validation.json",
+        "reports/phases/P06/pasha-input-diagnostic-01/native/validation.json"
+      ],
+      "original_failure_cause": "UNKNOWN"
+    },
+    {
+      "name": "cast",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/cast/validation.json"
+    },
+    {
+      "name": "cast_large_text",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/cast_large_text/validation.json"
+    },
+    {
+      "name": "finisher_audio",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/finisher_audio/validation.json"
+    },
+    {
+      "name": "npc_baseline",
+      "origin": "FRESH_CONTINUATION",
+      "passed": true,
+      "report": "reports/phases/P06/native-remaining5-02/npc_baseline/validation.json"
+    },
+    {
+      "name": "combat_baseline",
+      "origin": "FRESH_CONTINUATION",
+      "passed": false,
+      "report": "reports/phases/P06/native-remaining5-02/combat_baseline/validation.json"
+    }
+  ],
+  "reused_original_successes": 7,
+  "separately_targeted_Pasha": 1,
+  "fresh_remaining_expected": 5,
+  "fresh_remaining_completed": 5,
+  "current_fixture_parse_passed": true,
+  "source_unchanged": true,
+  "source_head": "263e888afc9875ebf887267c0dd734b70897f344",
+  "head_after": "263e888afc9875ebf887267c0dd734b70897f344",
+  "contract_sha256": "e5ef81ddc24fc12420cc602c403deefe5cb8891961b2e985d85c64e53515a343",
+  "proof_bindings_unchanged": true,
+  "final_binding_hashes": {
+    "contract": "e5ef81ddc24fc12420cc602c403deefe5cb8891961b2e985d85c64e53515a343",
+    "approval": "f3acaab752e1ff8a677987c2e0f076762b7763b6136ba0ff949aac1dfe4fabb0"
+  },
+  "approval_sha256": "f3acaab752e1ff8a677987c2e0f076762b7763b6136ba0ff949aac1dfe4fabb0",
+  "original_failed_attempt_rewritten": false,
+  "original_failed_attempt": "reports/phases/P06/full-native-current-source-01/validation.json",
+  "Pasha_original_cause": "UNKNOWN",
+  "listening": "NOT_CLAIMED",
+  "native_Windows": "NOT_TESTED_WINE_LABELLED_SEPARATELY",
+  "hardware_latency": "NOT_MEASURED",
+  "campaign_duration": "NOT_MEASURED"
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "TPR-Q00",
+    "severity": "MEDIUM",
+    "status": "CLOSED",
+    "scope": "SUPERSEDED_NATIVE_HARNESS_COVERAGE",
+    "original": "superseded-3a9ff-interruption/review-note.md",
+    "fix": "db84 actualdirectionidle0/1 and realtwo-cycleframecoverage",
+    "evidence": [
+      "runtime-signal-analysis.json",
+      "db84-successful-native02-audit.json"
+    ]
+  },
+  {
+    "id": "TPR-Q01",
+    "severity": "MEDIUM",
+    "status": "CLOSED",
+    "original": "cache-consistency-finding.json",
+    "fix_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+    "fix_helper_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+    "evidence": [
+      "cache-fix02-unit.log",
+      "cache-fix02-consistency-probes.json",
+      "real-recovery-probes.json",
+      "current-source-stale-control.json"
+    ]
+  },
+  {
+    "id": "TPR-Q02",
+    "severity": "MEDIUM",
+    "status": "CLOSED",
+    "original": "counter-regression-finding.json",
+    "fix_commit": "9b42df871e53758b402108cb7cc00a2e385ab773",
+    "evidence": [
+      "counter-closure-proof.json",
+      "counter-fixed/result.json",
+      "counter-fixed/run.log"
+    ]
+  }
+]

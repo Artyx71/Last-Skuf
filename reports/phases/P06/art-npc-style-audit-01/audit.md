@@ -1,0 +1,59 @@
+# C09 — независимый ART-аудит NPC styles
+
+**ART_GAP_AUDIT_COMPLETE / IMPLEMENTATION_REQUIRED.** Это аудит существующих рисунков и предложение минимального объёма производства, не ART PASS новых ассетов, не полная приёмка P06, не разрешение перехода/merge. Game/WORK/Git/Controller не менялись; генератор и Godot не запускались. Решение Lead Паши `f43d2434…` и закрытие Теги не переоткрываются.
+
+## Что действительно осмотрено
+
+Через view_image лично осмотрены19 реальных PNG: три enemy WORLD sheets, все три FIN и три reaction sheets, один Reduced FIN, три исходных image_gen key1 masters и шесть собственных FIN листов новых героев. Это статический source/native audit. Новое игровое воспроизведение, субъективное ощущение контакта, звук и runtime приёмка C09 не выполнялись. Полный список и измерения находятся в `atlas-metrics.json`. Во время аудита автор дополнил только P06_COMBAT_ACCEPTANCE.md разделами C01/C09: исходные bytes сохранены из5403faa с точным совпадением recorded SHA; новые bytes прочитаны и отдельно связаны вместе с diff. Все остальные записанные inputs неизменны. Новое упоминание corpse2 следует понимать как legacy3-frame path: для новых3/4-role clips terminal определяется explicit role map; damage/dead tick не меняется.
+
+Три архетипа художественно различимы: patrol — широкий тёмно-синий бронежилет/круглая каска/циановые метки и дубинка; rusher — более узкий капюшон/оранжевый шарф/короткое оружие; shooter — округлая красная защита/визор и пистолет. Их одежда, объём головы, спина и оружие не взаимозаменяемы. Источники содержат целые нарисованные тела; это не случайные фигуры. Нативные пиксели резкие, сохраняются четыре самостоятельные проекции. Переиспользование должно сохранять именно собственный архетип, а не перекрашивать одного NPC в другого.
+
+Я независимо сверил все12 NPC Full/Reduced PNG с принятым P04G commit `9128605a6e4a715b3abd71df0124e12a860bead6`: байты совпадают. Каждая из трёх reaction sheets1152×256 содержит96 ячеек48×64 и96 различных RGBA. Это восемь состояний × три рисунка × четыре направления. Каждая FIN sheet720×256 содержит60 слотов, но28 различных RGBA: в каждом направлении один общий restrained, пять различающихся category contact и один общий corpse. Full/Reduced имеют одинаковую alpha-маску; нативные source copies совпадают с runtime. Эти факты подтверждают сохранность принятого baseline, а не самостоятельное доказательство нового style gate.
+
+В `pack_generated.pose` FIN-последовательность намеренно берёт generic finisher_reaction0, затем hurt1/death0/finisher_reaction1/hurt0/knockdown0 по категории, затем общий death2. Таким образом, категория различима рисунком, герой не различим. Не нужно заново генерировать общие idle/walk, telegraph/attack/recovery/hurt/stun/knockdown/death ради C09: они уже реальные и приняты. Исходные README/atlas всё ещё имеют исторические DRAFT/PENDING поля; они не отменяют отдельный P04G PASS и не подменяют его.
+
+## Реальный разрыв в маршрутизации
+
+`CharacterCombatProfile` уже возвращает character_style для шести новых героев, но `CombatSystem.start_finisher` передаёт NPC только category/duration. `EnemyActor.begin_finisher` сохраняет только category. `PolishFrames.append` собирает фиксированные три кадра на category/direction; `_update_animation` выбирает только finish_category_direction. До удара удерживается0; Core непосредственно перед единственным `_apply_hit` выставляет1; lethal/dead затем показывает1 первые.10s и2 после.10s. Смена скорости этих же рисунков, category cue или HUD не создаёт новый NPC style.
+
+Нужно сохранить эту систему урона и добавить типизированную декларативную связь actor/context/style/category/archetype/NPCfacing/variant → реальные atlas refs + frame roles. В job фиксируются одобренный route key/authority/epoch; рисунок не выдаёт категорию или новую способность. Unknown/unsupported key должен отказать до mutation, без тихой подстановки чужого героя. Новый loader должен поддержать явно перечисленные3/4-role clips, а не считать всегда frame2 финальным телом. Поле style само по себе ничего не принимает.
+
+## Минимум новых рисунков и безопасный производственный бюджет
+
+Обязательная матрица содержит25 допустимых FIN routes; при трёх архетипах/четырёх NPC направлениях/двух Gore режимах это600 логических cases, или300 Full/Reduced пар. Двадцать routes новых героев дают240 bindings без режимов. Это не240 обязательных новых рисунков: refs внутри собственного набора можно честно разделять, когда совпадают геометрия удара и читаемость.
+
+**Условный нижний предел —72 новых wholefigure contact poses:** шесть новых стилей × три собственных NPC архетипа × четыре направления. Старый точный Yakuza baseline остаётся седьмым стилем; шесть остальных больше не пользуются его contact как доказательством уникальности. Это не утверждение, что72 достаточно для приёмки всех категорий или переходов. Начальный restrained и terminal corpse можно переиспользовать только при реальной совместимости в паре с героем.
+
+**Рекомендованный минимальный reviewable candidate —156 новых wholefigure poses:**72 contact +72 собственных release для шести стилей +12 Timka prime grip holds (три архетипа × четыре направления). Это плановый бюджет, не жёсткий PASS-критерий. Согласован с Gameplay reviewer как предложение, не как source ART approval. Для contact/release удобны18 компактных листов96×256 (два столбца, четыре направления); ещё три листа48×256 для Timka hold. Итого21 source sheets с156 новыми ячейками. Пустые placeholder cells не нужны. Формат может быть иным, если manifest честно перечисляет фактические ячейки.
+
+Стилевые задания приведены в `proposed-budget.json`. Габар — краткая силовая компрессия/отклонение корпуса и компактное оседание. Олежка — контролируемый вывод из равновесия, не копия Габара. Тимка prime — реально связанная хватом верхняя часть тела и весовой сгиб. Рыжик — диагональная потеря равновесия и низкий боковой выход. Тега — асимметричное упирание/сдавливание относительно существующего объекта. Паша — неровный разворот плеч и раздельный рисунок рук, затем асимметричный провал. Якудза сохраняет неуклюжую долгую опасную попытку, не приобретает силу запуска NPC в воздух.
+
+Одна собственная style-contact pose может ссылаться из нескольких разрешённых категорий только после paired review: точка попадания, удерживаемый предмет, направление рук/бедра и category-specific последствия должны совпадать. Если один рисунок не подходит, нужны дополнительные цельные hero/category drawings, а не механическое зеркалирование, вращение, сдвиг конечностей или изменение хитбокса. Объём тогда растёт сверх156. Контакт sharp и firearm нельзя объявить одним визуально соответствующим движением лишь из-за общего style id. Прежние category-specific drawings можно оставлять как явные промежуточные refs, когда переход физически согласован; они не становятся новыми рисунками.
+
+## Направления, contact и release
+
+Четыре строки — направления NPC, не автоматически направления героя. В паре геройDOWN часто взаимодействует с NPCUP: mapping нужно проверять по фактическому locked_aim и относительным позициям, включая обе боковые проекции. Нельзя получать LEFT/RIGHT зеркалом, теряя оружие, карманы или ведущую руку. Для нового источника сохраняются48×64/pivot24,58, ограниченная общая палитра архетипа, binary alpha, NN и собственные hash-bound torso sockets; crouch/prone не выравниваются по стоячей макушке.
+
+Технически допустимый новый путь: совместимый старый restrained → **новый contact** → **новый release** → совместимый старый terminal. Если новый release уже завершённая лежащая hold pose, terminal может ссылаться на него и достаточно трёх role refs. Если тело ещё падает, нужен четвёртый terminal ref. Не называть незавершённый падающий кадр corpse и не переименовывать старый corpse в новый release. Внутрикадровые удержания и доли уже существующих active/recovery часов объявляются явно и проверяются на реальной длительности;5fps/10fps не являются разными стилями.
+
+**Health/dead/collisionlayer0 должны наступать на прежнем авторитетном lethal contact tick.** Дополнительный release — только presentation по существующему defeat_elapsed/action clock; он не задерживает смерть/очки, не повторяет урон и не позволяет живому AI атаковать из падения. Перед единственным `_apply_hit` обе actual contact poses обязаны быть видимы в том же Core tick. Не переносить contact на SpriteFrames callback. Старый Yakuza путь0→1→2 остаётся точным прежним, включая cancel/interrupt.
+
+## Что разрешено переиспользовать
+
+Сохранять принятые P04G generic state sheets, собственные тела/каски/одежду/палитру каждого NPC, общие совместимые terminal corpses, restrained refs там, где они действительно подходят, исходные category impact refs при честной декларации, эффекты/декали и Reduced substitutions. Full/Reduced могут использовать одни и те же позы, grid, sockets и outcomes; derived palette вариант не считается дополнительной оригинальной анимацией. Shared refs внутри одного стиля считаются refs, не новыми рисунками. Ни atlas expansion, ни новое corpse имя не увеличивают число оригинальных поз.
+
+Не нужно перерисовывать героев, портреты, музыку, старую боёвку или все288 NPC generic state drawings без конкретного дефекта. Нельзя использовать один общий NPC contact для всех семи героев, изменив duration/cue. Нельзя выдавать source-only preview, contact count или unique RGBA count за убедительность реального движения.
+
+## Границы Тимки, Якудзы и отдельных способностей
+
+Timka peaceful_present — никаких FIN, prime stance, атакующих clinch или новых разрешений. Для athletic_prime только unarmed/blunt/environmental + собственный F clinch variant, отличный от V unarmed. Не требуются и не запрашиваются исключённые sharp/firearm/normal-fire рисунки; owner84 exception сохраняется. Новый NPC atlas не расширяет84 actor cells и не создаёт permission bypass.
+
+Якудза получает только сохранённые training5 FIN; CH01/campaign escape не получает эти права. Не требуется победа в заведомо проигрышной opening fight.
+
+Бюджет156 относится **к FIN** и не закрывает молча nonlethal signature matrix. Для Gabar lunge, Oleg confirmed-parry→counter, Timka F clinch, Ryzhik roll landing6, Tega actual-object F и Pasha projectile нужно отдельное actor/context/category-or-ability/variant routing. Нельзя давать всем F новый lethal FIN contact. Где существующие hurt/stun/knockdown физически подходят, их можно честно переиспользовать без claims об уникальном новом рисунке; где обязательный связанный характер реакции не читается — добавить отдельную настоящую contact/release pose и увеличить budget. Особые геометрии (Tega bench, Timka grip, Ryzhik low leg contact, delayed Pasha bullet) проверять именно в своей паре, а не только FIN native.
+
+## Приёмка, которая ещё необходима
+
+Сначала produce/adopt source с provenance/source masters, фактическими wholecell counts, per-ref ledger и независимым ART. Потом actual source-frozen native: все25 allowed FIN routes ×3архетипа×4направления×Full/Reduced, плюс отдельные signature variants и запрещённые route/context cases. Source статичен, пока пишется evidence. Снимать continuous windup/contact/release/terminal с phase/pose/relative-world/socket traces; особенно allUP contact holds и клинч, обе SIDE-handedness, floor/root, cloth overlays, real object depth. Проверить Full/Reduced/decals off, pause/hitstop/cancel/hurt/death/reset/revoke/freed actors, один contact/receipt/reward/cost, не оживающий AI, сохранённый collisionlayer0 и корректное удаление effects. Проверить всеmissing/unknown refs и actual role boundaries, не просто наличие PNG.
+
+ART оценивает pixel anatomy/camera/силуэты/связанные пары; Gameplay — читаемость и timings; QA — routing negatives, once/clock/options/lifecycle/regressions; Lead принимает отдельный итог. Будущие источники и runtime C09 этим аудитом не приняты. Полный P06 и P07/readiness/merge остаются закрыты соответствующими гейтами.

@@ -1,0 +1,41 @@
+# Независимый Lead component review — P07 guard v2
+
+**FAIL_COMPONENT: PG-L05-STAGED-ACCEPTANCE / HIGH.** Механические исправления v1 приняты в ограниченном scope QA2; они не отменяются. У v2 остаётся несоответствие по этапам: любой открытый High блокирует общий вход, включая требования приёмки ещё не созданного контента. До внедрения нужно согласовать и обеспечить этот контракт, сохранив fail-closed защиту. Это не новый bypass, не full Production Readiness review и не P06 phase attempt.
+
+Reviewer `/root/art_olezhka_recovery` независим от автора. Прочитаны фактические frozen readiness.py/runner.py/tests/PRODUCTION_GATES, прежний FAIL QA1, owner stage requirements и immutable QA2. Сохранены10 source snapshots; exact authoritative hashes readiness=f82db9f1…, runner=e3ca7127…, tests=1524c11a…/55b0826f…. Метка fa6521c передана автором, Git для её подтверждения не запускался. Автору разрешено продолжать отдельный v3 после сохранения этих снимков; current WORK v3 не должен совпадать со старым v2. WORK/code/каноническое состояние/старые reports не менялись.
+
+## QA2 дождался и проверил
+
+Immutable QA2 decision SHA **87ec0d6b18cc5e1973c639b2895a19ff7132238bf4b5ee54c18be62e66f38a3e**, verdict PASS_COMPONENT. Его8 source snapshots/28 portable artifacts и manifest SHA совпали. Реальные QA runs:34production tests,47 AUTOPILOT regressions, прежние10repro cases (все6старых обходов теперь denied),15 дополнительных probes. Это именно исполнения независимого QA, не мои повторные runs. PG-C01..04 закрыты для exact v2: untracked/symlink production dirs/files, escaping report/planning boundaries, malformed severity/status и boolean/float schema.
+
+Исходники и repro подтверждают полезную основу: SHA-pinned PASS/FULL/Lead/independence records; P06 full PASS+MERGED с reviewed/merge SHA; full actual game-file set и Git blob comparison, включая отказ после rehash неподтверждённых bytes; ровно21 canonical ID/отдельный непустой reviewed MDS/разные paths и hashes. Ни CONCEPT_ONLY, ни component/FAIL/BLOCKED, ни actual readiness FAIL не открывают guard. Машинная проверка reviewer fields не удостоверяет настоящую независимость сама по себе; workflow обязан получать реальный отдельный Lead verdict. Разные test strings не доказывают содержательность21MDS.
+
+QA2 valid/missing-gate resume fixtures сохраняют checkpoint/attempt/state/workspace; P07 worktree modifications не сравниваются ошибочно с frozen P06 ROOT.47tests сохраняют lease exclusion/durable receipts/merge guards. Это не production end-to-end recovery/установка и не инспекция живого процесса. Я не повторял широкие suites и не запускал Controller/Git/engine/network/GitHub.
+
+## HIGH PG-L05: отсутствует выражение этапа обязательства
+
+В snapshot `readiness.py:121–122` каждый CRITICAL/HIGH требует CLOSED/RESOLVED/VERIFIED. Проверка одинакова для preproduction deficiency и future content acceptance, не рассматривает фактический `gate`. `runner.py:228–230` всегда вызывает общий production guard перед P07. Прежний readiness audit имеет H02–H05 с разными этапами: actual representative nav/audio/metrics capability перед производством, но actual новых глав/optional integration/campaign first-play после появления контента. Численный7–9h target нельзя фактически проверить до создания уровней.
+
+Узкий собственный `semantic-probe.py` запускает только frozen pure load_gate на временных TEST_ONLY ROOT-файлах: CLOSED preproduction High проходит, иначе корректный OPEN High с явно later-content gate блокируется сообщением Unresolved Critical/High blocks production. Оба исхода соответствуют v2; это не неожиданный test failure и не реальное разрешение. Они показывают, что контракт не умеет сохранить будущий High открытым и отдельно обеспечить его поздний gate. Просто объявить будущую работу CLOSED, убрать finding, понизить severity или вписать произвольный stage автором запрещено.
+
+**21MDS из prerequisite убирать нельзя.** Actual `run_phase(P07)` запускает один общий campaign phase executor; отдельного enforced design/pilot author stage сейчас нет. Значит общий P07run должен оставаться massproduction с обязательными21MDS. Полные MDS разрешено готовить PRE-P07 как уже авторизованную непротиворечащую подготовку. Само существование этой подготовки не даёт общего P07run разрешения при незакрытых prerequisites.
+
+## Минимальный безопасный acceptance исправления
+
+Предпочтителен предложенный минимальный protocol v3 без нового исполнителя:
+
+1. Сохранить общий P07 как massproduction и21MDS hardgate, fullP06/merge, whole-game Git/source/path/schema/independence/receipt checks. Никакого обхода существующих CI/current SHA/protection/manual-approval gates.
+2. Новый **независимый** полный Readiness review различает фактически закрытые preproduction capability findings и явно оставленные HIGH OPEN `future_obligations`. Ни author table, ни эта component recommendation не переклассифицируют старые High. Старый readiness FAIL остаётся immutable; нужен новый честный scoped verdict с доказательствами.
+3. Future obligations имеют строгую известную schema/ID/scope, фиксированный `enforce_at=P07_LEAD_PASS_AND_MERGE`; unknown/missing stage/required obligations blocks. Critical/current production deficiencies туда переносить нельзя. Future list не должна быть необязательным непроверяемым todo.
+4. Existing full P07 independent Lead должен представить structured hash-bound `production_acceptance`: exact canonical Readiness decision SHA, current P07 reviewed head/source и **все ровно объявленные obligation IDs** с actual evidence hashes/закрытиями. Проверять **до записи fullP07 PASS** и повторно fresh перед protected merge. Missing/extra/duplicate closure IDs, stale head/readiness/evidence, FAIL/BLOCKED/concept/component или неверный scope/role deny. Автор не закрывает себя и не заменяет реальные first-play/audio/native данные расчётом/metadata.
+5. Если выбран другой вариант — действительно enforce PREPRODUCTION/PRODUCTION scopes в Controller, а не только в prompt. Пока такого enforcement нет, нельзя убрать21MDS или позволить общему job произвольно производить неразрешённый контент.
+
+Что должно быть **actual до Readiness PASS/запуска общего mass job**: полный P06/CI/подтверждённый merge; безопасный handoff/full verifier/guard tests;21полных independently-approved main MDS; representative nav/door/alternate-route capability pilot; actual audio/retry/mixer capability и слушание нового P06/pilot материала; instrumentation/current pilot calibration. Это не требование уже иметь все будущие карты/саундтреки. Для двух optional bonus заранее нужны полные MDS/status/граница migration contract и допустимые integration prerequisites. Если они не готовы, controller обязан enforce исключение этих действий из доверенного scope либо сохранить блок — одного обещания в общем worker prompt недостаточно.
+
+Что остаётся **future content acceptance**: actual построенных глав/веток/геометрии/encounter uniqueness/story/save/assets/new music/native/performance/playthrough; actual first-play/deaths/retry/pacing и420–540min target assessment после реализации кампании; actual optional migration/defaultfalse/once/old5secrets/history/ending preservation после реализации при сохранённых preintegration gates. Их нельзя ложно подтвердить перед началом работы. Они должны блокировать fullP07Lead PASS/merge до настоящего закрытия. Полная точная матрица сохранена в stage-acceptance.json.
+
+Новые tests нужны только к этому протоколу: незакрытый entry High/Critical blocks; future obligation не выдана за закрытую; unknown/missing stage/list blocks; accepted production entry не обходит21MDS; missing/stale/wrong-kind/hash/ID closure blocks P07PASS и merge; точное закрытие проходит. Ранее34+47+repro/no-reset/one-executor protections должны сохраниться. Новая версия требует отдельного QA3 и этого narrow Lead re-review, не переписывания QA2 или старого FAIL.
+
+## Граница verdict
+
+Механический QA2 PASS_COMPONENT остаётся действительным для его scope; Lead FAIL_COMPONENT относится к нерешённому orchestration contract, а не к повторному открытию PG-C01..04. ROOT runner этим review не установлен/не запущен; дисковый stopP06 сохранён. Safe handoff/fullverify_p06/fullP06 и фактические full Readiness/21MDS approvals всё ещё отдельные незакрытые gates. Исходный readiness FAIL/P06/prior PASS/attempt/history не изменены; нет phase/merge/P07 start/moderation approval.

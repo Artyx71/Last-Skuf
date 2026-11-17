@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "scope": "FINAL_V3_03b_STAGED_GUARD_COMPONENT_ONLY",
+  "status": "FAIL_COMPONENT",
+  "actual_baselines": {
+    "production": {
+      "passed": 50,
+      "total": 50,
+      "exit_code": 0
+    },
+    "regression": {
+      "passed": 47,
+      "total": 47,
+      "exit_code": 0
+    }
+  },
+  "old_repro_cases_correct": 10,
+  "staged_cases": {
+    "expected_contract_pass": 23,
+    "total": 25,
+    "unexpected_acceptances": 2
+  },
+  "targeted_duplicate_repro_confirmed_twice": true,
+  "actual_second_snapshot_contract_or_evidence_changes": {
+    "cases": 2,
+    "snapshots_each": 2,
+    "request_count_each": 0
+  },
+  "duplicate_raw_verdict_mock_PUT_count": 1,
+  "actual_network_requests": 0,
+  "actual_LINKED_TEMP_new_P07_head_canonical_authority_verified": true,
+  "full_Lead_PG_L05_implementation_approval": false,
+  "ROOT_installation_approval": false,
+  "phase_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false,
+  "must_fix": [
+    {
+      "id": "PG-C05",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "summary": "Contradictory duplicate raw closure ID erased by actual JSON loader; accepted review reaches mock squash PUT",
+      "sources": [
+        "autopilot/runner.py:load",
+        "autopilot/readiness.py:JSON receipt loading",
+        "autopilot/github.py:validate_review/guarded_merge"
+      ],
+      "repro": "duplicate-proof.py + duplicate-raw-verdict.TEST_ONLY.txt",
+      "actual_phase_validation_errors": [],
+      "actual_mock_PUT_count": 1,
+      "actual_network_requests": 0,
+      "required_fix": "Reject duplicate JSON keys at actual ingress/cache/receipt/state decode before dict construction; targeted raw-JSON no-PUT tests"
+    },
+    {
+      "id": "PG-C06",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "summary": "Phase PASS validator accepts findings={} despite array schema",
+      "sources": [
+        "autopilot/github.py:validate_review"
+      ],
+      "repro": "staged-probes.py malformed_phase_findings_object",
+      "actual_validation_errors": [],
+      "required_fix": "Validate typed findings list and malformed phase containers at runtime, not only producer output schema"
+    }
+  ]
+}

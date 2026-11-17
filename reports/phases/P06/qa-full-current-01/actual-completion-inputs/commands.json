@@ -1,0 +1,64 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "tools/verify_p04.py",
+      "--output",
+      "reports/phases/P06/combat-interruption-continuation-01/p04_regression",
+      "--build-output",
+      "build/P06/combat-interruption-continuation-01/p04_regression",
+      "--exports",
+      "--movie"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 492.391,
+    "log_sha256": "3a99f3fd7c1e65f0f1865df0e2e89215b8b47153444f8aaf115483fa19b0ed7a",
+    "descendant_cleanup": {
+      "unexpected_live_children": false,
+      "remaining_live_children": []
+    },
+    "cleanup_events": [
+      {
+        "unexpected_live_children": false,
+        "remaining_live_children": []
+      }
+    ],
+    "name": "missing_p04_regression"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "tools/analyze_p04g_audio.py",
+      "--runtime-dir",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/combat-movie-recovery-01/combat_baseline",
+      "--output",
+      "reports/phases/P06/combat-interruption-continuation-01/audio_detailed.json",
+      "--runtime-name",
+      "full_replay",
+      "--runtime-name",
+      "reduced_replay",
+      "--runtime-name",
+      "movie_replay",
+      "--runtime-name",
+      "linux_export_replay",
+      "--runtime-name",
+      "wine_export_replay"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 26.568,
+    "log_sha256": "7337b0be2b40aeb926d5319a4d7a70e3cac29cf804edac8c031af6e2081f69c0",
+    "descendant_cleanup": {
+      "unexpected_live_children": false,
+      "remaining_live_children": []
+    },
+    "cleanup_events": [
+      {
+        "unexpected_live_children": false,
+        "remaining_live_children": []
+      }
+    ],
+    "name": "completed_C5_numeric_signal"
+  }
+]

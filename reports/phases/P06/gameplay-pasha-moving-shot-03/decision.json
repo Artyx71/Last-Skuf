@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "reviewer_role": "INDEPENDENT_GAMEPLAY_REVIEWER",
+  "scope": "PASHA_MOVING_SHOT_FINITE_CLIP_HUD_AND_TARGETED_CALLBACK_CLOSURES_ONLY",
+  "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+  "component_gameplay_approval": true,
+  "phase_approval": false,
+  "must_fix": [],
+  "closed_findings": [
+    {
+      "id": "GP-PAS-01",
+      "status": "CLOSED_TARGETED",
+      "proof": "BYTE-EXACT original impactreset callback sameCoretick: newepoch no oldcontact/receipt/damage/effects, cleanlog.17b c950 mapped by soleUI diff; native03 actualimpactreset green."
+    },
+    {
+      "id": "GP-PAS-02",
+      "status": "CLOSED_TARGETED",
+      "proof": "BYTE-EXACT original target.free on reachable enemy frame_changed inside CoreFIN: actualfree, no cost/reward, cleanlog.17b c950 mapped soleUI diff; native03 actualCorefree green."
+    },
+    {
+      "id": "GP-PAS-MIXED-FIN-COVERAGE-01",
+      "status": "CLOSED_ACTUAL_MOVIE",
+      "proof": "Fresh n755 shows firearmFINpose1 aftershot; sameclip4\u21923\u21922, reward100once, twoframehold."
+    },
+    {
+      "id": "PASHA-HUD-ARENA-OCCLUSION-01",
+      "status": "CLOSED_B359_ONLY",
+      "proof": "Fresh native/movie HUD inspected:144px meterx380..523/y49..50 ends beforeNPCcrown, text readable.17bFAIL immutable."
+    }
+  ],
+  "evidence": {
+    "source_map1314_SHA256": "4c885f6a42e5f4f90280dd71c48d47c68e09231fa6033077abf89f11284e12b0",
+    "native_validation_SHA256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917",
+    "native_counts": [
+      581,
+      393,
+      188
+    ],
+    "native_artifacts_SHA256_verified": 196,
+    "movie_SHA256": "bacc356864061fd5d902fa2a38150c73e9de9199547d3bb5ee0425330ffaa446",
+    "movie_frames_independent": 5661,
+    "movie_duration_seconds": 94.35,
+    "trace_samples_per_run": 5644,
+    "unique_contact_tokens_per_run": 105,
+    "fresh_movie_frames_personally_viewed": 363,
+    "fresh_native_fullviewport_states_viewed": 8,
+    "fresh_boards_personally_viewed": 17,
+    "moving_FullReduced_routes": 8,
+    "independent_FIN_mode_pairs": 20,
+    "FIN_contact_corpse_pairs_viewed": 40,
+    "actual_blood_pose_samples": 32,
+    "original_GP_probes17b_targeteddecision_SHA256": "c9504c7105668bc8e53263627bffebfd018da541cf1f58eaf3ecaf0998ec5775",
+    "actual_b359_QA_job05_393_24_16_raw_verified": true,
+    "ART03_decision_SHA256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0"
+  },
+  "limitations": [
+    "full_P06",
+    "P07",
+    "production_readiness",
+    "merge",
+    "release",
+    "exports_DEV_builds",
+    "native_Windows",
+    "hardware_FPS",
+    "physical_keyboard_latency",
+    "subjective_live_AI_fight_feel",
+    "audio_listening_all7SFX",
+    "complete_NPC_style_matrix",
+    "all128_runtime_blood_poses"
+  ],
+  "engine_executed_by_reviewer": false,
+  "WORK_source_Git_mutated_by_reviewer": false,
+  "old_baseline_and17b_FAIL_immutable": true,
+  "QA_formal_approval_not_inferred": "Completed rawQA03job05 allgreen; finalQA report pending. Lead aggregates independent roles."
+}

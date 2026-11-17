@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT_ORIGINAL454E_NATIVE_PIPELINE_PREFLIGHT",
+  "status": "FAIL_COMPONENT",
+  "run_authorization": "NO_GO_FULL13_ORIGINAL454E",
+  "reviewer": {
+    "agent": "/root/qa_resume_recovery",
+    "role": "INDEPENDENT_QA",
+    "production_author": false
+  },
+  "actual_original_source_sha256": "0357a6824dfb263fbdebb65f9852cd28ee8f01b24481a35bc2944b8921801b32",
+  "actual_original_head_label": "454e5329b517f461e899760e0ba43156393f555c",
+  "authoritative_original_source": "source-original454e/tools/verify_p06.py",
+  "must_fix": [
+    "PIPE-Q01",
+    "PIPE-Q02"
+  ],
+  "own_report_parser_proofs": {
+    "controls": 4,
+    "unsafeacceptances": 8
+  },
+  "process_proofs": "IndependentLead actualpurefixtures, rawcode/results/PIDidentitycleanup inspected; noengine/controller",
+  "initial_snapshot_provenance": "source-freeze.json records6232intermediateWIP, notoriginal454e; preservedandexplicitlysupersededforv1proof by0357exactoldsource",
+  "actual_Godot_full_pipeline_execution": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "native_acceptance_approval": false,
+  "fixed11f_approval": false,
+  "next": "Separate fixed11f preflight using exactnewsource +samebadcases +orphanclosure; neverreplay productionjob oroverwriteoldFAIL"
+}

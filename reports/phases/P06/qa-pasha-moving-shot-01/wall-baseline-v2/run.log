@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RESULT QA_PASHA_WALL passed=14 failed=2
+ERROR: FAIL P06_PASHA muzzle_reset:old_wall_callback_cannot_restore_flash_in_new_epoch
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:16)
+       [1] run (res://tests/qa_pasha_wall_reset_v2.gd:47)
+       [2] frames (res://tests/qa_pasha_wall_reset_v2.gd:17)
+ERROR: FAIL P06_PASHA travel_reset:old_wall_callback_cannot_restore_flash_in_new_epoch
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/pasha_moving_shot_replay.gd:16)
+       [1] run (res://tests/qa_pasha_wall_reset_v2.gd:47)
+       [2] frames (res://tests/qa_pasha_wall_reset_v2.gd:17)
+
+exit_code=1

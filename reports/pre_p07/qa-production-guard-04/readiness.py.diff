@@ -1,0 +1,52 @@
+--- v3/autopilot/readiness.py
++++ v4/autopilot/readiness.py
+@@ -21,6 +21,22 @@
+ OBLIGATIONS = {'chapter_delivery_21', 'campaign_pacing_actual',
+                'new_audio_acceptance', 'secret_delivery_7'}
+ ACCEPTANCE_STAGE = 'P07_LEAD_PASS_AND_MERGE'
++
++
++def strict_json(text):
++    """Never silently replace a contradictory verdict/ID with its last key."""
++    def object_pairs(pairs):
++        result = {}
++        for key, value in pairs:
++            if key in result:
++                raise ValueError('Duplicate JSON key: ' + key)
++            result[key] = value
++        return result
++
++    def invalid_constant(value):
++        raise ValueError('Non-finite JSON constant: ' + value)
++
++    return json.loads(text, object_pairs_hook=object_pairs, parse_constant=invalid_constant)
+ 
+ 
+ def require(condition, message):
+@@ -106,7 +122,7 @@
+     path = file_under(root, record.get('decision'), 'reports/pre_p07')
+     require(digest(path) == record.get('sha256'), scope + ' decision hash changed')
+     try:
+-        data = json.loads(path.read_text())
++        data = strict_json(path.read_text())
+     except (ValueError, OSError) as error:
+         raise ReadinessBlocked('Invalid independent readiness decision') from error
+     require(isinstance(data, dict) and type(data.get('schema')) is int and data['schema'] == 1, 'Unknown readiness decision schema')
+@@ -194,7 +210,7 @@
+     designs = load_gate(root, records.get('mission_designs'), 'P07_MISSION_DESIGN_APPROVAL', heads)
+     require(designs.get('approved_for_mass_production') is True, 'Mission concepts are not full MDS approval')
+     try:
+-        registry = json.loads((root / 'game/resources/story/registry.json').read_text())
++        registry = strict_json((root / 'game/resources/story/registry.json').read_text())
+     except (OSError, ValueError) as error:
+         raise ReadinessBlocked('Cannot read canonical chapter registry') from error
+     require(isinstance(registry, dict), 'Invalid canonical chapter registry')
+@@ -231,7 +247,7 @@
+     require(common_path.name == '.git' and common_path.is_dir(), 'Unsupported canonical Git authority')
+     root = common_path.parent
+     try:
+-        state = json.loads((root / 'automation/phase_state.json').read_text())
++        state = strict_json((root / 'automation/phase_state.json').read_text())
+     except (OSError, ValueError) as error:
+         raise ReadinessBlocked('Canonical production authority missing') from error
+     contract = require_p07_production(root, state)

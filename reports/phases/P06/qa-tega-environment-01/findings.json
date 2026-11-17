@@ -1,0 +1,61 @@
+{
+  "scope": "TEGA_COMPONENT_QA",
+  "findings": [
+    {
+      "id": "TEG-Q01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "title": "Oleg HUD replay uses newly supported KEY6 as unsupported selection",
+      "before": "counter/run.log:51/57,actualexit1",
+      "fix": "084 counter KEY6→KEY7, all existing assertions retained",
+      "proof": "counter-fixed/result.json:57/57; source-delta-084.json"
+    },
+    {
+      "id": "TEG-Q02",
+      "severity": "MEDIUM",
+      "status": "CLOSED_FOR_SOURCE_COMPONENT_ONLY",
+      "title": "Pre-export smoke/availability mapping still treats Tega as unready",
+      "fix": "084 actual Tega Input/physicalbench smoke, PashaKEY7 refusal, 3requiredTega metadata checks",
+      "proof": [
+        "source-owner-smoke/result.json:29/29 source headless; not packaged",
+        "export-metadata-probe-results.json:3/3 mocked6fixture intersection"
+      ],
+      "remaining_gate": "Real new Linux/Windows-PE exports and platform smokes must be independently checked before export acceptance."
+    },
+    {
+      "id": "TEG-Q03",
+      "origin": "Independent Lead source review, qualified by independent actual engine QA",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Synchronous foot-audio callback can invalidate physical eligibility but the same tick still moves source and remote object",
+      "requirement": "specs/P06_COMBAT_ACCEPTANCE.md P06-CBT-08 real available object/range/facing/LOS",
+      "frozen_source": "084026895f2ffb1b51b438cbf87e8a97440d7b77/runtime6a",
+      "repro": "qa_tega_callback_geometry.gd: real InputF; callback moves same enabled registered bench+100x or source−100x. Physics-priority1000 observer after Core in SAME tick.",
+      "actual": "Both128px separation cases still source+prop0.70001220703125px andjob1 atclock.183333/frame1; ticks19/48; damage/receipt0; masks/exceptionsunchanged.",
+      "evidence": [
+        "callback-geometry-05/result.json",
+        "callback-geometry-05/run.log",
+        "engine-job05-result.json",
+        "job05-manifest.json",
+        "code-freeze/game/scripts/systems/environment_kick_runtime.gd"
+      ],
+      "cause": "_valid_job after _wall_contact/make_noise rechecks instance/registry/authority/enabled but omits _near_foot geometry. Precallback geometry check cannot authorize postcallback movement.",
+      "remediation": "Preserve lifetime/identity/authority guards; recheck actual complete foot eligibility (overlap/range/facing/LOS) after external callbacks before any movement/contact. Cancel/revoke stale job safely. Add actual callback transform/geometry regressions and rerun exact repro/new relevant component/native evidence.",
+      "not_claimed": "No remote damage or extra score was observed in these two probes; no severity inflation from hypothetical damage.",
+      "lead_cross_reference": "TEGA-L01"
+    }
+  ],
+  "blocking_findings": [
+    "TEG-Q03"
+  ],
+  "QA_diagnostics_not_product_bugs": [
+    {
+      "case": "first20/23",
+      "reason": "QA initial audio signal missing; fixed own v2. Actual first case did not execute; preserved."
+    },
+    {
+      "case": "second28/29",
+      "reason": "QA actor-wall assertion demanded zero total travel; proper same-tick boundary shows0.700012px valid firstfractional step before blocking. Separate4/4 proves both stop afterwards; preserved."
+    }
+  ]
+}

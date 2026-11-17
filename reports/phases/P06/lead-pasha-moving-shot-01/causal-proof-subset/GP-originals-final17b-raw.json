@@ -1,0 +1,373 @@
+{
+  "impact": {
+    "actual_input": true,
+    "callback": {
+      "after_reset": {
+        "ammo": 4,
+        "contact_events": [],
+        "damage_events": 0,
+        "decals": 0,
+        "epoch": 5,
+        "moving_jobs": 0,
+        "particles": 0,
+        "projectiles": 0,
+        "receipts": {},
+        "rounds_spent": 0,
+        "tick": 25
+      },
+      "before_reset": {
+        "ammo": 3,
+        "contact_events": [],
+        "damage_events": 1,
+        "decals": 0,
+        "epoch": 4,
+        "moving_jobs": 1,
+        "particles": 0,
+        "projectiles": 1,
+        "receipts": {
+          "2:52546242336": true
+        },
+        "rounds_spent": 1,
+        "tick": 25
+      },
+      "cue": "impact_firearm_body",
+      "stack": [
+        {
+          "function": "on_audio",
+          "line": 22,
+          "source": "res://tests/gp_pasha_impact_reset.gd"
+        },
+        {
+          "function": "_apply_hit",
+          "line": 279,
+          "source": "res://scripts/systems/combat_system.gd"
+        },
+        {
+          "function": "_physics_process",
+          "line": 206,
+          "source": "res://scripts/systems/combat_system.gd"
+        }
+      ]
+    },
+    "checks": [
+      {
+        "details": {},
+        "name": "registered_Pasha_selected",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "actual_impact_callback_and_same_tick_after_Core_observer",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "normal_reset_changed_epoch_and_cleared_collections_inside_callback",
+        "passed": true
+      },
+      {
+        "details": {
+          "published_after_reset": []
+        },
+        "name": "old_hit_cannot_publish_contact_into_new_epoch",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "old_hit_cannot_recreate_effects_or_damage_after_reset",
+        "passed": true
+      }
+    ],
+    "committed_after_reset": [],
+    "passed": true,
+    "phase_approval": false,
+    "requires_clean_engine_log": true,
+    "runtime_approval": false,
+    "same_tick_after_Core": {
+      "ammo": 4,
+      "contact_events": [],
+      "damage_events": 0,
+      "decals": 0,
+      "epoch": 5,
+      "moving_jobs": 0,
+      "particles": 0,
+      "projectiles": 0,
+      "receipts": {},
+      "rounds_spent": 0,
+      "tick": 25
+    },
+    "scope": "GP_PASHA_PREFLIGHT_IMPACT_RESET_BASELINE"
+  },
+  "finisher": {
+    "actual_input": true,
+    "callback": {
+      "after_free": {
+        "ammo": 4,
+        "contact_events": [
+          {
+            "at": "(320.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 4,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "strong": false,
+            "target": 52546242336,
+            "tick": 13
+          }
+        ],
+        "damage_events": 1,
+        "epoch": 4,
+        "finishers": [
+          {
+            "committed": false,
+            "epoch": 4,
+            "id": 2,
+            "source_live": true,
+            "target_live": false
+          }
+        ],
+        "receipts": {
+          "1:52546242336": true
+        },
+        "rounds_spent": 0,
+        "score": 0,
+        "target_live": false,
+        "tick": 46
+      },
+      "before_free": {
+        "ammo": 4,
+        "contact_events": [
+          {
+            "at": "(320.0, 240.0)",
+            "category": "unarmed",
+            "cue": "impact_unarmed_body",
+            "damage": 0,
+            "direction": "(1.0, 0.0)",
+            "epoch": 4,
+            "finisher": false,
+            "id": 1,
+            "lethal": false,
+            "strong": false,
+            "target": 52546242336,
+            "tick": 13
+          }
+        ],
+        "damage_events": 1,
+        "epoch": 4,
+        "finishers": [
+          {
+            "committed": false,
+            "epoch": 4,
+            "id": 2,
+            "source_live": true,
+            "target_live": true
+          }
+        ],
+        "receipts": {
+          "1:52546242336": true
+        },
+        "rounds_spent": 0,
+        "score": 0,
+        "target_live": true,
+        "tick": 46
+      },
+      "free_effective": true,
+      "inside_Core_tick_finishers": true,
+      "stack": [
+        {
+          "function": "target_frame_changed",
+          "line": 25,
+          "source": "res://tests/gp_pasha_finisher_frame_free.gd"
+        },
+        {
+          "function": "_tick_finishers",
+          "line": 439,
+          "source": "res://scripts/systems/combat_system.gd"
+        },
+        {
+          "function": "_physics_process",
+          "line": 140,
+          "source": "res://scripts/systems/combat_system.gd"
+        }
+      ],
+      "target_animation": "finish_firearm_left",
+      "target_frame": 1,
+      "target_id": 52546242336,
+      "target_state": "finisher_reaction"
+    },
+    "checks": [
+      {
+        "details": {},
+        "name": "registered_Pasha_selected",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "vulnerability_earned_by_actual_Input_shove",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "firearm_tool_selected_from_registered_policy",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_contact1_callback_reached_inside_real_Core",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_really_freed_and_observer_same_tick",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "target_loss_does_not_consume_firearm_round_or_commit_damage",
+        "passed": true
+      },
+      {
+        "details": {},
+        "name": "freed_target_reservation_eventually_removed",
+        "passed": true
+      }
+    ],
+    "inconclusive_if_free_not_effective": true,
+    "passed": true,
+    "phase_approval": false,
+    "requires_clean_engine_log": true,
+    "runtime_approval": false,
+    "same_tick_after_Core": {
+      "ammo": 4,
+      "contact_events": [
+        {
+          "at": "(320.0, 240.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 52546242336,
+          "tick": 13
+        }
+      ],
+      "damage_events": 1,
+      "epoch": 4,
+      "finishers": [
+        {
+          "committed": false,
+          "epoch": 4,
+          "id": 2,
+          "source_live": true,
+          "target_live": false
+        }
+      ],
+      "receipts": {
+        "1:52546242336": true
+      },
+      "rounds_spent": 0,
+      "score": 0,
+      "target_live": false,
+      "tick": 46
+    },
+    "scope": "GP_PASHA_PREFLIGHT_FINISHER_FRAME_FREE_BASELINE"
+  },
+  "source_binding": {
+    "head": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+    "prepared_head": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+    "delta_from_prepared": {},
+    "Core_paths_exact_to_prepared": true,
+    "probe_sha256": {
+      "probes/gp_pasha_finisher_frame_free.gd": "67fcb960c4fb451e05d236bb73bb034c23ead0078985a5f9f90cf582fb426adc",
+      "probes/gp_pasha_impact_reset.gd": "b5af477dbe1880351e1e2961d4c357dd5776c2635fab0462c050ee121aa384d9"
+    }
+  },
+  "source_exact": true,
+  "logs_verified": [
+    {
+      "name": "fresh_import",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--editor",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/game",
+        "--import"
+      ],
+      "environment_overrides": {},
+      "code": 0,
+      "log_sha256": "a6c617cc81f67e4f0e89ab37f2f3fe86e035d2d73f2b4a360669571a5f2d170d",
+      "seconds": 3.548056830986752,
+      "fatal_log_matches": []
+    },
+    {
+      "name": "impact-reset",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_impact_reset.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/impact-reset/profile/runtime"
+      },
+      "code": 0,
+      "log_sha256": "2023f8ea2b7cb86f0968d0b20b3c5fa0b7157b4dfe5bddac41d4bf2c43319032",
+      "seconds": 0.9783029989921488,
+      "fatal_log_matches": []
+    },
+    {
+      "name": "finisher-frame-free",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/.tools/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/staged-project-fix-02/game",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gp_pasha_finisher_frame_free.gd"
+      ],
+      "environment_overrides": {
+        "AYAY_GP_PASHA_PROBE_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free",
+        "AYAY_P06_PASHA_OUTPUT": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free",
+        "AYAY_OPTIONS_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/options.json",
+        "AYAY_STORY_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/story.json",
+        "AYAY_DIALOGUE_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/dialogue.json",
+        "AYAY_CHAPTER_SAVE_PATH": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/chapter.json",
+        "XDG_CONFIG_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/config",
+        "XDG_DATA_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/data",
+        "XDG_STATE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/state",
+        "XDG_CACHE_HOME": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/cache",
+        "XDG_RUNTIME_DIR": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-pasha-moving-shot-01/code-preflight/actual-fix-02/finisher-frame-free/profile/runtime"
+      },
+      "code": 0,
+      "log_sha256": "121af041f494d7959f6deb09c3d9ffe35e8cccb11efbd08198dc98a36c49b6dd",
+      "seconds": 0.9748201689944835,
+      "fatal_log_matches": []
+    }
+  ],
+  "scope": "TWO_NEGATIVES_ONLY"
+}

@@ -1,0 +1,11 @@
+import sys,subprocess,json
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()/'autopilot'))
+from runner import Controller,utc
+c=Controller();w=c.root/'.autopilot/worktrees/P06'
+with c.exclusive():
+ s=c.reconcile();assert s['autopilot']['active_author'].get('ended_at') and s['autopilot']['operation']['consumed'];assert s['autopilot']['phases']['P06']['attempts']==1
+ head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=w,text=True).strip();assert head=='f66995892c8fdf8782e389a76c8ff05d628714d0'
+ assert not subprocess.check_output(['git','diff','--','game','tools','assets'],cwd=w,text=True).strip()
+ code=c.stage('P06/owner-preview-20261115-03',[sys.executable,str(c.root/'.tools/p06-owner-preview-job03.py')],420,safe_retry=False,cwd=w)
+ s=c.state();op=s['autopilot']['operation'];assert c.receipt(op);op['consumed']=True;s['autopilot']['phases']['P06']['checkpoint']='timka-present-exports-review' if code==0 else 'owner-preview03-inspect-failure';s['autopilot']['history'].append({'when':utc(),'event':'P06_OWNER_PREVIEW03_COMPLETE','operation':op['id'],'code':code,'source_head':head,'phase_pass':False});c.persist(s);print(json.dumps({'code':code,'operation':op['id'],'receipt':op['receipt'],'phase_approval':False}),flush=True);raise SystemExit(code)

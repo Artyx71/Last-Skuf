@@ -1,0 +1,105 @@
+diff --git a/game/default_bus_layout.tres b/game/default_bus_layout.tres
+index 7ec659f..9671957 100644
+--- a/game/default_bus_layout.tres
++++ b/game/default_bus_layout.tres
+@@ -1,7 +1,7 @@
+ [gd_resource type="AudioBusLayout" load_steps=2 format=3]
+ [sub_resource type="AudioEffectLimiter" id="Limiter"]
+-threshold_db = -3.0
+-ceiling_db = -1.0
++threshold_db = -5.0
++ceiling_db = -3.0
+ soft_clip_db = 2.0
+ soft_clip_ratio = 10.0
+ [resource]
+diff --git a/game/tests/character_finisher_audio_replay.gd b/game/tests/character_finisher_audio_replay.gd
+index 1a65646..a223943 100644
+--- a/game/tests/character_finisher_audio_replay.gd
++++ b/game/tests/character_finisher_audio_replay.gd
+@@ -15,6 +15,7 @@ var active_capture := ""
+ var capture_started_usec := 0
+ var solo_events: Array[Dictionary]=[]
+ var stress_events: Array[Dictionary]=[]
++var headroom_only := false
+ 
+ func frames(count: int) -> void:
+  for i in count:
+@@ -117,6 +118,7 @@ func capture_end() -> void:
+ 
+ func run() -> void:
+  output=OS.get_environment("AYAY_C01_OUTPUT");headless=DisplayServer.get_name()=="headless"
++ headroom_only="--c01-headroom-only" in OS.get_cmdline_user_args()
+  if output.is_empty():preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1);return
+  DirAccess.make_dir_recursive_absolute(output)
+  root.content_scale_size=Vector2i(640,360);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+@@ -130,6 +132,19 @@ func run() -> void:
+  lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
+  await frames(30)
+  if not headless:check("real_mixer_driver",AudioServer.get_driver_name()!="Dummy" and audio.mixer_clock_enabled)
++ if headroom_only:
++  # Target the changed Master effect. Previously verified45 routes/logic are
++  # unchanged; these three actual input contacts cover power/prime/firearm.
++  audio.request_state(&"COMBAT");await frames(60)
++  capture_begin("runtime_mix")
++  for row in [["gabar_training","unarmed"],["timka_prime","blunt"],["pasha_training","firearm"]]:
++   check(String(row[0])+":headroom_fixture",lab.select_fixture(row[0]))
++   segment=String(row[0])+"_headroom_"+String(row[1])
++   var context: String="athletic_prime" if row[0]=="timka_prime" else "training"
++   await complete_route(row[1],Routes.cue_for(lab.player.actor_id,context,row[1]))
++  await frames(25);capture_end()
++  await mixer_pass(starts)
++  return
+  capture_begin("runtime_mix")
+  for reduced in [false,true]:
+   options.set_value(&"reduced_gore",reduced,false)
+@@ -170,6 +185,9 @@ func run() -> void:
+  if headless:
+   finish_replay(starts)
+   return
++ await mixer_pass(starts)
++
++func mixer_pass(starts: int) -> void:
+  # Solo actual playback gives a compact listening artifact, with music muted only
+  # inside this test. Full gameplay above uses normal buses and production settings.
+  var music_bus:=AudioServer.get_bus_index(&"Music")
+@@ -201,7 +219,7 @@ func run() -> void:
+ func finish_replay(starts: int) -> void:
+  check("retry_and_cues_preserve_music_player_clock",audio.stem_starts==starts and audio.diagnostics().music_players==1)
+  var ok:=not checks.is_empty() and checks.all(func(c: Dictionary)->bool:return c.passed)
+- var data: Dictionary={"schema":1,"scope":"C01_RUNTIME_SIGNAL_ONLY","passed":ok,"phase_approval":false,
++ var data: Dictionary={"schema":1,"scope":"C01_HEADROOM_TARGETED_ONLY" if headroom_only else "C01_RUNTIME_SIGNAL_ONLY","passed":ok,"phase_approval":false,
+   "actual_input":true,"renderer":DisplayServer.get_name(),"listening_performed":false,"checks":checks,
+   "route_results":route_results,"contacts":contacts,"audio_events":audio_events,"captures":captures,
+   "mixer_captures":capture_data,"solo_events":solo_events,"stress_events":stress_events,"audio":audio.diagnostics(),
+diff --git a/tools/verify_p06_finisher_audio.py b/tools/verify_p06_finisher_audio.py
+index 2c2809c..0c5bafc 100644
+--- a/tools/verify_p06_finisher_audio.py
++++ b/tools/verify_p06_finisher_audio.py
+@@ -26,7 +26,9 @@ def main():
+     parser.add_argument('--headless', action='store_true')
+     parser.add_argument('--import-assets', action='store_true')
+     parser.add_argument('--replay-only', action='store_true', help='Keep earlier unchanged-source regressions; run actual contact replay only')
++    parser.add_argument('--headroom-only', action='store_true', help='Native targeted three contacts plus all twenty solo cues and eight twelve-voice bursts')
+     args = parser.parse_args()
++    if args.headroom_only and (args.headless or not args.replay_only): parser.error('Headroom check requires native --replay-only')
+     output = (ROOT / args.output).resolve()
+     if output.exists(): parser.error('Use a fresh output; consumed jobs are never blindly repeated')
+     output.mkdir(parents=True)
+@@ -73,12 +75,14 @@ def main():
+         (output/'replay').mkdir()
+         argv = [GODOT,'--path',ROOT/'game','--disable-vsync','--max-fps','60']
+         if args.headless: argv += ['--headless','--fixed-fps','60']
+-        ok = run('contact_replay',argv+['--script','res://tests/character_finisher_audio_replay.gd'],420)
++        argv += ['--script','res://tests/character_finisher_audio_replay.gd']
++        if args.headroom_only: argv += ['--','--c01-headroom-only']
++        ok = run('contact_replay',argv,420)
+         path = output/'replay/result.json'
+         if path.exists(): replay=json.loads(path.read_text())
+-        ok = ok and replay.get('passed') is True and replay.get('actual_input') is True and len(replay.get('route_results',[]))==45
++        ok = ok and replay.get('passed') is True and replay.get('actual_input') is True and len(replay.get('route_results',[]))==(3 if args.headroom_only else 45)
+     unchanged = source_hashes()==imported
+-    summary = {'schema':1,'scope':'C01_RUNTIME_SIGNAL_ONLY','passed':bool(ok and unchanged),'headless':args.headless,
++    summary = {'schema':1,'scope':'C01_HEADROOM_TARGETED_ONLY' if args.headroom_only else 'C01_RUNTIME_SIGNAL_ONLY','passed':bool(ok and unchanged),'headless':args.headless,
+                'phase_approval':False,'artistic_approval':False,'listening_performed':False,'source_unchanged_after_import':unchanged,
+                'source_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+                'source_binding_checks':len(bindings),'runtime_checks':len(replay.get('checks',[])),

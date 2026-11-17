@@ -1,0 +1,20 @@
+{
+  "source_head": "69ffc58c7ff2dedd773bd58b137553c3666ad1da",
+  "tickets": [
+    {
+      "id": "GP-TIM-PRES-01",
+      "severity": "HIGH",
+      "type": "ACCEPTANCE_TEST_COVERAGE",
+      "title": "Заменить доказательство no-invulnerability настоящим incoming Core contact во время disengage",
+      "observed": "timka_present_replay.gd:120–124 вызывает receive_hit напрямую. Все native live/movie и headless02 contacts arrays пусты. Проверка death_has_own_fall_no_invulnerability обходит collision dispatch, incoming once-token и defend hook.",
+      "impact": "Прерываемость hurt/death доказана, но отсутствие специального иммунитета в actual collision/contact path этим прогоном не проверено. Это дефект доказательства обязательного negative case, а не обнаруженная неуязвимость реализации.",
+      "required_change": [
+        "Добавить контролируемые настоящие production enemy melee через CombatSystem.start_melee с реальным overlap в подготовке, активном шаге и recovery. Не подменять collision прямыми receive_hit или _apply_hit.",
+        "Записать pre-contact action clock/phase/positions/geometry и contact_committed receipt с target player, tick, damage, once-id; проверить фактические health/hits/state, отсутствие defended parry, отмену pending движения после lethal/nonlethal hit и отсутствие outgoing counter/damage/score. Сценарий должен удерживать overlap до contact, чтобы перемещение не превращало intended hit в промах.",
+        "Сохранить existing direct receive_hit interruption checks как отдельный unit-level сценарий с честным именем. Для новых Core cases выполнить fresh headless/native evidence на новом frozen SHA, включая реальные hit/fall screenshots или video-frame sequence и restart cleanup.",
+        "Перезапустить bounded movement/wall/cancel/pause/authority/settings matrix и затронутые Gabar/Oleg regression; сохранить headless01 и текущий native01 без переписывания."
+      ],
+      "acceptance": "В actual Core trace есть genuine incoming contacts при disengage в guard/active/recovery; здоровье/полученные удары/реакция согласованы с receipt, после смерти движение прекращено и ответ не возникает. Нельзя считать отсутствие contact успешным доказательством no-invulnerability."
+    }
+  ]
+}

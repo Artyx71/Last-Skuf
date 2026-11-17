@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T16:59:05.548902+00:00",
+  "phase_approval": false,
+  "reviewed_source_sha256": {
+    "tools/p06_world_input.py": "49ebd01c79a775c4481e61012ffad2912df7c0511c0683e34de2d93abe24a4dc",
+    "tools/tests/test_p06_world_input.py": "c7846f04b88efba3e27d8e119cb1bb4ab5603bdfb604b3d3054f3bf94cf8b896",
+    "tools/verify_p06_world.py": "4a8d42d0ba3b7d9a83c7fa08caa3bd716bc16bd02f1cb9f4c21f1d48df32b4d4",
+    "tools/verify.py": "224cae1d505e9d658b2689ae9281c543a570ef723d545eba4a77e0e5523b252b",
+    "game/tests/character_world_preview.gd": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+    "game/resources/characters/catalog.json": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507"
+  },
+  "source_stable_during_review": true,
+  "author_headless": {
+    "validation_sha256": "7e723375affd339c3b8e0769e74aaf51e58a6d3be4284a9fd4771ef079b4a163",
+    "passed": true,
+    "checks": "70/70",
+    "strict_input_verified": true,
+    "strict_input_gate": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "timka",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    },
+    "source_unchanged": true,
+    "matching_artifacts": 5,
+    "artifact_mismatches": [],
+    "reviewed_tool_source_mismatches": []
+  },
+  "configured_speed": {
+    "timka": 84,
+    "ryzhik": 120
+  },
+  "unchanged_native02_fixture_and_timka_world": {
+    "game/tests/character_world_preview.gd": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+    "game/assets/art/characters/timka/world_sheet.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "game/assets/art/characters/timka/world.json": "ad052f2beb456666e6c605aa976314d7a6170b0361b696be01b483f2b4504719"
+  },
+  "old_failed_receipt_unchanged": true,
+  "old_failed_receipt_exit_code": 1,
+  "old_failed_log_sha_matches": true,
+  "scope_limit": "New pure signal gate plus mocked temp wiring; no new native/headless game execution by reviewer and no phase approval"
+}

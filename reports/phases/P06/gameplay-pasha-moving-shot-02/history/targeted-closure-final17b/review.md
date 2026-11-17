@@ -1,0 +1,7 @@
+TARGETED_CLOSURE_PASS на frozen17b162d9d4320650f7e0422d63c1c2c77882a9d3: два исходных GP-PAS-01/02 остаются закрыты по BYTE-EXACT probes. Это не финальный Pasha runtime/HUD/ART/P06 PASS.
+
+Самостоятельно перепроверены raw results, callback stacks/free_effective, same-tick observations, command logs/SHA, source before/after и staged probe hashes. Impact5/5: callback tick25 epoch4→5, после Core events/receipts/damage/decals/particles0. Finisher7/7: настоящий enemy contact1 callback внутри Core освобождает target tick46; после Core ammo4/cost0, нет нового FIN damage, reservation затем удаляется. Import и обе пробы exit0 с чистыми логами. Никакого вывода «7/7 достаточно» без cleanlog не сделано.
+
+Все1314 source entries before/after равны prepared17b, declaredDelta{}. SHA обеих probes неизменны с красного baseline; actor/trigger/oracles не ослаблены. В source17b меняются Core wall-reset guards/HUD иQA/CI относительноfb5, а найденные guarded _apply_hit/_tick_finishers paths успешно повторно проверены actual. Canonical serial ROOT operation2ea54422834a4919b4a045d0775914c3 consumedexit0; reviewer engines/Controller/WORK/Git mutations0.
+
+Baseline CODE_PREFLIGHT_FAIL0322f819 и предыдущий fb5 targeted closureed2e40e1 сохранены. Отдельный full Gameplay вердикт требует COMPLETE native02, реального HUD rect/occlusion и смешанного FIN movie contact после добавленного hold, frozen-source/QA/ART binding. Windows, hostFPS/latency, listening, all7SFX/fullP06/export не утверждаются.

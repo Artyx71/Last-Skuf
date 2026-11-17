@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "V4_NARROW_LEAD_PG_C05_C06_AND_PG_L05_CLOSURE_ONLY",
+  "reviewed_frozen_files": 8,
+  "QA4_immutable_decision_awaited_and_verified": true,
+  "QA4_manifest_verified_files": 36,
+  "independent_QA4_actual": {
+    "production_tests": {
+      "passed": 55,
+      "total": 55
+    },
+    "autopilot_regression_tests": {
+      "passed": 47,
+      "total": 47
+    },
+    "ingress_probes": {
+      "passed": 16,
+      "total": 16
+    },
+    "staged_controls": {
+      "passed": 23,
+      "total": 23
+    },
+    "old_adversarial_controls": {
+      "passed": 10,
+      "total": 10
+    },
+    "same_v3_raw_bytes": {
+      "loader_blocked": true,
+      "validation": 0,
+      "snapshot": 0,
+      "mock_PUT": 0,
+      "preserved": true
+    },
+    "fresh_second_snapshot_changed_contract_or_evidence_cases": 2,
+    "snapshots_each": 2,
+    "requests_each": 0,
+    "actual_network_engine_calls": 0
+  },
+  "own_narrow_pure_loader_cases": 6,
+  "own_readonly_actual_ROOT_compatibility_files": 10,
+  "own_Git_controller_engine_network_generator_calls": 0,
+  "own_broad_tests_run": false,
+  "criteria": [
+    {
+      "criterion": "General P07 remains mass executor with all21 MDS mandatory",
+      "result": "VERIFIED_COMPONENT",
+      "evidence": "reviewed-source/autopilot/runner.py prerequisite/run_phase; readiness.py require_p07_production"
+    },
+    {
+      "criterion": "Six actual preproduction capabilities; future content not prematurely CLOSED",
+      "result": "VERIFIED_COMPONENT_PROTOCOL_ONLY",
+      "evidence": "readiness.py readiness_contract; unchanged PRODUCTION_GATES.md; QA4 staged23"
+    },
+    {
+      "criterion": "Four exact HIGH OPEN obligations fixed P07_LEAD_PASS_AND_MERGE stage",
+      "result": "VERIFIED_COMPONENT",
+      "evidence": "readiness.py constants/readiness_contract; staged negative cases"
+    },
+    {
+      "criterion": "Current P07 HEAD + canonical ROOT Readiness SHA + exact all-four actual nested evidence before recording PASS",
+      "result": "VERIFIED_COMPONENT",
+      "evidence": "runner.py validate_review before persist/checkpoint; github.py; readiness.py require_p07_review_acceptance"
+    },
+    {
+      "criterion": "Both fresh merge snapshots revalidate contract/source/evidence; no FAIL/BLOCKED merge",
+      "result": "VERIFIED_COMPONENT_WITH_ISOLATED_SPIES_ONLY",
+      "evidence": "QA4 staged controls and tests; two changed second-snapshot cases each2 snapshots/0PUT"
+    },
+    {
+      "criterion": "Contradictory duplicate raw decoded keys denied before validation/PUT; records preserved",
+      "result": "VERIFIED_PG_C05_CLOSURE",
+      "evidence": "QA4 exact same v3 raw SHA4e2f... actual load Blocked then0validation/0snapshot/0request; fresh/top/Unicode/receipt/state cases; own6pure cases"
+    },
+    {
+      "criterion": "Malformed review/findings containers rejected at runtime",
+      "result": "VERIFIED_PG_C06_CLOSURE",
+      "evidence": "github.py typed outerdict/findingslist; QA4 malformed6 types actual loader/validator/guarded_merge0PUT"
+    },
+    {
+      "criterion": "SourceGit/path/symlink/severity/schema/lease/resume protections retained; no progress reset",
+      "result": "VERIFIED_WITHIN_ISOLATED_COMPONENT_SCOPE",
+      "evidence": "QA4 baselines55+47; old10; linked newP07commit; raw records and fixture state preserved"
+    }
+  ],
+  "phase_approval": false,
+  "full_production_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "production_start_approval": false,
+  "merge_approval": false,
+  "P06_formal_attempt_consumed": false,
+  "canonical_state_or_WORK_mutated_by_reviewer": false,
+  "old_readiness_FAIL_changed": false
+}

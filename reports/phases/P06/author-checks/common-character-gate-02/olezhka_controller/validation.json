@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 164,
+  "checks_total": 164,
+  "actual_captures": 0,
+  "contacts": 57,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.107,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/olezhka_controller/commands.json",
+      "sha256": "eaead4a3a1cafc1fb2982182a64289271fe23161754958f81906844291356b03"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/olezhka_controller/live/result.json",
+      "sha256": "afce269521a18069cfdb34107880bb6bd175731cf2aa69d2e492661aa0b7dd62"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/olezhka_controller/live.log",
+      "sha256": "88b26819b77cb94fccc258aebcc8992b555c488bfd591ed2f2126f24f9332829"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/olezhka_controller/source_hashes.json",
+      "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+    }
+  ]
+}

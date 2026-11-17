@@ -1,0 +1,338 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "tega",
+  "passed": true,
+  "source_head": "00298c2406243d7ef9cde20d10645ebfb8d1a648",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 40,
+  "phase_captures": 32,
+  "transition_captures": 8,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": true,
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/tega-world-native-01/world.mp4",
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 13.205,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/tega-world-native-01/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 22.498,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/tega-world-native-01/world.avi",
+        "-an",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/tega-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 1.259,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/tega-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.045,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "tega",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    },
+    "movie": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "tega",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/commands.json",
+      "sha256": "a3b832318db25d89707952c13dfba5cc8ba88500432ec1b609a5a51e575d8c58"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_down_0.png",
+      "sha256": "6c84388766a3bb81a8db885155f696444a9ca05ec4f8e3bc7d8d5b71b62c4416"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_down_1.png",
+      "sha256": "2d33b3ad3b9b47cd20d2320f8a13bccb2939824ba625642534f95e21f4c1eb4e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_left_0.png",
+      "sha256": "0dad5a5f178d79e737b52ce8ce2e3ec2c4eecfdf4bef00a0227da50f1810846d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_left_1.png",
+      "sha256": "3ff819251f9f2b04a269452cb6a3fb1798db288d23663e21a60fafc82ee0fa80"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_right_0.png",
+      "sha256": "9a6c39ec4457dcee6a774863ed63ef8c30a8160ccb5eb22ef83b8795f9e95c1d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_right_1.png",
+      "sha256": "8ec9c92790d678032c4c79b72b9d7494395025f527345cdd5199396cf860c42e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_up_0.png",
+      "sha256": "41d7c418cd009ee7c8bcedcf998d39f4771f6ff54e0a7bcbf5782c2d0d5276a0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/idle_up_1.png",
+      "sha256": "09fb9b4469b7b6b076bf218a9b75e788b49168c8581ea7c56634a37985b7c53a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/input_gate.json",
+      "sha256": "127bbbd6298c079a45d2b2bbd4ff76c80e6428de224b73a339e0c681a2794aff"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/result.json",
+      "sha256": "79c93e608feb23c98d6b610d2e70a452ae82715761111466f729364d354abb13"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_down_0.png",
+      "sha256": "e2d0c7aeac89b9925755f6c121b48f3ac32e54c72924377be4178a2c399aeca7"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_down_1.png",
+      "sha256": "44b5c95e09ebe79ef6213b0c857080b81604cc736edeefafa99fd805c1c47b75"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_left_0.png",
+      "sha256": "74944b94af95053daded22b21180948b803f32e73eb1a95ae99d66c4d053f796"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_left_1.png",
+      "sha256": "a1d529b5487ef9cfd747d7adc01762d3e5ae27ed4b60651a1b644e2e59d14a47"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_right_0.png",
+      "sha256": "5f28787bee16546c8fc99855ad71d715593ac1f3b09360017bb86c889656793f"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_right_1.png",
+      "sha256": "657bf435b8e69f8f843999bf990697b84b5667ae6cdfee582a1f23da2da9c8e4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_up_0.png",
+      "sha256": "96ca93bb03e1809108a7e053e8273ea0f751fe158bd37ccc2630fc80669a0703"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/run_up_1.png",
+      "sha256": "6d19aafc37e262810431158c904de7a40c892b2539ae0a2b2913f34061cf48f9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_504_idle_up.png",
+      "sha256": "e46024d7fedfeabfa17893713f88ad93e3fb6ccd79b8b5d80dfa2273f18e8bf5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_528_walk_right.png",
+      "sha256": "0108e2c9a38521cd2cf9c21c170b2799836ca8f9f32f2d3e8608ff3bb80f1b0c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_552_run_right.png",
+      "sha256": "e1faf655fe337609047806cb1f80e1533b626315e4566df0f03460ff0336fe43"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_576_idle_right.png",
+      "sha256": "a044badb52e5ee3c9cb317162e3f4d89ac58fa670480e1466916017d8222c6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_600_walk_down.png",
+      "sha256": "d0d33e7c16e2b7558e1abb10084c909d8f2576f66ad8edd9b765102ed802fd60"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_624_run_left.png",
+      "sha256": "8ad20e75ae27aabf482cb1b274edb74955d9e5bb16ff3e949e82d2af5d0861b4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_648_walk_up.png",
+      "sha256": "4a6601f74848bec5797380dfac6b789893c59d27a91ebc2c25527f0f264968a1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/transition_672_idle_up.png",
+      "sha256": "e5b9f91554caf85763b3aef79cb22530e2faab1dd33f5724ac7b6f6aa4f2686d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_down_0.png",
+      "sha256": "355fe7b048cd4ed700f88dc18ce32726a166d738eb5e79e0b260a937fbf6f506"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_down_1.png",
+      "sha256": "a2e629f0e5f1826c8bdf9e7113cb478a398270f042459607da251a1f110a849d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_down_2.png",
+      "sha256": "c20b66f8cee6f6ea15dc2e370b9c46f9385b77fa4aab6c0b091b1b60ea5cfcc3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_down_3.png",
+      "sha256": "1c56fe2713d12df17f20c3d6d815225db17752b766a73bbb62fddd7b4fd678c0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_left_0.png",
+      "sha256": "176f895a2fb51028e461771f056ce2b50a1cfe23a5b16a1655e935999aa47e41"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_left_1.png",
+      "sha256": "eb15c19ba0f8348ab23aa68c1c80ac0844ac3c2e599ab957dc59023f867c3623"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_left_2.png",
+      "sha256": "7e34b87cec187077b2022fca71278c61f0d636bc86a28cfa59bb033f4eaf5b92"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_left_3.png",
+      "sha256": "b7d67fc173429ac1632e7ea1c57c09ef12762e81a2089533e48872dfd2e8c7e2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_right_0.png",
+      "sha256": "a69f653f03d7b7f7b4a69f11a3d22fdd549cb17a8e7147749d886c28905f4e78"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_right_1.png",
+      "sha256": "217b42af1c3274be6a3c56cc0cbf4147eb4a026b73f5297b35ce988e36dca4bf"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_right_2.png",
+      "sha256": "11027ba79bf9d329e0850e7fea50c020a83b450f4eb5028eb7f5a6629c72e31c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_right_3.png",
+      "sha256": "bacf3939332645c54967599cdfdd4547a9662797bcd678ace6944c197917cb06"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_up_0.png",
+      "sha256": "fad860669dac6d9399cf6f2139feb5942a565e507a0a463c76e914982b423ea3"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_up_1.png",
+      "sha256": "19729fdc56c7768380d1609bb2ca3453060a92a58d9dd8016caaf1bfee1b3ab2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_up_2.png",
+      "sha256": "294c80e138128fe6c50755bbfa204876309ea3b06b66288ced779aaa2761d646"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live/walk_up_3.png",
+      "sha256": "0ba30930247593fea71f7ab5082eff1a6eca90e8d51a89fe806a0e80a2950f19"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/live.log",
+      "sha256": "0c33d6276de67058dae4414e63a930e24f6728268f9c364d8b5f017acd977568"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/movie/input_gate.json",
+      "sha256": "127bbbd6298c079a45d2b2bbd4ff76c80e6428de224b73a339e0c681a2794aff"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/movie/result.json",
+      "sha256": "3ae145fc5d16ecb0cbcfd0b852883b61d4705fefbf1ae9d90f1ed0eee152b1ac"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/movie.log",
+      "sha256": "c5896af1e02fddfdb0f25806303e0b57ac1a38a152a721e4872a51366d3e56ca"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/movie_probe.json",
+      "sha256": "3e4b19150bfe52e7418be800b5f84bcecfe18b9785faba5361de478d2033d578"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/probe_movie.log",
+      "sha256": "8cbe406e26dd66525028e96a7659bc5248e18d6dd05e39b3ca38a9708a4b0fe4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/tega-world-native-01/source_hashes.json",
+      "sha256": "beb3fefd3679eedee34b12ebc305e9918d551be6400ee7424aa6ed730fca60a2"
+    }
+  ]
+}

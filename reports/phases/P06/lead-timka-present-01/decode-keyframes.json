@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "argv": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-i",
+    "AYAY_SDD_v1.0/reports/phases/P06/lead-timka-present-01/producer-evidence/timka-present.mp4",
+    "-vf",
+    "select=eq(n\\,761)+eq(n\\,762)+eq(n\\,782)+eq(n\\,811)+eq(n\\,812)+eq(n\\,842)+eq(n\\,884)+eq(n\\,926)+eq(n\\,954)+eq(n\\,957)",
+    "-fps_mode",
+    "vfr",
+    "-threads",
+    "1",
+    "AYAY_SDD_v1.0/reports/phases/P06/lead-timka-present-01/diagnostics/movie-keyframes/frame_%02d.png"
+  ],
+  "exit_code": 0,
+  "original_movie_SHA256": "c2394c6809f6e73045a9e1a123588c6e74732551c0570061aa7bfacbcead23e4",
+  "source_movie_full_stream_frames_counted": 1113,
+  "selected_original_frames": [
+    {
+      "file": "diagnostics/movie-keyframes/frame_01.png",
+      "zero_based_frame": 761,
+      "PTS_seconds": 12.683333333333334,
+      "sha256": "336f7e0569cc09b5e34ff642a5ca6129e436f956e1a617f836d9d8f6b3449dd7"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_02.png",
+      "zero_based_frame": 762,
+      "PTS_seconds": 12.7,
+      "sha256": "425e46d39f5c1fe0dc89eed9933eb545cdc1926dafcf2467af4df7e63907cd46"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_03.png",
+      "zero_based_frame": 782,
+      "PTS_seconds": 13.033333333333333,
+      "sha256": "d5890d7e624f3088977b99c4ff325a63d3a0a8b00a400865a8e85c3e4fe306f8"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_04.png",
+      "zero_based_frame": 811,
+      "PTS_seconds": 13.516666666666667,
+      "sha256": "dc8a0e3cd69c80c663f393f9c3ed1280e0a55f0c95d3bcebfdb2aaf3a2e6f55d"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_05.png",
+      "zero_based_frame": 812,
+      "PTS_seconds": 13.533333333333333,
+      "sha256": "003226df8b0fd286eaebf56c00bdadcd6e3f88aacc804aa8e53eaf8ec079e1aa"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_06.png",
+      "zero_based_frame": 842,
+      "PTS_seconds": 14.033333333333333,
+      "sha256": "ee73bfd5c1a9fe983cb7b3cfa9cde04b813a59a8d149ef1304573d92e65c8ebc"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_07.png",
+      "zero_based_frame": 884,
+      "PTS_seconds": 14.733333333333333,
+      "sha256": "944a658188bcb9c533d01d96feea7076e28494ec75725011c98bbeb65d93ee9a"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_08.png",
+      "zero_based_frame": 926,
+      "PTS_seconds": 15.433333333333334,
+      "sha256": "61156297c5ed7826e1fe4a92ec241fe50a20564eb15508aab9ecfcc933017bb2"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_09.png",
+      "zero_based_frame": 954,
+      "PTS_seconds": 15.9,
+      "sha256": "0184865758a5618bfb2c81de01c78052d028bc8dc63733642990b789f8fc629f"
+    },
+    {
+      "file": "diagnostics/movie-keyframes/frame_10.png",
+      "zero_based_frame": 957,
+      "PTS_seconds": 15.95,
+      "sha256": "f02d89ac43e36089487b236b21d683f4da4b524663e7dbb767bd57055d74de42"
+    }
+  ],
+  "game_or_builders_run": false,
+  "visual_inspection_not_claimed_for_other1103_frames": true
+}

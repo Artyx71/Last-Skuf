@@ -1,0 +1,114 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_character_frames_component",
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed_without_git_command": "e113fc784b6fdfcd2b624195eda22f8092e2ebd0",
+  "status": "COMPONENT_MAPPING_VERIFIED_WITH_MEDIUM_ROBUSTNESS_FINDING",
+  "phase_approval": false,
+  "playable_hero_or_ability_approval": false,
+  "art_native_feel_fps_exports_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_or_source_mutations": false,
+  "findings": [
+    {
+      "id": "FRAMES-PF-01",
+      "severity": "MEDIUM",
+      "file": "game/scripts/actors/character_frames.gd",
+      "lines": [
+        46,
+        66
+      ],
+      "finding": "Catalog path value and loaded resource are assigned to String/Texture2D before explicit type guards; malformed path/resource class can raise typed assignment errors rather than clean null. Catalog does not validate file field types.",
+      "repro_status": "static source finding; reviewer runtime forbidden",
+      "fix": "Guard Variant path value is String/nonempty; load Resource/Variant and verify Texture2D before typed use. Add isolated malformed-path/nontexture negative coverage."
+    }
+  ],
+  "verified": [
+    "Exact new action hurt4/interact3/fall5,6 mapping differs explicitly from legacy Yakuza",
+    "Metadata32-entry order/identity/rect/maps and resource dimensions validated for valid current data",
+    "Combined construction requires all three sheets, no Yakuza fallback",
+    "Current Gabar finisher sheet absent, construction intentionally denied",
+    "Loader only constructs presentation frames, no combat clocks/damage/score mutation"
+  ],
+  "author_evidence_read_not_rerun": {
+    "unit_passed": 300,
+    "unit_failed": 0,
+    "unit_source_hashes_checked": 2,
+    "unit_source_mismatches": 0,
+    "unit_log_hash_matches": true,
+    "world_headless_input_passed": 70,
+    "world_total": 70,
+    "world_rendered_captures": 0,
+    "world_artifact_hashes_match": true,
+    "world_source_inventory_entries": 596,
+    "world_current_hash_matches": 594,
+    "world_current_hash_mismatches": [
+      "assets/source_art/characters/README.md",
+      "assets/source_art/characters/assemble_character_actions.py"
+    ],
+    "reviewed_runtime_matches_inventory": true,
+    "shared_yakuza_core_unchanged_from_prior_evidence": true
+  },
+  "gabar_action_sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d",
+  "gabar_complete_finisher_exists": false,
+  "remaining_constraints": [
+    "Typed-data/resource failure guards",
+    "Positive complete finisher/all-three merge tests after actual art exists",
+    "Production new actor mapping/actions/abilities and native contact/Input/cancel proof",
+    "Full once-ledger/settings/save/reload/performance/platform/phase gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/frames-review-v1.md",
+    "sha256": "6c6cf198191711ee42adbf251fa2c391c191bcbbffa610b2ff4e281483350748"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/actors/character_frames.gd",
+      "sha256": "ac2356c2e62148b97b24156330dae66d577df75b993f204c7635551d4a45f4b3"
+    },
+    {
+      "path": "game/tests/character_frames_test.gd",
+      "sha256": "39ccac765921884b54a9b136c9662488e266346a6bb0c10dea81510e44ac4c9b"
+    },
+    {
+      "path": "game/assets/art/characters/gabar/action_sheet.png",
+      "sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d"
+    },
+    {
+      "path": "game/assets/art/characters/gabar/action.json",
+      "sha256": "ea65bc6dc47ad23079f9202620a7017e5309db8d5526be1a3123f75553702393"
+    },
+    {
+      "path": "game/scripts/systems/character_catalog.gd",
+      "sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/character-frames-01.json",
+      "sha256": "2cdb3cbc9f6b4e325c545a5bb190690e27206067f5230d9457283a83baddb76b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/character-frames-01.log",
+      "sha256": "39a1490bac8566191452204a5ccf7db143de7bcd5958be6a0cec69f6b4bbb73d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/validation.json",
+      "sha256": "1360d7107c53ee6694fbcfcefcd15b048cf98ac0da724caea77d63049d3956be"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/commands.json",
+      "sha256": "1d134af7eb5103d4eaaba757fe916a8bb2567978356530156416912f2266eb58"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/live.log",
+      "sha256": "c5cdfa02f5dfcc861666885548aad136a68f2bde1df1784917b9b2aad77a4107"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/source_hashes.json",
+      "sha256": "c961775006b31250aa4a7a9f176762801130d13d8159007a44b2d16b72b7f31d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/frames-world-regression-03/live/result.json",
+      "sha256": "9287b821c8ffba54169f239f58005a7202fcabc94bdff75622807fe00d4068e1"
+    }
+  ]
+}

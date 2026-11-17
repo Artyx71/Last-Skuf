@@ -1,0 +1,75 @@
+{
+  "phase": "P06",
+  "scope": "PORTRAIT_DIALOGUE_SUBTASK_ONLY",
+  "passed": true,
+  "phase_approval": false,
+  "renderer": "headless",
+  "actual_new_process_reload": true,
+  "checks_passed": 283,
+  "checks_total": 283,
+  "captures": 0,
+  "source_unchanged": true,
+  "commands": [
+    {
+      "name": "cast-replay",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 21.798,
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--",
+        "--open-cast",
+        "--p06-cast-replay"
+      ]
+    },
+    {
+      "name": "process-reload",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.597,
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_dialogue_reload.gd"
+      ]
+    }
+  ],
+  "audio": "Existing accepted shared fictional bleep; no new media; agent listening not claimed",
+  "native_windows": "NOT_TESTED",
+  "source_head": "263e888afc9875ebf887267c0dd734b70897f344",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/cast-replay.log",
+      "sha256": "8870dd5706b708a8f63543f119345176a3bbc8e6eb8dcb4b51b730374a63d402"
+    },
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/commands.json",
+      "sha256": "546d023f5c648f8085d6c5bf265ab4eec42e3844b2c183c78f7855573b559266"
+    },
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/result.json",
+      "sha256": "1b266fa914ec5695fd4342e7c51a69155d39089bddeab899bd25768228a1ed7c"
+    },
+    {
+      "path": "reports/phases/P06/cast-driver-diagnostic-01/normal/source_hashes.json",
+      "sha256": "19acbc416b532d106bee6c97b6554a1f150ffac9581fb3bff55fb305326fdecb"
+    }
+  ]
+}

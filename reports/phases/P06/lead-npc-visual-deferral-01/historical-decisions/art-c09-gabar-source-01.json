@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "status": "FAIL_SOURCE_ART",
+  "disposition": "WHOLEPOSE_REMEDIATION_REQUIRED",
+  "role": "independent_ART_reviewer_not_author",
+  "created_at": "2026-11-15T21:22:19.784106+00:00",
+  "scope": "C09_GABAR_FIRST24_NPC_CONTACT_RELEASE_SOURCE_ONLY",
+  "master_sha256": "eed6e0f35fac7eb68c42b16459a5e0f7bec3a4e02fbecb6b37fb508ac3d48a78",
+  "native_sha256": "414cbbe5dc6fb0da3dd3d7bc53c2c459a5a6edd35c354033189f4726c3556379",
+  "source_art_package_approval": false,
+  "source_adoption_preparation_approval": false,
+  "runtime_approval": false,
+  "Gameplay_approval": false,
+  "C09_approval": false,
+  "full_P06_approval": false,
+  "P07_approval": false,
+  "merge_approval": false,
+  "phase_attempt_consumed": false,
+  "budget_is_acceptance": false,
+  "new_wholefigure_cells_observed": 24,
+  "technically_valid_native_conversion": true,
+  "clear_contact_failure_cells": [
+    "R1C1",
+    "R1C4",
+    "R3C1",
+    "R3C4",
+    "R5C1",
+    "R5C3",
+    "R5C4"
+  ],
+  "provisional_contact_cells": [
+    "R1C2",
+    "R1C3",
+    "R3C2",
+    "R3C3",
+    "R5C2"
+  ],
+  "release_retention_source_only_cells": [
+    "R2C1",
+    "R2C2",
+    "R2C3",
+    "R2C4",
+    "R4C2",
+    "R4C3",
+    "R4C4",
+    "R6C2",
+    "R6C3",
+    "R6C4"
+  ],
+  "release_failure_cells": [
+    "R4C1",
+    "R6C1"
+  ],
+  "findings": [
+    "ART-C09-GAB-01",
+    "ART-C09-GAB-02"
+  ],
+  "all12_contacts_wholefigure_replacement_allowed": true,
+  "all12_release_byteexact_retention_allowed": false,
+  "ten_release_byteexact_retention_source_only_allowed": true,
+  "engine_runs": 0,
+  "image_generation_calls": 0,
+  "subagents_spawned": 0,
+  "WORK_Game_Git_Controller_writes": 0,
+  "production_game_writes": 0,
+  "Pasha_Tega_components_reopened": false,
+  "prior_ART_decision_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
+  "prior_Gameplay_decision_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+  "review_sha256": "9dd48e4b28acc7a9c2e40ba3e3213610c51afceef9ac3202ac10ebbaa6e6781b",
+  "metrics_sha256": "e99e5ae7aa45da5da0790075bfc123ba1bc295d39fbe41c7c8e563b802f55657",
+  "source_freeze_sha256": "0e4efc26f9040d08dca1ba2a800fcc7a24acc16f6fd7ed4a29bd8bbdcd5b8468",
+  "required_next": "Root wholefigure fixes -> fresh immutable independent source review; runtime only after source acceptance."
+}

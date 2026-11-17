@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "QUICK_STATIC651_INPUT_TELEMETRY_FIXTURE_PREFLIGHT_ONLY",
+  "source_commit": "651d730bfdf6750d92511b841256435eed2f6dd9",
+  "source_sha256": "399348af23037d1c7b218c45e163fb527a46d61e195884ae9607143fd9bd23ec",
+  "reviewer": "qa_resume_recovery",
+  "findings": [
+    {
+      "id": "PASHA-INPUT-Q01",
+      "severity": "LOW",
+      "status": "OPEN",
+      "mandatory_before_claiming_missing_data_fail_closed": true,
+      "summary": "New actual_held predicate accepts empty ammo_trace interval.",
+      "pure_counterexample": {
+        "samples": 0,
+        "actual_held": true,
+        "required_safe_acceptance": false
+      },
+      "classification": "DIAGNOSTIC_EVIDENCE_GUARD_WEAKNESS_NOT_PROVEN_GAMEPLAY_BYPASS",
+      "fix": "Require nonempty relevant observations; bind segment/tick scope; preserve all prior predicates and no key reassertion."
+    }
+  ],
+  "positive_static_checks": {
+    "all_old_check_predicates_preserved": true,
+    "old_key_driver_and_await_lines_preserved": true,
+    "MovieMaker_NO_FOCUS_only": true,
+    "production_Game_assets_unchanged_except_fixture_from_failed_candidate": true,
+    "new_check_runs8routes": true
+  },
+  "actual_engine_parse_or_replay_by_QA": false,
+  "native_or_manual_focus_behavior_accepted": false,
+  "past_failure_cause_established": false,
+  "parent_current_valid_data_job_may_finish_without_mutating_source": true,
+  "actual_current_data_requires_independent_nonempty_scope_check": true,
+  "phase_native_or_merge_approval": false,
+  "original_full01_FAIL_unchanged": true
+}

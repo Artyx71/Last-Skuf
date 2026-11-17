@@ -1,0 +1,546 @@
+diff --git i/README.md w/README.md
+index 6c123d8..2ef2f01 100644
+--- i/README.md
++++ w/README.md
+@@ -1,6 +1,6 @@
+ # АЫАЫ: Последний скуф — SDD v1.0
+ 
+-**Статус исполнения:** P00–P05 PASS/MERGED; P05 [PR10](https://github.com/Artyx71/Last-Skuf/pull/10). P06: семь контекстов боевого полигона (Габар, Олежка, Тимка present/prime, Рыжик, Тега, Паша) и9 portrait/dialogue sets. Паша и Тега имеют независимый Lead PASS_COMPONENT; слабый Якудза сохранён в CH01. C01 индивидуальное finisher audio имеет отдельный Lead PASS_COMPONENT031cc8c1; полная P06 ещё требует NPC style matrix и общих quality gates. Только CH01 имеет готовую сюжетную playable scene.21глава,5канонических секретных миссий и2необязательных concept episodes остаются производственным объёмом. P07 условна после full P06 PASS/merge и independent Production Readiness PASS; Lead должен принять21MDS до массового производства. Последний локальный DEV08 описан в [owner handoff](reports/phases/P06/owner-preview-20261116-08/owner-handoff.json); Linux renderer81, Windows PE подWine72, nativeWindows NOT_TESTED.
++**Статус исполнения:** P00–P05 PASS/MERGED; P05 [PR10](https://github.com/Artyx71/Last-Skuf/pull/10). P06: семь контекстов боевого полигона (Габар, Олежка, Тимка present/prime, Рыжик, Тега, Паша) и9 portrait/dialogue sets. Паша и Тега имеют независимый Lead PASS_COMPONENT; слабый Якудза сохранён в CH01. C01 индивидуальное finisher audio имеет отдельный Lead PASS_COMPONENT031cc8c1; владелец перенёс дополнительную визуальную NPC style matrix в P08-NPC-STYLE-01. Для полной P06 ещё нужны общие baseline NPC/combat/native/performance/export/QA/Lead/CI gates. Только CH01 имеет готовую сюжетную playable scene.21глава,5канонических секретных миссий и2необязательных concept episodes остаются производственным объёмом. P07 условна после full P06 PASS/merge и independent Production Readiness PASS; Lead должен принять21MDS до массового производства. Последний локальный DEV08 описан в [owner handoff](reports/phases/P06/owner-preview-20261116-08/owner-handoff.json); Linux renderer81, Windows PE подWine72, nativeWindows NOT_TESTED.
+ **Цель:** качественный Godot 4 / GDScript single-player Windows/Linux top-down action с собственным pixel-art, сильным саундтреком, драматургией и локальными шутками. Репозиторий: `Artyx71/Last-Skuf` (доступ/существование проверяет Codex, без самовольной публикации).
+ 
+ ## С чего начать
+diff --git i/autopilot/queue.json w/autopilot/queue.json
+index ff5d804..008045c 100644
+--- i/autopilot/queue.json
++++ w/autopilot/queue.json
+@@ -274,13 +274,14 @@
+       "depends_on": [
+         "P06/combat-style-audit",
+         "P06/C01-finisher-audio-runtime",
+-        "P06/C01-finisher-audio-listening",
+-        "P06/C09-npc-style-review"
++        "P06/C01-finisher-audio-listening"
+       ],
+       "status": "PENDING",
+       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+       "must_pass_before_P07": true,
+-      "phase_approval": false
++      "phase_approval": false,
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "scope": "Own seven player finisher animations/timings/audio plus working baseline NPC category reactions/correctness. Additional C09 visual individualization deferred to P08-NPC-STYLE-01."
+     },
+     {
+       "id": "P06/seven-hero-combat-independent-review",
+@@ -497,12 +498,14 @@
+       "status": "OPEN",
+       "severity": "CRITICAL",
+       "depends_on": [],
+-      "scope": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
++      "scope": "Finish existing authorized P06: seven own player finisher/sound styles and baseline NPC category reactions/correctness, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
+       "acceptance": "Separate complete frozen-source ART/GAMEPLAY/QA/full Lead +mandatory CI/protection/confirmed P06 merge; component approvals cannot substitute.",
+       "gate": "BEFORE_P07_ENTRY",
+       "finding_source": "reports/pre_p07/lead-readiness-01/findings.json",
+       "phase_approval": false,
+-      "triggered_by": "PREP07/independent-lead-readiness"
++      "triggered_by": "PREP07/independent-lead-readiness",
++      "scope_before_owner_NPC_deferral": "Finish existing authorized P06: seven own finisher/sound/paired-NPC styles, Timka distinct contexts, Pasha moving shot/resources HUD, Ryzhik real roll, Tega actual object, required sockets/temporal/frame/cancel/settings/build proof. Reuse correct Core/Gabar/Oleg; keep legacy scope fix.",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json"
+     },
+     {
+       "id": "PREP07/READINESS-C02",
+@@ -686,15 +689,22 @@
+       "depends_on": [
+         "P06/combat-style-audit"
+       ],
+-      "status": "PENDING",
+-      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
++      "status": "DEFERRED_BY_OWNER_TO_P08",
++      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+       "phase": "P06",
+       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+-      "must_pass_before_P07": true,
++      "must_pass_before_P07": false,
+       "phase_approval": false,
+       "brief": "planning/P06_C09_TASKS.md",
+       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
++      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
++      "status_before_owner_deferral": "PENDING",
++      "scope_before_owner_deferral": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
++      "deferred_to": "P08/npc-style-contract",
++      "debt_id": "P08-NPC-STYLE-01",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "blocking_for_P06": false
+     },
+     {
+       "id": "P06/C09-npc-style-art",
+@@ -702,11 +712,11 @@
+       "depends_on": [
+         "P06/C09-npc-presentation-contract"
+       ],
+-      "status": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
+-      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
++      "status": "DEFERRED_BY_OWNER_TO_P08",
++      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+       "phase": "P06",
+       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+-      "must_pass_before_P07": true,
++      "must_pass_before_P07": false,
+       "phase_approval": false,
+       "brief": "planning/P06_C09_TASKS.md",
+       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+@@ -715,10 +725,13 @@
+       "independent_source_review": "reports/phases/P06/art-c09-gabar-reuse-feasibility-01/decision.json",
+       "decision_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+       "reason": "4shooter contact wholeposes missing; requested imagegen fix rejectedmoderation;19retained+1oldrelease is partial inventory only",
+-      "independent_unaffected_tasks": [
+-        "P06/C09-npc-presentation-contract",
+-        "PREP07/READINESS-C02"
+-      ]
++      "status_before_owner_deferral": "BLOCKED_PARTIAL_SOURCE_CONTACT4",
++      "scope_before_owner_deferral": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
++      "deferred_to": "P08/npc-style-art",
++      "debt_id": "P08-NPC-STYLE-01",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "blocking_for_P06": false
+     },
+     {
+       "id": "P06/C09-npc-style-integration",
+@@ -726,15 +739,22 @@
+       "depends_on": [
+         "P06/C09-npc-style-art"
+       ],
+-      "status": "PENDING",
+-      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
++      "status": "DEFERRED_BY_OWNER_TO_P08",
++      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+       "phase": "P06",
+       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+-      "must_pass_before_P07": true,
++      "must_pass_before_P07": false,
+       "phase_approval": false,
+       "brief": "planning/P06_C09_TASKS.md",
+       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
++      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
++      "status_before_owner_deferral": "PENDING",
++      "scope_before_owner_deferral": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
++      "deferred_to": "P08/npc-style-integration",
++      "debt_id": "P08-NPC-STYLE-01",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "blocking_for_P06": false
+     },
+     {
+       "id": "P06/C09-npc-style-review",
+@@ -742,15 +762,111 @@
+       "depends_on": [
+         "P06/C09-npc-style-integration"
+       ],
+-      "status": "PENDING",
+-      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
++      "status": "DEFERRED_BY_OWNER_TO_P08",
++      "scope": "Historical C09 visual work moved to P08-NPC-STYLE-01; not implemented/accepted by deferral.",
+       "phase": "P06",
+       "spec": "specs/P06_COMBAT_ACCEPTANCE.md",
+-      "must_pass_before_P07": true,
++      "must_pass_before_P07": false,
+       "phase_approval": false,
+       "brief": "planning/P06_C09_TASKS.md",
+       "gameplay_gap_audit_sha256": "ab345ed5522a371e98972facf71c7c6215f5406afab0c288e28d418dc448bdd0",
+-      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a"
++      "art_gap_audit_sha256": "46564a5d9366b06821bef78baddd7859250e159495002f7564f48984e7b13d3a",
++      "status_before_owner_deferral": "PENDING",
++      "scope_before_owner_deferral": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
++      "deferred_to": "P08/npc-style-review",
++      "debt_id": "P08-NPC-STYLE-01",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "blocking_for_P06": false
++    },
++    {
++      "id": "P08/npc-style-contract",
++      "phase": "P08",
++      "kind": "technical",
++      "depends_on": [
++        "P07:PASS",
++        "P07:MERGED"
++      ],
++      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
++      "debt_id": "P08-NPC-STYLE-01",
++      "severity": "HIGH",
++      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
++      "brief": "planning/P08_TECH_DEBT.md",
++      "historical_task": "P06/C09-npc-presentation-contract",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
++      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
++      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
++      "safe_retry": false,
++      "P08_execution_approval": false,
++      "phase_approval": false
++    },
++    {
++      "id": "P08/npc-style-art",
++      "phase": "P08",
++      "kind": "art",
++      "depends_on": [
++        "P08/npc-style-contract"
++      ],
++      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
++      "debt_id": "P08-NPC-STYLE-01",
++      "severity": "HIGH",
++      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
++      "brief": "planning/P08_TECH_DEBT.md",
++      "historical_task": "P06/C09-npc-style-art",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
++      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
++      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
++      "safe_retry": false,
++      "P08_execution_approval": false,
++      "phase_approval": false
++    },
++    {
++      "id": "P08/npc-style-integration",
++      "phase": "P08",
++      "kind": "implementation",
++      "depends_on": [
++        "P08/npc-style-art"
++      ],
++      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
++      "debt_id": "P08-NPC-STYLE-01",
++      "severity": "HIGH",
++      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
++      "brief": "planning/P08_TECH_DEBT.md",
++      "historical_task": "P06/C09-npc-style-integration",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
++      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
++      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
++      "safe_retry": false,
++      "P08_execution_approval": false,
++      "phase_approval": false
++    },
++    {
++      "id": "P08/npc-style-review",
++      "phase": "P08",
++      "kind": "verification",
++      "depends_on": [
++        "P08/npc-style-integration"
++      ],
++      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
++      "debt_id": "P08-NPC-STYLE-01",
++      "severity": "HIGH",
++      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
++      "brief": "planning/P08_TECH_DEBT.md",
++      "historical_task": "P06/C09-npc-style-review",
++      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
++      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
++      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
++      "safe_retry": false,
++      "P08_execution_approval": false,
++      "phase_approval": false
+     }
+   ]
+ }
+diff --git i/docs/PROJECT_GATES.md w/docs/PROJECT_GATES.md
+index 41f9df7..535276a 100644
+--- i/docs/PROJECT_GATES.md
++++ w/docs/PROJECT_GATES.md
+@@ -30,7 +30,7 @@ Every phase has PASS/FAIL/BLOCKED status, decided by `Lead Reviewer` in independ
+ 
+ ## P06 combat acceptance before P07
+ 
+-Все P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md обязательны. Независимые Gameplay и ART смотрят реальные покадровые анимации/взаимодействия, QA и Lead сверяют полный frozen source/evidence. Старые bounded component PASS не равны новому полному gate. P08 допускает только явно учтённые дополнительные косметические варианты с критериями; никакая обязательная механика/звук/реакция туда не переносится.
++Все P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md обязательны. Независимые Gameplay и ART смотрят реальные покадровые анимации/взаимодействия, QA и Lead сверяют полный frozen source/evidence. Старые bounded component PASS не равны новому полному gate. Решение владельца automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json переносит оставшуюся визуальную hero-style индивидуализацию NPC C09 в P08-NPC-STYLE-01. Принятые shared category NPC clips допустимы для P06; базовые реакции/AI/контакт/once/settings/смерть/restart остаются обязательными. Собственные player-анимации/механики/звук/HUD не переносятся. Source FAIL не превращается в ART PASS; полная P06 всё ещё требует общей верификации и независимой приёмки.
+ 
+ ## PRE-P07 production readiness и MDS
+ 
+diff --git i/planning/P06_C09_TASKS.md w/planning/P06_C09_TASKS.md
+index 9e5fa15..cc4012a 100644
+--- i/planning/P06_C09_TASKS.md
++++ w/planning/P06_C09_TASKS.md
+@@ -1,6 +1,6 @@
+-# C09 — реакции NPC под существующие стили героев
++# C09 — визуальные реакции NPC, перенесённые владельцем в P08
+ 
+-Статус: IMPLEMENTATION_REQUIRED, не C09/P06 PASS. Основание — независимые Gameplay ab345ed5 и ART46564a5d; их неизменные source snapshots, решения и actual PNG inspection сохранены в reports/phases/P06/*-npc-style-audit-01/. Старый P04 и принятые player components не переоткрываются.
++Статус: DEFERRED_BY_OWNER_TO_P08, не C09/P06 PASS. Новое решение automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json имеет приоритет: этот подробный производственный план теперь относится к P08-NPC-STYLE-01 и не блокирует P06. Базовые category реакции и correctness остаются обязательными в P06. Основание — независимые Gameplay ab345ed5 и ART46564a5d; их неизменные source snapshots, решения и actual PNG inspection сохранены в reports/phases/P06/*-npc-style-audit-01/. Старый P04 и принятые player components не переоткрываются.
+ 
+ 1. **Контракт presentation.** Явный descriptor actor/context/style/action-variant/category/archetype/facing, закреплённый прежним Core за epoch/action/target. Manifest strict/failclosed на неизвестных/пропущенных/несовместимых refs; никакого нового damage/AI/equipment grant. Старый Якудза остаётся explicit legacy category path.
+ 2. **Недостающий арт, последовательные пакеты.** Только отсутствующие целые контактные/переходные рисунки собственных трёх NPC (patrol/rusher/shooter), четыре настоящих направления. Условный FIN-кандидат:6стилей×3NPC×4направления×contact/release=144, плюс12 restrained TimkaPrime-clinch=156. Это reviewable стартовый объём, не фиксированное число для PASS: несовместимая категория/геометрия требует дополнительного рисунка. Старые288generic-state drawings, совместимые restraint/corpse и category refs сохраняются, реальные unique/shared refs считаются раздельно. Сначала Габар contact/release24, затем независимый source ART до adoption; не выдавать candidate за runtime.
+diff --git i/planning/P06_TASKS.md w/planning/P06_TASKS.md
+index 064ce50..3b9b13d 100644
+--- i/planning/P06_TASKS.md
++++ w/planning/P06_TASKS.md
+@@ -33,7 +33,7 @@ Kaban/Ellana/Elya supporting, не playable. Ellana — партнёр Yakuza, E
+ 
+ ## P06-CBT — уточнение всех7 стилей
+ 
+-Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own finisher sound/animation/reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.
++Обязательны P06-CBT-01..10 из specs/P06_COMBAT_ACCEPTANCE.md: audit existing Gabar/Oleg/Yakuza без дублирования; Ryzhik real roll; Timka context stance/movement/actions; Pasha resources HUD; Tega actual object; own player finisher sound/animation и рабочая baseline category NPC reaction matrix всех7; settings/death/restart и independent Gameplay/ART/QA/Lead. Дополнительная декоративная вариативность P08 имеет отдельный debt, не заменяет этот gate.
+ 
+ ## Принятый компонент Олежки: читаемое окно защиты
+ 
+@@ -46,3 +46,7 @@ Guard feedback на f844e4d принят независимыми ART/Gameplay/Q
+ - [ ] Проверить собственные unarmed/blunt/environmental добивания, hurt/death/restart, persistent clothing overlays, Full/Reduced.
+ - [ ] Снять native кадры и запись; независимые ART/Gameplay/QA/Lead принимают только замороженный исходный код и реальные материалы.
+ - [ ] Обновить пользовательский DEV после scoped приёмки. Не считать этот пакет полным PASS P06.
++
++## Уточнение владельца: визуальная C09 в P08
++
++Решение automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json переносит новые hero-linked NPC sheets/presentation routing и их style-specific review в P08-NPC-STYLE-01. Базовые реакции/контакт/приоритеты/once/settings/реальные общие проверки P06 не перенесены. Старые C09 task IDs сохранены как DEFERRED_BY_OWNER_TO_P08, не выполнены; родитель P06 больше от них не зависит. Следующий обязательный шаг — полный прогон актуального P06 и независимый Lead, без автоматического PASS по owner prototype feedback.
+diff --git i/planning/P08_TECH_DEBT.md w/planning/P08_TECH_DEBT.md
+index 24ffa50..44aa7b2 100644
+--- i/planning/P08_TECH_DEBT.md
++++ w/planning/P08_TECH_DEBT.md
+@@ -1,11 +1,32 @@
+ # P08: явно отложенная дополнительная полировка
+ 
+-Статус всех пунктов ниже DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED. P08 не запущена; действующий предел исполнения — P06. Это дополнительные косметические варианты поверх обязательного работающего P06, не перенос механик/анимаций контакта/звуков/HUD/реакций из P06-CBT-01..10.
++Статус всех пунктов ниже DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED. P08 не запущена; текущий stop-limit P06 сохранён. Новое прямое решение владельца automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json разрешает узкий перенос оставшейся визуальной NPC C09 в P08-NPC-STYLE-01. Собственные player-механики/анимации/звук/HUD и базовые NPC реакции/correctness остаются обязательными в P06.
+ 
+ | ID | Дополнительная работа | Критерии закрытия |
+ |---|---|---|
+ | P08-VAR-01 | Больше декоративных вариантов уже принятых blood/decal эффектов | Реальные новые оригинальные source/PNG/hash/license; native Full/Reduced/decals-off сравнение; неизменные hitboxes/damage/score/story; lifetime/caps и wall-frame performance; independent ART/QA. Пока новых вариантов нет. |
+ | P08-VAR-02 | Необязательные дополнительные версии уже работающих персонажных добиваний | Только после принятого базового набора всех7 в P06; собственные дополнительные рисунки/переходы, ясный отдельный счёт shared refs; реальные contact/reaction/audio/timing/cancel/settings проверки и independent ART/GAMEPLAY/QA. Одну анимацию с новой скоростью не считать вариантом. |
+ | P08-VHS-01 | Дополнительная декоративная VHS стилизация | Читаемые hit telegraphs/HUD/диалоги на native разрешениях; off/reduced options; боевые state/receipt трассы совпадают; отдельное wall-frame измерение и independent ART/QA. Текущие доступные toggles сохраняются. |
++| P08-NPC-STYLE-01 | Оставшаяся hero-linked визуальная индивидуализация NPC C09: contact/release/grip artwork, presentation routing/role maps | HIGH, до итоговой P08/release приёмки. Точные исходники, scope, зависимости и независимые критерии ниже. Owner deferral не принимает ранее отклонённый арт. |
+ 
+-Обязательные различные Timka present/prime стойки и действия, Ryzhik roll transitions, Pasha resources HUD, собственный sound design и реакции NPC должны быть готовы в P06. Их нельзя закрыть ссылкой на этот debt-файл. Все пункты выше пока остаются открытыми; ни одного результата не заявлено.
++Обязательные Timka present/prime стойки/действия, Ryzhik roll transitions, Pasha resources HUD, собственный sound design, player FIN и базовые NPC реакции остаются P06. Только дополнительные hero-linked визуальные NPC styles перенесены прямым решением владельца; это не приёмка их реализации. Все debt items открыты.
++
++
++## P08-NPC-STYLE-01 — прямой перенос владельца, не выполненная работа
++
++Решение: automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json. Причина: владелец считает прототип достаточным для завершения P06 после обязательной общей проверки и просит перенести оставшуюся визуальную детализацию NPC в P08. Игровая реализация не меняется этим документом. Начать P08 сейчас или автоматически принять P06/P07/релиз не разрешено.
++
++**Объём.** Новые hero/context/style/action-variant связанные contact/release/grip рисунки NPC, обслуживающий их presentation descriptor/clip/role routing и новые clip-specific source/native reviews. Собственные player FIN/способности/звуки/HUD не переносились. В P06 остаются принятые category NPC sprites/FSM и обязательные реальные проверки контакта/стан-падение-смерть/приоритеты/once/настройки.
++
++**Сохранённый незавершённый материал.** assets/source_art/npc_styles/gabar/partial-source-ledger.json:19retainable новых wholeposes+1eligible existing P04 release ref+4missing shooter contact drawings. Это не20новых рисунков и не полный source пакет. Source ART FAIL985592e6/073430cd, feasibility ART_BLOCKED18dfe9a8 и actual generator moderation request09e29275 сохранены без правок. Other hero-linked NPC sets также не произведены. План156wholeposes был стартовой оценкой, не доказательством объёма или фиксированным числом для PASS. Исторический подробный план: planning/P06_C09_TASKS.md.
++
++**Зависимости и ограничения.** P08 может исполняться только после своих обычных phase gates/разрешений; P07 production/readiness/21MDS guards сохраняются. Для новых GPU/sprites сначала нужен доступный допустимый art workflow и свежий независимый source ART PASS. Тот же отклонённый generator request не повторять автоматически; rawphotos/расходы/публикация — по прежним разрешениям. Целые существующие рисунки можно переиспользовать только с явным ledger и положительной оценкой совместимости; не переклеивать кисти/оружие и не выдавать refs за новые poses.
++
++**Критерии закрытия.**
++
++1. Настоящие новые исходники/runtime sheets со всеми source/prompt/hash/license, realunique/shared ref ledger, читаемым оружием и постоянной ведущей рукой, правильными4проекциями/пиксельной сеткой/pivots/clothing anchors. ART подтверждает реальную совместимость contact/release/grip с парой player/NPC, не только число PNG.
++2. Descriptor закреплён за actor/context/style/actionvariant/category/archetype/facing и exactepoch/action/target. Старый Core остаётся единственным владельцем damage/score/cost. Не добавлять способности/силу presentTimka и не расширять Timka84/excludedequipment; Якудза остаётся слабым.
++3. Health/dead/layer0/score наступают на прежнем contacttick; новый release/terminal role map не задерживает смерть/не воскрешает NPC. Reentrant presentation callbacks не повреждают новый encounter, free/reset/cancel/revoke безопасны. Legacy0/1/2 и исходные targeted regressions сохраняются.
++4. Реальная матрица новых clips:25allowedhero/category×3NPC×4dir×FullReduced, дополнительно signature variants (counter/roll/clinch/prop/projectile), контроль паузы/death/retry/once/settings. Planned600new-style cases не являются уже выполненными. Визуальная опция не меняет damage/hitboxes/score/story/RNG.
++5. Ограниченные native paired captures/видео с actual contact receipts и source/target roles, directional geometry/depth/оружием/clothing. Lifetime/caps и реальные wall-frame performance; current Windows/Linux exports/runtime насколько доступны с явным Wine/nativeWindows разграничением.
++6. Независимые ART/Gameplay/QA затем Lead на frozen bytes. До такого решения status остаётся DEFERRED/FAIL/BLOCKED; source-only/component reports не закрывают полный P08/release gate.
+diff --git i/planning/PHASES.md w/planning/PHASES.md
+index dc567f3..3f4f0ab 100644
+--- i/planning/PHASES.md
++++ w/planning/PHASES.md
+@@ -11,10 +11,10 @@
+ | P04 Vertical slice | complete original first mission with authored tiles/story/music, death/restart, progression and Windows/Linux exports | playable, phase regression suite + smoke and human visual/audio reviewer report |
+ | P04G Combat/Gore polish | impact, original blood/decals, enemy reaction states, five base finisher categories, settings | specs/COMBAT_GORE_POLISH_SPEC.md; independent ART/GAMEPLAY/QA + Lead PASS; required before P07 |
+ | P05 Story infrastructure | event ledger, persistent flags, branch resolver, unlock/replay, 4 endings gate tests | complete reachable transition graph and automated simulations; no dead ends |
+-| P06 Character expansion | other 6 playables + 3 photographed supporting, abilities, portraits, animation QA | per-character independent likeness/art/controls; all7 combat styles P06-CBT01..10; complete native/export/QA/Lead gate |
++| P06 Character expansion | other 6 playables + 3 photographed supporting, abilities, portraits, animation QA | per-character independent likeness/art/controls; all7 player combat styles and baseline NPC reactions P06-CBT01..10; complete native/export/QA/Lead gate |
+ | PRE-P07 Readiness | 8-system actual audit, MDS template/registry, nonconflicting design preparation | full P06 PASS/confirmed merge; independent Lead readiness PASS;21 separate full MDS Lead-approved before mass production; preserves earlier PASS |
+ | P07 Campaign production | implement21 chapters with real distinct maps/dialogue/POV reveals,5canonical secrets +2separate approved-for-concept optional proposals | mission-specific narrative/gameplay/ART/QA, navigation/save/branch reachability; measured pacing/FPS/music;7–9h first-play target requires actual runs, no filler |
+-| P08 Polish/release candidate | accessibility, performance, diverse PC resolutions/controllers, licenses, export validation, permissions | complete content checklist, no HIGH issues, signed-off release candidates |
++| P08 Polish/release candidate | owner-deferred NPC visual style polish P08-NPC-STYLE-01; accessibility, performance, diverse PC resolutions/controllers, licenses, export validation, permissions | complete content checklist, no HIGH issues, signed-off release candidates |
+ 
+ ## Microtasks and commits
+ Each phase splits into bounded tasks with explicit deliverables and tests. Use task branches/PRs per phase, small conventional commits (feature, fix, test, art, audio, docs). Reviewer is not allowed to fix code in same independent review session: issues go back to implementer, with evidence. Review loops finite; max retries configurable default 3 before BLOCKED and issue escalation.
+diff --git i/reports/NEXT_ACTION.md w/reports/NEXT_ACTION.md
+index 78372d5..7c6c9fb 100644
+--- i/reports/NEXT_ACTION.md
++++ w/reports/NEXT_ACTION.md
+@@ -1,5 +1,5 @@
+ # Продолжение P06
+ 
+-C01 Lead031cc8c1/QAeed5 PASS_COMPONENT onGame0dd1cc4; DEV08 actualLinux81/Wine72 готов. C09 Gabar source ledger:19new retainable+1existingP04release+4missing shootercontacts; independentART18dfe9a8 BLOCKED, source03NOT_STARTED. Imagegen correction09e29275 denied moderation_blocked violence, noPNG/no retries/bypass. Do not adopt5badgun cells or call20refs complete. WithinP06 continue independent stamped-presentation contract preparation and existing PREP07/READINESS-C02 full-verifier/safeRoot–WORKhandoff tasks while art dependency unresolved; keep P06attempt1/oldphasePASS, do not enterP07.
++Owner58abd098 defers remaining C09 NPC visual individualization/routing to P08-NPC-STYLE-01; no newart/P06PASS inferred. Existing NPCcategorystates/contact/priority/once/settings remain mandatory P06. Stop image generation and C09visual work inP06. Run current-source fullbaseline tools/verify.py under one canonical serial stage, inspect actual results and current component/source equivalence; close remaining baseline/native/performance/build gaps, then independent fullLead/CI/protectedmerge. P07 still gated by confirmedP06merge+fullReadiness+21MDS. Do not resetP06attempt1.
+ 
+-SourceGame0dd1cc4; C01metadataarchivefe143763; NPCsource/FAIL/blocker archive0ef41867. Все raw masters/prompts/recipes и независимые FAIL/feasibility decisions сохранены. Source-v4-blocked — только точная ошибка/запрос, не изображение. Pendinggeneratorcalls0. Один rootauthor/engine, canonical ROOT Controller authority; consumed jobs не повторять. Permanent runner false.
++Сначала завершить актуальную scope amendment consistency review и импортировать owner decision в canonical ROOT state (только task-defer, не phasePASS). Game/code source0dd1cc4 unchanged; DEV08 Linux81/Wine72. Pendinggenerators0, oldsourceFAIL preserved; current activeauthor single hostlease, no enginejob untilrelease. Permanent runner false.
+diff --git i/reports/STATUS.md w/reports/STATUS.md
+index 4dd0cad..cad7c68 100644
+--- i/reports/STATUS.md
++++ w/reports/STATUS.md
+@@ -10,8 +10,8 @@
+ 
+ **Актуальный standalone билд: ROOT/build/P06_DEV_20261116_08/PLAY_LINUX.sh, PLAY_WINDOWS.cmd.** Linux renderer81/81, Windows PE под Wine72/72, на каждой платформе20реальныхstream+20voice bindings. NativeWindows/FPS/hardwareinputlatency не проверены. Старые DEV01–07 и профили сохранены. Это DEV-прототип, не релиз.
+ 
+-**C09 — scoped ART_BLOCKED, Game не изменена:** первые24GabarNPC source poses реально созданы. Два независимых source review985592e6/073430cd подтвердили технический wholefigure export и исправление recoil/handownership; остались5shooterweapon silhouettes. Единственный image_gen correction отклонён сервисом сmoderation_blocked:violence, request09e29275; новогоPNG нет. Независимый осмотр96готовых P04wholeposes18dfe9a8 нашёл только1пригодныйrelease ref, не4contact. Честный частичный ledger:19новых retainedsource+1existingrelease+4missingcontact; это не runtime пакет/неC09PASS. Остальные hero-linked NPCstyles и pairedmatrix также ещё не завершены. Готовые P04sprites/FSM/принятыеplayer components сохранены.
++**Уточнение владельца: C09 visual polish перенесён в P08-NPC-STYLE-01.** Решение automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json сохраняет существующие category NPC реакции для P06. Новые hero-linked рисунки/role routing и их style-specific review не нужны до P06 PASS.19retainable source poses+1existingrelease+4missingcontacts и старые ART FAIL/toolblock остаются незавершённым материалом P08, не принятым runtime пакетом. Game/билд этим переносом не меняются.
+ 
+-FullP06 ещё требует C09, полного verifier/performance/regression/exports/независимогоLead/mandatoryCI и защищённого merge. Затем отдельный FULL ProductionReadiness PASS, Lead approval21MDS до массового P07. ТолькоCH01 playable; целевые7–9часов не измерены.5секретов canonical+2optional concept episodes, не готовые миссии.
++FullP06 ещё требует обязательных baseline NPC/combat проверок, полного verifier/performance/regression/exports/независимогоLead/mandatoryCI и защищённого merge. Дефектные исходники C09 не добавлены в игру и не объявлены PASS. Затем отдельный FULL ProductionReadiness PASS, Lead approval21MDS до массового P07. ТолькоCH01 playable; целевые7–9часов не измерены.5секретов canonical+2optional concept episodes, не готовые миссии.
+ 
+ Resume: reports/phases/P06/resume/decision.json; authority ROOT/automation/phase_state.json, зеркало .autopilot/STATE.json. Один автор/engine job, consumed receipts не повторять. Постоянного runner нет. Пользовательские ROOT изменения, приватные фото и стэши сохранены.
+diff --git i/reports/phases/P06/resume/decision.json w/reports/phases/P06/resume/decision.json
+index 5fd6432..01707ee 100644
+--- i/reports/phases/P06/resume/decision.json
++++ w/reports/phases/P06/resume/decision.json
+@@ -1,7 +1,7 @@
+ {
+   "schema": 1,
+   "kind": "AUTHOR_RESUME_STATE_NOT_A_LEAD_VERDICT",
+-  "updated_utc": "2026-11-15T21:49:30.613821+00:00",
++  "updated_utc": "2026-11-16T18:52:45.527989+00:00",
+   "phase": "P06",
+   "formal_attempt": 1,
+   "status": "IMPLEMENTING",
+@@ -245,13 +245,13 @@
+       "agent_listening": false,
+       "phase_approval": false
+     },
+-    "NPC_C09_source": "ART18dfe9a8 BLOCKED contact4;19newsource+1existingrelease only, noPackage/runtimeapproval;2sourceFAILs preserved"
++    "NPC_C09_source": "Historical ART_BLOCKED18df remains; owner58abd098 defers visual-only source/routing toP08, no P06visual prerequisite. Baseline correctness/actual NPC reactions still mandatory inP06."
+   },
+   "merge_allowed": false,
+   "phase_approval": false,
+   "next_phase_allowed": false,
+   "stop_boundary": "Conditional P07 only after fullP06PASS/merge+independentReadinessPASS, Lead21MDS beforemassproduction; noP08/release",
+-  "next_action": "C01 Lead031cc8c1/QAeed5 PASS_COMPONENT onGame0dd1cc4; DEV08 actualLinux81/Wine72 готов. C09 Gabar source ledger:19new retainable+1existingP04release+4missing shootercontacts; independentART18dfe9a8 BLOCKED, source03NOT_STARTED. Imagegen correction09e29275 denied moderation_blocked violence, noPNG/no retries/bypass. Do not adopt5badgun cells or call20refs complete. WithinP06 continue independent stamped-presentation contract preparation and existing PREP07/READINESS-C02 full-verifier/safeRoot–WORKhandoff tasks while art dependency unresolved; keep P06attempt1/oldphasePASS, do not enterP07.",
++  "next_action": "Owner58abd098 defers remaining C09 NPC visual individualization/routing to P08-NPC-STYLE-01; no newart/P06PASS inferred. Existing NPCcategorystates/contact/priority/once/settings remain mandatory P06. Stop image generation and C09visual work inP06. Run current-source fullbaseline tools/verify.py under one canonical serial stage, inspect actual results and current component/source equivalence; close remaining baseline/native/performance/build gaps, then independent fullLead/CI/protectedmerge. P07 still gated by confirmedP06merge+fullReadiness+21MDS. Do not resetP06attempt1.",
+   "preserve": [
+     "ROOT dirty state/user changes",
+     "all prior PASS/failure evidence",
+@@ -288,7 +288,7 @@
+   },
+   "latest_implementation_head": "0ef418677d5b5891e2c656b4e493efab3c13a992",
+   "persistent_runner": false,
+-  "session_checkpoint": "C01-PASS-C09-sourceART-blocked4-independent-prep-queued",
++  "session_checkpoint": "OWNER_C09_VISUAL_DEFERRED_TO_P08_FULL_P06_VALIDATION_PENDING",
+   "owner_approved_scope": {
+     "decision": "automation/decisions/P06_TIMKA_SUPPORTED_ANIMATIONS.json",
+     "sha256": "01029237ebd0935a169af99ae271aa7c14c3ea623f02f0e90e0475e025186265",
+@@ -323,8 +323,7 @@
+     "P06-CBT01/03..10 remainingsevenhero fullmatrix incomplete;CBT02readablecounter boundedcomponentaccepted",
+     "READINESS-C02 fullverify_p06.py and safeROOT installation/integration",
+     "READINESS-H01..H05 preproduction pipeline/MDS/capability prerequisites remain",
+-    "FullProductionReadiness FAIL b76fa63b unchanged",
+-    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
++    "FullProductionReadiness FAIL b76fa63b unchanged"
+   ],
+   "pending_component_reviews": [],
+   "future_authorization": "automation/decisions/P07_CONDITIONAL_CONTINUATION.json",
+@@ -411,7 +410,7 @@
+     "full_P06_approval": false
+   },
+   "C09_current": {
+-    "status": "ART_BLOCKED_CONTACT4_WITH_ONE_RELEASE_REUSE_REF",
++    "status": "DEFERRED_BY_OWNER_TO_P08_SOURCE_STILL_UNACCEPTED",
+     "source_candidate": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+     "source_native_sha256": "00955ed93b5ec38db1ce914c5f53771f1f0d31258a27b502d5defcf1936e374b",
+     "planned_FIN_wholepose_candidate_budget": 156,
+@@ -430,7 +429,11 @@
+     "existing_P04_release_refs": 1,
+     "reuse_feasibility_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+     "source_ART03": "NOT_STARTED_NO_COMPLETE_PACKAGE",
+-    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992"
++    "source_archive_commit": "0ef418677d5b5891e2c656b4e493efab3c13a992",
++    "deferred_to": "P08-NPC-STYLE-01",
++    "required_before_P06_PASS": false,
++    "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++    "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a"
+   },
+   "owner_preview_history": [
+     {
+@@ -465,5 +468,16 @@
+     "operation": "47fd8cc8473540deb4efd32eb765448c",
+     "exit_code": 0,
+     "all_tracked_sources_checked": true
+-  }
++  },
++  "owner_NPC_visual_deferral": {
++    "decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
++    "sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
++    "debt_id": "P08-NPC-STYLE-01",
++    "scope_only": true,
++    "baseline_P06_gates_retained": true,
++    "phase_approval": false
++  },
++  "deferred_findings_P08": [
++    "C09 Gabar4shootercontact sourceARTBLOCKED; remainingNPCstyles/presentation/routing/pairednative incomplete"
++  ]
+ }
+diff --git i/specs/CHARACTER_EXPANSION_SPEC.md w/specs/CHARACTER_EXPANSION_SPEC.md
+index f57ad2a..00021b4 100644
+--- i/specs/CHARACTER_EXPANSION_SPEC.md
++++ w/specs/CHARACTER_EXPANSION_SPEC.md
+@@ -64,3 +64,7 @@ Factory готовит exact registered context/required clips/sockets/реал
+ ## Уточнение combat gate всех7 героев
+ 
+ Обязателен specs/P06_COMBAT_ACCEPTANCE.md (P06-CBT-01..10). Индивидуальные finisher animations/sounds/reactions, present/prime differences, Pasha HUD, Ryzhik roll и реальные environment mechanics не считаются выполненными по наличию timings/PNG.
++
++## Решение владельца о NPC polish
++
++Только оставшаяся визуальная C09 индивидуализация NPC перенесена в P08-NPC-STYLE-01 (automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json). Собственные player sheets/тайминги/способности/звук/HUD семи героев и Timka84/context ограничения остаются P06. Принятые category NPC реакции разрешены как baseline при обязательных actual correctness проверках.
+diff --git i/specs/P06_COMBAT_ACCEPTANCE.md w/specs/P06_COMBAT_ACCEPTANCE.md
+index 1ed25f5..cd2b056 100644
+--- i/specs/P06_COMBAT_ACCEPTANCE.md
++++ w/specs/P06_COMBAT_ACCEPTANCE.md
+@@ -2,9 +2,11 @@
+ 
+ Источник — прямое уточнение владельца «P06 — Уточнение боевых механик и добиваний». Это расширяет критерии P06 перед P07; текущие Core/controller/прогресс сохраняются. План и таблица статусов не являются приёмкой. Owner-approved Timka84 остаётся базовым бюджетом; дополнительные настоящие рисунки для различия контекстов учитываются отдельно, если требуются новым визуальным gate.
+ 
++**Актуальное решение владельца:** automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json переносит только оставшуюся визуальную индивидуализацию NPC C09 в P08-NPC-STYLE-01. Для P06 разрешены существующие принятые category reactions NPC; базовые состояния, читаемость/контакт/приоритеты и боевые проверки остаются обязательными. Собственные player-анимации/тайминги/звук, способности и HUD не переносятся. Это изменение объёма, не полный PASS P06 и не разрешение P07/P08/merge.
++
+ | ID | Обязательный результат | Доказательство |
+ |---|---|---|
+-| P06-CBT-01 | Все7 героев имеют собственные finisher keyposes/покадровые переходы, тайминги, звуковые акценты и связанные реакции NPC. Одна чужая анимация с новой скоростью не подходит. | Матрица hero/category/pose/contact/recovery/cue/reaction; source и native temporal inspection; честный отдельный учёт shared refs внутри своего набора. |
++| P06-CBT-01 | Все7 героев имеют собственные player finisher keyposes/покадровые переходы, тайминги и звуковые акценты. NPC имеют рабочую связанную category reaction; дополнительная hero-style визуальная индивидуализация перенесена владельцем в P08-NPC-STYLE-01. Одна чужая player-анимация с новой скоростью не подходит. | Матрица hero/category/player-pose/contact/recovery/cue и базовой NPC reaction; source и native temporal inspection; честный учёт shared refs. P06 не требует ещё не принятых C09 NPC sheets. |
+ | P06-CBT-02 | Олег: counter только после успешной активной защиты, понятное окно реакции. Полученный смертельный урон не запускает ответ. | Реальный входящий melee, preserved health/no incoming damage/blood/score on parry, отдельный Core contact; промах/ранний/поздний/задний/пуля/death/cancel/reset tests и native окно. Не требуется переписывать уже работающий parry. |
+ | P06-CBT-03 | Тимка present/prime визуально и механически различимы по стойке, движению и допустимым действиям. Present мирный/disengage, prime силовой clinch/unarmed/blunt/environment. | Две registered fixture записи Input/native: stance/movement/action/grapple/finisher denial+eligibility. Общий actor ID или shared WORLD не доказывает различие сам по себе. При недостатке рисунков нужны собственные context drawings, не ускорение прежней анимации. |
+ | P06-CBT-04 | Паша: быстрый бег и настоящий moving aimed shot, понятные ammo/cooldown/recovery индикаторы, конечный расход/восстановление, риск без гарантированного самоубийства. | HUD и Input trace одной физической шкалы; held/repeated trigger, empty ammo, cooldown, interruption/death/reset, движение и выстрел вместе. Catalog speed125 — данные, не готовая механика. |
+@@ -28,11 +30,11 @@
+ 
+ ART Reviewer смотрит реальные source cells, покадровые/native sequences и согласованность actor/context. Gameplay Reviewer проверяет реальные игровые контакты/тайминги/геометрию/окно реакции/управление и HUD. QA проверяет отрицательные случаи/регрессии/settings/performance/builds и inventories. Lead самостоятельно связывает полный frozen SHA/base, evidence и mandatory CI. Все P06-CBT-01..10 обязательны до P07; author не выставляет PASS. Full P06 также требует обоих Timka contexts и прежних privacy/licensing/export/merge gates.
+ 
+-## Технический долг P08, не подмена P06
++## Технический долг P08 и узкое решение владельца
+ 
+-Допустимо отложить только дополнительные варианты уже работающих и принятых эффектов: больше декоративных рисунков крови/декалей, необязательные косметические дубли финшеров, дополнительную VHS стилизацию. Каждый debt item требует списка реальных новых assets/source provenance, native comparison Full/Reduced, неизменных hitboxes/damage/score/сюжета, lifetime/caps/performance и независимого ART/QA до закрытия. Сейчас эти улучшения не реализованы и не приняты. Обязательные анимации/звуки/реакции/контакт/способности/HUD из таблицы переносить в P08 нельзя.
++Помимо дополнительных blood/decal/VHS/finisher вариантов владелец явно перенёс оставшуюся C09 визуальную индивидуализацию NPC в P08-NPC-STYLE-01: новые contact/release/grip рисунки и обслуживающий их style/variant presentation routing. Текущие category reactions допустимы в P06 при реальной проверке контакта, читаемости и жизненного цикла. Собственные player-анимации/звук/способности/HUD, базовые реакции и correctness не переносятся. Каждый debt item требует настоящих assets/provenance, native Full/Reduced, неизменных hitboxes/damage/score/сюжета, lifetime/caps/performance и независимого ART/Gameplay/QA/Lead. Перенос не принимает отклонённый арт и не выдаёт работу за завершённую.
+ 
+-Конкретные открытые debt IDs/критерии: planning/P08_TECH_DEBT.md. Это не completed content и не разрешение начинать P08.
++Конкретные открытые debt IDs/критерии: planning/P08_TECH_DEBT.md. Начало P08/релиз этим решением не разрешены.
+ 
+ ## Кандидат Теги: физическое использование окружения
+ 
+@@ -50,21 +52,19 @@ F применяет собственные FIN keyposes `special` (готовн
+ 
+ HUD читает фактические ammo/cooldown/refill/state стратегии. Нельзя имитировать восстановление независимым UI-таймером. Pause замораживает ресурс и действия; смерть/ранение прерывают уязвимый приём, R очищает jobs/projectiles/cost history и восстанавливает новый encounter. Наличие оружия в рисунке другого героя не даёт ему эту способность.
+ 
+-Обязательное evidence: реальные Input и четыре направления, все8 кадров, видимый muzzle, непрерывное движение/стены, расход/пустой запас/восстановление/HUD, пауза, hurt/death/restart, delayed projectile, смена полномочий и callback reentry; пять категорий finisher с однократными damage/score/cost и Full/Reduced invariance. ART отдельно проверяет128 source/clothing anchors и actual overlays. SOURCE ART PASS не заменяет runtime ART/Gameplay/QA/Lead. Индивидуальные звуки всех семи героев и NPC style matrix остаются обязательными открытыми P06-CBT-01/09; временный общий cue не закрывает их.
++Обязательное evidence: реальные Input и четыре направления, все8 кадров, видимый muzzle, непрерывное движение/стены, расход/пустой запас/восстановление/HUD, пауза, hurt/death/restart, delayed projectile, смена полномочий и callback reentry; пять категорий finisher с однократными damage/score/cost и Full/Reduced invariance. ART отдельно проверяет128 source/clothing anchors и actual overlays. SOURCE ART PASS не заменяет runtime ART/Gameplay/QA/Lead. Индивидуальные звуки семи героев остаются P06-CBT-01 (C01 имеет отдельный scoped Lead PASS); базовая NPC reaction matrix остаётся P06-CBT-09. Новая hero-style визуальная matrix C09 перенесена владельцем в P08-NPC-STYLE-01.
+ 
+ 
+-## Текущее продолжение после DEV06/DEV07: C01 и C09
++## Текущее состояние C01 и перенос C09
+ 
+-Тега и Паша имеют отдельные независимые Lead PASS_COMPONENT, последний Pasha f43d2434 на b359747. Это не полный PASS P06. Их реализация и сохранённые FAIL/фиксы не перезапускаются. Прежние утверждения об отсутствии способностей в исходном аудите выше относятся к тому историческому снимку.
++Тега и Паша имеют отдельные независимые Lead PASS_COMPONENT. Их собственные player-анимации и механики не перезапускаются и не заменяются общими NPC sprites.
+ 
+-C01 использует20 собственных новых monoPCM WAV для шести героев плюс5 прежних category WAV Якудзы. Разрешённые маршруты строго совпадают с существующим catalog: Габар3/Олежка3/ТимкаPrime3/Рыжик3/Тега3/Паша5; present и excluded equipment не получают звук/силу. Source signal review c69fe500 — отдельный PASS_SIGNAL_ONLY. Native source f615b2e:45Input маршрутов,518проверок, actual mixer PCM; DEV07 source5403faa: Linux81/Wine72 packaged smoke. Это авторские runtime evidence до независимого closure. Владелец прослушал новые solo/gameplay записи и явно принял их для прототипа P06 (owner-listening-acceptance.json); агент не заявляет собственного прослушивания или финальной аудиоприёмки игры.
++C01:20новых cue шести героев плюс5 прежних Якудзы, independent source signal c69fe500; independent runtime/mixer QA eed5a827 и Lead031cc8c1 PASS_COMPONENT на0dd1cc4. Владелец прослушал и принял solo/gameplay для прототипа. Actual new stress−1.7dBTP/0rails, старый+0.1FAIL сохранён. DEV08 Linux81/Wine72; nativeWindows/FPS/inputhardwarelatency этим компонентом не приняты.
+ 
+-C09 остаётся обязательной частью P06-CBT-01/09: существующие настоящие P04 NPC category sprites/FSM сохраняются, но пока target получает category/duration без character style. Наличие собственного player FIN и звука не закрывает характерную реакцию NPC. Нужен presentation-only descriptor внутри прежнего authoritative Core, закреплённый за actor/context/style/action variant/category и exact encounter epoch/action/target. Нельзя выбирать реакцию позднее по текущему выбранному персонажу.
++Оставшаяся C09 визуальная работа перенесена в P08 по новому решению владельца: hero/context/style/actionvariant routing, дополнительные NPC contact/release/grip рисунки, новые role mappings и их source/native review. Существующие category sprites/FSM остаются разрешённым P06 baseline. Наличие этого baseline не объявляется новой уникальной NPC-анимацией. Сохраняются все старые source FAIL и tool moderation blocker;19retainable новых Gabar source poses+1existing release+4missing contacts — незавершённый P08 inventory, не принятый runtime пакет.
+ 
+-Отдельно различать обычный FIN, Тимка F-clinch/V-unarmed, настоящий ответ Олега после защиты, landing переката Рыжика, удар предмета Теги и projectile/FIN Паши. Совпадающий category не делает их одинаковыми взаимодействиями. Предоставление descriptor не даёт способности, damage или equipment grant. Present остаётся мирным; действие Якудзы в CH01 остаётся побегом.
++P06-CBT-09/10 по-прежнему требуют baseline telegraph/attack/recovery/hurt/stun/knockdown/death/finisher reaction по всем3архетипам и разрешённым героям/категориям; реальное Input-earned vulnerability, matched contact pose, отсутствие attack/fall/death конфликтов, двойного урона/score/ammo, поздних контактов послеcancel/revoke/reset/free, Full/Reduced invariance. Shared category drawing refs допускаются явно; существующие реальные probes и native evidence должны подтвердить текущую реализацию. Новую stylistic routing matrix/новые clip-specific рисунки от P06 больше не требовать.
+ 
+-Новые рисунки создаются только для доказанно недостающих contact/restraint переходов. Реальные уникальные клетки и явно переиспользованные собственные/P04 refs учитываются раздельно; одинаковую последовательность с другим темпом нельзя принять за новый стиль. Конкретный бюджет и совместимость должны пройти независимый ART source review, затем paired source/target native review. Timka84 — сохранённый бюджет **игрового персонажа**, его исключённые sharp/firearm не возвращаются ради NPC matrix.
++При будущем P08 внедрении нового presentation descriptor его нужно закреплять за epoch/action/target и actor/context/style/variant, не выбирать по позднему currentactor; health/dead/collisionlayer0/score остаются в прежний authoritative contact tick. Legacy0/1/2 сохраняется, новый release/terminal role map не задерживает смерть. Planned600new-style cases/pairednative входят в будущий P08 debt и не объявляются уже проверенными; baseline correctness P06 остаётся отдельным обязательным gate.
+ 
+-C09 gate требует все25 разрешённых FIN hero/category routes ×3 archetypes ×4 directions ×Full/Reduced (600 logical cases), отдельные signature и natural-AI priority probes. Это план покрытия, не выполненные проверки. Нужны actual Input-earned vulnerability, contact frame1 и последующий terminal corpse по явному role map (legacy Якудзы0/1/2 сохраняется; новый own release может занимать frame2, corpse3), отмена/смерть/отзыв/reset без позднего контакта/повторной награды; reentrant presentation callbacks не должны менять новую epoch. Сохранять original GP/QA callbacks и negative tests, не заменять их одинаковыми implementation assertions. Native batches ограничивать по времени; хранить continuous temporal proof каждого отличающегося взаимодействия, не600копий одного фильма. Hardware FPS/input latency отдельно, не из headless/MovieMaker delta.
+-
+-Зависимая очередь: P06/C01-* и P06/C09-* в autopilot/queue.json. Родитель seven-hero-finisher-art-sound-reactions требует независимый runtime-аудио review, owner listening и NPC style review. Ни source-only review, ни owner prototype acceptance, ни один компонентный PASS не открывают P07/merge. Full P06 и Production Readiness gates сохраняются.
++Родитель P06/seven-hero-finisher-art-sound-reactions сохраняет C01/audio/собственныеplayer FIN и базовые NPC реакции; он больше не зависит от P06/C09-npc-style-review. P08 задача обязательна до итоговой P08/release приёмки. Ни owner scope amendment, ни компонентный PASS не открывают P07/merge: полный P06, actual validation, independent Lead/CI/protected merge и Production Readiness/MDS gates сохраняются.

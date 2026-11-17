@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "scope": "READINESS_DEFENSE_INDEPENDENT_QA_ONLY",
+  "frozen_commit": "3bda69bc0337d220c98946f81e4ae5772166cbdf",
+  "frozen_sources": [
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "sha256": "e3f37c49521a02d9f2598cb129c12cf5d3b33517b18513866df59144ca960607",
+      "matches_freeze_commit": true
+    },
+    {
+      "path": "game/scripts/core/character_lab.gd",
+      "sha256": "ac5cce04cf4950443bd4c46f7f428530cea7608066d637a7d207bef3d9f827c5",
+      "matches_freeze_commit": true
+    },
+    {
+      "path": "game/tests/character_readiness_test.gd",
+      "sha256": "6c3a65f1056e13c4a71275740186dacbc3c35f16b447844f4a3e30ba11a45d26",
+      "matches_freeze_commit": true
+    },
+    {
+      "path": "tools/verify.py",
+      "sha256": "15e4342600b6079a8e0e0b62b64f5b012101285a4021262889721800092e73b6",
+      "matches_freeze_commit": true
+    }
+  ],
+  "actual_independent_headless_runs": [
+    {
+      "name": "readiness",
+      "checks_passed": 56,
+      "checks_total": 56,
+      "exit_code": 0,
+      "actual_result_passed": true
+    },
+    {
+      "name": "adversarial",
+      "checks_passed": 21,
+      "checks_total": 21,
+      "exit_code": 0,
+      "actual_result_passed": true
+    }
+  ],
+  "independent_checks_passed": 77,
+  "mocked_ci_registration_only": true,
+  "author_regressions_inspected_not_rerun": {
+    "gabar_checks": 124,
+    "olezhka_checks": 164,
+    "isolation_checks": 25,
+    "fresh_process_result_inspected": true
+  },
+  "production_WORK_game_opened_by_engine": false,
+  "WORK_source_writes_by_reviewer": false,
+  "isolation_copy_original_files_restored_exact": 409,
+  "unrelated_WORK_change_during_review": [
+    "game/tests/character_frames_test.gd"
+  ],
+  "phase_approval": false,
+  "new_hero_readiness_approval": false,
+  "Timka_exception_applied": false,
+  "native_display_or_gameplay_feel_approval": false
+}

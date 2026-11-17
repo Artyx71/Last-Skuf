@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "closed": [
+    {
+      "id": "NPIPE-L01",
+      "QA": "PIPE-Q01",
+      "status": "CLOSED_IN_TESTED_PROCESS_SCOPE",
+      "proof": "own-terminal-cleanup-proofs.json; inheritedpipe timeout124, silentexit0FAIL, silentexit7FAIL, nochildrenleft and ordinarypositivecontrol"
+    }
+  ],
+  "must_fix": [
+    {
+      "id": "NPIPE-L02",
+      "QA": "PIPE-Q02",
+      "severity": "MEDIUM",
+      "status": "PARTIALLY_REMEDIATED_STILL_BLOCKING_EXECUTION",
+      "proof": "own-parser-remaining-proofs.json + independentQA02report-boundary-results",
+      "actual_remaining_unsafe_acceptances": "finiteoverflow1e309/-1e309; legacynameint/list; legacylogint; argvnonstringitems",
+      "fix": "Rejectfiniteoverflowthroughparse_float/recursivevalidation; require meaningfulstringname/log/argvitems; samecasesplusgenuineactualformats."
+    }
+  ],
+  "new_Game_requirements": false
+}

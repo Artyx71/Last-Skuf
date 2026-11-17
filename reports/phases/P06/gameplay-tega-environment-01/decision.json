@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "decision": "PASS_COMPONENT",
+  "scope": "TEGA_ENVIRONMENT_KICK_GAMEPLAY_ONLY",
+  "source_head": "6a0224e016e53e13ddb1e6fde747b66e7f75447b",
+  "mapped_test_export_only_head": "084026895f2ffb1b51b438cbf87e8a97440d7b77",
+  "phase_approval": false,
+  "export_approval": false,
+  "independent_reviewer": "gameplay_olezhka_feedback",
+  "engine_runs_by_reviewer": 0,
+  "evidence": {
+    "author_headless_checks": 296,
+    "actual_native_checks": 424,
+    "native_pngs_inspected": 128,
+    "actual_movie_checks": 296,
+    "trace_samples_per_run": 4631,
+    "core_contacts_per_run": 66,
+    "clothing_anchors_per_run": 12,
+    "movie_frames_total": 4649,
+    "movie_frames_decoded_and_inspected": 286,
+    "movie_sha256": "5546870556a6500ec9c45b8ada00f3ef4fda717e2a46965ec5917695d22c1cb7",
+    "source_map_verified": 1242,
+    "native_artifact_hashes_verified": 136
+  },
+  "closed_findings": [
+    {
+      "id": "GP-TEGA-REENTRY-01",
+      "state": "CLOSED_COMPONENT",
+      "evidence": "proofs.json"
+    }
+  ],
+  "open_must_fix": [],
+  "limits": [
+    "controlled actual Input fixtures with paused enemy AI, not subjective live-AI difficulty",
+    "no reviewer engine execution",
+    "no audio listening or hardware input latency/FPS",
+    "no full P06/readiness/CI/merge/release signoff",
+    "no native Windows or new export acceptance"
+  ],
+  "review": "review.md",
+  "metrics": "metrics.json",
+  "proofs": "proofs.json",
+  "source_inventory": "source-inventory.json",
+  "portable_manifest": "portable-manifest.json"
+}

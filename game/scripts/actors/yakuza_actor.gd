@@ -20,6 +20,17 @@ func _ready() -> void:
 	shape.shape = rectangle
 	shape.position = Vector2(0, -6)
 	add_child(shape)
+	var frames := _build_world_frames()
+	assert(frames != null, "Authored character frames required")
+	sprite = AnimatedSprite2D.new()
+	sprite.sprite_frames = frames
+	sprite.position = FRAME_SIZE * 0.5 - FRAME_PIVOT
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(sprite)
+	sprite.play(&"idle_down")
+
+
+func _build_world_frames() -> SpriteFrames:
 	assert(ResourceLoader.exists(SHEET_PATH), "Actual P01 character art required")
 	var texture: Texture2D = load(SHEET_PATH)
 	var frames := SpriteFrames.new()
@@ -36,24 +47,26 @@ func _ready() -> void:
 				atlas.atlas = texture
 				atlas.region = Rect2(Vector2(column, row) * FRAME_SIZE, FRAME_SIZE)
 				frames.add_frame(animation, atlas)
-	sprite = AnimatedSprite2D.new()
-	sprite.sprite_frames = frames
-	sprite.position = FRAME_SIZE * 0.5 - FRAME_PIVOT
-	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	add_child(sprite)
-	sprite.play(&"idle_down")
+	return frames
 
+
+func _movement_multiplier() -> float:
+	return 1.0
+
+
+func _movement_state() -> String:
+	return "walk"
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * move_speed
+	velocity = direction * move_speed * _movement_multiplier()
 	move_and_slide()
 	if direction.length_squared() > 0.0:
 		if absf(direction.x) > absf(direction.y):
 			facing = &"right" if direction.x > 0.0 else &"left"
 		else:
 			facing = &"down" if direction.y > 0.0 else &"up"
-		var animation := StringName("walk_" + String(facing))
+		var animation := StringName(_movement_state() + "_" + String(facing))
 		if sprite.animation != animation:
 			sprite.play(animation)
 	else:

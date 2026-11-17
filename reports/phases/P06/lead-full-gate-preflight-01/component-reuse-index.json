@@ -1,0 +1,1850 @@
+{
+  "schema": 1,
+  "base": "WORK",
+  "rows": [
+    {
+      "id": "gabar_base",
+      "actor": "gabar",
+      "native_directory": "reports/phases/P06/attempt1/gabar-combat-native-02",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/gabar-combat-native-review-v2.json",
+          "sha256": "fb13412fef536ca93537a98e2bb15ef9d380ad957d333f653271d711c65653ca",
+          "status": "ACCEPTABLE_GABAR_CONTROLLER_RENDER_FOR_CAPTURED_CONFIGURATION",
+          "phase_approval": false,
+          "scope": "GABAR_CONTROLLER_RENDER_ART_CAPTURED_CONFIGURATION_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-preflight/gabar-controller-preflight-v2.json",
+          "sha256": "554ce945b779e2cafbb754393fd573d4fc705f273dab5d84c94665a7dc4464ee",
+          "status": "GP_GABAR_01_02_CLOSED_SCOPED_INTEGRATION_ONLY",
+          "phase_approval": false,
+          "scope": "bounded_production_gabar_controller_remediation"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/gabar-combat-native-02/source_hashes.json",
+          "sha256": "878ba1f181f37e81eec87d5efd0b1dcaf0fbabb2ac0ac01fb877c590b7c9db10"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/gabar-combat-native-02/validation.json",
+          "sha256": "5da1c89743be948dadc65eff2a67e77a589c4f9bf8d89947b740e88b176c12ea"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/gabar-combat-native-02/commands.json",
+          "sha256": "e30f98c33a0a666e6fb6561f91020d9a19e4d53db702d46ed042780a99f51841"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/gabar-combat-native-02/live/result.json",
+          "sha256": "197e0aae3dc51988592e44a08e39edb628f67ec4ab7f87760a889b1ec17d1fc8"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/gabar-combat-native-02/movie/result.json",
+          "sha256": "4ff71d60dbe91b7d794c9bf1ad2c978c0c3288ab825a84bc3d40d145d0a33907"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "8f30222dd054ef7b605ecc654500aa2eb1a1ef3a",
+      "recorded_source_keys": 666,
+      "current_exact_recorded_keys": 645,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/bootstrap.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_world_preview.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "tools/verify_p06_world.py",
+        "assets/source_art/characters/adopt_world.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "0dc92bc5822ecb5a5f2fe854fb9afe1666b31beb277a5d32fb3130eaff920a03",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "03e0b8b9f562911c73c2ed87df8a36bc0d82e8af9c7945ce9e253bab31497f0c",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "f99a28e59253306e5cd6dea4862b0e789e07d9224444fd476533da205d881ccb",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "1a5c4e162a2e1379114c418bb21a248af9d72e3a5faf8c08423a4b6df2c71c46",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "olezhka_base",
+      "actor": "olezhka",
+      "native_directory": "reports/phases/P06/attempt1/olezhka-combat-native-01",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/olezhka-combat-native-review-v1r.json",
+          "sha256": "35ca98335d41f394f2992ff5a0d3613a7de31c9e84b3c653d38937e539d5f9c0",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "phase_approval": false,
+          "scope": "actual_native_art_recovery_component"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-preflight/olezhka-controller-preflight-v1.json",
+          "sha256": "52a79e394c5d0da89462178e926dfc231ff3493999f320995cadfcf8f3de4778",
+          "status": "SOURCE_AND_AUTHOR_RUNTIME_VERIFIED_COMPONENT_ONLY",
+          "phase_approval": false,
+          "scope": "bounded_olezhka_counter_controller_contact_defense"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/source_hashes.json",
+          "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/validation.json",
+          "sha256": "ab4c58ad6dc35b73f1b7102be07adb4b2faa09e4af4cdfbfd8ba5309cca6ba5b"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/commands.json",
+          "sha256": "127d8b2cba1b0495c277404c2c11cfaf62600458125aa0d8be0254d8f6178f85"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/live/result.json",
+          "sha256": "f46c9b96c3cd41bb2cd8f6184ed8a9d47037c49c041704ccc05ea158164a2747"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-combat-native-01/movie/result.json",
+          "sha256": "cea0df9f8a21b4743d5283a1eeb33339c2b2008895868cd576a7c157d4f817ba"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "7a9972772ed3b4bbab962ab535cb715a6444dcb9",
+      "recorded_source_keys": 706,
+      "current_exact_recorded_keys": 686,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/bootstrap.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_world_preview.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "tools/verify_p06_world.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "60e868b7853a05a40f921628e3d2a21e1316e4aed19151fa57157870dd01f249",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "03e0b8b9f562911c73c2ed87df8a36bc0d82e8af9c7945ce9e253bab31497f0c",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "d7043f0121f12486b06beecfee15f74e922f1d1c2a547e60e8aea11daf7df21d",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "39e4be2d7db21f966bb2297616c47d69bd5ae0ad68629864eaad6fd3e1f3a967",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "oleg_guard",
+      "actor": "olezhka",
+      "native_directory": "reports/phases/P06/guard-feedback-01/native-03",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-guard-feedback-01/decision.json",
+          "sha256": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "P06_OLEZHKA_EXISTING_COUNTER_READABILITY_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-guard-feedback-01/decision.json",
+          "sha256": "7666fcc6fb8da035a206c945110314580c33e517a15fe92239508378f97bf200",
+          "status": "PASS_UI_COMPONENT",
+          "phase_approval": false,
+          "scope": "OLEZHKA_COUNTER_HUD_CAPTURED_CONFIGURATION_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-guard-feedback-01/decision.json",
+          "sha256": "a896505e72a1642a219f8c6258b7c8f5267196c8d0683de67829f7719193d94c",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": null
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-guard-feedback-01/decision.json",
+          "sha256": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "CBT02_OLEZHKA_COUNTER_READABILITY_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/guard-feedback-01/native-03/source_hashes.json",
+          "sha256": "aa22653a9b3bac2908d97d2b7078c46cca13fcb7d70c8f45aaa9e4d3ed0885f8"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/guard-feedback-01/native-03/validation.json",
+          "sha256": "7ee778f17faa061bbe8278740563324c30cc1ef5d4997c23e86d6babfa0339e5"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/guard-feedback-01/native-03/commands.json",
+          "sha256": "0b53df5f85e08ef5461a1933f8758ade3e04d5cdd6222dc4c2481db7d49ce6bc"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/guard-feedback-01/native-03/live/result.json",
+          "sha256": "da841b127fbbffc235fa507786d0e3b054f91aded9fbe5ab381c7e7529066239"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/guard-feedback-01/native-03/movie/result.json",
+          "sha256": "747815b3060205747179854879bbad023a68ce4a82195b46303bda80239cf475"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+      "recorded_source_keys": 1088,
+      "current_exact_recorded_keys": 1067,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_readiness_test.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_feedback_replay.gd",
+        "game/tests/timka_layout_test.gd",
+        "tools/export_p06_preview.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "4b53369bcb16e697b09229d07b4d5892432b5413d54548518f9be56dafa79288",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "8a1edd9a8fff8fe9e082a54c90ab7a6ffa6e66977c1b9965d0d989aedda2a937",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "3a5e6d6f8947578ee312250392af395563e694c2dbfca4813658bb3e79f27575",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "game/scripts/ui/counter_feedback.gd": {
+          "recorded_sha256": "322b0dd4652320614f77e9bc57e1918d6a31a456f3c34d41aa2eaa5bafd0df50",
+          "current_sha256": "322b0dd4652320614f77e9bc57e1918d6a31a456f3c34d41aa2eaa5bafd0df50",
+          "exact": true
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "timka_present",
+      "actor": "timka",
+      "native_directory": "reports/phases/P06/timka-present-01/native-02",
+      "accepted_reviews": [
+        {
+          "base": "ROOT",
+          "path": "reports/phases/P06/lead-timka-present-01/decision.json",
+          "sha256": "de6418fb51769ec3a86638de8ef0d7df85af80de4bb5d7d4bc6b898a2b6985e7",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_FIN24_SOURCE_ADOPTION_PRESENT_DISENGAGE_AND_DEV03_EVIDENCE_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-timka-present-02/decision.json",
+          "sha256": "743fb701eb101f0509261f9a1ba5e9d1c05a54957f917952043d38aacaf0f064",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_PRESENT_CORE_INCOMING_CONTACT_ART_ADDENDUM"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-timka-present-02/decision.json",
+          "sha256": "7e784deb11b976b0cf984dbd9803db3681786fd1934687352d42cf3624e9dcd9",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_PRESENT_DISENGAGE_AND_GP_TIM_PRES_01_CLOSURE_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-present-02/decision.json",
+          "sha256": "757f7aa5560fe66bf9d4967384306853f757330ed27adab3982477ea62492dc4",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_PRESENT_COMPONENT_CLOSURE_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-present-01/native-02/source_hashes.json",
+          "sha256": "89d9a74f2af63da34840bcdba52147ff18405c6906900c7155ff78b12f265972"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-present-01/native-02/validation.json",
+          "sha256": "3274916bc66ef5a89017b71cf9182abfed1fcfc009828d4e4978de23d4599c10"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-present-01/native-02/commands.json",
+          "sha256": "6916526ee6ff8399acdb974795df2ec0414abb4a41769d7f5f7a53e252d83f2f"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-present-01/native-02/live/result.json",
+          "sha256": "552237718bfc1e4a59d388f1593f6bf22f7b077b97cf2f480a787bfb85b992b8"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-present-01/native-02/movie/result.json",
+          "sha256": "a76ea63efeb2aff713ea311bd2f7f6c01c444d020420d63a79ad145c6de3511a"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+      "recorded_source_keys": 1108,
+      "current_exact_recorded_keys": 1086,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_readiness_test.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_feedback_replay.gd",
+        "game/tests/timka_layout_test.gd",
+        "game/tests/timka_present_replay.gd",
+        "tools/export_p06_preview.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "32ad490ae3cebb5b2605c804a267e8aa87a02a480a84bd6138725b4aa4226945",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "57ea466f85aa2adeb5ea46556770da54e70a7aa04a53b3b19ccca4cc68af47ec",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "566e99c6286e1817d3dc6c543dcfdaaacbb551ee38d873bb49bd9aadbacc2fbd",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "timka_prime",
+      "actor": "timka",
+      "native_directory": "reports/phases/P06/timka-prime-01/native-03",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-timka-prime-02/decision.json",
+          "sha256": "932667a4a89296fde9ee2639e6088dc69a20b39caa1d3d059cfb406299d77272",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_TWO_CONTEXTS_RUNTIME_AND_TPR_L01_RECOVERY_FOOTER_CLOSURE_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-timka-prime-02/decision.json",
+          "sha256": "bfe6a6d8e3eea478b25586b318371e5dd93c901e859ba5658325acdce5b5723e",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_PRESENT_PRIME_VISUALS_FINISHER_RUNTIME_ART_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-timka-prime-01/decision.json",
+          "sha256": "37034514ed9bd6e6d2d4a30a07849100f35b0c8f66af1eb5106c0307640c1ba2",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": null
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-prime-01/decision.json",
+          "sha256": "9d69eb46e328a6b0c1650054e7c4efb7e13bb0f6cd2ffd01698560533ed15a74",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TIMKA_PRIME_TWO_CONTEXT_AND_RECOVERY_QA_COMPONENT_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-prime-footer-01/decision.json",
+          "sha256": "c86a97b7a4deeb1444005f1c31679391d51a55ccbfbde0f40a899eb01d3843d0",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TPR_L01_RECOVERY_LOG_EXIT_FOOTER_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-prime-01/native-03/source_hashes.json",
+          "sha256": "28a3654a510a19d5f125776a55334c3088ff6e9fd1f0960621e8cc224b6c8561"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-prime-01/native-03/validation.json",
+          "sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-prime-01/native-03/commands.json",
+          "sha256": "d31c6b8ccf8b468afe86611115c480e68cccb24442123b06f8337c28372f4b21"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/timka-prime-01/native-03/live/result.json",
+          "sha256": "ff7004912d501eaaa9fa4c507fb958a163063877f5c5cdd7966fdaa13bef487f"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+      "recorded_source_keys": 1112,
+      "current_exact_recorded_keys": 1089,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_readiness_test.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_feedback_replay.gd",
+        "game/tests/timka_present_replay.gd",
+        "tools/export_p06_preview.py",
+        "tools/tests/test_p06_prime_recovery.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "tools/verify_p06_timka_prime.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "8201485285934b6b2f8bcf51d92ca5fea19f5898e73c3313002426b99370f6c9",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "46a7949aecdbabc5ef6f928c96369af1d31fb0fe47b647b3762480efd85986c6",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "87eabe19d7155f0067770eb981f294693b4e5ec9f15cabaeea6367899ee7b7fb",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "17714f41a75aa1666940872273c10376eb665f6ccf19fccc981f813a7aabd507",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "tools/verify_p06_timka_prime.py": {
+          "recorded_sha256": "8f5cdbb1c599244d76d28bebe4c6a4b074c6b506007f41df03f512c537321452",
+          "current_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+          "exact": false
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "ryzhik_roll",
+      "actor": "ryzhik",
+      "native_directory": "reports/phases/P06/ryzhik-roll-01/native-03",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-ryzhik-roll-01/decision.json",
+          "sha256": "bd49a4ffe44a1874f5e252c6889a6d9850a6909db8d0598dbd62c95bdab659cc",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": null
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-ryzhik-roll-02/decision.json",
+          "sha256": "1bff5aa09a90cc7350316ac9af896082c5b38e4b3b301b58705b7c87a39aa72e",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "RYZHIK_BODY_ROLL_ALLOWED_FIN_RUNTIME_ART_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-ryzhik-roll-02/decision.json",
+          "sha256": "bb8880ccace31061391289675412494d76917aaf3619438d504f034200194b21",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": null
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-ryzhik-roll-02/decision.json",
+          "sha256": "46b4b458f127fd60b0482eb9bfd322b4a8658a0415e276351c5f452861adef47",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "RYZHIK_ROLL_TPR_R01_R02_ROUND2_QA_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/ryzhik-roll-01/native-03/source_hashes.json",
+          "sha256": "c9e6966c9521697ad3d4d12dde3681457a5b82220ce388d56f1631836efd1958"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/ryzhik-roll-01/native-03/validation.json",
+          "sha256": "be585bde6dc654a6d5db1bac4d5bd090bec628a626f180c6b8930295126890a9"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/ryzhik-roll-01/native-03/commands.json",
+          "sha256": "417177596057aa5bae721cab4339a99810fb465bc14e8e3ad11daf5597ab8808"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/result.json",
+          "sha256": "df2199f27e9444db5cf0b9e328664c468817da5fea0643c26ac299024fb9f9c2"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/ryzhik-roll-01/native-03/movie/result.json",
+          "sha256": "79d3828656387bd82adddd6d5cbca19ff6a0e3025ee3b8219baf00c0118d1f66"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+      "recorded_source_keys": 1195,
+      "current_exact_recorded_keys": 1174,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_readiness_test.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_feedback_replay.gd",
+        "game/tests/timka_present_replay.gd",
+        "tools/export_p06_preview.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 19,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "0c8179c6238364825ecbf48fec6a14f8e741061a9944c85348cd6a121be9d74b",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "7621bf744f48836a21c2054a6e62fe1f9b09b33887dca64942ea36ec904f05ab",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "e28510936ddab0ebff82049fb22271345f151faf2ca07d705a9bd6b531474972",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "402cd255ede29b47523eb3eb626ba349e3177fa008df39ddaa7b896a4148ea22",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "game/scripts/abilities/ground_roll.gd": {
+          "recorded_sha256": "b290e1d466e4cb82b0e84c52b0c7ad4140febd4c8abcc274ed0509ab7ff57d13",
+          "current_sha256": "b290e1d466e4cb82b0e84c52b0c7ad4140febd4c8abcc274ed0509ab7ff57d13",
+          "exact": true
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "tega_environment",
+      "actor": "tega",
+      "native_directory": "reports/phases/P06/tega-environment-01/native-03",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-tega-environment-03/decision.json",
+          "sha256": "8d7e4bdfead1cc5cbd7b702780bee711f3faa6ab3b85afcfdfdc8c90eba46e7a",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "Exact captured registered-bench Tega fixture, own96art/56clips, allowedFIN and actual tested callback/state paths. No broad fullphase approval."
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-tega-environment-03/decision.json",
+          "sha256": "ef5ec8823424a4409059f0544e7ba3a2379e07dfe2d7bca5e4cd933d7eb5dfbd",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TEGA_ENVIRONMENT_SYNC_QUERY_EPOCH_GUARD_ART_REGRESSION_ADDENDUM_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-tega-environment-03/decision.json",
+          "sha256": "905266220c728741b0fb1a93a1b6c8d2400cdeed970092380e65492e7a957916",
+          "status": null,
+          "phase_approval": false,
+          "scope": "TEGA_ENVIRONMENT_CALLBACK_GEOMETRY_AND_ACTION_LIFETIME_CLOSURE_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-tega-environment-03/decision.json",
+          "sha256": "34b65dc23c7236faf975f690d9f72473cac294826d3658abb2e4d71361220c27",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "TEGA_CALLBACK_GEOMETRY_AND_EPOCH_FIX_CLOSURE_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/tega-environment-01/native-03/source_hashes.json",
+          "sha256": "ad485e36292ef14131ec1cbb02390aa1a66ec0b34fc57bbcf83c41e448f89c23"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/tega-environment-01/native-03/validation.json",
+          "sha256": "57da4543532eb476fc066fd026637fe2fc8742a027e6dd029421fb8d0ff72946"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/tega-environment-01/native-03/commands.json",
+          "sha256": "6ecb2f4dc62bac4c92b51b568bc4e0878e4104033e319e4125fa7334c510b2f0"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/tega-environment-01/native-03/live/result.json",
+          "sha256": "b18b4cb1a85991fe08aa8b34eb3549a9c92c02c4cd6931743e3dca064aeeac15"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/tega-environment-01/native-03/movie/result.json",
+          "sha256": "98b07e5cc4325952c0c92f8b6c6cebf5d2efd7c6c5bd052335dd5ba02be79ae4"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "20cbc322441a80675907bf407f12962778c6c084",
+      "recorded_source_keys": 1242,
+      "current_exact_recorded_keys": 1221,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/scripts/actors/character_frames.gd",
+        "game/scripts/actors/character_player.gd",
+        "game/scripts/core/character_lab.gd",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "game/scripts/systems/combat_system.gd",
+        "game/tests/character_frames_test.gd",
+        "game/tests/character_readiness_test.gd",
+        "game/tests/gabar_combat_replay.gd",
+        "game/tests/olezhka_feedback_replay.gd",
+        "game/tests/timka_present_replay.gd",
+        "tools/export_p06_preview.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "assets/source_art/characters/annotate_character_sockets.py",
+        "assets/source_art/characters/pack_actor_sheet.py"
+      ],
+      "own_art_keys_checked": 15,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "79f39c1a4e83fd49ac44633f68bbf691193f44cad852910a9fb105896414b7e4",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": false
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "7621bf744f48836a21c2054a6e62fe1f9b09b33887dca64942ea36ec904f05ab",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": false
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "2740ce6dcc7b35d4f360e0ef4950e999e27666284524a2914177e8999a8d18c2",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": false
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "f162fd34cba738d973c88fea989228119277c40250fa4200a0b46d82a9381c09",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": false
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "402cd255ede29b47523eb3eb626ba349e3177fa008df39ddaa7b896a4148ea22",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": false
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "game/scripts/abilities/environment_kick.gd": {
+          "recorded_sha256": "6e434715cc5934f6c2138d927a4c22d44a9c75f2436b331578fe6f356f571c2b",
+          "current_sha256": "6e434715cc5934f6c2138d927a4c22d44a9c75f2436b331578fe6f356f571c2b",
+          "exact": true
+        },
+        "game/scripts/systems/environment_kick_runtime.gd": {
+          "recorded_sha256": "c7648953d6f4869f5ebc77c9373bf97a730c6b6009902cf10956498d3541071f",
+          "current_sha256": "c7648953d6f4869f5ebc77c9373bf97a730c6b6009902cf10956498d3541071f",
+          "exact": true
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "pasha_moving_shot",
+      "actor": "pasha",
+      "native_directory": "reports/phases/P06/pasha-moving-shot-01/native-03",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-pasha-moving-shot-01/decision.json",
+          "sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "P06 Pasha moving-shot / own animation / finite ammunition / documented callback and HUD regressions, plus local DEV06 packaged smoke"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-pasha-moving-shot-03/decision.json",
+          "sha256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "PASHA_MOVING_SHOT_BODY_FIN_HUD_RUNTIME_ART_COMPONENT_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-pasha-moving-shot-03/decision.json",
+          "sha256": "74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "PASHA_MOVING_SHOT_FINITE_CLIP_HUD_AND_TARGETED_CALLBACK_CLOSURES_ONLY"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-pasha-moving-shot-03/decision.json",
+          "sha256": "3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2",
+          "status": "PASS_COMPONENT",
+          "phase_approval": false,
+          "scope": "PASHA_B359_UI_ROLLFORWARD_AND_REUSED_TECHNICAL_CLOSURE_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/pasha-moving-shot-01/native-03/source_hashes.json",
+          "sha256": "4c885f6a42e5f4f90280dd71c48d47c68e09231fa6033077abf89f11284e12b0"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/pasha-moving-shot-01/native-03/validation.json",
+          "sha256": "d3be7675604c3a0cafb3f5b48491ed019ce346f647b823eef66ef2bc049d6917"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/pasha-moving-shot-01/native-03/commands.json",
+          "sha256": "738d0c3ef63946af6b3f9b3853e81d0bc022e8bdb310b965974c601936fac7c1"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/pasha-moving-shot-01/native-03/live/result.json",
+          "sha256": "b88674b1ca83e1eeb7106f35f9910ef56e25c97d102535a55a543ee80546c5e5"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/pasha-moving-shot-01/native-03/movie/result.json",
+          "sha256": "04e6bc7abb6502a2c607151fb00b151c7fc3a0ccb7446d5fe61af7daa1b9c57e"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+      "recorded_source_keys": 1314,
+      "current_exact_recorded_keys": 1306,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/scripts/qa/owner_preview_smoke.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_combat_profile.gd",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py"
+      ],
+      "own_art_keys_checked": 20,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/actors/character_player.gd": {
+          "recorded_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "current_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+          "exact": true
+        },
+        "game/scripts/actors/character_frames.gd": {
+          "recorded_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "current_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+          "exact": true
+        },
+        "game/scripts/actors/polish_frames.gd": {
+          "recorded_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "current_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+          "exact": true
+        },
+        "game/scripts/systems/combat_system.gd": {
+          "recorded_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "current_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+          "exact": true
+        },
+        "game/scripts/ai/enemy_actor.gd": {
+          "recorded_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "current_sha256": "8861522b8569b401c24a52f8f3ce0a8900c22ed0d00dcd8c7ad6a31d1624ef25",
+          "exact": true
+        },
+        "game/scripts/core/character_lab.gd": {
+          "recorded_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "current_sha256": "4f37f9dda87db8f425909145f043498eddd539aa9f7e75470cc87a6ae21b7a21",
+          "exact": true
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": true
+        },
+        "game/scripts/systems/character_scene_policy.gd": {
+          "recorded_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "current_sha256": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "d65486ae1ce5ba77aa7fd2e787f9340c0c614ef412d9451e9f6bdaf3c9899686",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": false
+        },
+        "game/resources/characters/catalog.json": {
+          "recorded_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "current_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+          "exact": true
+        },
+        "game/resources/characters/sandbox_scenes.json": {
+          "recorded_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "current_sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+          "exact": true
+        },
+        "game/resources/characters/combat_profiles.json": {
+          "recorded_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "current_sha256": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+          "exact": true
+        },
+        "game/resources/combat/finishers.json": {
+          "recorded_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "current_sha256": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "game/scripts/abilities/moving_shot.gd": {
+          "recorded_sha256": "3dac565c6bf72a98f592336cd008204b6e3dc7cc4c91ade8a174b5d259547dac",
+          "current_sha256": "3dac565c6bf72a98f592336cd008204b6e3dc7cc4c91ade8a174b5d259547dac",
+          "exact": true
+        },
+        "game/scripts/systems/moving_shot_runtime.gd": {
+          "recorded_sha256": "36f8015220aee4623076ffed345c7b0132bec69a40c5993fdd5c56abdece8ebf",
+          "current_sha256": "36f8015220aee4623076ffed345c7b0132bec69a40c5993fdd5c56abdece8ebf",
+          "exact": true
+        },
+        "game/scripts/ui/ranged_feedback.gd": {
+          "recorded_sha256": "3065214c59490d3637a049d6ca76fdb569a1b05264c01ce91b8696b2f56f5f21",
+          "current_sha256": "3065214c59490d3637a049d6ca76fdb569a1b05264c01ce91b8696b2f56f5f21",
+          "exact": true
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "cast_portrait_dialogue",
+      "actor": null,
+      "native_directory": "reports/phases/P06/attempt1/cast-native-02",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/runtime-art-preflight_v1.json",
+          "sha256": "21c89e5cd80fca19e4932ed8e21fe2746e9322f9435cdff170213fd0a9a73c09",
+          "status": "VISUAL_PRESENTATION_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "phase_approval": false,
+          "scope": "independent_runtime_capture_art_preflight"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/cast-native-02/source_hashes.json",
+          "sha256": "8efad8cec84b3743aa03b4fb173dbae622fd4230e54ec939b980bc01f2890866"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/cast-native-02/validation.json",
+          "sha256": "e656691770bd00a876df16a72c681500d0c424b06c595d78dcd7656a7da954e1"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/cast-native-02/commands.json",
+          "sha256": "81ed4b3635a085c671181a61ffd7365760d71a2b576d7b8e4c558b165d785975"
+        }
+      },
+      "result_paths": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/cast-native-02/result.json",
+          "sha256": "6ec7f8ba4e866a90cc87db54427537284e32e9a3ca68e3bb219aeb74e5803f57"
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/cast-native-02/process-reload.json",
+          "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+        }
+      ],
+      "historical_native_passed": true,
+      "historical_source_HEAD": "9be2d7270a67e74b44bcf40fd4a5d44eddb062df",
+      "recorded_source_keys": 410,
+      "current_exact_recorded_keys": 392,
+      "changed_recorded_keys": [
+        "game/default_bus_layout.tres",
+        "game/export_presets.cfg",
+        "game/resources/characters/catalog.json",
+        "game/resources/dialogue/p06_tega.json",
+        "game/scripts/actors/combat_player.gd",
+        "game/scripts/actors/polish_frames.gd",
+        "game/scripts/actors/yakuza_actor.gd",
+        "game/scripts/core/bootstrap.gd",
+        "game/scripts/core/combat_lab.gd",
+        "game/scripts/systems/audio_director.gd",
+        "game/scripts/systems/character_catalog.gd",
+        "game/scripts/systems/combat_impact.gd",
+        "game/scripts/systems/combat_system.gd",
+        "tools/tests/test_autopilot.py",
+        "tools/verify.py",
+        "tools/verify_p04.py",
+        "tools/verify_p04g.py",
+        "assets/source_art/characters/README.md"
+      ],
+      "own_art_keys_checked": 31,
+      "own_art_changed": [],
+      "critical_code_current_comparison": {
+        "game/scripts/ui/cast_viewer.gd": {
+          "recorded_sha256": "dc8eeaa626a0fdc15c65a46d5ea2bcc7625ebf94c3c13da063cd364f99481bb7",
+          "current_sha256": "dc8eeaa626a0fdc15c65a46d5ea2bcc7625ebf94c3c13da063cd364f99481bb7",
+          "exact": true
+        },
+        "game/scripts/ui/character_portrait.gd": {
+          "recorded_sha256": "ccf5dda9f5cd13c61f801ac98e96f620b9d8d3700944b949844622cda13f3b7f",
+          "current_sha256": "ccf5dda9f5cd13c61f801ac98e96f620b9d8d3700944b949844622cda13f3b7f",
+          "exact": true
+        },
+        "game/scripts/systems/character_dialogue_session.gd": {
+          "recorded_sha256": "c4a54707f98124a99ef6a24500909ee116715973bd1cf447e89b886fcb79393c",
+          "current_sha256": "c4a54707f98124a99ef6a24500909ee116715973bd1cf447e89b886fcb79393c",
+          "exact": true
+        },
+        "game/scripts/systems/dialogue_director.gd": {
+          "recorded_sha256": "3ec60240e4c8b7179c7d28805cae128b8ab875f649cc9f81c0f80786b7d7c0dd",
+          "current_sha256": "3ec60240e4c8b7179c7d28805cae128b8ab875f649cc9f81c0f80786b7d7c0dd",
+          "exact": true
+        },
+        "game/scripts/systems/character_catalog.gd": {
+          "recorded_sha256": "ed4c1a730769bfe28d3a4e6d466e021693f2ec66afd4d83350390a5f36298c30",
+          "current_sha256": "40f3ce4eae168c5f86f164d8347386205f759fafa1180d396b9c267bcf340fbb",
+          "exact": false
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "6f757fc8b986129e9c8176775addc6b80808b418829e0e57ccffb5749c1baa42",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": false
+        },
+        "game/scripts/core/options_store.gd": {
+          "recorded_sha256": "663eaae1ae7115320168d0e7c3aebc8e288935f107ae1211f8afc28f11eb8a12",
+          "current_sha256": "663eaae1ae7115320168d0e7c3aebc8e288935f107ae1211f8afc28f11eb8a12",
+          "exact": true
+        },
+        "game/project.godot": {
+          "recorded_sha256": "f562bae5aa657461c45e448ce73d8984e9791f26885c40be766dc5a4827ad351",
+          "current_sha256": "f562bae5aa657461c45e448ce73d8984e9791f26885c40be766dc5a4827ad351",
+          "exact": true
+        },
+        "game/scripts/qa/cast_replay.gd": {
+          "recorded_sha256": "0ef99615285318cf5cf46528fb9b47b11d4646e87eddb55b840f424821d23f71",
+          "current_sha256": "0ef99615285318cf5cf46528fb9b47b11d4646e87eddb55b840f424821d23f71",
+          "exact": true
+        },
+        "game/tests/character_dialogue_reload.gd": {
+          "recorded_sha256": "fbd6d414969234aad95d096c02c32717c065cca5290410b63dea979424551924",
+          "current_sha256": "fbd6d414969234aad95d096c02c32717c065cca5290410b63dea979424551924",
+          "exact": true
+        },
+        "tools/verify_p06_cast.py": {
+          "recorded_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "current_sha256": "40b9df423f9aad19c9aa09b2839de6e91842e1b7f2b51ab0026579499e8a11f1",
+          "exact": true
+        }
+      },
+      "reuse_classification": "EXACT_ART_PIXEL_REUSE_PLUS_EXPLICIT_RUNTIME_DELTA_REVIEW_AND_CURRENT_CONTROLLER_BASELINE_REQUIRED",
+      "old_native_claimed_fresh": false
+    },
+    {
+      "id": "gabar_world",
+      "actor": "gabar",
+      "native_directory": "reports/phases/P06/attempt1/world-native-02",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/gabar_world_runtime_preflight_v2.json",
+          "sha256": "c80c2b7eb55c71f5d558592f679f840b6891ae1bf2450568302384166f8d0b23",
+          "status": "VISUAL_MOVEMENT_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "scope": "GABAR_CAPTURED_ART_MOVEMENT_FIXTURE_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/world-native-02/source_hashes.json",
+          "sha256": "c7486f36195eb2b0783ccdfd8ff62a834867f2cdfcf31e56ab5d05493a9f2094"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/world-native-02/validation.json",
+          "sha256": "9a183136f643108fbce03d5ece3bb2f91374033267de5a69c83d3cc30515d64c"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/world-native-02/commands.json",
+          "sha256": "7c30403e76249621aa7737df7353911c990d6d08ac81c1a113412f8f315d3130"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "1fe0754e2d974d205ed21b02bd1bf2c712725263b9b87506f028f3e7f9419bdd",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "olezhka_world",
+      "actor": "olezhka",
+      "native_directory": "reports/phases/P06/attempt1/olezhka-world-native-01",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/olezhka_world_runtime_preflight_v1.json",
+          "sha256": "9f6e89aaf641bdff47ee81082a4426540581ce695f582bff98e3ca77034854c4",
+          "status": "VISUAL_MOVEMENT_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "scope": "OLEZHKA_CAPTURED_WORLD_ART_MOVEMENT_FIXTURE_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-world-native-01/source_hashes.json",
+          "sha256": "9c99d6e6413f2e0402dbf150595f7841f3c4e860baf5dd16b59f1286f51514fe"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-world-native-01/validation.json",
+          "sha256": "025129e43a7ba5fb5bd869c6f160e645834e2e161836669bb2ce63ff5a1e0057"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/olezhka-world-native-01/commands.json",
+          "sha256": "71437eb0e53559127d16b58f5d5ec489fec51232427f4dc15de8722bf7caaa4e"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "timka_world",
+      "actor": "timka",
+      "native_directory": "reports/phases/P06/attempt1/timka-world-native-02",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/timka-world-native-review-v1.json",
+          "sha256": "e136bc560aa30bcc77d47c95a8f9ca36beace0e6a43452ad7d6b480c12b9c1b1",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "actual_native_world_art_component"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/timka-world-native-02/source_hashes.json",
+          "sha256": "a19487aad66e69f6ff8706fe72c8ed6067d204bba2820ba6d5f74d9206bcb142"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/timka-world-native-02/validation.json",
+          "sha256": "67a16612c1e36d99f131e4c8fba8167c85b2d0858a3417003a2252118f64f16d"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/timka-world-native-02/commands.json",
+          "sha256": "68c84b8238e753c5011c577d646ffa6a96c1fa1647e1d799f3c8a8e6e9f9d42b"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "ryzhik_world",
+      "actor": "ryzhik",
+      "native_directory": "reports/phases/P06/attempt1/ryzhik-world-native-01",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/ryzhik-world-native-review-v1.json",
+          "sha256": "d4c3380a07d25417f32560fe64ce7c459d17e7ac38b0424a641eccf2df64322e",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "actual_native_world_movement_art"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/source_hashes.json",
+          "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/validation.json",
+          "sha256": "aa4db74343d0d6fff8c9538a08d7be0d2537642e3fdb2662d5beb4923375fd57"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/commands.json",
+          "sha256": "a6966e36a9b527241000739ede134c0a86af6f67a550bc34646bd49cf25e84a5"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "cd3f563b42f035df58f8d3e70344f82cbd6670e112644ef6aee7791ecdec622e",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "tega_world",
+      "actor": "tega",
+      "native_directory": "reports/phases/P06/attempt1/tega-world-native-01",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/tega-world-native-review-v1.json",
+          "sha256": "dcd902b45d7a61ff9d22b77100d386d060f075ae2776a210b8b97b12e4b0fb8a",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "TEGA_WORLD_ACTUAL_NATIVE_CAPTURED_CONFIGURATION_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/tega-world-native-01/source_hashes.json",
+          "sha256": "beb3fefd3679eedee34b12ebc305e9918d551be6400ee7424aa6ed730fca60a2"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/tega-world-native-01/validation.json",
+          "sha256": "e2f61f8c09b15523199fcf40a154257cb0e53cb7a60e29cf5e55f091f2434cf8"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/tega-world-native-01/commands.json",
+          "sha256": "a3b832318db25d89707952c13dfba5cc8ba88500432ec1b609a5a51e575d8c58"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "pasha_world",
+      "actor": "pasha",
+      "native_directory": "reports/phases/P06/attempt1/pasha-world-native-01",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/pasha-world-native-review-v1.json",
+          "sha256": "c6767b48deb2419914bebacc50744b85a2e8379300cb0252614db3fcfde67801",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "PASHA_WORLD_ACTUAL_NATIVE_CAPTURED_CONFIGURATION_ONLY"
+        }
+      ],
+      "native_entries": {
+        "source_hashes.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/pasha-world-native-01/source_hashes.json",
+          "sha256": "3ee93db5d97fb5e7600b8f0c4c147aa5022f92e89c3fd86d1ab80823a9d1578b"
+        },
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/pasha-world-native-01/validation.json",
+          "sha256": "d53bf53812966bb22106e92a392071bf4838586ee1c7744307f19a7e6a96ede7"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/attempt1/pasha-world-native-01/commands.json",
+          "sha256": "d7f9ea8166d8f3a12fc0e0ed2af232bf332fdd00735d1afb6066cd8e61acb56c"
+        }
+      },
+      "WORLD_sheet_exact": true,
+      "WORLD_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
+      "required_critical_dependencies": [
+        "own WORLD atlas/metadata/sockets; relevant CharacterFrames projection/pivot and PixelPresentation code",
+        "controller movement physics/authority; accepted continuous all4dir32phases/joins; current controller baseline",
+        "Timka contexts additionally depend on prime/present stance mappings, already separately accepted"
+      ],
+      "reuse_classification": "REUSE_ACCEPTED_WORLD_PIXELS_AND_RECORDED_TEMPORAL_SCOPE_WITH_EXPLICIT_RUNTIME_EQUIVALENCE_NOT_NEW_FRESH_CAPTURE"
+    },
+    {
+      "id": "C01_audio",
+      "native_directory": "reports/phases/P06/character-finisher-audio-01/native-02",
+      "accepted_reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-character-finisher-audio-01/decision.json",
+          "sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+          "status": "PASS_COMPONENT",
+          "scope": "BoundedprototypeC01technical+ownerhistoricalsolo/runtimecontentacceptance; noagenthearing"
+        }
+      ],
+      "native_entries": {
+        "validation.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/character-finisher-audio-01/native-02/validation.json",
+          "sha256": "d36d4dd4159232abcd816b3ba3798601b6c5266ea75e0c2a31feee3a7f3e47eb"
+        },
+        "source_hashes_before.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/character-finisher-audio-01/native-02/source_hashes_before.json",
+          "sha256": "f170d9b0c0979dd3cdbb6b6cb15eb7257fa639c779cd3c837fde8217e4d2bff6"
+        },
+        "source_hashes_after.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/character-finisher-audio-01/native-02/source_hashes_after.json",
+          "sha256": "f170d9b0c0979dd3cdbb6b6cb15eb7257fa639c779cd3c837fde8217e4d2bff6"
+        },
+        "commands.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/character-finisher-audio-01/native-02/commands.json",
+          "sha256": "bf0455860c1b19984768d4b132434498052410605db0b620add6241f9ae3b465"
+        },
+        "replay/result.json": {
+          "base": "WORK",
+          "path": "reports/phases/P06/character-finisher-audio-01/native-02/replay/result.json",
+          "sha256": "ab6c04e91276a496755846818810ef85e04fdde50ab2bf529f7e19c3df7df5f3"
+        }
+      },
+      "critical_code_current_comparison": {
+        "game/scripts/systems/character_finisher_audio.gd": {
+          "recorded_sha256": "a1602cc99afda0f30b170299909a520f52c27d443edf5dbf0614a0eaad1d1fde",
+          "current_sha256": "a1602cc99afda0f30b170299909a520f52c27d443edf5dbf0614a0eaad1d1fde",
+          "exact": true
+        },
+        "game/scripts/systems/character_combat_profile.gd": {
+          "recorded_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "current_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+          "exact": true
+        },
+        "game/scripts/systems/audio_director.gd": {
+          "recorded_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "current_sha256": "da56ce237da4ec87557f3510241fb4b3ca8c75570bb5cf95cd33fec2f3954ac0",
+          "exact": true
+        },
+        "game/default_bus_layout.tres": {
+          "recorded_sha256": "bf11b6c2a889ae4d0f5740f3ff902271a852be18617919c18136469e13a7ae76",
+          "current_sha256": "bf11b6c2a889ae4d0f5740f3ff902271a852be18617919c18136469e13a7ae76",
+          "exact": true
+        },
+        "game/assets/audio/character_finishers.json": {
+          "recorded_sha256": "89f0da3055731bcd7723b2d8cfd6db4c66c800ebe4d2551695029b1522ab66c7",
+          "current_sha256": "89f0da3055731bcd7723b2d8cfd6db4c66c800ebe4d2551695029b1522ab66c7",
+          "exact": true
+        }
+      },
+      "additional_required_dependencies": "Own20+legacy5 WAV; C69signal review and3b6ownerrecord; native01old45 route proof+native02fresh3/20solo/8stress andclosedQ03; actual source/PCM/NCC/import manifests",
+      "reuse_classification": "BOUNDED_ACCEPTED_SOURCE_AND_PCM_CONTENT; plannedcurrentheadroomreplaydoesnotimplynewhearing"
+    }
+  ],
+  "anchors": [
+    {
+      "path": "lead-character-finisher-audio-01/decision.json",
+      "sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828"
+    },
+    {
+      "path": "lead-character-finisher-audio-01/source-freeze.json",
+      "sha256": "888b8a7dc9ea077ee19b3627b0f14064169c96e237a37710c62c8de34ca92414"
+    },
+    {
+      "path": "lead-npc-visual-deferral-01/decision.json",
+      "sha256": "c812fae21eb3af43ab30c02faa601ac3c50404c2862afaa96e16926dbcde0b76"
+    },
+    {
+      "path": "owner-preview-20261116-08/preview.json",
+      "sha256": "bb0e2ff85824aa986e579c0b614b641a0e87448ad30c3969edecc1e611a25998"
+    },
+    {
+      "path": "owner-preview-20261116-08/source_hashes.json",
+      "sha256": "66d032c626afa8fe568df220201624f6b9e6015d09b133f53bff06b684e9a673"
+    },
+    {
+      "path": "owner-preview-20261116-08/exports.json",
+      "sha256": "182de45762d3cc041db0b55424ba8d4ea7d6e4216f10c4a7a3b835be0fe2c9d7"
+    },
+    {
+      "path": "owner-preview-20261116-08/owner-handoff.json",
+      "sha256": "7584870e7ffa0f45ee802b659c3dc5a80ba7860a4d174a2e2ad7e31c628dc285"
+    },
+    {
+      "path": "baseline-after-deferral-01/validation.json",
+      "sha256": "a9f6513d938a24e48e0b214f1bbf71ed9d4c7d6e889e34458337044670b63f4b"
+    },
+    {
+      "path": "baseline-after-deferral-01/regression/validation.json",
+      "sha256": "7ebdb4cbe631424854ad233b1adc43caae218362851ef310f4eb9448379e37fc"
+    }
+  ],
+  "note": "Statuses are original bounded scope, not invented full component Lead approvals. Any changed critical code requires a real independent equivalence receipt or targeted fresh fallback. Do not discard changed keys silently.",
+  "decision_delivery_note": {
+    "Timka_present_originally_missing_WORK_decision": "Observed and reported duringpreflight; now exactauthorcopy supplied",
+    "current_ROOT_WORK_decision_sha256": "de6418fb51769ec3a86638de8ef0d7df85af80de4bb5d7d4bc6b898a2b6985e7",
+    "author_copy_only_no_review_changes": true
+  }
+}

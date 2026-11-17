@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "reviewer": "/root/art_timka_recovery",
+  "reviewed_utc": "2026-11-14T15:24:09.849188+00:00",
+  "phase": "P06",
+  "status": "FAIL_ISOLATED_RIGHT4_CAMERA_FAMILY",
+  "scope": "ISOLATED_RIGHT4_SOURCE_CELL_ONLY",
+  "actor_id": "timka",
+  "kind": "world",
+  "direction": "right",
+  "column": 4,
+  "reviewed_changed_cell": [
+    2,
+    4
+  ],
+  "all32_freshly_reviewed": false,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "master_sha256": "19a0826dc7d3f28f2c5907c56579b043ab843cb6b51d60b4598b4f8518ef1795",
+  "native_sha256": "c673d9c2d9d54557ad7793db6acabe859e190fbe4b636c6957b17a3a02116ce2",
+  "raw_pose_sha256": "e12e330bcc69e50aef5fca4c8e8159164426a566d5bb6efbae52c242341f405a",
+  "report_sha256": "4feeadc558eed15eee2797d3a4ebfd9107ec872984b838d3860cf5a34c4412f8",
+  "metrics_sha256": "01d8e9966d5d9d3d0fe318ee033315aa4d99f8713216be8947671aa796abaa13",
+  "must_fix": [
+    {
+      "id": "TIMKA-WORLD-RIGHT4-CAMERA-01",
+      "severity": "HIGH",
+      "priority": "P1",
+      "summary": "Flatter narrower side profile and changed projected head/torso/leg proportions mismatch own established overhead Timka RIGHT2/idle family",
+      "fix": "New complete RIGHT4 pose with own higher-resolution TimkaRIGHT2 source as primary camera/body/wardrobe anchor; keep improved opposite walking phase, full sleeves and small hands; no anatomical editing or stretch"
+    }
+  ],
+  "cell_improvements": [
+    "black sleeves to both wrist cuffs",
+    "small cuff-separated hands",
+    "more readable opposing walk phase"
+  ],
+  "known_other_open_cells": [
+    "LEFT7",
+    "RIGHT7"
+  ],
+  "other31_rgba_exact_v3a": true,
+  "source_inventory_sha256": {
+    "assets/source_art/characters/timka/world_master_v1.png": "f0fa1c7b2ac0a8d2b0ea57d567f906018bf39c8bf43d45b65768cf56ae87bd01",
+    "assets/source_art/characters/timka/world_native_v1.png": "f24a54dfe5272e97178ef563aee3e9e3356ca6906d10abc9c9dcb7d85aab3f0b",
+    "assets/source_art/characters/timka/world_master_v3a.png": "c5dd8eac8df1f39e3cbf0e5d61932262d58d91900624c602e334a0bf4400a4d4",
+    "assets/source_art/characters/timka/world_native_v3a.png": "aef19877133f41d15e85f4467defa8a7f86a0cc8df163eee52d63f387190e27e",
+    "assets/source_art/characters/timka/world_master_v3b.png": "19a0826dc7d3f28f2c5907c56579b043ab843cb6b51d60b4598b4f8518ef1795",
+    "assets/source_art/characters/timka/world_native_v3b.png": "c673d9c2d9d54557ad7793db6acabe859e190fbe4b636c6957b17a3a02116ce2",
+    "assets/source_art/characters/timka/world_manifest_v3b.json": "6146613b7d7dd6f90df9949c7c74fe60c99741adca64e2e152d0b53b284a4b12",
+    "assets/source_art/characters/timka/world_v3b_assembly.json": "8af470632d06ab69204f3aae96b3106bbf7f546a148e4c8fa24ba00bb632f29b",
+    "assets/source_art/characters/timka/world_right4_master_v3.png": "e12e330bcc69e50aef5fca4c8e8159164426a566d5bb6efbae52c242341f405a",
+    "assets/source_art/characters/timka/world_right4_v3_generation_metadata.json": "6f60b2c670cbe0ac91eca7f5e1905fb4fb96bd1afe850ceb509db78253387021",
+    "assets/source_art/characters/timka/world_right4_v3_prompt.txt": "1132b8c6417e9c273fd3691b3ac92246c0c9ca1d048d0903a151b6f3dcaf0669",
+    "assets/source_art/characters/timka/world_v3_references.json": "3c28d54601ea2ae252e3147c49fb652d39932542c4059a987c2e8b3fb2ab1bc8",
+    "assets/source_art/characters/timka/right4_pose_olezhka_reference_16x.png": "a7b817f6227163753c160c83f915b8bbbaf07821d54259321b82e30ffeaf0496",
+    "assets/source_art/characters/timka/right4_identity_timka_idle_reference_16x.png": "014227fcc21b7d23faee5406ac15beac652c3ae2224d2d1e129d31032bb0612c",
+    "assets/source_art/characters/timka/portraits_master_v1.png": "0d6f6e48e33b061467614dcd65b350728cd9425e38b6eb7b1945d30d2dd2f4d7",
+    "assets/source_art/characters/place_actor_pose.py": "bc5b83b9491684b0e30ec1cd44540d6ab1e5576fcedca99a7d4e7646c615afb9",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "assets/source_art/characters/olezhka/world_native_v2b.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+  },
+  "review_artifacts_sha256": {
+    "timka_world_right4_preflight_v3b_light_right2_v3a4_v3b4_idle_olezhka_8x.png": "281c38a4512527ff580d6af5b62daa0508c22d4df430c9f5d1c0a4d00fbb41f4",
+    "timka_world_right4_preflight_v3b_dark_right2_v3a4_v3b4_idle_olezhka_8x.png": "4f2ad6bec1edf4b649804141983f3d6505c28e7481dbf199b5b04b148c2edf4c",
+    "timka_world_right4_preflight_v3b_raw_complete_canvas_half.png": "f4db63d58c7a3b0fb584d45e79193c7cd0032623f456d373a28bde1432892761",
+    "timka_world_right4_preflight_v3b.md": "4feeadc558eed15eee2797d3a4ebfd9107ec872984b838d3860cf5a34c4412f8",
+    "timka_world_right4_preflight_v3b_metrics.json": "01d8e9966d5d9d3d0fe318ee033315aa4d99f8713216be8947671aa796abaa13",
+    "timka_world_right4_preflight_v3b.inspect.py": "50649dcafc09f9fde121b649ed226b86aa5b53c055bef52c5bcc38707b61bb42"
+  },
+  "runtime_tests_performed": false,
+  "changed_source_or_authority": false
+}

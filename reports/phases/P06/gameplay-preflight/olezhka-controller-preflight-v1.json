@@ -1,0 +1,178 @@
+{
+  "phase": "P06",
+  "review_kind": "bounded_olezhka_counter_controller_contact_defense",
+  "reviewer": "/root/gameplay_review_p06",
+  "status": "SOURCE_AND_AUTHOR_RUNTIME_VERIFIED_COMPONENT_ONLY",
+  "base_head_label_without_git_commands": "64c57f75671aeff07e8b9d13a8ee91d4cb79b3ff",
+  "dirty_source_candidate_not_committed_exact_head_execution": true,
+  "phase_approval": false,
+  "native_art_feel_audio_fps_platform_exports_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "controller_git_commands_source_mutations": false,
+  "closed_findings": [
+    {
+      "id": "OLEZHKA-PF-01",
+      "severity": "MEDIUM",
+      "finding": "Initial planned replay silently used unknown option keys/wrong shake scale",
+      "resolution": "Correct keys and ten actual successful setter+stored-value assertions in Run03 before FullReduced comparison."
+    }
+  ],
+  "findings": [],
+  "verified": [
+    "Limited training-only single hostile melee defense; no guard-miss damage/no invulnerability",
+    "Core reserves once receipt before optional defense and blocked contacts do not emit damage effects score",
+    "Bullets/finishers/direct paths bypass by default; separate bounded defense ledger",
+    "Counter queued as distinct stamped Core attack with per-target live authority and next-tick actual contact",
+    "Cancel/death/reset/reopen/reentry and real FullReduced settings checked"
+  ],
+  "actual_author_evidence_read_not_rerun": {
+    "run01_parse_failed_exit": 1,
+    "run01_executed_checks": 0,
+    "run02_historical_checks": 152,
+    "run03_checks": 164,
+    "run03_failed": 0,
+    "run03_exit_code": 0,
+    "run03_renderer": "headless",
+    "run03_actual_input": true,
+    "run03_contacts": 57,
+    "run03_defenses": 13,
+    "run03_actual_captures": 0,
+    "run03_source_entries_checked": 706,
+    "run03_source_mismatches": [],
+    "run03_artifact_hashes_match": 4,
+    "actual_settings_setter_value_checks": 10,
+    "defense_to_counter_example": {
+      "incoming_id": 1,
+      "defense_tick": 283,
+      "defense_elapsed": 0.28,
+      "counter_id": 2,
+      "counter_tick": 284,
+      "counter_elapsed": 0.296666666666667
+    },
+    "historical_general_regression_commands": 32,
+    "fresh_affected_commands": 7,
+    "fresh_p06_unit_checks": 1773,
+    "fresh_gabar_checks": 124,
+    "fresh_isolation_checks": 25,
+    "fresh_actual_process_reload": true,
+    "fresh_source_inventory_entries": 706,
+    "fresh_source_mismatches": 0,
+    "fresh_artifact_hash_mismatches": []
+  },
+  "remaining_gates": [
+    "Native Input/contact/reaction/readability and subjective real-time feel",
+    "ART bodies/portraits/sockets/finisher and audio listening",
+    "Performance/FPS, exports and platform runtime",
+    "Four remaining abilities and complete independent P06 gates"
+  ],
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/olezhka-controller-preflight-v1.md",
+    "sha256": "4ce8b288579388a108fa58505af2d5654331b75e33df6ff9e743beb51d226f5b"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "sha256": "60e868b7853a05a40f921628e3d2a21e1316e4aed19151fa57157870dd01f249"
+    },
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "sha256": "d7043f0121f12486b06beecfee15f74e922f1d1c2a547e60e8aea11daf7df21d"
+    },
+    {
+      "path": "game/scripts/core/options_store.gd",
+      "sha256": "663eaae1ae7115320168d0e7c3aebc8e288935f107ae1211f8afc28f11eb8a12"
+    },
+    {
+      "path": "game/tests/olezhka_combat_replay.gd",
+      "sha256": "9880c3ee1ad59029976ae1b8d567668fb989181fee2e8f1bb2344558821da0ea"
+    },
+    {
+      "path": "tools/verify_p06_olezhka.py",
+      "sha256": "806a3f6fa665f202aee3d3a9361ca140bbf5352fd4f60fa93d672397774988b3"
+    },
+    {
+      "path": "tools/verify.py",
+      "sha256": "d95c3e2844c5cad578cf7cc2d7506b943a44397513b88fde8450703b7384ff88"
+    },
+    {
+      "path": "specs/CHARACTER_EXPANSION_SPEC.md",
+      "sha256": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+    },
+    {
+      "path": "game/assets/art/characters/olezhka/finisher_sheet.png",
+      "sha256": "e22296ad7634d339d62bb44067e8bf8c5ff3e3d9321e14ff5c8d97851273295c"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/validation.json",
+      "sha256": "256e37ade18af26086f2b0d847a671cf9459a8441bc6ea934c17822180702d8c"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/commands.json",
+      "sha256": "a698e32dc3ed1d6663b64f5dc0eccbc89515e7ae7cb55960780395eab09c82f2"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/source_hashes.json",
+      "sha256": "ad394d1576266bb37ffee0f1a9c394b212460f9ca10b4f0b77a8cbe1f459b097"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/live.log",
+      "sha256": "fa844bdb979763e9ad94f9f1aa1977407943880afd2e740f54048a67ff192183"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/validation.json",
+      "sha256": "9a3b9e8cfa48dc3ca219645bb7a72abc876398e4a1046d51155cebf4ea970d8a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/commands.json",
+      "sha256": "227be2e80609c9bc5f8f0139501f0b6b374f28bbed864c976badbe0ba03c9a6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/source_hashes.json",
+      "sha256": "bea8ea91be3111feba5a1fd0dd9f9a6c07bb0c63855abf8df755866e8e219536"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/live.log",
+      "sha256": "68eabe47fd77f2a88e8f624c0d7576a1b0d0a921952f9e3c6f3000f7ba63e6eb"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/live/result.json",
+      "sha256": "ebb23092b199bc839ec995e4734983632255961abce3883773ad0123f2285f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-03/validation.json",
+      "sha256": "8a61f27c078a5b4d00112ab7ab8fe223219d7890eec5beaa03923bfd5ea4464a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-03/commands.json",
+      "sha256": "7bd5f470110f27d182ea57aed584b3b7ed1a68e85ef0eeb18b4f96ab107d2a8e"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-03/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-03/live.log",
+      "sha256": "88b26819b77cb94fccc258aebcc8992b555c488bfd591ed2f2126f24f9332829"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-03/live/result.json",
+      "sha256": "b7d61e6ef19f16aff681e866ddba138fee25781255c2e73e136cb91b0b1608a6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/counter-core-regression-01/validation.json",
+      "sha256": "b71d2781d71a3a03d89fb333a09656d7b206ef47879d5c7761212eed17d434dd"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/gabar-counter-hook-01/validation.json",
+      "sha256": "8e73d0de67798d7d8c54c1185ceef5b2a469877aea8328a9893fb4ee9a78b766"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/validation.json",
+      "sha256": "979d332eee857f23eaf628af75dfd217cc08841501800ba58040b24b61518ce9"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    }
+  ]
+}

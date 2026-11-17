@@ -1,0 +1,2693 @@
+diff --git a/assets/source_audio/character_finishers/README.md b/assets/source_audio/character_finishers/README.md
+new file mode 100644
+index 0000000..453d435
+--- /dev/null
++++ b/assets/source_audio/character_finishers/README.md
+@@ -0,0 +1,7 @@
++# Собственные finisher SFX — кандидаты P06
++
++20реальных исходныхPCM16/mono/44100WAV и math-only recipe. Новый звук использует отдельные temporal/cloth profiles для шести героев и category resonators. Это не запись/клон голоса и не переработанный стороннийsample. TimkaPresent не имеет finisher звуков; prime получает только unarmed/blunt/environmental. Пять первоначальных Yakuza finish_* файлов сохраняются в combat_polish.
++
++Signal-only приёмка c69fe500… основана на независимом decode/truepeak/300checks/38pairs/byte-exact rerender. Она не оценивает качество звучания и не заменяет реальный engine mix либо прослушивание. Слуховая и runtime приёмки пока не завершены. Близкие Oleg/Pasha огибающие требуют отдельного внимания слушателя; это не установленный дефект.
++
++Воспроизведение source: python3 assets/source_audio/character_finishers/render.py --catalog game/resources/characters/catalog.json --output <новый-каталог>. Recipe не заменяет Game автоматически и запрещает перезапись предыдущего output.
+diff --git a/assets/source_audio/character_finishers/adoption.json b/assets/source_audio/character_finishers/adoption.json
+new file mode 100644
+index 0000000..a28c924
+--- /dev/null
++++ b/assets/source_audio/character_finishers/adoption.json
+@@ -0,0 +1,10 @@
++{
++  "source_signal_decision_sha256": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c",
++  "runtime_manifest_sha256": "89f0da3055731bcd7723b2d8cfd6db4c66c800ebe4d2551695029b1522ab66c7",
++  "runtime_wave_bytes_exact": true,
++  "new_cues": 20,
++  "retained_Yakuza_cues": 5,
++  "runtime_playback_approval": false,
++  "artistic_approval": false,
++  "phase_approval": false
++}
+diff --git a/assets/source_audio/character_finishers/candidate_manifest.json b/assets/source_audio/character_finishers/candidate_manifest.json
+new file mode 100644
+index 0000000..2e377ba
+--- /dev/null
++++ b/assets/source_audio/character_finishers/candidate_manifest.json
+@@ -0,0 +1,315 @@
++{
++  "schema": 1,
++  "status": "ACTUAL_SOURCE_CANDIDATES_NOT_YET_GODOT_INTEGRATED",
++  "sample_rate": 44100,
++  "channels": 1,
++  "sample_width": 2,
++  "sfx": {
++    "finish_gabar_unarmed": {
++      "path": "finish_gabar_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "tight power contact and short knuckle follow-through"
++    },
++    "finish_gabar_blunt": {
++      "path": "finish_gabar_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "blunt",
++      "intent": "tight power contact and short knuckle follow-through"
++    },
++    "finish_gabar_firearm": {
++      "path": "finish_gabar_firearm.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "firearm",
++      "intent": "tight power contact and short knuckle follow-through"
++    },
++    "finish_olezhka_unarmed": {
++      "path": "finish_olezhka_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "controlled joint/contact accent and clean cloth release"
++    },
++    "finish_olezhka_blunt": {
++      "path": "finish_olezhka_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "blunt",
++      "intent": "controlled joint/contact accent and clean cloth release"
++    },
++    "finish_olezhka_sharp": {
++      "path": "finish_olezhka_sharp.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "sharp",
++      "intent": "controlled joint/contact accent and clean cloth release"
++    },
++    "finish_timka_prime_unarmed": {
++      "path": "finish_timka_prime_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "unarmed",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none"
++    },
++    "finish_timka_prime_blunt": {
++      "path": "finish_timka_prime_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "blunt",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none"
++    },
++    "finish_timka_prime_environmental": {
++      "path": "finish_timka_prime_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "environmental",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none"
++    },
++    "finish_ryzhik_unarmed": {
++      "path": "finish_ryzhik_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "compact acrobatic contact and sweeping fabric release"
++    },
++    "finish_ryzhik_blunt": {
++      "path": "finish_ryzhik_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "blunt",
++      "intent": "compact acrobatic contact and sweeping fabric release"
++    },
++    "finish_ryzhik_environmental": {
++      "path": "finish_ryzhik_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "environmental",
++      "intent": "compact acrobatic contact and sweeping fabric release"
++    },
++    "finish_tega_unarmed": {
++      "path": "finish_tega_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "dull improvised contact and loose material rattle"
++    },
++    "finish_tega_blunt": {
++      "path": "finish_tega_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "blunt",
++      "intent": "dull improvised contact and loose material rattle"
++    },
++    "finish_tega_environmental": {
++      "path": "finish_tega_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "environmental",
++      "intent": "dull improvised contact and loose material rattle"
++    },
++    "finish_pasha_unarmed": {
++      "path": "finish_pasha_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks"
++    },
++    "finish_pasha_blunt": {
++      "path": "finish_pasha_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "blunt",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks"
++    },
++    "finish_pasha_sharp": {
++      "path": "finish_pasha_sharp.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "sharp",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks"
++    },
++    "finish_pasha_firearm": {
++      "path": "finish_pasha_firearm.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "firearm",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks"
++    },
++    "finish_pasha_environmental": {
++      "path": "finish_pasha_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "environmental",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks"
++    }
++  },
++  "actor_context_category_matrix": [
++    [
++      "gabar",
++      "training",
++      "unarmed",
++      "finish_gabar_unarmed"
++    ],
++    [
++      "gabar",
++      "training",
++      "blunt",
++      "finish_gabar_blunt"
++    ],
++    [
++      "gabar",
++      "training",
++      "firearm",
++      "finish_gabar_firearm"
++    ],
++    [
++      "olezhka",
++      "training",
++      "unarmed",
++      "finish_olezhka_unarmed"
++    ],
++    [
++      "olezhka",
++      "training",
++      "blunt",
++      "finish_olezhka_blunt"
++    ],
++    [
++      "olezhka",
++      "training",
++      "sharp",
++      "finish_olezhka_sharp"
++    ],
++    [
++      "timka",
++      "athletic_prime",
++      "unarmed",
++      "finish_timka_prime_unarmed"
++    ],
++    [
++      "timka",
++      "athletic_prime",
++      "blunt",
++      "finish_timka_prime_blunt"
++    ],
++    [
++      "timka",
++      "athletic_prime",
++      "environmental",
++      "finish_timka_prime_environmental"
++    ],
++    [
++      "ryzhik",
++      "training",
++      "unarmed",
++      "finish_ryzhik_unarmed"
++    ],
++    [
++      "ryzhik",
++      "training",
++      "blunt",
++      "finish_ryzhik_blunt"
++    ],
++    [
++      "ryzhik",
++      "training",
++      "environmental",
++      "finish_ryzhik_environmental"
++    ],
++    [
++      "tega",
++      "training",
++      "unarmed",
++      "finish_tega_unarmed"
++    ],
++    [
++      "tega",
++      "training",
++      "blunt",
++      "finish_tega_blunt"
++    ],
++    [
++      "tega",
++      "training",
++      "environmental",
++      "finish_tega_environmental"
++    ],
++    [
++      "pasha",
++      "training",
++      "unarmed",
++      "finish_pasha_unarmed"
++    ],
++    [
++      "pasha",
++      "training",
++      "blunt",
++      "finish_pasha_blunt"
++    ],
++    [
++      "pasha",
++      "training",
++      "sharp",
++      "finish_pasha_sharp"
++    ],
++    [
++      "pasha",
++      "training",
++      "firearm",
++      "finish_pasha_firearm"
++    ],
++    [
++      "pasha",
++      "training",
++      "environmental",
++      "finish_pasha_environmental"
++    ]
++  ],
++  "yakuza_baseline": "Original five finish_* cues already present; not rerendered or relabelled by this recipe",
++  "timka_present": "No finisher cue or prime grant",
++  "artistic_acceptance": "NOT_LISTENED_NOT_ACCEPTED",
++  "technical_signal_review": "Full independent decode/truepeak/loudness/runtime QA pending; quick PCM measurements are not listening"
++}
+diff --git a/assets/source_audio/character_finishers/finish_gabar_blunt.wav b/assets/source_audio/character_finishers/finish_gabar_blunt.wav
+new file mode 100644
+index 0000000..dfa6aaa
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_gabar_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_gabar_firearm.wav b/assets/source_audio/character_finishers/finish_gabar_firearm.wav
+new file mode 100644
+index 0000000..eaf23f3
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_gabar_firearm.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_gabar_unarmed.wav b/assets/source_audio/character_finishers/finish_gabar_unarmed.wav
+new file mode 100644
+index 0000000..6a7b07e
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_gabar_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_olezhka_blunt.wav b/assets/source_audio/character_finishers/finish_olezhka_blunt.wav
+new file mode 100644
+index 0000000..a7e944c
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_olezhka_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_olezhka_sharp.wav b/assets/source_audio/character_finishers/finish_olezhka_sharp.wav
+new file mode 100644
+index 0000000..fc2ad10
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_olezhka_sharp.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_olezhka_unarmed.wav b/assets/source_audio/character_finishers/finish_olezhka_unarmed.wav
+new file mode 100644
+index 0000000..bd2ad5f
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_olezhka_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_pasha_blunt.wav b/assets/source_audio/character_finishers/finish_pasha_blunt.wav
+new file mode 100644
+index 0000000..392c065
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_pasha_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_pasha_environmental.wav b/assets/source_audio/character_finishers/finish_pasha_environmental.wav
+new file mode 100644
+index 0000000..89ab2e0
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_pasha_environmental.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_pasha_firearm.wav b/assets/source_audio/character_finishers/finish_pasha_firearm.wav
+new file mode 100644
+index 0000000..d704aee
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_pasha_firearm.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_pasha_sharp.wav b/assets/source_audio/character_finishers/finish_pasha_sharp.wav
+new file mode 100644
+index 0000000..a4032f9
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_pasha_sharp.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_pasha_unarmed.wav b/assets/source_audio/character_finishers/finish_pasha_unarmed.wav
+new file mode 100644
+index 0000000..1c25762
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_pasha_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_ryzhik_blunt.wav b/assets/source_audio/character_finishers/finish_ryzhik_blunt.wav
+new file mode 100644
+index 0000000..e42d490
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_ryzhik_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_ryzhik_environmental.wav b/assets/source_audio/character_finishers/finish_ryzhik_environmental.wav
+new file mode 100644
+index 0000000..be2845a
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_ryzhik_environmental.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_ryzhik_unarmed.wav b/assets/source_audio/character_finishers/finish_ryzhik_unarmed.wav
+new file mode 100644
+index 0000000..6620c5b
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_ryzhik_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_tega_blunt.wav b/assets/source_audio/character_finishers/finish_tega_blunt.wav
+new file mode 100644
+index 0000000..584d7e1
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_tega_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_tega_environmental.wav b/assets/source_audio/character_finishers/finish_tega_environmental.wav
+new file mode 100644
+index 0000000..3a9812b
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_tega_environmental.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_tega_unarmed.wav b/assets/source_audio/character_finishers/finish_tega_unarmed.wav
+new file mode 100644
+index 0000000..d7bbc68
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_tega_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_timka_prime_blunt.wav b/assets/source_audio/character_finishers/finish_timka_prime_blunt.wav
+new file mode 100644
+index 0000000..b182596
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_timka_prime_blunt.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_timka_prime_environmental.wav b/assets/source_audio/character_finishers/finish_timka_prime_environmental.wav
+new file mode 100644
+index 0000000..f78fb8f
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_timka_prime_environmental.wav differ
+diff --git a/assets/source_audio/character_finishers/finish_timka_prime_unarmed.wav b/assets/source_audio/character_finishers/finish_timka_prime_unarmed.wav
+new file mode 100644
+index 0000000..18af067
+Binary files /dev/null and b/assets/source_audio/character_finishers/finish_timka_prime_unarmed.wav differ
+diff --git a/assets/source_audio/character_finishers/provenance.json b/assets/source_audio/character_finishers/provenance.json
+new file mode 100644
+index 0000000..e477e4e
+--- /dev/null
++++ b/assets/source_audio/character_finishers/provenance.json
+@@ -0,0 +1,573 @@
++{
++  "schema": 1,
++  "method": "Original deterministic procedural sound design; distinct hero transient/cloth topology plus category physical resonators; no recordings/samples/voice synthesis/external API",
++  "recipe_sha256": "04ab31ad68ac9b949be17858eb06546cff5bdcb8520569a880cb90df3def7fc0",
++  "catalog_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
++  "styles": {
++    "gabar": {
++      "duration": 0.22,
++      "intent": "tight power contact and short knuckle follow-through",
++      "thumps": [
++        [
++          0,
++          95,
++          0.037,
++          1
++        ],
++        [
++          0.027,
++          155,
++          0.012,
++          0.24
++        ]
++      ],
++      "cloth": [
++        [
++          0.009,
++          0.022,
++          0.16
++        ]
++      ],
++      "ring": 0.05
++    },
++    "olezhka": {
++      "duration": 0.24,
++      "intent": "controlled joint/contact accent and clean cloth release",
++      "thumps": [
++        [
++          0,
++          138,
++          0.027,
++          0.85
++        ],
++        [
++          0.014,
++          210,
++          0.014,
++          0.12
++        ]
++      ],
++      "cloth": [
++        [
++          0.002,
++          0.012,
++          0.26
++        ],
++        [
++          0.055,
++          0.034,
++          0.13
++        ]
++      ],
++      "ring": 0.035
++    },
++    "timka": {
++      "duration": 0.31,
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none",
++      "thumps": [
++        [
++          0,
++          62,
++          0.065,
++          1.1
++        ],
++        [
++          0.024,
++          103,
++          0.029,
++          0.2
++        ]
++      ],
++      "cloth": [
++        [
++          0,
++          0.038,
++          0.26
++        ],
++        [
++          0.062,
++          0.052,
++          0.2
++        ]
++      ],
++      "ring": 0.025
++    },
++    "ryzhik": {
++      "duration": 0.27,
++      "intent": "compact acrobatic contact and sweeping fabric release",
++      "thumps": [
++        [
++          0,
++          154,
++          0.026,
++          0.8
++        ]
++      ],
++      "cloth": [
++        [
++          0.001,
++          0.017,
++          0.16
++        ],
++        [
++          0.021,
++          0.062,
++          0.3
++        ],
++        [
++          0.081,
++          0.023,
++          0.13
++        ]
++      ],
++      "ring": 0.06
++    },
++    "tega": {
++      "duration": 0.29,
++      "intent": "dull improvised contact and loose material rattle",
++      "thumps": [
++        [
++          0,
++          78,
++          0.048,
++          1
++        ],
++        [
++          0.043,
++          122,
++          0.021,
++          0.15
++        ]
++      ],
++      "cloth": [
++        [
++          0.004,
++          0.031,
++          0.14
++        ],
++        [
++          0.083,
++          0.039,
++          0.15
++        ]
++      ],
++      "ring": 0.16
++    },
++    "pasha": {
++      "duration": 0.21,
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "thumps": [
++        [
++          0,
++          126,
++          0.024,
++          0.8
++        ],
++        [
++          0.018,
++          238,
++          0.008,
++          0.13
++        ]
++      ],
++      "cloth": [
++        [
++          0.002,
++          0.008,
++          0.22
++        ],
++        [
++          0.029,
++          0.013,
++          0.18
++        ],
++        [
++          0.067,
++          0.016,
++          0.11
++        ]
++      ],
++      "ring": 0.07
++    }
++  },
++  "weapon_layers": {
++    "unarmed": {
++      "body": 1,
++      "crack": 0.14,
++      "edge": 0,
++      "resonances": []
++    },
++    "blunt": {
++      "body": 1.12,
++      "crack": 0.22,
++      "edge": 0.02,
++      "resonances": [
++        [
++          381,
++          0.045,
++          0.13
++        ],
++        [
++          927,
++          0.024,
++          0.06
++        ]
++      ]
++    },
++    "sharp": {
++      "body": 0.55,
++      "crack": 0.1,
++      "edge": 0.42,
++      "resonances": [
++        [
++          1830,
++          0.011,
++          0.035
++        ]
++      ]
++    },
++    "firearm": {
++      "body": 0.78,
++      "crack": 0.95,
++      "edge": 0.05,
++      "resonances": [
++        [
++          112,
++          0.039,
++          0.26
++        ],
++        [
++          2110,
++          0.013,
++          0.08
++        ]
++      ]
++    },
++    "environmental": {
++      "body": 1.15,
++      "crack": 0.27,
++      "edge": 0.05,
++      "resonances": [
++        [
++          187,
++          0.063,
++          0.2
++        ],
++        [
++          463,
++          0.039,
++          0.13
++        ],
++        [
++          1147,
++          0.018,
++          0.05
++        ]
++      ]
++    }
++  },
++  "assets": {
++    "finish_gabar_unarmed": {
++      "sha256": "f2898d25e9da276b4370054edf648c65bfe8f9a0208769a5af61aa25bc679951",
++      "bytes": 19448,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.22,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -18.869078595616788,
++        "dc": -0.00042132627494653166,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_gabar_blunt": {
++      "sha256": "e91a6f9e64215b5ed299bbeacb70edf69e2a0863b996beee10a037f8cf9aaa01",
++      "bytes": 19448,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.22,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -18.99572765252962,
++        "dc": -0.00045797441994079827,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_gabar_firearm": {
++      "sha256": "0b30f0aefcaa360bcda03f222868f062acda41637fa3388ed4ab8f39b09fefc7",
++      "bytes": 19448,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.22,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -21.607353150445817,
++        "dc": -0.00032091268532744537,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_olezhka_unarmed": {
++      "sha256": "c31f2104ea8008ad606f319cef0a4d1653120b9722babb45eb69e3bd03f4ff9e",
++      "bytes": 21212,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.24,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -21.553087583016058,
++        "dc": -0.00041876898871527775,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_olezhka_blunt": {
++      "sha256": "f5c32d5b8dd366981664088f0f080225050582bc7773acdc4859310f085c0f87",
++      "bytes": 21212,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.24,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -22.555588072102573,
++        "dc": -0.00043555019664115647,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_olezhka_sharp": {
++      "sha256": "90c894364d76695922836035c1004c59de827b7581187222fd702cafbf80290b",
++      "bytes": 21212,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.24,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -24.785043056301006,
++        "dc": -0.0002357067705011692,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_timka_prime_unarmed": {
++      "sha256": "1ded4a8c4c13978533efbb09024ae9b8af5df159cc6af021ddaaff9e68329a72",
++      "bytes": 27386,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.31,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -18.7731749810897,
++        "dc": -0.00018396489875352023,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_timka_prime_blunt": {
++      "sha256": "154326b7610de5a5fbf119748497de00b69625bb3a4de9934f2918e3c2a0a2a9",
++      "bytes": 27386,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.31,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -19.01355382858857,
++        "dc": -0.00020620292913032148,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_timka_prime_environmental": {
++      "sha256": "dec12b68e0a6f450bff332d76ac24e4c74663ce6f2ff64e04c7675f8bad83f75",
++      "bytes": 27386,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.31,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -20.235470013113424,
++        "dc": -0.00024468083814506984,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_ryzhik_unarmed": {
++      "sha256": "ec5402e5d051a127fdbefc206de5d4b04b2385461503233efb11c8f96132fe46",
++      "bytes": 23858,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.27,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -21.973197331961394,
++        "dc": -0.0004110864120435983,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_ryzhik_blunt": {
++      "sha256": "cf74c260d93660876045f8932663f9338e100708628c327b7dfabd8dbf0c6abf",
++      "bytes": 23858,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.27,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -21.791392682445373,
++        "dc": -0.0004829194650468212,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_ryzhik_environmental": {
++      "sha256": "727a0cb83f53acb205938e868c774a36d567b270dd85ee7d74b9bda8bee038a9",
++      "bytes": 23858,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.27,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -22.45512373186624,
++        "dc": -0.00040342562082703454,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_tega_unarmed": {
++      "sha256": "2bdc5794b0d3f5eb65bc3a943c26bceb714e17a715c09b2a42ac7bc00f29940d",
++      "bytes": 25622,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.29,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -19.496209516422493,
++        "dc": -0.0002462452855603448,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_tega_blunt": {
++      "sha256": "50807e97c7ae0850079720373f3798de499ef52259e33500716a16e2d77c8095",
++      "bytes": 25622,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.29,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -20.959990849651003,
++        "dc": -0.0002670341776257917,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_tega_environmental": {
++      "sha256": "0d6cc91cf6f99c0ca0895c439225d4ec60dbc7704903a8ab8a9d4b98272d3f28",
++      "bytes": 25622,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.29,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -19.93998239106925,
++        "dc": -0.0003572935718378587,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_pasha_unarmed": {
++      "sha256": "6dda9017cff075428820dda1c1068423625295ccdf90a85eda56eb92e1c6e428",
++      "bytes": 18566,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.21,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -21.317860693702983,
++        "dc": -0.00047126113435205433,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_pasha_blunt": {
++      "sha256": "43d835ab35c8a2185f446882b282b9699f5c68077b3f74650b583f253827962d",
++      "bytes": 18566,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.21,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -22.406987060409467,
++        "dc": -0.0004884756714565786,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_pasha_sharp": {
++      "sha256": "49418402fc3c4370aeae07f2226752d3a17a27557fd2ab19710bbe6c4d3ce69f",
++      "bytes": 18566,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.21,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -25.178972040189556,
++        "dc": -0.00023628797532157704,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_pasha_firearm": {
++      "sha256": "66e7e2df5a8d3ebea577764abb183d3da65b1214e363b2922cc233c3c13029b9",
++      "bytes": 18566,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.21,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -25.017081176367114,
++        "dc": -0.0003158689613618265,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    },
++    "finish_pasha_environmental": {
++      "sha256": "3239d7434220946d7ce98334750a3ba4a28c3612c84cf185b959a714081efa64",
++      "bytes": 18566,
++      "signal_quick_measurements": {
++        "duration_seconds": 0.21,
++        "peak_dbfs": -5.192938992120393,
++        "rms_dbfs": -23.482910346447262,
++        "dc": -0.0004706185549616672,
++        "pcm_full_scale_samples": 0,
++        "endpoint_samples": [
++          0,
++          0
++        ]
++      }
++    }
++  },
++  "listening": "NOT_PERFORMED",
++  "phase_approval": false
++}
+diff --git a/assets/source_audio/character_finishers/render.py b/assets/source_audio/character_finishers/render.py
+new file mode 100644
+index 0000000..f801175
+--- /dev/null
++++ b/assets/source_audio/character_finishers/render.py
+@@ -0,0 +1,68 @@
++#!/usr/bin/env python3
++"""Original deterministic dry finisher sound candidates; no samples or voices.
++
++Renders source WAV only. Does not install assets, approve sound or modify Godot.
++"""
++import argparse,array,hashlib,json,math,random,sys,wave
++from pathlib import Path
++RATE=44100
++STYLES={
++ 'gabar':{'duration':.22,'intent':'tight power contact and short knuckle follow-through','thumps':[(0,95,.037,1),(.027,155,.012,.24)],'cloth':[(.009,.022,.16)],'ring':.05},
++ 'olezhka':{'duration':.24,'intent':'controlled joint/contact accent and clean cloth release','thumps':[(0,138,.027,.85),(.014,210,.014,.12)],'cloth':[(.002,.012,.26),(.055,.034,.13)],'ring':.035},
++ 'timka':{'duration':.31,'intent':'prime-only heavy grapple contact with cloth strain; present has none','thumps':[(0,62,.065,1.1),(.024,103,.029,.2)],'cloth':[(0,.038,.26),(.062,.052,.2)],'ring':.025},
++ 'ryzhik':{'duration':.27,'intent':'compact acrobatic contact and sweeping fabric release','thumps':[(0,154,.026,.8)],'cloth':[(.001,.017,.16),(.021,.062,.3),(.081,.023,.13)],'ring':.06},
++ 'tega':{'duration':.29,'intent':'dull improvised contact and loose material rattle','thumps':[(0,78,.048,1),(.043,122,.021,.15)],'cloth':[(.004,.031,.14),(.083,.039,.15)],'ring':.16},
++ 'pasha':{'duration':.21,'intent':'fast dry contact with uneven cloth and mechanism ticks','thumps':[(0,126,.024,.8),(.018,238,.008,.13)],'cloth':[(.002,.008,.22),(.029,.013,.18),(.067,.016,.11)],'ring':.07},
++}
++WEAPONS={
++ 'unarmed':{'body':1,'crack':.14,'edge':0,'resonances':[]},
++ 'blunt':{'body':1.12,'crack':.22,'edge':.02,'resonances':[(381,.045,.13),(927,.024,.06)]},
++ 'sharp':{'body':.55,'crack':.10,'edge':.42,'resonances':[(1830,.011,.035)]},
++ 'firearm':{'body':.78,'crack':.95,'edge':.05,'resonances':[(112,.039,.26),(2110,.013,.08)]},
++ 'environmental':{'body':1.15,'crack':.27,'edge':.05,'resonances':[(187,.063,.20),(463,.039,.13),(1147,.018,.05)]},
++}
++def packet(t,delay,decay):
++ u=t-delay
++ return 0.0 if u<0 else (1-math.exp(-u/.0007))*math.exp(-u/decay)
++def render(actor,category):
++ s=STYLES[actor];weapon=WEAPONS[category];duration=s['duration'];n=round(duration*RATE)
++ rng=random.Random(int.from_bytes(hashlib.sha256((actor+'/'+category).encode()).digest()[:8],'little'))
++ values=[];low=0.0;older=0.0;dc=0.0
++ for i in range(n):
++  t=i/RATE;white=rng.uniform(-1,1);low=.82*low+.18*white;high=white-low
++  v=0.0
++  for delay,freq,decay,gain in s['thumps']:
++   u=max(0,t-delay);phase=2*math.pi*(freq*u+freq*.33*(1-math.exp(-u*45))/45)
++   v+=weapon['body']*gain*packet(t,delay,decay)*math.sin(phase)
++  for delay,decay,gain in s['cloth']:
++   v+=gain*packet(t,delay,decay)*(high*.58+low*.42)
++  v+=weapon['crack']*packet(t,0,.0075)*(white*.8+low*.2)
++  v+=weapon['edge']*packet(t,.001,.036)*high*(.7+.3*math.sin(2*math.pi*43*t))
++  for freq,decay,gain in weapon['resonances']:
++   v+=(gain+s['ring']*.22)*packet(t,0,decay)*math.sin(2*math.pi*freq*t)
++  # Gentle DC blocker and explicit short release; no clipped hard limiting.
++  filtered=v-older+.995*dc;older=v;dc=filtered
++  fade=min(1,t/.0015)*min(1,(duration-t)/.012)
++  values.append(filtered*max(0,fade))
++ peak=max(abs(v) for v in values);assert peak>0
++ signal=[round(v/peak*.55*32767) for v in values];signal[0]=signal[-1]=0
++ pcm=array.array('h',signal)
++ if sys.byteorder!='little':pcm.byteswap()
++ return pcm,{'duration_seconds':n/RATE,'peak_dbfs':20*math.log10(max(map(abs,signal))/32768),'rms_dbfs':20*math.log10(math.sqrt(sum(v*v for v in signal)/n)/32768),'dc':sum(signal)/n/32768,'pcm_full_scale_samples':sum(abs(v)>=32767 for v in signal),'endpoint_samples':[signal[0],signal[-1]]}
++def main():
++ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--catalog',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
++ assert not a.output.exists(),'Use a fresh candidate output; preserve previous renders'
++ catalog=json.loads(a.catalog.read_text());actors=catalog['actors'];a.output.mkdir(parents=True);entries={};proofs={};matrix=[]
++ for actor,style in STYLES.items():
++  context='athletic_prime' if actor=='timka' else 'training'
++  categories=actors[actor]['equipment_by_context'][context]
++  for category in categories:
++   assert category in WEAPONS
++   cue='finish_'+actor+('_prime' if actor=='timka' else '')+'_'+category
++   samples,stats=render(actor,category);path=a.output/(cue+'.wav')
++   with wave.open(str(path),'wb') as f:f.setnchannels(1);f.setsampwidth(2);f.setframerate(RATE);f.writeframes(samples.tobytes())
++   entries[cue]={'path':path.name,'bus':'SFX','gain_db':-2.5,'actor_id':actor,'context':context,'category':category,'intent':style['intent']};proofs[cue]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'bytes':path.stat().st_size,'signal_quick_measurements':stats};matrix.append([actor,context,category,cue])
++ assert len(entries)==20 and len({v['sha256'] for v in proofs.values()})==20
++ manifest={'schema':1,'status':'ACTUAL_SOURCE_CANDIDATES_NOT_YET_GODOT_INTEGRATED','sample_rate':RATE,'channels':1,'sample_width':2,'sfx':entries,'actor_context_category_matrix':matrix,'yakuza_baseline':'Original five finish_* cues already present; not rerendered or relabelled by this recipe','timka_present':'No finisher cue or prime grant','artistic_acceptance':'NOT_LISTENED_NOT_ACCEPTED','technical_signal_review':'Full independent decode/truepeak/loudness/runtime QA pending; quick PCM measurements are not listening'}
++ (a.output/'candidate_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(a.output/'provenance.json').write_text(json.dumps({'schema':1,'method':'Original deterministic procedural sound design; distinct hero transient/cloth topology plus category physical resonators; no recordings/samples/voice synthesis/external API','recipe_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'catalog_sha256':hashlib.sha256(a.catalog.read_bytes()).hexdigest(),'styles':STYLES,'weapon_layers':WEAPONS,'assets':proofs,'listening':'NOT_PERFORMED','phase_approval':False},ensure_ascii=False,indent=2)+'\n');print('ACTUAL_WAV_CANDIDATES',len(entries),'PCM16mono44100; no artistic/runtime approval')
++if __name__=='__main__':main()
+diff --git a/game/assets/audio/character_finishers.json b/game/assets/audio/character_finishers.json
+new file mode 100644
+index 0000000..646e477
+--- /dev/null
++++ b/game/assets/audio/character_finishers.json
+@@ -0,0 +1,209 @@
++{
++  "schema": 1,
++  "scope": "P06 character finisher source signal accepted; runtime and artistic listening pending",
++  "source_signal_decision_sha256": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c",
++  "source_recipe_sha256": "04ab31ad68ac9b949be17858eb06546cff5bdcb8520569a880cb90df3def7fc0",
++  "artistic_acceptance": "NOT_LISTENED",
++  "sfx": {
++    "finish_gabar_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_gabar_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "tight power contact and short knuckle follow-through",
++      "source_sha256": "f2898d25e9da276b4370054edf648c65bfe8f9a0208769a5af61aa25bc679951"
++    },
++    "finish_gabar_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_gabar_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "blunt",
++      "intent": "tight power contact and short knuckle follow-through",
++      "source_sha256": "e91a6f9e64215b5ed299bbeacb70edf69e2a0863b996beee10a037f8cf9aaa01"
++    },
++    "finish_gabar_firearm": {
++      "path": "res://assets/audio/character_finishers/finish_gabar_firearm.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "gabar",
++      "context": "training",
++      "category": "firearm",
++      "intent": "tight power contact and short knuckle follow-through",
++      "source_sha256": "0b30f0aefcaa360bcda03f222868f062acda41637fa3388ed4ab8f39b09fefc7"
++    },
++    "finish_olezhka_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_olezhka_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "controlled joint/contact accent and clean cloth release",
++      "source_sha256": "c31f2104ea8008ad606f319cef0a4d1653120b9722babb45eb69e3bd03f4ff9e"
++    },
++    "finish_olezhka_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_olezhka_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "blunt",
++      "intent": "controlled joint/contact accent and clean cloth release",
++      "source_sha256": "f5c32d5b8dd366981664088f0f080225050582bc7773acdc4859310f085c0f87"
++    },
++    "finish_olezhka_sharp": {
++      "path": "res://assets/audio/character_finishers/finish_olezhka_sharp.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "olezhka",
++      "context": "training",
++      "category": "sharp",
++      "intent": "controlled joint/contact accent and clean cloth release",
++      "source_sha256": "90c894364d76695922836035c1004c59de827b7581187222fd702cafbf80290b"
++    },
++    "finish_timka_prime_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_timka_prime_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "unarmed",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none",
++      "source_sha256": "1ded4a8c4c13978533efbb09024ae9b8af5df159cc6af021ddaaff9e68329a72"
++    },
++    "finish_timka_prime_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_timka_prime_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "blunt",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none",
++      "source_sha256": "154326b7610de5a5fbf119748497de00b69625bb3a4de9934f2918e3c2a0a2a9"
++    },
++    "finish_timka_prime_environmental": {
++      "path": "res://assets/audio/character_finishers/finish_timka_prime_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "timka",
++      "context": "athletic_prime",
++      "category": "environmental",
++      "intent": "prime-only heavy grapple contact with cloth strain; present has none",
++      "source_sha256": "dec12b68e0a6f450bff332d76ac24e4c74663ce6f2ff64e04c7675f8bad83f75"
++    },
++    "finish_ryzhik_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_ryzhik_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "compact acrobatic contact and sweeping fabric release",
++      "source_sha256": "ec5402e5d051a127fdbefc206de5d4b04b2385461503233efb11c8f96132fe46"
++    },
++    "finish_ryzhik_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_ryzhik_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "blunt",
++      "intent": "compact acrobatic contact and sweeping fabric release",
++      "source_sha256": "cf74c260d93660876045f8932663f9338e100708628c327b7dfabd8dbf0c6abf"
++    },
++    "finish_ryzhik_environmental": {
++      "path": "res://assets/audio/character_finishers/finish_ryzhik_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "ryzhik",
++      "context": "training",
++      "category": "environmental",
++      "intent": "compact acrobatic contact and sweeping fabric release",
++      "source_sha256": "727a0cb83f53acb205938e868c774a36d567b270dd85ee7d74b9bda8bee038a9"
++    },
++    "finish_tega_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_tega_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "dull improvised contact and loose material rattle",
++      "source_sha256": "2bdc5794b0d3f5eb65bc3a943c26bceb714e17a715c09b2a42ac7bc00f29940d"
++    },
++    "finish_tega_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_tega_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "blunt",
++      "intent": "dull improvised contact and loose material rattle",
++      "source_sha256": "50807e97c7ae0850079720373f3798de499ef52259e33500716a16e2d77c8095"
++    },
++    "finish_tega_environmental": {
++      "path": "res://assets/audio/character_finishers/finish_tega_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "tega",
++      "context": "training",
++      "category": "environmental",
++      "intent": "dull improvised contact and loose material rattle",
++      "source_sha256": "0d6cc91cf6f99c0ca0895c439225d4ec60dbc7704903a8ab8a9d4b98272d3f28"
++    },
++    "finish_pasha_unarmed": {
++      "path": "res://assets/audio/character_finishers/finish_pasha_unarmed.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "unarmed",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "source_sha256": "6dda9017cff075428820dda1c1068423625295ccdf90a85eda56eb92e1c6e428"
++    },
++    "finish_pasha_blunt": {
++      "path": "res://assets/audio/character_finishers/finish_pasha_blunt.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "blunt",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "source_sha256": "43d835ab35c8a2185f446882b282b9699f5c68077b3f74650b583f253827962d"
++    },
++    "finish_pasha_sharp": {
++      "path": "res://assets/audio/character_finishers/finish_pasha_sharp.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "sharp",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "source_sha256": "49418402fc3c4370aeae07f2226752d3a17a27557fd2ab19710bbe6c4d3ce69f"
++    },
++    "finish_pasha_firearm": {
++      "path": "res://assets/audio/character_finishers/finish_pasha_firearm.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "firearm",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "source_sha256": "66e7e2df5a8d3ebea577764abb183d3da65b1214e363b2922cc233c3c13029b9"
++    },
++    "finish_pasha_environmental": {
++      "path": "res://assets/audio/character_finishers/finish_pasha_environmental.wav",
++      "bus": "SFX",
++      "gain_db": -2.5,
++      "actor_id": "pasha",
++      "context": "training",
++      "category": "environmental",
++      "intent": "fast dry contact with uneven cloth and mechanism ticks",
++      "source_sha256": "3239d7434220946d7ce98334750a3ba4a28c3612c84cf185b959a714081efa64"
++    }
++  }
++}
+diff --git a/game/assets/audio/character_finishers/finish_gabar_blunt.wav b/game/assets/audio/character_finishers/finish_gabar_blunt.wav
+new file mode 100644
+index 0000000..dfa6aaa
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_gabar_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_gabar_blunt.wav.import b/game/assets/audio/character_finishers/finish_gabar_blunt.wav.import
+new file mode 100644
+index 0000000..7b8e57a
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_gabar_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://bfccfoxml3d0x"
++path="res://.godot/imported/finish_gabar_blunt.wav-ef6bb6f4e6f126bb4b34ad4625ff78e9.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_gabar_blunt.wav"
++dest_files=["res://.godot/imported/finish_gabar_blunt.wav-ef6bb6f4e6f126bb4b34ad4625ff78e9.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_gabar_firearm.wav b/game/assets/audio/character_finishers/finish_gabar_firearm.wav
+new file mode 100644
+index 0000000..eaf23f3
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_gabar_firearm.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_gabar_firearm.wav.import b/game/assets/audio/character_finishers/finish_gabar_firearm.wav.import
+new file mode 100644
+index 0000000..2c56c26
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_gabar_firearm.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://djnnmfvcuq55"
++path="res://.godot/imported/finish_gabar_firearm.wav-019bf9c0f2de2b4ae44f2de7dde701ac.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_gabar_firearm.wav"
++dest_files=["res://.godot/imported/finish_gabar_firearm.wav-019bf9c0f2de2b4ae44f2de7dde701ac.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_gabar_unarmed.wav b/game/assets/audio/character_finishers/finish_gabar_unarmed.wav
+new file mode 100644
+index 0000000..6a7b07e
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_gabar_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_gabar_unarmed.wav.import b/game/assets/audio/character_finishers/finish_gabar_unarmed.wav.import
+new file mode 100644
+index 0000000..c72e640
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_gabar_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://dlhhj6h7nojfb"
++path="res://.godot/imported/finish_gabar_unarmed.wav-ca94ec2db0e0fa87720fac4e93a9a676.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_gabar_unarmed.wav"
++dest_files=["res://.godot/imported/finish_gabar_unarmed.wav-ca94ec2db0e0fa87720fac4e93a9a676.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_blunt.wav b/game/assets/audio/character_finishers/finish_olezhka_blunt.wav
+new file mode 100644
+index 0000000..a7e944c
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_olezhka_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_blunt.wav.import b/game/assets/audio/character_finishers/finish_olezhka_blunt.wav.import
+new file mode 100644
+index 0000000..95c49ab
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_olezhka_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://bu1q0xb8a1xmi"
++path="res://.godot/imported/finish_olezhka_blunt.wav-976891d92f93d81c4e6bc8602b2e4dd1.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_olezhka_blunt.wav"
++dest_files=["res://.godot/imported/finish_olezhka_blunt.wav-976891d92f93d81c4e6bc8602b2e4dd1.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_sharp.wav b/game/assets/audio/character_finishers/finish_olezhka_sharp.wav
+new file mode 100644
+index 0000000..fc2ad10
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_olezhka_sharp.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_sharp.wav.import b/game/assets/audio/character_finishers/finish_olezhka_sharp.wav.import
+new file mode 100644
+index 0000000..6008578
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_olezhka_sharp.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://bsrvknh2vac28"
++path="res://.godot/imported/finish_olezhka_sharp.wav-ad06bdfe3ffb29d7014eaaec58c0bcd7.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_olezhka_sharp.wav"
++dest_files=["res://.godot/imported/finish_olezhka_sharp.wav-ad06bdfe3ffb29d7014eaaec58c0bcd7.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav b/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav
+new file mode 100644
+index 0000000..bd2ad5f
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav.import b/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav.import
+new file mode 100644
+index 0000000..89e4008
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_olezhka_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://cn81q7rgumhup"
++path="res://.godot/imported/finish_olezhka_unarmed.wav-2a4ea5ad998a1594ba10329f08e14688.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_olezhka_unarmed.wav"
++dest_files=["res://.godot/imported/finish_olezhka_unarmed.wav-2a4ea5ad998a1594ba10329f08e14688.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_pasha_blunt.wav b/game/assets/audio/character_finishers/finish_pasha_blunt.wav
+new file mode 100644
+index 0000000..392c065
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_pasha_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_pasha_blunt.wav.import b/game/assets/audio/character_finishers/finish_pasha_blunt.wav.import
+new file mode 100644
+index 0000000..c7e56e5
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_pasha_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://blrvfyc668he5"
++path="res://.godot/imported/finish_pasha_blunt.wav-45168081939b71188cf448e6f33b8134.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_pasha_blunt.wav"
++dest_files=["res://.godot/imported/finish_pasha_blunt.wav-45168081939b71188cf448e6f33b8134.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_pasha_environmental.wav b/game/assets/audio/character_finishers/finish_pasha_environmental.wav
+new file mode 100644
+index 0000000..89ab2e0
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_pasha_environmental.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_pasha_environmental.wav.import b/game/assets/audio/character_finishers/finish_pasha_environmental.wav.import
+new file mode 100644
+index 0000000..c4e2c57
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_pasha_environmental.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://c2mb1vxf3g565"
++path="res://.godot/imported/finish_pasha_environmental.wav-1c9be9f3d3c8730848bb7e828361e823.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_pasha_environmental.wav"
++dest_files=["res://.godot/imported/finish_pasha_environmental.wav-1c9be9f3d3c8730848bb7e828361e823.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_pasha_firearm.wav b/game/assets/audio/character_finishers/finish_pasha_firearm.wav
+new file mode 100644
+index 0000000..d704aee
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_pasha_firearm.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_pasha_firearm.wav.import b/game/assets/audio/character_finishers/finish_pasha_firearm.wav.import
+new file mode 100644
+index 0000000..b6cc3b6
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_pasha_firearm.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://cp3e11184aeuq"
++path="res://.godot/imported/finish_pasha_firearm.wav-042924cd73ff1d4cc5d8bb10afe0d3dd.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_pasha_firearm.wav"
++dest_files=["res://.godot/imported/finish_pasha_firearm.wav-042924cd73ff1d4cc5d8bb10afe0d3dd.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_pasha_sharp.wav b/game/assets/audio/character_finishers/finish_pasha_sharp.wav
+new file mode 100644
+index 0000000..a4032f9
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_pasha_sharp.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_pasha_sharp.wav.import b/game/assets/audio/character_finishers/finish_pasha_sharp.wav.import
+new file mode 100644
+index 0000000..34efbd2
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_pasha_sharp.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://b7jglu14qlens"
++path="res://.godot/imported/finish_pasha_sharp.wav-5558f6b668f8eca1898e58d28be093b3.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_pasha_sharp.wav"
++dest_files=["res://.godot/imported/finish_pasha_sharp.wav-5558f6b668f8eca1898e58d28be093b3.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_pasha_unarmed.wav b/game/assets/audio/character_finishers/finish_pasha_unarmed.wav
+new file mode 100644
+index 0000000..1c25762
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_pasha_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_pasha_unarmed.wav.import b/game/assets/audio/character_finishers/finish_pasha_unarmed.wav.import
+new file mode 100644
+index 0000000..3116f3b
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_pasha_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://c3eq6plgmbmea"
++path="res://.godot/imported/finish_pasha_unarmed.wav-60835e4b783e5747526ade9809bc51d0.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_pasha_unarmed.wav"
++dest_files=["res://.godot/imported/finish_pasha_unarmed.wav-60835e4b783e5747526ade9809bc51d0.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav b/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav
+new file mode 100644
+index 0000000..e42d490
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav.import b/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav.import
+new file mode 100644
+index 0000000..24ea3c3
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_ryzhik_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://u4w4y8hp2hqj"
++path="res://.godot/imported/finish_ryzhik_blunt.wav-9f228dadb27ab1ac0511f2f0fd63ab38.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_ryzhik_blunt.wav"
++dest_files=["res://.godot/imported/finish_ryzhik_blunt.wav-9f228dadb27ab1ac0511f2f0fd63ab38.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav b/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav
+new file mode 100644
+index 0000000..be2845a
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav.import b/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav.import
+new file mode 100644
+index 0000000..043cdbd
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_ryzhik_environmental.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://duonc6t6mqn8r"
++path="res://.godot/imported/finish_ryzhik_environmental.wav-24f2464738ed43f7e2f895783dbc1357.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_ryzhik_environmental.wav"
++dest_files=["res://.godot/imported/finish_ryzhik_environmental.wav-24f2464738ed43f7e2f895783dbc1357.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav b/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav
+new file mode 100644
+index 0000000..6620c5b
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav.import b/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav.import
+new file mode 100644
+index 0000000..50c71a5
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_ryzhik_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://c6hv3giep87i3"
++path="res://.godot/imported/finish_ryzhik_unarmed.wav-be77e848e0abd7fbfe326e815600759e.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_ryzhik_unarmed.wav"
++dest_files=["res://.godot/imported/finish_ryzhik_unarmed.wav-be77e848e0abd7fbfe326e815600759e.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_tega_blunt.wav b/game/assets/audio/character_finishers/finish_tega_blunt.wav
+new file mode 100644
+index 0000000..584d7e1
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_tega_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_tega_blunt.wav.import b/game/assets/audio/character_finishers/finish_tega_blunt.wav.import
+new file mode 100644
+index 0000000..15c723e
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_tega_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://db2afrjp022y"
++path="res://.godot/imported/finish_tega_blunt.wav-033c96640ec0929089c11bcc6f3810a6.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_tega_blunt.wav"
++dest_files=["res://.godot/imported/finish_tega_blunt.wav-033c96640ec0929089c11bcc6f3810a6.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_tega_environmental.wav b/game/assets/audio/character_finishers/finish_tega_environmental.wav
+new file mode 100644
+index 0000000..3a9812b
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_tega_environmental.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_tega_environmental.wav.import b/game/assets/audio/character_finishers/finish_tega_environmental.wav.import
+new file mode 100644
+index 0000000..0eb0927
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_tega_environmental.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://bjdcjlktiydxw"
++path="res://.godot/imported/finish_tega_environmental.wav-ebcbd6308012e8cd632870103d4bc126.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_tega_environmental.wav"
++dest_files=["res://.godot/imported/finish_tega_environmental.wav-ebcbd6308012e8cd632870103d4bc126.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_tega_unarmed.wav b/game/assets/audio/character_finishers/finish_tega_unarmed.wav
+new file mode 100644
+index 0000000..d7bbc68
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_tega_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_tega_unarmed.wav.import b/game/assets/audio/character_finishers/finish_tega_unarmed.wav.import
+new file mode 100644
+index 0000000..43c2b66
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_tega_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://dt4gdn3qgur4f"
++path="res://.godot/imported/finish_tega_unarmed.wav-c5e9d20e0e46031500c4b8d1f6567638.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_tega_unarmed.wav"
++dest_files=["res://.godot/imported/finish_tega_unarmed.wav-c5e9d20e0e46031500c4b8d1f6567638.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav b/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav
+new file mode 100644
+index 0000000..b182596
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav.import b/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav.import
+new file mode 100644
+index 0000000..02014a7
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_timka_prime_blunt.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://8gd6qhfi578j"
++path="res://.godot/imported/finish_timka_prime_blunt.wav-7f02111ef466044866bd39f24fabc8cd.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_timka_prime_blunt.wav"
++dest_files=["res://.godot/imported/finish_timka_prime_blunt.wav-7f02111ef466044866bd39f24fabc8cd.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav b/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav
+new file mode 100644
+index 0000000..f78fb8f
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav.import b/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav.import
+new file mode 100644
+index 0000000..07e2ab8
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_timka_prime_environmental.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://bgw0buiti48mc"
++path="res://.godot/imported/finish_timka_prime_environmental.wav-7b1e633a41d186915097e4143a90bd41.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_timka_prime_environmental.wav"
++dest_files=["res://.godot/imported/finish_timka_prime_environmental.wav-7b1e633a41d186915097e4143a90bd41.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav b/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav
+new file mode 100644
+index 0000000..18af067
+Binary files /dev/null and b/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav differ
+diff --git a/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav.import b/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav.import
+new file mode 100644
+index 0000000..1414fcd
+--- /dev/null
++++ b/game/assets/audio/character_finishers/finish_timka_prime_unarmed.wav.import
+@@ -0,0 +1,24 @@
++[remap]
++
++importer="wav"
++type="AudioStreamWAV"
++uid="uid://tcgyexl62ch1"
++path="res://.godot/imported/finish_timka_prime_unarmed.wav-c7d4f25fe27e0d9fc338d2fdd41d5346.sample"
++
++[deps]
++
++source_file="res://assets/audio/character_finishers/finish_timka_prime_unarmed.wav"
++dest_files=["res://.godot/imported/finish_timka_prime_unarmed.wav-c7d4f25fe27e0d9fc338d2fdd41d5346.sample"]
++
++[params]
++
++force/8_bit=false
++force/mono=false
++force/max_rate=false
++force/max_rate_hz=44100
++edit/trim=false
++edit/normalize=false
++edit/loop_mode=0
++edit/loop_begin=0
++edit/loop_end=-1
++compress/mode=2
+diff --git a/game/default_bus_layout.tres b/game/default_bus_layout.tres
+index 7ec659f..9671957 100644
+--- a/game/default_bus_layout.tres
++++ b/game/default_bus_layout.tres
+@@ -1,7 +1,7 @@
+ [gd_resource type="AudioBusLayout" load_steps=2 format=3]
+ [sub_resource type="AudioEffectLimiter" id="Limiter"]
+-threshold_db = -3.0
+-ceiling_db = -1.0
++threshold_db = -5.0
++ceiling_db = -3.0
+ soft_clip_db = 2.0
+ soft_clip_ratio = 10.0
+ [resource]
+diff --git a/game/export_presets.cfg b/game/export_presets.cfg
+index c0ec306..ca3598a 100644
+--- a/game/export_presets.cfg
++++ b/game/export_presets.cfg
+@@ -3,7 +3,7 @@ name="Linux"
+ platform="Linux"
+ runnable=true
+ export_filter="all_resources"
+-include_filter="LICENSES/*.txt,resources/combat/*.json,resources/dialogue/*.json,resources/chapters/*.json,assets/audio/manifest.json,assets/audio/combat_polish.json,assets/art/combat_polish/atlas.json,assets/art/yakuza/portrait_motion_atlas.json,assets/art/missed_fight/atlas.json,resources/characters/*.json,assets/art/characters/*/*.json"
++include_filter="LICENSES/*.txt,resources/combat/*.json,resources/dialogue/*.json,resources/chapters/*.json,assets/audio/manifest.json,assets/audio/combat_polish.json,assets/audio/character_finishers.json,assets/art/combat_polish/atlas.json,assets/art/yakuza/portrait_motion_atlas.json,assets/art/missed_fight/atlas.json,resources/characters/*.json,assets/art/characters/*/*.json"
+ exclude_filter="tests/*"
+ export_path="../build/linux/last-skuf.x86_64"
+ 
+@@ -19,7 +19,7 @@ name="Windows"
+ platform="Windows Desktop"
+ runnable=false
+ export_filter="all_resources"
+-include_filter="LICENSES/*.txt,resources/combat/*.json,resources/dialogue/*.json,resources/chapters/*.json,assets/audio/manifest.json,assets/audio/combat_polish.json,assets/art/combat_polish/atlas.json,assets/art/yakuza/portrait_motion_atlas.json,assets/art/missed_fight/atlas.json,resources/characters/*.json,assets/art/characters/*/*.json"
++include_filter="LICENSES/*.txt,resources/combat/*.json,resources/dialogue/*.json,resources/chapters/*.json,assets/audio/manifest.json,assets/audio/combat_polish.json,assets/audio/character_finishers.json,assets/art/combat_polish/atlas.json,assets/art/yakuza/portrait_motion_atlas.json,assets/art/missed_fight/atlas.json,resources/characters/*.json,assets/art/characters/*/*.json"
+ exclude_filter="tests/*"
+ export_path="../build/windows/last-skuf.exe"
+ 
+diff --git a/game/scripts/qa/owner_preview_smoke.gd b/game/scripts/qa/owner_preview_smoke.gd
+index 8862682..4147438 100644
+--- a/game/scripts/qa/owner_preview_smoke.gd
++++ b/game/scripts/qa/owner_preview_smoke.gd
+@@ -33,6 +33,23 @@ func run() -> void:
+ 	output=OS.get_environment("AYAY_OWNER_PREVIEW_SMOKE_OUTPUT")
+ 	if not output.is_empty(): DirAccess.make_dir_recursive_absolute(output)
+ 	await frames(3)
++	# Runs inside the actual packaged ELF/PE: exported JSON and imported streams
++	# must exist independently of the source checkout. This is a playback-binding
++	# smoke check, not artistic listening or a full exported combat replay.
++	var audio: Node=get_node("/root/AudioDirector")
++	var entries: Dictionary=preload("res://scripts/systems/character_finisher_audio.gd").entries()
++	check("exported_twenty_finisher_routes_and_audio_ready",audio.ready_assets and entries.size()==20)
++	for cue in entries:
++		var entry: Dictionary=entries[cue]
++		var stream: Resource=load(entry.path)
++		check("exported_stream:"+cue,stream is AudioStreamWAV and stream.mix_rate==44100 and not stream.stereo and stream.loop_mode==AudioStreamWAV.LOOP_DISABLED and stream.get_length()>=0.20 and stream.get_length()<=0.35)
++		var played: bool=audio.play_cue(StringName(cue))
++		var found:=0
++		for voice in audio.voices:
++			if voice.playing and voice.stream.resource_path==entry.path and voice.bus==&"SFX" and is_equal_approx(voice.volume_db,float(entry.gain_db)):
++				found+=1
++				voice.stop() # The smoke probe retires its own voice, keeping the pool free.
++		check("exported_playback_binding:"+cue,played and found==1)
+ 	await capture("menu")
+ 	await tap(KEY_F5)
+ 	await frames(4)
+diff --git a/game/scripts/systems/audio_director.gd b/game/scripts/systems/audio_director.gd
+index 9c38503..97a77ca 100644
+--- a/game/scripts/systems/audio_director.gd
++++ b/game/scripts/systems/audio_director.gd
+@@ -2,6 +2,7 @@ extends Node
+ ## All stems share one AudioStreamSynchronized mixer clock. No gameplay RNG access.
+ signal state_committed(state: StringName, beat: int)
+ const MANIFEST_PATH := "res://assets/audio/manifest.json"
++const FinisherAudio = preload("res://scripts/systems/character_finisher_audio.gd")
+ const MAX_VOICES := 12
+ var manifest: Dictionary = {}
+ var music: AudioStreamPlayer
+@@ -78,6 +79,16 @@ func load_assets() -> bool:
+   var polish: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(polish_path))
+   manifest.sfx.merge(polish.sfx)
+  if manifest.get("schema") != 1: return false
++ var character_sfx := FinisherAudio.entries()
++ if character_sfx.is_empty(): return false
++ for cue in character_sfx:
++  # Reject collisions rather than validating one asset and playing an older
++  # same-name entry retained by Dictionary.merge(overwrite=false).
++  if manifest.sfx.has(cue): return false
++  var stream: Resource = load(character_sfx[cue].path)
++  if not stream is AudioStreamWAV or stream.loop_mode!=AudioStreamWAV.LOOP_DISABLED: return false
++  if stream.get_length()<=0.02 or stream.get_length()>2.0: return false
++ manifest.sfx.merge(character_sfx)
+  synchronized = AudioStreamSynchronized.new()
+  synchronized.stream_count = manifest.music.stems.size()
+  beat_seconds = 60.0 / float(manifest.music.bpm)
+diff --git a/game/scripts/systems/character_combat_profile.gd b/game/scripts/systems/character_combat_profile.gd
+index 12cb598..ed1c6ac 100644
+--- a/game/scripts/systems/character_combat_profile.gd
++++ b/game/scripts/systems/character_combat_profile.gd
+@@ -1,6 +1,7 @@
+ extends RefCounted
+ ## Pure copy-on-resolve character tuning. A trusted scene supplies the context.
+ const Characters = preload("res://scripts/systems/character_catalog.gd")
++const FinisherAudio = preload("res://scripts/systems/character_finisher_audio.gd")
+ const PATH := "res://resources/characters/combat_profiles.json"
+ 
+ static func resolve_finisher(actor_id: String, context: String, category: String, base: Dictionary) -> Dictionary:
+@@ -13,6 +14,8 @@ static func resolve_finisher(actor_id: String, context: String, category: String
+  if not parsed is Dictionary or parsed.get("schema") != 1: return {}
+  var profile: Dictionary = parsed.get("profiles", {}).get(actor_id, {})
+  if profile.is_empty() or context not in profile.get("contexts", []): return {}
++ var cue := FinisherAudio.cue_for(actor_id,context,category)
++ if cue.is_empty(): return {}
+  var result := base.duplicate(true)
+  for phase in ["windup", "active", "recovery"]:
+   var time_value: Variant = profile.get("finisher", {}).get(phase)
+@@ -21,4 +24,5 @@ static func resolve_finisher(actor_id: String, context: String, category: String
+  result["character_id"] = actor_id
+  result["character_style"] = profile.style
+  result["scene_context"] = context
++ result["cue"] = cue
+  return result
+diff --git a/game/scripts/systems/character_finisher_audio.gd b/game/scripts/systems/character_finisher_audio.gd
+new file mode 100644
+index 0000000..6b4bc19
+--- /dev/null
++++ b/game/scripts/systems/character_finisher_audio.gd
+@@ -0,0 +1,46 @@
++extends RefCounted
++## Read-only asset routing, never an equipment grant or a sound-quality verdict.
++const Catalog = preload("res://scripts/systems/character_catalog.gd")
++const PATH := "res://assets/audio/character_finishers.json"
++const FOLDER := "res://assets/audio/character_finishers/"
++const ACTORS := ["gabar","olezhka","timka","ryzhik","tega","pasha"]
++
++static func cue_id(actor_id: String, category: String) -> String:
++ return "finish_"+actor_id+("_prime" if actor_id=="timka" else "")+"_"+category
++
++static func _valid_manifest(data: Variant, require_resources := true) -> bool:
++ if not data is Dictionary: return false
++ var schema: Variant=data.get("schema")
++ if not (schema is int or schema is float) or schema!=1: return false
++ var sounds: Variant=data.get("sfx")
++ if not sounds is Dictionary: return false
++ var expected_count:=0
++ for actor_id in ACTORS:
++  var context: String="athletic_prime" if actor_id=="timka" else "training"
++  var categories: Array=Catalog.allowed_equipment(actor_id,context)
++  if categories.is_empty(): return false
++  for category in categories:
++   expected_count+=1
++   var cue:=cue_id(actor_id,category)
++   var entry: Variant=sounds.get(cue)
++   if not entry is Dictionary: return false
++   if entry.get("actor_id")!=actor_id or entry.get("context")!=context or entry.get("category")!=category: return false
++   if entry.get("path")!=FOLDER+cue+".wav" or entry.get("bus")!="SFX": return false
++   var gain: Variant=entry.get("gain_db")
++   if not (gain is float or gain is int): return false
++   if not (float(gain)>=-24.0 and float(gain)<=0.0): return false
++   if require_resources and not ResourceLoader.exists(entry.path): return false
++ return sounds.size()==expected_count
++
++static func entries() -> Dictionary:
++ if not FileAccess.file_exists(PATH): return {}
++ var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(PATH))
++ if not _valid_manifest(data): return {}
++ return data.sfx.duplicate(true)
++
++static func cue_for(actor_id: String, context: String, category: String) -> String:
++ if actor_id not in ACTORS: return ""
++ var required: String="athletic_prime" if actor_id=="timka" else "training"
++ if context!=required or category not in Catalog.allowed_equipment(actor_id,context): return ""
++ var cue:=cue_id(actor_id,category)
++ return cue if entries().has(cue) else ""
+diff --git a/game/scripts/systems/character_finisher_audio.gd.uid b/game/scripts/systems/character_finisher_audio.gd.uid
+new file mode 100644
+index 0000000..f63a46a
+--- /dev/null
++++ b/game/scripts/systems/character_finisher_audio.gd.uid
+@@ -0,0 +1 @@
++uid://d2v3koawafhnf
+diff --git a/game/tests/character_finisher_audio_replay.gd b/game/tests/character_finisher_audio_replay.gd
+new file mode 100644
+index 0000000..a223943
+--- /dev/null
++++ b/game/tests/character_finisher_audio_replay.gd
+@@ -0,0 +1,229 @@
++extends "res://tests/gabar_combat_replay.gd"
++## Actual Input -> earned stun -> Core contact -> live stream, on one physics clock.
++const Routes = preload("res://scripts/systems/character_finisher_audio.gd")
++const LegacyLab = preload("res://scripts/core/combat_lab.gd")
++const CATEGORIES := ["unarmed","blunt","sharp","firearm","environmental"]
++const FIXTURES := {
++ "gabar_training":["unarmed","blunt","firearm"],"olezhka_training":["unarmed","blunt","sharp"],
++ "timka_prime":["unarmed","blunt","environmental"],"ryzhik_training":["unarmed","blunt","environmental"],
++ "tega_training":["unarmed","blunt","environmental"],"pasha_training":CATEGORIES}
++var audio: Node
++var audio_events: Array[Dictionary]=[]
++var route_results: Array[Dictionary]=[]
++var capture_data: Dictionary={}
++var active_capture := ""
++var capture_started_usec := 0
++var solo_events: Array[Dictionary]=[]
++var stress_events: Array[Dictionary]=[]
++var headroom_only := false
++
++func frames(count: int) -> void:
++ for i in count:
++  await super.frames(1)
++  await create_timer(0.0).timeout
++
++func check(label: String, ok: bool, details: Dictionary={}) -> void:
++ checks.append({"name":label,"passed":ok,"details":details.duplicate(true)})
++ if not ok: push_error("FAIL C01_RUNTIME "+label)
++
++func playing_streams(cue: String) -> Array:
++ var result: Array=[]
++ var entry: Dictionary=audio.manifest.sfx.get(cue,{})
++ for pool in [audio.voices,audio.spatial_voices]:
++  for voice in pool:
++   if not voice.playing or voice.stream==null or voice.stream.resource_path!=entry.get("path"): continue
++   result.append({"path":voice.stream.resource_path,"instance_id":voice.get_instance_id(),
++    "bus":String(voice.bus),"gain_db":voice.volume_db,"pitch":voice.pitch_scale,
++    "duration":voice.stream.get_length(),"rate":voice.stream.mix_rate,"stereo":voice.stream.stereo,
++    "format":voice.stream.format,"loop":voice.stream.loop_mode})
++ return result
++
++func on_audio(cue: StringName, _at: Vector2) -> void:
++ if not String(cue).begins_with("finish_"): return
++ audio_events.append({"segment":segment,"cue":String(cue),"tick":Engine.get_physics_frames(),
++  "epoch":lab.combat.encounter_epoch,"source_pose":lab.player.action_frame,
++  "source_animation":String(lab.player.sprite.animation),"streams":playing_streams(String(cue)),
++  "capture":active_capture,"capture_elapsed":float(Time.get_ticks_usec()-capture_started_usec)/1000000.0})
++
++func on_contact(event: Dictionary) -> void:
++ super.on_contact(event)
++ if event.finisher:
++  var rows: Array=audio_events.filter(func(e: Dictionary) -> bool: return e.segment==segment and e.cue==event.cue)
++  var same: bool=rows.size()==1 and rows[0].tick==event.tick and rows[0].epoch==event.epoch and rows[0].source_pose==1
++  var streams: Array=rows[0].streams if rows.size()==1 else []
++  var entry: Dictionary=audio.manifest.sfx.get(event.cue,{})
++  var gain: float=float(entry.get("gain_db",-100.0))
++  if root.get_node("OptionsStore").values.reduced_impact: gain-=5.0
++  check(segment+":same_contact_tick_pose_and_one_actual_voice",same and streams.size()==1 and streams[0].bus=="SFX" and is_equal_approx(streams[0].gain_db,gain) and streams[0].pitch==1.0 and streams[0].loop==AudioStreamWAV.LOOP_DISABLED,{"contact":event,"audio":rows})
++
++func prepare(category: String, equipment_allowed := true) -> CharacterBody2D:
++ lab.reset_encounter();lab.auto_retry=false
++ # Same close initial spacing as the accepted prime fixture: the heavy shove
++ # moves the NPC ~6px. Starting at30 lets that real impulse leave unarmed35
++ # range before contact; initial26 retains legal geometry without changing it.
++ lab.player.position=Vector2(254,270);lab.player.set_aim(Vector2.RIGHT)
++ for enemy in lab.enemies:
++  enemy.set_physics_process(false);enemy.position=Vector2(560,100)
++ var target: CharacterBody2D=lab.enemies[0]
++ target.position=Vector2(280,270)
++ lab.training_bench.position=Vector2(304,270)
++ lab.training_bench.set_meta("finisher_enabled",category=="environmental")
++ if category!="environmental":lab.training_bench.position=Vector2(450,270)
++ check(segment+":equipment_policy",lab.select_equipment(CATEGORIES.find(category))==equipment_allowed)
++ await frames(2)
++ await tap(KEY_SPACE)
++ var budget:=70
++ while not lab.player.action_kind.is_empty() and budget>0:
++  await frames(1);budget-=1
++ check(segment+":Input_earned_stun",target.health==1 and target.hits_received==1 and target.state=="stunned")
++ return target
++
++func complete_route(category: String, expected: String) -> void:
++ var target:=await prepare(category)
++ target.set_physics_process(true)
++ await tap(KEY_V)
++ check(segment+":Input_V_reserves_finisher",not lab.combat.finisher_for(lab.player).is_empty() and lab.player.action_frame==0)
++ var budget:=110
++ while target.health>0 and budget>0:
++  await frames(1);budget-=1
++ var rows: Array=audio_events.filter(func(e: Dictionary) -> bool:return e.segment==segment)
++ check(segment+":correct_stream_kill_once",target.health==0 and target.hits_received==2 and lab.combat.damage_events==2 and lab.kills==1 and lab.score==100 and rows.size()==1 and rows[0].cue==expected)
++ await capture(segment+"_contact")
++ await frames(2)
++ budget=110
++ while not lab.player.action_kind.is_empty() and budget>0:
++  await frames(1);budget-=1
++ await tap(KEY_V);await frames(3)
++ rows=audio_events.filter(func(e: Dictionary) -> bool:return e.segment==segment)
++ check(segment+":no_second_sound_damage_score",rows.size()==1 and lab.combat.damage_events==2 and lab.kills==1 and lab.score==100 and lab.combat.finishers.is_empty())
++ route_results.append({"segment":segment,"cue":expected,"health":target.health,"hits":target.hits_received,
++  "damage_events":lab.combat.damage_events,"score":lab.score,"kills":lab.kills,"audio_events":rows,
++  "ammo":lab.player.movement_ability.ammo if lab is Lab and lab.player.actor_id=="pasha" else -1})
++
++func capture_begin(name: String) -> void:
++ if headless:return
++ active_capture=name;capture_started_usec=Time.get_ticks_usec()
++ check(name+":actual_mixer_record_begins",audio.begin_capture())
++ capture_data[name]={"start_usec":capture_started_usec,"clock":audio.clock,"driver":AudioServer.get_driver_name(),"output_latency":AudioServer.get_output_latency(),"mix_rate":AudioServer.get_mix_rate()}
++
++func capture_end() -> void:
++ if headless:return
++ var name:=active_capture
++ capture_data[name]["end_usec"]=Time.get_ticks_usec()
++ var path:=output.path_join(name+".wav")
++ var code: int=audio.end_capture(path)
++ capture_data[name]["path"]=path;capture_data[name]["code"]=code
++ check(name+":actual_mixer_record_saved",code==OK and FileAccess.file_exists(path))
++ active_capture=""
++
++func run() -> void:
++ output=OS.get_environment("AYAY_C01_OUTPUT");headless=DisplayServer.get_name()=="headless"
++ headroom_only="--c01-headroom-only" in OS.get_cmdline_user_args()
++ if output.is_empty():preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1);return
++ DirAccess.make_dir_recursive_absolute(output)
++ root.content_scale_size=Vector2i(640,360);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
++ var options: Node=root.get_node("OptionsStore")
++ options.set_value(&"vhs",false,false);options.set_value(&"shake",0,false)
++ audio=root.get_node("AudioDirector")
++ check("actual_assets_ready",audio.ready_assets)
++ if not audio.ready_assets:preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1);return
++ var starts: int=audio.stem_starts
++ lab=Lab.new();root.add_child(lab);current_scene=lab;lab.auto_retry=false
++ lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
++ await frames(30)
++ if not headless:check("real_mixer_driver",AudioServer.get_driver_name()!="Dummy" and audio.mixer_clock_enabled)
++ if headroom_only:
++  # Target the changed Master effect. Previously verified45 routes/logic are
++  # unchanged; these three actual input contacts cover power/prime/firearm.
++  audio.request_state(&"COMBAT");await frames(60)
++  capture_begin("runtime_mix")
++  for row in [["gabar_training","unarmed"],["timka_prime","blunt"],["pasha_training","firearm"]]:
++   check(String(row[0])+":headroom_fixture",lab.select_fixture(row[0]))
++   segment=String(row[0])+"_headroom_"+String(row[1])
++   var context: String="athletic_prime" if row[0]=="timka_prime" else "training"
++   await complete_route(row[1],Routes.cue_for(lab.player.actor_id,context,row[1]))
++  await frames(25);capture_end()
++  await mixer_pass(starts)
++  return
++ capture_begin("runtime_mix")
++ for reduced in [false,true]:
++  options.set_value(&"reduced_gore",reduced,false)
++  options.set_value(&"reduced_impact",reduced,false)
++  for fixture_id in FIXTURES:
++   check(fixture_id+":registered_scene",lab.select_fixture(fixture_id))
++   for category in FIXTURES[fixture_id]:
++    segment=fixture_id+"_"+category+"_"+("reduced" if reduced else "full")
++    var context: String="athletic_prime" if fixture_id=="timka_prime" else "training"
++    await complete_route(category,Routes.cue_for(lab.player.actor_id,context,category))
++ # Every live hero is cancelled/revoked/reset/killed before its contact. No late cue.
++ options.set_value(&"reduced_impact",false,false);options.set_value(&"reduced_gore",false,false)
++ for fixture_id in FIXTURES:
++  for mode in ["cancel","revoke","reset","death","replace"]:
++   check(fixture_id+":"+mode+":registered_scene",lab.select_fixture(fixture_id))
++   segment=fixture_id+"_before_contact_"+mode
++   var target:=await prepare("unarmed");target.set_physics_process(true)
++   await tap(KEY_V)
++   check(segment+":entered_windup",not lab.combat.finisher_for(lab.player).is_empty())
++   if mode=="cancel":await tap(KEY_C)
++   elif mode=="revoke":lab.scene_policy.invalidate()
++   elif mode=="reset":await tap(KEY_R)
++   elif mode=="death":lab.player.receive_hit(1,0.0,991,target)
++   elif mode=="replace":lab.select_fixture("gabar_training")
++   await frames(65)
++   check(segment+":no_late_finisher_voice",audio_events.filter(func(e: Dictionary)->bool:return e.segment==segment).is_empty() and lab.combat.finishers.is_empty())
++ check("present_registered",lab.select_fixture("timka_present"));segment="present_denied"
++ await prepare("unarmed",false);await tap(KEY_V);await frames(70)
++ check("present_no_prime_voice_or_finisher",audio_events.filter(func(e: Dictionary)->bool:return e.segment==segment).is_empty() and lab.combat.finishers.is_empty() and lab.score==0)
++ # Real legacy host, not a profile alias. Its five accepted WAVs stay unchanged.
++ current_scene=null;lab.free();await frames(2)
++ lab=LegacyLab.new();root.add_child(lab);current_scene=lab;lab.auto_retry=false
++ lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
++ for category in CATEGORIES:
++  segment="yakuza_legacy_"+category
++  await complete_route(category,"finish_"+category)
++ await frames(25);capture_end()
++ if headless:
++  finish_replay(starts)
++  return
++ await mixer_pass(starts)
++
++func mixer_pass(starts: int) -> void:
++ # Solo actual playback gives a compact listening artifact, with music muted only
++ # inside this test. Full gameplay above uses normal buses and production settings.
++ var music_bus:=AudioServer.get_bus_index(&"Music")
++ var was_muted:=AudioServer.is_bus_mute(music_bus)
++ AudioServer.set_bus_mute(music_bus,true)
++ audio.reset_for_retry();await frames(30)
++ capture_begin("solo_cues")
++ for cue in Routes.entries():
++  await frames(6)
++  var ok: bool=audio.play_cue(StringName(cue))
++  solo_events.append({"cue":cue,"elapsed":float(Time.get_ticks_usec()-capture_started_usec)/1000000.0,"played":ok,"streams":playing_streams(cue)})
++  check(cue+":solo_voice",ok and playing_streams(cue).size()==1)
++  await frames(30)
++ capture_end();AudioServer.set_bus_mute(music_bus,was_muted)
++ audio.reset_for_retry();await frames(30);audio.request_state(&"COMBAT");await frames(60)
++ capture_begin("stress_mix")
++ for burst in 8:
++  var before: int=audio.dropped_cues
++  var played:=0
++  for cue in Routes.entries():
++   if audio.play_cue(StringName(cue)):played+=1
++  var diagnostic: Dictionary=audio.diagnostics()
++  stress_events.append({"burst":burst,"elapsed":float(Time.get_ticks_usec()-capture_started_usec)/1000000.0,"played":played,"active":diagnostic.active_voices,"dropped":audio.dropped_cues-before,"clock":audio.clock})
++  check("burst"+str(burst)+":bounded_real_voices",played>0 and diagnostic.active_voices<=audio.MAX_VOICES and audio.dropped_cues>before)
++  await frames(42)
++ await frames(30);capture_end()
++ finish_replay(starts)
++
++func finish_replay(starts: int) -> void:
++ check("retry_and_cues_preserve_music_player_clock",audio.stem_starts==starts and audio.diagnostics().music_players==1)
++ var ok:=not checks.is_empty() and checks.all(func(c: Dictionary)->bool:return c.passed)
++ var data: Dictionary={"schema":1,"scope":"C01_HEADROOM_TARGETED_ONLY" if headroom_only else "C01_RUNTIME_SIGNAL_ONLY","passed":ok,"phase_approval":false,
++  "actual_input":true,"renderer":DisplayServer.get_name(),"listening_performed":false,"checks":checks,
++  "route_results":route_results,"contacts":contacts,"audio_events":audio_events,"captures":captures,
++  "mixer_captures":capture_data,"solo_events":solo_events,"stress_events":stress_events,"audio":audio.diagnostics(),
++  "native_windows":"NOT_TESTED","hardware_latency":"NOT_MEASURED"}
++ var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify(data,"  "));file.close()
++ print("C01_RUNTIME_RESULT ",checks.filter(func(c: Dictionary)->bool:return c.passed).size(),"/",checks.size())
++ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if ok else 1)
+diff --git a/game/tests/character_finisher_audio_replay.gd.uid b/game/tests/character_finisher_audio_replay.gd.uid
+new file mode 100644
+index 0000000..250cf2d
+--- /dev/null
++++ b/game/tests/character_finisher_audio_replay.gd.uid
+@@ -0,0 +1 @@
++uid://dnpo0gmia0ima
+diff --git a/game/tests/character_finisher_audio_test.gd b/game/tests/character_finisher_audio_test.gd
+new file mode 100644
+index 0000000..9066bc0
+--- /dev/null
++++ b/game/tests/character_finisher_audio_test.gd
+@@ -0,0 +1,80 @@
++extends SceneTree
++## Real imported assets and denied/malformed routing; not mixer/listening evidence.
++const Routes = preload("res://scripts/systems/character_finisher_audio.gd")
++const Profile = preload("res://scripts/systems/character_combat_profile.gd")
++const EXPECTED := {
++ "gabar":["unarmed","blunt","firearm"], "olezhka":["unarmed","blunt","sharp"],
++ "timka":["unarmed","blunt","environmental"], "ryzhik":["unarmed","blunt","environmental"],
++ "tega":["unarmed","blunt","environmental"], "pasha":["unarmed","blunt","sharp","firearm","environmental"]
++}
++var passed := 0
++var failed := 0
++func _initialize() -> void: call_deferred("run")
++func check(ok: bool, label: String) -> void:
++ if ok: passed+=1; print("PASS ",label)
++ else: failed+=1; push_error("FAIL "+label)
++func run() -> void:
++ var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Routes.PATH))
++ var entries: Dictionary=Routes.entries()
++ var base: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://resources/combat/finishers.json")).definitions
++ var timings: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://resources/characters/combat_profiles.json")).profiles
++ var audio: Node=root.get_node("AudioDirector")
++ check(entries.size()==20 and audio.ready_assets,"twenty real routes; actual autoload starts")
++ var paths: Array=[]
++ var hashes: Array=[]
++ for actor_id in EXPECTED:
++  var context: String="athletic_prime" if actor_id=="timka" else "training"
++  for category in base:
++   var cue: String=Routes.cue_for(actor_id,context,category)
++   if category not in EXPECTED[actor_id]:
++    check(cue.is_empty(),actor_id+":"+category+" denied")
++    continue
++   var wanted: String="finish_"+actor_id+("_prime" if actor_id=="timka" else "")+"_"+category
++   check(cue==wanted and entries.has(wanted),wanted+" exact route")
++   if not entries.has(wanted): continue
++   var entry: Dictionary=entries[wanted]
++   var stream: Resource=load(entry.path)
++   check(stream is AudioStreamWAV and not stream.stereo and stream.mix_rate==44100 and stream.loop_mode==AudioStreamWAV.LOOP_DISABLED and stream.get_length()>=0.20 and stream.get_length()<=0.35,wanted+" actual imported mono44100 finite nonlooping stream")
++   var bytes:=FileAccess.get_file_as_bytes(entry.path)
++   var digest:=HashingContext.new();digest.start(HashingContext.HASH_SHA256);digest.update(bytes)
++   var hash: String=digest.finish().hex_encode()
++   check(hash==entry.source_sha256 and hash not in hashes and entry.path not in paths,wanted+" actual source SHA and unique file")
++   hashes.append(hash);paths.append(entry.path)
++   check(audio.manifest.sfx.get(wanted)==entry and entry.bus=="SFX",wanted+" engine registry exact binding")
++   var copy: Dictionary=Profile.resolve_finisher(actor_id,context,category,base[category])
++   var old: Dictionary=base[category].duplicate(true)
++   for field in old:
++    if field not in ["windup","active","recovery","cue"]:
++     check(copy.get(field)==old[field],wanted+" preserves gameplay "+field)
++   check(copy.get("cue")==wanted and copy.get("windup")==timings[actor_id].finisher.windup and copy.get("active")==timings[actor_id].finisher.active and copy.get("recovery")==timings[actor_id].finisher.recovery,wanted+" keeps accepted clocks")
++ for category in base:
++  check(Routes.cue_for("timka","peaceful_present",category).is_empty(),"present grants no cue "+category)
++  check(Profile.resolve_finisher("yakuza","training",category,base[category])==base[category],"Yakuza whole definition unchanged "+category)
++  check(audio.manifest.sfx[base[category].cue].path=="res://assets/audio/combat_polish/finish_"+category+".wav","Yakuza legacy stream retained "+category)
++ for actor_id in ["kaban","ellana","elya","unknown","yakuza"]:
++  check(Routes.cue_for(actor_id,"training","unarmed").is_empty(),"no new cue grant "+actor_id)
++ check(Routes.cue_for("timka","training","unarmed").is_empty() and Routes.cue_for("gabar","athletic_prime","unarmed").is_empty(),"wrong contexts denied")
++ # Mutations of a valid manifest probe real binding failures, not missing labels alone.
++ for value in [null,[],"text",1,true]:
++  check(not Routes._valid_manifest(value),"non-object rejected "+str(value))
++ for value in [null,true,0,2,"1"]:
++  var bad: Dictionary=data.duplicate(true);bad.schema=value
++  check(not Routes._valid_manifest(bad),"invalid schema rejected "+str(value))
++ for value in [null,[],"text"]:
++  var bad: Dictionary=data.duplicate(true);bad.sfx=value
++  check(not Routes._valid_manifest(bad),"non-object cues rejected "+str(value))
++ var name: String="finish_gabar_unarmed"
++ for field in ["actor_id","context","category","path","bus","gain_db"]:
++  var bad: Dictionary=data.duplicate(true);bad.sfx[name].erase(field)
++  check(not Routes._valid_manifest(bad),"missing binding rejected "+field)
++ for pair in [["actor_id","pasha"],["context","athletic_prime"],["category","blunt"],["path",data.sfx.finish_pasha_unarmed.path],["path","res://missing.wav"],["bus","Music"],["gain_db",true],["gain_db","-2.5"],["gain_db",1],["gain_db",-25],["gain_db",NAN],["gain_db",INF]]:
++  var bad: Dictionary=data.duplicate(true);bad.sfx[name][pair[0]]=pair[1]
++  check(not Routes._valid_manifest(bad),"invalid binding rejected "+str(pair))
++ var missing: Dictionary=data.duplicate(true);missing.sfx.erase(name)
++ check(not Routes._valid_manifest(missing),"missing required route rejected")
++ var extra: Dictionary=data.duplicate(true);extra.sfx["finish_timka_prime_firearm"]=data.sfx[name]
++ check(not Routes._valid_manifest(extra),"extra forbidden route rejected")
++ var detached:=Routes.entries();detached[name].path="res://missing.wav"
++ check(Routes.entries()[name].path==data.sfx[name].path,"caller mutation cannot replace subsequent asset binding")
++ print("RESULT passed=%d failed=%d" % [passed,failed])
++ preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)
+diff --git a/game/tests/character_finisher_audio_test.gd.uid b/game/tests/character_finisher_audio_test.gd.uid
+new file mode 100644
+index 0000000..f8d005d
+--- /dev/null
++++ b/game/tests/character_finisher_audio_test.gd.uid
+@@ -0,0 +1 @@
++uid://gli8rs2efx23
+diff --git a/tools/verify.py b/tools/verify.py
+index ed8159d..56779fd 100644
+--- a/tools/verify.py
++++ b/tools/verify.py
+@@ -55,10 +55,11 @@ def main():
+         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+                         for name in ['story_registry', 'story_state', 'story_graph', 'story_integration'])
+     if (ROOT / 'game/tests/character_frames_test.gd').is_file():
++        commands.append(('character_finisher_audio_source', [sys.executable, 'tools/verify_character_finisher_audio.py']))
+         commands.append(('world_input_gate', [sys.executable, '-m', 'unittest', 'discover',
+                          '-s', 'tools/tests', '-p', 'test_p06_world_input.py']))
+         commands.extend((name, base + ['--script', f'res://tests/{name}_test.gd'])
+-                        for name in ['character_combat_profile', 'character_scene_policy',
++                        for name in ['character_combat_profile', 'character_finisher_audio', 'character_scene_policy',
+                                      'character_policy_integration', 'character_dialogue', 'character_frames',
+                                      'character_readiness', 'timka_layout', 'ryzhik_roll_layout', 'yakuza_finisher_authority'])
+         commands.append(('character_lab_isolation', [sys.executable, 'tools/verify_p06_lab_isolation.py',
+diff --git a/tools/verify_character_finisher_audio.py b/tools/verify_character_finisher_audio.py
+new file mode 100644
+index 0000000..9836fb7
+--- /dev/null
++++ b/tools/verify_character_finisher_audio.py
+@@ -0,0 +1,75 @@
++#!/usr/bin/env python3
++"""Bind actual C01 source bytes to independent signal review. No listening verdict."""
++import hashlib
++import json
++from pathlib import Path
++import sys
++
++ROOT = Path(__file__).resolve().parents[1]
++SIGNAL_SHA = 'c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c'
++FREEZE_SHA = '5fe77b841e8d661b86e4c468e9d5c598a83b71e758712587caa0df1635414ba9'
++EXPECTED = {
++    'gabar': ['unarmed', 'blunt', 'firearm'], 'olezhka': ['unarmed', 'blunt', 'sharp'],
++    'timka': ['unarmed', 'blunt', 'environmental'], 'ryzhik': ['unarmed', 'blunt', 'environmental'],
++    'tega': ['unarmed', 'blunt', 'environmental'],
++    'pasha': ['unarmed', 'blunt', 'sharp', 'firearm', 'environmental']}
++
++
++def sha(path):
++    return hashlib.sha256(path.read_bytes()).hexdigest()
++
++
++def verify(root=ROOT):
++    checks = []
++    def check(ok, name):
++        checks.append({'name': name, 'passed': bool(ok)})
++    try:
++        review = root / 'reports/phases/P06/audio-c01-signal-review-01'
++        decision, freeze = review / 'decision.json', review / 'input-freeze.json'
++        check(sha(decision) == SIGNAL_SHA, 'immutable independent signal decision')
++        check(sha(freeze) == FREEZE_SHA, 'immutable source freeze')
++        if not all(c['passed'] for c in checks): return checks
++        records = json.loads(freeze.read_text())['records']
++        hashes = {Path(r['path']).name: r['sha256'] for r in records if r['path'].endswith('.wav')}
++        snapshots = {r['snapshot']: r['sha256'] for r in records if r.get('snapshot')}
++        source = root / 'assets/source_audio/character_finishers'
++        runtime = root / 'game/assets/audio/character_finishers'
++        manifest_path = root / 'game/assets/audio/character_finishers.json'
++        manifest = json.loads(manifest_path.read_text())
++        check(type(manifest.get('schema')) is int and manifest['schema'] == 1, 'manifest schema')
++        check(manifest.get('source_signal_decision_sha256') == SIGNAL_SHA, 'manifest decision binding')
++        check(manifest.get('source_recipe_sha256') == snapshots['inputs/render.py'], 'manifest recipe binding')
++        for name, key in [('render.py', 'inputs/render.py'), ('candidate_manifest.json', 'inputs/candidate_manifest.json'), ('provenance.json', 'inputs/candidate-provenance.json')]:
++            check(sha(source / name) == snapshots[key], 'reviewed source ' + name)
++        check(sha(root / 'game/resources/characters/catalog.json') == snapshots['inputs/catalog.json'], 'reviewed allowed equipment catalog')
++        expected = set()
++        for actor, categories in EXPECTED.items():
++            for category in categories:
++                cue = 'finish_' + actor + ('_prime' if actor == 'timka' else '') + '_' + category
++                expected.add(cue)
++                entry = manifest['sfx'].get(cue, {})
++                name = cue + '.wav'
++                check(entry.get('path') == 'res://assets/audio/character_finishers/' + name and entry.get('actor_id') == actor and entry.get('context') == ('athletic_prime' if actor == 'timka' else 'training') and entry.get('category') == category, cue + ' route')
++                check(entry.get('bus') == 'SFX' and type(entry.get('gain_db')) in (int, float) and -24 <= entry['gain_db'] <= 0, cue + ' bus/gain')
++                check(entry.get('source_sha256') == hashes[name] and sha(source / name) == hashes[name] and sha(runtime / name) == hashes[name], cue + ' source/runtime/independent SHA')
++        check(set(manifest['sfx']) == expected, 'exact twenty routes; no present/excluded grants')
++        check({p.stem for p in runtime.glob('*.wav')} == expected and {p.stem for p in source.glob('*.wav')} == expected, 'exact production source/runtime WAV inventories')
++        legacy = root / 'game/assets/audio/combat_polish.json'
++        check(sha(legacy) == snapshots['inputs/legacy-combat-polish.json'], 'legacy routing unchanged')
++        for name in ['unarmed', 'blunt', 'sharp', 'firearm', 'environmental']:
++            filename = 'finish_' + name + '.wav'
++            check(sha(root / 'game/assets/audio/combat_polish' / filename) == hashes[filename], 'legacy bytes ' + name)
++        for path in [root / 'game/assets/audio/manifest.json', legacy]:
++            check(not set(json.loads(path.read_text())['sfx']).intersection(expected), 'no duplicate cue registry ' + path.name)
++        adoption = json.loads((source / 'adoption.json').read_text())
++        check(adoption.get('source_signal_decision_sha256') == SIGNAL_SHA and adoption.get('runtime_manifest_sha256') == sha(manifest_path), 'adoption binds actual manifest and signal decision')
++    except (OSError, ValueError, TypeError, KeyError) as error:
++        check(False, type(error).__name__ + ': ' + str(error))
++    return checks
++
++
++if __name__ == '__main__':
++    result = verify()
++    print(json.dumps({'scope': 'C01_SOURCE_BINDING_ONLY', 'phase_approval': False,
++                      'listening_performed': False, 'checks': result}, indent=2))
++    sys.exit(0 if result and all(c['passed'] for c in result) else 1)
+diff --git a/tools/verify_p06_finisher_audio.py b/tools/verify_p06_finisher_audio.py
+new file mode 100644
+index 0000000..0c5bafc
+--- /dev/null
++++ b/tools/verify_p06_finisher_audio.py
+@@ -0,0 +1,97 @@
++#!/usr/bin/env python3
++"""Serialize through the project Controller. Actual runtime/mixer QA, no listening claim."""
++import argparse
++import hashlib
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import time
++from verify_p06_cast import ROOT, GODOT, ERRORS, sha, sources, write
++from verify_character_finisher_audio import verify
++
++
++def source_hashes():
++    result = sources()
++    for folder in ['assets/source_audio/character_finishers', 'reports/phases/P06/audio-c01-signal-review-01']:
++        for path in sorted((ROOT / folder).rglob('*')):
++            if path.is_file(): result[str(path.relative_to(ROOT))] = sha(path)
++    return result
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--output', required=True)
++    parser.add_argument('--headless', action='store_true')
++    parser.add_argument('--import-assets', action='store_true')
++    parser.add_argument('--replay-only', action='store_true', help='Keep earlier unchanged-source regressions; run actual contact replay only')
++    parser.add_argument('--headroom-only', action='store_true', help='Native targeted three contacts plus all twenty solo cues and eight twelve-voice bursts')
++    args = parser.parse_args()
++    if args.headroom_only and (args.headless or not args.replay_only): parser.error('Headroom check requires native --replay-only')
++    output = (ROOT / args.output).resolve()
++    if output.exists(): parser.error('Use a fresh output; consumed jobs are never blindly repeated')
++    output.mkdir(parents=True)
++    lock = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
++    assert sha(GODOT) == lock['linux_binary_sha256']
++    profile = ROOT / '.tools/p06-c01-qa' / hashlib.sha256(str(output).encode()).hexdigest()[:16]
++    profile.mkdir(parents=True)
++    env = dict(os.environ, AYAY_C01_OUTPUT=str(output / 'replay'), XDG_CONFIG_HOME=str(profile/'config'), XDG_DATA_HOME=str(profile/'data'))
++    for key, name in [('AYAY_OPTIONS_PATH','options'),('AYAY_STORY_SAVE_PATH','story'),('AYAY_CHAPTER_SAVE_PATH','chapter'),('AYAY_DIALOGUE_SAVE_PATH','dialogue')]:
++        env[key] = str(profile / (name + '.json'))
++    env['AYAY_TIMING_RESULT'] = str(output / 'contact_timing.json')
++    before = source_hashes();write(output/'source_hashes_before.json', before)
++    bindings = verify();write(output/'source_binding.json', bindings)
++    commands = []
++    def run(name, argv, timeout=100):
++        start = time.monotonic()
++        try:
++            result = subprocess.run(list(map(str,argv)), cwd=ROOT, env=env, capture_output=True, text=True, timeout=timeout)
++            code, log = result.returncode, result.stdout+result.stderr
++        except subprocess.TimeoutExpired as error:
++            code, log = 124, 'TIMEOUT\n'+str(error.stdout)+str(error.stderr)
++        (output/(name+'.log')).write_text(log+'\nexit_code='+str(code)+'\n')
++        item = {'name':name,'argv':list(map(str,argv)),'exit_code':code,'passed':code==0 and not ERRORS.search(log),'seconds':round(time.monotonic()-start,3)}
++        commands.append(item);write(output/'commands.json',commands);print(name,'PASS' if item['passed'] else 'FAIL',flush=True)
++        return item['passed']
++    ok = bool(bindings) and all(c['passed'] for c in bindings)
++    base = [GODOT, '--headless', '--path', ROOT/'game']
++    if ok and args.import_assets: ok = run('import',base+['--editor','--quit'])
++    imported = source_hashes()
++    changed = [key for key in set(before)|set(imported) if before.get(key)!=imported.get(key)]
++    allowed = {f'game/assets/audio/character_finishers/{p.name}.import' for p in (ROOT/'game/assets/audio/character_finishers').glob('*.wav')}
++    allowed |= {'game/scripts/systems/character_finisher_audio.gd.uid','game/tests/character_finisher_audio_test.gd.uid','game/tests/character_finisher_audio_replay.gd.uid'}
++    write(output/'import_source_delta.json',{'changed':sorted(changed),'allowed':sorted(allowed),'unexpected':sorted(set(changed)-allowed)})
++    ok = ok and (not changed or args.import_assets and set(changed)<=allowed)
++    if ok and not args.replay_only:
++        for test in ['character_finisher_audio','character_combat_profile','audio','contact_timing','p04g','yakuza_finisher_authority','restart']:
++            # The legacy contact test counts render observations of fixed physics
++            # poses. Lock one physics step per frame, preserving its full-window
++            # oracle even during the first cold asset/cache load.
++            timing = ['--fixed-fps','60'] if test=='contact_timing' else []
++            if not run(test,base+timing+['--script',f'res://tests/{test}_test.gd']): ok=False;break
++    replay = {}
++    if ok:
++        (output/'replay').mkdir()
++        argv = [GODOT,'--path',ROOT/'game','--disable-vsync','--max-fps','60']
++        if args.headless: argv += ['--headless','--fixed-fps','60']
++        argv += ['--script','res://tests/character_finisher_audio_replay.gd']
++        if args.headroom_only: argv += ['--','--c01-headroom-only']
++        ok = run('contact_replay',argv,420)
++        path = output/'replay/result.json'
++        if path.exists(): replay=json.loads(path.read_text())
++        ok = ok and replay.get('passed') is True and replay.get('actual_input') is True and len(replay.get('route_results',[]))==(3 if args.headroom_only else 45)
++    unchanged = source_hashes()==imported
++    summary = {'schema':1,'scope':'C01_HEADROOM_TARGETED_ONLY' if args.headroom_only else 'C01_RUNTIME_SIGNAL_ONLY','passed':bool(ok and unchanged),'headless':args.headless,
++               'phase_approval':False,'artistic_approval':False,'listening_performed':False,'source_unchanged_after_import':unchanged,
++               'source_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
++               'source_binding_checks':len(bindings),'runtime_checks':len(replay.get('checks',[])),
++               'commands':commands,'mixer_signal_analysis':'PENDING' if not args.headless else 'NOT_TESTED_HEADLESS',
++               'native_windows':'NOT_TESTED','hardware_latency':'NOT_MEASURED'}
++    write(output/'source_hashes_after.json',source_hashes())
++    write(output/'validation.json',summary)
++    print(json.dumps(summary,ensure_ascii=False),flush=True)
++    return 0 if summary['passed'] else 1
++
++
++if __name__=='__main__': sys.exit(main())

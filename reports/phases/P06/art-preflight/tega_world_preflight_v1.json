@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T17:33:31.405778+00:00",
+  "reviewer": "/root/qa_resume_recovery",
+  "review_role": "independent_ART_SOURCE",
+  "status": "FAIL_SIDE_GAIT_LEG_OPPOSITION",
+  "actor_id": "tega",
+  "kind": "world",
+  "all32_freshly_reviewed": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "e3b52ae7b4611b73e77c830155b973614c237cfe399095552ab5e8ca2138871c",
+  "master_sha256": "93bbe92c89a48fce9e6969e63b21923e7a449fdfbc1a14eb54e26bab62222754",
+  "report_sha256": "d4f62b7780b726b16022062b9bb7d0bcb8966b6346cdfac77c2c2a14e9ab455a",
+  "metrics_sha256": "5dbad939911f750053ca7d2a65ce9357c326d5ee10472c83423ab7896974432f",
+  "must_fix": [
+    {
+      "id": "TEGA-WORLD-SIDE-GAIT-01",
+      "severity": "major",
+      "status": "OPEN_SOURCE_CORRECTION_REQUIRED",
+      "summary": "SIDE B4/B7 does not clearly reverse near/far hip-to-shoe leading leg versus A2/A6; arm/contour differences are not an opposite leg phase",
+      "wholecells": [
+        {
+          "direction": "left",
+          "column": 4,
+          "index": 12,
+          "source_rect_xyxy": [
+            768,
+            256,
+            960,
+            512
+          ],
+          "native_rect_xywh": [
+            192,
+            64,
+            48,
+            64
+          ]
+        },
+        {
+          "direction": "left",
+          "column": 7,
+          "index": 15,
+          "source_rect_xyxy": [
+            1344,
+            256,
+            1536,
+            512
+          ],
+          "native_rect_xywh": [
+            336,
+            64,
+            48,
+            64
+          ]
+        },
+        {
+          "direction": "right",
+          "column": 4,
+          "index": 20,
+          "source_rect_xyxy": [
+            768,
+            512,
+            960,
+            768
+          ],
+          "native_rect_xywh": [
+            192,
+            128,
+            48,
+            64
+          ]
+        },
+        {
+          "direction": "right",
+          "column": 7,
+          "index": 23,
+          "source_rect_xyxy": [
+            1344,
+            512,
+            1536,
+            768
+          ],
+          "native_rect_xywh": [
+            336,
+            128,
+            48,
+            64
+          ]
+        }
+      ],
+      "required_action": "Generate complete SIDE B4/B7 farleg-leading poses, nearleg trailing and contralateral arms; retain originalv1 and unmodifiedothercells where possible; no code anatomy edits; fresh independentall32review"
+    }
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/tega/world_master_v1.png": "93bbe92c89a48fce9e6969e63b21923e7a449fdfbc1a14eb54e26bab62222754",
+    "assets/source_art/characters/tega/world_native_v1.png": "e3b52ae7b4611b73e77c830155b973614c237cfe399095552ab5e8ca2138871c",
+    "assets/source_art/characters/tega/world_manifest_v1.json": "b52b40843b1e7358bbc026503fad941328b6caff2f80a272047b90e5571e0966",
+    "assets/source_art/characters/tega/world_inspection_v1_3x.png": "8c344d6d5b75344b9d7fe36ac453be78dfab896a6d4f59fd993734f1a14c31d0",
+    "assets/source_art/characters/tega/world_v1_prompt.txt": "baac7486a71dfb1281f5fb18fcaeba6caa37c6575aaa3f108f5106bbb016d5af",
+    "assets/source_art/characters/tega/world_v1_generation_metadata.json": "31687821ce7c6b3dae4d9a8cbce235c0e612f51be6bf39f2689906888ccc0f76",
+    "assets/source_art/characters/tega/portraits_master_v1.png": "776b9a04bff919e7555c6c209be47fecd1fdc410551224fd51885d2d18937560",
+    "assets/source_art/characters/tega/portrait_prompt.txt": "56ad4e16714868801908927bc49054106540ebfaa66b4e51dcc7c1378d11e311",
+    "assets/source_art/characters/tega/portrait_generation_metadata.json": "6dda547c9357254d12c36cf82f9f9a3a96a4d2ab3e0614ba21e163de86b5bb43",
+    "assets/source_art/characters/olezhka/world_camera_reference_v2b_4x.png": "0bda7d582e81969b8fc51b7d2eb422ebf90c935d08ca4e94caa324618ecc09df",
+    "assets/source_art/characters/olezhka/world_native_v2b.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "assets/source_art/characters/adopt_world.py": "d0b210e3a052b95e1b2cb34ad02c058dc53025dbd05bcaf713a3eb3a531c51d8",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+  },
+  "review_artifacts_sha256": {
+    "tega_world_preflight_v1.md": "d4f62b7780b726b16022062b9bb7d0bcb8966b6346cdfac77c2c2a14e9ab455a",
+    "tega_world_preflight_v1_down_light_dark_4x.png": "df61d6aa89fb5f09c738ac0d8a6f4c5faafbfbaf8be09b7e61d056e463fe27e2",
+    "tega_world_preflight_v1_inspect.py": "22ab620cc506bf15ae85d3f864133610825ce7b7d0d58a5d3c24e3c3c785db58",
+    "tega_world_preflight_v1_left_light_dark_4x.png": "16be90f9723d561faa23c933d3e5e4234d2790023236d91d2684006a1eca9e81",
+    "tega_world_preflight_v1_left_native_gait_family6x.png": "da375f7ba42940c8bd35dee719036f5017e0b45f18f5f712165a01597429e1e6",
+    "tega_world_preflight_v1_left_source_2_4_6_7_wholecell2x.png": "cc254b2ca6a317fb85a007b5d5c080351c8ddd7e0aba02da51ff8dba843ae6ee",
+    "tega_world_preflight_v1_metrics.json": "5dbad939911f750053ca7d2a65ce9357c326d5ee10472c83423ab7896974432f",
+    "tega_world_preflight_v1_reviewer-path-correction.txt": "6112ed961c5ef784dbbafc5d4f52f232a229def94e6dbb999dcdb24ec090f233",
+    "tega_world_preflight_v1_right6_wholepose_anatomy.png": "8d6ede15cb4671e0de21e58c77db6072b8afe03f4f44fca9108d0b0cd435db23",
+    "tega_world_preflight_v1_right_light_dark_4x.png": "4098a99bb2d9be5dba8c0fa210ae5818670ba6cbbcfae2efb5fc872195a2cf6c",
+    "tega_world_preflight_v1_right_native_gait_family6x.png": "00b815f1ca55ad1a9c4a463c64d7a853901a16b237c9570ddb42876cd02de4f7",
+    "tega_world_preflight_v1_right_source_2_4_6_7_wholecell2x.png": "e445305857dca50fc163c25ad339006136a5648e4d2abdd8931852d5774549d2",
+    "tega_world_preflight_v1_source_inventory.json": "5c3aade31f6f95329a6e2725841def8cae27397c78f4fdf62bfc4659c41e5897",
+    "tega_world_preflight_v1_up_light_dark_4x.png": "9f5075a6b4f479f504517c189e3aabf6efc6b2428ff51297d866e337e42cfa6c"
+  },
+  "native_cell_rgba_sha256": {
+    "0": "c64762f0b1c1b8295bc1133b7380449bde4c91d47de23125cfc2453bed140952",
+    "1": "1c802f558eafba88ac69bcd5643b05d1498e197c6731f7f0a70ec5d1788389f0",
+    "2": "9df5b07b1851aadd6b41260304ffc7961b8cdc99ddc93e973aa3d5830b3d6b98",
+    "3": "46030e945fff5615f01ae51cd1b100b4e2ca14688b69446ec918a9c5780fa7ac",
+    "4": "3cebbe67c836df3ec6cba1956fe59ecec5371f81dec963debf58567a95ab8552",
+    "5": "a986e9a756e6677d0ca2e7dc824ae6e69f99817d84bd145a135715bc148d2b87",
+    "6": "230e5ffb036210a3a5e07eaa653e04bb40a7be7f9fe066836f2a9a796c01fe15",
+    "7": "d6a52075d1be74ec8979d04152db5410860a97e51ed3b51db543c63726b6ce84",
+    "8": "35d9274b2faf6eb6c9bf4cb66d675001d1fc1efddff23d490175a4e9637ae514",
+    "9": "adb475e968479db6e6a49cb2a3cf5c298d07b137ed0d4cda20efec49bc458200",
+    "10": "6a2605771ed4ce42126e0a6af15b52f982502870ac37079d66cebcf08b5dcf4c",
+    "11": "13688f2180fbeb1e559ed35eebb95dc01de0ea64cba53573ea98dcfa2f9630e2",
+    "12": "fb1961c1f844a46ae6cbb7edd5c7d985b454bcc4f83b9e6f8311bcd19dd8ff3c",
+    "13": "686d1c3a5c1571312f52255e66bbe5be750141e77123c5cc9308069d6c18e28a",
+    "14": "281e49463269470b820b68f693f5b7dc97ae92933575d00ab12a1907addc4d6d",
+    "15": "c97df2305e18eaa8c15b4419fe484f8fc72e52d20bbfcda0071c5a8c4b403b31",
+    "16": "c77524de00677d2558fe3f15d48b99d3994242a11f0dc32130f229c67f5817ab",
+    "17": "bd02595c25790d00b7d21ab24864b2be5e6d6fb4545f15e3cb05f92fea6513f4",
+    "18": "c23e4e56fbe09d357916a8d6a6edfcf7c5b01aeccbb9fd447261f8bebc60d261",
+    "19": "cb2e8e0b4d4d47e43e6ccca211fb0f8953e73eef2387e4cce545961ba85b7093",
+    "20": "59c13c829de347ea7ee968e43985d1c49a2bcdef8cbf66f172fc97916a3a4d92",
+    "21": "52ff31571ac3734b8ed68790350481f0f9bbf56f559ccb1c465150e2358c1919",
+    "22": "ef9fbc7f9a12e97e22ecf2f9c4c0cbc209c2ddd8df9f4fe0695c2aa4a92f1429",
+    "23": "0148585a7921d461867c2058ee398aed7da37d1ec2cc0057032cf8638f99bd64",
+    "24": "4062ab5abb3785efa1618aac5734055b2795022e96b3728fac6668fcd3ad4aa4",
+    "25": "63010f64990b0bc976809473e6c11476dbb4b79d0a25d2959f2e150f2ef8c8af",
+    "26": "90bc26464ce6f7f99e31c60693c42dc1eece46f46ae4c704c996b439ae28df27",
+    "27": "91ec0fb854c0897f725c2fd5fbb108419d93f6381de46fd41949bc60b8afbbc3",
+    "28": "e34a7a749950d80ea6bfcfd2363e3be20ef65baa0fa091089ef283e2032c52ca",
+    "29": "6aa0d12cfd3ffda0a818cb8ba60b5039a39b11c0c57e632cb28cbf18f87911dc",
+    "30": "5b233ec02da62b3f437a9b0a0d8f4eec4f8cf264741f4b8e5c0d4e9935811fac",
+    "31": "1048d9389d57807e1dcb485e38f75c006c21f14256c01a9323a1ad40fc0d4ac5"
+  },
+  "technical_checks": {
+    "all32_exact_reconstruction": true,
+    "unique_rgba_cells": 32,
+    "opaque_palette_colors": 37,
+    "binary_alpha": true,
+    "alignment_opaque_loss": 0,
+    "wholefigures_no_clipping": true
+  },
+  "nonblocking_source_reservations": [
+    "DOWN/UP minimum sourcepadding6–12px in some poses, complete/nativepadding retained, no opaque loss; actualfloor/footplacement pending",
+    "LEFTidle bottoms58/57 needactualruntimeidlefloor inspection",
+    "Static source pose boards do not prove actualanimation cadence/joins"
+  ],
+  "reviewer_path_incident": {
+    "WORK_reports_own_diagnostic_created_then_removed": true,
+    "only_own_file_relocated_byte_exact_to_ROOT": true,
+    "implementation_source_art_modified": false,
+    "source_master_native_hashes_verified": true,
+    "independence_from_original_art_author_preserved": true
+  },
+  "next": "WholeposeB4/B7sourcecorrectionthenfreshindependentreview; no runtime or phaseapproval"
+}

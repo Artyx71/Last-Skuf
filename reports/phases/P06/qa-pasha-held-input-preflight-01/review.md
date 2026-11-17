@@ -1,0 +1,7 @@
+# Pasha held Input — static651 preflight
+
+FAIL_COMPONENT is limited to the new diagnostic guard's handling of missing observations. The loop starts actual_held=true and an empty range stays true. The saved pure logical reproduction has3valid/negative controls and this one missing-data acceptance; it is not a Godot/physical Input test or proof of a gameplay exploit. Add a nonempty, relevant segment/tick-bound sample condition before claiming fail-closed Input evidence. Existing phase/physical-state assertions still retain their own trace checks.
+
+The actual651 diff preserves every original check line, all old await lines and key-driver/release calls. It does not reassert inputs, change speed/collision/poses/timing, or weaken the original four failed predicates. Telemetry adds actual Input vector/run/focus flags. NO_FOCUS is guarded by nonheadless+MovieMaker and does not run for ordinary native/manual use. This is static qualification; there is no new runtime/focus/gameplay acceptance here.
+
+The parent has a separate canonical headless/native/movie job in progress. Valid actual data need not be interrupted or mutated because of this source-level empty-range weakness. After completion independently reject any empty/missing/wrong-scope records, inspect the actual new data, then close the future guard with a separate source fix/verification. Past failure causality remains unknown; seven previous successful stages are not blindly repeated. All older FAIL packets remain immutable. No production/engine/Controller/network writes or executions by QA.

@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-n",
+    "-i",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-present-02/timka-present.mp4",
+    "-vf",
+    "select=between(n\\,755\\,963)",
+    "-fps_mode",
+    "vfr",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-timka-present-02/movie_frames/frame_%04d.png"
+  ],
+  "exit_code": 0,
+  "output_video_frame_range": [
+    755,
+    963
+  ],
+  "decoded_frame_count": 209,
+  "movie": "build/P06/timka-present-02/timka-present.mp4",
+  "movie_sha256": "c2394c6809f6e73045a9e1a123588c6e74732551c0570061aa7bfacbcead23e4"
+}

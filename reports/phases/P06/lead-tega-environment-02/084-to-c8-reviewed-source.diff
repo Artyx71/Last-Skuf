@@ -1,0 +1,83 @@
+diff --git a/game/scripts/systems/environment_kick_runtime.gd b/game/scripts/systems/environment_kick_runtime.gd
+index e1cb523..99fa94d 100644
+--- a/game/scripts/systems/environment_kick_runtime.gd
++++ b/game/scripts/systems/environment_kick_runtime.gd
+@@ -64,6 +64,16 @@ func _authorized_source(source: Variant) -> bool:
+ func _valid_job(job: Dictionary) -> bool:
+ 	return job.epoch == combat.encounter_epoch and _authorized_source(job.source) and job.source.melee_attack_id == job.id and job.authority == job.source.action_authority_snapshot and _valid_object(job.object) and combat.environments.get(job.key) == job.object
+ 
++func _contact_eligible(job: Dictionary) -> bool:
++	# Identity alone survives a same-instance transform change in a callback.
++	return jobs.has(job) and _valid_job(job) and _near_foot(job.source,job.object,job.aim)
++
++func _stop_job(job: Dictionary) -> void:
++	jobs.erase(job)
++	# Do not cancel a replacement action created by an external listener.
++	if _authorized_source(job.source) and job.source.melee_attack_id == job.id:
++		job.source.cancel_action()
++
+ func request_step(source: CharacterBody2D, distance: float) -> void:
+ 	for job in jobs:
+ 		if job.source == source:
+@@ -111,12 +121,12 @@ func tick() -> void:
+ 			combat._wall_contact(foot_at,{"category":"unarmed"},object)
+ 			# Audio listeners may cancel/reset/revoke/free an actor or object.
+ 			# Never touch the old local job's bodies after an external callback.
+-			if not jobs.has(job) or not _valid_job(job):
+-				jobs.erase(job)
++			if not _contact_eligible(job):
++				_stop_job(job)
+ 				continue
+ 			combat.lab.make_noise(foot_at)
+-			if not jobs.has(job) or not _valid_job(job):
+-				jobs.erase(job)
++			if not _contact_eligible(job):
++				_stop_job(job)
+ 				continue
+ 		var motion: Vector2 = job.aim*float(job.step)
+ 		job.step = 0.0
+@@ -145,12 +155,15 @@ func tick() -> void:
+ 		source.ability_distance += travelled.length()
+ 		source.last_ability_path.append(source.global_position)
+ 		source.sync_ability_presentation()
++		if not _contact_eligible(job):
++			_stop_job(job)
++			continue
+ 		if collision == null: continue
+ 		job.stopped = true
+ 		var target: Object = collision.get_collider()
+ 		_record(job,"object_collision",{"travel":[travelled.x,travelled.y],"normal":[collision.get_normal().x,collision.get_normal().y],"collider":target.get_instance_id() if is_instance_valid(target) else 0,"source_frame":source.sprite.frame})
+ 		# Real collider, same pinned job and contact pose; Core reserves once-token.
+-		if not _valid_job(job) or source.action_frame != 1: continue
++		if not _contact_eligible(job) or source.action_frame != 1: continue
+ 		if target is CharacterBody2D and target in combat.lab.enemies and target.health > 0:
+ 			combat._apply_hit(target,job.definition,job.id,source,"environment_object")
+ 		elif target is CollisionObject2D and target.collision_layer & 1:
+diff --git a/game/tests/tega_environment_replay.gd b/game/tests/tega_environment_replay.gd
+index de107b9..38d4417 100644
+--- a/game/tests/tega_environment_replay.gd
++++ b/game/tests/tega_environment_replay.gd
+@@ -17,6 +17,8 @@ func on_audio(cue: StringName, _at: Vector2) -> void:
+ 	if mode=="unregistered": lab.combat.environments.erase("training_bench")
+ 	if mode=="replace":
+ 		var replacement:=StaticBody2D.new();lab.add_child(replacement);lab.combat.register_environment("training_bench",replacement);replacement.queue_free()
++	if mode=="prop_far": lab.training_bench.position += Vector2(100,0)
++	if mode=="source_far": lab.player.position -= Vector2(100,0)
+ 
+ func check(label: String, ok: bool, details: Dictionary = {}) -> void:
+ 	checks.append({"name":label,"passed":ok,"details":details})
+@@ -162,6 +164,14 @@ func run() -> void:
+ 		if mode=="free":
+ 			root.remove_child(lab);lab.queue_free();await process_frame;lab=Lab.new();root.add_child(lab);current_scene=lab;await frames(2);await tap(KEY_6);lab.auto_retry=false;lab.combat.contact_committed.connect(on_contact);lab.audio_event.connect(on_audio)
+ 		else:lab.scene_policy.open("tega_training");await tap(KEY_R)
++	for mode in ["prop_far","source_far"]:
++		await setup(2,false);segment="foot_geometry_"+mode
++		var prop_after_callback:Vector2=lab.training_bench.position+(Vector2(100,0) if mode=="prop_far" else Vector2.ZERO)
++		var actor_after_callback:Vector2=lab.player.position-(Vector2(100,0) if mode=="source_far" else Vector2.ZERO)
++		foot_callback_mode=mode
++		await tap(KEY_F);await frames(30)
++		check(segment+":same_instance_transform_callback_executed",foot_callback_mode.is_empty())
++		check(segment+":no_remote_step_or_receipt",lab.training_bench.position==prop_after_callback and lab.player.position==actor_after_callback and lab.combat.environment_kicks.jobs.is_empty() and lab.combat.receipts.is_empty() and lab.combat.damage_events==0)
+ 	for reason in ["cancel","disabled","revoke"]:
+ 		await setup(2,false);segment="active_interrupt_"+reason
+ 		await tap(KEY_F)

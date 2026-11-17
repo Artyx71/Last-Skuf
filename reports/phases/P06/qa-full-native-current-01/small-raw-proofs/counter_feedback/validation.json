@@ -1,0 +1,221 @@
+{
+  "scope": "OLEZHKA_GUARD_READABILITY_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 79,
+      "total": 79
+    },
+    {
+      "passed": 58,
+      "total": 58
+    }
+  ],
+  "actual_captures": 21,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_feedback_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 5.916,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-counter-qa/2575eb399facdf450969"
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/counter_feedback/counter-feedback.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_feedback_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 9.836,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-counter-qa/febda3c645105dc9df7a"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/counter_feedback/counter-feedback.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/counter_feedback/counter-feedback.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/counter_feedback/counter-feedback.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/counter_feedback/counter-feedback.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/commands.json",
+      "sha256": "f9a1d83e07ff34c97784d627369bd51c267211efaa27f21a8440d855c9f0ff98"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/01_ready.png",
+      "sha256": "b943fc09a6bc4262252e39e9d2dec63cbbb990cd31712453e580a8f7dd7824ca"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/02_preparing.png",
+      "sha256": "d91e30d8792bb73d8c97ea3ce5fd515d9d61e7d71b9376497c503ae90ed62bf8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/03_guard_open.png",
+      "sha256": "9bf2a0b6894e2d49a5843b7d86088849053b83087b1717f4bb8c335f805b1ba5"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/04_window_closed.png",
+      "sha256": "4cb9fcc7870ab5212747caebf0ea88bea7087482cc8a101d24ec491445a87b83"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/05_recovery.png",
+      "sha256": "a69c70fd9a13439796112c450cc9789f992b5a5081bb0048c59c7b6c97558237"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/06_cooldown.png",
+      "sha256": "c386ce0ac1b4bebab9440b9c06d75d69f486ecc3e162587180227dda6edc3d79"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/07_block_down.png",
+      "sha256": "02f40b13b6ca2218f2b278822294042bf4d5f1643e58ab20974afae43fd5cc49"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/07_block_left.png",
+      "sha256": "70315a23739d73392aaa0bca8d83668f9563bb065af4cd40385abbc07d86ef7a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/07_block_right.png",
+      "sha256": "bf6ae9145d94df71e3140161512ca8f768dd97ea03d200b9d176187634f14e35"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/07_block_up.png",
+      "sha256": "439dd0802421d8835b4e1dcd2e596c34a14400d72364f966d2b14eeb29668efd"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/08_counter_recovery_down.png",
+      "sha256": "2ee8b1f0a53727933ecc4029d68b8c5e078a020d09396534792c8b224d423903"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/08_counter_recovery_left.png",
+      "sha256": "f65b968410c24f0c52fe4aac482f8bd73978cb8e9312a1d510433c39ebaa0274"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/08_counter_recovery_right.png",
+      "sha256": "3be70f5598cf4bd6e37fd349417bde871b03e81247ae9eed57522e85dfceeb00"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/08_counter_recovery_up.png",
+      "sha256": "e884a2fdf73ececae2c6f5cf909d8654aa3daa641fc0c5a22f68fea49e656ab6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/09_cancel.png",
+      "sha256": "887bce8c83728853f9d2d29380f2aca2d573f9a41a9138d8d2c1aa3e8d01643d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/10_dead.png",
+      "sha256": "9e0c000f50c29fd559986826b7c010468945359347ac3be155488d070c7701a7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/11_paused.png",
+      "sha256": "21620391d736d8c7ba43800139bf895ed760d933d8626db97de38e49e05f9b0f"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/12_revoked.png",
+      "sha256": "e64f312417b5c9d35d36f96734c29ef9ab0b2c43f6cfb4f3ec2c45e6b0c21141"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/13_unknown_keeps_Oleg.png",
+      "sha256": "ee4b3954b5ab09e1136b6e018207fb0858b82e330e16c5dbd984f16b29b11756"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/14_settings_guard_false.png",
+      "sha256": "cb3e62147cf9c2672ba9a3ad81289f528a7ee56196304f6260c6305b9fca82ed"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/14_settings_guard_true.png",
+      "sha256": "9bf2a0b6894e2d49a5843b7d86088849053b83087b1717f4bb8c335f805b1ba5"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live/result.json",
+      "sha256": "bfd5f8aa84b4a6383e828e376a5255dcf2684d61843a49d1d5980f3dfec5df50"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/live.log",
+      "sha256": "f8088590d3962043929cd0e59ba650164620f461121ec2bd0a2bff5254356d52"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/movie/result.json",
+      "sha256": "4f0cf934f39caa0c9c6f3d54ff5df0c77180cff5c4e668713c530ae002628f5a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/movie.log",
+      "sha256": "1af9e66f99172e34a9dd407794ba737bea1f086fffc01dabdccc3990fff764a7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/movie_probe.json",
+      "sha256": "573ef9d3fd0b49efbfcf3f8c7802b52ebc41a8110460c6a346ea83d6975561d5"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/counter_feedback/source_hashes.json",
+      "sha256": "2a1731abf68fe3857b90bbf5b02adafca563a03d89c560f51c9d8a410ef8a104"
+    }
+  ]
+}

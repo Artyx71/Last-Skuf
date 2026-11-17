@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "reviewer": "/root/qa_resume_recovery",
+  "review_role": "independent_ART_SOURCE_CELL12_ONLY",
+  "reviewed_utc": "2026-11-14T17:48:07.166057+00:00",
+  "actor_id": "tega",
+  "kind": "world",
+  "status": "FAIL_CELL12_CAMERA_BODY_FAMILY",
+  "reviewed_cells": [
+    12
+  ],
+  "all32_freshly_reviewed": false,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "raw_master_sha256": "37d1e1c5a0020b4dade10e4a7d7ab7fcd094eb35afe53909f47ae98070443168",
+  "master_sha256": "d708ef0c9c3d8dc7af79d07661399617c8a50973c9fd095f420756fd8501bb15",
+  "native_sha256": "ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799",
+  "report_sha256": "e97b81f5af0988d9958c5ea90ba61bc602f0555e6cd1cbbb0807267bdf980845",
+  "metrics_sha256": "d7c7f30de248cb758d222a607030b0fc6198c182fb045ed1c7750b2e2b1da513",
+  "must_fix": [
+    {
+      "id": "TEGA-LEFT4-FAMILY-01",
+      "severity": "major",
+      "status": "OPEN_SOURCE_CORRECTION_REQUIRED",
+      "cell_index": 12,
+      "direction": "left",
+      "column": 4,
+      "source_rect_xyxy": [
+        768,
+        256,
+        960,
+        512
+      ],
+      "native_rect_xywh": [
+        192,
+        64,
+        48,
+        64
+      ],
+      "summary": "NewB4 has longer/narrower profile face/lower collar and reduced hoodie/body/hand volume relative to own LEFT family; matching wholefigure height/floor does not preserve camera/internalproportions",
+      "required_action": "Reauthor completeB4 with ownreference head/camera/hoodie/hand geometry and improved farleg-leading chain; no separate body-part resize or anatomy collage; re-review before other3"
+    }
+  ],
+  "previous_gait_finding": {
+    "id": "TEGA-WORLD-SIDE-GAIT-01",
+    "cell12_farleg_leading_reading": "IMPROVED_SOURCE_ONLY_NOT_FULL_ACCEPTANCE",
+    "other_cells_still_open": [
+      15,
+      20,
+      23
+    ]
+  },
+  "technical_checks": {
+    "raw_wholefigure_uniformscale_placement_exact": true,
+    "other31source_and_native_cells_byte_exact": true,
+    "all32native_technical_reconstruction_exact": true,
+    "opaque_placement_alignment_loss": 0
+  },
+  "source_inventory_sha256": {
+    "assets/source_art/characters/tega/world_master_v1.png": "93bbe92c89a48fce9e6969e63b21923e7a449fdfbc1a14eb54e26bab62222754",
+    "assets/source_art/characters/tega/world_native_v1.png": "e3b52ae7b4611b73e77c830155b973614c237cfe399095552ab5e8ca2138871c",
+    "assets/source_art/characters/tega/world_left4_master_v2.png": "37d1e1c5a0020b4dade10e4a7d7ab7fcd094eb35afe53909f47ae98070443168",
+    "assets/source_art/characters/tega/world_left4_v2_prompt.txt": "662f66d55bfc31fafd986f3dcebc199d0e13f863457183c2f61e5e1065a04d5a",
+    "assets/source_art/characters/tega/world_left4_v2_generation_metadata.json": "6713483df14947a5a09801ddfcfc77fa694680518245d66fe8f345f3bcde8ee0",
+    "assets/source_art/characters/tega/world_master_v2a.png": "d708ef0c9c3d8dc7af79d07661399617c8a50973c9fd095f420756fd8501bb15",
+    "assets/source_art/characters/tega/world_native_v2a.png": "ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799",
+    "assets/source_art/characters/tega/world_manifest_v2a.json": "5affc89e799d11e865e075e231c2a2a723dd7b81de018f817f635bb008f9229e",
+    "assets/source_art/characters/tega/world_v2a_assembly.json": "766c6abb8890a27a79996c541112f2b309e2cdf14223983aff6c454cef74159e",
+    "assets/source_art/characters/tega/world_isolated_v2_references.json": "e7594271d540005f69c46696d7124aac75f9ddba6747c9096128bae76c03f060",
+    "assets/source_art/characters/tega/left4_own_family_reference_v2_4x.png": "6466192704bbca0d2577a1094916b9f6ea09124ca4bdbeb75f124c90f6cf3389",
+    "assets/source_art/characters/tega/left4_oleg_gait_reference_v2_4x.png": "923ef795455a50fb6090fed226283a163a6bcd0af707c4af7cd4817e9f83d738",
+    "assets/source_art/characters/place_actor_pose.py": "bc5b83b9491684b0e30ec1cd44540d6ab1e5576fcedca99a7d4e7646c615afb9",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e"
+  },
+  "review_artifacts_sha256": {
+    "tega_world_left4_preflight_v2a.md": "e97b81f5af0988d9958c5ea90ba61bc602f0555e6cd1cbbb0807267bdf980845",
+    "tega_world_left4_preflight_v2a_inspect.py": "9f45fdfe9b5c2b57b4747db5e04735c780653df0930e15bafcff1409f09f8574",
+    "tega_world_left4_preflight_v2a_metrics.json": "d7c7f30de248cb758d222a607030b0fc6198c182fb045ed1c7750b2e2b1da513",
+    "tega_world_left4_preflight_v2a_native_family6x.png": "135ea79e7ade15a8263fd177f1dfc881992c4397b18536b2aa5e5c813bc85156",
+    "tega_world_left4_preflight_v2a_source_family2x.png": "6e75dfe97b36d859e807f00f197ee36906ed5dc085f9e10c51520d7bb926a0cf"
+  },
+  "limits": [
+    "One-cell earlypreflight only; no fourdirection/all32 acceptance",
+    "Colorlandmark diagnostics support visualcomparison, not anatomical thresholds",
+    "No actual Godot/native/runtime animation or freshphoto likeness approval",
+    "No absolute headwidth-increase claim"
+  ],
+  "next": "Reauthorfamily-consistentwholeLEFT4beforeother3generations; preservefailedversions",
+  "source_inventory_base": ".autopilot/worktrees/P06",
+  "review_artifacts_base": "reports/phases/P06/art-preflight"
+}

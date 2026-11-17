@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "scope": "FROZEN_C8_BOUNDED_TEGA_LEAD_REVIEW02",
+  "source_head": "c8f465840ec970e6abdcb9d41e1f0cbed8fc38bd",
+  "original_TEGA_L01": {
+    "status": "PARTIALLY_REMEDIATED_OPEN",
+    "original_two_128px_cases_pass": true,
+    "unchanged_independent_geometry_assertions": "8/8",
+    "full_current_geometry_contract_closed": false,
+    "remaining_subfinding": "TEGA-L02",
+    "old_Lead01_decision_unchanged": true
+  },
+  "findings": [
+    {
+      "id": "TEGA-L02",
+      "parent_contract": "TEGA-L01",
+      "QA_cross_reference": "TEG-Q03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "must_fix": true,
+      "file": "game/scripts/systems/environment_kick_runtime.gd",
+      "requirement": "P06-CBT-08 actual available foot/object geometry before movement/contact",
+      "title": "Current Node geometry is ineligible while the spatial query still authorizes its previous PhysicsServer shape",
+      "repro": "Actual InputF, foot-audio callback changes same bench Node +(0,16); priority1000 observer after Core in same tick. Direct Shape2D.collide uses actual current CollisionShape2D.global_transform; forced transform is a separate positive control.",
+      "actual": "Nodebody(308,256)/shape(308,250), Circle8(303,234): direct current overlap=false, cached server body(308,240)/shape(308,234), space/runtime=true. Core still moves actor/prop0.70001220703125px, jobs1 at tick19. Forced-transform control rejects and stops with deltas0/jobs0.",
+      "remote_damage_observed": false,
+      "fix": "Ensure actual current source/object/collider transforms agree with the physical eligibility query before authorizing the sweep; preserve exact shape, range/facing/LOS/identity/lifetime/authority checks after both callbacks and before contact. Do not replace the actual collider test with a loose distance/AABB condition.",
+      "acceptance": [
+        "Original independent geometry8 remains passing.",
+        "Actual direct-shape qualification15 passes with unforced Node-shift case rejected, zero postcallback motion/job, forced control separately preserved.",
+        "At least one clean listener changes Node transform only; observation does not call the production synchronizer/force before Core, so telemetry cannot heal the production state.",
+        "Existing positive coupled object paths, collisions, callback guards, masks/exclusions and once/hurt/death/reset/settings remain passing on new frozen source/native evidence."
+      ]
+    },
+    {
+      "id": "TEGA-L03",
+      "QA_cross_reference": "TEG-Q04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "must_fix": true,
+      "file": "game/scripts/systems/environment_kick_runtime.gd",
+      "requirement": "P06-CBT-10 safe reset/action cancellation without cancelling a newly authorized action",
+      "title": "Old _stop_job cancels a legitimate same-kind replacement when attack IDs repeat in a new encounter epoch",
+      "repro": "Actual foot-audio callback uses combat.reset(), player.reset(current_position), then use_ability(); no direct cooldown edits. Numeric next_attack_id reset makes old epoch6/id1 and new epoch7/id1 collide.",
+      "actual": "Callback starts new special/job1 successfully; after old Core cleanup in same tick137 action becomes empty/id0/jobs0. New-shove positive control passed but did not exercise same-kind epoch ID reuse.",
+      "remote_damage_observed": false,
+      "fix": "Cancel only the old source action with matching encounter epoch, pinned authority/action context and numeric attackID, plus existing lifetime/actor guards. Do not deny normal reset/newF or weaken the test.",
+      "acceptance": [
+        "Unchanged actual epoch replacement qualification preserves new epoch7/id1 special/job1 after old cleanup.",
+        "Old job cannot move, damage, reserve another receipt or cancel the replacement action.",
+        "Existing no-replacement cancel/reset, new-shove control, authority replacement, free and once semantics remain passing on new frozen source."
+      ]
+    }
+  ],
+  "blocking_findings": ["TEGA-L02", "TEGA-L03"],
+  "actual_QA07": {"passed": 13, "failed": 2, "damage_and_receipts": 0},
+  "later_20c_fix_evaluated": false,
+  "phase_approval": false
+}

@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "upstream_index": {
+    "base": "ROOT",
+    "path": "reports/phases/P06/lead-full-gate-preflight-01/component-reuse-index.json",
+    "sha256": "6bc2d789f5f75394c78e5f2062793ad288d389f5d3730debfe87668f17d15b94"
+  },
+  "verified_review_references": 37,
+  "rows": [
+    {
+      "id": "gabar_base",
+      "historical_native_directory": "reports/phases/P06/attempt1/gabar-combat-native-02",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/gabar-combat-native-review-v2.json",
+          "sha256": "fb13412fef536ca93537a98e2bb15ef9d380ad957d333f653271d711c65653ca",
+          "status": "ACCEPTABLE_GABAR_CONTROLLER_RENDER_FOR_CAPTURED_CONFIGURATION",
+          "scope": "GABAR_CONTROLLER_RENDER_ART_CAPTURED_CONFIGURATION_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-preflight/gabar-controller-preflight-v2.json",
+          "sha256": "554ce945b779e2cafbb754393fd573d4fc705f273dab5d84c94665a7dc4464ee",
+          "status": "GP_GABAR_01_02_CLOSED_SCOPED_INTEGRATION_ONLY",
+          "scope": "bounded_production_gabar_controller_remediation",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "olezhka_base",
+      "historical_native_directory": "reports/phases/P06/attempt1/olezhka-combat-native-01",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/olezhka-combat-native-review-v1r.json",
+          "sha256": "35ca98335d41f394f2992ff5a0d3613a7de31c9e84b3c653d38937e539d5f9c0",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "actual_native_art_recovery_component",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-preflight/olezhka-controller-preflight-v1.json",
+          "sha256": "52a79e394c5d0da89462178e926dfc231ff3493999f320995cadfcf8f3de4778",
+          "status": "SOURCE_AND_AUTHOR_RUNTIME_VERIFIED_COMPONENT_ONLY",
+          "scope": "bounded_olezhka_counter_controller_contact_defense",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "oleg_guard",
+      "historical_native_directory": "reports/phases/P06/guard-feedback-01/native-03",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-guard-feedback-01/decision.json",
+          "sha256": "b1d552b2a48a5e6fd049f73a6cd67a27412b7e5b021276ef61f816a6e0ce0d67",
+          "status": "PASS_COMPONENT",
+          "scope": "P06_OLEZHKA_EXISTING_COUNTER_READABILITY_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-guard-feedback-01/decision.json",
+          "sha256": "7666fcc6fb8da035a206c945110314580c33e517a15fe92239508378f97bf200",
+          "status": "PASS_UI_COMPONENT",
+          "scope": "OLEZHKA_COUNTER_HUD_CAPTURED_CONFIGURATION_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-guard-feedback-01/decision.json",
+          "sha256": "a896505e72a1642a219f8c6258b7c8f5267196c8d0683de67829f7719193d94c",
+          "status": "PASS_COMPONENT",
+          "scope": null,
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-guard-feedback-01/decision.json",
+          "sha256": "e8783576f2bccbd8d782e1fb9c80505ee95b575b24f5d7858a62e8ee42095bf2",
+          "status": "PASS_COMPONENT",
+          "scope": "CBT02_OLEZHKA_COUNTER_READABILITY_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "timka_present",
+      "historical_native_directory": "reports/phases/P06/timka-present-01/native-02",
+      "reviews": [
+        {
+          "base": "ROOT",
+          "path": "reports/phases/P06/lead-timka-present-01/decision.json",
+          "sha256": "de6418fb51769ec3a86638de8ef0d7df85af80de4bb5d7d4bc6b898a2b6985e7",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_FIN24_SOURCE_ADOPTION_PRESENT_DISENGAGE_AND_DEV03_EVIDENCE_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-timka-present-02/decision.json",
+          "sha256": "743fb701eb101f0509261f9a1ba5e9d1c05a54957f917952043d38aacaf0f064",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_PRESENT_CORE_INCOMING_CONTACT_ART_ADDENDUM",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-timka-present-02/decision.json",
+          "sha256": "7e784deb11b976b0cf984dbd9803db3681786fd1934687352d42cf3624e9dcd9",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_PRESENT_DISENGAGE_AND_GP_TIM_PRES_01_CLOSURE_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-present-02/decision.json",
+          "sha256": "757f7aa5560fe66bf9d4967384306853f757330ed27adab3982477ea62492dc4",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_PRESENT_COMPONENT_CLOSURE_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "timka_prime",
+      "historical_native_directory": "reports/phases/P06/timka-prime-01/native-03",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-timka-prime-02/decision.json",
+          "sha256": "932667a4a89296fde9ee2639e6088dc69a20b39caa1d3d059cfb406299d77272",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_TWO_CONTEXTS_RUNTIME_AND_TPR_L01_RECOVERY_FOOTER_CLOSURE_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-timka-prime-02/decision.json",
+          "sha256": "bfe6a6d8e3eea478b25586b318371e5dd93c901e859ba5658325acdce5b5723e",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_PRESENT_PRIME_VISUALS_FINISHER_RUNTIME_ART_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-timka-prime-01/decision.json",
+          "sha256": "37034514ed9bd6e6d2d4a30a07849100f35b0c8f66af1eb5106c0307640c1ba2",
+          "status": "PASS_COMPONENT",
+          "scope": null,
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-prime-01/decision.json",
+          "sha256": "9d69eb46e328a6b0c1650054e7c4efb7e13bb0f6cd2ffd01698560533ed15a74",
+          "status": "PASS_COMPONENT",
+          "scope": "TIMKA_PRIME_TWO_CONTEXT_AND_RECOVERY_QA_COMPONENT_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-timka-prime-footer-01/decision.json",
+          "sha256": "c86a97b7a4deeb1444005f1c31679391d51a55ccbfbde0f40a899eb01d3843d0",
+          "status": "PASS_COMPONENT",
+          "scope": "TPR_L01_RECOVERY_LOG_EXIT_FOOTER_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "ryzhik_roll",
+      "historical_native_directory": "reports/phases/P06/ryzhik-roll-01/native-03",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-ryzhik-roll-01/decision.json",
+          "sha256": "bd49a4ffe44a1874f5e252c6889a6d9850a6909db8d0598dbd62c95bdab659cc",
+          "status": "PASS_COMPONENT",
+          "scope": null,
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-ryzhik-roll-02/decision.json",
+          "sha256": "1bff5aa09a90cc7350316ac9af896082c5b38e4b3b301b58705b7c87a39aa72e",
+          "status": "PASS_COMPONENT",
+          "scope": "RYZHIK_BODY_ROLL_ALLOWED_FIN_RUNTIME_ART_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-ryzhik-roll-02/decision.json",
+          "sha256": "bb8880ccace31061391289675412494d76917aaf3619438d504f034200194b21",
+          "status": "PASS_COMPONENT",
+          "scope": null,
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-ryzhik-roll-02/decision.json",
+          "sha256": "46b4b458f127fd60b0482eb9bfd322b4a8658a0415e276351c5f452861adef47",
+          "status": "PASS_COMPONENT",
+          "scope": "RYZHIK_ROLL_TPR_R01_R02_ROUND2_QA_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "tega_environment",
+      "historical_native_directory": "reports/phases/P06/tega-environment-01/native-03",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-tega-environment-03/decision.json",
+          "sha256": "8d7e4bdfead1cc5cbd7b702780bee711f3faa6ab3b85afcfdfdc8c90eba46e7a",
+          "status": "PASS_COMPONENT",
+          "scope": "Exact captured registered-bench Tega fixture, own96art/56clips, allowedFIN and actual tested callback/state paths. No broad fullphase approval.",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-tega-environment-03/decision.json",
+          "sha256": "ef5ec8823424a4409059f0544e7ba3a2379e07dfe2d7bca5e4cd933d7eb5dfbd",
+          "status": "PASS_COMPONENT",
+          "scope": "TEGA_ENVIRONMENT_SYNC_QUERY_EPOCH_GUARD_ART_REGRESSION_ADDENDUM_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-tega-environment-03/decision.json",
+          "sha256": "905266220c728741b0fb1a93a1b6c8d2400cdeed970092380e65492e7a957916",
+          "status": null,
+          "scope": "TEGA_ENVIRONMENT_CALLBACK_GEOMETRY_AND_ACTION_LIFETIME_CLOSURE_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-tega-environment-03/decision.json",
+          "sha256": "34b65dc23c7236faf975f690d9f72473cac294826d3658abb2e4d71361220c27",
+          "status": "PASS_COMPONENT",
+          "scope": "TEGA_CALLBACK_GEOMETRY_AND_EPOCH_FIX_CLOSURE_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "pasha_moving_shot",
+      "historical_native_directory": "reports/phases/P06/pasha-moving-shot-01/native-03",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-pasha-moving-shot-01/decision.json",
+          "sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+          "status": "PASS_COMPONENT",
+          "scope": "P06 Pasha moving-shot / own animation / finite ammunition / documented callback and HUD regressions, plus local DEV06 packaged smoke",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-pasha-moving-shot-03/decision.json",
+          "sha256": "bc5241ca31ff1b790ec98692324e8e2fcc1c2dfe49a2140ae6711ae0aaebf1f0",
+          "status": "PASS_COMPONENT",
+          "scope": "PASHA_MOVING_SHOT_BODY_FIN_HUD_RUNTIME_ART_COMPONENT_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/gameplay-pasha-moving-shot-03/decision.json",
+          "sha256": "74d50ecb4c19e6cfb3fcbbc07ad4ab044f026d874dd3e0a0a0cb473b94b3d3e5",
+          "status": "PASS_COMPONENT",
+          "scope": "PASHA_MOVING_SHOT_FINITE_CLIP_HUD_AND_TARGETED_CALLBACK_CLOSURES_ONLY",
+          "phase_approval": false
+        },
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/qa-pasha-moving-shot-03/decision.json",
+          "sha256": "3ca607fb6fc34eade27b3a326e2441dd63f348c4ae8ba6d5c97d3b6e73e1e0a2",
+          "status": "PASS_COMPONENT",
+          "scope": "PASHA_B359_UI_ROLLFORWARD_AND_REUSED_TECHNICAL_CLOSURE_ONLY",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "cast_portrait_dialogue",
+      "historical_native_directory": "reports/phases/P06/attempt1/cast-native-02",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/runtime-art-preflight_v1.json",
+          "sha256": "21c89e5cd80fca19e4932ed8e21fe2746e9322f9435cdff170213fd0a9a73c09",
+          "status": "VISUAL_PRESENTATION_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "scope": "independent_runtime_capture_art_preflight",
+          "phase_approval": false
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "gabar_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/world-native-02",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/gabar_world_runtime_preflight_v2.json",
+          "sha256": "c80c2b7eb55c71f5d558592f679f840b6891ae1bf2450568302384166f8d0b23",
+          "status": "VISUAL_MOVEMENT_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "scope": "GABAR_CAPTURED_ART_MOVEMENT_FIXTURE_ONLY",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "olezhka_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/olezhka-world-native-01",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/olezhka_world_runtime_preflight_v1.json",
+          "sha256": "9f6e89aaf641bdff47ee81082a4426540581ce695f582bff98e3ca77034854c4",
+          "status": "VISUAL_MOVEMENT_ACCEPTABLE_FOR_CAPTURED_CONFIGURATION",
+          "scope": "OLEZHKA_CAPTURED_WORLD_ART_MOVEMENT_FIXTURE_ONLY",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "timka_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/timka-world-native-02",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/timka-world-native-review-v1.json",
+          "sha256": "e136bc560aa30bcc77d47c95a8f9ca36beace0e6a43452ad7d6b480c12b9c1b1",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "actual_native_world_art_component",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "ryzhik_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/ryzhik-world-native-01",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/ryzhik-world-native-review-v1.json",
+          "sha256": "d4c3380a07d25417f32560fe64ce7c459d17e7ac38b0424a641eccf2df64322e",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "actual_native_world_movement_art",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "tega_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/tega-world-native-01",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/tega-world-native-review-v1.json",
+          "sha256": "dcd902b45d7a61ff9d22b77100d386d060f075ae2776a210b8b97b12e4b0fb8a",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "TEGA_WORLD_ACTUAL_NATIVE_CAPTURED_CONFIGURATION_ONLY",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "pasha_world",
+      "historical_native_directory": "reports/phases/P06/attempt1/pasha-world-native-01",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/art-preflight/pasha-world-native-review-v1.json",
+          "sha256": "c6767b48deb2419914bebacc50744b85a2e8379300cb0252614db3fcfde67801",
+          "status": "ACCEPTABLE_CAPTURED_CONFIGURATION_ART_COMPONENT_ONLY",
+          "scope": "PASHA_WORLD_ACTUAL_NATIVE_CAPTURED_CONFIGURATION_ONLY",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    },
+    {
+      "id": "C01_audio",
+      "historical_native_directory": "reports/phases/P06/character-finisher-audio-01/native-02",
+      "reviews": [
+        {
+          "base": "WORK",
+          "path": "reports/phases/P06/lead-character-finisher-audio-01/decision.json",
+          "sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+          "status": "PASS_COMPONENT",
+          "scope": "BoundedprototypeC01technical+ownerhistoricalsolo/runtimecontentacceptance; noagenthearing",
+          "phase_approval": null
+        }
+      ],
+      "reuse_limit": "Historical component/source inspection only; changed critical code requires current native result, not automatic runtime equivalence."
+    }
+  ],
+  "all_prior_phase_approval_flags_preserved": true,
+  "fresh_native_claim": false
+}

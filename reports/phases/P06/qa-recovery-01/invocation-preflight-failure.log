@@ -1,0 +1,4 @@
+Initial invocation was issued from ROOT instead of WORK.
+The wrapper rejected it at assert Path.cwd()==WORK before imports, tests, fixtures or any production-controller action.
+Observed traceback: run_isolated_suite.py line10 AssertionError; command exit_code=1.
+Corrected command below runs the same unchanged wrapper from WORK with PYTHONDONTWRITEBYTECODE=1 and global/system Git config disabled.

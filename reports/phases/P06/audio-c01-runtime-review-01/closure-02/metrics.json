@@ -1,0 +1,128 @@
+{
+  "scope": "C01_Q03_ACTUAL_HEADROOM_TECHNICAL_CLOSURE_ONLY",
+  "source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+  "native_actual_checks_audited": 61,
+  "native_actual_new_CoreInput_FIN": 3,
+  "native_actual_new_targets": [
+    "Gabar unarmed",
+    "Timka prime blunt",
+    "Pasha firearm"
+  ],
+  "old_f615_45CoreProofs": "Reused, not rerun; all1460/1465unchanged sourcekeys; exact5deltas documented",
+  "prior_own_startup": "7calls/34actualassertions reused; AudioDirector/Profile/Catalog unchanged",
+  "prior_source_binding": "33temp cases/80controlchecks reused; strict verifier/source/WAVs unchanged",
+  "own_new_offline_PCM_checks": 199,
+  "own_new_export_audit_checks": 49,
+  "own_new_Godot_calls": 0,
+  "source_NCC_range": [
+    0.9899452104227207,
+    0.9994881374229864
+  ],
+  "new_minus_old_quiet_source_projection_gain_dB_range": [
+    0.0,
+    0.0
+  ],
+  "old_new_aligned_solo_NCC_range": [
+    1.0,
+    1.0
+  ],
+  "all20_direct_decoded_PCM16_stereo_aligned_segments_identical": true,
+  "whole_files_not_claimed_byteidentical": "recordtiming/duration differs; compare exactly playedsource-duration segments only",
+  "fresh_mixes": {
+    "runtime_mix": {
+      "sha256": "377d1c1312a0b850438a0588b77c1acb4f1438d18b5ca78a86327e2cdc4008c7",
+      "duration_seconds": 4.481451247165533,
+      "PCM_rail_samples": 0,
+      "FFmpeg_fullfile_truepeak_dBFS": -6.1,
+      "RMS_channels_dBFS": [
+        -23.19531710997195,
+        -23.185331357288938
+      ],
+      "sample_peak_channels_dBFS": [
+        -6.296912866303314,
+        -6.214664151184685
+      ],
+      "DC_channels": [
+        0.001206362340116748,
+        0.001208175649297052
+      ]
+    },
+    "solo_cues": {
+      "sha256": "e53b9a58b226eab9ae255a022a57f3b5a4eab8a1cd436770d1551ce61f1754f7",
+      "duration_seconds": 12.004716553287983,
+      "PCM_rail_samples": 0,
+      "FFmpeg_fullfile_truepeak_dBFS": -5.9,
+      "RMS_channels_dBFS": [
+        -27.15644623474221,
+        -27.15644623474221
+      ],
+      "sample_peak_channels_dBFS": [
+        -6.6955876400365,
+        -6.6955876400365
+      ],
+      "DC_channels": [
+        -0.00010757733359788787,
+        -0.00010757733359788787
+      ]
+    },
+    "stress_mix": {
+      "sha256": "c79fb2d5eb0ab63e9dfca73d6c0a02615c45e63a6be13b54541c0a505df033f1",
+      "duration_seconds": 6.095238095238095,
+      "PCM_rail_samples": 0,
+      "FFmpeg_fullfile_truepeak_dBFS": -1.7,
+      "RMS_channels_dBFS": [
+        -13.712439893972157,
+        -13.711127927432226
+      ],
+      "sample_peak_channels_dBFS": [
+        -3.0003622493859567,
+        -3.0003622493859567
+      ],
+      "DC_channels": [
+        0.0004869893618992397,
+        0.0004354805038088844
+      ]
+    }
+  },
+  "own8x_subset_diagnostic_dBTP": {
+    "old_failed": [
+      0.14702890051323797,
+      0.1557107539834129
+    ],
+    "new": [
+      -1.9624592827180034,
+      -1.9660429429853652
+    ],
+    "not_global_bound_or_certified_meter": true
+  },
+  "gates": {
+    "fullfile_FFmpeg_truepeak_dBFS": "<0 for eachmix",
+    "PCM_rails": 0,
+    "source_NCC": ">=0.70 asprior",
+    "new_headroom_target_dBTP": "<=-1 for eachmix",
+    "quiet_solo_projection_gain_change_dB": "absolute<=0.25",
+    "old_new_aligned_solo_NCC": ">=0.98",
+    "own_finite_sinc_subset_newTP": "<0; diagnostic subset notglobal bound/certifiedmeter"
+  },
+  "actual_stress_bursts": 8,
+  "eachburst": {
+    "played": 12,
+    "active": 12,
+    "dropped": 8
+  },
+  "actual_DEV08": {
+    "Linux_renderer_checks": 81,
+    "WindowsPE_under_Wine_headless_checks": 72,
+    "actualLinuxPNGs": 9,
+    "actual_streams_and_playback_bindings_each": 20,
+    "native_windows": "NOT_TESTED",
+    "read_only_audit_not_new_packaged_execution": true
+  },
+  "source_domain": {
+    "native1465_before_after_identical": true,
+    "DEV08common1363_all_identical_to_native02": true,
+    "explicit102omissions": "77archivedsignal-review inputs+25source_audio files outside exporter mapper domain"
+  },
+  "actual_agent_listening": false,
+  "physical_hardware_latency_or_FPS": "NOT_MEASURED"
+}

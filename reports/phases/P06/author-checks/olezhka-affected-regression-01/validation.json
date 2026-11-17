@@ -1,0 +1,200 @@
+{
+  "scope": "AFFECTED_P06_UNITS_GABAR_AND_CH01_ISOLATION_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_head": "64c57f75671aeff07e8b9d13a8ee91d4cb79b3ff",
+  "source_unchanged": true,
+  "commands": [
+    {
+      "name": "character_combat_profile",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_combat_profile_test.gd"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.597
+    },
+    {
+      "name": "character_scene_policy",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_scene_policy_test.gd"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.691
+    },
+    {
+      "name": "character_policy_integration",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_policy_integration_test.gd"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.068
+    },
+    {
+      "name": "character_dialogue",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_dialogue_test.gd"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.597
+    },
+    {
+      "name": "character_frames",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_frames_test.gd"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.598
+    },
+    {
+      "name": "gabar",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_gabar.py",
+        "--headless",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.351
+    },
+    {
+      "name": "isolation",
+      "argv": [
+        "/usr/bin/python",
+        "tools/verify_p06_lab_isolation.py",
+        "--output",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.711
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/character_combat_profile.log",
+      "sha256": "92b34f079b6fc6793d08e819e3e214e85e0b185a9c41965561a5c1a29b8c6ee5"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/character_dialogue.log",
+      "sha256": "801f5d126cdda169830383d70d168ff621915d68b907e80cf9497721be0e48c1"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/character_frames.log",
+      "sha256": "25292d4ccf06f86d5f756e94a14d658e9dd1d7127190fb20dad9a084cc53b39a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/character_policy_integration.log",
+      "sha256": "d8a290a9ac42670a427ffa95c1918f29320141375ae95200a65ffc916a7516bb"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/character_scene_policy.log",
+      "sha256": "3040fa239ca7ad9df8f53dc4296525a03732efabd4c269bb1fb1749fe00e105b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/commands.json",
+      "sha256": "e35b926817a0b08011804d2722039576ce3412d6dce71b21f79375c3688895b2"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar/commands.json",
+      "sha256": "9a463b7bcc27dd84d5dd99f2ec128236fb0a96049c8aeefc8dab219884b55f20"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar/live/result.json",
+      "sha256": "af7ab88d28fdccd281a97064cc17e6509f5b80b6e8dbb93eec2283526de33602"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar/live.log",
+      "sha256": "fc2b20f36350f487653d5094734e7973338539a1c1f5d2852e2c915efa197f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar/validation.json",
+      "sha256": "bcaf9bb4cf7817b565d392276fd4994db625a93be6502713d7a4ba82984df049"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/gabar.log",
+      "sha256": "d0e82c26d2b97e9365492061b937876cec121fe23dc58b61f0d6e9d936bf5f23"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/commands.json",
+      "sha256": "0468f1b4411014167c16c9a4b79e03742fc44b92b6967d3b062477c0ab5cf182"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/sandbox.log",
+      "sha256": "175e31dea6c3d9a2b3ffaea0aad16a33fa280251f92ff00c7784a703df008e4f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation/validation.json",
+      "sha256": "b2bbe3d4f9a0cec346b8fd17afbe0c32d57e1e8134dd0951072792d6116e8283"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/isolation.log",
+      "sha256": "384b75b882c09a32e01b9ad013c685b20edda85811e7262455f297cefe3bd72b"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-affected-regression-01/source_hashes.json",
+      "sha256": "626df5dd3d0aa5b55852c9fb7e737c64e5d5ebd0c14b593a77e5c431e3ef8874"
+    }
+  ]
+}

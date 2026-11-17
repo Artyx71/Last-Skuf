@@ -1,0 +1,21 @@
+{
+  "status": "STATIC_REVIEW_ONLY_PENDING_ACTUAL_UNCHANGED_PROBES",
+  "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+  "delta": {
+    "game/scripts/systems/combat_system.gd": {
+      "baseline": "e97cc174600b8c074b95d3ffec5267019e75313279a8c86a6a176a63bf049dc9",
+      "fix": "9b159afd21191e1376b66aefcca4de462742603c571644a4a2e8ada66fc2df44"
+    },
+    "game/tests/pasha_moving_shot_replay.gd": {
+      "baseline": "b36252c006e2453d2da1a2164ae07d39482d8d5745b4b2cb1e12f4af188f0dbc",
+      "fix": "24afce57c712044676028ddff65c81b05a3583784f3b88d6fcb42996f2a881cd"
+    }
+  },
+  "source_map_SHA256": "282a35cb60dc0faddd2b44818c11cbcbe962375fb986f4aeccfdb92b42fd6a43",
+  "probe_SHA256": {
+    "probes/gp_pasha_finisher_frame_free.gd": "67fcb960c4fb451e05d236bb73bb034c23ead0078985a5f9f90cf582fb426adc",
+    "probes/gp_pasha_impact_reset.gd": "b5af477dbe1880351e1e2961d4c357dd5776c2635fab0462c050ee121aa384d9"
+  },
+  "request_SHA256": "dc9e23e09a55f73a859670f7b98379380ca13f77f5e5a246d27425d1577bd31e",
+  "static_assessment": "Narrow new Variant/epoch/receipt guards address stale impact emission; finisher node lifetime guard precedes typed eligible and target access. Positive/negative actual reruns still required; no runtime/component signoff."
+}

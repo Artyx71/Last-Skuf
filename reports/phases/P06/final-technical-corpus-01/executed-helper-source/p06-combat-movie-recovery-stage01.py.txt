@@ -1,0 +1,11 @@
+import hashlib,json,sys
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()/'autopilot'))
+from runner import Controller,utc
+c=Controller();w=c.root/'.autopilot/worktrees/P06';entry=c.root/'.tools/p06-combat-movie-recovery-job01.py';expected='8d067849b81c4b5d43402ac37037917deb95bf2925a469d4a8cd7d1db018b21f'
+with c.exclusive():
+ s=c.reconcile();assert s['autopilot']['active_author'].get('ended_at') and s['autopilot']['operation']['consumed'];p=s['autopilot']['phases']['P06'];assert p['status']=='IMPLEMENTING' and p['attempts']==1;counters=(s.get('attempts'),p['attempts'])
+ assert hashlib.sha256(entry.read_bytes()).hexdigest()==expected
+ code=c.stage('P06/atomic-combat-movie-recovery-01',[sys.executable,str(entry)],3000,safe_retry=False,cwd=w)
+ s=c.state();op=s['autopilot']['operation'];assert c.receipt(op);op['consumed']=True;p=s['autopilot']['phases']['P06'];assert (s.get('attempts'),p['attempts'])==counters
+ report=w/'reports/phases/P06/combat-movie-recovery-01/validation.json';p['combat_movie_recovery']={'operation':op['id'],'exit_code':code,'report':str(report.relative_to(w)),'sha256':hashlib.sha256(report.read_bytes()).hexdigest() if report.exists() else None,'phase_approval':False};p['checkpoint']='P06-atomic-combat-recovery-actual-inspect';s['autopilot']['history'].append({'when':utc(),'event':'P06_ATOMIC_COMBAT_RECOVERY_COMPLETED','operation':op['id'],'exit_code':code,'phase_approval':False});s['next_action']='Inspectactualatomicrecovery; composepreserved12/freshcombat via independentQA/Lead; noauthorPASS' if code==0 else 'Inspectatomiccombatfailure; preservepositives and finite repair budget; noblindretry';c.persist(s);print(json.dumps({'code':code,'operation':op['id'],'receipt':op['receipt'],'phase_approval':False}),flush=True);raise SystemExit(code)

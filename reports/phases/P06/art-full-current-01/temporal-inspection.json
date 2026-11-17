@@ -1,0 +1,2212 @@
+{
+  "actual_movies": [
+    {
+      "stage": "gabar",
+      "validation": "reports/phases/P06/full-native-current-source-01/gabar/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/gabar/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/gabar/gabar.mp4",
+      "movie_SHA": "c5453603c7c6a36fb83943c757bf13e1f0d98a40ff6dac9bc868134e99934a46",
+      "actual_selected_frame_count": 24,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.mp4",
+        "-vf",
+        "select=eq(n\\,264)+eq(n\\,273)+eq(n\\,286)+eq(n\\,318)+eq(n\\,327)+eq(n\\,340)+eq(n\\,372)+eq(n\\,381)+eq(n\\,394)+eq(n\\,426)+eq(n\\,435)+eq(n\\,448)+eq(n\\,861)+eq(n\\,921)+eq(n\\,981)+eq(n\\,1041)+eq(n\\,1101)+eq(n\\,1161)+eq(n\\,1221)+eq(n\\,1281)+eq(n\\,1341)+eq(n\\,1401)+eq(n\\,1461)+eq(n\\,1521)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/gabar/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 264,
+          "animation": "special_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 273,
+          "animation": "special_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            224.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 286,
+          "animation": "special_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            234.5
+          ],
+          "decoded_file": "temporal/gabar/frame-0003.png"
+        },
+        {
+          "label": "down:FIN_unarmed",
+          "tick": 861,
+          "animation": "finish_unarmed_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0013.png"
+        },
+        {
+          "label": "down:FIN_blunt",
+          "tick": 1101,
+          "animation": "finish_blunt_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0017.png"
+        },
+        {
+          "label": "down:FIN_firearm",
+          "tick": 1341,
+          "animation": "finish_firearm_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0021.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 318,
+          "animation": "special_left",
+          "pose": 0,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0004.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 327,
+          "animation": "special_left",
+          "pose": 1,
+          "xy": [
+            296.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0005.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 340,
+          "animation": "special_left",
+          "pose": 2,
+          "xy": [
+            285.5,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0006.png"
+        },
+        {
+          "label": "left:FIN_unarmed",
+          "tick": 921,
+          "animation": "finish_unarmed_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0014.png"
+        },
+        {
+          "label": "left:FIN_blunt",
+          "tick": 1161,
+          "animation": "finish_blunt_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0018.png"
+        },
+        {
+          "label": "left:FIN_firearm",
+          "tick": 1401,
+          "animation": "finish_firearm_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0022.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 372,
+          "animation": "special_right",
+          "pose": 0,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0007.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 381,
+          "animation": "special_right",
+          "pose": 1,
+          "xy": [
+            264.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0008.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 394,
+          "animation": "special_right",
+          "pose": 2,
+          "xy": [
+            274.5,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0009.png"
+        },
+        {
+          "label": "right:FIN_unarmed",
+          "tick": 981,
+          "animation": "finish_unarmed_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0015.png"
+        },
+        {
+          "label": "right:FIN_blunt",
+          "tick": 1221,
+          "animation": "finish_blunt_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0019.png"
+        },
+        {
+          "label": "right:FIN_firearm",
+          "tick": 1461,
+          "animation": "finish_firearm_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0023.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 426,
+          "animation": "special_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0010.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 435,
+          "animation": "special_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            256.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0011.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 448,
+          "animation": "special_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            245.5
+          ],
+          "decoded_file": "temporal/gabar/frame-0012.png"
+        },
+        {
+          "label": "up:FIN_unarmed",
+          "tick": 1041,
+          "animation": "finish_unarmed_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0016.png"
+        },
+        {
+          "label": "up:FIN_blunt",
+          "tick": 1281,
+          "animation": "finish_blunt_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0020.png"
+        },
+        {
+          "label": "up:FIN_firearm",
+          "tick": 1521,
+          "animation": "finish_firearm_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/gabar/frame-0024.png"
+        }
+      ]
+    },
+    {
+      "stage": "olezhka",
+      "validation": "reports/phases/P06/full-native-current-source-01/olezhka/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/olezhka/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/olezhka/olezhka.mp4",
+      "movie_SHA": "f101d2eff05fb4dc49ab0e7428c65b17f3372db3374b6652e1ab1894c7e75f77",
+      "actual_selected_frame_count": 24,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/olezhka/olezhka.mp4",
+        "-vf",
+        "select=eq(n\\,279)+eq(n\\,286)+eq(n\\,299)+eq(n\\,324)+eq(n\\,331)+eq(n\\,344)+eq(n\\,369)+eq(n\\,376)+eq(n\\,389)+eq(n\\,414)+eq(n\\,421)+eq(n\\,434)+eq(n\\,1083)+eq(n\\,1148)+eq(n\\,1213)+eq(n\\,1278)+eq(n\\,1343)+eq(n\\,1408)+eq(n\\,1473)+eq(n\\,1538)+eq(n\\,1603)+eq(n\\,1668)+eq(n\\,1733)+eq(n\\,1798)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/olezhka/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 279,
+          "animation": "special_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 286,
+          "animation": "special_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 299,
+          "animation": "special_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0003.png"
+        },
+        {
+          "label": "down:FIN_unarmed",
+          "tick": 1083,
+          "animation": "finish_unarmed_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0013.png"
+        },
+        {
+          "label": "down:FIN_blunt",
+          "tick": 1343,
+          "animation": "finish_blunt_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0017.png"
+        },
+        {
+          "label": "down:FIN_sharp",
+          "tick": 1603,
+          "animation": "finish_sharp_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            210.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0021.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 324,
+          "animation": "special_left",
+          "pose": 0,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0004.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 331,
+          "animation": "special_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0005.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 344,
+          "animation": "special_left",
+          "pose": 2,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0006.png"
+        },
+        {
+          "label": "left:FIN_unarmed",
+          "tick": 1148,
+          "animation": "finish_unarmed_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0014.png"
+        },
+        {
+          "label": "left:FIN_blunt",
+          "tick": 1408,
+          "animation": "finish_blunt_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0018.png"
+        },
+        {
+          "label": "left:FIN_sharp",
+          "tick": 1668,
+          "animation": "finish_sharp_left",
+          "pose": 1,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0022.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 369,
+          "animation": "special_right",
+          "pose": 0,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0007.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 376,
+          "animation": "special_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0008.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 389,
+          "animation": "special_right",
+          "pose": 2,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0009.png"
+        },
+        {
+          "label": "right:FIN_unarmed",
+          "tick": 1213,
+          "animation": "finish_unarmed_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0015.png"
+        },
+        {
+          "label": "right:FIN_blunt",
+          "tick": 1473,
+          "animation": "finish_blunt_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0019.png"
+        },
+        {
+          "label": "right:FIN_sharp",
+          "tick": 1733,
+          "animation": "finish_sharp_right",
+          "pose": 1,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0023.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 414,
+          "animation": "special_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0010.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 421,
+          "animation": "special_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0011.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 434,
+          "animation": "special_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0012.png"
+        },
+        {
+          "label": "up:FIN_unarmed",
+          "tick": 1278,
+          "animation": "finish_unarmed_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0016.png"
+        },
+        {
+          "label": "up:FIN_blunt",
+          "tick": 1538,
+          "animation": "finish_blunt_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0020.png"
+        },
+        {
+          "label": "up:FIN_sharp",
+          "tick": 1798,
+          "animation": "finish_sharp_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/olezhka/frame-0024.png"
+        }
+      ]
+    },
+    {
+      "stage": "timka_present",
+      "validation": "reports/phases/P06/full-native-current-source-01/timka_present/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/timka_present/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/timka_present/timka-present.mp4",
+      "movie_SHA": "73cfe331e65d1c5bf3da9fdc0bb354643bc66abf9735cde8c474045ebd232cd7",
+      "actual_selected_frame_count": 24,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/timka_present/timka-present.mp4",
+        "-vf",
+        "select=eq(n\\,14)+eq(n\\,19)+eq(n\\,23)+eq(n\\,26)+eq(n\\,30)+eq(n\\,37)+eq(n\\,149)+eq(n\\,154)+eq(n\\,158)+eq(n\\,161)+eq(n\\,165)+eq(n\\,172)+eq(n\\,284)+eq(n\\,289)+eq(n\\,293)+eq(n\\,296)+eq(n\\,300)+eq(n\\,307)+eq(n\\,419)+eq(n\\,424)+eq(n\\,428)+eq(n\\,431)+eq(n\\,435)+eq(n\\,442)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/timka_present/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 14,
+          "animation": "disengage_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            222.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 19,
+          "animation": "disengage_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            217.800003051758
+          ],
+          "decoded_file": "temporal/timka_present/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 23,
+          "animation": "disengage_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            208.466690063477
+          ],
+          "decoded_file": "temporal/timka_present/frame-0003.png"
+        },
+        {
+          "label": "down:3",
+          "tick": 26,
+          "animation": "disengage_down",
+          "pose": 3,
+          "xy": [
+            280.0,
+            201.466705322266
+          ],
+          "decoded_file": "temporal/timka_present/frame-0004.png"
+        },
+        {
+          "label": "down:4",
+          "tick": 30,
+          "animation": "disengage_down",
+          "pose": 4,
+          "xy": [
+            280.0,
+            192.133392333984
+          ],
+          "decoded_file": "temporal/timka_present/frame-0005.png"
+        },
+        {
+          "label": "down:5",
+          "tick": 37,
+          "animation": "disengage_down",
+          "pose": 5,
+          "xy": [
+            280.0,
+            188.40007019043
+          ],
+          "decoded_file": "temporal/timka_present/frame-0006.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 149,
+          "animation": "disengage_left",
+          "pose": 0,
+          "xy": [
+            310.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0007.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 154,
+          "animation": "disengage_left",
+          "pose": 1,
+          "xy": [
+            314.200012207031,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0008.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 158,
+          "animation": "disengage_left",
+          "pose": 2,
+          "xy": [
+            323.533386230469,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0009.png"
+        },
+        {
+          "label": "left:3",
+          "tick": 161,
+          "animation": "disengage_left",
+          "pose": 3,
+          "xy": [
+            330.533416748047,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0010.png"
+        },
+        {
+          "label": "left:4",
+          "tick": 165,
+          "animation": "disengage_left",
+          "pose": 4,
+          "xy": [
+            339.866790771484,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0011.png"
+        },
+        {
+          "label": "left:5",
+          "tick": 172,
+          "animation": "disengage_left",
+          "pose": 5,
+          "xy": [
+            343.600128173828,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0012.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 284,
+          "animation": "disengage_right",
+          "pose": 0,
+          "xy": [
+            250.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0013.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 289,
+          "animation": "disengage_right",
+          "pose": 1,
+          "xy": [
+            245.800003051758,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0014.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 293,
+          "animation": "disengage_right",
+          "pose": 2,
+          "xy": [
+            236.466690063477,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0015.png"
+        },
+        {
+          "label": "right:3",
+          "tick": 296,
+          "animation": "disengage_right",
+          "pose": 3,
+          "xy": [
+            229.466705322266,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0016.png"
+        },
+        {
+          "label": "right:4",
+          "tick": 300,
+          "animation": "disengage_right",
+          "pose": 4,
+          "xy": [
+            220.133392333984,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0017.png"
+        },
+        {
+          "label": "right:5",
+          "tick": 307,
+          "animation": "disengage_right",
+          "pose": 5,
+          "xy": [
+            216.40007019043,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0018.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 419,
+          "animation": "disengage_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            270.0
+          ],
+          "decoded_file": "temporal/timka_present/frame-0019.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 424,
+          "animation": "disengage_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            274.200012207031
+          ],
+          "decoded_file": "temporal/timka_present/frame-0020.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 428,
+          "animation": "disengage_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            283.533386230469
+          ],
+          "decoded_file": "temporal/timka_present/frame-0021.png"
+        },
+        {
+          "label": "up:3",
+          "tick": 431,
+          "animation": "disengage_up",
+          "pose": 3,
+          "xy": [
+            280.0,
+            290.533416748047
+          ],
+          "decoded_file": "temporal/timka_present/frame-0022.png"
+        },
+        {
+          "label": "up:4",
+          "tick": 435,
+          "animation": "disengage_up",
+          "pose": 4,
+          "xy": [
+            280.0,
+            299.866790771484
+          ],
+          "decoded_file": "temporal/timka_present/frame-0023.png"
+        },
+        {
+          "label": "up:5",
+          "tick": 442,
+          "animation": "disengage_up",
+          "pose": 5,
+          "xy": [
+            280.0,
+            303.600128173828
+          ],
+          "decoded_file": "temporal/timka_present/frame-0024.png"
+        }
+      ]
+    },
+    {
+      "stage": "timka_prime",
+      "validation": "reports/phases/P06/full-native-current-source-01/timka_prime/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/timka_prime/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/timka_prime/timka-prime.mp4",
+      "movie_SHA": "18344d7111a8a65315ffcdfdcd319551eb02e3b6f9d6714f0f316568d7c24e51",
+      "actual_selected_frame_count": 24,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/timka_prime/timka-prime.mp4",
+        "-vf",
+        "select=eq(n\\,777)+eq(n\\,795)+eq(n\\,810)+eq(n\\,968)+eq(n\\,986)+eq(n\\,1001)+eq(n\\,1159)+eq(n\\,1177)+eq(n\\,1192)+eq(n\\,1350)+eq(n\\,1368)+eq(n\\,1383)+eq(n\\,2132)+eq(n\\,2240)+eq(n\\,2346)+eq(n\\,2454)+eq(n\\,2562)+eq(n\\,2668)+eq(n\\,2776)+eq(n\\,2884)+eq(n\\,2990)+eq(n\\,3098)+eq(n\\,3206)+eq(n\\,3312)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/timka_prime/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 777,
+          "animation": "special_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            214.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 795,
+          "animation": "special_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            214.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 810,
+          "animation": "special_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            214.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0003.png"
+        },
+        {
+          "label": "down:FIN_unarmed",
+          "tick": 2132,
+          "animation": "finish_unarmed_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            214.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0013.png"
+        },
+        {
+          "label": "down:FIN_blunt",
+          "tick": 2240,
+          "animation": "finish_blunt_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            214.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0014.png"
+        },
+        {
+          "label": "down:FIN_environmental",
+          "tick": 2346,
+          "animation": "finish_environmental_down",
+          "pose": 1,
+          "xy": [
+            470.0,
+            224.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0015.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 968,
+          "animation": "special_left",
+          "pose": 0,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0004.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 986,
+          "animation": "special_left",
+          "pose": 1,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0005.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 1001,
+          "animation": "special_left",
+          "pose": 2,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0006.png"
+        },
+        {
+          "label": "left:FIN_unarmed",
+          "tick": 2454,
+          "animation": "finish_unarmed_left",
+          "pose": 1,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0016.png"
+        },
+        {
+          "label": "left:FIN_blunt",
+          "tick": 2562,
+          "animation": "finish_blunt_left",
+          "pose": 1,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0017.png"
+        },
+        {
+          "label": "left:FIN_environmental",
+          "tick": 2668,
+          "animation": "finish_environmental_left",
+          "pose": 1,
+          "xy": [
+            496.0,
+            250.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0018.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 1159,
+          "animation": "special_right",
+          "pose": 0,
+          "xy": [
+            254.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0007.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 1177,
+          "animation": "special_right",
+          "pose": 1,
+          "xy": [
+            254.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0008.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 1192,
+          "animation": "special_right",
+          "pose": 2,
+          "xy": [
+            254.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0009.png"
+        },
+        {
+          "label": "right:FIN_unarmed",
+          "tick": 2776,
+          "animation": "finish_unarmed_right",
+          "pose": 1,
+          "xy": [
+            254.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0019.png"
+        },
+        {
+          "label": "right:FIN_blunt",
+          "tick": 2884,
+          "animation": "finish_blunt_right",
+          "pose": 1,
+          "xy": [
+            254.0,
+            240.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0020.png"
+        },
+        {
+          "label": "right:FIN_environmental",
+          "tick": 2990,
+          "animation": "finish_environmental_right",
+          "pose": 1,
+          "xy": [
+            444.0,
+            250.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0021.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 1350,
+          "animation": "special_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            266.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0010.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 1368,
+          "animation": "special_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            266.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0011.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 1383,
+          "animation": "special_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            266.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0012.png"
+        },
+        {
+          "label": "up:FIN_unarmed",
+          "tick": 3098,
+          "animation": "finish_unarmed_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            266.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0022.png"
+        },
+        {
+          "label": "up:FIN_blunt",
+          "tick": 3206,
+          "animation": "finish_blunt_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            266.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0023.png"
+        },
+        {
+          "label": "up:FIN_environmental",
+          "tick": 3312,
+          "animation": "finish_environmental_up",
+          "pose": 1,
+          "xy": [
+            470.0,
+            276.0
+          ],
+          "decoded_file": "temporal/timka_prime/frame-0024.png"
+        }
+      ]
+    },
+    {
+      "stage": "ryzhik",
+      "validation": "reports/phases/P06/full-native-current-source-01/ryzhik/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/ryzhik/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/ryzhik/ryzhik-roll.mp4",
+      "movie_SHA": "72fc8343aba8df45949d1efff1937acd1a4e9c099042b732f9d5bf585f2ca166",
+      "actual_selected_frame_count": 32,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/ryzhik/ryzhik-roll.mp4",
+        "-vf",
+        "select=eq(n\\,13)+eq(n\\,18)+eq(n\\,22)+eq(n\\,26)+eq(n\\,30)+eq(n\\,34)+eq(n\\,38)+eq(n\\,42)+eq(n\\,118)+eq(n\\,123)+eq(n\\,127)+eq(n\\,131)+eq(n\\,135)+eq(n\\,139)+eq(n\\,143)+eq(n\\,147)+eq(n\\,223)+eq(n\\,228)+eq(n\\,232)+eq(n\\,236)+eq(n\\,240)+eq(n\\,244)+eq(n\\,248)+eq(n\\,252)+eq(n\\,328)+eq(n\\,333)+eq(n\\,337)+eq(n\\,341)+eq(n\\,345)+eq(n\\,349)+eq(n\\,353)+eq(n\\,357)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/ryzhik/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 13,
+          "animation": "roll_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            224.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 18,
+          "animation": "roll_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            230.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 22,
+          "animation": "roll_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            242.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0003.png"
+        },
+        {
+          "label": "down:3",
+          "tick": 26,
+          "animation": "roll_down",
+          "pose": 3,
+          "xy": [
+            280.0,
+            254.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0004.png"
+        },
+        {
+          "label": "down:4",
+          "tick": 30,
+          "animation": "roll_down",
+          "pose": 4,
+          "xy": [
+            280.0,
+            266.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0005.png"
+        },
+        {
+          "label": "down:5",
+          "tick": 34,
+          "animation": "roll_down",
+          "pose": 5,
+          "xy": [
+            280.0,
+            278.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0006.png"
+        },
+        {
+          "label": "down:6",
+          "tick": 38,
+          "animation": "roll_down",
+          "pose": 6,
+          "xy": [
+            280.0,
+            281.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0007.png"
+        },
+        {
+          "label": "down:7",
+          "tick": 42,
+          "animation": "roll_down",
+          "pose": 7,
+          "xy": [
+            280.0,
+            281.600006103516
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0008.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 118,
+          "animation": "roll_left",
+          "pose": 0,
+          "xy": [
+            296.0,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0009.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 123,
+          "animation": "roll_left",
+          "pose": 1,
+          "xy": [
+            289.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0010.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 127,
+          "animation": "roll_left",
+          "pose": 2,
+          "xy": [
+            277.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0011.png"
+        },
+        {
+          "label": "left:3",
+          "tick": 131,
+          "animation": "roll_left",
+          "pose": 3,
+          "xy": [
+            265.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0012.png"
+        },
+        {
+          "label": "left:4",
+          "tick": 135,
+          "animation": "roll_left",
+          "pose": 4,
+          "xy": [
+            253.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0013.png"
+        },
+        {
+          "label": "left:5",
+          "tick": 139,
+          "animation": "roll_left",
+          "pose": 5,
+          "xy": [
+            241.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0014.png"
+        },
+        {
+          "label": "left:6",
+          "tick": 143,
+          "animation": "roll_left",
+          "pose": 6,
+          "xy": [
+            238.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0015.png"
+        },
+        {
+          "label": "left:7",
+          "tick": 147,
+          "animation": "roll_left",
+          "pose": 7,
+          "xy": [
+            238.399993896484,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0016.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 223,
+          "animation": "roll_right",
+          "pose": 0,
+          "xy": [
+            264.0,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0017.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 228,
+          "animation": "roll_right",
+          "pose": 1,
+          "xy": [
+            270.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0018.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 232,
+          "animation": "roll_right",
+          "pose": 2,
+          "xy": [
+            282.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0019.png"
+        },
+        {
+          "label": "right:3",
+          "tick": 236,
+          "animation": "roll_right",
+          "pose": 3,
+          "xy": [
+            294.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0020.png"
+        },
+        {
+          "label": "right:4",
+          "tick": 240,
+          "animation": "roll_right",
+          "pose": 4,
+          "xy": [
+            306.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0021.png"
+        },
+        {
+          "label": "right:5",
+          "tick": 244,
+          "animation": "roll_right",
+          "pose": 5,
+          "xy": [
+            318.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0022.png"
+        },
+        {
+          "label": "right:6",
+          "tick": 248,
+          "animation": "roll_right",
+          "pose": 6,
+          "xy": [
+            321.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0023.png"
+        },
+        {
+          "label": "right:7",
+          "tick": 252,
+          "animation": "roll_right",
+          "pose": 7,
+          "xy": [
+            321.600006103516,
+            240.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0024.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 328,
+          "animation": "roll_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            272.0
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0025.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 333,
+          "animation": "roll_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            265.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0026.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 337,
+          "animation": "roll_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            253.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0027.png"
+        },
+        {
+          "label": "up:3",
+          "tick": 341,
+          "animation": "roll_up",
+          "pose": 3,
+          "xy": [
+            280.0,
+            241.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0028.png"
+        },
+        {
+          "label": "up:4",
+          "tick": 345,
+          "animation": "roll_up",
+          "pose": 4,
+          "xy": [
+            280.0,
+            229.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0029.png"
+        },
+        {
+          "label": "up:5",
+          "tick": 349,
+          "animation": "roll_up",
+          "pose": 5,
+          "xy": [
+            280.0,
+            217.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0030.png"
+        },
+        {
+          "label": "up:6",
+          "tick": 353,
+          "animation": "roll_up",
+          "pose": 6,
+          "xy": [
+            280.0,
+            214.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0031.png"
+        },
+        {
+          "label": "up:7",
+          "tick": 357,
+          "animation": "roll_up",
+          "pose": 7,
+          "xy": [
+            280.0,
+            214.399993896484
+          ],
+          "decoded_file": "temporal/ryzhik/frame-0032.png"
+        }
+      ]
+    },
+    {
+      "stage": "tega",
+      "validation": "reports/phases/P06/full-native-current-source-01/tega/validation.json",
+      "result": "reports/phases/P06/full-native-current-source-01/tega/movie/result.json",
+      "movie_path": "build/P06/full-native-current-source-01/tega/tega-environment.mp4",
+      "movie_SHA": "7c391aa38f2de3e99bb54ac68c4026cd090da82e509f696d006a8a043b7796f1",
+      "actual_selected_frame_count": 24,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/tega/tega-environment.mp4",
+        "-vf",
+        "select=eq(n\\,16)+eq(n\\,27)+eq(n\\,42)+eq(n\\,87)+eq(n\\,98)+eq(n\\,113)+eq(n\\,156)+eq(n\\,167)+eq(n\\,182)+eq(n\\,225)+eq(n\\,236)+eq(n\\,251)+eq(n\\,2307)+eq(n\\,2413)+eq(n\\,2519)+eq(n\\,2625)+eq(n\\,2731)+eq(n\\,2837)+eq(n\\,2943)+eq(n\\,3049)+eq(n\\,3155)+eq(n\\,3261)+eq(n\\,3367)+eq(n\\,3473)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/tega/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 16,
+          "animation": "special_down",
+          "pose": 0,
+          "xy": [
+            280.0,
+            243.066680908203
+          ],
+          "decoded_file": "temporal/tega/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 27,
+          "animation": "special_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            261.266693115234
+          ],
+          "decoded_file": "temporal/tega/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 42,
+          "animation": "special_down",
+          "pose": 2,
+          "xy": [
+            280.0,
+            265.046966552734
+          ],
+          "decoded_file": "temporal/tega/frame-0003.png"
+        },
+        {
+          "label": "down:FIN_unarmed",
+          "tick": 2307,
+          "animation": "finish_unarmed_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0013.png"
+        },
+        {
+          "label": "down:FIN_blunt",
+          "tick": 2413,
+          "animation": "finish_blunt_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0014.png"
+        },
+        {
+          "label": "down:FIN_environmental",
+          "tick": 2519,
+          "animation": "finish_environmental_down",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0015.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 87,
+          "animation": "special_left",
+          "pose": 0,
+          "xy": [
+            276.933349609375,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0004.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 98,
+          "animation": "special_left",
+          "pose": 1,
+          "xy": [
+            260.934509277344,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0005.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 113,
+          "animation": "special_left",
+          "pose": 2,
+          "xy": [
+            260.934509277344,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0006.png"
+        },
+        {
+          "label": "left:FIN_unarmed",
+          "tick": 2625,
+          "animation": "finish_unarmed_left",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0016.png"
+        },
+        {
+          "label": "left:FIN_blunt",
+          "tick": 2731,
+          "animation": "finish_blunt_left",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0017.png"
+        },
+        {
+          "label": "left:FIN_environmental",
+          "tick": 2837,
+          "animation": "finish_environmental_left",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0018.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 156,
+          "animation": "special_right",
+          "pose": 0,
+          "xy": [
+            283.066650390625,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0007.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 167,
+          "animation": "special_right",
+          "pose": 1,
+          "xy": [
+            299.065490722656,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0008.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 182,
+          "animation": "special_right",
+          "pose": 2,
+          "xy": [
+            299.065490722656,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0009.png"
+        },
+        {
+          "label": "right:FIN_unarmed",
+          "tick": 2943,
+          "animation": "finish_unarmed_right",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0019.png"
+        },
+        {
+          "label": "right:FIN_blunt",
+          "tick": 3049,
+          "animation": "finish_blunt_right",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0020.png"
+        },
+        {
+          "label": "right:FIN_environmental",
+          "tick": 3155,
+          "animation": "finish_environmental_right",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0021.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 225,
+          "animation": "special_up",
+          "pose": 0,
+          "xy": [
+            280.0,
+            236.933319091797
+          ],
+          "decoded_file": "temporal/tega/frame-0010.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 236,
+          "animation": "special_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            218.733322143555
+          ],
+          "decoded_file": "temporal/tega/frame-0011.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 251,
+          "animation": "special_up",
+          "pose": 2,
+          "xy": [
+            280.0,
+            214.953048706055
+          ],
+          "decoded_file": "temporal/tega/frame-0012.png"
+        },
+        {
+          "label": "up:FIN_unarmed",
+          "tick": 3261,
+          "animation": "finish_unarmed_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0022.png"
+        },
+        {
+          "label": "up:FIN_blunt",
+          "tick": 3367,
+          "animation": "finish_blunt_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0023.png"
+        },
+        {
+          "label": "up:FIN_environmental",
+          "tick": 3473,
+          "animation": "finish_environmental_up",
+          "pose": 1,
+          "xy": [
+            280.0,
+            240.0
+          ],
+          "decoded_file": "temporal/tega/frame-0024.png"
+        }
+      ]
+    },
+    {
+      "stage": "pasha",
+      "validation": "reports/phases/P06/pasha-input-diagnostic-01/native/validation.json",
+      "result": "reports/phases/P06/pasha-input-diagnostic-01/native/movie/result.json",
+      "movie_path": "build/P06/pasha-input-diagnostic-01/pasha-moving-shot.mp4",
+      "movie_SHA": "0ee4dce91d2f23c48dc3e6db7185632fa8d419500190434e3545717646805728",
+      "actual_selected_frame_count": 32,
+      "decoding_command": [
+        "ffmpeg",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/pasha-input-diagnostic-01/pasha-moving-shot.mp4",
+        "-vf",
+        "select=eq(n\\,61)+eq(n\\,63)+eq(n\\,65)+eq(n\\,68)+eq(n\\,70)+eq(n\\,72)+eq(n\\,75)+eq(n\\,77)+eq(n\\,95)+eq(n\\,97)+eq(n\\,99)+eq(n\\,102)+eq(n\\,104)+eq(n\\,106)+eq(n\\,109)+eq(n\\,111)+eq(n\\,129)+eq(n\\,131)+eq(n\\,133)+eq(n\\,136)+eq(n\\,138)+eq(n\\,140)+eq(n\\,143)+eq(n\\,145)+eq(n\\,163)+eq(n\\,165)+eq(n\\,167)+eq(n\\,170)+eq(n\\,172)+eq(n\\,174)+eq(n\\,177)+eq(n\\,179)",
+        "-fps_mode",
+        "passthrough",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/art-full-current-01/temporal/pasha/frame-%04d.png"
+      ],
+      "trace_tick_to_video_n": "Engine fixed60 recording; selected n=trace tick. Stable middle-of-pose samples, not frame callback timing acceptance. Actual decoded pixels personally viewed before verdict.",
+      "samples": [
+        {
+          "label": "down:0",
+          "tick": 61,
+          "animation": "moving_shot_down",
+          "pose": 0,
+          "xy": [
+            380.0,
+            206.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0001.png"
+        },
+        {
+          "label": "down:1",
+          "tick": 63,
+          "animation": "moving_shot_down",
+          "pose": 1,
+          "xy": [
+            380.0,
+            212.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0002.png"
+        },
+        {
+          "label": "down:2",
+          "tick": 65,
+          "animation": "moving_shot_down",
+          "pose": 2,
+          "xy": [
+            380.0,
+            218.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0003.png"
+        },
+        {
+          "label": "down:3",
+          "tick": 68,
+          "animation": "moving_shot_down",
+          "pose": 3,
+          "xy": [
+            380.0,
+            227.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0004.png"
+        },
+        {
+          "label": "down:4",
+          "tick": 70,
+          "animation": "moving_shot_down",
+          "pose": 4,
+          "xy": [
+            380.0,
+            233.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0005.png"
+        },
+        {
+          "label": "down:5",
+          "tick": 72,
+          "animation": "moving_shot_down",
+          "pose": 5,
+          "xy": [
+            380.0,
+            239.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0006.png"
+        },
+        {
+          "label": "down:6",
+          "tick": 75,
+          "animation": "moving_shot_down",
+          "pose": 6,
+          "xy": [
+            380.0,
+            248.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0007.png"
+        },
+        {
+          "label": "down:7",
+          "tick": 77,
+          "animation": "moving_shot_down",
+          "pose": 7,
+          "xy": [
+            380.0,
+            254.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0008.png"
+        },
+        {
+          "label": "left:0",
+          "tick": 95,
+          "animation": "moving_shot_left",
+          "pose": 0,
+          "xy": [
+            294.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0009.png"
+        },
+        {
+          "label": "left:1",
+          "tick": 97,
+          "animation": "moving_shot_left",
+          "pose": 1,
+          "xy": [
+            288.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0010.png"
+        },
+        {
+          "label": "left:2",
+          "tick": 99,
+          "animation": "moving_shot_left",
+          "pose": 2,
+          "xy": [
+            282.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0011.png"
+        },
+        {
+          "label": "left:3",
+          "tick": 102,
+          "animation": "moving_shot_left",
+          "pose": 3,
+          "xy": [
+            273.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0012.png"
+        },
+        {
+          "label": "left:4",
+          "tick": 104,
+          "animation": "moving_shot_left",
+          "pose": 4,
+          "xy": [
+            267.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0013.png"
+        },
+        {
+          "label": "left:5",
+          "tick": 106,
+          "animation": "moving_shot_left",
+          "pose": 5,
+          "xy": [
+            261.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0014.png"
+        },
+        {
+          "label": "left:6",
+          "tick": 109,
+          "animation": "moving_shot_left",
+          "pose": 6,
+          "xy": [
+            252.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0015.png"
+        },
+        {
+          "label": "left:7",
+          "tick": 111,
+          "animation": "moving_shot_left",
+          "pose": 7,
+          "xy": [
+            246.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0016.png"
+        },
+        {
+          "label": "right:0",
+          "tick": 129,
+          "animation": "moving_shot_right",
+          "pose": 0,
+          "xy": [
+            306.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0017.png"
+        },
+        {
+          "label": "right:1",
+          "tick": 131,
+          "animation": "moving_shot_right",
+          "pose": 1,
+          "xy": [
+            312.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0018.png"
+        },
+        {
+          "label": "right:2",
+          "tick": 133,
+          "animation": "moving_shot_right",
+          "pose": 2,
+          "xy": [
+            318.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0019.png"
+        },
+        {
+          "label": "right:3",
+          "tick": 136,
+          "animation": "moving_shot_right",
+          "pose": 3,
+          "xy": [
+            327.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0020.png"
+        },
+        {
+          "label": "right:4",
+          "tick": 138,
+          "animation": "moving_shot_right",
+          "pose": 4,
+          "xy": [
+            333.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0021.png"
+        },
+        {
+          "label": "right:5",
+          "tick": 140,
+          "animation": "moving_shot_right",
+          "pose": 5,
+          "xy": [
+            339.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0022.png"
+        },
+        {
+          "label": "right:6",
+          "tick": 143,
+          "animation": "moving_shot_right",
+          "pose": 6,
+          "xy": [
+            348.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0023.png"
+        },
+        {
+          "label": "right:7",
+          "tick": 145,
+          "animation": "moving_shot_right",
+          "pose": 7,
+          "xy": [
+            354.0,
+            240.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0024.png"
+        },
+        {
+          "label": "up:0",
+          "tick": 163,
+          "animation": "moving_shot_up",
+          "pose": 0,
+          "xy": [
+            380.0,
+            264.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0025.png"
+        },
+        {
+          "label": "up:1",
+          "tick": 165,
+          "animation": "moving_shot_up",
+          "pose": 1,
+          "xy": [
+            380.0,
+            258.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0026.png"
+        },
+        {
+          "label": "up:2",
+          "tick": 167,
+          "animation": "moving_shot_up",
+          "pose": 2,
+          "xy": [
+            380.0,
+            252.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0027.png"
+        },
+        {
+          "label": "up:3",
+          "tick": 170,
+          "animation": "moving_shot_up",
+          "pose": 3,
+          "xy": [
+            380.0,
+            243.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0028.png"
+        },
+        {
+          "label": "up:4",
+          "tick": 172,
+          "animation": "moving_shot_up",
+          "pose": 4,
+          "xy": [
+            380.0,
+            237.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0029.png"
+        },
+        {
+          "label": "up:5",
+          "tick": 174,
+          "animation": "moving_shot_up",
+          "pose": 5,
+          "xy": [
+            380.0,
+            231.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0030.png"
+        },
+        {
+          "label": "up:6",
+          "tick": 177,
+          "animation": "moving_shot_up",
+          "pose": 6,
+          "xy": [
+            380.0,
+            222.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0031.png"
+        },
+        {
+          "label": "up:7",
+          "tick": 179,
+          "animation": "moving_shot_up",
+          "pose": 7,
+          "xy": [
+            380.0,
+            216.0
+          ],
+          "decoded_file": "temporal/pasha/frame-0032.png"
+        }
+      ]
+    }
+  ],
+  "actual_decoded_frames": 184,
+  "not_claimed": "Not every movie frame manually viewed; timing/once/lifecycle are Gameplay/QA checks, not inferred from montage alone."
+}

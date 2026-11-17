@@ -1,0 +1,52 @@
+diff --git c/game/tests/character_world_preview.gd w/game/tests/character_world_preview.gd
+index e125e09..8c2c942 100644
+--- c/game/tests/character_world_preview.gd
++++ w/game/tests/character_world_preview.gd
+@@ -15,6 +15,11 @@ var headless := true
+ var capture_images := true
+ var sequence := "grid"
+ var maximum_visual_grid_error := 0.0
++var focus_events: Array[Dictionary] = []
++var movie_window_no_focus_requested := false
++
++func note_focus(focused: bool) -> void:
++ focus_events.append({"focused":focused,"physics_tick":Engine.get_physics_frames(),"wall_usec":Time.get_ticks_usec(),"sequence":sequence})
+ 
+ class PreviewActor:
+  extends CharacterBody2D
+@@ -65,6 +70,10 @@ func sample() -> void:
+  var visual_origin: Vector2=sprite.get_global_transform_with_canvas().origin
+  maximum_visual_grid_error=maxf(maximum_visual_grid_error,visual_origin.distance_to(visual_origin.round()))
+  var at := {"sequence":sequence,"visual_origin":[visual_origin.x,visual_origin.y],"animation":state,"frame":phase,"physics_tick":Engine.get_physics_frames(),"wall_usec":Time.get_ticks_usec(),"position":[actor.position.x,actor.position.y],"velocity":[actor.velocity.x,actor.velocity.y]}
++ var actual_input := Input.get_vector("move_left","move_right","move_up","move_down")
++ at["input_vector"] = [actual_input.x,actual_input.y]
++ at["run_pressed"] = Input.is_action_pressed("p06_preview_run")
++ at["window_focused"] = root.call("has_focus") if root.has_method("has_focus") else null
+  trace.append(at)
+  var id := state+"_"+str(phase)
+  if not captures.has(id):
+@@ -77,6 +86,14 @@ func run() -> void:
+  if actor_id.is_empty(): actor_id = "gabar"
+  headless = DisplayServer.get_name()=="headless"
+  capture_images = Engine.get_write_movie_path().is_empty()
++ if not headless and not capture_images:
++  # MovieMaker is an automated engine-Input replay, not a manual keyboard test.
++  # Keep its rendering window out of desktop focus changes; losing focus can
++  # otherwise release a scripted held key midway through a recorded segment.
++  root.set_flag(Window.FLAG_NO_FOCUS,true)
++  movie_window_no_focus_requested = true
++ if root.has_signal("focus_entered"): root.connect("focus_entered",func():note_focus(true))
++ if root.has_signal("focus_exited"): root.connect("focus_exited",func():note_focus(false))
+  if output.is_empty():
+   push_error("AYAY_P06_WORLD_OUTPUT required")
+   preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,1)
+@@ -163,6 +180,9 @@ func run() -> void:
+  for check in checks:
+   if not check.passed: failed+=1
+  var result:={"phase":"P06","scope":"WORLD_ART_MOVEMENT_PREVIEW_ONLY","phase_approval":false,"actual_input":true,"actor_id":actor_id,"renderer":DisplayServer.get_name(),"headless":headless,"movie":Engine.get_write_movie_path(),"checks":checks,"passed":failed==0,"captures":captures,"trace":trace,"continuous_trace_start":continuous_start,"continuous_input_transitions":true,"maximum_visual_grid_error":maximum_visual_grid_error,"audio":"muted art fixture; no audio acceptance","combat_abilities":"NOT_IMPLEMENTED_IN_THIS_PREVIEW"}
++ result["focus_events"] = focus_events
++ result["focus_observation"] = "Window focus signals and actual movement/run input sampled; no input reassertion or timing changes"
++ result["movie_window_no_focus_requested"] = movie_window_no_focus_requested
+  var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify(result,"  "));file.close()
+  print("RESULT P06_WORLD passed=%d failed=%d" % [checks.size()-failed,failed])
+  preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)

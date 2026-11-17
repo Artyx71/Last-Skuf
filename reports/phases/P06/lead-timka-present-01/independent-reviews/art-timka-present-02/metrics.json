@@ -1,0 +1,475 @@
+{
+  "schema": 1,
+  "source_head": "2780e9e2a8e177e88b892d6abe91d9e141bf04de",
+  "prior_art_source_head": "69ffc58c7ff2dedd773bd58b137553c3666ad1da",
+  "prior_art_decision_sha256": "573c87c62447f66d38df9a0856a6d8098326b253b68b304f7207e7c647c21ab2",
+  "unchanged_production_art_controller_bindings": {
+    "game/scripts/actors/character_player.gd": "32ad490ae3cebb5b2605c804a267e8aa87a02a480a84bd6138725b4aa4226945",
+    "game/scripts/actors/character_frames.gd": "57ea466f85aa2adeb5ea46556770da54e70a7aa04a53b3b19ccca4cc68af47ec",
+    "game/scripts/actors/pixel_presentation.gd": "a6dfc9819d5f710f2ad33c1fd01ee1d1beb3fc7eca8ce95839da483b5add88a0",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/scripts/core/character_lab.gd": "566e99c6286e1817d3dc6c543dcfdaaacbb551ee38d873bb49bd9aadbacc2fbd",
+    "game/assets/art/characters/timka/world.sockets.json": "dc1999511ff06021620c546615410a38e23c9e181691640b5aafdcb0451a05d0",
+    "game/assets/art/characters/timka/action.sockets.json": "8ef9dcd5ab00a5faafb272c4aab03eff591e71545bbbc134c1f55a5922cb5bf3",
+    "game/assets/art/characters/timka/world_sheet.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "game/assets/art/characters/timka/action_sheet.png": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+    "game/assets/art/characters/timka/world.json": "282502a1f6edabf4811d8b392e407d5776c5548b0a06b86da2f98ee439f78fd9",
+    "game/assets/art/characters/timka/action.json": "34fee35578aded891d02a2258d91fd66002f7108e4637f49d4a95d3dde61c85b"
+  },
+  "changed_recorded_source_paths_only": [
+    "game/tests/timka_present_replay.gd",
+    "tools/verify.py"
+  ],
+  "recorded_source_digests_still_matching_current_WORK": 1107,
+  "outside_component_author_changes_after_native02": {
+    "game/scripts/qa/owner_preview_smoke.gd": {
+      "recorded": "1958d164120b5952a26b2c709d882418da688ec0117af2a221a8175897189648",
+      "current": "e2fdaf09433cd105740e326a3cca953c1500fdab1f17f9fa093a8f94a277df4d"
+    }
+  },
+  "all_native_validation_artifacts_verified": 41,
+  "source_unchanged": true,
+  "live_passed": 137,
+  "movie_passed": 104,
+  "actual_captures": 33,
+  "new_core_incoming_captures": 7,
+  "new_incoming_contacts_live": 7,
+  "new_incoming_contacts_movie": 7,
+  "movie_sha256": "c2394c6809f6e73045a9e1a123588c6e74732551c0570061aa7bfacbcead23e4",
+  "movie_full_frames": 1113,
+  "frames_decoded_interval": [
+    755,
+    963
+  ],
+  "frames_decoded_count": 209,
+  "video_frame_mapping": "video n=physics tick-1; prior pixel-validated alignment, actual new transition frames inspected",
+  "frame_samples": [
+    {
+      "segment": "Core_melee_guard_hurt",
+      "tick": 756,
+      "video_n": 755,
+      "frame_path": "movie_frames/frame_0001.png",
+      "frame_sha256": "acc29b93834b5ec994b6c8ad7794c9b4f6fe8df2cb1999e007894669898e81b7",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_hurt",
+      "tick": 760,
+      "video_n": 759,
+      "frame_path": "movie_frames/frame_0005.png",
+      "frame_sha256": "abcaa0ae4b9a55d4b222f42d3a4f06337d58d6d5b82ef249f34b2dbff65522e0",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_hurt",
+      "tick": 763,
+      "video_n": 762,
+      "frame_path": "movie_frames/frame_0008.png",
+      "frame_sha256": "425e46d39f5c1fe0dc89eed9933eb545cdc1926dafcf2467af4df7e63907cd46",
+      "animation": "hit_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_hurt",
+      "tick": 773,
+      "video_n": 772,
+      "frame_path": "movie_frames/frame_0018.png",
+      "frame_sha256": "0036a8bd6b64ed196d6cc1602bd9db20a7c5ede59c78659c2a35ec4cfcd1e619",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "tick": 776,
+      "video_n": 775,
+      "frame_path": "movie_frames/frame_0021.png",
+      "frame_sha256": "3d81d328fbbc21d4cc96c97f228cf91116f3eb2fd3327895222e383031fd2271",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "tick": 780,
+      "video_n": 779,
+      "frame_path": "movie_frames/frame_0025.png",
+      "frame_sha256": "a5996e7c9764e5fa895ef44a9262c34168d7ad318c8820595d415efa8fd29eef",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "tick": 783,
+      "video_n": 782,
+      "frame_path": "movie_frames/frame_0028.png",
+      "frame_sha256": "d5890d7e624f3088977b99c4ff325a63d3a0a8b00a400865a8e85c3e4fe306f8",
+      "animation": "fall_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "tick": 788,
+      "video_n": 787,
+      "frame_path": "movie_frames/frame_0033.png",
+      "frame_sha256": "76a593a34565a2870b3b10f5af737a4e7f873ac2dd337665598ea6a379df878a",
+      "animation": "fall_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_guard_fatal",
+      "tick": 794,
+      "video_n": 793,
+      "frame_path": "movie_frames/frame_0039.png",
+      "frame_sha256": "dd5637ef23fa0328181450b6d8d9d08d64d4a46f4246caa7e5bae49cb8b9daa4",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 796,
+      "video_n": 795,
+      "frame_path": "movie_frames/frame_0041.png",
+      "frame_sha256": "e0b59a842e3c6d71b0758c58d7a2c123e62552e1809253951c124d5b7e631018",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 800,
+      "video_n": 799,
+      "frame_path": "movie_frames/frame_0045.png",
+      "frame_sha256": "993b987113021df2f18a949faa88a7d766c7a990859d10bca32ef5c61f13c619",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 808,
+      "video_n": 807,
+      "frame_path": "movie_frames/frame_0053.png",
+      "frame_sha256": "40542b968dffe87cde56c557145cea22921154b047879c1daacec33eb320d9ec",
+      "animation": "disengage_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 811,
+      "video_n": 810,
+      "frame_path": "movie_frames/frame_0056.png",
+      "frame_sha256": "b73cebc66a44fa94f3a484a262fe0baf34cf01cc35fdd30b06456ced9b765f5e",
+      "animation": "disengage_right",
+      "frame": 2
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 813,
+      "video_n": 812,
+      "frame_path": "movie_frames/frame_0058.png",
+      "frame_sha256": "003226df8b0fd286eaebf56c00bdadcd6e3f88aacc804aa8e53eaf8ec079e1aa",
+      "animation": "hit_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_hurt",
+      "tick": 823,
+      "video_n": 822,
+      "frame_path": "movie_frames/frame_0068.png",
+      "frame_sha256": "53084a235b9588ddec27e666a0d6dae11649adf4a9af62c0cccd50b27df14b92",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 826,
+      "video_n": 825,
+      "frame_path": "movie_frames/frame_0071.png",
+      "frame_sha256": "82b542b1334758a5ad78fa4977c21bd5658003f19693ad3e878d46d047cd8248",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 830,
+      "video_n": 829,
+      "frame_path": "movie_frames/frame_0075.png",
+      "frame_sha256": "3b13f420233d22f70d0daced21958145673d7284dc6028091e4ee29af802d6c4",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 838,
+      "video_n": 837,
+      "frame_path": "movie_frames/frame_0083.png",
+      "frame_sha256": "a2e6e04c8d00c3f182176643607912252066df2274161fce15ccde46db475c12",
+      "animation": "disengage_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 841,
+      "video_n": 840,
+      "frame_path": "movie_frames/frame_0086.png",
+      "frame_sha256": "b87da64ed4af823c30e459089fdcd69daba57430fcf92772f78efebf356a2d72",
+      "animation": "disengage_right",
+      "frame": 2
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 843,
+      "video_n": 842,
+      "frame_path": "movie_frames/frame_0088.png",
+      "frame_sha256": "ee73bfd5c1a9fe983cb7b3cfa9cde04b813a59a8d149ef1304573d92e65c8ebc",
+      "animation": "fall_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 848,
+      "video_n": 847,
+      "frame_path": "movie_frames/frame_0093.png",
+      "frame_sha256": "0a523a3bccc2c991959b9d8ab98df1292aa8db361ffa37fd58706ca3288185ad",
+      "animation": "fall_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_active_fatal",
+      "tick": 854,
+      "video_n": 853,
+      "frame_path": "movie_frames/frame_0099.png",
+      "frame_sha256": "a700cde8ca46e758ad12eead0ac2c45add7b8fcf40400e1d3d248369456387f6",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 856,
+      "video_n": 855,
+      "frame_path": "movie_frames/frame_0101.png",
+      "frame_sha256": "9cd8a763beb1069ef40167441aca8304e141aa9991d2a694e64ad430a419f571",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 860,
+      "video_n": 859,
+      "frame_path": "movie_frames/frame_0105.png",
+      "frame_sha256": "16598a2726f1d1044c51d66e5e341f428b3176d0410600d221324722e70f2bf0",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 868,
+      "video_n": 867,
+      "frame_path": "movie_frames/frame_0113.png",
+      "frame_sha256": "389b19a004b3703745b902d99cb35868e0bda9a78052ee88761ceb0f0bc38b9f",
+      "animation": "disengage_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 871,
+      "video_n": 870,
+      "frame_path": "movie_frames/frame_0116.png",
+      "frame_sha256": "1facf8b3fe4105334e34086204bb62f2d5e16b58b42b69505079c14f9e51349b",
+      "animation": "disengage_right",
+      "frame": 2
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 875,
+      "video_n": 874,
+      "frame_path": "movie_frames/frame_0120.png",
+      "frame_sha256": "e3a945d094cc4aecb760648bac6976a001d845183e859581a51e039ac9ad0c00",
+      "animation": "disengage_right",
+      "frame": 3
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 878,
+      "video_n": 877,
+      "frame_path": "movie_frames/frame_0123.png",
+      "frame_sha256": "662ce27abdaa66e0d0014e0701b65340010d6ba541155d0677eed0d0a935b474",
+      "animation": "disengage_right",
+      "frame": 4
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 882,
+      "video_n": 881,
+      "frame_path": "movie_frames/frame_0127.png",
+      "frame_sha256": "b2814e03df239ad4f18d466deb45925fdf9aaa23016abf9a32075d7c696be018",
+      "animation": "disengage_right",
+      "frame": 5
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 885,
+      "video_n": 884,
+      "frame_path": "movie_frames/frame_0130.png",
+      "frame_sha256": "944a658188bcb9c533d01d96feea7076e28494ec75725011c98bbeb65d93ee9a",
+      "animation": "hit_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_hurt",
+      "tick": 895,
+      "video_n": 894,
+      "frame_path": "movie_frames/frame_0140.png",
+      "frame_sha256": "0ce2034ebb835194925b5b81d329284e4ed657b89dd1cb7240943eb5f303a25e",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 898,
+      "video_n": 897,
+      "frame_path": "movie_frames/frame_0143.png",
+      "frame_sha256": "edd657bd4810252c221fb94071ba90d8c6041e4a739c5a4fc7d94e5139918655",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 902,
+      "video_n": 901,
+      "frame_path": "movie_frames/frame_0147.png",
+      "frame_sha256": "951c8d904c5f2e2696b444955a447e077b2b86435ffbcae856305a9e12d6c488",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 910,
+      "video_n": 909,
+      "frame_path": "movie_frames/frame_0155.png",
+      "frame_sha256": "369af270828879966804bd017ab10d72d29e863b6e6ee5c9fc38fc73981fd293",
+      "animation": "disengage_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 913,
+      "video_n": 912,
+      "frame_path": "movie_frames/frame_0158.png",
+      "frame_sha256": "649727da061ec92279d648f4a2460467bd8b5651883456d387bc647c8ca630b8",
+      "animation": "disengage_right",
+      "frame": 2
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 917,
+      "video_n": 916,
+      "frame_path": "movie_frames/frame_0162.png",
+      "frame_sha256": "293e996cff979e19c6ecb1a2adeadc349853fa23adee3ef6b8306043b51e5577",
+      "animation": "disengage_right",
+      "frame": 3
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 920,
+      "video_n": 919,
+      "frame_path": "movie_frames/frame_0165.png",
+      "frame_sha256": "6b1e9f9ab1a2c15a668593ab6306abe014ac3dd65b616294e54ac3bf6aef3493",
+      "animation": "disengage_right",
+      "frame": 4
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 924,
+      "video_n": 923,
+      "frame_path": "movie_frames/frame_0169.png",
+      "frame_sha256": "b302c873534c0bb5454f707e8ac92b35ed57a602089609994d33e1c3c8d96d8f",
+      "animation": "disengage_right",
+      "frame": 5
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 927,
+      "video_n": 926,
+      "frame_path": "movie_frames/frame_0172.png",
+      "frame_sha256": "61156297c5ed7826e1fe4a92ec241fe50a20564eb15508aab9ecfcc933017bb2",
+      "animation": "fall_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 932,
+      "video_n": 931,
+      "frame_path": "movie_frames/frame_0177.png",
+      "frame_sha256": "b8a3d0701952ceb1c1d5fc21516d779d65915a47bdaac57f22979a5d5aa721e2",
+      "animation": "fall_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_melee_recovery_fatal",
+      "tick": 938,
+      "video_n": 937,
+      "frame_path": "movie_frames/frame_0183.png",
+      "frame_sha256": "b5483ce7be482948ba53c5da871965004284b5236a99f0303df21a0efe3d3afe",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "tick": 940,
+      "video_n": 939,
+      "frame_path": "movie_frames/frame_0185.png",
+      "frame_sha256": "b81b34ca35e03ae533f4387056c11f7a3a8a0fb7e6f5182b0f8cb49f1e578169",
+      "animation": "idle_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "tick": 942,
+      "video_n": 941,
+      "frame_path": "movie_frames/frame_0187.png",
+      "frame_sha256": "040651c249f72055d8eaf83ed9bd441b7783fd31c0984ef08408ae7cdad44aa5",
+      "animation": "disengage_right",
+      "frame": 0
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "tick": 950,
+      "video_n": 949,
+      "frame_path": "movie_frames/frame_0195.png",
+      "frame_sha256": "58c143999a083980ae68a67b8f24224494f93652b7b84546d7a8053637d3ac8f",
+      "animation": "disengage_right",
+      "frame": 1
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "tick": 953,
+      "video_n": 952,
+      "frame_path": "movie_frames/frame_0198.png",
+      "frame_sha256": "5ccb641f560605d7b6a3e2a6aacf3e4f2c861349c82f2f819867d0de297aed32",
+      "animation": "disengage_right",
+      "frame": 2
+    },
+    {
+      "segment": "Core_projectile_during_active",
+      "tick": 955,
+      "video_n": 954,
+      "frame_path": "movie_frames/frame_0200.png",
+      "frame_sha256": "0184865758a5618bfb2c81de01c78052d028bc8dc63733642990b789f8fc629f",
+      "animation": "hit_right",
+      "frame": 0
+    }
+  ],
+  "filmstrips": [
+    "Core_melee_guard_hurt_ALIGNED.png",
+    "Core_melee_guard_fatal_ALIGNED.png",
+    "Core_melee_active_hurt_ALIGNED.png",
+    "Core_melee_active_fatal_ALIGNED.png",
+    "Core_melee_recovery_hurt_ALIGNED.png",
+    "Core_melee_recovery_fatal_ALIGNED.png",
+    "Core_projectile_during_active_ALIGNED.png"
+  ],
+  "clothing_anchors_reused_without_visual_change": 60,
+  "runtime_engine_executions_by_reviewer": 0,
+  "raw_photos_read": false,
+  "full_phase_approval": false
+}

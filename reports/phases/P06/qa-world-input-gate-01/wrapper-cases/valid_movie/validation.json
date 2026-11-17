@@ -1,0 +1,178 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "timka",
+  "passed": true,
+  "source_head": "ffffffffffffffffffffffffffffffffffffffff",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": true,
+  "movie_path": "/tmp/qa-p06-world-gate-is_rxscs/synthetic-video/world.mp4",
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/qa-fixture/godot-never-executed",
+        "--path",
+        "/tmp/qa-p06-world-gate-is_rxscs/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.007,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/qa-fixture/godot-never-executed",
+        "--path",
+        "/tmp/qa-p06-world-gate-is_rxscs/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/tmp/qa-p06-world-gate-is_rxscs/synthetic-video/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.007,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/qa-fixture/ffmpeg-never-executed",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/tmp/qa-p06-world-gate-is_rxscs/synthetic-video/world.avi",
+        "-an",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/tmp/qa-p06-world-gate-is_rxscs/synthetic-video/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/qa-fixture/ffprobe-never-executed",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/tmp/qa-p06-world-gate-is_rxscs/synthetic-video/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "timka",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    },
+    "movie": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "timka",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "evidence/commands.json",
+      "sha256": "a972c202fa26d5a5773df2a6ef784dd421c09b35cf6e91b6b5a532e1d2015a1a"
+    },
+    {
+      "path": "evidence/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "evidence/live/input_gate.json",
+      "sha256": "4e2aba38f9d370227a12ece7996c0fd253d3e3f5f30c0e82123e771329d8c3a6"
+    },
+    {
+      "path": "evidence/live/result.json",
+      "sha256": "b0b8f74cab86ae50884d848477fa5cd62811e9b85b7740f91d222dd205443b45"
+    },
+    {
+      "path": "evidence/live.log",
+      "sha256": "1dba7504d3807bbce6adbc85cd31f8ced0ca3b1868b5483a2e5a2064c30cc28e"
+    },
+    {
+      "path": "evidence/movie/input_gate.json",
+      "sha256": "4e2aba38f9d370227a12ece7996c0fd253d3e3f5f30c0e82123e771329d8c3a6"
+    },
+    {
+      "path": "evidence/movie/result.json",
+      "sha256": "0dbd5f7886dc4d0074f57a42321e43deaa5626995e70fa20a3c0b579c55f16b5"
+    },
+    {
+      "path": "evidence/movie.log",
+      "sha256": "1dba7504d3807bbce6adbc85cd31f8ced0ca3b1868b5483a2e5a2064c30cc28e"
+    },
+    {
+      "path": "evidence/movie_probe.json",
+      "sha256": "56ff440476a002762814874ee9560bdbc5dbc36d6754219ae363a89a95abe72d"
+    },
+    {
+      "path": "evidence/probe_movie.log",
+      "sha256": "fe7851962263c9544af402ccbcb3cf9ac63cb58497ba4b3c5ebef9aec736b3d3"
+    },
+    {
+      "path": "evidence/source_hashes.json",
+      "sha256": "4ecae2ea7793bfb511d54d6ab371fa2e7c8db3bfc8ccbe48a847e99db8744911"
+    }
+  ]
+}

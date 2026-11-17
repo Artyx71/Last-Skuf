@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scope": "FAILED_MOVIE_RUN_DIAGNOSIS_ONLY",
+  "phase_approval": false,
+  "operation": "5d97e047165e48d88620c1e113834063",
+  "receipt": "COMPLETED_EXIT1_CONSUMED",
+  "frozen_source_head": "171bcfc01710614968d9e61ffd7ad409b727951f",
+  "live_checks": "110/110",
+  "live_png": 40,
+  "movie_checks": "67/70",
+  "actual_movie_frames": 750,
+  "failed_checks": [
+    {
+      "details": {
+        "distance": 8.39996337890625
+      },
+      "name": "movement:walk_down",
+      "passed": false
+    },
+    {
+      "details": {},
+      "name": "actual_animation_phase:walk_down:2",
+      "passed": false
+    },
+    {
+      "details": {},
+      "name": "actual_animation_phase:walk_down:3",
+      "passed": false
+    }
+  ],
+  "first_walk_block_animations": {
+    "walk_down": 6,
+    "idle_down": 30
+  },
+  "first_walk_tick_range": [
+    58,
+    93
+  ],
+  "first_walk_position_range": [
+    [
+      320.0,
+      184.199981689453
+    ],
+    [
+      320.0,
+      191.199951171875
+    ]
+  ],
+  "diagnosis": "held movement released during firstwalk; consistent with external focus interruption, not proven without focus instrumentation",
+  "owner_report": "Owner closed an unidentified password prompt during work; exact window/process unknown, no password/auth errors in Godot log",
+  "source_unchanged": true,
+  "next": "new output/task native02, preserve all01 evidence; do not markfailedmovieaccepted"
+}

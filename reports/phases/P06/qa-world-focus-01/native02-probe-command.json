@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "ffprobe",
+    "-v",
+    "error",
+    "-count_frames",
+    "-select_streams",
+    "v:0",
+    "-show_entries",
+    "stream=codec_name,nb_frames,nb_read_frames,avg_frame_rate,duration",
+    "-of",
+    "json",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/timka-world-native-02/world.avi"
+  ],
+  "exit_code": 0
+}

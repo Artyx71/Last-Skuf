@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T17:03:07.952709+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "status": "FAIL",
+  "actor_id": "timka",
+  "kind": "finisher",
+  "all32_freshly_reviewed": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "0d67c1f19006830ebe3cccfce4cdcd0ab6babbe3e5875421c01ddf1d4f8f7876",
+  "master_sha256": "87f031b8c639fd0e92c9469eb084e9797c8c84a33837d713565bfa0c7cd84177",
+  "report_sha256": "3f883ab1c49df7f79f2b050dd12c209ce3aff86f34ba8557ab21988e926cb717",
+  "metrics_sha256": "42c8c6d46a20bc124f3c55e1e10e7f32e301e93c61e4ff505df21824142be15e",
+  "must_fix": [
+    {
+      "id": "TIMKA-FINISHER-SOURCE-UP-ENV-READABILITY-02",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 29,
+          "direction": "up",
+          "column": 5
+        }
+      ],
+      "summary": "UP5 environmental contact repeats the raised open-palm and arm silhouette of UP1 low palmpress; the category-specific ledge brace/grip is not independently readable.",
+      "comparison_cells": [
+        {
+          "index": 25,
+          "direction": "up",
+          "column": 1
+        }
+      ],
+      "remediation": "Redraw complete UP5 only: retain correct forward/screenTOP facing, own overhead/crown/body/sleeves and small hands, but show a distinct grounded ledge grip/push with visible forward torso lean/braced stance and bent gripping wrists/forearms rather than copying UP1 raised open palms. No scene/ledge/victim painted. Keep minimum16 source gutter. Do not use labels/events/context to substitute for a visibly distinct contact."
+    },
+    {
+      "id": "TIMKA-FINISHER-SOURCE-UP-FIREARM-READABILITY-02",
+      "severity": "MAJOR",
+      "status": "OPEN",
+      "cells": [
+        {
+          "index": 28,
+          "direction": "up",
+          "column": 4
+        }
+      ],
+      "summary": "UP4 firearm-reference prop reduces to the same short rounded vertical tube/baton profile as UP2; pistol-specific silhouette is not reliable at48x64.",
+      "comparison_cells": [
+        {
+          "index": 26,
+          "direction": "up",
+          "column": 2
+        }
+      ],
+      "remediation": "Redraw complete UP4 only with recognizable compact pistol structure (coherent slide/barrel plus grip/frame or trigger-guard cue surviving native NN), still two supported small hands aimed toward screenTOP/forward. A slight forward three-quarter angle can reveal the firearm frame without reversing facing. No muzzle flash, extra prop, giant tool/hands, anatomy painting or mirrored limb repair. Keep mandatory16 source gutter. Reference art still grants no weapon authorization."
+    }
+  ],
+  "closed_findings": [
+    "TIMKA-FINISHER-SOURCE-UP-CONTACT-01",
+    "TIMKA-FINISHER-SOURCE-UP-CLINCH-01",
+    "TIMKA-FINISHER-SOURCE-GUTTER-01"
+  ],
+  "nonblocking_source_limits": [
+    "FAIL source component only; no source adoption/runtime/fullphase approval.",
+    "The old facing/neck/gutter tickets are closed for v2b, but two new visual category-readability tickets remain open.",
+    "Target24 source margin is not required; mandatory16 was checked without relaxation.",
+    "No raw photos read/uploaded/copied; own accepted portrait/WORLD/ACTION only.",
+    "No author/helper/builder/Godot/Git/controller/network/generator execution; own scripts reconstruct saved images read-only and write ROOT diagnostics only."
+  ],
+  "pending_runtime_evidence": [
+    "Actual native animation/contact/target/environment alignment only after source acceptance; source diagnostic sequences are not game playback.",
+    "Actual WORLD↔FINISHER joins and projected floor/head motion, especially wholefigure DOWN2 translation-9sourcepx and four uniform fits; fixed row anchor alone is not continuity proof.",
+    "Gameplay policy: peaceful_present no finishers/prime; athletic_prime only unarmed/blunt/environmental; sharp/firearm reference art grants no tools.",
+    "Audio/Input/physics damage/reward once semantics/FPS/exports/Lead/fullP06/merge remain separate."
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/timka/finisher_master_v1.png": "58bdf3edc42a159d46b70348ac3d6c5bb7e4c360fe4fb85bc4dd564fa5a717c3",
+    "assets/source_art/characters/timka/finisher_native_v1.png": "3db880ae51326478b11a3afe52d63956b722de43dd842d1d65a2bff94aa0210b",
+    "assets/source_art/characters/timka/finisher_manifest_v1.json": "760f448443a0d9a4d35e484f60eab7793e8743b88e70775900140d3e56a5d3ab",
+    "assets/source_art/characters/timka/finisher_v1_prompt.txt": "b6a4b15e4c28368dfe1c293c72fc346f8811495fd443f66977904db083743815",
+    "assets/source_art/characters/timka/finisher_v1_references.json": "dc92881757a7cea4f9315766ee49af65439c2bf5b9389fe570e9f802c52c31f4",
+    "assets/source_art/characters/timka/finisher_v1_generation_metadata.json": "7facd45f9cb229a52fe07521a9fcfc6023d9e72bedf0483bd6aadfc975e05ce3",
+    "assets/source_art/characters/timka/finisher_master_v2.png": "13268c8c8c4d39026522dd0d2cd99285a932d39cfe8b19fd92702d9ed0e3da22",
+    "assets/source_art/characters/timka/finisher_v2_prompt.txt": "868e8bc449985a78bc335862cd317102effd1c424cb6bbbe6c19aa40fc9035a6",
+    "assets/source_art/characters/timka/finisher_v2_generation_metadata.json": "e7d427fa0237177e466c02fa8ce960e442ad42e22603b3e0ed0f0bfbc2e0f3c2",
+    "assets/source_art/characters/timka/finisher_master_v2a.png": "ffc304114f222facd5ae8202ac0aaddaaca957682298dbe2066066386feeb64b",
+    "assets/source_art/characters/timka/finisher_v2a_assembly.json": "f3f0bed6bd1f6f216ac888b2af5d52f0adb07e1e716ed062d801cf85bbeec66c",
+    "assets/source_art/characters/timka/finisher_master_v2b.png": "87f031b8c639fd0e92c9469eb084e9797c8c84a33837d713565bfa0c7cd84177",
+    "assets/source_art/characters/timka/finisher_v2b_assembly.json": "b3baac0618c6775b2dc94b1b3c15569e2dbeed250320c560abf824c6e041b2ce",
+    "assets/source_art/characters/timka/finisher_native_v2b.png": "0d67c1f19006830ebe3cccfce4cdcd0ab6babbe3e5875421c01ddf1d4f8f7876",
+    "assets/source_art/characters/timka/finisher_manifest_v2b.json": "4617715c03553d4fdef0082586b56734995be8edd6dd73daabbf9440c1242720",
+    "assets/source_art/characters/timka/finisher_inspection_v2b_3x.png": "495bafa718bcf537a2833a2af6e23e911286ea920304f6e967266f74f144e652",
+    "assets/source_art/characters/timka/world_native_v4c.png": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+    "assets/source_art/characters/timka/world_master_v4c.png": "79ab1a0ebd2e06e4793d83c8ed1d2f336f502d37228f3df1e8fb590ff8c114c0",
+    "assets/source_art/characters/timka/world_camera_reference_v4c_4x.png": "bd70c11ed30c44488beb5df6586536612b5d08343431e2638b4dd9cd17b28659",
+    "assets/source_art/characters/timka/action_native_v2b.png": "29811ccf0c4112e9113f5a8822a334f86d88e32398589aca1d4087a402bd5dee",
+    "assets/source_art/characters/timka/action_master_v2b.png": "806abc3d2fe470c92a3910b8dca364372693639e06c50e5235b313b32e245b7a",
+    "assets/source_art/characters/timka/action_camera_reference_v2b_4x.png": "a84ff96d70c71c1aa60bea3971cc8b33fd494113e66380cbf6039847c27c7e40",
+    "assets/source_art/characters/timka/portraits_master_v1.png": "0d6f6e48e33b061467614dcd65b350728cd9425e38b6eb7b1945d30d2dd2f4d7",
+    "assets/source_art/characters/timka/portraits_native_source.png": "c1647b81e9005c270260587841007255e2092c2db2cef0720854a6e332c81606",
+    "assets/source_art/characters/adopt_world.py": "d0b210e3a052b95e1b2cb34ad02c058dc53025dbd05bcaf713a3eb3a531c51d8",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "assets/source_art/characters/fit_actor_gutters.py": "2ef68ba99c70b9ec359198c5e5d18a2fbf1f7a3d135fa4c0c97707c519003871",
+    "AGENTS.md": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332",
+    "reports/phases/P06/art-preflight/timka_world_preflight_v4c.json": "035762b483b1a77a3a4091f51fb4bd4655a65ed17854c7dd04e5ca27daeb7c4d",
+    "reports/phases/P06/art-preflight/timka-world-native-review-v1.json": "e136bc560aa30bcc77d47c95a8f9ca36beace0e6a43452ad7d6b480c12b9c1b1",
+    "reports/phases/P06/art-preflight/timka_action_preflight_v2b.json": "c12c3be3cc025b475e3fa9de1735bfe3936800c946f638fb07b87aa79ee30e68",
+    "reports/phases/P06/art-preflight/timka_finisher_preflight_v1.json": "fd50c462f810bd59eaa6ca5742b407a4496c0bd94d814ba279497f62efdea482",
+    "reports/phases/P06/author-checks/timka-finisher-gutter-fit-01/rejected-no-fit-authorization.log": "a71a6db3498117b8abe1ad966002659e182451b10d8047660aa1979c2839aacd",
+    "reports/phases/P06/author-checks/timka-finisher-gutter-fit-01/explicit-fit-candidates.json": "ebb6c3148bd540caa9ff5c382313dfd17b6db8478a10de377a3fdb17f7c82ed5"
+  },
+  "cell_rgba_sha256": {
+    "0": "79b1a43dce47056a8bb06933ea1c3a6cdd0e4595822dfa82a68ac59a89abcf3f",
+    "1": "38bc212a5f9845aa436d469a2cce2d7b83baa00afbf50c026a550940f26dc754",
+    "2": "15076abc5a1c704d676d2ecd23e4bef9eb5030176c575231621f4596b622f120",
+    "3": "fc4f9587b21bb971a3d18b9ab9979cdfe1f7a70ad113a957c7ae80eac0f6b285",
+    "4": "c215c19bf83d6ac29cdcfa2391d09e6cb45138064f9327b545b3e34a43d65ff4",
+    "5": "9168452c5459ef68062d6b7f43ee530d6946780e747963e2a3a6e113a8d297df",
+    "6": "758bdce82dc7852ea7b4ec6f721f92cc6b5cb31560bc8c0fb4ec5dfc0232b8c5",
+    "7": "867569843dd21730e1eba746186f7d25e2baddf2bfb33d9a97ad06733fea3a40",
+    "8": "c0d72c102cb70e50d03b15b418c63c09886ca9db140f6c08a7899cf36bc8bd4e",
+    "9": "e964346232bc55b2345a9d3d85f15c989e96909d8efbe8bd762d1c3b58aa806f",
+    "10": "4606b57d900c010a53af74c05b5cc415b5a9a02efa3ea332613a361a0199bb7d",
+    "11": "d919f5cec9565e662faa82de79b49836cef72aad140b69662a7a08c8e527794a",
+    "12": "19ebba2728b5890b9902d3cd0c793f4280aa62b35bfa5db4151428ccbbafc785",
+    "13": "794701e791aa8d972577b1e2610acee3a7f9f031e0bc04973a30aac999ea0dd3",
+    "14": "24077650ed33346a7d1f06b253fcf5d87373dd888938a952644a112eabd6eea6",
+    "15": "512d7856f605208519d02695fce941fee20982888c80617d29a928627ab165a7",
+    "16": "8c7fd581127cd0ae5b0f9ad9c83284050b3c89b9bb38a2dd7327138061c2f987",
+    "17": "57acbc17c58b371c3558e949a406897329f125675320f42fcb22fb36830b5453",
+    "18": "581ca65eb26d588eb7201bfef40cb3c5b5fc58b6e2caf65cd36b3dd8fc3d376e",
+    "19": "0b378333e2362ddab4bc21ccbe5d561cfe03ec286b02bc527647eba56d4ea67c",
+    "20": "5e535b1072a57c44348e916dbd221045d598a1c51f954c91d939f7ef07677502",
+    "21": "262ed46f71e13daeadcc77b19315a5184ec3f205058ad97b87678473b206bcaa",
+    "22": "c0dc4e08c3f2110ddbf9bbdfab33c3ce4eacc1ff21f3361ce4a9d6010e2c9136",
+    "23": "ea413b296fff4d3c978f164f85d5f7d1a7cc856a6be3962180283eaf1ed96df3",
+    "24": "cb4c726903afbfd5c91fed417e7f3302f2f7f2c573f28900973311f60d2443e6",
+    "25": "593470b3ac05d291bf84b58df43b1ee581748c4c956957063f085d8ffbb091e6",
+    "26": "4fe49601d0aa85bf96573bdf4218e6cb8ff588381ce90743dc74895a4104c090",
+    "27": "dd08a6452108f9e0ce9f7c29011eff0dc9a8e6a8086f63564936174a7ec6690d",
+    "28": "b83c2ee5d4255698712543747176cecab38d6ebe0892eea0a2c52c0bb5aa63c6",
+    "29": "f922ff632b5631a1d887914e703de79a15b9442a6a1cd65647bdf329aad50a91",
+    "30": "94bb047dee09e39e50f71163f40761cec2f348eba67ff2267ce5f346b98fb22b",
+    "31": "905d82c09f1387e230ed3b1a931e7180b39295861c29bc547ed0f80be36758de"
+  },
+  "review_artifacts_sha256": {
+    "timka_finisher_preflight_v2b_down_light_world_compare_4x.png": "c4c7597ce601b9995147d2fd4a13b3fcb0f73382bf50e5da01ff0a677342a837",
+    "timka_finisher_preflight_v2b_down_dark_world_compare_4x.png": "9e980bdc59090728260931daaf9feeeb57cbba4c603482fe210274beddf65659",
+    "timka_finisher_preflight_v2b_down_unarmed_SOURCE_ONLY.gif": "662f2423845ff028719dc21d8950393526ac994c5344387ca6d84249458b164b",
+    "timka_finisher_preflight_v2b_down_blunt_SOURCE_ONLY.gif": "f086a6e6df5186275825e1c676b50375c697b3bbaccce34a559956691aff5510",
+    "timka_finisher_preflight_v2b_down_sharp_REFERENCE_SOURCE_ONLY.gif": "8b11316b555482d35a4630b102a0fd2d8ffb9314b0eedb95aa9d72e073f5d6a0",
+    "timka_finisher_preflight_v2b_down_firearm_REFERENCE_SOURCE_ONLY.gif": "de2770e1088418471c0b22bfb5816041e22c35464d366fc80659f8117b11006e",
+    "timka_finisher_preflight_v2b_down_environmental_SOURCE_ONLY.gif": "ba38f9a2fb1088c07e3b7944f95f0f4c982c2f60b29b00c941fd5198fab03720",
+    "timka_finisher_preflight_v2b_down_prime_clinch_SOURCE_ONLY.gif": "1cfa2b8c4bc55d6fd1868932d38ba59cbddd3995cea9854ef1d55f9571dafe81",
+    "timka_finisher_preflight_v2b_left_light_world_compare_4x.png": "ceec8d48a7f62423dde3eb54514058cf8853c8e9b62e75f757ff737f77d69449",
+    "timka_finisher_preflight_v2b_left_dark_world_compare_4x.png": "7cc5eec285ddeb06e24e87e416fe494a9d410575ba54808a5c91b65b6d02c776",
+    "timka_finisher_preflight_v2b_left_unarmed_SOURCE_ONLY.gif": "5d6d76e6181f47ae1cc229fd4a5eec2c1d4de87c98c86d8038beb94e48890267",
+    "timka_finisher_preflight_v2b_left_blunt_SOURCE_ONLY.gif": "1975982d5048dda4606840eee3665fec34edf0ea75a9ec0a9323624429db9ffb",
+    "timka_finisher_preflight_v2b_left_sharp_REFERENCE_SOURCE_ONLY.gif": "9e7229e8d51d8a48c01dec0be395101b60dcf41d3ea5131a0391d5cb01344f88",
+    "timka_finisher_preflight_v2b_left_firearm_REFERENCE_SOURCE_ONLY.gif": "e17f58ed7a2edb4cb6aee667f9174ecccf7cde5ff5fd38e878d679fed17693a6",
+    "timka_finisher_preflight_v2b_left_environmental_SOURCE_ONLY.gif": "742856864cf61a73b93efa7f32e374081e74b4dc01eab4a59e7ec99cc1ab5805",
+    "timka_finisher_preflight_v2b_left_prime_clinch_SOURCE_ONLY.gif": "ed3d42eb145db47b2b63882e56c085194fb1eecf5e0e20352e6eb44defbaf660",
+    "timka_finisher_preflight_v2b_right_light_world_compare_4x.png": "f1a1e3657f584d66025ea78eb672f49be6902ab9ec213483abb38c3acc5698f1",
+    "timka_finisher_preflight_v2b_right_dark_world_compare_4x.png": "bac2ea61c25441afcbc6916a262ad62a5bb7836f4bb0d8467779b3faee4b1014",
+    "timka_finisher_preflight_v2b_right_unarmed_SOURCE_ONLY.gif": "a9840c8d564008db9160e5bc44fac3cc8a9812b66b680a7a7f6ce8b1f8c84228",
+    "timka_finisher_preflight_v2b_right_blunt_SOURCE_ONLY.gif": "365786392cbe6135dd04420908c66d67cc184d3b1b2e2869fadc1580c67f5e78",
+    "timka_finisher_preflight_v2b_right_sharp_REFERENCE_SOURCE_ONLY.gif": "e27bfccf1438d74de7f291d4314e5f0d38aa160b201e24a927a5bca3d3c4ab02",
+    "timka_finisher_preflight_v2b_right_firearm_REFERENCE_SOURCE_ONLY.gif": "f3c7a9de65929a21dde798857217956cffda97e0f3b258984907c4cbd047d1d3",
+    "timka_finisher_preflight_v2b_right_environmental_SOURCE_ONLY.gif": "ef923bc3a524a819586e0f43b3b94810cc690217ba3b4ad11b2d45ff2130d2ff",
+    "timka_finisher_preflight_v2b_right_prime_clinch_SOURCE_ONLY.gif": "35d4ba74d22273c28ca02933df5510369b4eb5ba2ee3423dc070702129dba767",
+    "timka_finisher_preflight_v2b_up_light_world_compare_4x.png": "4276a432fcf744408aca8ed78d2d642eacd78806c318bf7eb0ad6bdce4104b9a",
+    "timka_finisher_preflight_v2b_up_dark_world_compare_4x.png": "c39b69afd272dad6bbe456da718482e5ca5ee42eaf2931a0eeef364168f84f3b",
+    "timka_finisher_preflight_v2b_up_unarmed_SOURCE_ONLY.gif": "52a94a8b3d5a3924339fa628670eebc7772eeffd61a21370c4169aca04ed2c16",
+    "timka_finisher_preflight_v2b_up_blunt_SOURCE_ONLY.gif": "6555064ad135d2f2fb1c38062c8d45e342e8646c28a34281ad4d839bd3644d05",
+    "timka_finisher_preflight_v2b_up_sharp_REFERENCE_SOURCE_ONLY.gif": "4bcecdfeaa3a114e5e83713c64cc1d9f720a9cdbe46a0836966144320e8afd45",
+    "timka_finisher_preflight_v2b_up_firearm_REFERENCE_SOURCE_ONLY.gif": "4ffd6dc4714a97e3bed40e51455a8166268f7d53c64c53c54fd44e0f94d64d4d",
+    "timka_finisher_preflight_v2b_up_environmental_SOURCE_ONLY.gif": "179dab6b8d1dcd309b374dd802de7f09b45f89d248a07495d0880bdb75616817",
+    "timka_finisher_preflight_v2b_up_prime_clinch_SOURCE_ONLY.gif": "884fc8093691b50e4a70e656234acdd9c38a86a01427ac44ec47f9c40a04f1fc",
+    "timka_finisher_preflight_v2b_up_all8_whole_source_2x.png": "e8896b3b1c6785bb76ba82e2cb3ec48ae0d1e3532118bf8b1aacd94fe27cf058",
+    "timka_finisher_preflight_v2b_unarmed_all4_ordered_SOURCE_ONLY_4x.png": "3d49320d23ff9d18bafb608fc362613cefdf9bbbbd59013ef5b2a8f918db9e21",
+    "timka_finisher_preflight_v2b_blunt_all4_ordered_SOURCE_ONLY_4x.png": "54d6891355ae679c33f3be3f14ba179e3931c7e0e17e897cf52dc838c122e51c",
+    "timka_finisher_preflight_v2b_sharp_REFERENCE_all4_ordered_SOURCE_ONLY_4x.png": "85e583d9d83538c5e285ebbdcd6d1fe62431b28a23b8ea23d44ab5253af828bc",
+    "timka_finisher_preflight_v2b_firearm_REFERENCE_all4_ordered_SOURCE_ONLY_4x.png": "df572360744c1575308d7f5a28f3c74c2298f1bd9d009595bc7ef82cc0a2510b",
+    "timka_finisher_preflight_v2b_environmental_all4_ordered_SOURCE_ONLY_4x.png": "2c8dda82851c712bb985df7976b08371b13372b3bbf1c2f0d87212c168613a23",
+    "timka_finisher_preflight_v2b_prime_clinch_all4_ordered_SOURCE_ONLY_4x.png": "b8b5b3f2a9cff03be0e77eb00940cce65f623cd1210e6f5178645ef58c781240",
+    "timka_finisher_preflight_v2b.md": "3f883ab1c49df7f79f2b050dd12c209ce3aff86f34ba8557ab21988e926cb717",
+    "timka_finisher_preflight_v2b_metrics.json": "42c8c6d46a20bc124f3c55e1e10e7f32e301e93c61e4ff505df21824142be15e",
+    "timka_finisher_preflight_v2b.inspect.py": "c2f24db127aad59d057416c01d21f22f1c9ea0d79c0cec8a0d0dd6d9a5a5b2f6",
+    "timka_finisher_preflight_v2b.chain.inspect.py": "31d190b439adfb07411d81521874845302ceeedfa7942ef2fdfc39bb5d787042"
+  },
+  "minimal_wholecell_correction_union": [
+    28,
+    29
+  ],
+  "previous_rejections_preserved": true
+}

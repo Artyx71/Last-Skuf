@@ -1,0 +1,182 @@
+{
+  "actual_input": true,
+  "callback": {
+    "after_free": {
+      "ammo": 4,
+      "contact_events": [
+        {
+          "at": "(320.0, 240.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 52529465102,
+          "tick": 13
+        }
+      ],
+      "damage_events": 1,
+      "epoch": 4,
+      "finishers": [
+        {
+          "committed": false,
+          "epoch": 4,
+          "id": 2,
+          "source_live": true,
+          "target_live": false
+        }
+      ],
+      "receipts": {
+        "1:52529465102": true
+      },
+      "rounds_spent": 0,
+      "score": 0,
+      "target_live": false,
+      "tick": 46
+    },
+    "before_free": {
+      "ammo": 4,
+      "contact_events": [
+        {
+          "at": "(320.0, 240.0)",
+          "category": "unarmed",
+          "cue": "impact_unarmed_body",
+          "damage": 0,
+          "direction": "(1.0, 0.0)",
+          "epoch": 4,
+          "finisher": false,
+          "id": 1,
+          "lethal": false,
+          "strong": false,
+          "target": 52529465102,
+          "tick": 13
+        }
+      ],
+      "damage_events": 1,
+      "epoch": 4,
+      "finishers": [
+        {
+          "committed": false,
+          "epoch": 4,
+          "id": 2,
+          "source_live": true,
+          "target_live": true
+        }
+      ],
+      "receipts": {
+        "1:52529465102": true
+      },
+      "rounds_spent": 0,
+      "score": 0,
+      "target_live": true,
+      "tick": 46
+    },
+    "free_effective": true,
+    "inside_Core_tick_finishers": true,
+    "stack": [
+      {
+        "function": "target_frame_changed",
+        "line": 25,
+        "source": "res://tests/gp_pasha_finisher_frame_free.gd"
+      },
+      {
+        "function": "_tick_finishers",
+        "line": 412,
+        "source": "res://scripts/systems/combat_system.gd"
+      },
+      {
+        "function": "_physics_process",
+        "line": 139,
+        "source": "res://scripts/systems/combat_system.gd"
+      }
+    ],
+    "target_animation": "finish_firearm_left",
+    "target_frame": 1,
+    "target_id": 52529465102,
+    "target_state": "finisher_reaction"
+  },
+  "checks": [
+    {
+      "details": {},
+      "name": "registered_Pasha_selected",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "vulnerability_earned_by_actual_Input_shove",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "firearm_tool_selected_from_registered_policy",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "target_contact1_callback_reached_inside_real_Core",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "target_really_freed_and_observer_same_tick",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "target_loss_does_not_consume_firearm_round_or_commit_damage",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "freed_target_reservation_eventually_removed",
+      "passed": true
+    }
+  ],
+  "inconclusive_if_free_not_effective": true,
+  "passed": true,
+  "phase_approval": false,
+  "requires_clean_engine_log": true,
+  "runtime_approval": false,
+  "same_tick_after_Core": {
+    "ammo": 4,
+    "contact_events": [
+      {
+        "at": "(320.0, 240.0)",
+        "category": "unarmed",
+        "cue": "impact_unarmed_body",
+        "damage": 0,
+        "direction": "(1.0, 0.0)",
+        "epoch": 4,
+        "finisher": false,
+        "id": 1,
+        "lethal": false,
+        "strong": false,
+        "target": 52529465102,
+        "tick": 13
+      }
+    ],
+    "damage_events": 1,
+    "epoch": 4,
+    "finishers": [
+      {
+        "committed": false,
+        "epoch": 4,
+        "id": 2,
+        "source_live": true,
+        "target_live": false
+      }
+    ],
+    "receipts": {
+      "1:52529465102": true
+    },
+    "rounds_spent": 0,
+    "score": 0,
+    "target_live": false,
+    "tick": 46
+  },
+  "scope": "GP_PASHA_PREFLIGHT_FINISHER_FRAME_FREE_BASELINE"
+}

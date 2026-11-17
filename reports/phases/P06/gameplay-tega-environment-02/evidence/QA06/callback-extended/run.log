@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RESULT QA_TEGA_CALLBACK_EXTENDED passed=10 failed=2
+ERROR: FAIL P06_TEGA foot_shape_miss:eligibility_invalid_with_range_and_facing_still_valid
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:25)
+       [1] run (res://tests/qa_tega_callback_extended.gd:43)
+       [2] frames (res://tests/qa_tega_callback_geometry.gd:17)
+ERROR: FAIL P06_TEGA foot_shape_miss:no_stale_step_after_overlap_or_LOS_change
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:25)
+       [1] run (res://tests/qa_tega_callback_extended.gd:44)
+       [2] frames (res://tests/qa_tega_callback_geometry.gd:17)
+
+exit_code=1

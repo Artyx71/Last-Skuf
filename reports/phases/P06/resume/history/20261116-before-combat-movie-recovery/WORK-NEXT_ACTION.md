@@ -1,0 +1,10 @@
+# Точное продолжение P06 после прерывания
+
+Canonical ROOT/automation/phase_state.json — единственный authority; P06 IMPLEMENTING formalattempt1/globalcounter2. LastfullPASS/MERGED P05/PR10; noP06PRyet. Одинauthor/worker, permanentrunnerнет.
+
+1. Дождаться independent continuation preflight на63a8f117 и contract f9335cc1c7bfa15563be43b5195a36701a6c9785ca487fc8aaed07f9439a45bb. Runtime unchanged; source changes limited PashaQA replay + continuationtool/unit. QA Pasha ede0658a PASS_COMPONENT уже готов, Leadtargetclosure ожидается.
+2. После exactGO/sourcefreeze/authorrelease выполнить единственный canonical serial tools/continue_p06_native.py run: новые output/build, оставшиеся5stages --exports --movie черезпрежнийplan. Сохранённые7 и Pasha651/7a76 не перезапускать без нового доказательства необходимости; oldfullnative01FAIL не переписывать. Source/HEAD/approval/contract изменились — остановка, неblindretry.
+3. После renderer/performance и при отсутствии Gitwriters выполнить preparedprivacyv2 request: ROOT/reports/phases/P06/lead-full-review-preparation-01-private-audit-classification-01/request-v2/request.json (entry6d879a5...). Raw11/currentindexes/sharedobjects; privatehelperlogs/manifest/фото не публиковать. Доscan готовить только проверенные public/stagedfiles. Исторические4debugkeys untrackedв9e4daa, локальныефайлы иROOTindexbackupсохранены.
+4. Независимые fullQA/Lead exacthead/base, currentmandatoryGitHubCI и protectedPR/squash. Runtime DEV08 сохраняется; rootrunnerhandoff/production readiness/21MDS отдельные gates доP07.
+
+Факты: originalfullnative01 7positive +PashaFAIL4; freshPasha headless401/live589/Movie401 consumed0 послепрерывания. OriginalcauseUNKNOWN, controlledInput accepted, windowNO_FOCUS не гарантиявсегоOSfocus. Actualguard32samples/route×24,6negativeQAcontrols. Остальные5 NOT_RUN. C09additionalNPCstyle ownerdeferredP08, не выполнено/не принято. Резюмировать сначала inspectoperation/receipt/plan/HEAD; не сбрасывать counters/фазу и не запускать параллельногоисполнителя.

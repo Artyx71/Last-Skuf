@@ -1,0 +1,78 @@
+[
+  {
+    "name": "live",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--disable-vsync",
+      "--max-fps",
+      "60",
+      "--script",
+      "res://tests/character_world_preview.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 13.222,
+    "passed": true
+  },
+  {
+    "name": "movie",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--disable-vsync",
+      "--max-fps",
+      "60",
+      "--write-movie",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-world-native-01/world.avi",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "res://tests/character_world_preview.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 22.968,
+    "passed": true
+  },
+  {
+    "name": "encode_movie",
+    "argv": [
+      "/usr/bin/ffmpeg",
+      "-v",
+      "error",
+      "-n",
+      "-i",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-world-native-01/world.avi",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "18",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-world-native-01/world.mp4"
+    ],
+    "exit_code": 0,
+    "seconds": 1.264,
+    "passed": true
+  },
+  {
+    "name": "probe_movie",
+    "argv": [
+      "/usr/bin/ffprobe",
+      "-v",
+      "error",
+      "-show_streams",
+      "-show_format",
+      "-of",
+      "json",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/olezhka-world-native-01/world.mp4"
+    ],
+    "exit_code": 0,
+    "seconds": 0.048,
+    "passed": true
+  }
+]

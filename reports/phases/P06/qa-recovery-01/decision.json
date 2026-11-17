@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "phase": "P06",
+  "review_kind": "independent_autopilot_server_restart_recovery_qa",
+  "reviewer": "/root/qa_resume_recovery",
+  "status": "RECOVERY_VERIFIED_BOUNDED_QA_NOT_PHASE_APPROVAL",
+  "independent_review": true,
+  "reviewed_utc": "2026-11-14T15:06:23.823403+00:00",
+  "formal_attempt": 1,
+  "phase_approval": false,
+  "merge_allowed": false,
+  "next_phase_allowed": false,
+  "native_freeze": "7a9972772ed3b4bbab962ab535cb715a6444dcb9",
+  "observed_worktree_head_label": "35db4880b9fc5ef8de42b3d85887cacf7b969dd2",
+  "tests": {
+    "isolated_suite_passed": 47,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "production_controller_invoked": false,
+    "actual_github_calls": false,
+    "initial_success_run_preserved": true,
+    "repeat_reason": "actual separate full stdout/stderr capture only"
+  },
+  "verified": {
+    "native_inputs_sha_matches": 706,
+    "native_artifacts_sha_matches": 93,
+    "original_native_task_job_count": 1,
+    "receipt_consumed_exit0": true,
+    "actual_author_pid": 4363,
+    "kernel_flock_owner_observed": true,
+    "phase_records_unchanged": true,
+    "past_decision_sha_matches": true,
+    "canonical_mirror_matches": true,
+    "formal_p06_lead_decision_exists": false,
+    "timka_saved_source_hashes_valid": true,
+    "timka_runtime_world_absent": true
+  },
+  "findings": [],
+  "required_before_publication": [
+    {
+      "id": "KNOWN-P06-RUNNER-HANDOFF",
+      "status": "PENDING",
+      "requirement": "Release sole author after full freeze, sync/reload reviewed WORK runner to active ROOT, ensure P06 full-native gate executes; no hot swap during author lease"
+    },
+    {
+      "id": "KNOWN-P06-FULL-HARNESS",
+      "status": "PENDING",
+      "requirement": "Implement and independently verify full tools/verify_p06.py --exports --movie before P06 acceptance/publication; current file absent"
+    },
+    {
+      "id": "P06-EXTERNAL-DELIVERY-GATES",
+      "status": "PENDING",
+      "requirement": "Independent exact-head/base Lead PASS, actual current-SHA mandatory CI and branch protection/manual approval checks"
+    }
+  ],
+  "limits": [
+    "No phase/ART/native feel/audio listening/FPS/exports approval",
+    "No independent generator API-call history audit",
+    "No actual GitHub CI/protection/permission checks; merge tests use mocked fixtures",
+    "Active author may append later checkpoints; observations time-bounded"
+  ],
+  "report_sha256": "9f6e7d93119a388760eca66acc4e82a40712b2ca5487ab19cf47fb2747898ce6",
+  "artifacts_sha256": "257b0482b65b6bc8514ca83fa6128870cbbcfea4c4ff4da0e5c8edaea89fca62",
+  "evidence": [
+    {
+      "path": "reports/phases/P06/qa-recovery-01/review.md",
+      "sha256": "9f6e7d93119a388760eca66acc4e82a40712b2ca5487ab19cf47fb2747898ce6"
+    },
+    {
+      "path": "reports/phases/P06/qa-recovery-01/artifacts.json",
+      "sha256": "257b0482b65b6bc8514ca83fa6128870cbbcfea4c4ff4da0e5c8edaea89fca62"
+    }
+  ],
+  "observation_note": "Read-only git HEAD recorded separately; native freeze remains7a99727, later source/report commits are not old native evidence."
+}

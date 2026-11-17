@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-14T23:05:37.879244+00:00",
+  "scope": "AUTHOR_CANDIDATE_GUARD_TESTS_ONLY",
+  "source_inventory_sha256": {
+    "autopilot/readiness.py": "013774cc4fa6b631a84b7c8869f0d7337246c5b28dad200c56cb7147d18afd74",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "tools/tests/test_production_readiness.py": "1ebe75c251f031106c8a437e39c7d0ce2ed6fe3c05725347092d01b571cb859f",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472"
+  },
+  "results": [
+    {
+      "name": "production_readiness",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_production_readiness.py",
+        "-v"
+      ],
+      "exit": 0,
+      "summary": " (test_production_readiness.ProductionReadinessTests.test_wrong_frozen_head_blocks) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.383s\n\nOK\n"
+    },
+    {
+      "name": "autopilot_regression",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_autopilot.py",
+        "-v"
+      ],
+      "exit": 0,
+      "summary": "_progress (test_autopilot.MergeTests.test_unverified_merged_parent_blocks_progress) ... ok\n\n----------------------------------------------------------------------\nRan 47 tests in 2.700s\n\nOK\n"
+    }
+  ],
+  "source_unchanged": true,
+  "ROOT_runner_installed": false,
+  "P07_authorized": false,
+  "phase_approval": false
+}

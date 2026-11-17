@@ -1,0 +1,105 @@
+{
+  "scope": "ACTUAL_BASELINE_REGRESSION_TO_CURRENT_GAME_EQUIVALENCE",
+  "baseline_before_after_equal": true,
+  "baseline_before_sha256": "01395e28d41bbf83ac169f6ec9f91b34033132e43b74d0342c16faa152995393",
+  "baseline_after_sha256": "01395e28d41bbf83ac169f6ec9f91b34033132e43b74d0342c16faa152995393",
+  "baseline49_validation_sha256": "7ebdb4cbe631424854ad233b1adc43caae218362851ef310f4eb9448379e37fc",
+  "then_keys": 1465,
+  "current_keys": 1456,
+  "current_Game_changes": [
+    {
+      "path": "game/scripts/qa/cast_replay.gd",
+      "then": "0ef99615285318cf5cf46528fb9b47b11d4646e87eddb55b840f424821d23f71",
+      "current": "84d55a53e0a5e4d15a3cb4cd5559c3413fde0997d2b432e74ae2e62d269ca4fd"
+    },
+    {
+      "path": "game/tests/pasha_moving_shot_replay.gd",
+      "then": "7d634f0e1918b72b7ba7d8b7c9957461c4a9424cc1fefb533a4f0498fe2bcaa0",
+      "current": "de4067eda5456653c11cf01fa6b12265463ca0d681736f2753d37746cbad8655"
+    }
+  ],
+  "current_Game_additions": [],
+  "current_C5_performance_summaries": {
+    "full_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.961573,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.677,
+      "p95_ms": 16.896,
+      "p99_ms": 17.03,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "reduced_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.96173700000001,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.669,
+      "p95_ms": 16.923,
+      "p99_ms": 17.03,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "movie_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 19.962576,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": true,
+      "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/combat-movie-recovery-01/combat_baseline/combat_polish.avi",
+      "os": "Linux",
+      "p50_ms": 33.29,
+      "p95_ms": 34.219,
+      "p99_ms": 40.881,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "linux_export_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.963761,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.66,
+      "p95_ms": 16.894,
+      "p99_ms": 17.044,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "wine_export_replay": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "Windows",
+      "duration_seconds": 9.957944,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Windows",
+      "p50_ms": 16.669,
+      "p95_ms": 16.886,
+      "p99_ms": 17.075,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    }
+  },
+  "performance_limit": "Real wallframe fixture summaries from actual nonMovie recordings. Raw600interval arrays not retained; percentiles not independently recomputed. MovieMaker metrics excluded from host FPS evidence."
+}

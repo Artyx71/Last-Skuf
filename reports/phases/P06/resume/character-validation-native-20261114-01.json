@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "scope": "BOUNDED_REGRESSION_AND_RYZHIK_WORLD_ONLY",
+  "phase_approval": false,
+  "frozen_source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "operations": [
+    {
+      "id": "fa916df6beb045e2bd1960ede782be8c",
+      "task_argv": [
+        "/usr/bin/python3",
+        "-u",
+        "tools/verify.py",
+        "--output",
+        "reports/phases/P06/author-checks/common-character-gate-02"
+      ],
+      "receipt": {
+        "operation": "fa916df6beb045e2bd1960ede782be8c",
+        "argv_sha256": "4718e5a51d9a9f370f91d82dcd5037d0b5575617dab2e843e206d34663ff86cb",
+        "exit_code": 0,
+        "log_sha256": "843f693532d9759614a926f61066f69817ed5cf1d4aa565608159f3dfd0934e9",
+        "seconds": 225.978
+      },
+      "receipt_sha256": "3ae0c827e69d074b66b28733838d62bf0dd0258c5796055a07ab4b77f9aeb7e1",
+      "source": "actual Controller.stage durable receipt, consumed once"
+    },
+    {
+      "id": "291e6d80000e4cb6b8585858c551adc1",
+      "task_argv": [
+        "/usr/bin/python3",
+        "tools/verify_p06_world.py",
+        "--actor",
+        "ryzhik",
+        "--output",
+        "reports/phases/P06/attempt1/ryzhik-world-native-01",
+        "--movie",
+        "--build-output",
+        "build/P06/attempt1/ryzhik-world-native-01"
+      ],
+      "receipt": {
+        "operation": "291e6d80000e4cb6b8585858c551adc1",
+        "argv_sha256": "1fa09f07875d5395c76c6de4ded146f058dde38dcb9553c2a8eeb044f92e531e",
+        "exit_code": 0,
+        "log_sha256": "5abc9f469be178c8dcf30b38f64d999f71e4095ebc263b9b89af52a040307585",
+        "seconds": 38.132
+      },
+      "receipt_sha256": "161e489ca772bf95aed28ee3fe0a5c591bdb59d73b0172f6fd986b844076985f",
+      "source": "actual Controller.stage durable receipt, consumed once"
+    }
+  ],
+  "common_commands_passed": 34
+}

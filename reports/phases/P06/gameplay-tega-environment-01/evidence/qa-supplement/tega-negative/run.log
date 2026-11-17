@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RESULT QA_TEGA_NEGATIVE passed=20 failed=3
+ERROR: FAIL P06_TEGA free_player:actual_audio_callback_executed_once
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:23)
+       [1] run (res://tests/qa_tega_negative.gd:71)
+       [2] frames (res://tests/qa_tega_negative.gd:9)
+ERROR: FAIL P06_TEGA free_player:no_stale_step_or_receipt
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:23)
+       [1] run (res://tests/qa_tega_negative.gd:72)
+       [2] frames (res://tests/qa_tega_negative.gd:9)
+ERROR: FAIL P06_TEGA free_player:freed_source_not_used
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/tega_environment_replay.gd:23)
+       [1] run (res://tests/qa_tega_negative.gd:74)
+       [2] frames (res://tests/qa_tega_negative.gd:9)
+
+exit_code=1

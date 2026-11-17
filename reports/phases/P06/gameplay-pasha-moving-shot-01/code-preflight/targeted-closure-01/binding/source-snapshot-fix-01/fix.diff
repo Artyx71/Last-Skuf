@@ -1,0 +1,173 @@
+diff --git a/game/scripts/systems/combat_system.gd b/game/scripts/systems/combat_system.gd
+index 2323f65..5dd0f6e 100644
+--- a/game/scripts/systems/combat_system.gd
++++ b/game/scripts/systems/combat_system.gd
+@@ -219,6 +219,16 @@ func _wall_contact(at: Vector2, definition: Dictionary, object: Node = null) ->
+ 	lab.audio_event.emit(StringName("impact_" + weapon + "_" + surface), at)
+ 
+ 
++func _contact_current(target: Variant, source: Variant, epoch: int, token: String, definition: Dictionary) -> bool:
++	# Variant guards run before any typed call or access to a callback-freed node.
++	if epoch!=encounter_epoch or not receipts.has(token): return false
++	if not is_instance_valid(target) or not is_instance_valid(source): return false
++	if not target is Node2D or not source is Node2D: return false
++	if target.is_queued_for_deletion() or source.is_queued_for_deletion() or not target.is_inside_tree() or not source.is_inside_tree(): return false
++	if definition.has("_ranged_authority"):
++		return source.has_method("authorize_committed_projectile") and source.authorize_committed_projectile(definition)
++	return true
++
+ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source: Node2D, contact_kind := "") -> bool:
+ 	if not is_instance_valid(target) or not is_instance_valid(source) or target.health <= 0:
+ 		return false
+@@ -226,18 +236,22 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source:
+ 		return false
+ 	var token := str(attack_id) + ":" + str(target.get_instance_id())
+ 	if receipts.has(token): return false
++	var epoch := encounter_epoch
++	var target_id := target.get_instance_id()
+ 	receipts[token] = true
+ 	# Only actual melee collision dispatch opts in. Projectiles, finishers and
+ 	# legacy direct contacts keep their existing damage/effect path. Reserve the
+ 	# same once-token before a parry can queue its separate counterattack.
+ 	if contact_kind == "melee" and not definition.get("finisher",false) and target.has_method("defend_melee_contact"):
+ 		if target.defend_melee_contact(definition.duplicate(true),attack_id,source):
+-			var defended := {"epoch":encounter_epoch,"id":attack_id,"target":target.get_instance_id(),
++			if not _contact_current(target,source,epoch,token,definition): return false
++			var defended := {"epoch":epoch,"id":attack_id,"target":target_id,
+ 				"source":source.get_instance_id(),"tick":Engine.get_physics_frames(),"kind":"training_counter_parry","damage":0}
+ 			defended_events.append(defended)
+ 			if defended_events.size() > 512: defended_events.pop_front()
+ 			contact_defended.emit(defended)
+ 			return false
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	damage_events += 1
+ 	var category := String(definition.get("category", "unarmed"))
+ 	var strong := bool(definition.get("strong", int(definition.damage) > 0))
+@@ -246,18 +260,22 @@ func _apply_hit(target: Node2D, definition: Dictionary, attack_id: int, source:
+ 	last_hit_position = target.global_position + Vector2(0, -28)
+ 	hit_flash = 0.16
+ 	target.receive_hit(int(definition.damage), float(definition.get("stun", 0)), attack_id, source)
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.health > 0 and float(definition.get("knockdown",0)) > 0 and target.has_method("receive_knockdown"):
+ 		target.receive_knockdown(float(definition.knockdown))
++		if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.has_method("apply_impulse"):
+ 		target.apply_impulse(direction * (float(polish.knockback_strong) if strong else float(polish.knockback_weak)))
++		if not _contact_current(target,source,epoch,token,definition): return false
+ 	if target.health <= 0 and definition.get("finisher",false) and lab.config_path == lab.CONFIG_PATH:
+ 		lab.score += 100
+ 	var cue := String(definition.get("cue", "impact_" + category + "_body"))
+-	lab.audio_event.emit(StringName(cue), target.global_position)
+-	var event := {"epoch": encounter_epoch, "id": attack_id, "target": target.get_instance_id(),
++	var event := {"epoch": epoch, "id": attack_id, "target": target_id,
+ 		"tick": Engine.get_physics_frames(), "at": target.global_position, "direction": direction,
+ 		"category": category, "strong": strong, "damage": int(definition.damage),
+ 		"lethal": target.health <= 0, "finisher": bool(definition.get("finisher", false)), "cue": cue}
++	lab.audio_event.emit(StringName(cue), event.at)
++	if not _contact_current(target,source,epoch,token,definition): return false
+ 	contact_events.append(event)
+ 	if contact_events.size() > 512: contact_events.pop_front()
+ 	contact_committed.emit(event)
+@@ -388,6 +406,12 @@ func _record_finisher(job: Dictionary, stage: String, reason := "") -> void:
+ 		"elapsed":job.elapsed,"committed":job.committed,"tick":Engine.get_physics_frames()})
+ 	if finisher_history.size() > 128: finisher_history.pop_front()
+ 
++func _finisher_nodes_current(job: Dictionary) -> bool:
++	if not finishers.has(job) or job.epoch!=encounter_epoch: return false
++	if not is_instance_valid(job.source) or not is_instance_valid(job.target): return false
++	if job.source.is_queued_for_deletion() or job.target.is_queued_for_deletion(): return false
++	return job.source.is_inside_tree() and job.target.is_inside_tree() and is_instance_valid(job.source.sprite) and is_instance_valid(job.target.sprite)
++
+ func _tick_finishers(delta: float) -> void:
+ 	for job in finishers.duplicate():
+ 		if not is_instance_valid(job.source) or not is_instance_valid(job.target):
+@@ -409,9 +433,10 @@ func _tick_finishers(delta: float) -> void:
+ 			if job.elapsed + 0.00001 >= float(definition.windup):
+ 				# Present both registered contact poses on the damage tick. No animation callback damage.
+ 				job.source._present_action()
++				if not _finisher_nodes_current(job): continue
+ 				job.target.sprite.set_frame_and_progress(1,0)
+ 				# Presentation callbacks cannot charge a newly reset/replaced actor.
+-				if not finishers.has(job) or job.epoch!=encounter_epoch or not eligible(job.source,job.target,job.category,job): continue
++				if not _finisher_nodes_current(job) or not eligible(job.source,job.target,job.category,job): continue
+ 				if job.source.has_method("commit_finisher_cost") and not job.source.commit_finisher_cost(job.epoch,job.id,job.category):
+ 					var actor: CharacterBody2D=job.source
+ 					cancel_finisher(actor,"resource_lost")
+@@ -420,6 +445,8 @@ func _tick_finishers(delta: float) -> void:
+ 				job.committed = true # Reentry guard precedes the only existing damage path.
+ 				job.stage = "contact"
+ 				_apply_hit(job.target,definition,job.id,job.source)
++				# Hit audio/contact listeners may reset/free/replace the reservation.
++				if not _finisher_nodes_current(job): continue
+ 				_record_finisher(job,"contact")
+ 		if job.committed and job.elapsed >= float(definition.windup)+float(definition.active): job.stage = "recovery"
+ 		if job.source.action_kind.is_empty() or job.elapsed >= float(definition.windup)+float(definition.active)+float(definition.recovery):
+diff --git a/game/tests/pasha_moving_shot_replay.gd b/game/tests/pasha_moving_shot_replay.gd
+index 38db50e..daa5e2a 100644
+--- a/game/tests/pasha_moving_shot_replay.gd
++++ b/game/tests/pasha_moving_shot_replay.gd
+@@ -72,6 +72,12 @@ func wait_launch(budget := 30) -> bool:
+ 		await frames(1);budget-=1
+ 	return not lab.combat.moving_shots.history.is_empty()
+ 
++func mouse_trigger(pressed: bool) -> void:
++	var event:=InputEventMouseButton.new()
++	event.button_index=MOUSE_BUTTON_RIGHT;event.pressed=pressed
++	event.position=Vector2(450,240)
++	Input.parse_input_event(event)
++
+ func remember_launches() -> void:
+ 	for entry in lab.combat.moving_shots.history:
+ 		var copy:Dictionary=entry.duplicate(true);copy.segment=segment;launches.append(copy)
+@@ -102,6 +108,11 @@ func run() -> void:
+ 			own=own and t.get_meta("character_id","")=="pasha" and t.has_meta("clothing_socket")
+ 	check("all60_clips_128_own_source_drawings_clothing",own and atlas.get_animation_names().size()==60)
+ 	check("Pasha_speed125_no_legacy_training_kit",lab.player.move_speed==125 and lab.player.kit=="escape")
++	await setup(2,170,5);segment="actual_RMB_held_trigger"
++	mouse_trigger(true);await frames(36)
++	check("held_RMB_launches_only_one_round",lab.player.ability_uses==1 and lab.player.movement_ability.rounds_spent==1 and lab.shots_fired==1)
++	mouse_trigger(false);await frames(2);mouse_trigger(true);await frames(12);mouse_trigger(false)
++	check("released_repressed_RMB_fires_second_round",lab.player.ability_uses==2 and lab.player.movement_ability.rounds_spent==2 and lab.player.movement_ability.ammo==2)
+ 	var outcomes:Dictionary={}
+ 	for reduced in [false,true]:
+ 		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false)
+@@ -149,12 +160,39 @@ func run() -> void:
+ 	await frames(1)
+ 	check("actual_HUD_shows_empty_and_recovery",lab.ranged_feedback.displayed_feedback.phase=="empty" and lab.ranged_feedback.title.text.contains("0 / 4") and lab.ranged_feedback.detail.text.contains("ПУСТО"))
+ 	await capture("empty_clip_HUD")
++	# The empty clip was earned by Input; place a nearby live target without a
++	# resource reset, earn its stun, and try actual V rather than just an API query.
++	var empty_target:CharacterBody2D=lab.enemies[0]
++	empty_target.position=lab.player.position+Vector2(20,0)
++	lab.select_equipment(3)
++	var hits_before:int=empty_target.hits_received
++	await frames(2);await tap(KEY_SPACE)
++	var empty_budget:=35
++	while not lab.player.action_kind.is_empty() and empty_budget>0:await frames(1);empty_budget-=1
++	check("empty_clip_target_stun_earned_by_Input",empty_target.state=="stunned" and empty_target.hits_received==hits_before+1 and lab.player.movement_ability.ammo==0)
++	await tap(KEY_V)
++	check("empty_clip_Input_V_cannot_reserve_firearm_finisher",lab.combat.finishers.is_empty() and lab.player.action_kind.is_empty() and lab.player.movement_ability.rounds_spent==4 and lab.score==0)
+ 	var before:int=lab.player.movement_ability.ammo
+ 	await frames(60)
+ 	check("passive_recovers_one_real_round",lab.player.movement_ability.ammo>before and lab.player.movement_ability.ammo<4)
+ 	await capture("refill_HUD")
+ 	await frames(180)
+ 	check("refill_caps_at_four",lab.player.movement_ability.ammo==4 and lab.player.movement_ability.refill_elapsed==0)
++	var mixed_target:=await setup(2,20)
++	segment="shared_clip_shot_then_firearm_finisher"
++	lab.player.set_aim(Vector2.LEFT);await tap(KEY_F)
++	var mixed_budget:=30
++	while not lab.player.action_kind.is_empty() and mixed_budget>0:await frames(1);mixed_budget-=1
++	check("mixed_clip_actual_shot_spends_first_round",lab.player.movement_ability.ammo==3 and lab.player.movement_ability.rounds_spent==1 and mixed_target.hits_received==0)
++	lab.player.set_aim(Vector2.RIGHT);lab.select_equipment(3)
++	await tap(KEY_SPACE);mixed_budget=35
++	while not lab.player.action_kind.is_empty() and mixed_budget>0:await frames(1);mixed_budget-=1
++	check("mixed_clip_earns_target_stun",mixed_target.state=="stunned" and mixed_target.hits_received==1)
++	mixed_target.set_physics_process(true);await tap(KEY_V);mixed_budget=35
++	while mixed_target.health>0 and mixed_budget>0:await frames(1);mixed_budget-=1
++	check("firearm_finisher_spends_same_clip_second_round_once",mixed_target.health==0 and lab.player.movement_ability.ammo==2 and lab.player.movement_ability.rounds_spent==2 and lab.score==100)
++	check("shared_clip_records_two_distinct_contact_costs",lab.player.movement_ability.cost_history.size()==2 and lab.player.movement_ability.cost_history[0].reason=="moving_shot" and lab.player.movement_ability.cost_history[1].reason=="firearm_finisher")
++	await capture("shared_clip_firearm_finisher")
+ 	# Cancelling or losing authority before contact never consumes ammunition.
+ 	for mode in ["cancel","revoke","reopen","replace_policy","hurt","death"]:
+ 		await setup(2);segment="before_contact_"+mode

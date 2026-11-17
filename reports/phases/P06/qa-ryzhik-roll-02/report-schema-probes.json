@@ -1,0 +1,75 @@
+{
+  "scope": "PURE_JSON_PREDICATE_ON_ACTUAL_JSON_COPIES",
+  "helper_sha256": "ac4722c44645b04b94175d01e8ae1059a5d48eaeaed1bda315143bdc09fbc2f6",
+  "actual_native_result_sha256": "df2199f27e9444db5cf0b9e328664c468817da5fea0643c26ac299024fb9f9c2",
+  "cases": [
+    {
+      "case": "actual_native_positive",
+      "accepted": true,
+      "expected": true,
+      "matches_expected": true
+    },
+    {
+      "case": "wrong_scope",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "phase_approval",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "actual_input_false",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "whitespace_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "unknown_renderer",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "headless_renderer_for_native",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_trace",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "empty_contacts",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    },
+    {
+      "case": "failed_assertion",
+      "accepted": false,
+      "expected": false,
+      "matches_expected": true
+    }
+  ],
+  "actual_WORK_or_native_mutation": false,
+  "engine_invocations": 0
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD",
+  "status": "PASS_COMPONENT_EXECUTION_ONLY",
+  "scope": "8e native pipeline harness preflight only; one canonical frozen serial technical13-stage run",
+  "source_code_commit": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+  "source_module_sha256": "6bdc3edd0ea4bebd2ad190d0bab9fe9a53522e9bd776f15fe17675de442ce7bc",
+  "HEAD_at_review": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+  "QA03_decision_sha256": "745469b173586b580a9f938eee645e6517e433aa23c7c36004ded758ba2352b8",
+  "permission_to_execute_one_frozen_full_native_pipeline": true,
+  "execution_scope": "SOLE_CANONICAL_ROOT_WORKER_FRESH_IMMUTABLE_PATHS_AUTHOR_RELEASED",
+  "outer_timeout_seconds": 7200,
+  "source_freeze_required": true,
+  "automatic_retry_authorized": false,
+  "open_must_fix_findings": [],
+  "closed": [
+    "NPIPE-L01",
+    "NPIPE-L02"
+  ],
+  "phase_approval": false,
+  "native_acceptance_approval": false,
+  "full_P06_approval": false,
+  "P07_approval": false,
+  "P08_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "ROOT_installation_or_handoff_approval": false,
+  "readiness_approval": false,
+  "formal_phase_attempt_consumed": false,
+  "actual13_execution_done": false,
+  "proofs": {
+    "review.md": "ff8411b2b4de900fb16023f5f77d1c1585f331fe1ea3b9882e3abbf3b7972389",
+    "findings-closure.json": "7a4c85c785f8bb6036fc4c0a2a6cf719a92bbdf89a6530d8acf44472e24de5bc",
+    "metrics.json": "4ff2fc2ae1f102c05f1b14a94fcdebc2e3d35759ad229405dfbccf5ab53c8684",
+    "artifacts.json": "974f8e9e62fc53c61d0b51649b9771c658d63b308c816d8f0b8850e4ed1a6f87",
+    "source-freeze.json": "32f76070595613c79f2d1aaef583e9f4c35d15388f89ca4d5734add96049be6e",
+    "own-parser-closure.json": "ecd425e0a3ac5670b43b8509651684029f1cbc286242959c15f405b4bcea3ffe",
+    "QA03-reference-bindings.json": "1a26fe0cb9970210f9b04af3f2440140b9da84d565ad35c5b17a47a2eb9cebf5",
+    "external-reference-bindings.json": "2a7d708f71016f23152f28ded4de9670bddb82842a87b3e41dac83df8c73fbb9"
+  },
+  "next_action": "Root may stage exactlyonefrozenserialtechnicalnative13run, then separatelyreviewactualoutcomes; no phaseadvance/merge basedonthispreflight."
+}

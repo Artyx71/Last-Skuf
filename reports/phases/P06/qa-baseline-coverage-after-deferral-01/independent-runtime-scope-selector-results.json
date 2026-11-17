@@ -1,0 +1,232 @@
+{
+  "scope": "INDEPENDENT_PURE_RUNTIME_FILENAME_SCOPE_SELECTOR_NOT_SIGNAL_QA",
+  "source_sha256": "74730f3c801145f2a1ac43c4aafdaab3f91e1465ad90a5b85104a5a0968df2ce",
+  "production_function_AST_executed_without_module_import": true,
+  "cases": [
+    {
+      "label": "valid_scope_2",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "exact": true,
+      "audio_decoded": false
+    },
+    {
+      "label": "valid_scope_3",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "movie_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "movie_replay",
+        "reduced_replay"
+      ],
+      "exact": true,
+      "audio_decoded": false
+    },
+    {
+      "label": "valid_scope_4",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "linux_export_replay",
+        "wine_export_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "linux_export_replay",
+        "reduced_replay",
+        "wine_export_replay"
+      ],
+      "exact": true,
+      "audio_decoded": false
+    },
+    {
+      "label": "valid_scope_5",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "movie_replay",
+        "linux_export_replay",
+        "wine_export_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "linux_export_replay",
+        "movie_replay",
+        "reduced_replay",
+        "wine_export_replay"
+      ],
+      "exact": true,
+      "audio_decoded": false
+    },
+    {
+      "label": "default_all5",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "movie_replay",
+        "linux_export_replay",
+        "wine_export_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "linux_export_replay",
+        "movie_replay",
+        "reduced_replay",
+        "wine_export_replay"
+      ],
+      "exact": true,
+      "audio_decoded": false
+    },
+    {
+      "label": "default5_does_not_accept_only2",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "movie_replay",
+        "linux_export_replay",
+        "wine_export_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "exact": false,
+      "audio_decoded": false
+    },
+    {
+      "label": "missing_required_file",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "actual": [
+        "full_replay"
+      ],
+      "exact": false,
+      "audio_decoded": false
+    },
+    {
+      "label": "samecount_wrong_filename",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "unknown_replay"
+      ],
+      "exact": false,
+      "audio_decoded": false
+    },
+    {
+      "label": "unexpected_moviefile_not_silently_ignored",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "movie_replay",
+        "reduced_replay"
+      ],
+      "exact": false,
+      "audio_decoded": false
+    },
+    {
+      "label": "duplicate",
+      "passed": true,
+      "rejected": "Runtime scope requires unique Full and Reduced names",
+      "audio_decoded": false
+    },
+    {
+      "label": "partial_Linux_export",
+      "passed": true,
+      "rejected": "Linux and Wine export captures must be requested together",
+      "audio_decoded": false
+    },
+    {
+      "label": "partial_Wine_export",
+      "passed": true,
+      "rejected": "Linux and Wine export captures must be requested together",
+      "audio_decoded": false
+    },
+    {
+      "label": "missing_base",
+      "passed": true,
+      "rejected": "Runtime scope requires unique Full and Reduced names",
+      "audio_decoded": false
+    },
+    {
+      "label": "unknown",
+      "passed": true,
+      "rejected": "Unknown runtime capture name",
+      "audio_decoded": false
+    },
+    {
+      "label": "path_escape",
+      "passed": true,
+      "rejected": "Unknown runtime capture name",
+      "audio_decoded": false
+    },
+    {
+      "label": "empty_request",
+      "passed": true,
+      "rejected": "Runtime scope requires unique Full and Reduced names",
+      "audio_decoded": false
+    },
+    {
+      "label": "actual_native02_twofiles_explicit_accept",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "exact": true,
+      "actual_PCM_redecoded": false
+    },
+    {
+      "label": "actual_native02_default5_stillreject",
+      "passed": true,
+      "selected": [
+        "full_replay",
+        "reduced_replay",
+        "movie_replay",
+        "linux_export_replay",
+        "wine_export_replay"
+      ],
+      "actual": [
+        "full_replay",
+        "reduced_replay"
+      ],
+      "exact": false,
+      "actual_PCM_redecoded": false
+    }
+  ],
+  "case_count": 18,
+  "all_passed": true,
+  "old_new_analyze_asset_AST_unchanged": true,
+  "source_signal_thresholds_not_weakened": true,
+  "no_Godot_runner_decoder_network_or_Game_mutation": true
+}

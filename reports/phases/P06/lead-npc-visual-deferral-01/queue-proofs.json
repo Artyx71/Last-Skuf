@@ -1,0 +1,142 @@
+{
+  "ROOT_WORK_queue_byte_exact": true,
+  "tasks_before": 56,
+  "tasks_after": 60,
+  "added": [
+    "P08/npc-style-contract",
+    "P08/npc-style-art",
+    "P08/npc-style-integration",
+    "P08/npc-style-review"
+  ],
+  "removed": [],
+  "only_changed_existing": [
+    "P06/C09-npc-presentation-contract",
+    "P06/C09-npc-style-art",
+    "P06/C09-npc-style-integration",
+    "P06/C09-npc-style-review",
+    "P06/seven-hero-finisher-art-sound-reactions",
+    "PREP07/READINESS-C01"
+  ],
+  "old_statuses_preserved_as_metadata": true,
+  "no_non_deferred_task_depends_on_deferred_ids": true,
+  "deferred_chain_internal_links_only": [
+    {
+      "id": "P06/C09-npc-style-art",
+      "dependencies": [
+        "P06/C09-npc-presentation-contract"
+      ]
+    },
+    {
+      "id": "P06/C09-npc-style-integration",
+      "dependencies": [
+        "P06/C09-npc-style-art"
+      ]
+    },
+    {
+      "id": "P06/C09-npc-style-review",
+      "dependencies": [
+        "P06/C09-npc-style-integration"
+      ]
+    }
+  ],
+  "P06_parent_transitive_dependencies": [
+    "P06/C01-finisher-audio-listening",
+    "P06/C01-finisher-audio-runtime",
+    "P06/C01-finisher-audio-source",
+    "P06/combat-style-audit"
+  ],
+  "P06_parent_pending_required": true,
+  "READINESS_C01_still_OPEN_CRITICAL_original_acceptance": true,
+  "P08_gates": {
+    "P08/npc-style-contract": {
+      "id": "P08/npc-style-contract",
+      "phase": "P08",
+      "kind": "technical",
+      "depends_on": [
+        "P07:PASS",
+        "P07:MERGED"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-presentation-contract",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Pin style/actionvariant/category/archetype/facing presentation route inside existingCore; preserve damage/AI/authority",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    "P08/npc-style-art": {
+      "id": "P08/npc-style-art",
+      "phase": "P08",
+      "kind": "art",
+      "depends_on": [
+        "P08/npc-style-contract"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-art",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "Only missing original contact/restraint poses; preserve acceptedP04base/category sprites; explicit realunique/shared ledger and independentART",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    "P08/npc-style-integration": {
+      "id": "P08/npc-style-integration",
+      "phase": "P08",
+      "kind": "implementation",
+      "depends_on": [
+        "P08/npc-style-art"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-integration",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ExistingCore/FSM targetpresentation only; no newdamageengine; epoch-safe callbacks, actualFullReduced routes",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    },
+    "P08/npc-style-review": {
+      "id": "P08/npc-style-review",
+      "phase": "P08",
+      "kind": "verification",
+      "depends_on": [
+        "P08/npc-style-integration"
+      ],
+      "status": "DEFERRED_NOT_IMPLEMENTED_NOT_ACCEPTED",
+      "debt_id": "P08-NPC-STYLE-01",
+      "severity": "HIGH",
+      "gate": "BEFORE_P08_FINAL_ACCEPTANCE_AND_RELEASE",
+      "brief": "planning/P08_TECH_DEBT.md",
+      "historical_task": "P06/C09-npc-style-review",
+      "owner_scope_decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "scope": "ActualInput/3archetypes4directions/priority/death/cancel/reset/callbacks/nativepairedART/Gameplay/QA; fullP06stillseparate",
+      "source_material": "assets/source_art/npc_styles/gabar/partial-source-ledger.json",
+      "historical_art_blocker": "Four shootercontacts missing; moderation_blocked violence09e29275; oldFAIL preserved",
+      "safe_retry": false,
+      "P08_execution_approval": false,
+      "phase_approval": false
+    }
+  },
+  "canonical_runtime_scope_import_executed_by_Lead": false
+}

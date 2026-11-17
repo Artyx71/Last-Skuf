@@ -1,0 +1,180 @@
+--- v3/autopilot/readiness.py
++++ v4/autopilot/readiness.py
+@@ -21,6 +21,22 @@
+ OBLIGATIONS = {'chapter_delivery_21', 'campaign_pacing_actual',
+                'new_audio_acceptance', 'secret_delivery_7'}
+ ACCEPTANCE_STAGE = 'P07_LEAD_PASS_AND_MERGE'
++
++
++def strict_json(text):
++    """Never silently replace a contradictory verdict/ID with its last key."""
++    def object_pairs(pairs):
++        result = {}
++        for key, value in pairs:
++            if key in result:
++                raise ValueError('Duplicate JSON key: ' + key)
++            result[key] = value
++        return result
++
++    def invalid_constant(value):
++        raise ValueError('Non-finite JSON constant: ' + value)
++
++    return json.loads(text, object_pairs_hook=object_pairs, parse_constant=invalid_constant)
+ 
+ 
+ def require(condition, message):
+@@ -106,7 +122,7 @@
+     path = file_under(root, record.get('decision'), 'reports/pre_p07')
+     require(digest(path) == record.get('sha256'), scope + ' decision hash changed')
+     try:
+-        data = json.loads(path.read_text())
++        data = strict_json(path.read_text())
+     except (ValueError, OSError) as error:
+         raise ReadinessBlocked('Invalid independent readiness decision') from error
+     require(isinstance(data, dict) and type(data.get('schema')) is int and data['schema'] == 1, 'Unknown readiness decision schema')
+@@ -194,7 +210,7 @@
+     designs = load_gate(root, records.get('mission_designs'), 'P07_MISSION_DESIGN_APPROVAL', heads)
+     require(designs.get('approved_for_mass_production') is True, 'Mission concepts are not full MDS approval')
+     try:
+-        registry = json.loads((root / 'game/resources/story/registry.json').read_text())
++        registry = strict_json((root / 'game/resources/story/registry.json').read_text())
+     except (OSError, ValueError) as error:
+         raise ReadinessBlocked('Cannot read canonical chapter registry') from error
+     require(isinstance(registry, dict), 'Invalid canonical chapter registry')
+@@ -231,7 +247,7 @@
+     require(common_path.name == '.git' and common_path.is_dir(), 'Unsupported canonical Git authority')
+     root = common_path.parent
+     try:
+-        state = json.loads((root / 'automation/phase_state.json').read_text())
++        state = strict_json((root / 'automation/phase_state.json').read_text())
+     except (OSError, ValueError) as error:
+         raise ReadinessBlocked('Canonical production authority missing') from error
+     contract = require_p07_production(root, state)
+--- v3/autopilot/runner.py
++++ v4/autopilot/runner.py
+@@ -14,7 +14,7 @@
+ import sys
+ import time
+ import uuid
+-from readiness import require_p07_production, ReadinessBlocked
++from readiness import require_p07_production, ReadinessBlocked, strict_json
+ 
+ ROOT=Path(__file__).resolve().parents[1]
+ DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
+@@ -23,7 +23,11 @@
+ def utc(): return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+ def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ def load(path,default=None):
+-    return json.loads(Path(path).read_text()) if Path(path).exists() else default
++    if not Path(path).exists(): return default
++    try:
++        return strict_json(Path(path).read_text())
++    except (OSError,ValueError) as error:
++        raise Blocked('Invalid/ambiguous JSON: '+str(path)) from error
+ 
+ def save(path,data):
+     path=Path(path); path.parent.mkdir(parents=True,exist_ok=True)
+--- v3/autopilot/github.py
++++ v4/autopilot/github.py
+@@ -8,6 +8,7 @@
+ import sys
+ import time
+ from urllib.parse import quote
++from readiness import strict_json
+ 
+ REPO='Artyx71/Last-Skuf'
+ SHA=re.compile(r'^[0-9a-f]{40}$')
+@@ -22,7 +23,7 @@
+     if proc.returncode:
+         raise GitHubBlocked(proc.stderr.strip() or proc.stdout.strip())
+     if not json_output: return proc.stdout
+-    return json.loads(proc.stdout) if proc.stdout.strip() else {}
++    return strict_json(proc.stdout) if proc.stdout.strip() else {}
+ 
+ 
+ def api(endpoint,method='GET',payload=None):
+@@ -33,6 +34,7 @@
+ 
+ def validate_review(root,review,head,phase):
+     errors=[]
++    if not isinstance(review,dict): return ['Malformed independent verdict container']
+     if review.get('phase')!=phase or review.get('reviewed_commit')!=head or not SHA.fullmatch(head or ''):
+         errors.append('Independent review does not cover exact current head SHA/phase')
+     if review.get('status') not in ['PASS','FAIL','BLOCKED'] or review.get('independent_review') is not True or not review.get('reviewer'):
+@@ -48,8 +50,11 @@
+                 errors.append('Evidence missing/escapes repository: '+item['path']); continue
+             if hashlib.sha256(path.read_bytes()).hexdigest()!=item.get('sha256'):
+                 errors.append('Evidence changed: '+item['path'])
++    findings=review.get('findings')
++    if not isinstance(findings,list):
++        errors.append('Malformed findings container; array required'); findings=[]
+     if review.get('status')=='PASS':
+-        for item in review.get('findings',[]):
++        for item in findings:
+             if not isinstance(item,dict): errors.append('Malformed finding'); continue
+             severity=item.get('severity')
+             if not isinstance(severity,str) or severity.strip().upper() not in ['CRITICAL','HIGH','MEDIUM','LOW']:
+@@ -73,7 +78,7 @@
+                 errors.append('Actual listening acceptance must be hash-bound review evidence')
+             elif phase in ['P04','P04G']:
+                 try:
+-                    listening=json.loads((Path(root)/proof['path']).read_text())
++                    listening=strict_json((Path(root)/proof['path']).read_text())
+                     if listening.get('phase')!=phase: errors.append('Other-phase listening does not accept new '+phase+' audio')
+                 except (OSError,ValueError,AttributeError):
+                     errors.append(phase+' listening proof must identify this phase in structured evidence')
+--- v3/tools/tests/test_production_readiness.py
++++ v4/tools/tests/test_production_readiness.py
+@@ -13,7 +13,7 @@
+ from readiness import (ReadinessBlocked, require_p07_production, require_p07_review_acceptance,
+                        CAPABILITIES, OBLIGATIONS, ACCEPTANCE_STAGE)
+ from github import validate_review, guarded_merge
+-from runner import Blocked, Controller, DEFAULT_PHASES
++from runner import Blocked, Controller, DEFAULT_PHASES, load
+ 
+ 
+ def sha(path):
+@@ -399,6 +399,43 @@
+         check(schema)
+         self.assertIn({'type': 'null'}, schema['properties']['production_acceptance']['anyOf'])
+ 
++    def test_duplicate_raw_closure_id_is_rejected_by_actual_runner_loader(self):
++        review = self.acceptance_review()
++        raw = json.dumps(review)
++        needle = '"new_audio_acceptance":'
++        self.assertEqual(raw.count(needle), 1)
++        raw = raw.replace(needle, '"new_audio_acceptance":{"status":"FAIL","evidence":[]},' + needle)
++        p = self.root / 'ambiguous-verdict.json'; p.write_text(raw)
++        with self.assertRaises(Blocked): load(p)
++
++    def test_duplicate_top_level_verdict_status_is_rejected_before_merge(self):
++        review = self.acceptance_review()
++        raw = json.dumps(review)
++        raw = raw.replace('"status": "PASS"', '"status":"FAIL","status":"PASS"', 1)
++        p = self.root / 'ambiguous-verdict.json'; p.write_text(raw)
++        sent = []
++        with self.assertRaises(Blocked):
++            verdict = load(p)
++            guarded_merge(self.root, 4, {}, verdict, 'P07', lambda *_: self.merge_view(), lambda *a: sent.append(a))
++        self.assertFalse(sent)
++
++    def test_duplicate_capability_keys_in_hash_bound_readiness_are_rejected(self):
++        record = self.state['autopilot']['production_gates']['readiness']
++        p = self.root / record['decision']; raw = p.read_text()
++        needle = '"navigation_pilot":'
++        raw = raw.replace(needle, '"navigation_pilot":{"status":"FAIL"},' + needle)
++        p.write_text(raw); record['sha256'] = sha(p)
++        self.blocked()
++
++    def test_nonfinite_json_is_not_accepted_as_a_controller_record(self):
++        p = self.root / 'nonfinite.json'; p.write_text('{"value":NaN}')
++        with self.assertRaises(Blocked): load(p)
++
++    def test_malformed_phase_findings_container_never_passes(self):
++        for value in [{}, {'severity': 'HIGH', 'status': 'OPEN'}, None, '']:
++            review = self.acceptance_review(); review['findings'] = value
++            self.assertTrue(validate_review(self.root, review, self.head, 'P07'))
++
+ 
+ if __name__ == '__main__':
+     unittest.main()

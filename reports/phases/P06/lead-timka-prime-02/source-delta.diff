@@ -1,0 +1,43 @@
+--- 9b42/tools/tests/test_p06_prime_recovery.py
++++ c193/tools/tests/test_p06_prime_recovery.py
+@@ -31,7 +31,7 @@
+                               '--disable-vsync', '--max-fps', '60', '--script',
+                               'res://tests/timka_prime_replay.gd']}]
+         self.write('commands.json', commands)
+-        (self.folder / 'live.log').write_text('UNIT fixture successful log\n')
++        (self.folder / 'live.log').write_text('UNIT fixture successful log\nexit_code=0\n')
+         self.write('live/result.json', {'scope': 'TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY', 'phase_approval': False,
+                    'passed': True, 'actual_input': True, 'renderer': 'UNIT_RENDERER',
+                    'checks': [{'passed': True}], 'captures': [{'path': str(self.capture), 'code': 0}]})
+@@ -147,6 +147,15 @@
+         self.save_report()
+         with self.assertRaisesRegex(ValueError, 'PNG inventory'): self.validate()
+ 
++    def test_rebound_log_requires_exact_successful_final_footer(self):
++        for text in ['UNIT log\nexit_code=17\n', 'UNIT log\n',
++                     'UNIT log\nprefix exit_code=0\n', 'UNIT log\nexit_code=00\n',
++                     'UNIT log\n exit_code=0\n', 'UNIT log\nexit_code=0 then failed\n']:
++            with self.subTest(text=text):
++                (self.folder / 'live.log').write_text(text)
++                self.rebind('live.log')
++                with self.assertRaisesRegex(ValueError, 'final exit footer'): self.validate()
++
+ 
+ if __name__ == '__main__':
+     unittest.main()
+--- 9b42/tools/verify_p06_timka_prime.py
++++ c193/tools/verify_p06_timka_prime.py
+@@ -86,8 +86,12 @@
+         capture_paths.add(path)
+     if capture_paths != {path for path in verified_paths if path.suffix.lower() == '.png'}:
+         raise ValueError('Native capture paths contradict the actual PNG inventory')
+-    if ERRORS.search((folder / 'live.log').read_text()):
++    live_log = (folder / 'live.log').read_text()
++    if ERRORS.search(live_log):
+         raise ValueError('Live log contains engine/test errors')
++    final_lines = [line for line in live_log.splitlines() if line.strip()]
++    if not final_lines or final_lines[-1] != 'exit_code=0':
++        raise ValueError('Live log is missing the exact successful final exit footer')
+     return {'validation': str(manifest.relative_to(ROOT)), 'sha256': sha(manifest),
+             'source_head': report['source_head'], 'checks': report['checks'],
+             'captures': report['actual_captures'], 'all_artifacts_verified': True}

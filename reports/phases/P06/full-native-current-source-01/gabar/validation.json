@@ -1,0 +1,419 @@
+{
+  "phase": "P06",
+  "scope": "GABAR_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "gabar",
+  "passed": true,
+  "source_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 194,
+  "checks_total": 194,
+  "actual_captures": 68,
+  "contacts": 37,
+  "actual_input": true,
+  "movie_recorded": true,
+  "engine_recording": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/full-native-current-source-01/gabar/live/engine_mix.wav",
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.mp4",
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Gabar only; five other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/gabar_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 33.461,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/gabar_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 53.469,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.avi",
+        "-c:a",
+        "aac",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 4.229,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/full-native-current-source-01/gabar/gabar.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.05,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/commands.json",
+      "sha256": "a25eb981e02ea462975ecf9ad3eceeca6087b3bb57676404fcc5e59857f06af7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/Gabar_death_hold_right.png",
+      "sha256": "e768a4bba7188d8ffb10fbf2f6bc1a0add28038823960dd117b3dfb5adc86dea"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/Gabar_gore_reduced_false.png",
+      "sha256": "b9b1f7456a31bebab17568470b47561baa90d491fbf9a190b4de50b0af05182e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/Gabar_gore_reduced_true.png",
+      "sha256": "93725e7262a26dd3df2c90e74a8d1e3d03634eeaa7f210896189f80e9a32ac9c"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_down_back_to_run.png",
+      "sha256": "9a6da48f285927d6c8ed58c284504a8a4f9ffe252e9f6cf8a93c53bfb14d4654"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_down_windup.png",
+      "sha256": "6b24a8897d7f68f079ecf39577596ab492f07c7bcfe7b26406b598cfff4b1076"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_left_back_to_run.png",
+      "sha256": "b657544f6c877f0f74db2607fc26f4e4084b40ed91a530f1ce6371d0edbc65b6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_left_windup.png",
+      "sha256": "e8b3567d02cce1127f1e4740bee76494f78ff8fce0d2dc215a0f8c3923290ebe"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_right_back_to_run.png",
+      "sha256": "1e702f44f625fe4980a5f359ed06d3af1002cdf2d7f098b200c1fe038c5650ba"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_right_windup.png",
+      "sha256": "7e8f545c0f9bacc838c06a79dc9475529a3b129ac0e0ec6abe722db68f989036"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_up_back_to_run.png",
+      "sha256": "271d43fa3229b558c4edc60795f198de6a60cae55ce8faf1dc459bd882e83d9d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/continuous_run_special_up_windup.png",
+      "sha256": "231df96fdca2b53bda134fb8c953700c169931e651ba5364f4a6352415b5fcf7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/engine_mix.wav",
+      "sha256": "f2d5e7d3b56d17fd2d3c82588ab30eb6a6316b962fb4c63e8ab32921c81b2385"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_down_contact.png",
+      "sha256": "120f93c393d0fa26ce1b90ffeee65d6448c3fefe637ddb866793728965b2a7ae"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_down_recovery.png",
+      "sha256": "8a4ceacd09894c00d3518ff652c2fcecc6f7999e4bdba4ba87770dd4cf8736af"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_down_windup.png",
+      "sha256": "069344c003b41480c37b7f3c37ffe0f728aae921483afe785d7211dbbb447885"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_left_contact.png",
+      "sha256": "a619ff2b016270156840db7ee7c0a43fc56801e6ddf55ccb2c3deb80db33a67e"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_left_recovery.png",
+      "sha256": "7323d4c6cf6ba26d5b9cd41dec61061e968b5d4f5b4a781a7b0971fe8b40f008"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_left_windup.png",
+      "sha256": "22b77cf68f92852cd5cdbfc9fcd2f3ce1a15ae00b97a7e65373df552d280541a"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_right_contact.png",
+      "sha256": "ab6bc82205082090eb5feb8e881a8484ec36c566dac321a0766b422f2f0c2ac1"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_right_recovery.png",
+      "sha256": "48c76a1f27d9b73593bb5b45599deee4094e744f3e1c54a94c1e27c44aa47517"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_right_windup.png",
+      "sha256": "51d1b3b44711685e67bdbf0da50e2965b98310039a1d648afd58ec4516596d89"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_up_contact.png",
+      "sha256": "84b4f37c1a0b320bbe5d2ca8f5ffa12fc3a47bd5853cad10c44adc6f3ad3c367"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_up_recovery.png",
+      "sha256": "93b8108595d7fda72a9899a3597280c411d6b93b4118e20bbd987a45e4144253"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_blunt_up_windup.png",
+      "sha256": "36f63cd0858ad2519429aa6a9d5cfd359487cd7a40b6ecea4dfbc19d30369613"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_down_contact.png",
+      "sha256": "f2a5603d5e6b8563c2cfbc35102a42478dfda4d752779d8ba2f614d25d1061cf"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_down_recovery.png",
+      "sha256": "1740c243b39d9274776a112b86a1eb5373763942043dbb1d8850d1ec53568d67"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_down_windup.png",
+      "sha256": "cc0c394cb219248b993baa317d763719178c2696ef47c5f7d1ae5f0f08db04b3"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_left_contact.png",
+      "sha256": "c0e9dffe5f5e5d446d558894d1bc4a53dd5f9f914d8d6603a7251ae7fce179a5"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_left_recovery.png",
+      "sha256": "8432eb54b546c18efb31e1f1f27f0267f2f9d5500512471e2666c32299f3ce90"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_left_windup.png",
+      "sha256": "ac99873bc6892c8d50fb8513a2d7549001e0595c2b364ea08dfe1a20a9469cef"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_right_contact.png",
+      "sha256": "61a1167bab49940524e0f36c5aee7159d0951bc52c2b0d21774d62ffbf34d204"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_right_recovery.png",
+      "sha256": "8153313dd06ade2d11af0682e8eb52608f28f2c1d2a69d91ceaa2db96fe17a73"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_right_windup.png",
+      "sha256": "02eb4291f958f545cd34db1433df5240f24571457f3e6a896e193be8dcee4141"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_up_contact.png",
+      "sha256": "f72acc30b5c0da205468dcf21a6c6b994bfc92230a3a9fe15fcd7759ae6fcf55"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_up_recovery.png",
+      "sha256": "d9b8cbc2e0785ed5779c37613055e16f21af21aee839c7151b77d6ca7ad09b11"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_firearm_up_windup.png",
+      "sha256": "8a042417de518f865da371a93204f271c0164cde85ea88238f3a7a90d27abe20"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_down_contact.png",
+      "sha256": "dade9576e627932b812bbec5a3551c10c235bac519acfde95c3e15f42e276342"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_down_recovery.png",
+      "sha256": "d5639f81b0660fa0c631ff0ee5c0817ed039ea855fed3cd1978282ec1e7edcdf"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_down_windup.png",
+      "sha256": "0f7c9dafbc66c61c76ee021a1e62f030274f0f07446b8a58b7f2f9a3d273f0ec"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_left_contact.png",
+      "sha256": "8574a09b39a82d9ca45edac30c476eaf670ba126fdd7ebf7cd3c253c70f577e9"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_left_recovery.png",
+      "sha256": "7c28fca3749cae059a11da382dd8ff76f98d860da627dec96f1572c0b8c24296"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_left_windup.png",
+      "sha256": "b4d4199382abf6c3c04ceb65fd22799b98173855c7dd8fa09a2a5037f01efe96"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_right_contact.png",
+      "sha256": "2800ea48967953914bc2971f13a32a9870a5c8095e6961189ece71e1be5216b7"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_right_recovery.png",
+      "sha256": "7ac4f136e8d7f7950edf76bc3b861d89e23289dc7d38d9fb234167038410d5cb"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_right_windup.png",
+      "sha256": "8216d11843a49cf32cc30a1d991febd214d5bf7c954e83de5b016291c0889180"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_up_contact.png",
+      "sha256": "abd0e5fe9c3ba02fa996b0014f5986ee6f6118bda2a2db655cbd02d479f99fc0"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_up_recovery.png",
+      "sha256": "5eaf592484937771295345963705dfb7d4bb7a6a1cd35fa0b859ab0c84ea9fce"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/finisher_unarmed_up_windup.png",
+      "sha256": "4f10918c99352fe0e112be7c9c7660fddbbdb1bc7eedf78c4875cc41ddc12c58"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/movement_down.png",
+      "sha256": "9437915f41ced4f65538ab5c8721f46f43582f2b3d862b9a8ef38c525aaf4c5f"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/movement_left.png",
+      "sha256": "715df07779e75cc0332218c5e551d36278257fb4e256ac867c6262eb8c9bc1e1"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/movement_right.png",
+      "sha256": "49ec69a33a2fdd47f3138a4315307b13c8795e2016d1fd9f0691926dcb4befd3"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/movement_up.png",
+      "sha256": "f480df523200b98a9da5c281b14df5253db7e5dd234d4a96bf8d2923c679cb27"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/result.json",
+      "sha256": "ce0b3e3b5c93e8811f43fbf82f63a5f5166617dc6338aa2f78d61ff047dd7ffe"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/run_down.png",
+      "sha256": "7fffd6f7b07263379b16873d78460b381188756c57ccf85f7ee9f352c9790ff6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/run_left.png",
+      "sha256": "a84b7b1218dcf6123008f53b997c272e72010d35de973d76158126e055d10f72"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/run_right.png",
+      "sha256": "035bb130ec340ea419e1bcfcceaed81062c284c1f93eab025b822503a2744eed"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/run_up.png",
+      "sha256": "c4633921db5b65fbdc15ef79acb17ccefc54c8bb6bcbf795df1406d79fbc5401"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_down_contact.png",
+      "sha256": "02cbc7d06dcb7023c44cf6316959322484aed21d4a19740ce27a662664c110e8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_down_recovery.png",
+      "sha256": "5dbba27973a90e5582d251651f07f37dc48623e0e136d5aa3935b5ca187b7721"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_down_windup.png",
+      "sha256": "7b3331d96fc6a3a8f5380b531711462a82c467d3a59ed8aa1c384e01edf456d3"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_left_contact.png",
+      "sha256": "f6669db51485e80487bd3f1bcac69d81fcc240d28121da473959f6f1d250d9a8"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_left_recovery.png",
+      "sha256": "c2652ba47bafce8d1ba2f774e342c98d1b19dba97cee5d66f480373f03196080"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_left_windup.png",
+      "sha256": "a3430f3c32608622c6cd2e5e308eee63e25bedf708a5b92809fadda16f8c32fa"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_right_contact.png",
+      "sha256": "fa7ef245d2a0e2b75b73ad5983c45f9b623397afbcc4871ac6e65a5561ac777d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_right_recovery.png",
+      "sha256": "9409c42502c2b68420f1a6ba5b992100884250366ca9f6e624ae1b5973589a70"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_right_windup.png",
+      "sha256": "85b7b92a62e075bc7ebb74b9f9110eca0e9ccce07402068f3659d418e5babce9"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_up_contact.png",
+      "sha256": "eae88814a7213f8d8f71e594863896f294beb01c4d14f09c4d35766cbd10dad1"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_up_recovery.png",
+      "sha256": "ec30a73da2ee548557c798521eade6b7fb1bfb04c5befae55697bb4c25f68d5b"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_up_windup.png",
+      "sha256": "8ae2b13e4ff3199433d2b65554038b567fcded7bbd9972391d4e80f75a5c72a6"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live/special_wall.png",
+      "sha256": "76a4ede0d54f5f0fd967e89a7853f4c38ad258998f646e374e456699e258725d"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/live.log",
+      "sha256": "1ea12762dad10110e6ba770dc5dd4385098d1f4d4d9a5df51cbd34891a91499f"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/movie/engine_mix.wav",
+      "sha256": "a441a9885178ca3c6cfe587c5136121e695182b6c5074cb1c6c478053acefb06"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/movie/result.json",
+      "sha256": "75b6a83266516495a0847044babe35f7c2abec9276115d41c6e72346a8c059c9"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/movie.log",
+      "sha256": "eaa44de6ec52668362ebe2c140573638826be03b23bfdf585f3f57c462454b50"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/movie_probe.json",
+      "sha256": "1d4b04d5a98eac37e231b4d3289b57154be567d9736ecc994611bc4814501aaf"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/probe_movie.log",
+      "sha256": "4055f05f33235017b142a60646ad225a8cca8aafddeb5fad69e023636401da73"
+    },
+    {
+      "path": "reports/phases/P06/full-native-current-source-01/gabar/source_hashes.json",
+      "sha256": "2a1731abf68fe3857b90bbf5b02adafca563a03d89c560f51c9d8a410ef8a104"
+    }
+  ]
+}

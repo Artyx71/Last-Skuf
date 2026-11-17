@@ -1,0 +1,134 @@
+{
+  "scope": "INDEPENDENT_FIXED11F_JSON_AND_TYPED_REPORT_PURE_PROBES",
+  "source_sha256": "e06515fc2a02481cf345d46ee7a3037337f52bfe36b56ad74c135870680f72d9",
+  "cases": [
+    {
+      "name": "valid_dict",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": true,
+      "actual_acceptance": true,
+      "passed": true
+    },
+    {
+      "name": "valid_legacy_checks",
+      "raw_JSON": "[{\"name\": \"pins\", \"checks\": {\"SHA\": true}, \"passed\": true}]",
+      "expected_safe_acceptance": true,
+      "actual_acceptance": true,
+      "passed": true
+    },
+    {
+      "name": "valid_legacy_command",
+      "raw_JSON": "[{\"name\": \"live\", \"passed\": true, \"exit_code\": 0, \"log\": \"native.log\"}]",
+      "expected_safe_acceptance": true,
+      "actual_acceptance": true,
+      "passed": true
+    },
+    {
+      "name": "duplicate_root",
+      "raw_JSON": "{\"passed\": false, \"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "escaped_duplicate",
+      "raw_JSON": "{\"passed\": false, \"\\u0070assed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "NaN",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true, \"metric\": NaN}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "Infinity",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true, \"metric\": Infinity}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "exp_overflow",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":1e309}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    },
+    {
+      "name": "negative_exp_overflow",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test-only-noengine\"], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true,\"metric\":-1e309}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    },
+    {
+      "name": "contradictory_exit1",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": 1}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "exit_bool",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": false}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "exit_str",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [\"test\"], \"passed\": true, \"exit_code\": \"0\"}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "bare_legacy",
+      "raw_JSON": "[{\"passed\":true}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "false_legacychecks",
+      "raw_JSON": "[{\"name\": \"pins\", \"passed\": true, \"checks\": {\"required\": false}}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": false,
+      "passed": true
+    },
+    {
+      "name": "legacy_name_int",
+      "raw_JSON": "[{\"name\": 7, \"passed\": true, \"checks\": {\"required\": true}}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    },
+    {
+      "name": "legacy_log_int",
+      "raw_JSON": "[{\"name\": \"live\", \"passed\": true, \"exit_code\": 0, \"log\": 7}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    },
+    {
+      "name": "legacy_name_list",
+      "raw_JSON": "[{\"name\": [\"x\"], \"passed\": true, \"checks\": {\"required\": true}}]",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    },
+    {
+      "name": "argv_nonstring",
+      "raw_JSON": "{\"passed\": true, \"commands\": [{\"name\": \"live\", \"argv\": [null, {}], \"passed\": true, \"exit_code\": 0}], \"phase_approval\": false, \"source_unchanged\": true}",
+      "expected_safe_acceptance": false,
+      "actual_acceptance": true,
+      "passed": false
+    }
+  ],
+  "all_passed": false,
+  "actual_pipeline_or_Godot_execution": false
+}

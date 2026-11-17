@@ -1,0 +1,36 @@
+{
+  "scope": "INDEPENDENT_ISOLATED_PASHA_ENGINE_QA_ONLY",
+  "passed": false,
+  "phase_approval": false,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": null
+    },
+    {
+      "name": "wall-baseline",
+      "passed": false,
+      "exit_code": 1,
+      "result_counts": null
+    }
+  ],
+  "integrity": {
+    "copy_inputs_unchanged": true,
+    "WORK_inputs_unchanged": true,
+    "copy_differences": {},
+    "WORK_differences": {},
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "all_engine_processes_waited": true,
+    "QA_probe_inputs_unchanged": true,
+    "no_work_or_controller_mutations": true
+  },
+  "not_tested": [
+    "native Windows",
+    "hardware FPS/input latency",
+    "subjective audio",
+    "full P06",
+    "publication/merge"
+  ]
+}

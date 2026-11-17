@@ -1,0 +1,31 @@
+import hashlib,json,subprocess,sys
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];W=R/'.autopilot/worktrees/P06';sys.path.insert(0,str(W/'tools'))
+import verify_p06 as p
+from continue_p06_native import verify_artifacts
+EXPECTED_HEAD='fa8693a3'
+O=W/'reports/phases/P06/combat-movie-recovery-01';B=W/'build/P06/combat-movie-recovery-01'
+sha=lambda x:hashlib.sha256(x.read_bytes()).hexdigest()
+head=lambda:subprocess.check_output(['git','rev-parse','HEAD'],cwd=W,text=True).strip()
+assert head().startswith(EXPECTED_HEAD)
+assert not O.exists() and not B.exists()
+changed=subprocess.check_output(['git','diff','263e888afc9875ebf887267c0dd734b70897f344','--name-only','--','game','tools','assets/source_audio','assets/source_art/characters','autopilot/config.json'],cwd=W,text=True).splitlines()
+assert sorted(changed)==['tools/verify_p04.py','tools/verify_p04g.py'],changed
+contract=W/'reports/phases/P06/native-continuation-contract-02/contract.json'
+assert sha(contract)=='e5ef81ddc24fc12420cc602c403deefe5cb8891961b2e985d85c64e53515a343'
+artifacts=p.strict_report(contract.read_text())['artifacts'];verify_artifacts(W,artifacts)
+prior=W/'reports/phases/P06/native-remaining5-02/validation.json';old=p.strict_report(prior.read_text())
+assert old['passed'] is False and len(old['stages'])==13 and all(x['passed'] is True for x in old['stages'][:12]) and old['stages'][-1]['passed'] is False
+old_sha=sha(prior);before=p.inventory();start_head=head()
+O.mkdir(parents=True);B.mkdir(parents=True);(O/'logs').mkdir()
+p.write(O/'source_hashes_before.json',before)
+name,argv,timeout=p.plan(O,B,exports=True,movie=True)[-1]
+assert name=='combat_baseline' and timeout==2400
+p.write(O/'plan.json',{'name':name,'argv':list(map(str,argv)),'timeout':timeout,'scope':'ONLY_ATOMIC_COMBAT_BASELINE_RECOVERY','prior12_not_rerun':True,'no_phase_approval':True})
+item=p.run_command(argv,O/'logs/combat_baseline.log',timeout)
+after=p.inventory();end_head=head();p.write(O/'source_hashes_after.json',after)
+verify_artifacts(W,artifacts)
+bindings=sha(prior)==old_sha and sha(contract)=='e5ef81ddc24fc12420cc602c403deefe5cb8891961b2e985d85c64e53515a343'
+valid=p.valid_report(O/'combat_baseline/validation.json')
+result={'schema':1,'scope':'ONLY_ATOMIC_COMBAT_BASELINE_RECOVERY','phase_approval':False,'merge_approval':False,'passed':item['passed'] and valid and before==after and start_head==end_head and bindings,'command':item,'child_report_valid':valid,'source_unchanged':before==after,'source_head':start_head,'head_after':end_head,'preserved_proof_binding_unchanged':bindings,'prior_artifacts_checked':len(artifacts),'prior_composed_report':{'path':str(prior.relative_to(W)),'sha256':old_sha,'passed':False,'first12_technical_positive_not_rerun':True},'prior_failures_rewritten':False,'listening_performed':False,'hardware_input_latency':'NOT_MEASURED','native_Windows':'NOT_TESTED_WINE_SEPARATE'}
+p.write(O/'validation.json',result);print(json.dumps(result,ensure_ascii=False),flush=True);raise SystemExit(0 if result['passed'] else 1)

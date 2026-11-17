@@ -1,0 +1,70 @@
+{
+  "scope": "COMBAT_SANDBOX_CAMPAIGN_VIEW_ISOLATION_AND_FRESH_PROCESS_RESTORE_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "source_unchanged": true,
+  "checks_passed": 25,
+  "checks_total": 25,
+  "actual_new_process_reload": true,
+  "commands": [
+    {
+      "name": "sandbox",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_lab_isolation_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.88
+    },
+    {
+      "name": "process-reload",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_dialogue_reload.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.597
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/commands.json",
+      "sha256": "f9543ee488b52e41d24d7369b4136474b8571fc2c040e1b94a7ce355a8275dca"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/sandbox.log",
+      "sha256": "175e31dea6c3d9a2b3ffaea0aad16a33fa280251f92ff00c7784a703df008e4f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/common-character-gate-02/character_lab_isolation/source_hashes.json",
+      "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+    }
+  ]
+}

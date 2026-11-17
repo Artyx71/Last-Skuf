@@ -1,0 +1,63 @@
+{
+  "measurements": [
+    {
+      "version": "native-01",
+      "path": "reports/phases/P06/guard-feedback-01/native-01/live/03_guard_open.png",
+      "sha256": "867fb56af22c20d2fa8ffaa3c5db26bababcd64256c72e378aa1f428b6585d49",
+      "image_size": [
+        640,
+        360
+      ],
+      "bar_green_fill_rows_x400_in_ROI_y48_90": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "contiguous_height": 27,
+      "ends_before_arena_y62": false
+    },
+    {
+      "version": "native-03",
+      "path": "reports/phases/P06/guard-feedback-01/native-03/live/03_guard_open.png",
+      "sha256": "9bf2a0b6894e2d49a5843b7d86088849053b83087b1717f4bb8c335f805b1ba5",
+      "image_size": [
+        640,
+        360
+      ],
+      "bar_green_fill_rows_x400_in_ROI_y48_90": [
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "contiguous_height": 5,
+      "ends_before_arena_y62": true
+    }
+  ],
+  "method_note": "Initial diagnostic ROI y30..100 also counted green label glyphs, causing a QA assertion failure before result creation. Corrected y48..90 isolates only the actual bar. No production issue or engine rerun."
+}

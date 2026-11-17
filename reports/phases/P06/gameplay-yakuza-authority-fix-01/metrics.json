@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "scope": "BOUNDED_LEGACY_CH01_FINISHER_AUTHORITY_FIX",
+  "finding": "GP-P06-YAKUZA-SCOPE-01",
+  "independent_differential": {
+    "before": {
+      "exit_code": 1,
+      "passed": 11,
+      "failed": 10,
+      "observations": [
+        {
+          "actual_Input_V_started_job": true,
+          "reduced_gore": false,
+          "stun_remaining": 1.15,
+          "target_health": 1,
+          "target_state": "finisher_reaction"
+        },
+        {
+          "actual_Input_V_started_job": true,
+          "reduced_gore": true,
+          "stun_remaining": 1.15,
+          "target_health": 1,
+          "target_state": "finisher_reaction"
+        }
+      ],
+      "result_sha256": "b0e765c14bffc907485487c1171ed37bcf758e5aa759e11e3e3e4cd5cadeeab3"
+    },
+    "after": {
+      "exit_code": 0,
+      "passed": 21,
+      "failed": 0,
+      "observations": [
+        {
+          "actual_Input_V_started_job": false,
+          "reduced_gore": false,
+          "stun_remaining": 1.11666666666667,
+          "target_health": 1,
+          "target_state": "stunned"
+        },
+        {
+          "actual_Input_V_started_job": false,
+          "reduced_gore": true,
+          "stun_remaining": 1.11666666666667,
+          "target_health": 1,
+          "target_state": "stunned"
+        }
+      ],
+      "result_sha256": "7d10a13f141f8bfc49b54283065d0c9fc2bb133d1640f20a700c1f1d11b0a683"
+    }
+  },
+  "independent_after_fix_regression": {
+    "yakuza_finisher_authority": [
+      21,
+      0
+    ],
+    "p04g": [
+      695,
+      0
+    ],
+    "character_policy_integration": [
+      57,
+      0
+    ],
+    "mission": [
+      28,
+      0
+    ],
+    "total_passed": 801,
+    "total_failed": 0
+  },
+  "independent_engine_invocations": 7,
+  "independent_headless_imports": 2,
+  "independent_test_runs": 5,
+  "native_display_runs": 0,
+  "fully_isolated_profiles": true,
+  "same_test_before_after": true,
+  "only_two_production_code_differences_between_copies": [
+    "game/scripts/core/combat_lab.gd",
+    "game/scripts/systems/combat_system.gd"
+  ],
+  "editor_normalization_inside_ROOT_only": {
+    "game/default_bus_layout.tres": {
+      "copied_input_sha256": "4a0c6c127449a85a08034922b365772045758eb0b98ddaa5cc5335291f87cea6",
+      "after_editor_sha256": "308b9037213cc13bf307b9531e34cb3923fa575c366fd165b10b9e846fe932bb",
+      "before_editor_sha256": "308b9037213cc13bf307b9531e34cb3923fa575c366fd165b10b9e846fe932bb"
+    }
+  },
+  "author_nine_commands_hashed_not_all_independently_rerun": true,
+  "author_evidence_sha256": {
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/yakuza_finisher_authority.log": "c5e77e4608d15770729664015b69c03c0d28b366f7ff0ddc521608fd3fe8bae4",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/p04g.log": "7177cac496e430c4de717027c97209524ac75e2e0dc666375a9ede92bc3df160",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/p04g_art.log": "31f4c35f5d39cc2b56b71738bffa7214fcfc2eccff147336d34c841f2dfa28d0",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/combat.log": "8a01cdbeead10e3ab73e2e66464d99cad996c8e922c4e52c60a2e9ebfb500a28",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/contact_timing.log": "e786bbdd26b5d006666cc3965c085bb092935926d27adfbe15660ff96a722b96",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/ai.log": "3042a08243c564da27bc26b19a5c2d3d9809272e0bf82d4900b00cbf3659d774",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/restart.log": "35aac4dd96aca92f4176baadda4cbc4204f0f8660b2c26601845def10c74bcf4",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/character_policy_integration.log": "791b87ba65def222933690eb1335d06b3ce0a0924f20ed1df7c73c37b9f81ccf",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/mission.log": "2a7bedb22a4479770e5eead6de5193379ef7bb3f7c1ba40a53aade5f2eba08ca",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/commands.json": "80953c7139069a6b698a12f5c05361db04af75032ddea3b50adea9c5c9c0479c",
+    "reports/phases/P06/author-checks/yakuza-finisher-fix-regression-01/yakuza_finisher_authority/result.json": "7d10a13f141f8bfc49b54283065d0c9fc2bb133d1640f20a700c1f1d11b0a683",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/command.json": "ac2f288f0b1ac126e893b4c2482688d692cbcd94a8b64e85b8d217be50ca3a1e",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/result.json": "b0e765c14bffc907485487c1171ed37bcf758e5aa759e11e3e3e4cd5cadeeab3",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/run.log": "d08fcd70e197b6023443e88bf4d594fe94bfc65018b8afc803537df982c2ab01",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/source_hashes.json": "e794670b746e833ab4fda94478c42cc83a118abb93b5590dc7cbfb9916fc724c",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/source-before/game/tests/yakuza_finisher_authority_test.gd": "d9a8175f4ff8da5a2920a48be205b7399dd809aaeb0f2b4678c93189ff1074ff",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/source-before/game/scripts/systems/combat_system.gd": "d7043f0121f12486b06beecfee15f74e922f1d1c2a547e60e8aea11daf7df21d",
+    "reports/phases/P06/author-checks/yakuza-finisher-before-fix-01/source-before/game/scripts/core/combat_lab.gd": "d22ebb17f8a3fcd296e832b32d1e350782f17dfed4ff1e51500324dfbf7b3ec2"
+  },
+  "critical_current_source_sha256": {
+    "game/scripts/systems/combat_system.gd": "9136c404a9fce2e010de1a922d1994183bbd1799008043366e063e3608561acb",
+    "game/scripts/core/combat_lab.gd": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+    "game/tests/yakuza_finisher_authority_test.gd": "d9a8175f4ff8da5a2920a48be205b7399dd809aaeb0f2b4678c93189ff1074ff",
+    "tools/verify.py": "2d6655c7c19feb712b78d207d68c6167d3f7fa4726d31033fbbe2c476d7914df"
+  },
+  "critical_current_sources_unchanged": true,
+  "new_test_registered_once_in_verify": true,
+  "pinned_Godot_sha256_matches_lock": true,
+  "old_gap_audit_report_sha256": "23fa3710c69eea6a5d856de54b7d23400bba47ab273bb6041b1952f8b6142bab",
+  "old_gap_audit_decision_sha256": "fcefbeaea3666bbef014d7ee4f7f095b9e602391f1875805044b46bf6acc9613",
+  "old_gap_audit_48_artifacts_unchanged": true,
+  "work_mutations": false,
+  "phase_approval": false
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "CANDIDATE_P07_GUARD_V2_CODE_ONLY",
+  "actual_tests": {
+    "production": {
+      "passed": 34,
+      "total": 34,
+      "exit_code": 0
+    },
+    "autopilot_regression": {
+      "passed": 47,
+      "total": 47,
+      "exit_code": 0
+    }
+  },
+  "original_v1_repro_cases": {
+    "passed": 10,
+    "total": 10,
+    "former_unexpected_acceptances_now_blocked": 6
+  },
+  "additional_independent_probes": {
+    "passed": 15,
+    "total": 15
+  },
+  "all_repro_state_unchanged": true,
+  "valid_resume_control": "PASS_NO_RESET",
+  "missing_gate_resume_control": "BLOCKED_NO_RESET_WORKSPACE_PRESERVED",
+  "resolved_findings": [
+    "PG-C01",
+    "PG-C02",
+    "PG-C03",
+    "PG-C04"
+  ],
+  "must_fix": [],
+  "production_readiness_approval": false,
+  "ROOT_runner_installation_approval": false,
+  "P07_start_approval": false,
+  "phase_approval": false,
+  "merge_approval": false
+}

@@ -1,0 +1,38 @@
+{
+  "source_review_sha256": "3678206ef8209d89ae3d9f828f29ff57ecd73dbe981259fd5c08e37362bf3ceb",
+  "runtime_png_sha256": "d2aa67987d14f7c3a80069e6cfd343738ee22c00026065fa1c6f5c003d089d94",
+  "runtime_layout_sha256": "8fcb9f9ab01ad56d41c80f0b6b1eee5bec7853a2c64c406a4cc6db5759afd158",
+  "unchanged_source_manifest_sha256": "6c69dbc6d659466b93509e4b94ae0d90f9cff7d307718689eaf3a3c3e51122e1",
+  "source_only_approval": true,
+  "runtime_approval": false,
+  "phase_approval": false,
+  "new_ability_fixture_enabled": false,
+  "accepted_deviations": [
+    {
+      "id": "RYZHIK-ROLL-SOURCE-GUTTER-01",
+      "requested_source_gutter_px": 16,
+      "observed": [
+        {
+          "index": 10,
+          "direction": "left",
+          "column": 2,
+          "minimum_source_gutter_px": 10
+        },
+        {
+          "index": 13,
+          "direction": "left",
+          "column": 5,
+          "minimum_source_gutter_px": 14
+        }
+      ],
+      "accepted_for_exact_source_bytes_only": true,
+      "reason": "Whole figures inside free boundaries; no opaque baseline loss; complete fingers/body visible in native/source review",
+      "runtime_edge_sampling_approved": false
+    }
+  ],
+  "runtime_must_validate": [
+    "Actual screenTOP displacement/camera/floor support throughUP2..5 and complete0..7 sequence",
+    "Actual fourdirection WORLD/roll/WORLD transitions with no missingframes/clipping",
+    "New game layout/clothing annotations/controller/collision/timings remain unapproved"
+  ]
+}

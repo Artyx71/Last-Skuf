@@ -1,0 +1,15 @@
+import sys,subprocess,json,os,time
+from pathlib import Path
+w=Path.cwd();sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import GODOT,sources,write,ERRORS
+base=w/'reports/phases/P06/guard-feedback-01';reg=base/'regression-01';reg.mkdir(parents=True,exist_ok=False);before=sources();write(reg/'source_hashes.json',before);commands=[]
+def run(name,argv,env=None):
+ start=time.monotonic();p=subprocess.run(list(map(str,argv)),cwd=w,env=env,capture_output=True,text=True,timeout=170);log=p.stdout+p.stderr;(reg/(name+'.log')).write_text(log+'\nexit_code='+str(p.returncode)+'\n');ok=p.returncode==0 and not ERRORS.search(log);commands.append({'name':name,'argv':list(map(str,argv)),'exit_code':p.returncode,'passed':ok,'seconds':round(time.monotonic()-start,3)});write(reg/'commands.json',commands);print(name,'PASS' if ok else 'FAIL',flush=True);return ok
+run('native_counter',[sys.executable,'tools/verify_p06_counter_feedback.py','--output',str(base/'native-01'),'--movie','--build-output','build/P06/guard-feedback-01/native-01'])
+run('old_Olezhka',[sys.executable,'tools/verify_p06_olezhka.py','--headless','--output',str(reg/'olezhka')])
+run('old_Gabar',[sys.executable,'tools/verify_p06_gabar.py','--headless','--output',str(reg/'gabar')])
+run('lab_isolation',[sys.executable,'tools/verify_p06_lab_isolation.py','--output',str(reg/'lab_isolation')])
+for test in ['contact_timing','restart','character_readiness','character_policy_integration','yakuza_finisher_authority','options','p04g']:
+ profile=w/'.tools/p06-counter-regression-01'/test;profile.mkdir(parents=True,exist_ok=False);env=os.environ|{'XDG_CONFIG_HOME':str(profile/'config'),'XDG_DATA_HOME':str(profile/'data'),'AYAY_STORY_SAVE_PATH':str(profile/'story.json'),'AYAY_CHAPTER_SAVE_PATH':str(profile/'chapter.json'),'AYAY_OPTIONS_PATH':str(profile/'options.json'),'AYAY_DIALOGUE_SAVE_PATH':str(profile/'dialogue.json')}
+ run(test,[GODOT,'--headless','--path',w/'game','--script','res://tests/'+test+'_test.gd'],env)
+unchanged=before==sources();ok=all(x['passed'] for x in commands) and unchanged;write(reg/'result.json',{'scope':'COUNTER_UI_AND_EXISTING_GAMEPLAY_REGRESSION','source_unchanged':unchanged,'passed':ok,'commands':commands,'phase_approval':False});print('allpassed',ok,'source_unchanged',unchanged,flush=True);raise SystemExit(0 if ok else 1)

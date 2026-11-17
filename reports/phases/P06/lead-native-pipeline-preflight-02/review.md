@@ -1,0 +1,13 @@
+# Fixed11f native pipeline — independent Lead closure02
+
+**FAIL_COMPONENT / NO-GO** for11f0666d7f9c62896f57a3980c1c4b1d2c9eb1af. This is separate from original454e FAIL56625a6d… and from the newer8e candidate; neither original report is rewritten. Full P06, Root installation, merge and full native execution are not approved.
+
+The process-ownership repair closes NPIPE-L01 within the tested Linux scope. I read the actual subreaper/identity/cleanup code and ran only three pure terminal fixtures plus an ordinary positive control: inherited-pipe child after wrapperexit0 returns structured124; silent child after wrapperexit0 is cleaned and makes passed=false; silent child after wrapperexit7 is cleaned and staysfailed. There are no live residual children or emergency cleanup. The code keeps canonical worker process-group containment. These are Python process lifecycle checks, not Godot/native execution, physical hardware or a guarantee about unkillable kernel processes.
+
+NPIPE-L02 remains MEDIUM and blocks the long run. LiteralNaN/Infinity, decoded duplicate keys, contradictoryexit and barelegacy rejection were improved, but parser still accepts1e309→inf and malformedtyped payloads. My independent pure fixtures confirm overflow, argv[null,{}], integerlegacyname and integerlegacylog accepted. Independent QA02 tested18 cases:12correct and6unsafe, additionally negativeoverflow and listlegacyname. The minimal remedy is finite-number decoding and nonempty string type checks, not a new gameplay requirement or looser test.
+
+I also passed the fixed parser over twelve existing real child-report formats: eleven historical positiveformats accept, while the genuinely failed native02 validation rejects. This is format compatibility only, not a new source/runtime approval or fresh engine run. The13stage/native-vs-headless plan remains the intended real composition; phase_approval=false/noRootinstall scope is preserved.
+
+QA02 decision14055fc5… is immutable FAIL_COMPONENT; I read it and its review and verified all26portablefiles against the manifest. It uses the exacte065 source, agrees with the process closure and leaves the six parser cases open. No engines or full13pipeline were run. My only writes are this reviewer-owned ROOT report and synthetic fixture outputs. No Game/tools/state/Controller/Git mutations occurred.
+
+New8e closes these parser cases in a separately prepared draft, with process functions unchanged. That candidate requires its own immutable QA03 and independent Lead decision before any GO. Preserving this11fFAIL does not reopen accepted P06 art/abilities/audio or consume a formal phase attempt.

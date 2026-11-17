@@ -1,0 +1,75 @@
+{
+  "scope": "ACTUAL_P04G_NATIVE_BASELINE_AND_EXPLICIT_NUMERIC_SCOPE_CLOSURE_READONLY",
+  "Full_checks": 413,
+  "Reduced_checks": 413,
+  "Full_actualPNG": 218,
+  "Reduced_actualPNG": 218,
+  "Full_Reduced_20signatures_equal": true,
+  "each_mode_AI_kind_direction_cases": 12,
+  "performance": {
+    "full": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.961731,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.666,
+      "p95_ms": 16.917,
+      "p99_ms": 17.027,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    },
+    "reduced": {
+      "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+      "display": "X11",
+      "duration_seconds": 9.96078200000001,
+      "fixture": "32 actors, 8 committed damage events/tick, 600 frames, 4800 contacts, then 10 resets",
+      "measurement": "monotonic real process-frame intervals, not forced simulation delta",
+      "movie_maker": false,
+      "movie_path": "",
+      "os": "Linux",
+      "p50_ms": 16.666,
+      "p95_ms": 16.957,
+      "p99_ms": 17.181,
+      "rendered": true,
+      "samples": 600,
+      "video_adapter": "NVIDIA GeForce GTX 1050 Ti"
+    }
+  },
+  "same_workload_32NPC600frames4800contacts10reset": true,
+  "old_original_native02_exit": 1,
+  "old_sole_failure": "Detailed analyzer unconditionally required5 unrequested recordings",
+  "original_failed_reports_preserved": true,
+  "fresh_numeric_only_all26checks": 26,
+  "fresh_numeric_actual_names": [
+    "full_replay",
+    "reduced_replay"
+  ],
+  "fresh_numeric_phase_scope": "SELECTED_NATIVE_CAPTURE_SCOPE_ONLY",
+  "actual_node_replays_rerun_by_QA": false,
+  "nested_P04_actual9_passed": true,
+  "all_fresh_numeric_inputs_SHA_still_exact": true,
+  "runtime_PCM": {
+    "full_replay.wav": {
+      "sha256": "331617cbeecd798a5fbe9134713dc0eba5eb114f83ec66008edf105ed446fa1a",
+      "truepeak": -4.3,
+      "sampleclip": 0,
+      "driver": "PulseAudio",
+      "silence_seconds": 0
+    },
+    "reduced_replay.wav": {
+      "sha256": "156d5119eac62ab91377a64bc3dd51521b2116314192b915ac584bb3d1798a90",
+      "truepeak": -4.3,
+      "sampleclip": 0,
+      "driver": "PulseAudio",
+      "silence_seconds": 0
+    }
+  },
+  "actual_agent_listening": false,
+  "hardware_latency_and_all_hardwareFPS": "NOT_MEASURED",
+  "Full_P06_approval": false
+}

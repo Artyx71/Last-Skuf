@@ -7,6 +7,14 @@ const DISCLAIMER := "Вымышленная криминальная сатир�
 
 
 func _ready() -> void:
+	if "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
+		get_tree().set_meta("p06_combat_startup_route", true)
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/character_lab.tscn")
+		return
+	if "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
+		get_tree().set_meta("p06_cast_startup_route", true)
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/cast_viewer.tscn")
+		return
 	if "--open-mission" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/missed_fight.tscn")
 		return
@@ -26,13 +34,18 @@ func _ready() -> void:
 	add_child(panel)
 	_add_label(panel, "АЫАЫ: ПОСЛЕДНИЙ СКУФ", 28, Color("ff477e"))
 	_add_label(panel, "ГЛАВА 01 / ПРОПУЩЕННАЯ ДРАКА", 16, Color("66e5cc"))
-	_add_label(panel, "Godot 4 · Windows / Linux\nПолная игра ещё не реализована.", 17, Color("e5e6ef"))
+	_add_label(panel, "ПРОТОТИП В РАЗРАБОТКЕ · Windows / Linux\nПолная игра ещё не реализована.", 17, Color("e5e6ef"))
 	_add_label(panel, DISCLAIMER, 15, Color("b9b9cc"))
-	_add_label(panel, "Enter — играть · J/F4 — главы · F1 — арт · F2 — бой · F3 — диалог · Esc — выход", 14, Color("b9b9cc"))
+	_add_label(panel, "Enter — глава 01 · J/F4 — главы · F1 — арт · F2 — учебный бой · F3 — диалог\nF5 — бой персонажей · F6 — портреты и реплики · Esc — выход", 14, Color("b9b9cc"))
 	journal = preload("res://scripts/ui/story_journal.gd").new()
 	journal.story = get_node("/root/StoryState")
 	add_child(journal)
 	journal.hide()
+	if "--p06-owner-preview-smoke" in OS.get_cmdline_user_args() and not get_tree().root.has_node("P06OwnerPreviewSmoke"):
+		var probe := preload("res://scripts/qa/owner_preview_smoke.gd").new()
+		probe.name = "P06OwnerPreviewSmoke"
+		get_tree().root.add_child.call_deferred(probe)
+		probe.call_deferred("run")
 	if "--p05-replay" in OS.get_cmdline_user_args() and not get_tree().root.has_node("P05ReplayDriver"):
 		var driver := preload("res://scripts/qa/story_replay.gd").new()
 		driver.name = "P05ReplayDriver"
@@ -76,3 +89,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file("res://scenes/world/movement_lab.tscn")
 	elif event is InputEventKey and event.pressed and event.keycode == KEY_F3:
 		get_tree().change_scene_to_file("res://scenes/world/dialogue_audio_lab.tscn")
+	elif event is InputEventKey and event.pressed and event.keycode == KEY_F5:
+		get_tree().change_scene_to_file("res://scenes/world/character_lab.tscn")
+	elif event is InputEventKey and event.pressed and event.keycode == KEY_F6:
+		get_tree().change_scene_to_file("res://scenes/world/cast_viewer.tscn")

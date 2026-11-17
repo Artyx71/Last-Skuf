@@ -1,0 +1,73 @@
+{
+  "scope": "C01_SOURCE_SIGNAL_ONLY",
+  "asset_count": 20,
+  "catalog_route_counts": {
+    "gabar": 3,
+    "olezhka": 3,
+    "timka_prime": 3,
+    "ryzhik": 3,
+    "tega": 3,
+    "pasha": 5,
+    "timka_present": 0
+  },
+  "format": {
+    "sample_rate_Hz": 44100,
+    "channels": 1,
+    "PCM_bits": 16
+  },
+  "duration_seconds": [
+    0.21,
+    0.31
+  ],
+  "ranges": {
+    "RMS_dbfs": [
+      -25.178972040189556,
+      -18.7731749810897
+    ],
+    "sample_peak_dbfs": [
+      -5.192938992120393,
+      -5.192938992120393
+    ],
+    "truepeak8x_dBTP": [
+      -5.192938992120393,
+      -3.5676208603707544
+    ],
+    "truepeak_ffmpeg_dBFS": [
+      -5.2,
+      -3.8
+    ],
+    "DC": [
+      -0.0004884756714565786,
+      -0.00018396489875352023
+    ],
+    "endpoint": [
+      0.0,
+      0.0001220703125
+    ],
+    "tail5ms_RMS_dbfs": [
+      -97.29869874255455,
+      -66.10014379080943
+    ],
+    "internal_silence_seconds": [
+      0,
+      0
+    ],
+    "plateau": [
+      1,
+      1
+    ]
+  },
+  "total_PCM_rail_samples": 0,
+  "signal_checks": 300,
+  "catalog_recipe_retention_checks": 12,
+  "independent_PCM_recomputed": 20,
+  "independent_descriptor_pair_recomputed": 38,
+  "byte_exact_recipe_reproduction": 20,
+  "input_SHA_unchanged_at_job_and_raw_recheck": 35,
+  "legacy_yakuza_WAV_retained": 5,
+  "own_oversampling_method": "8x finite32tap-per-phase Lanczos-windowed sinc; numerical estimate, not a certified BS.1770 compliance claim",
+  "FFmpeg_method": "ebur128 peak=true, independent decoder exact PCM crosscheck; reported peaks rounded0.1dB",
+  "integrated_LUFS": "Informational only for short single shots; not a loudness-target acceptance",
+  "no_actual_listening": true,
+  "no_actual_Godot_integration_or_mix": true
+}

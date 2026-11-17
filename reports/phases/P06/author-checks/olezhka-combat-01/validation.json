@@ -1,0 +1,57 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": false,
+  "source_head": "64c57f75671aeff07e8b9d13a8ee91d4cb79b3ff",
+  "source_unchanged": true,
+  "renderer": null,
+  "checks_passed": 0,
+  "checks_total": 0,
+  "actual_captures": 0,
+  "contacts": 0,
+  "actual_input": false,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 1,
+      "seconds": 0.226,
+      "passed": false
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/commands.json",
+      "sha256": "a698e32dc3ed1d6663b64f5dc0eccbc89515e7ae7cb55960780395eab09c82f2"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/live.log",
+      "sha256": "fa844bdb979763e9ad94f9f1aa1977407943880afd2e740f54048a67ff192183"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-01/source_hashes.json",
+      "sha256": "ad394d1576266bb37ffee0f1a9c394b212460f9ca10b4f0b77a8cbe1f459b097"
+    }
+  ]
+}

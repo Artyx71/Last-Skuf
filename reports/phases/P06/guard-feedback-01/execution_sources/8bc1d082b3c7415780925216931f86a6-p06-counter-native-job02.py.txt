@@ -1,0 +1,10 @@
+import sys,subprocess,json
+from pathlib import Path
+w=Path.cwd();sys.path.insert(0,str(w/'tools'))
+from verify_p06_cast import sources,write,ERRORS
+base=w/'reports/phases/P06/guard-feedback-01';before=sources();old=json.loads((base/'regression-01/source_hashes.json').read_text());delta=sorted(k for k in set(before)|set(old) if before.get(k)!=old.get(k));assert delta==['game/scripts/ui/counter_feedback.gd','game/tests/olezhka_feedback_replay.gd'],delta
+records=[]
+for label,args in [('headless-02',['--headless']),('native-02',['--movie','--build-output','build/P06/guard-feedback-01/native-02'])]:
+ argv=[sys.executable,'tools/verify_p06_counter_feedback.py','--output',str(base/label)]+args;p=subprocess.run(argv,cwd=w,capture_output=True,text=True,timeout=150);log=p.stdout+p.stderr;(base/(label+'-wrapper.log')).write_text(log+'\nexit_code='+str(p.returncode)+'\n');ok=p.returncode==0 and not ERRORS.search(log);records.append({'name':label,'argv':argv,'exit_code':p.returncode,'passed':ok});print(label,'PASS' if ok else 'FAIL',flush=True)
+ if not ok:break
+ok=all(x['passed'] for x in records) and before==sources();write(base/'native-02-job.json',{'scope':'HUD_RECT_FIX_ONLY','phase_approval':False,'source_unchanged':before==sources(),'passed':ok,'commands':records,'unchanged_gameplay_regressions':'regression-01; onlyUI/replayrectassert changed','changed_sources_vs_regression':delta});raise SystemExit(0 if ok else 1)

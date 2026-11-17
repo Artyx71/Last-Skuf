@@ -1,0 +1,36 @@
+{
+  "scope": "LOGIC_EQUIVALENT_PURE_COUNTEREXAMPLE_NOT_GODOT_EXECUTION",
+  "actual_GDScript_logic": "actual_held=true; for range(first_input_trace,ammo_trace.size()) actual_held &= run_pressed && vector==direction",
+  "exact_vector_values_only_no_approximation_boundary_claim": true,
+  "cases": [
+    {
+      "name": "valid32",
+      "samples": 32,
+      "actual_predicate": true,
+      "required_safe_result": true,
+      "passed": true
+    },
+    {
+      "name": "run_drop",
+      "samples": 32,
+      "actual_predicate": false,
+      "required_safe_result": false,
+      "passed": true
+    },
+    {
+      "name": "direction_drop",
+      "samples": 32,
+      "actual_predicate": false,
+      "required_safe_result": false,
+      "passed": true
+    },
+    {
+      "name": "missing_all_input_samples",
+      "samples": 0,
+      "actual_predicate": true,
+      "required_safe_result": false,
+      "passed": false
+    }
+  ],
+  "empty_missing_data_rejected": false
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "C01_TECHNICAL_ATTEMPT1",
+  "closed": [
+    {
+      "id": "C01-P01",
+      "status": "CLOSED_COMPONENT",
+      "evidence": "Actual independent valid startup+base/polish collision fixtures: clean failure before any music/voice node; all34 ownassertions/7calls pass."
+    },
+    {
+      "id": "C01-P02",
+      "status": "CLOSED_COMPONENT",
+      "evidence": "Immutable c69/freeze SHA anchors+80check source control/32tempnegative denials, and20 actual QOA imported solo wave/source NCC0.98995…0.99949 with actual own stream/cue/bus/gain metadata. Imported QOA explicitly lossy."
+    },
+    {
+      "id": "QA-H01",
+      "status": "CLOSED_AS_QA_METADATA_DOMAIN_ERROR",
+      "evidence": "First handoff analyzer compared different declared source universes. Corrected read-only audit proves1363common keys/1361unchanged+2expected changes;102native-only archived source_audio/review inputs explicitly listed. Original firstresult/log/exit1 retained. No product export bug claimed."
+    }
+  ],
+  "open": [
+    {
+      "id": "C01-Q03",
+      "severity": "MEDIUM",
+      "status": "OPEN_MUST_FIX",
+      "title": "Actual bounded stress mix has intersample truepeak above full scale",
+      "asset_sha256": "56cce2cb503ff9905671781c4e7370eff455d261346fc7dd8e113174227c179c",
+      "asset": "native-01/replay/stress_mix.wav",
+      "actual_FFmpeg_truepeak_dBFS": 0.1,
+      "actual_PCM_rail_samples": 0,
+      "actual_sample_peak_dBFS": -1.0001519038193567,
+      "gate_declared_before_execution": "All actual mix truepeak must be below0dBFS; no PCM rails. Source-only peak gate does not guarantee summed mix.",
+      "interpretation": "Reconstruction/intersample overshoot despite sample ceiling about−1dBFS; not a claim of heard clipping or poor artistic sound.",
+      "required_fix": "Author adjusts mixer headroom, then fresh real native/PulseAudio normal/solo/stress PCM with unchanged gate<0dBTP+0rails, practical target≤−1dBTP. Retain original waveform and failures. Narrow targeted3InputFIN +20solo+same8stress bursts acceptable with exact unchanged Core/body/cue equivalence; do not relabel as fresh45routes."
+    }
+  ]
+}

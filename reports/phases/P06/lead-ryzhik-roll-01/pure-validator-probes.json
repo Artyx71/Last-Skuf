@@ -1,0 +1,61 @@
+{
+  "pure_AST_only": true,
+  "production_execution": false,
+  "probes": [
+    {
+      "case": "headless-04/live",
+      "actual_mode_accepted": true,
+      "opposite_mode_rejected": true
+    },
+    {
+      "case": "native-03/live",
+      "actual_mode_accepted": true,
+      "opposite_mode_rejected": true
+    },
+    {
+      "case": "native-03/movie",
+      "actual_mode_accepted": true,
+      "opposite_mode_rejected": true
+    },
+    {
+      "case": "invalid-renderer:''",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:' '",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:None",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:True",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:1",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:[]",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:{}",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:'unknown'",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:'X11 '",
+      "rejected": true
+    },
+    {
+      "case": "invalid-renderer:' X11'",
+      "rejected": true
+    }
+  ]
+}

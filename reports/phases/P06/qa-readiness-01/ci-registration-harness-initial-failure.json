@@ -1,0 +1,7 @@
+{
+  "scope": "QA_HARNESS_SETUP_FAILURE_NOT_PRODUCTION_DEFECT",
+  "error": "verify.py output logs must be relative to its ROOT; first mock used ROOT reports outside WORK and raised ValueError",
+  "engine_commands_executed": 0,
+  "production_changes": false,
+  "corrective_action": "Use isolated-project ROOT for mock main(), with exact lockfile and read-only binary link; keep first fake log."
+}

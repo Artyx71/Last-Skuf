@@ -1,0 +1,9 @@
+import hashlib,json,sys
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()/'autopilot'))
+from runner import Controller,utc
+c=Controller();entry=c.root/'.tools/p06-combat-missing-continuation-job01.py';expected='1d559c9788598dfe94c0babefc0d5399af5b391bdde17225a4ae62155332bcd2';w=c.root/'.autopilot/worktrees/P06'
+with c.exclusive():
+ s=c.reconcile();assert s['autopilot']['active_author'].get('ended_at') and s['autopilot']['operation']['consumed'];p=s['autopilot']['phases']['P06'];assert p['status']=='IMPLEMENTING' and p['attempts']==1;counts=(s.get('attempts'),p['attempts']);assert hashlib.sha256(entry.read_bytes()).hexdigest()==expected
+ code=c.stage('P06/reviewed-only-missing-P04-and-C5-signal-continuation-01',[sys.executable,str(entry)],1800,safe_retry=False,cwd=w)
+ s=c.state();op=s['autopilot']['operation'];assert c.receipt(op);op['consumed']=True;p=s['autopilot']['phases']['P06'];assert (s.get('attempts'),p['attempts'])==counts;report=w/'reports/phases/P06/combat-interruption-continuation-01/validation.json';p['combat_missing_continuation']={'operation':op['id'],'exit_code':code,'report':str(report.relative_to(w)),'sha256':hashlib.sha256(report.read_bytes()).hexdigest() if report.exists() else None,'phase_approval':False};p['checkpoint']='P06-only-missing-continuation-terminal-inspect';s['autopilot']['history'].append({'when':utc(),'event':'P06_MISSING_WRAPPER_AND_NUMERIC_CONTINUATION_COMPLETE','operation':op['id'],'exit_code':code,'phase_approval':False});s['next_action']='Inspectactualcomposed13/sourcebindings; independentfullQA/ART/Gameplay/Lead andcurrentSHA_CI; noauthorPASS' if code==0 else 'Inspectmissingcontinuationactualreceipt/partial; preservepositives/130, noC5retake orblindretry';c.persist(s);print(json.dumps({'code':code,'operation':op['id'],'phase_approval':False}),flush=True);raise SystemExit(code)

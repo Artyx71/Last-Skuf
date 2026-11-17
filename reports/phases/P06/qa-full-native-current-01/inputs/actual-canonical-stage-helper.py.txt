@@ -1,0 +1,17 @@
+import sys,json,subprocess,hashlib
+from pathlib import Path
+sys.path.insert(0,str(Path.cwd()/'autopilot'))
+from runner import Controller,utc
+c=Controller();w=c.root/'.autopilot/worktrees/P06';binding=json.loads((c.root/'.tools/p06-full-native-current-binding01.json').read_text())
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+with c.exclusive():
+ s=c.reconcile();assert s['autopilot']['active_author'].get('ended_at') and s['autopilot']['operation']['consumed'];p=s['autopilot']['phases']['P06'];assert p['status']=='IMPLEMENTING' and p['attempts']==1;counters=(s.get('attempts'),p['attempts'])
+ assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=w,text=True).strip()==binding['execution_head']
+ assert not subprocess.check_output(['git','diff',binding['reviewed_source_commit'],'--','game','tools','autopilot/config.json','docs/P06_VERIFICATION.md'],cwd=w,text=True).strip()
+ assert not subprocess.check_output(['git','status','--porcelain','--','game','tools','autopilot/config.json'],cwd=w,text=True).strip()
+ for kind,record in binding['preflight'].items():
+  f=c.root/record['path'];assert sha(f)==record['sha256'];review=json.loads(f.read_text());assert review['status']==record['expected_status'];assert review.get('full_phase_approval') is not True
+ unit=json.loads((w/'reports/phases/P06/current-unit-ci-02/validation.json').read_text());assert unit['passed'] is True and unit['source_unchanged'] is True and unit['source_head']==binding['execution_head']
+ p['native_pipeline_preflight']={'status':'PASS_COMPONENT_EXECUTION_ONLY','source_commit':binding['reviewed_source_commit'],'execution_head':binding['execution_head'],'decisions':binding['preflight'],'phase_approval':False};s['next_action']='One frozen serial native13 verification running; no phasePASS/merge/P07';c.persist(s)
+ code=c.stage('P06/full-native-current-source-01',[sys.executable,'tools/verify_p06.py','--exports','--movie','--output','reports/phases/P06/full-native-current-source-01','--build-output','build/P06/full-native-current-source-01'],7200,safe_retry=False,cwd=w)
+ s=c.state();op=s['autopilot']['operation'];assert c.receipt(op);op['consumed']=True;p=s['autopilot']['phases']['P06'];assert (s.get('attempts'),p['attempts'])==counters;p['checkpoint']='P06-full-native-current-source-inspect';report=w/'reports/phases/P06/full-native-current-source-01/validation.json';p['native_full_validation']={'operation':op['id'],'exit_code':code,'execution_head':binding['execution_head'],'report':str(report.relative_to(w)),'report_sha256':sha(report) if report.exists() else None,'phase_approval':False};s['autopilot']['history'].append({'when':utc(),'event':'P06_CURRENT_FULL_NATIVE_PIPELINE_COMPLETED','operation':op['id'],'code':code,'phase_approval':False});s['next_action']='Inspect actual native13 results and independent full QA/Lead/CI/protectedpublication; noautoP06PASS' if code==0 else 'Inspect preserved fullnativefailure/partialplan with independentQA; no blindretry/reset/publication';c.persist(s);print(json.dumps({'code':code,'operation':op['id'],'receipt':op['receipt'],'phase_approval':False}),flush=True);raise SystemExit(code)

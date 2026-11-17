@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "name": "Input_shove_earns_real_Core_stun:(192.0, 224.0)",
+      "passed": true
+    },
+    {
+      "name": "CH01_uses_weak_escape_kit:false",
+      "passed": true
+    },
+    {
+      "name": "CH01_Input_V_cannot_grant_training_finisher:false",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:unarmed:false",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:blunt:false",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:sharp:false",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:firearm:false",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:environmental:false",
+      "passed": true
+    },
+    {
+      "name": "refused_finishers_do_not_damage_or_reward:false",
+      "passed": true
+    },
+    {
+      "name": "Input_shove_earns_real_Core_stun:(192.0, 224.0)",
+      "passed": true
+    },
+    {
+      "name": "CH01_uses_weak_escape_kit:true",
+      "passed": true
+    },
+    {
+      "name": "CH01_Input_V_cannot_grant_training_finisher:true",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:unarmed:true",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:blunt:true",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:sharp:true",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:firearm:true",
+      "passed": false
+    },
+    {
+      "name": "CH01_direct_Core_denies_forged_equipment:environmental:true",
+      "passed": true
+    },
+    {
+      "name": "refused_finishers_do_not_damage_or_reward:true",
+      "passed": true
+    },
+    {
+      "name": "Input_shove_earns_real_Core_stun:(250.0, 260.0)",
+      "passed": true
+    },
+    {
+      "name": "explicit_training_keeps_legacy_finisher",
+      "passed": true
+    },
+    {
+      "name": "training_finisher_remains_interruptible",
+      "passed": true
+    }
+  ],
+  "observations": [
+    {
+      "actual_Input_V_started_job": true,
+      "reduced_gore": false,
+      "stun_remaining": 1.15,
+      "target_health": 1,
+      "target_state": "finisher_reaction"
+    },
+    {
+      "actual_Input_V_started_job": true,
+      "reduced_gore": true,
+      "stun_remaining": 1.15,
+      "target_health": 1,
+      "target_state": "finisher_reaction"
+    }
+  ],
+  "passed": false,
+  "phase_approval": false,
+  "schema": 1,
+  "scope": "ACTUAL_INPUT_EARNED_STUN_FINISHER_SCENE_AUTHORITY_ONLY"
+}

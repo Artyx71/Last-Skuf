@@ -1,0 +1,187 @@
+{
+  "phase": "P05",
+  "status": "FAIL",
+  "reviewed_commit": "27f7f67554fbb5b6c232b04f151ed3a5a47a1203",
+  "base_branch": "main",
+  "base_sha": "756054674383f92f67c7f5f4944c1a5ee8c384f1",
+  "independent_review": true,
+  "reviewer": "/root/lead_autopilot_p03",
+  "next_action": "No publication/merge/phase advance. Preserve native01/02 failures and attempt1. Sole executor diagnoses QA-003 with unchanged strictwall<1s and fresh saves after quiescence; close QA-004 with actual Wine replay. Then complete fresh exactsource host evidence, independent review and mandatory currentSHA CI/currentbase PR gates. NoP06/P07/release. See lead-attempt1/fix-queue.json.",
+  "evidence": [
+    {
+      "path": "planning/P05_TASKS.md",
+      "sha256": "6281687c39fc17d1b54746e77ee31cb64734120e5311110a91fa13269b9e990d"
+    },
+    {
+      "path": "game/scripts/story/story_state.gd",
+      "sha256": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922"
+    },
+    {
+      "path": "game/scripts/story/story_registry.gd",
+      "sha256": "8dabb3a960208b3554dce3ba818f4efbc6bdc2ae390739e1e4abe4bdabc011b6"
+    },
+    {
+      "path": "game/scripts/story/story_service.gd",
+      "sha256": "ddac9123b3d08ebd9371a1258312589330865b67cea5722b641c5a68b0aec7de"
+    },
+    {
+      "path": "game/scripts/ui/story_journal.gd",
+      "sha256": "10f4b223cfad42d820570c4902c617595af4718260069d0b1ac76116f3e609dc"
+    },
+    {
+      "path": "game/scripts/qa/story_replay.gd",
+      "sha256": "041f3efabdcb1b599413064613646cae9e0557c5f3017e1e1700986eea3d7c41"
+    },
+    {
+      "path": "game/scripts/qa/mission_replay.gd",
+      "sha256": "aaf244613bb6a0a93af727d58983b0f63de9a304f9df8d42cd2370feefb4e43e"
+    },
+    {
+      "path": "game/scripts/levels/missed_fight.gd",
+      "sha256": "575c0d0781417127ca0f932e7b4cac2ac9e718f82f111e50c4ce6868021ecc79"
+    },
+    {
+      "path": "tools/verify_p05.py",
+      "sha256": "f7a3aa00a759a68b3f32e272e717e889b8e6e707a0662ef1dc41b83a13ac1c40"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/host-source-freeze-02.json",
+      "sha256": "22743b4d36899fe7f936adee58dee0b783cfed3b0b79e45e407cbf34efc0c360"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/preservation.json",
+      "sha256": "c54750c4be095427298392db5a0595e06218181091a0971bacdc0017ef6003e5"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/technical-host-02/validation.json",
+      "sha256": "9c64cdef677d599f8b04903b22aa31d492ee613f8dde6b2df17da734949ccb94"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/validation.json",
+      "sha256": "1ac590835c3baaa2701c791fb1bf64c9efa90bbf51c86452465757da057b6f5a"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/worker-receipt.json",
+      "sha256": "dd64b8acf4a88cc705c76a42ea506634efc5daff35dba8f789d74bf9761f6e95"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/worker-output.log",
+      "sha256": "8975fbde0b566ed1e7cf7d4a76b4d580c6ba787e1dbac2534cb4a3ae824c5e71"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/logs/reduced_input.log",
+      "sha256": "e986f1d5566a2eae6270e62cc5368b022986f7137bff82fe9ba0eea742b43e86"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/logs/movie.log",
+      "sha256": "8681f98d2b03d0a017a710efe499064cee2ac3cef0c242d1f53aad0c553cded2"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/logs/wine_probe.log",
+      "sha256": "1b22cebd590b35c9cd3dd0fe35b4322309923ef5f29c9c342b75705103508530"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/input.json",
+      "sha256": "1402f52bfc5eb1b568418113bea75281088e343dfecf0f8c4ea0f574670dad4a"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/process_reload.json",
+      "sha256": "009dbc11b1fa7563c2874bce9b0f3d3cf97d69e6cfdd2eabb7b1b8d52d05d030"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/linux_input.json",
+      "sha256": "3bf3ae46a8ae0f3388c948e128310041ece23d93ba4b637621727561a9acf5b3"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/input_frames/journal_initial.png",
+      "sha256": "e0e4c2da40137f48f38365d0e0860545a7d08ac314c2d0b6d3546db7a89e85a9"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/input_frames/journal_complete.png",
+      "sha256": "07f9812127d4583451032dd678757dea7dd0c1d8baf59aaadd154b144b4bb558"
+    },
+    {
+      "path": "reports/phases/P05/attempt1/native-host-02/process_reload_frames/journal_unavailable.png",
+      "sha256": "837d39b170c85b66d4ed62d3daa0bbd028ce454a427713b185459e8b6e53e808"
+    },
+    {
+      "path": "reports/phases/P05/qa-review-attempt1/decision.json",
+      "sha256": "34bb07f4892cd3d08267e91cf90cc4ad321ca139f204ccd245f70955509cf800"
+    },
+    {
+      "path": "reports/phases/P05/qa-review-attempt1/review.md",
+      "sha256": "a166c5cdac355f0cdc3e829e0f95d2340b8314aab9c51b536cd8af60de1308a8"
+    },
+    {
+      "path": "reports/phases/P05/qa-review-attempt1/native02-final-audit.json",
+      "sha256": "d2ac46e7957c8740f44cb40534d18bcb96953118c35f13c96ce81b2235ebcef3"
+    },
+    {
+      "path": "reports/phases/P05/narrative-review-attempt1/decision.json",
+      "sha256": "a6068631f8a5ac50072464597f719dfbe563ce6e945e1f43a13c55801a2c7c8e"
+    },
+    {
+      "path": "reports/phases/P05/narrative-review-attempt1/review.md",
+      "sha256": "c87b4259752429ea12bcfe7e5acca199a6744c6ae8b7d6943d6639ad41777bdd"
+    },
+    {
+      "path": "reports/phases/P05/narrative-review-attempt1/final-binding.json",
+      "sha256": "2ad21bf7dcfa0aaf1c90f75abdde8a0be197fb7d9319347b1d93ffbaa348294b"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/preaudit-proof.json",
+      "sha256": "71572a027b45ed691fa33335cae067faece2339a4d756cc5ac04d12270d34f78"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/native02-final-proof.json",
+      "sha256": "60e0b06d383243f22c45b2c960add032cfd85bf09f69f8697fa90404a832295f"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/native02-progress-snapshot/movie-and-freeze-proof.json",
+      "sha256": "a6827def95ff76c76d2653092e5cca4904569217e3f5159875be58ca51101258"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/subreview-integrity.json",
+      "sha256": "a4e36c5fcbb1fd7639c3b0bf171ac1296abf384168e30e3767e0fdf56c6b167c"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/fix-queue.json",
+      "sha256": "3cb46b20f83370fe0e5cdc99fc117ca460eae44d9c6d833942e9a09b196e95c7"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/review.md",
+      "sha256": "22452a2267851488802481bb9a8d890b73ae062c1c0ff33f577d51bb293bac1b"
+    },
+    {
+      "path": "reports/phases/P05/lead-attempt1/github-main.json",
+      "sha256": "ea01ca41b5bed09860ef97558cb389b350930dc14624d1e63d7b830f2afcfe8d"
+    }
+  ],
+  "findings": [
+    {
+      "id": "QA-001",
+      "severity": "MEDIUM",
+      "status": "RESOLVED",
+      "message": "Journal Back clipping repaired by scroll layout and verified actual640x360 initial/completed/unavailable frames plus native button bounds."
+    },
+    {
+      "id": "QA-002",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "message": "Expected ready scene waits plus freshFull40/reload41/Linux40 close original nullscene race; native01 failure retained."
+    },
+    {
+      "id": "QA-003",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "message": "ActualReduced/Movie retry wall latency exceeds<1000ms then fresh death precondition aborts; completed story invariance absent. Diagnose real cadence and rerun full strict suite; cause unproven, do not weaken threshold or reuse stale evidence."
+    },
+    {
+      "id": "QA-004",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "message": "Windows export exists but Wineprobeexit127; no actual PE runtime proof. Repair authorized cache/tool path and execute fresh Wine replay; keep nativeWindowsNOT_TESTED."
+    }
+  ],
+  "artistic_audio_acceptance": null
+}

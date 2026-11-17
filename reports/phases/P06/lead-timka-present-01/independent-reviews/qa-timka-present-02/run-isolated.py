@@ -1,0 +1,11 @@
+from pathlib import Path
+import os,sys,subprocess,hashlib,json,re,time
+Q=Path(__file__).resolve().parent;name=sys.argv[1];out=Q/name;assert not out.exists();out.mkdir();env={k:v for k,v in os.environ.items() if not k.startswith('AYAY_') and k not in ['DISPLAY','WAYLAND_DISPLAY']}
+for key,folder in [('XDG_CONFIG_HOME','config'),('XDG_DATA_HOME','data'),('XDG_CACHE_HOME','cache'),('XDG_STATE_HOME','state'),('XDG_RUNTIME_DIR','runtime')]:
+ p=out/folder;p.mkdir(mode=0o700);env[key]=str(p)
+for key,f in [('AYAY_OPTIONS_PATH','options.json'),('AYAY_DIALOGUE_SAVE_PATH','dialogue.json'),('AYAY_CHAPTER_SAVE_PATH','chapter.json'),('AYAY_STORY_SAVE_PATH','story.json')]:env[key]=str(out/f)
+for key in ['AYAY_P06_TIMKA_PRESENT_OUTPUT','AYAY_P06_GABAR_OUTPUT','AYAY_P06_OLEZHKA_OUTPUT','AYAY_P06_READINESS_OUTPUT','AYAY_TIMKA_LAYOUT_OUTPUT','AYAY_QA_TIMKA_OUTPUT']:env[key]=str(out)
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();engine=json.loads((Q/'engine-copy.json').read_text());binary=Q/engine['path'];assert sha(binary)==engine['sha256'];cmd=[str(binary),'--headless','--path',str(Q/'isolated-project/game')]
+if name=='import':cmd+=['--editor','--quit']
+else:cmd+=['--fixed-fps','60','--script','res://tests/'+{'present':'timka_present_replay.gd','readiness':'character_readiness_test.gd','layout':'timka_layout_test.gd','Gabar':'gabar_combat_replay.gd','Oleg':'olezhka_combat_replay.gd','negative':'qa_timka_negative.gd','incoming':'qa_timka_incoming_replay.gd'}[name]]
+start=time.monotonic();p=subprocess.run(cmd,cwd=Q,env=env,capture_output=True,text=True,timeout=45);text=p.stdout+p.stderr;(out/'run.log').write_text(text);record={'argv':cmd,'exit_code':p.returncode,'seconds':round(time.monotonic()-start,3),'log_sha256':sha(out/'run.log'),'fatal_log_tokens_absent':not re.search(r'SCRIPT ERROR:|ERROR:|FAIL[: ]|instances were leaked|resources still in use',text),'env_overrides':{k:v for k,v in env.items() if k.startswith('AYAY_') or k.startswith('XDG_')},'WORK_project_or_binary_used_by_engine':False};(out/'command.json').write_text(json.dumps(record,indent=2)+'\n');print(name,text[-400:]);print(json.dumps({k:record[k] for k in ['exit_code','seconds','fatal_log_tokens_absent']}));raise SystemExit(p.returncode or not record['fatal_log_tokens_absent'])

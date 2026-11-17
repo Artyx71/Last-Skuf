@@ -4,8 +4,10 @@ signal line_changed(line: Dictionary)
 signal text_changed(text: String, visible_count: int)
 signal finished(scene_id: StringName)
 signal exit_action(action: Dictionary)
+const Characters = preload("res://scripts/systems/character_catalog.gd")
 const DEFAULT_SCENE := "res://resources/dialogue/yakuza_phone.json"
 var save_path := "user://dialogue_v1.json"
+var use_environment_save_path := true # Isolated sandbox instances opt out before entering tree.
 var data: Dictionary = {}
 var resource_path := ""
 var line_index := 0
@@ -26,7 +28,7 @@ func _ready() -> void:
  options = get_node_or_null("/root/OptionsStore")
  audio = get_node_or_null("/root/AudioDirector")
  var override := OS.get_environment("AYAY_DIALOGUE_SAVE_PATH")
- if not override.is_empty(): save_path = override
+ if use_environment_save_path and not override.is_empty(): save_path = override
 
 func load_scene(path := DEFAULT_SCENE) -> bool:
  var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
@@ -37,7 +39,7 @@ func load_scene(path := DEFAULT_SCENE) -> bool:
    if not line.get(key) is String or String(line[key]).is_empty(): return false
   if ids.has(line.line_id): return false
   ids[line.line_id] = true
-  if line.speaker != "YAKUZA" or not line.emotion in ["neutral", "angry"]: return false
+  if not Characters.valid_line(line.speaker, line.emotion): return false
  for condition in parsed.get("entry_conditions", []):
   if not flags.get(condition, false): return false
  for action in parsed.get("exit_actions", []):

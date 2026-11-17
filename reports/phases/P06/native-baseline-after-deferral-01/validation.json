@@ -1,0 +1,138 @@
+[
+  {
+    "name": "pinned_engine",
+    "passed": true,
+    "checks": {
+      "sha256": true
+    },
+    "details": null
+  },
+  {
+    "name": "native_probe",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/native-baseline-after-deferral-01/logs/native_probe.log",
+    "elapsed_seconds": 0.9255444479931612
+  },
+  {
+    "name": "full_replay",
+    "passed": false,
+    "exit_code": 124,
+    "log": "reports/phases/P06/native-baseline-after-deferral-01/logs/full_replay.log",
+    "elapsed_seconds": 480.10007708299963
+  },
+  {
+    "name": "full_replay_acceptance",
+    "passed": false,
+    "checks": {
+      "engine_passed": false,
+      "twenty_category_direction_cases": false,
+      "all_earned_stun": false,
+      "each_two_hits_one_kill_score": false,
+      "twelve_ai_direction_cases": false,
+      "stress_600_measured_samples": false,
+      "single_music_player": false,
+      "no_audio_leak": false,
+      "movie_diagnostic_exact": false,
+      "actual_frames": false,
+      "earned_pool_walk": false,
+      "clear_corpse_matrix": false,
+      "render_backend": false,
+      "actual_audio_driver": false
+    },
+    "details": null
+  },
+  {
+    "name": "full_replay_signal",
+    "passed": false,
+    "checks": {
+      "stereo_pcm16": false,
+      "nonempty": false,
+      "no_full_scale_clipping": false
+    },
+    "details": {
+      "error": "[Errno 2] No such file or directory: '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/native-baseline-after-deferral-01/full_replay.wav'",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "reduced_replay",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/native-baseline-after-deferral-01/logs/reduced_replay.log",
+    "elapsed_seconds": 88.33818128700659
+  },
+  {
+    "name": "reduced_replay_acceptance",
+    "passed": true,
+    "checks": {
+      "engine_passed": true,
+      "twenty_category_direction_cases": true,
+      "all_earned_stun": true,
+      "each_two_hits_one_kill_score": true,
+      "twelve_ai_direction_cases": true,
+      "stress_600_measured_samples": true,
+      "single_music_player": true,
+      "no_audio_leak": true,
+      "movie_diagnostic_exact": true,
+      "actual_frames": true,
+      "earned_pool_walk": true,
+      "clear_corpse_matrix": true,
+      "render_backend": true,
+      "actual_audio_driver": true
+    },
+    "details": null
+  },
+  {
+    "name": "reduced_replay_signal",
+    "passed": true,
+    "checks": {
+      "stereo_pcm16": true,
+      "nonempty": true,
+      "no_full_scale_clipping": true
+    },
+    "details": {
+      "channels": 2,
+      "sample_width": 2,
+      "rate": 44100,
+      "frames": 3841536,
+      "duration": 87.10965986394558,
+      "peak": 0.59210205078125,
+      "rms": 0.1045080263350701,
+      "full_scale_samples": 0,
+      "sha256": "2daf847a1516b2cb1dca9924a2c85b5e548a140b6500976b9cc9b46603961fae",
+      "scope": "actual runtime PCM; numerical only, not listening"
+    }
+  },
+  {
+    "name": "full_reduced_gameplay_invariance",
+    "passed": false,
+    "checks": {
+      "nonempty": false,
+      "same_outcomes": false
+    },
+    "details": null
+  },
+  {
+    "name": "native_p04_regression",
+    "passed": true,
+    "exit_code": 0,
+    "log": "reports/phases/P06/native-baseline-after-deferral-01/logs/native_p04_regression.log",
+    "elapsed_seconds": 168.58353812499263
+  },
+  {
+    "name": "detailed_audio",
+    "passed": false,
+    "exit_code": 1,
+    "log": "reports/phases/P06/native-baseline-after-deferral-01/logs/detailed_audio.log",
+    "elapsed_seconds": 6.723958396003582
+  },
+  {
+    "name": "sources_unchanged",
+    "passed": true,
+    "checks": {
+      "exact_hashes": true
+    },
+    "details": null
+  }
+]

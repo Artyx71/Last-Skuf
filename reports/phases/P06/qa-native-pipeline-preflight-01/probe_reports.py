@@ -1,0 +1,13 @@
+"""Pure exact frozen valid_report AST probe; no subprocess/engine/Controller/Git."""
+from pathlib import Path
+import ast,json,tempfile,hashlib
+Q=Path(__file__).resolve().parent;source=Q/'source/tools/verify_p06.py';tree=ast.parse(source.read_text());fn=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='valid_report');ns={'json':json};exec(compile(ast.Module(body=[fn],type_ignores=[]),str(source),'exec'),ns);valid=ns['valid_report']
+base={'passed':True,'phase_approval':False,'source_unchanged':True,'commands':[{'name':'live','argv':['test-only-noengine'],'exit_code':0,'passed':True}]}
+cases=[('valid_dictionary_control',json.dumps(base),True),('valid_legacy_checks_control',json.dumps([{'name':'pins','checks':{'SHA':True},'passed':True}]),True),('empty_list_rejected_control','[]',False),('string_pass_rejected_control',json.dumps({**base,'passed':'true'}),False),('duplicate_contradictory_pass',json.dumps(base).replace('"passed": true,','"passed": false, "passed": true,',1),False),('escaped_duplicate_pass',json.dumps(base).replace('"passed": true,','"passed": false, "\\u0070assed": true,',1),False),('NaN_const',json.dumps({**base,'metric':float('nan')}),False),('Infinity_const',json.dumps({**base,'metric':float('inf')}),False),('nested_exit1_passedtrue',json.dumps({**base,'commands':[{'name':'live','argv':['test-only'],'exit_code':1,'passed':True}]}),False),('nested_exit_string0',json.dumps({**base,'commands':[{'name':'live','argv':['test-only'],'exit_code':'0','passed':True}]}),False),('legacy_bare_passed','[{"passed":true}]',False),('legacy_false_checks',json.dumps([{'name':'acceptance','passed':True,'checks':{'actual_native':False}}]),False)]
+rows=[]
+with tempfile.TemporaryDirectory(prefix='qa-report-json-',dir=Q) as d:
+ for i,(name,text,wanted) in enumerate(cases):
+  path=Path(d)/(str(i)+'.json');path.write_text(text);actual=valid(path);rows.append({'name':name,'raw_JSON':text,'expected_safe_acceptance':wanted,'actual_acceptance':actual,'matches_failclosed_contract':actual==wanted})
+assert all(x['matches_failclosed_contract'] for x in rows[:4]);assert all(not x['matches_failclosed_contract'] for x in rows[4:])
+result={'scope':'INDEPENDENT_FROZEN454E_VALID_REPORT_PURE_ADVERSARIAL_REPRO','source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'cases':rows,'controls_passed':4,'unsafe_acceptance_cases':8,'actual_Godot_runner_Controller_Git_or_network_calls':False}
+(Q/'report-parser-repro-results.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'controls':4,'unsafe_acceptances':8,'production_not_executed':True}))

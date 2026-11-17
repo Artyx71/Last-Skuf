@@ -1,0 +1,121 @@
+{
+  "scope": "TIMKA_PRIME_CONTEXT_CANDIDATE_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "db84b39711181bb93b6ce58ac4bb7a244dee032b",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 214,
+      "total": 214
+    }
+  ],
+  "actual_captures": 0,
+  "commands": [
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-prime-02/timka-prime.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/timka_prime_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 116.613,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-timka-prime-qa/133e3bbda83fbe0bf2c3"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-prime-02/timka-prime.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-prime-02/timka-prime.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-prime-02/timka-prime.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "reused_completed_live": {
+    "validation": "reports/phases/P06/timka-prime-01/native-02/validation.json",
+    "sha256": "442e43fdb4019b413835c181c5e1644473ed8b26b6766e6c6f1eb41dc142eaca",
+    "source_head": "db84b39711181bb93b6ce58ac4bb7a244dee032b",
+    "checks": [
+      {
+        "passed": 304,
+        "total": 304
+      }
+    ],
+    "captures": 90,
+    "all_artifacts_verified": true
+  },
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/timka-prime-02/timka-prime.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/commands.json",
+      "sha256": "9a164c313c8853ffd85c90c20671bc7f189f061870851e835c459e92b37d87c3"
+    },
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/movie/result.json",
+      "sha256": "e2ce76b8755e6ebe5cd5f7b5c9c636fce244c72464ac925f319ffd6ea0b49964"
+    },
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/movie.log",
+      "sha256": "9e5fbaa6d0f6348ecf4f2d89119b9a3eb23a0798149818bbfb31fb5a7a50b660"
+    },
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/movie_probe.json",
+      "sha256": "3fb303dd0bdb6f0589f2b82f46de6473db02ff21684e68b805f6c1e5fbc1b02f"
+    },
+    {
+      "path": "reports/phases/P06/timka-prime-01/movie-02/source_hashes.json",
+      "sha256": "ad8c1f4b7ebd9be05e6a67670018291ad5299ebee42112b818d78deff42efb7e"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "scope": "QA_MOVIE_LAUNCH_CONSISTENCY_ONLY",
+  "phase_approval": false,
+  "author": "root",
+  "parent_head": "263e888afc9875ebf887267c0dd734b70897f344",
+  "reason": "Actual combat Movie timed out after480s with716frames; original root cause UNKNOWN. First12 composed stages and combat Full/Reduced/Linux/Wine positives retained. NestedP04 all24 validation rows passed, including its original Movie.",
+  "change": "Reuse existing NATIVE_FLAGS for both Movie launch paths, retaining fixed-fps60, the complete fixture, every acceptance oracle and timeouts. No production code/assets/timings changed.",
+  "existing_operation": {
+    "id": "311fdc08f73e43169295d6a2d67786b0",
+    "exit_code": 1,
+    "consumed": true
+  },
+  "next_execution": "ONLY existing atomic tools/verify_p04g.py --exports --movie with fresh outputs; no blind13/five-stage rerun. Atomic child internally repeats its own native/exports/P04 checks explicitly.",
+  "checks_executed": [
+    "Both Python scripts compile successfully"
+  ],
+  "fresh_engine_execution": "NOT_RUN",
+  "evidence": [
+    {
+      "path": "reports/phases/P06/native-remaining5-02/validation.json",
+      "sha256": "96bdffecde3908c3de521126c478489ee6c0a01d7c0a0e565b6c351d87a4f1ca"
+    },
+    {
+      "path": "reports/phases/P06/native-remaining5-02/combat_baseline/validation.json",
+      "sha256": "842a0c640d9e55ef45b8ec26e5351aa4196d1a9463079a7778a7496a6cf83099"
+    },
+    {
+      "path": "reports/phases/P06/native-remaining5-02/combat_baseline/p04_regression/validation.json",
+      "sha256": "dc18c251459bc8ccc27cd52be49ab68a21261d527f63fb36b178e0904f41227e"
+    },
+    {
+      "path": "tools/verify_p04.py",
+      "sha256": "4f366c321addd853b33ed993a153ff25b270d6b98f7b7e42ee7ce122134f2339"
+    },
+    {
+      "path": "tools/verify_p04g.py",
+      "sha256": "a861f15fdf93a9ddfe79780f9742e441e9a82f1e960938756d21b23586dab55c"
+    }
+  ]
+}

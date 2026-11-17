@@ -1,0 +1,137 @@
+{
+  "scope": "READONLY_DEV_PREVIEW_ARTIFACT_AND_SAVED_SMOKE_INSPECTION_ONLY",
+  "source_head": "9b42df871e53758b402108cb7cc00a2e385ab773",
+  "all_source_inputs_exact": 1112,
+  "exports": [
+    {
+      "platform": "Linux",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-04/linux/last-skuf.x86_64",
+      "native_windows": null,
+      "sha256": "e89a5c23129666ae8f2fec0a8bb1743a8aabe4a4fa74733a36ceb9c46695a578",
+      "bytes": 77384464,
+      "runtime_smoke_passed": true,
+      "verified_combat_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime"
+      ],
+      "runtime_scope": "Linux renderer + Input menu/available fixtures",
+      "captures": 6
+    },
+    {
+      "platform": "Windows",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-04/windows/last-skuf.exe",
+      "native_windows": "NOT_TESTED",
+      "sha256": "863889a59d8bc1c17abaf2657538faaa98a3a0d2cf0f1af26d7de5993538361b",
+      "bytes": 113133536,
+      "runtime_smoke_passed": true,
+      "verified_combat_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime"
+      ],
+      "runtime_scope": "Actual Windows PE under Wine headless + Input menu/available fixtures",
+      "captures": 0
+    }
+  ],
+  "saved_actual_smokes": {
+    "linux_smoke": {
+      "checks": 29,
+      "renderer": "X11",
+      "result_sha256": "780bfbbbbb212854ba041b3b8c97d1791c2f89906e62928755198a81d2be2797"
+    },
+    "windows_smoke": {
+      "checks": 23,
+      "renderer": "headless",
+      "result_sha256": "d465d4da248b9dfe383bf2ad6801cfcf7416fe11a3e481e0f0e5df138484ea5d"
+    }
+  },
+  "actual_available_combat_fixtures": [
+    "gabar_training",
+    "olezhka_training",
+    "timka_present",
+    "timka_prime"
+  ],
+  "actual_available_combat_heroes": [
+    "gabar",
+    "olezhka",
+    "timka"
+  ],
+  "friendly_directory": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/build/P06_DEV_20261115_04",
+  "friendly_resolved": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-04",
+  "friendly_files_verified": 7,
+  "one_actual_packed_Linux_PNG_visually_inspected": "linux_smoke/timka_prime.png",
+  "producer_receipt": {
+    "operation": "2cf56a72721c4ec3bcdca03970106115",
+    "argv_sha256": "a427e3802d5e8aa5ff813b90eae5f2827601bd3ad3f3052b4cdaf5489705e15b",
+    "exit_code": 0,
+    "log_sha256": "0d9259b42d0c3bc6e24a1ed789286c77dd3e8a68d2f87ce990298f9cfc3d928d",
+    "seconds": 30.025
+  },
+  "actual_log_and_argv_SHA_match": true,
+  "copies": [
+    {
+      "path": "DEV04-addendum/preview.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/preview.json",
+      "sha256": "37cb9adf59cc43c24523c5a14fd4dfbe63bd9657ed6a15cc327cf8d43d2cd6f6"
+    },
+    {
+      "path": "DEV04-addendum/exports.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/exports.json",
+      "sha256": "4a515ee420d794102523efeea1d1dd8344847b3473ddcbbb402304f2a4ee4000"
+    },
+    {
+      "path": "DEV04-addendum/owner-handoff.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/owner-handoff.json",
+      "sha256": "a45b41080504e89f207399ee41cf1232853bdb7c0f7fca124906cd0abcae0597"
+    },
+    {
+      "path": "DEV04-addendum/commands.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/commands.json",
+      "sha256": "8b879a280e861670bc8196d7c5dc34e492123550cd100e39672e9d5166a5352f"
+    },
+    {
+      "path": "DEV04-addendum/linux_smoke/result.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/linux_smoke/result.json",
+      "sha256": "780bfbbbbb212854ba041b3b8c97d1791c2f89906e62928755198a81d2be2797"
+    },
+    {
+      "path": "DEV04-addendum/windows_smoke/result.json",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/windows_smoke/result.json",
+      "sha256": "d465d4da248b9dfe383bf2ad6801cfcf7416fe11a3e481e0f0e5df138484ea5d"
+    },
+    {
+      "path": "DEV04-addendum/linux_smoke/timka_prime.png",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/linux_smoke/timka_prime.png",
+      "sha256": "7a5efbe7f08480e758e0a28b667279fcd0f25b8a3371ddd4f4b5b2b3c37aab0c"
+    },
+    {
+      "path": "DEV04-addendum/export_linux.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/export_linux.log",
+      "sha256": "75312da16768e0b53cf93c029de4d92d3d2f6cd23fd59ad53043a97b4bf9df50"
+    },
+    {
+      "path": "DEV04-addendum/export_windows.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/export_windows.log",
+      "sha256": "a4bde1e322bcf5e8a96d33f6ebbdd4b1b615d59eee8d22cfb149fe7a24724be6"
+    },
+    {
+      "path": "DEV04-addendum/linux_smoke.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/linux_smoke.log",
+      "sha256": "cf198106880254da11c7d439dcda6c2253f5c140a266ca6a104ced5931c85167"
+    },
+    {
+      "path": "DEV04-addendum/windows_smoke.log",
+      "origin": "reports/phases/P06/owner-preview-20261115-04/windows_smoke.log",
+      "sha256": "41cca0d9df07afb2ededc0a022598c9b2e79da2d2136d4dbf498831a814c7bf1"
+    }
+  ],
+  "no_independent_export_or_packed_smoke_rerun": true,
+  "native_windows": "NOT_TESTED",
+  "release_approval": false,
+  "phase_approval": false
+}

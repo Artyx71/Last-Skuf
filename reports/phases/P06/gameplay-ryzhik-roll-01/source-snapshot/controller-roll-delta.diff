@@ -1,0 +1,305 @@
+diff --git a/game/scripts/abilities/ground_roll.gd b/game/scripts/abilities/ground_roll.gd
+new file mode 100644
+index 0000000..77110de
+--- /dev/null
++++ b/game/scripts/abilities/ground_roll.gd
+@@ -0,0 +1,64 @@
++extends RefCounted
++## Eight authored poses on one physics clock. No immunity or collision changes.
++const Frames = preload("res://scripts/actors/character_frames.gd")
++const KIND := "roll"
++const WINDUP := 0.08
++const ACTIVE := 0.32
++const RECOVERY := 0.16
++const COOLDOWN := 1.2
++const SPEED := 180.0
++
++func required_frames(actor_id: String) -> SpriteFrames:
++	return Frames.roll_frames(actor_id)
++
++func start(body: CharacterBody2D) -> bool:
++	if body.movement_ability != self or body.prepared_ability != "dance_step": return false
++	if not body._can_begin_action() or body.ability_cooldown > 0: return false
++	body._face_aim()
++	body.action_windup = WINDUP
++	body.action_active = ACTIVE
++	body.action_recovery = RECOVERY
++	body.ability_cooldown = COOLDOWN
++	body.ability_uses += 1
++	body.ability_distance = 0.0
++	body.last_ability_path.assign([body.global_position])
++	body._play_action(KIND,WINDUP+ACTIVE+RECOVERY)
++	# The landing control is a real Core overlap, not contact from an animation
++	# callback. No health damage/score; only the visible planted-foot pose6.
++	var contact := {"damage":0,"stun":0.45,"windup":WINDUP+ACTIVE,
++		"active":RECOVERY/2.0,"recovery":RECOVERY/2.0,"reach":18.0,
++		"radius":13.0,"category":"unarmed","strong":false}
++	body.melee_attack_id = body.lab.combat.start_melee(body,"player",body.action_aim,contact)
++	return true
++
++func present(body: CharacterBody2D) -> void:
++	var phase := 0.0
++	if body.action_elapsed < WINDUP:
++		body.action_frame = 0
++		phase = body.action_elapsed/WINDUP
++	elif body.action_elapsed < WINDUP+ACTIVE:
++		var progress: float = (body.action_elapsed-WINDUP)*5.0/ACTIVE
++		body.action_frame = 1+mini(4,int(floor(progress)))
++		phase = fmod(progress,1.0)
++	else:
++		var progress: float = (body.action_elapsed-WINDUP-ACTIVE)*2.0/RECOVERY
++		body.action_frame = 6+mini(1,int(floor(progress)))
++		phase = fmod(progress,1.0)
++	body.sprite.play(body.action_animation)
++	body.sprite.pause()
++	body.sprite.set_frame_and_progress(body.action_frame,clampf(phase,0.0,1.0))
++	body.weapon_visual_update()
++
++func advance_motion(body: CharacterBody2D, delta: float) -> void:
++	if body.movement_ability != self or body.action_kind != KIND or not body._action_authorized(): return
++	# Integrate only the active fraction of this tick, including boundary ticks.
++	var step := maxf(0.0,minf(body.action_elapsed,WINDUP+ACTIVE)-maxf(body.action_elapsed-delta,WINDUP))
++	if step <= 0.0: return
++	var before := body.global_position
++	body.move_and_collide(body.action_aim*SPEED*step)
++	body.ability_distance += body.global_position.distance_to(before)
++	body.last_ability_path.append(body.global_position)
++
++func melee_phase(body: CharacterBody2D) -> String:
++	if body.action_frame < 6: return "windup"
++	return "contact" if body.action_frame == 6 else "finished"
+diff --git a/game/scripts/abilities/ground_roll.gd.uid b/game/scripts/abilities/ground_roll.gd.uid
+new file mode 100644
+index 0000000..b699ef5
+--- /dev/null
++++ b/game/scripts/abilities/ground_roll.gd.uid
+@@ -0,0 +1 @@
++uid://bshek1i7wkg6f
+diff --git a/game/scripts/actors/character_frames.gd b/game/scripts/actors/character_frames.gd
+index 7349e83..a5c5442 100644
+--- a/game/scripts/actors/character_frames.gd
++++ b/game/scripts/actors/character_frames.gd
+@@ -6,6 +6,7 @@ const WORLD_COLUMNS := {"idle":[0,1], "walk":[2,3,4,5], "run":[6,7]}
+ const ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6], "fire":[7]}
+ const FINISHER_COLUMNS := {"finish_unarmed":[0,1,6], "finish_blunt":[0,2,6], "finish_sharp":[0,3,6], "finish_firearm":[0,4,6], "finish_environmental":[0,5,6], "special":[0,7,6]}
+ const SHEET_COLUMNS := {"world":WORLD_COLUMNS, "action":ACTION_COLUMNS, "finisher":FINISHER_COLUMNS}
++const ROLL_COLUMNS := {"roll":[0,1,2,3,4,5,6,7]}
+ const TIMKA_PROFILE := "timka_supported_v1"
+ const TIMKA_SOURCE_COLUMNS := {"world":[0,1,2,3,4,5,6,7], "action":[0,1,2,3,4,5,6], "finisher":[0,1,2,5,6,7]}
+ const TIMKA_ACTION_COLUMNS := {"shove":[0,1,2], "interact":[3], "hit":[4], "fall":[5,6]}
+@@ -14,6 +15,8 @@ const SIZE := Vector2(48,64)
+ const PIVOT := Vector2(24,58)
+ 
+ static func _layout_spec(actor_id: String, kind: String) -> Dictionary:
++ if kind=="roll":
++  return {"schema":1,"columns":8,"mapping":ROLL_COLUMNS,"count":32} if actor_id=="ryzhik" else {}
+  if not SHEET_COLUMNS.has(kind) or actor_id not in ["gabar","olezhka","timka","ryzhik","tega","pasha"]: return {}
+  if actor_id == "timka":
+   var columns: Array = TIMKA_SOURCE_COLUMNS[kind]
+@@ -42,6 +45,9 @@ static func action_frames(actor_id: String) -> SpriteFrames:
+ static func finisher_frames(actor_id: String) -> SpriteFrames:
+  return _sheet_frames(actor_id,"finisher")
+ 
++static func roll_frames(actor_id: String) -> SpriteFrames:
++ return _sheet_frames(actor_id,"roll")
++
+ static func timka_present_frames() -> SpriteFrames:
+  # This context has no finisher/ranged clips. Its backward step explicitly
+  # reuses this actor's four walk drawings; it is not a new source-art claim.
+@@ -100,7 +106,7 @@ static func combat_frames(actor_id: String) -> SpriteFrames:
+  return result
+ 
+ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
+- if not SHEET_COLUMNS.has(kind): return null
++ if _layout_spec(actor_id,kind).is_empty(): return null
+  var definition := Catalog.actor(actor_id)
+  if definition.get("role") != "playable" or not definition.has(kind+"_file"): return null
+  var path_value: Variant = definition[kind+"_file"]
+@@ -114,7 +120,7 @@ static func _sheet_frames(actor_id: String, kind: String) -> SpriteFrames:
+  var expected: Dictionary = spec.mapping
+  var texture := _sheet_texture(path_value,Vector2(int(spec.columns)*48,256))
+  if texture == null: return null
+- if spec.schema==2 and not _valid_sheet_pixels(texture.get_image(),parsed): return null
++ if (spec.schema==2 or kind=="roll") and not _valid_sheet_pixels(texture.get_image(),parsed): return null
+  var socket_path := path.get_base_dir().path_join(kind+".sockets.json")
+  var sockets: Dictionary = {}
+  if FileAccess.file_exists(socket_path):
+@@ -186,8 +192,8 @@ static func _valid_sheet_pixels(image: Image, layout: Dictionary) -> bool:
+  # Imports can bleed RGB into fully transparent pixels (fix_alpha_border).
+  # Compare alpha + visible RGB exactly, canonicalizing only hidden RGB to zero
+  # as the source packer does. The adopter still verifies exact raw PNG/RGBA.
+- if image==null or not _valid_layout(layout,"timka",String(layout.get("kind",""))): return false
+- var spec := _layout_spec("timka",layout.kind)
++ if image==null or not _valid_layout(layout,String(layout.get("actor_id","")),String(layout.get("kind",""))): return false
++ var spec := _layout_spec(layout.actor_id,layout.kind)
+  if image.get_size()!=Vector2i(int(spec.columns)*48,256): return false
+  image.convert(Image.FORMAT_RGBA8)
+  for frame in layout.frames:
+@@ -204,7 +210,7 @@ static func _valid_sheet_pixels(image: Image, layout: Dictionary) -> bool:
+  return true
+ 
+ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bool:
+- if not SHEET_COLUMNS.has(kind) or not parsed is Dictionary: return false
++ if not parsed is Dictionary: return false
+  var spec := _layout_spec(actor_id,kind)
+  if spec.is_empty(): return false
+  if not _matches_numbers([parsed.get("schema")],[spec.schema]) or parsed.get("actor_id") != actor_id or parsed.get("kind") != kind: return false
+@@ -216,6 +222,9 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
+   if not _matches_numbers(parsed.get("source_column_mapping"),spec.source_columns): return false
+   if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
+  elif parsed.has("layout_profile"): return false
++ if kind=="roll":
++  if not _matches_numbers(parsed.get("dimensions"),[384,256]): return false
++  if not _valid_sha(parsed.get("sha256")) or not _valid_sha(parsed.get("master_sha256")): return false
+  var expected: Dictionary = spec.mapping
+  var columns: Variant = parsed.get("animations_source_columns")
+  if not columns is Dictionary or columns.size()!=expected.size(): return false
+@@ -230,6 +239,8 @@ static func _valid_layout(parsed: Variant, actor_id: String, kind: String) -> bo
+   if not entry is Dictionary or entry.get("direction")!=DIRECTIONS[row]: return false
+   if not _matches_numbers([entry.get("column")],[column]): return false
+   if not _matches_numbers(entry.get("rect"),[column*48,row*64,48,64]): return false
++  if kind=="roll":
++   if not _matches_numbers(entry.get("pivot"),[24,58]) or not _valid_sha(entry.get("rgba_sha256")): return false
+   if spec.schema==2:
+    if not _matches_numbers([entry.get("index"),entry.get("source_column")],[index,spec.source_columns[column]]): return false
+    if not _matches_numbers(entry.get("pivot"),[24,58]): return false
+diff --git a/game/scripts/actors/character_player.gd b/game/scripts/actors/character_player.gd
+index 0f569d5..67b2abe 100644
+--- a/game/scripts/actors/character_player.gd
++++ b/game/scripts/actors/character_player.gd
+@@ -3,16 +3,18 @@ extends "res://scripts/actors/combat_player.gd"
+ const CharacterFrames = preload("res://scripts/actors/character_frames.gd")
+ const PixelPresentation = preload("res://scripts/actors/pixel_presentation.gd")
+ const ScenePolicy = preload("res://scripts/systems/character_scene_policy.gd")
++const MOVEMENT_ABILITIES := {"dance_step":preload("res://scripts/abilities/ground_roll.gd")}
+ # Add a fixture only with its actual controller handler and gameplay evidence.
+ const IMPLEMENTED_FIXTURE_ABILITIES := {
+ 	"gabar_training":"gabar_lunge", "olezhka_training":"training_counter",
+-	"timka_present":"disengage", "timka_prime":"clinch"
++	"timka_present":"disengage", "timka_prime":"clinch", "ryzhik_training":"dance_step"
+ }
+ var actor_id := ""
+ var scene_policy: RefCounted
+ var authored_frames: SpriteFrames
+ var prepared_definition: Dictionary = {}
+ var prepared_ability := ""
++var movement_ability: RefCounted
+ var ability_cooldown := 0.0
+ var ability_uses := 0
+ var ability_distance := 0.0
+@@ -46,6 +48,7 @@ func prepare_fixture(scene_id: String) -> bool:
+ 	scene_policy = null
+ 	prepared_definition.clear()
+ 	prepared_ability = ""
++	movement_ability = null
+ 	if not IMPLEMENTED_FIXTURE_ABILITIES.has(scene_id): return false
+ 	var proposed := ScenePolicy.new()
+ 	if not proposed.open(scene_id) or proposed.ability_id() != IMPLEMENTED_FIXTURE_ABILITIES[scene_id]: return false
+@@ -56,6 +59,12 @@ func prepare_fixture(scene_id: String) -> bool:
+ 	elif scene_id == "timka_prime": frames = CharacterFrames.timka_prime_frames()
+ 	else: frames = _load_combat_frames(id)
+ 	if frames == null: return false
++	var strategy: RefCounted
++	if MOVEMENT_ABILITIES.has(proposed.ability_id()):
++		strategy = MOVEMENT_ABILITIES[proposed.ability_id()].new()
++		var extra: SpriteFrames = strategy.required_frames(id)
++		if extra == null: return false
++		CharacterFrames._append_clips(frames,extra)
+ 	for animation in frames.get_animation_names():
+ 		for frame in frames.get_frame_count(animation):
+ 			if not frames.get_frame_texture(animation,frame).has_meta("clothing_socket"): return false
+@@ -63,6 +72,7 @@ func prepare_fixture(scene_id: String) -> bool:
+ 	authored_frames = frames
+ 	prepared_definition = definition
+ 	prepared_ability = proposed.ability_id()
++	movement_ability = strategy
+ 	return true
+ 
+ func _load_combat_frames(id: String) -> SpriteFrames:
+@@ -107,20 +117,22 @@ func _process(_delta: float) -> void:
+ 
+ func _movement_multiplier() -> float:
+ 	if not _prepared_policy_matches_live(): return 0.0
+-	if action_kind in ["special","disengage"]: return 0.0
++	if action_kind in ["special","disengage","roll"]: return 0.0
+ 	return 1.44 if Input.is_action_pressed("character_run") else 1.0
+ 
+ func _movement_state() -> String:
+ 	return "run" if Input.is_action_pressed("character_run") else "walk"
+ 
+ func _physics_process(delta: float) -> void:
+-	if action_kind in ["shove","special","disengage"] and not _action_authorized(): cancel_action()
++	if action_kind in ["shove","special","disengage","roll"] and not _action_authorized(): cancel_action()
+ 	if lab.state == "playing" and health > 0:
+ 		ability_cooldown = maxf(0.0,ability_cooldown-delta)
+-	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage"]: cancel_action()
++	if Input.is_action_just_pressed("cancel_finisher") and action_kind in ["special","disengage","roll"]: cancel_action()
+ 	super._physics_process(delta)
+ 	if lab.state == "playing" and health > 0:
+ 		if Input.is_action_just_pressed("character_ability"): use_ability()
++		if movement_ability != null and action_kind == movement_ability.KIND and _action_authorized():
++			movement_ability.advance_motion(self,delta)
+ 		if action_kind == "disengage" and _action_authorized():
+ 			# Only the active part of this physics tick moves. No teleport, damage,
+ 			# changed collision mask or invulnerability; interruption stops the path.
+@@ -170,8 +182,8 @@ func _can_begin_action() -> bool:
+ 	return lab != null and _prepared_policy_matches_live() and lab.state == "playing" and health > 0 and action_timer <= 0.00001 and lab.combat.finisher_for(self).is_empty()
+ 
+ func _play_action(action: String, duration: float) -> void:
+-	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage"] else {}
+-	action_ability_id = scene_policy.ability_id() if action in ["special","disengage"] else ""
++	action_authority_snapshot = scene_policy.action_authority(actor_id) if action in ["shove","special","disengage","roll"] else {}
++	action_ability_id = scene_policy.ability_id() if action in ["special","disengage","roll"] else ""
+ 	super._play_action(action,duration)
+ 	if actor_id == "timka" and prepared_ability == "clinch":
+ 		if action == "shove": action_animation = StringName("prime_strike_"+action_direction)
+@@ -181,6 +193,9 @@ func _play_action(action: String, duration: float) -> void:
+ 		_present_action()
+ 
+ func _present_action() -> void:
++	if movement_ability != null and action_kind == movement_ability.KIND:
++		movement_ability.present(self)
++		return
+ 	if action_kind != "disengage":
+ 		super._present_action()
+ 		return
+@@ -203,7 +218,7 @@ func _present_action() -> void:
+ func _action_authorized() -> bool:
+ 	if action_authority_snapshot.is_empty() or not _prepared_policy_matches_live(): return false
+ 	if action_authority_snapshot != scene_policy.action_authority(actor_id): return false
+-	return action_kind not in ["special","disengage"] or action_ability_id == scene_policy.ability_id()
++	return action_kind not in ["special","disengage","roll"] or action_ability_id == scene_policy.ability_id()
+ 
+ func attack_melee() -> bool:
+ 	if not _can_begin_action() or melee_cooldown > 0: return false
+@@ -229,6 +244,7 @@ func attack_ranged() -> bool:
+ 
+ func use_ability() -> bool:
+ 	if not _can_begin_action() or ability_cooldown > 0: return false
++	if movement_ability != null: return movement_ability.start(self)
+ 	if actor_id == "timka" and scene_policy.ability_id() == "disengage":
+ 		return _start_disengage()
+ 	if actor_id == "timka" and scene_policy.ability_id() == "clinch":
+@@ -345,6 +361,9 @@ func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2
+ 	return true
+ 
+ func melee_phase(attack_id: int) -> String:
++	if movement_ability != null and action_kind == movement_ability.KIND:
++		if health <= 0 or attack_id != melee_attack_id or not _action_authorized(): return "finished"
++		return movement_ability.melee_phase(self)
+ 	if health <= 0 or attack_id != melee_attack_id or action_kind not in ["shove","special"] or not _action_authorized(): return "finished"
+ 	return "windup" if action_frame == 0 else ("contact" if action_frame == 1 else "finished")
+ 
+diff --git a/game/scripts/core/character_lab.gd b/game/scripts/core/character_lab.gd
+index b958f5a..8f38a12 100644
+--- a/game/scripts/core/character_lab.gd
++++ b/game/scripts/core/character_lab.gd
+@@ -103,6 +103,8 @@ func _update_hud() -> void:
+ 		hint_label.text = "F: отступить спиной · WASD/Shift · Space: оттолкнуть · C: отмена · O: эффекты"
+ 	elif player.actor_id == "timka" and context == "athletic_prime":
+ 		hint_label.text = "Space: силовой удар · F: захват уязвимого без оружия · V: добить · C: отмена"
++	elif player.actor_id == "ryzhik":
++		hint_label.text = "F: перекат вперёд · WASD/Shift · Space: оттолкнуть · V: добить · C: отмена"
+ 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
+ 	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
+ 	if equipment_label:

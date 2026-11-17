@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "scope": "NARROW_CANDIDATE_PRODUCTION_GUARD_V2_COMPONENT_REVIEW",
+  "candidate_commit_label_from_author": "fa6521c",
+  "commit_label_verified_with_Git_command": false,
+  "exact_source_inventory_sha256": {
+    "autopilot/readiness.py": "f82db9f1fa54caca6ce78ce6fb0aad5d92c5f92202b947f3054458c6445c5304",
+    "autopilot/runner.py": "e3ca71276d3ca97a2c06f3977039b94ca5c337230dc46ad25a2b96b72ffc4626",
+    "autopilot/PRODUCTION_GATES.md": "e4f8078bfc58920b24f566cbb4765c9e0bc85355a4a21a4c55a27467afe83acd",
+    "autopilot/config.json": "8ef804a0855c05fb2c314ed559784243b39e9792b582d5897449611f2886c39f",
+    "autopilot/github.py": "7c39d7c1f3faf2ba1869134e9bbd505c3f7bef4c26210d1aa98759cd6246a05b",
+    "autopilot/worker.py": "0e5cdb6e5462aa7dfb36dcfbaa7e328f0505c0a7c5f113c6bd151dd8bafbd9a5",
+    "tools/tests/test_production_readiness.py": "1524c11a804c07cc53557f15a9e7546b358f94d6410726adbb1983214b72c602",
+    "tools/tests/test_autopilot.py": "55b0826f8314cb9b274d1b1f80dc3d418ef79af650e3f14c76ffb7b36331d472",
+    "planning/PRE_P07_REQUIREMENTS.md": "e0f16f86708fe18b0d0cba49cfd2ff04777e5b5c21884c12789772c6415c1c02",
+    "automation/decisions/P07_CONDITIONAL_CONTINUATION.json": "1ac6d9dec9e7ca96b3cb97b872a88b905c691a86049f52c607583305c706dc44"
+  },
+  "QA2_awaited_and_verified": true,
+  "QA2_decision_sha256": "87ec0d6b18cc5e1973c639b2895a19ff7132238bf4b5ee54c18be62e66f38a3e",
+  "QA2_verdict": "PASS_COMPONENT",
+  "QA2_v1_fixes_resolved": [
+    "PG-C01",
+    "PG-C02",
+    "PG-C03",
+    "PG-C04"
+  ],
+  "QA2_actual_tests_observed_not_rerun": {
+    "schema": 1,
+    "status": "PASS_COMPONENT",
+    "scope": "CANDIDATE_P07_GUARD_V2_CODE_ONLY",
+    "actual_tests": {
+      "production": {
+        "passed": 34,
+        "total": 34,
+        "exit_code": 0
+      },
+      "autopilot_regression": {
+        "passed": 47,
+        "total": 47,
+        "exit_code": 0
+      }
+    },
+    "original_v1_repro_cases": {
+      "passed": 10,
+      "total": 10,
+      "former_unexpected_acceptances_now_blocked": 6
+    },
+    "additional_independent_probes": {
+      "passed": 15,
+      "total": 15
+    },
+    "all_repro_state_unchanged": true,
+    "valid_resume_control": "PASS_NO_RESET",
+    "missing_gate_resume_control": "BLOCKED_NO_RESET_WORKSPACE_PRESERVED",
+    "resolved_findings": [
+      "PG-C01",
+      "PG-C02",
+      "PG-C03",
+      "PG-C04"
+    ],
+    "must_fix": [],
+    "production_readiness_approval": false,
+    "ROOT_runner_installation_approval": false,
+    "P07_start_approval": false,
+    "phase_approval": false,
+    "merge_approval": false
+  },
+  "QA2_portable_artifacts_verified": 28,
+  "QA2_source_snapshot_files_verified": 8,
+  "own_narrow_probe_cases": [
+    {
+      "name": "closed_preproduction_control",
+      "finding": {
+        "id": "TEST_ONLY_CAPABILITY",
+        "severity": "HIGH",
+        "status": "CLOSED",
+        "gate": "BEFORE_P07_ENTRY"
+      },
+      "actual_v2_outcome": "ACCEPTED_LOAD_GATE_ONLY",
+      "message": null
+    },
+    {
+      "name": "future_content_condition",
+      "finding": {
+        "id": "TEST_ONLY_CAMPAIGN_DURATION",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "gate": "AFTER_CONTENT_IMPLEMENTATION_BEFORE_P07_COMPLETION",
+        "required_evidence": "actual complete campaign first-play data; levels not yet created"
+      },
+      "actual_v2_outcome": "BLOCKED",
+      "message": "Unresolved Critical/High blocks production"
+    }
+  ],
+  "own_broad_regression_runs": 0,
+  "own_Git_controller_engine_network_generator_calls": 0,
+  "canonical_state_or_WORK_mutations": false,
+  "old_readiness_FAIL_unchanged": true,
+  "safe_ROOT_handoff_fullverify_fullP06_still_unresolved": true,
+  "current_WORK_may_advance_after_v2_snapshot": "Parent explicitly released v2 freeze; this review binds saved v2 bytes and QA2, not later v3."
+}

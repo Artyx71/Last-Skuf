@@ -1,0 +1,96 @@
+{
+  "scope": "PURE_FOOTER_CLOSURE_ON_ACTUAL_RECORDING_AND_ROOT_REBASED_CORRUPTION_FIXTURES",
+  "helper_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+  "native03_validation_sha256": "d708e8d1c1f12a7710e7b9f1969f777348be2ed5ec2b84d8f675cb587e2521b5",
+  "native03_source_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+  "current_code_commit": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
+  "current_source_map_sha256": "ff533afdb3abb104fa6e92033419f2b160dd7738864e833792cb02e1722384fb",
+  "cases": [
+    {
+      "case": "actual_untouched_native03_recorded589_positive",
+      "accepted": true,
+      "error": null,
+      "actual_native03_readonly": true
+    },
+    {
+      "case": "current_c193_source_map_rejects_historical_native03",
+      "accepted": false,
+      "error": "ValueError: Live source snapshot differs; do not reuse stale gameplay",
+      "actual_native03_readonly": true
+    },
+    {
+      "case": "exact0_control",
+      "accepted": true,
+      "error": null,
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "exit_code=0",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "nonzero17",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "exit_code=17",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "missing",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": null,
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "prefix",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "prefix exit_code=0",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "zero00",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "exit_code=00",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "leading_space",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": " exit_code=0",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "trailing_comment",
+      "accepted": false,
+      "error": "ValueError: Live log is missing the exact successful final exit footer",
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "exit_code=0 then failed",
+      "path_rebased_actual_cache_copy_only": true
+    },
+    {
+      "case": "zero_followed_blank_lines",
+      "accepted": true,
+      "error": null,
+      "validation_receipt_exit": 0,
+      "bound_receipt_exit": 0,
+      "log_footer": "exit_code=0\n\n   \n",
+      "path_rebased_actual_cache_copy_only": true
+    }
+  ],
+  "actual_WORK_artifact_mutation": false,
+  "engine_controller_network_invocations": 0
+}

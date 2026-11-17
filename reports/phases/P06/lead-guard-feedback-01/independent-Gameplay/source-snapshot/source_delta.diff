@@ -1,0 +1,124 @@
+diff --git a/game/scripts/actors/character_player.gd b/game/scripts/actors/character_player.gd
+index 032f9f3..465567d 100644
+--- a/game/scripts/actors/character_player.gd
++++ b/game/scripts/actors/character_player.gd
+@@ -20,6 +20,12 @@ var action_authority_snapshot: Dictionary = {}
+ var action_ability_id := ""
+ var counter_spent := false
+ var counter_blocks := 0
++const COUNTER_GUARD_OPEN := 0.06
++const COUNTER_GUARD_CLOSE := 0.26
++const COUNTER_WINDUP := 0.28
++const COUNTER_ACTIVE := 0.10
++const COUNTER_RECOVERY := 0.34
++const COUNTER_COOLDOWN := 2.0
+ 
+ func configure(id: String, policy: RefCounted) -> bool:
+ 	if is_inside_tree() or not policy is ScenePolicy or policy.definition().get("actor_id") != id: return false
+@@ -185,10 +191,10 @@ func use_ability() -> bool:
+ 
+ func _start_training_counter() -> bool:
+ 	_face_aim()
+-	action_windup = 0.28
+-	action_active = 0.10
+-	action_recovery = 0.34
+-	ability_cooldown = 2.0
++	action_windup = COUNTER_WINDUP
++	action_active = COUNTER_ACTIVE
++	action_recovery = COUNTER_RECOVERY
++	ability_cooldown = COUNTER_COOLDOWN
+ 	ability_uses += 1
+ 	counter_spent = false
+ 	# Guard pose first; no melee damage is scheduled unless a real incoming
+@@ -196,10 +202,42 @@ func _start_training_counter() -> bool:
+ 	_play_action("special",action_windup+action_active+action_recovery)
+ 	return true
+ 
+-func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2D) -> bool:
+-	if actor_id != "olezhka" or lab.state != "playing" or health <= 0: return false
++func counter_window_open() -> bool:
++	# The HUD and defense use the same live predicate, never a second UI timer.
++	if actor_id != "olezhka" or lab == null or lab.state != "playing" or health <= 0: return false
+ 	if action_kind != "special" or action_ability_id != "training_counter" or not _action_authorized(): return false
+-	if counter_spent or action_frame != 0 or action_elapsed < 0.06 or action_elapsed > 0.26: return false
++	return not counter_spent and action_frame == 0 and action_elapsed >= COUNTER_GUARD_OPEN and action_elapsed <= COUNTER_GUARD_CLOSE
++
++func _counter_view(phase: String, progress := 0.0) -> Dictionary:
++	return {"phase":phase,"progress":clampf(progress,0.0,1.0),"cooldown":ability_cooldown,
++		"window_open":counter_window_open()}
++
++func counter_feedback() -> Dictionary:
++	# Read-only presentation snapshot. Calling this never consumes a block/action.
++	if actor_id != "olezhka": return _counter_view("hidden")
++	if health <= 0: return _counter_view("dead")
++	if lab == null: return _counter_view("unavailable")
++	if lab.state == "options": return _counter_view("paused")
++	if lab.state != "playing" or scene_policy == null: return _counter_view("unavailable")
++	if scene_policy.definition().get("actor_id") != actor_id or scene_policy.ability_id() != "training_counter":
++		return _counter_view("unavailable")
++	if action_kind == "special" and action_ability_id == "training_counter":
++		if not _action_authorized(): return _counter_view("unavailable")
++		if counter_window_open():
++			return _counter_view("guard",(COUNTER_GUARD_CLOSE-action_elapsed)/(COUNTER_GUARD_CLOSE-COUNTER_GUARD_OPEN))
++		if action_elapsed < COUNTER_GUARD_OPEN:
++			return _counter_view("preparing",action_elapsed/COUNTER_GUARD_OPEN)
++		if action_frame == 1 and counter_spent:
++			return _counter_view("counter",(action_windup+action_active-action_elapsed)/action_active)
++		if action_frame == 2:
++			return _counter_view("recovery",action_timer/action_recovery)
++		return _counter_view("closed")
++	if not action_kind.is_empty() or not lab.combat.finisher_for(self).is_empty(): return _counter_view("busy")
++	if ability_cooldown > 0: return _counter_view("cooldown",1.0-ability_cooldown/COUNTER_COOLDOWN)
++	return _counter_view("ready",1.0) if _can_begin_action() else _counter_view("unavailable")
++
++func defend_melee_contact(definition: Dictionary, _attack_id: int, source: Node2D) -> bool:
++	if not counter_window_open(): return false
+ 	if String(definition.get("category","")) not in ["unarmed","blunt","sharp"]: return false
+ 	if not source is CharacterBody2D or not (source.collision_layer & 4) or source.health <= 0: return false
+ 	var offset := source.global_position-global_position
+diff --git a/game/scripts/core/character_lab.gd b/game/scripts/core/character_lab.gd
+index 9f99590..5df80f3 100644
+--- a/game/scripts/core/character_lab.gd
++++ b/game/scripts/core/character_lab.gd
+@@ -6,6 +6,7 @@ const CharacterCatalog = preload("res://scripts/systems/character_catalog.gd")
+ var scene_policy := ScenePolicy.new()
+ var fixture_keys := ["gabar_training","olezhka_training","timka_present","timka_prime","ryzhik_training","tega_training","pasha_training"]
+ var selection_message := ""
++var counter_feedback: Control
+ 
+ func _ready() -> void:
+ 	var view_guard := preload("res://scripts/systems/campaign_view_guard.gd").new()
+@@ -22,6 +23,9 @@ func _ready() -> void:
+ 	for child in get_children():
+ 		if child is Label and child.text.begins_with("P02 /"):
+ 			child.text = "P06 / ПОЛИГОН ПЕРСОНАЖЕЙ · НЕ СЮЖЕТНАЯ ГЛАВА"
++	counter_feedback = preload("res://scripts/ui/counter_feedback.gd").new()
++	counter_feedback.lab = self
++	add_child(counter_feedback)
+ 	_update_hud()
+ 
+ func _create_player() -> CharacterBody2D:
+@@ -61,6 +65,7 @@ func select_fixture(key: String) -> bool:
+ 	return true
+ 
+ func reset_encounter() -> void:
++	selection_message = ""
+ 	super.reset_encounter()
+ 	gallery_mode = true
+ 	_update_hud()
+@@ -88,9 +93,14 @@ func _cycle_equipment() -> void:
+ func _update_hud() -> void:
+ 	if not kit_label or not player: return
+ 	var actor: Dictionary = CharacterCatalog.actor(player.actor_id)
+-	kit_label.text = actor.display_name+" / "+String(scene_policy.definition().get("context",""))+" · "+selection_message
++	var context: String = scene_policy.definition().get("context","")
++	var names := {"training":"тренировка","peaceful_present":"настоящее","athletic_prime":"прайм"}
++	kit_label.text = actor.display_name+" / "+String(names.get(context,context))
+ 	hint_label.text = "WASD/Shift · Space: толчок · F: приём · V: добивание · Tab: инструмент · O: эффекты"
++	if player.actor_id == "olezhka":
++		hint_label.text = "F: блок удара спереди · WASD/Shift · Space: толчок · V: добить · C: отмена · O: эффекты"
+ 	status_label.text = "1–7: герой/контекст · R: повтор · Esc: меню · очки %d · приём %.1fс" % [score,player.ability_cooldown]
++	if not selection_message.is_empty(): status_label.text = selection_message+" · 1–7: выбор · R: повтор"
+ 	if equipment_label:
+ 		equipment_label.text = "Инструмент: "+["Кулаки","Труба","Нож","Пистолет","Верстак"][equipment_index]+" · Tab: сменить инструмент"
+ 	if damage_portrait:

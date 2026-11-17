@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "role": "QA",
+  "reviewer": "independent qa_resume_recovery",
+  "scope": "TPR_L01_RECOVERY_LOG_EXIT_FOOTER_ONLY",
+  "source_commit": "c193119deac0e5d65655e0cd97ced7fdf596eb6c",
+  "helper_sha256": "b24f289fbc5581bbf92fa1489cfdc7ccd41ec8164acac6be71cc43ffbf1e9a01",
+  "historical_native_input_commit": "589907497d184d27a0f5183e8f0291dd7dd36b3e",
+  "unchanged_game_and_DEV04_commit": "9b42df871e53758b402108cb7cc00a2e385ab773",
+  "findings": [
+    {
+      "id": "TPR-L01",
+      "severity": "MEDIUM",
+      "status": "CLOSED",
+      "evidence": [
+        "unit15.log",
+        "log-exit-consistency-results.json",
+        "footer-matrix-results.json"
+      ]
+    }
+  ],
+  "blocking_findings": [],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "review_sha256": "fc669bd567c7b9ca63565266bee64819300c1f77fbdad1b171fc15cfb43e05e6",
+  "metrics_sha256": "0a844662389ef1b535e9ca0aa913342affb253bb6bbb7727ab69c1bc1066a19e",
+  "source_inventory_sha256": "57b172a59d378dc1c34a81570de5034561d918c9d477ed60e0291276128953cd",
+  "prior_QA_immutability_sha256": "7fbf59f4eaafd522823c441bd89ac80603af8897ab33d955e14f7af4b3f9b403",
+  "limitations": [
+    "Pure helper/unit/corruption-fixture review only; no engine, GPU, export or actualWindows/audio/FPS reruns.",
+    "Realnative03positiveusesitsrecorded589inputs; c193currentmapcorrectlyrejects it asstale.",
+    "MainQA01andLead01historicalverdictsremainimmutable; fullphase/merge approval not granted."
+  ]
+}

@@ -1,0 +1,660 @@
+{
+  "source_head": "c8f465840ec970e6abdcb9d41e1f0cbed8fc38bd",
+  "source_files_verified": 1242,
+  "mismatches": [],
+  "delta_from6a": [
+    "game/scripts/qa/owner_preview_smoke.gd",
+    "game/scripts/systems/environment_kick_runtime.gd",
+    "game/tests/olezhka_feedback_replay.gd",
+    "game/tests/tega_environment_replay.gd",
+    "tools/export_p06_preview.py"
+  ],
+  "Tega_asset_reuse": [
+    {
+      "path": "game/assets/art/characters/tega/action.json",
+      "sha256": "a109b15b825d2c1eee9df801f2d73e4e072ab439b0ec02920111def00417311e"
+    },
+    {
+      "path": "game/assets/art/characters/tega/action.sockets.json",
+      "sha256": "f6125d40a7751d390a917d5fd95bb7bb225b40813838d02afaf65ed0d39c225d"
+    },
+    {
+      "path": "game/assets/art/characters/tega/action_sheet.png",
+      "sha256": "be8bf8a1e3f83435a416c9435fe8c9fbeff812ae8b675f91d6f965a25742c056"
+    },
+    {
+      "path": "game/assets/art/characters/tega/action_sheet.png.import",
+      "sha256": "7d58b38fef3e5da5b7a2eeccc19386386e69093f120f52802e4b8c59b4d93a04"
+    },
+    {
+      "path": "game/assets/art/characters/tega/finisher.json",
+      "sha256": "b259c97be520ffca1e51c1c98630752b80416bfa1295e921ffeee46d283a8df8"
+    },
+    {
+      "path": "game/assets/art/characters/tega/finisher.sockets.json",
+      "sha256": "d24ca86b86b4acd008f38aea5b6c3ec03d98e52a2e3ff45b7a741255f345a0ff"
+    },
+    {
+      "path": "game/assets/art/characters/tega/finisher_sheet.png",
+      "sha256": "188acc9f4a4d657f23500a808dac9fe7209538e7192d795db43764eadacc98ed"
+    },
+    {
+      "path": "game/assets/art/characters/tega/finisher_sheet.png.import",
+      "sha256": "53afa69b70cc14953e40afa70f5e0e0fbaf39ffdeef207e79034ffc58d63b079"
+    },
+    {
+      "path": "game/assets/art/characters/tega/portraits.json",
+      "sha256": "18a6484ccbf567568f0f228aa83fc4a0456679816313a503761f375b6a68ba8c"
+    },
+    {
+      "path": "game/assets/art/characters/tega/portraits.png",
+      "sha256": "5295e29d8ef86ea830a4ffe8855fdde566c7e53b79ad5483e1014bdea5d3a1e6"
+    },
+    {
+      "path": "game/assets/art/characters/tega/portraits.png.import",
+      "sha256": "baa8717b09d141ba7e4364a73084d2dd41937db24f5381a9b8cb60b539427abb"
+    },
+    {
+      "path": "game/assets/art/characters/tega/world.json",
+      "sha256": "58d4550941eb41beb014406fae4c7895f6478244a2906af3b9c37bdd1761a112"
+    },
+    {
+      "path": "game/assets/art/characters/tega/world.sockets.json",
+      "sha256": "ce55a0c44545fba7d4e2da631ac98a1f683aff43a25b154df9e50d2ff03d143e"
+    },
+    {
+      "path": "game/assets/art/characters/tega/world_sheet.png",
+      "sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f"
+    },
+    {
+      "path": "game/assets/art/characters/tega/world_sheet.png.import",
+      "sha256": "0f0272df2d7e060f280a6e536059b5672122212bc41884a7afe28d04b31c623e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_inspection_v2a_3x.png",
+      "sha256": "d3f54b77e1d44b88f5adee2c091301417a47849af1f6cfae8843da1e51730143"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_left_fire_v2_generation.json",
+      "sha256": "7c3e98654574acc9ddefdd47b7daf56206f5d1f3dbab30a3882bc4f77a1ca5ba"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_left_fire_v2_left_fire_master_v2.png",
+      "sha256": "4ddb9f995ea60a15d3489f23c5303b94a681d7e746a84f798fb0f1bb47782b59"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_left_fire_v2_prompt.txt",
+      "sha256": "edb3f6fbc66e2a0357ea7e9c0c398dc5ed2ee70b3f6c7efea37b42f427a97c3a"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_manifest_v2a.json",
+      "sha256": "9511039a6b0b41bc87e3bb015ae11bf96e5d4ef7743b4083d8aa511be8140a2d"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_master_v1.png",
+      "sha256": "2ca4472f69ee74099378a7c150194e8a0cf91f4f672cb08b2e5c44db4f20f76d"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_master_v2a.png",
+      "sha256": "3468610ad983f2c5aace38b48f3607cdcb3382d13a37c460a502fedc9931a2a4"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_native_v2a.png",
+      "sha256": "be8bf8a1e3f83435a416c9435fe8c9fbeff812ae8b675f91d6f965a25742c056"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_palette_socket_candidates_v1.json",
+      "sha256": "4a468f6b3405f86d808616cab3d35003599bb887b5b500bdefd813be7e72cda3"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_assemble_v2a.py",
+      "sha256": "35c5392c22c283ec754b95fd6fe1a908e2ec6d5d9d039f41928080f65030626c"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_assembly_v2a.json",
+      "sha256": "ab0439e50fa4cd9819bc7ae77db5044fba055eff342c3c4cd12d7b64fef4fede"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_generation.json",
+      "sha256": "eebcbb3c21db12a5bc7b7251c70cd91c2d843a65e03f1a537fcadb2cd62bc906"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_normalize_pack_v1a.py",
+      "sha256": "6eb755c92c0ca9153cbf28b9e3a408a201afb086af6c2abc3dd54c36ffbd0a2e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_preview_pack.py",
+      "sha256": "324b29783e36229a067a760f8853c01f84cd22d006641dff4cc803e337ed3144"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v1_prompt.txt",
+      "sha256": "ffb39d307c542b7e066a699b3707a46a75734c5c2469a308d0bd1a37c9bad863"
+    },
+    {
+      "path": "assets/source_art/characters/tega/action_v2a_adoption.json",
+      "sha256": "6152eb90c95dde639f40a2895e56ec742620f47b01da9779d24c1b8571523152"
+    },
+    {
+      "path": "assets/source_art/characters/tega/clothing_socket_annotations_v1.json",
+      "sha256": "9413b21f9bb4df2e5bfa5436f9b524f0d40245203469526103b77bb3cecd09b7"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_inspection_v1a_3x.png",
+      "sha256": "63aaadfc2022930e934d29d6eb5f26bc09574ec29c86075ad38e3d52551db3f9"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_manifest_v1a.json",
+      "sha256": "8f84b330defdf7a9bb0c38c82893527de4e3ed06eadb70b92b9df11c1b7b17ee"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_master_v1.png",
+      "sha256": "26f5d71398171246c91ce58c52a517e1bb5cfea9485fe3c85287b542a14d2bbe"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_master_v1a.png",
+      "sha256": "ba7db87bdfa453b5bcadcd6ff3a24357cbcb38efe0cd549d24bc4ef6c8ad5a9f"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_native_v1a.png",
+      "sha256": "188acc9f4a4d657f23500a808dac9fe7209538e7192d795db43764eadacc98ed"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_palette_socket_candidates_v1.json",
+      "sha256": "4f538ef48f1cd59dc38a605925bffd27fa06fcd65c89555c6b0a250a590946ce"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_assemble_v1a.py",
+      "sha256": "0837f53803c24b0bbcf98184ab6292b824c9e41cae02c09c7dd6e6de3083b0ae"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_assembly_v1a.json",
+      "sha256": "7ea329a15ee23f9762941295f93941ca091cf85232029048b36d54c6c96675d0"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_generation.json",
+      "sha256": "3c6632a7b1339c0e64299e5605b698ba023c1e32eec0a48818dfe9b05d3d2725"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_inspect_components.py",
+      "sha256": "52ae755341fa02fe0c27f1613f36ad8eaf8ac3d4506506650d13cc80227b788b"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_pack_failure_v1.json",
+      "sha256": "a701346d19dc8f40112b1e329972f2dc93d35436445e3db411cedfdc49ae1fb6"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_preview_pack.py",
+      "sha256": "4bb5835e2eb2e810927188f40d82d3a93529f9b75dea8337416ddbfaf5a59030"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1_prompt.txt",
+      "sha256": "8f6a3a6622832fc937a671d4fc90f3d2f1573bffe6eaf9a0f05a8e9101f746f1"
+    },
+    {
+      "path": "assets/source_art/characters/tega/finisher_v1a_adoption.json",
+      "sha256": "66370b5621420f31f5b0f63166cc065a19869a66cec98c3245272c2d56da8e87"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left4_accepted_family_reference_v4_4x.png",
+      "sha256": "678a74271e6d1b1c0c31efc00d22104fb39a750d29b3a11ad4ecbd8e3473259f"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left4_oleg_gait_reference_v2_4x.png",
+      "sha256": "923ef795455a50fb6090fed226283a163a6bcd0af707c4af7cd4817e9f83d738"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left4_opposite_stride_reference_v3_4x.png",
+      "sha256": "927827a4822cd475724dbd2c9eb2e5197de1a2e39b117cfe3ac68f2ab4fc67c4"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left4_own_family_reference_v2_4x.png",
+      "sha256": "6466192704bbca0d2577a1094916b9f6ea09124ca4bdbeb75f124c90f6cf3389"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left7_oleg_gait_reference_v2_4x.png",
+      "sha256": "9fa6336db2c7f5ee89782002c51844855aae78eb5faf8af6ba267f3e0ecca2bf"
+    },
+    {
+      "path": "assets/source_art/characters/tega/left7_own_family_reference_v2_4x.png",
+      "sha256": "327ee834ef6d88e1671373031a3b92cd096b12c42deb4d8442135ff69f18698a"
+    },
+    {
+      "path": "assets/source_art/characters/tega/portrait_generation_metadata.json",
+      "sha256": "6dda547c9357254d12c36cf82f9f9a3a96a4d2ab3e0614ba21e163de86b5bb43"
+    },
+    {
+      "path": "assets/source_art/characters/tega/portrait_prompt.txt",
+      "sha256": "56ad4e16714868801908927bc49054106540ebfaa66b4e51dcc7c1378d11e311"
+    },
+    {
+      "path": "assets/source_art/characters/tega/portraits_inspection_2x.png",
+      "sha256": "48a501d3095dbaa8a3ed968c88c2f40bf4dadbb39cddf4cbbf5497baf93c3127"
+    },
+    {
+      "path": "assets/source_art/characters/tega/portraits_master_v1.png",
+      "sha256": "776b9a04bff919e7555c6c209be47fecd1fdc410551224fd51885d2d18937560"
+    },
+    {
+      "path": "assets/source_art/characters/tega/portraits_native_source.png",
+      "sha256": "5295e29d8ef86ea830a4ffe8855fdde566c7e53b79ad5483e1014bdea5d3a1e6"
+    },
+    {
+      "path": "assets/source_art/characters/tega/right4_candidate_family_reference_v3_4x.png",
+      "sha256": "c8ca6f01aab4c06082cd8a8068d5ec6fd89418058b92121238e32344f892a9ad"
+    },
+    {
+      "path": "assets/source_art/characters/tega/right4_oleg_gait_reference_v2_4x.png",
+      "sha256": "086291dd8c004f731d1879df3b569404ed5db027f83da556eeca138f1bce1e9d"
+    },
+    {
+      "path": "assets/source_art/characters/tega/right4_own_family_reference_v2_4x.png",
+      "sha256": "0af879ba592313aa69624d1230c087741131151a8bccd87d9072bf75ab31bce2"
+    },
+    {
+      "path": "assets/source_art/characters/tega/right7_oleg_gait_reference_v2_4x.png",
+      "sha256": "f1fa74349b597c09418c4d75e1a382cc0dc8ddcfdde26ca87297a7478af12825"
+    },
+    {
+      "path": "assets/source_art/characters/tega/right7_own_family_reference_v2_4x.png",
+      "sha256": "a8f39607ec07470739805a8acaba2024519bc8f173cb228218df566fa757359b"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v1_3x.png",
+      "sha256": "8c344d6d5b75344b9d7fe36ac453be78dfab896a6d4f59fd993734f1a14c31d0"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v2a_3x.png",
+      "sha256": "25dc32b2b647b8bcc10c47640b6d2eb7b5bcc9bc88a2f19064cd799b1cfa2947"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v3a_3x.png",
+      "sha256": "322d923f6b6e02089bab14447dd86f7c805b1dfd4de12c44e6d48c69e7bcbea5"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v4a_3x.png",
+      "sha256": "be8343dbd848d1a85018cd95c543d51285da825cc3371a41dc1cdf11f43d5dae"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v5a_3x.png",
+      "sha256": "e063c16ab9426857368be0195ebb7778c034117fed8268b322c03253a861cfd7"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v5b_3x.png",
+      "sha256": "fe9089f4dce05c29203f484a702605f04ea6293129e5e9f9be47c8a1fb1b9810"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v5c_3x.png",
+      "sha256": "dbaa086a5ea3e8935e95ec14b50db554704a41999645b221f35fd41fd822a21e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_inspection_v5d_3x.png",
+      "sha256": "18272f0c68b0140de0a6ccbc625f8eb4ef1e0552de7257c25abb0271780d7967"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_isolated_v2_references.json",
+      "sha256": "e7594271d540005f69c46696d7124aac75f9ddba6747c9096128bae76c03f060"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_master_v2.png",
+      "sha256": "37d1e1c5a0020b4dade10e4a7d7ab7fcd094eb35afe53909f47ae98070443168"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_master_v3.png",
+      "sha256": "30da9fd43d365076a331c4e1fbe779947d04a034e64e2345c225f965430b6a3e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_master_v4.png",
+      "sha256": "17b8537d81c8c97e520ae1487e0b7288b484aed33a20fe881b5597de711c70a6"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v2_generation_metadata.json",
+      "sha256": "6713483df14947a5a09801ddfcfc77fa694680518245d66fe8f345f3bcde8ee0"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v2_prompt.txt",
+      "sha256": "662f66d55bfc31fafd986f3dcebc199d0e13f863457183c2f61e5e1065a04d5a"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v3_generation_metadata.json",
+      "sha256": "8a6559a86a8634ca004e9f7aa92e63cf3f484e52b35346f7a6857dc7273d49cb"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v3_prompt.txt",
+      "sha256": "de5a4e492a0a9c7055606e4e763aaf51c740043638c00e825740c895b6d5edde"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v3_references.json",
+      "sha256": "357b1db1b204c00f40efc735f8f44f97578586dfc8e892ae461badb760db0299"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v4_generation_metadata.json",
+      "sha256": "c5057f0273b44ed07809271182b10f41f71e145be45bcbcd2762c58b0d066ee3"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left4_v4_prompt.txt",
+      "sha256": "be24c1b3d8230f8c190644b6bd01be6824dba8f26b8e273f3ad4077789750a52"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left7_master_v3.png",
+      "sha256": "ab062b09e099ccd74ff2078e299e0ebd7a2b5a2465f74c61f79ec1c35e0ce0b9"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left7_v2_prompt.txt",
+      "sha256": "6904ecb33d88cd342fc3f41b1f209f0d8536a2f25390026562c4d0336f4c48c2"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left7_v3_generation_metadata.json",
+      "sha256": "98289e5922c66f0f5e99ba45275aa52f2508f2bd8925fb4afac6e9e5f9a6d1f1"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left7_v3_prompt.txt",
+      "sha256": "8aac354b1a17de2e905cf5301381083a253f9c8109e306bb40d9439c6ca4e011"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_left7_v3_references.json",
+      "sha256": "1729c91fa0517ffd33abe9dcb2cc8e6990b268a11c71124dcdfc763dad4988db"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v1.json",
+      "sha256": "b52b40843b1e7358bbc026503fad941328b6caff2f80a272047b90e5571e0966"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v2a.json",
+      "sha256": "5affc89e799d11e865e075e231c2a2a723dd7b81de018f817f635bb008f9229e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v3a.json",
+      "sha256": "bbf981d66f550bc5333399a4696542295f762ec33038b63da0afef7184165879"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v4a.json",
+      "sha256": "6ca7d6862aaedab8ce231a5aa6fe0536234796f6148af802bed7a4f27af4ea4f"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v5a.json",
+      "sha256": "c49b379169e3f7e833114ef263b87953699a62aff02786e5e943ea53756af669"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v5b.json",
+      "sha256": "35c1edcc09efb5e9c79201e7607ab87a11fc98645e645819bf225c907cbec98b"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v5c.json",
+      "sha256": "984db046d773ea23c8127a05f27e9f96351ddaad4d883face55c940f3f83c54e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_manifest_v5d.json",
+      "sha256": "6fa584afa70ab4cef770729b9126986ad4b509277a466808784e6e53eb3f8a67"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v1.png",
+      "sha256": "93bbe92c89a48fce9e6969e63b21923e7a449fdfbc1a14eb54e26bab62222754"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v2a.png",
+      "sha256": "d708ef0c9c3d8dc7af79d07661399617c8a50973c9fd095f420756fd8501bb15"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v3a.png",
+      "sha256": "c6faf83aa132b9cdaac99a2938650dea31eb32569816a57ab485d2343d65e290"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v4a.png",
+      "sha256": "e5082289825fb38e49c2b375261460916192f964e64f31f954dade0ee840738d"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v5a.png",
+      "sha256": "28b4ea7e0bfa5e7f82cd4ba28f0a02f9ad797a88dedd1527dcea5676dd1839c2"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v5b.png",
+      "sha256": "f160fbfd6e6b82fca790e4945d57709dbf42d112af75ecfa8980163a88b113d9"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v5c.png",
+      "sha256": "ebdbf25f4b495fecc612fe1f123ecf105257a5367bff67f4f09e9dda3982ceff"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_master_v5d.png",
+      "sha256": "3fb8b578b24c8c15d4de7bf0d4766363bab6dba56de3f89bc956aac4b8f79312"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v1.png",
+      "sha256": "e3b52ae7b4611b73e77c830155b973614c237cfe399095552ab5e8ca2138871c"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v2a.png",
+      "sha256": "ff41494545fd382ca35095d621ad9144b5a436dba1455bf7758a563f0b6eb799"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v3a.png",
+      "sha256": "352f69db1bb2a895db0bca11c0e9b52f4e7ce7e4c6f5a103b61981d0a94b3a46"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v4a.png",
+      "sha256": "22a3c2b40d3dc96b4e7a3be6775b715759df71823b48de8ab734bb8a1b53314a"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v5a.png",
+      "sha256": "b8e7bb4d42d6596d7e6eb65b314b9ac06c999c98eea424e8e4d6d18e910b3b71"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v5b.png",
+      "sha256": "97f4f986b01b8018e619452d0e038168d52e6a8d4b266bd50d1c80a417489561"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v5c.png",
+      "sha256": "868263bd9a4ba4ce0fd15952602feb049e6a6f254d02e81d253ba70932b2d727"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_native_v5d.png",
+      "sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right4_master_v3.png",
+      "sha256": "c4cd695f2e6e52d26e9b5857cc1b7fc810e81273bd5dcabe32341680ef5b22cd"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right4_v2_prompt.txt",
+      "sha256": "769c520251d79e6ea4e5c0673b2909c7df9843b3aa69183b319a21bb2b366522"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right4_v3_generation_metadata.json",
+      "sha256": "944ee0009cf55f000c9187dcb64f801d07d7b9f2c8dd9d4523de2b748dd71f0e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right4_v3_prompt.txt",
+      "sha256": "604289f806a30f361bb66fdb76f862706638fb33b1fff3bd6fe485bdde0d019d"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right7_master_v3.png",
+      "sha256": "0341266a76b9d9c09282603424e91b44dd8cd7fbb6569153d3ce9fde885714c7"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right7_v2_prompt.txt",
+      "sha256": "a5d6cb8637ff3157c0d06137022e1a1dff21d5debd3d44d524f2f805600ab143"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right7_v3_generation_metadata.json",
+      "sha256": "332fb33f2e8892c69d7bfc8af5f1f7b5ccb2a2e04fd7f8eb94a3f2533d5b2111"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right7_v3_prompt.txt",
+      "sha256": "187dbaeb53d7f4fcf3755741919d97e46d312fdaa42d1646bd047ef9092930e1"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_right7_v3_references.json",
+      "sha256": "ebb044c9b66a0551d88c86e119b7789b39e59be7b7e7e4ea3b11e64bca7ae502"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v1_generation_metadata.json",
+      "sha256": "31687821ce7c6b3dae4d9a8cbce235c0e612f51be6bf39f2689906888ccc0f76"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v1_prompt.txt",
+      "sha256": "baac7486a71dfb1281f5fb18fcaeba6caa37c6575aaa3f108f5106bbb016d5af"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v2a_assembly.json",
+      "sha256": "766c6abb8890a27a79996c541112f2b309e2cdf14223983aff6c454cef74159e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v3a_assembly.json",
+      "sha256": "d63c3df2f1aedca69b9776e747ce7c2e7e01a6eb3a3419b0614cdd59f7ab4b9c"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v4a_assembly.json",
+      "sha256": "f50eb182e1d952ca7391ac0d6bed750986e25296157314718b44ef923eec267f"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v5a_assembly.json",
+      "sha256": "6b535ec36c282e345662d3943ae1fbdf16b38585f653e045f7a1fede9479a48e"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v5b_assembly.json",
+      "sha256": "a78f0f2537041d91bf198c3b8c0f7f58b90c59a5b01a91999ecd5bc28c0ce0f7"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v5c_assembly.json",
+      "sha256": "dc0c2af6b65601dfb193f66164e1a10bbff2986b41878a5ae81f444aaafe416c"
+    },
+    {
+      "path": "assets/source_art/characters/tega/world_v5d_assembly.json",
+      "sha256": "554405afaa52d40ceb1608c48092eebee0bd7b13d01da91d51eeaeae2b30769d"
+    }
+  ],
+  "prior_decision_sha256": "052c1cf3b4331d3f6d8bb4831f5c497139b75e32853f16638234d8e544bb2846",
+  "artifact_files_verified": 136,
+  "artifact_mismatches": [],
+  "unchanged_native_PNG_bytes": [
+    "object_hit_false_down_world.png",
+    "object_hit_false_down_windup.png",
+    "object_hit_false_down_contact.png",
+    "object_hit_false_down_recovered.png",
+    "object_hit_false_left_world.png",
+    "object_hit_false_left_windup.png",
+    "object_hit_false_left_contact.png",
+    "object_hit_false_left_recovered.png",
+    "object_hit_false_right_world.png",
+    "object_hit_false_right_windup.png",
+    "object_hit_false_right_contact.png",
+    "object_hit_false_right_recovered.png",
+    "object_hit_false_up_world.png",
+    "object_hit_false_up_windup.png",
+    "object_hit_false_up_contact.png",
+    "object_hit_false_up_recovered.png",
+    "object_hit_true_down_world.png",
+    "object_hit_true_down_windup.png",
+    "object_hit_true_down_contact.png",
+    "object_hit_true_down_recovered.png",
+    "object_hit_true_left_world.png",
+    "object_hit_true_left_windup.png",
+    "object_hit_true_left_contact.png",
+    "object_hit_true_left_recovered.png",
+    "object_hit_true_right_world.png",
+    "object_hit_true_right_windup.png",
+    "object_hit_true_right_contact.png",
+    "object_hit_true_right_recovered.png",
+    "object_hit_true_up_world.png",
+    "object_hit_true_up_windup.png",
+    "object_hit_true_up_contact.png",
+    "object_hit_true_up_recovered.png",
+    "wall_stops_object.png",
+    "incoming_0_hurt_contact.png",
+    "incoming_0_fatal_contact.png",
+    "incoming_1_hurt_contact.png",
+    "incoming_1_fatal_contact.png",
+    "incoming_2_hurt_contact.png",
+    "incoming_2_fatal_contact.png",
+    "clothing_down_real_hurt.png",
+    "clothing_down_special0.png",
+    "clothing_down_special1.png",
+    "clothing_down_special2.png",
+    "clothing_left_real_hurt.png",
+    "clothing_left_special0.png",
+    "clothing_left_special1.png",
+    "clothing_left_special2.png",
+    "clothing_right_real_hurt.png",
+    "clothing_right_special0.png",
+    "clothing_right_special1.png",
+    "clothing_right_special2.png",
+    "clothing_up_real_hurt.png",
+    "clothing_up_special0.png",
+    "clothing_up_special1.png",
+    "clothing_up_special2.png",
+    "finisher_false_unarmed_down_windup.png",
+    "finisher_false_unarmed_down_contact.png",
+    "finisher_false_unarmed_down_corpse.png",
+    "finisher_false_blunt_down_windup.png",
+    "finisher_false_blunt_down_contact.png",
+    "finisher_false_blunt_down_corpse.png",
+    "finisher_false_environmental_down_windup.png",
+    "finisher_false_environmental_down_contact.png",
+    "finisher_false_environmental_down_corpse.png",
+    "finisher_false_unarmed_left_windup.png",
+    "finisher_false_unarmed_left_contact.png",
+    "finisher_false_unarmed_left_corpse.png",
+    "finisher_false_blunt_left_windup.png",
+    "finisher_false_blunt_left_contact.png",
+    "finisher_false_blunt_left_corpse.png",
+    "finisher_false_environmental_left_windup.png",
+    "finisher_false_environmental_left_contact.png",
+    "finisher_false_environmental_left_corpse.png",
+    "finisher_false_unarmed_right_windup.png",
+    "finisher_false_unarmed_right_contact.png",
+    "finisher_false_unarmed_right_corpse.png",
+    "finisher_false_blunt_right_windup.png",
+    "finisher_false_blunt_right_contact.png",
+    "finisher_false_blunt_right_corpse.png",
+    "finisher_false_environmental_right_windup.png",
+    "finisher_false_environmental_right_contact.png",
+    "finisher_false_environmental_right_corpse.png",
+    "finisher_false_unarmed_up_windup.png",
+    "finisher_false_unarmed_up_contact.png",
+    "finisher_false_unarmed_up_corpse.png",
+    "finisher_false_blunt_up_windup.png",
+    "finisher_false_blunt_up_contact.png",
+    "finisher_false_blunt_up_corpse.png",
+    "finisher_false_environmental_up_windup.png",
+    "finisher_false_environmental_up_contact.png",
+    "finisher_false_environmental_up_corpse.png",
+    "finisher_true_unarmed_down_windup.png",
+    "finisher_true_unarmed_down_contact.png",
+    "finisher_true_unarmed_down_corpse.png",
+    "finisher_true_blunt_down_windup.png",
+    "finisher_true_blunt_down_contact.png",
+    "finisher_true_blunt_down_corpse.png",
+    "finisher_true_environmental_down_windup.png",
+    "finisher_true_environmental_down_contact.png",
+    "finisher_true_environmental_down_corpse.png",
+    "finisher_true_unarmed_left_windup.png",
+    "finisher_true_unarmed_left_contact.png",
+    "finisher_true_unarmed_left_corpse.png",
+    "finisher_true_blunt_left_windup.png",
+    "finisher_true_blunt_left_contact.png",
+    "finisher_true_blunt_left_corpse.png",
+    "finisher_true_environmental_left_windup.png",
+    "finisher_true_environmental_left_contact.png",
+    "finisher_true_environmental_left_corpse.png",
+    "finisher_true_unarmed_right_windup.png",
+    "finisher_true_unarmed_right_contact.png",
+    "finisher_true_unarmed_right_corpse.png",
+    "finisher_true_blunt_right_windup.png",
+    "finisher_true_blunt_right_contact.png",
+    "finisher_true_blunt_right_corpse.png",
+    "finisher_true_environmental_right_windup.png",
+    "finisher_true_environmental_right_contact.png",
+    "finisher_true_environmental_right_corpse.png",
+    "finisher_true_unarmed_up_windup.png",
+    "finisher_true_unarmed_up_contact.png",
+    "finisher_true_unarmed_up_corpse.png",
+    "finisher_true_blunt_up_windup.png",
+    "finisher_true_blunt_up_contact.png",
+    "finisher_true_blunt_up_corpse.png",
+    "finisher_true_environmental_up_windup.png",
+    "finisher_true_environmental_up_contact.png",
+    "finisher_true_environmental_up_corpse.png",
+    "tega_after_restart.png"
+  ],
+  "changed_native_PNG_bytes": []
+}

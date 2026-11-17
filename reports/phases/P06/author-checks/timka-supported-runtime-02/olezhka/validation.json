@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "6482b042275d4191a9d772d51ba4fa267b770171",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 164,
+  "checks_total": 164,
+  "actual_captures": 0,
+  "contacts": 57,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.201,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/timka-supported-runtime-02/olezhka/commands.json",
+      "sha256": "af581ac3b9a22418e3f38fd9458f80569484ae0fbb554fe0b345a68b4e035200"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-supported-runtime-02/olezhka/live/result.json",
+      "sha256": "6e70b18f11d32e1873df83ce1c67e175d5c64891d08729d16df7c84d9864b7be"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-supported-runtime-02/olezhka/live.log",
+      "sha256": "88b26819b77cb94fccc258aebcc8992b555c488bfd591ed2f2126f24f9332829"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/timka-supported-runtime-02/olezhka/source_hashes.json",
+      "sha256": "a651cae958fd9a32ea4cdb219a095d277cc92d2cdf0898f0afb69c167f92070e"
+    }
+  ]
+}

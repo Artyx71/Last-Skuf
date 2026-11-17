@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "scope": "ROOT_PRIVATE_REFERENCE_MANIFEST_AND_SHARED_REACHABLE_GIT_HISTORY",
+  "utc": "2026-11-14T14:54:32.281722+00:00",
+  "source_head": "c8118ca918227e1e7e154638204e4bab7e3eb01c",
+  "passed": true,
+  "phase_approval": false,
+  "publication_performed": false,
+  "raw_photo_uploads_performed": false,
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "tools/validate_pack.py"
+      ],
+      "exit_code": 0,
+      "stdout": "References: 11, errors: 0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "tools/check_privacy.py"
+      ],
+      "exit_code": 0,
+      "stdout": "privacy probes=7 tracked=2332 errors=0\n",
+      "stderr": ""
+    }
+  ],
+  "recovery_note": "Prior report file was empty after interrupted session; replaced with fresh actual read-only audit, not reconstructed logs"
+}

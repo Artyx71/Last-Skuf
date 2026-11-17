@@ -1,0 +1,27 @@
+{
+  "scope": "C01_SOURCE_SIGNAL_ONLY",
+  "mandatory_signal_findings": [],
+  "listening_priorities": [
+    {
+      "id": "C01-A01",
+      "status": "ADVISORY_NOT_LISTENED",
+      "topic": "Oleg/Pasha same-category envelope proximity",
+      "actual_blunt_envelope_cosine": 0.99710361818,
+      "actual_blunt_logband_cosine": 0.6824505576,
+      "actual_unarmed_envelope_cosine": 0.9954036206,
+      "actual_unarmed_logband_cosine": 0.6712944886,
+      "interpretation": "Measured temporal descriptors close while spectral vectors differ. Prioritize comparative listening. No claim of audible sameness or distinctiveness; no mandatory unheard redesign."
+    }
+  ],
+  "remaining_gates": [
+    "Actual Godot import/route/cue/playback/once/reset/authority integration",
+    "Actual engine/mixer PCM with music/concurrency and clipping/levels/event windows",
+    "Artistic listening of sources and actual mix by capable listener"
+  ],
+  "profile_similarity_flag_threshold_not_artistic_standard": {
+    "envelope_cosine": 0.985,
+    "logband_cosine": 0.985,
+    "both_required": true,
+    "flagged_pairs": 0
+  }
+}

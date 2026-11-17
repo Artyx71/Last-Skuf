@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RESULT P06_TEGA passed=140 failed=0
+SCRIPT ERROR: Invalid type in function '_valid_object' in base 'RefCounted (environment_kick_runtime.gd)'. The Object-derived class of argument 1 (previously freed) is not a subclass of the expected argument class.
+          at: _valid_job (res://scripts/systems/environment_kick_runtime.gd:64)
+          GDScript backtrace (most recent call first):
+              [0] _valid_job (res://scripts/systems/environment_kick_runtime.gd:64)
+              [1] tick (res://scripts/systems/environment_kick_runtime.gd:94)
+              [2] _physics_process (res://scripts/systems/combat_system.gd:199)
+
+exit_code=0

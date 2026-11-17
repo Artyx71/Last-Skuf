@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "decision": "PASS_COMPONENT",
+  "scope": "TEGA_ENVIRONMENT_CALLBACK_GEOMETRY_AND_ACTION_LIFETIME_CLOSURE_ONLY",
+  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "independent_reviewer": "gameplay_olezhka_feedback",
+  "engine_runs_by_reviewer": 0,
+  "phase_approval": false,
+  "readiness_approval": false,
+  "export_approval": false,
+  "merge_release_approval": false,
+  "closed_findings": [
+    "TEGA-L01",
+    "TEGA-L02",
+    "TEGA-L03"
+  ],
+  "QA_cross_references": [
+    "TEG-Q03",
+    "TEG-Q04"
+  ],
+  "open_must_fix": [],
+  "source_files_verified": 1242,
+  "native_artifact_hashes_verified": 136,
+  "native_checks": 433,
+  "movie_checks": 305,
+  "native_PNG_byte_equivalent_to_prior_inspection": 128,
+  "new_movie_pixel_crops_inspected": 305,
+  "movie_total_frames": 4810,
+  "contacts_per_run": 66,
+  "actor_samples_per_run": 4792,
+  "clothing_anchors_per_run": 12,
+  "QA03_decision_sha256": "34b65dc23c7236faf975f690d9f72473cac294826d3658abb2e4d71361220c27",
+  "old_GP02_FAIL_preserved_sha256": "9f96a1208a91294b17a5c34aa3b478cf4fea676567e529b35292999f96335b26",
+  "causality": "Nonintervening clean5 proves production transform sync; comparative15 telemetry alone is insufficient. Epoch6→7/id1 replacement survives and physically completes in fresh traces/movie.",
+  "files": {
+    "review": "review.md",
+    "findings": "findings.json",
+    "positive_metrics": "metrics.json",
+    "fresh_negative_metrics": "new-negative-metrics.json",
+    "QA_causal_extraction": "QA08-independent-extraction.json",
+    "source_binding": "source-inventory.json",
+    "Git_ready_proofset": "portable-proofset/"
+  },
+  "limitations": [
+    "Controlled actual Input / pausedAI fixtures; no liveAI difficulty or subjectivefeel approval",
+    "No allP06/P07/readiness/CI/merge/release/export signoff",
+    "No hardwareFPS/keyboardlatency/audio listening/nativeWindows approval"
+  ]
+}

@@ -1,0 +1,77 @@
+--- v1/autopilot/readiness.py
++++ v2/autopilot/readiness.py
+@@ -6,6 +6,7 @@
+ """
+ import hashlib
+ import json
++import os
+ from pathlib import Path
+ import subprocess
+ 
+@@ -25,9 +26,33 @@
+ 
+ def file_under(root, relative, prefix):
+     require(isinstance(relative, str) and not Path(relative).is_absolute(), 'Relative evidence/source path required')
++    require('..' not in Path(relative).parts, 'Parent traversal is not an evidence path')
++    component = root
++    for part in Path(relative).parts:
++        component = component / part
++        require(not component.is_symlink(), 'Symlink evidence/source requires reconciliation: ' + relative)
+     path = (root / relative).resolve()
+-    require(path.is_relative_to((root / prefix).resolve()) and path.is_file(), 'Missing or escaped file: ' + relative)
++    boundary = (root / prefix).resolve()
++    require(boundary.is_relative_to(root) and path.is_relative_to(root) and
++            path.is_relative_to(boundary) and path.is_file(), 'Missing or escaped file: ' + relative)
+     return path
++
++
++def production_files(root):
++    game = root / 'game'
++    require(game.is_dir() and not game.is_symlink(), 'Production game directory unavailable or symlinked')
++    paths = set()
++
++    def walk_error(error):
++        raise ReadinessBlocked('Cannot inventory complete production tree') from error
++
++    for directory, dirs, files in os.walk(game, followlinks=False, onerror=walk_error):
++        dirs[:] = [name for name in dirs if name not in ['.godot', '__pycache__']]
++        for name in dirs + files:
++            path = Path(directory) / name
++            require(not path.is_symlink(), 'Production symlink requires reconciliation: ' + str(path.relative_to(root)))
++        paths.update(str((Path(directory) / name).relative_to(root)) for name in files)
++    return paths
+ 
+ 
+ def git_tree(root, head, prefix):
+@@ -76,7 +101,7 @@
+         data = json.loads(path.read_text())
+     except (ValueError, OSError) as error:
+         raise ReadinessBlocked('Invalid independent readiness decision') from error
+-    require(isinstance(data, dict) and data.get('schema') == 1, 'Unknown readiness decision schema')
++    require(isinstance(data, dict) and type(data.get('schema')) is int and data['schema'] == 1, 'Unknown readiness decision schema')
+     require(data.get('status') == 'PASS' and data.get('scope') == scope, 'Full ' + scope + ' PASS required')
+     require(data.get('acceptance_level') == 'FULL', 'Concept/component approval cannot open production')
+     require(data.get('role') == 'LEAD_REVIEWER' and data.get('independent_of_author') is True,
+@@ -88,7 +113,11 @@
+     require(isinstance(findings, list), 'Invalid readiness findings')
+     for finding in findings:
+         require(isinstance(finding, dict), 'Invalid finding entry')
+-        severity = str(finding.get('severity', '')).upper()
++        raw_severity = finding.get('severity')
++        require(isinstance(raw_severity, str), 'Finding severity must be an explicit enum')
++        severity = raw_severity.strip().upper()
++        require(severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'], 'Unknown finding severity')
++        require(finding.get('status') in ['OPEN', 'CLOSED', 'RESOLVED', 'VERIFIED'], 'Unknown finding resolution status')
+         if severity in ['CRITICAL', 'HIGH']:
+             require(finding.get('status') in ['CLOSED', 'RESOLVED', 'VERIFIED'], 'Unresolved Critical/High blocks production')
+     inventory = data.get('source_inventory_sha256')
+@@ -118,8 +147,7 @@
+     ready = load_gate(root, records.get('readiness'), 'PRE_P07_PRODUCTION_READINESS', heads)
+     require(ready.get('ready_for_p07') is True, 'Readiness does not authorize P07')
+     game_tree = git_tree(root, ready['p06_base_head'], 'game')
+-    game_files = {str(p.relative_to(root)) for p in (root / 'game').rglob('*')
+-                  if p.is_file() and '.godot' not in p.parts and '__pycache__' not in p.parts}
++    game_files = production_files(root)
+     require(game_files == set(game_tree), 'Untracked/missing production game files must be reconciled')
+     require(game_files.issubset(ready['source_inventory_sha256']), 'Readiness did not inventory the whole game tree')
+     verify_git_files(root, game_tree, game_files)

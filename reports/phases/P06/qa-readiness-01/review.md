@@ -1,0 +1,31 @@
+# Независимый QA — readiness guard, bounded P06 component
+
+**PASS_COMPONENT.** Защита не допускает выбора неподдержанного боевого контекста даже при полном арте и отказывает до изменения текущего боя. Независимо выполнены actual headless56/56 штатных readiness checks и21/21 дополнительных adversarial checks, оба exit0, без Godot ERROR/FAIL/leak сообщений. Это не PASS всей P06, не gameplay/native/арт-приёмка и не разрешение новых героев или исключения Тимки.
+
+## Привязка и изоляция
+
+Проверены character_player.gd, character_lab.gd, character_readiness_test.gd и tools/verify.py из freeze3bda69bc0337d220c98946f81e4ae5772166cbdf. Все четыре файла до/после QA побайтно совпадают с этим commit. В процессе автор независимо добавлял Pasha WORLD/frame unit: текущий character_frames_test.gd отличается от начала копии; он не был entrypoint наших запусков и не подменяет проверяемые четыре файла. Полный immutable HEAD для всех несвязанных файлов не утверждается.
+
+Godot открывал только ROOT/reports/phases/P06/qa-readiness-01/isolated-project/game.409 исходных game-файлов скопированы byte-exact, включая реальные Gabar/Oleg production assets; engine cache тоже находится в ROOT-копии. Конфигурация, data, cache, state и четыре save overrides направлены в собственный каталог каждого запуска; старые AYAY overrides очищены, DISPLAY/WAYLAND_DISPLAY удалены. Полные argv/env-overrides/log/result сохранены. Production WORK/game не открывался движком и не редактировался. Все409 исходных файлов локальной копии после проб восстановлены точно; единственное дополнительное тестовое GDScript — независимый qa_readiness_adversarial.gd. Его duplicate в ROOT report публикуется отдельно; копия всего game/.godot остаётся local evidence и не входит в review artifact manifest.
+
+## Проверка реализации
+
+prepare_fixture проверяет IMPLEMENTED_FIXTURE_ABILITIES и новый зарегистрированный ScenePolicy до загрузки арта. Сейчас разрешены только gabar_training/gabar_lunge и olezhka_training/training_counter. Затем production CharacterFrames загружает полный боевой набор и проверяются clothing sockets. При неудачной повторной подготовке вне дерева очищаются actor/frames/policy/definition/ability cache; live reprepare отказывает без изменения уже работающего тела.
+
+bind_policy требует реальный ScenePolicy, точное prepared definition с actor/context/scene key, прежнюю способность и повторное совпадение с актуальным зарегистрированным определением. Независимые пробы отвергли subclass с правильным definition, но поддельной ability; также одновременно изменённые policy context и prepared cache, которые совпадают между собой, но не с trusted registry. Возврат к настоящей подготовке остаётся работоспособным. Duck-typed policy, чужой actor/context/fixture и stale body покрыты штатными тестами.
+
+CharacterLab.select_fixture полностью готовит candidate до закрытия options, combat.reset, invalidate authority и удаления старого player. Штатный тест создаёт настоящие pending attack/projectile/receipt и проверяет сохранность player instance, authority, definition, epoch, pending work, cooldown, score/state/options при отказе для пяти неподдержанных registered contexts и unknown. Дополнительный actual missing-art тест временно переименовывал action.json Олега только внутри ROOT-копии: выбор поддержанного ключа отказал с тем же snapshot; файл восстановлен byte-exact и следующий переход на настоящий Oleg успешно прошёл. Поддержанные переходы отзывают старые jobs/receipts и открывают точный scene context.
+
+CompleteArtProbe — намеренный TEST ONLY loader, который мог бы вернуть полный Gabar atlas для любого actor. Для неподдержанных ключей он вообще не вызывается. Это значимая проверка раннего gate, не доказательство наличия или готовности настоящего арта других героев. Независимые SwitchableArtProbe/MissingSocketProbe дополнительно проверили supported key с null art и отсутствующим socket, очистку cache и невозможность последующего stale bind. Они также не выдают чужое тело за production identity.
+
+## Evidence и границы
+
+- Независимые actual headless: readiness56/56 и adversarial21/21, всего77/77. Это проверки readiness/atomic refusal; прямые Core calls нужны для pending состояния и не являются Input/contact-animation или normal firearm gameplay приёмкой.
+- Авторские actual saved results/logs проверены: Gabar124/124, Oleg164/164, CH01 isolation25/25 и fresh-process reload. Их14 declared artifact SHA, readiness command/log SHA и relevant frozen source hashes совпадают; ошибки/утечки в логах не обнаружены. Эти регрессии инспектированы, но независимо заново не запускались. Авторский import log также просмотрен без ошибок; собственного import запуска не было.
+- Common verify.py действительно регистрирует readiness entrypoint: проверено main() с subprocess mocks, команда зарегистрирована ровно один раз. Mock command logs обозначены MOCK_COMMAND_REGISTRATION_ONLY; версия имеет явный суффикс stable.mock. Это не выполнение полного CI и не green GitHub check.
+
+Первый mock CI harness ошибочно указал output вне ожидаемого ROOT verifier и получил ValueError при relative log path. Это ошибка настройки QA harness, не production regression. Сохранены первоначальная причина и fake log; повтор выполнен с ROOT, перенаправленным только в isolated-project памяти импортированного модуля, и успешно подтвердил регистрацию. Ни одна engine-команда из mocked CI не запускалась.
+
+Нерешённых критических замечаний в этом bounded readiness change не найдено. Не подтверждены native feel, полная боёвка/способности других героев, экспорты, phase gates или PR merge. Timka exception/SDD/schema не менялись; другие герои остаются недоступны, пока нет собственной реализации и evidence. Автор/контроллер/PR/Git state не изменялись этим reviewer. Единственные записи — ROOT reports и ROOT-only тестовая копия.
+
+Воспроизведение: prepare-isolated.py предназначен для исходного ROOT reports layout и создаёт новый соседний ROOT reports каталог. Его и run-isolated.py нельзя запускать из публикуемой WORK-копии как production verifier; это локальный QA harness, а CI entrypoint остаётся tools/verify.py. Для handoff копируются20 файлов из artifacts.json плюс сами artifacts.json/decision.json; полный isolated-project и его cache остаются локально.

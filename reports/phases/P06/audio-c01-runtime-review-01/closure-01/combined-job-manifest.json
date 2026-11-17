@@ -1,0 +1,434 @@
+{
+  "schema": 1,
+  "scope": "C01_INDEPENDENT_TECHNICAL_CLOSURE_STARTUP_AND_ACTUAL_PCM_SAVED_EXPORT_AUDIT_ONLY",
+  "state": "PREPARED_NOT_EXECUTED",
+  "entrypoint_sha256": "9fff892e681db60a5864f3cb63932e20143eb7d87937b1636c9544b9bcbc8aa9",
+  "argv": [
+    "/usr/bin/python3",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/closure-01/run_combined_job.py"
+  ],
+  "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0",
+  "timeout_seconds": 1200,
+  "source_runtime_native": "f615b2e6de75e9303a343edca6e873435efb22b3",
+  "export_source": "5403faa837a32e0fd370bb374eace120c9c4426b",
+  "source_delta": "Two exportfilter/owner-smoke files only; no runtime/cue/sourceWAV changes",
+  "required_files": [
+    {
+      "path": "run_engine_job.py",
+      "sha256": "5d244c80eb8b47f9b7490f12b00ce9536ca4cef4bf6d103c661acc83c198e060"
+    },
+    {
+      "path": "engine-job-manifest.json",
+      "sha256": "98d3b45e56952473b35834bbcb745279eeeeee39ab8e26d48a108c776f1709c0"
+    },
+    {
+      "path": "PREPARED_HASHES.json",
+      "sha256": "277c2a0fcb8cf3747d33e0055d096e872e897e015f82a80c9828c6ba957f249a"
+    },
+    {
+      "path": "run_pcm_analysis.py",
+      "sha256": "52006ddee080da918ce8bedaf19693e85d35ba6dbc8a49dd591f9f7496f662b2"
+    },
+    {
+      "path": "analyze_handoff.py",
+      "sha256": "8d008866d42b497b53e54d8ecf3d9d8ef4cb431e3ca98dc328e144835185b900"
+    },
+    {
+      "path": "run_source_negatives.py",
+      "sha256": "2f14f6db20721af50450515031210d3ebbacdf9df79f349a9075c5bdeedde0c5"
+    },
+    {
+      "path": "source-negative-results.json",
+      "sha256": "efbce3b18fb7d6af4ab3d893b457a90c9299ee2b87ec453b126374be0a1d4858"
+    },
+    {
+      "path": "source-freeze.json",
+      "sha256": "149a5ede85fac0dd42eec2636cacd723b0708b133c9622897c40f04efcbbee50"
+    },
+    {
+      "path": "engine-source-game-inventory.json",
+      "sha256": "4251e413cb206ca4de41b785f051768111f371f9a64ef2946e5b01d18c1f826f"
+    },
+    {
+      "path": "source-equivalence-f615.json",
+      "sha256": "a7e3d330ca904e4689271c1f478565ebe8041d9e64241ce19ce87d3a9a68d13b"
+    },
+    {
+      "path": "source-equivalence-5403.json",
+      "sha256": "e95204f22bde3f57c24eb5ef09d370b961711a116f1c9510c9c99f9ab6afd05f"
+    },
+    {
+      "path": "PCM-math-selfcheck.json",
+      "sha256": "73803b03de9800032ae45a8b7814f88a77ad04e081db236b8beb41078cf7a33d"
+    },
+    {
+      "path": "native-input-freeze.json",
+      "sha256": "678498f408047c7bd24daaac4f0cf824b4e2fbebd9a9b328fd58911da0e3fc1d"
+    },
+    {
+      "path": "handoff-input-freeze.json",
+      "sha256": "e2fec36a7a4e84f4a24d8ae16a35f3dd23be8ac7bc4ec89ffd948c882e5c52cf"
+    },
+    {
+      "path": "probes/qa_c01_registry.gd",
+      "sha256": "929757449d32512d12a5ad3a7efdf5d2013532afc188b2ae6482c8ce1dfa67ec"
+    },
+    {
+      "path": "probes/qa_c01_startup.gd",
+      "sha256": "bd27fb8ec9011ea2ac181e3a62ed358129fa441bb6a7aad1fc95a365463b8d4f"
+    },
+    {
+      "path": "native-inputs/commands.json",
+      "sha256": "7aeb650d98d2653447677c432cbf953944f5c57e01fa1be80dfdb5c54b6654d0"
+    },
+    {
+      "path": "native-inputs/contact_replay.log",
+      "sha256": "d2b6a4d36d3cda0e42cf5d8cbce65f8afb5e74f756296e9a3795e72e5f07909e"
+    },
+    {
+      "path": "native-inputs/import_source_delta.json",
+      "sha256": "ed362da0a89998d4f55171b58d954b4fb67c5b7ced1dbd6bf539d7b1b4df5fcc"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_blunt_full_contact.png",
+      "sha256": "2521beb529d2a1544e01168c2399a9d5bd3923d735daba0ff683a961ba7755e0"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_blunt_reduced_contact.png",
+      "sha256": "0a21b59e0fa867f983f8d811c9ffe8cd78f6c0ddee6c647875cff29c29e40413"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_firearm_full_contact.png",
+      "sha256": "6e358c3309df61e5f21a7412beacd2aa592144e1c3914efb891104af9df8fcb2"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_firearm_reduced_contact.png",
+      "sha256": "d72570a9d5e223462a318a3d60574fa0f88432e99766b5d635f31fa454ce44e9"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_unarmed_full_contact.png",
+      "sha256": "97a04f33caacc57e24dbcb88bc475e81cc0dd04aa54d0679c2243745f052979e"
+    },
+    {
+      "path": "native-inputs/replay/gabar_training_unarmed_reduced_contact.png",
+      "sha256": "79a3df60a875562e3964d352958a165b3e5de7615fbdcd619088ec34eae3dcaf"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_blunt_full_contact.png",
+      "sha256": "87e96e5b19dc8e964beb0180fdc970aa172aebfadb1a049bdc63531e2936d8a2"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_blunt_reduced_contact.png",
+      "sha256": "da31f7f3a02cd6593c2662ff93d57fd1f74b0a2940e86df753b10d4da1e61b6e"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_sharp_full_contact.png",
+      "sha256": "b5769bd1dea67f7da84ec3a8021d70a5fe08668f103b630e0103c9e3601aed50"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_sharp_reduced_contact.png",
+      "sha256": "5c68cc2cc98dca4a78ccba099decbe2d3fbc78875224079c53ee3b6b2ae0c6ff"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_unarmed_full_contact.png",
+      "sha256": "eddd15b002b3b0e969d28a3a21cf76114f3c02ea1eab20ef468af62c036a6e2e"
+    },
+    {
+      "path": "native-inputs/replay/olezhka_training_unarmed_reduced_contact.png",
+      "sha256": "b9d42d9c4e3177f70acbbd8044bf23d24115c62c1d0d8efcf64ffc124a302314"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_blunt_full_contact.png",
+      "sha256": "028ee987997119656e6fd60dc5c9205da049d9e62ac7f9ffc1b0333c8be7d67d"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_blunt_reduced_contact.png",
+      "sha256": "ddacd78a756f27ee0758e5eb32ea0b05b9502fdd6f8eece5f49cb486946c6437"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_environmental_full_contact.png",
+      "sha256": "e72f509e9d8fbbf68e3df618768b2610729b9bec8e762d06048f7d04bc68bc26"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_environmental_reduced_contact.png",
+      "sha256": "e5d2296b239d2db6f3edc780c8287994c3decb6085a3121cd051771bc38ed640"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_firearm_full_contact.png",
+      "sha256": "fb76865946090b6186859fa2e18a0a6bf5c59d9726a9287902fb85f380671cef"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_firearm_reduced_contact.png",
+      "sha256": "070e80a4cfe91b15f4e14fdb9808649923929e7abe00a11dba4d586ea945e016"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_sharp_full_contact.png",
+      "sha256": "c6d71d24feab6422ffdb2ae0d9c7ac976482c1ad583bb223b838b45833f763fb"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_sharp_reduced_contact.png",
+      "sha256": "7c0df5e5929cd2834a0190bf98b66e9362ec97a2cb7ca37f60b434a39a261412"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_unarmed_full_contact.png",
+      "sha256": "55ea8f46f3fa9a95b4e3a8e1de1bf11ea309711ab49606acb044909810591855"
+    },
+    {
+      "path": "native-inputs/replay/pasha_training_unarmed_reduced_contact.png",
+      "sha256": "dbfecaf1157e92f6e0f3b7a69c128e3405409a397c86e634ac87536bdbbd4e5d"
+    },
+    {
+      "path": "native-inputs/replay/result.json",
+      "sha256": "3cb065ff279f217ceeb6edd9c6aa6189c2cb49c3eb897fa4e1532ed70fec9522"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_blunt_full_contact.png",
+      "sha256": "27030e34ef450fd98d63dce6e178c147e3c89c609e9877c215e6e9f4b573db49"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_blunt_reduced_contact.png",
+      "sha256": "8a131408ed2d0524219ac8631b3990d5dabe539bc50ddb4bfc762ddf96b4a355"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_environmental_full_contact.png",
+      "sha256": "47dc1cf4e011e6888c7be53b47c28abe7148ebac6c285404eb2cb9d2574cfa47"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_environmental_reduced_contact.png",
+      "sha256": "b3f4de9ec0d793bd7645f681809b1e2eb7eb6ebd93a614e0702632a678406b15"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_unarmed_full_contact.png",
+      "sha256": "9c6892dcbd6b431442768c0b155af0e4fd05c7c1e6100338db8d33255f1bb419"
+    },
+    {
+      "path": "native-inputs/replay/ryzhik_training_unarmed_reduced_contact.png",
+      "sha256": "7e9772b09106788409c7d338ec40a33e40ecea7d6404cfe3dfcdc5bb8f87c3bb"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_blunt_full_contact.png",
+      "sha256": "6702e69d15909faf072e84ec3bc2bf91861eda80a78670496ad23b7b49a19111"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_blunt_reduced_contact.png",
+      "sha256": "3e25d01a9e3a9ddab976249a51cb5ce0352fb9ce5e4a0b4a1f9d38902a924227"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_environmental_full_contact.png",
+      "sha256": "9e42e7297f7045c5012c5f7c5e122921a02c952982df57db39e7549878365351"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_environmental_reduced_contact.png",
+      "sha256": "05a4ca098ea32684dcc60b084e3c595c705e31d9a071d65391919ce56edde698"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_unarmed_full_contact.png",
+      "sha256": "687bee45e17363c5595c02f898d3ca881f608b1b16adae5726d459656990cc92"
+    },
+    {
+      "path": "native-inputs/replay/tega_training_unarmed_reduced_contact.png",
+      "sha256": "0dc7ee46f3b1907ba2aa8c459ce4d913ce80a5c9e6371b9d22365b5b4188d29a"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_blunt_full_contact.png",
+      "sha256": "f30c1fba39f2f30e4912e51eaee5682b3c0ee0e2017f41367d66c1ce552c8227"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_blunt_reduced_contact.png",
+      "sha256": "63da7917f38dee46d491bc7e20902d29c73d659a2252c1237da29ca6ce5e3b9b"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_environmental_full_contact.png",
+      "sha256": "9c3c67a4c501442f113881e79d01cfd959298cc340ec7a696270a9d2272e199c"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_environmental_reduced_contact.png",
+      "sha256": "4a42aafb82e1f2091124937e0d7a776c53ba04251c39599b6947a2d9ab4b2ce5"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_unarmed_full_contact.png",
+      "sha256": "2f2c3f186b80391c48b747a65c3412543abbbd818e0e64346bd45896e051625e"
+    },
+    {
+      "path": "native-inputs/replay/timka_prime_unarmed_reduced_contact.png",
+      "sha256": "9afffa74728754c722856133b00d98bc93f126cbb11b6dbb2980f663288f745d"
+    },
+    {
+      "path": "native-inputs/replay/yakuza_legacy_blunt_contact.png",
+      "sha256": "399d847e61da4fee4634d8c07a66255c163ffb31bb5ab3c38e23e1bf70885ce1"
+    },
+    {
+      "path": "native-inputs/replay/yakuza_legacy_environmental_contact.png",
+      "sha256": "d1f4f4dd7ba7a7237939c0c3c606d0bd3ac49395293441faf45b91c19b90caab"
+    },
+    {
+      "path": "native-inputs/replay/yakuza_legacy_firearm_contact.png",
+      "sha256": "7967d4c999c99b078921c980897da34309adad630569ec78c1c1ef1842b10004"
+    },
+    {
+      "path": "native-inputs/replay/yakuza_legacy_sharp_contact.png",
+      "sha256": "b6b4f058dff4aca971b6d1e51c8c4116faf08ac5d9d0719c573e8e58d5352db3"
+    },
+    {
+      "path": "native-inputs/replay/yakuza_legacy_unarmed_contact.png",
+      "sha256": "b8e83e12557c60ba1a350de8766b9412c82a555ae5390eac34eaae5f49f56aaa"
+    },
+    {
+      "path": "native-inputs/root-job/input.json",
+      "sha256": "3a7e4dc492f9de343f7afb4f2409071e15be9bc046ded5a5aace8852f82989ac"
+    },
+    {
+      "path": "native-inputs/root-job/output.log",
+      "sha256": "9104c568b2e92d7d9937bb0d8ee3c9bf6e2585ff51d92232f9cc4042de144163"
+    },
+    {
+      "path": "native-inputs/root-job/receipt.json",
+      "sha256": "a19dce0c96733ec7c53fe67c3f217bc6f908bde18f4baac3c37e7a7ae1c20b95"
+    },
+    {
+      "path": "native-inputs/root-job/started.json",
+      "sha256": "b53c6fe24fc99ee42f0b2e0ae12720ca71cabe33281d54b7b4fa27e9a26a68c4"
+    },
+    {
+      "path": "native-inputs/source_binding.json",
+      "sha256": "e98b66cac2bee3e1f86eac84c9b63aa1da11074b31a1110661aa167733ab1628"
+    },
+    {
+      "path": "native-inputs/source_hashes_after.json",
+      "sha256": "eb87c8c66b0292c40a4fdb54d2bfa59438b6790adbbe67b479bba64f2bff7b78"
+    },
+    {
+      "path": "native-inputs/source_hashes_before.json",
+      "sha256": "eb87c8c66b0292c40a4fdb54d2bfa59438b6790adbbe67b479bba64f2bff7b78"
+    },
+    {
+      "path": "native-inputs/validation.json",
+      "sha256": "fa5957129c026c3dd89c3fabec5b9e80c571b129aedfbf7bd8fabee2a796ed03"
+    },
+    {
+      "path": "handoff-inputs/export/commands.json",
+      "sha256": "878448f4f78f22602d67787895edabf5ff4233cc93680cfcbb87446c1392fe8a"
+    },
+    {
+      "path": "handoff-inputs/export/export_linux.log",
+      "sha256": "cfc546c542808ccc28d09213a919046b508171f2db2180cc8071ddc6c769ac1a"
+    },
+    {
+      "path": "handoff-inputs/export/export_windows.log",
+      "sha256": "9117855e228fbcd60e1df32dc7a16a3bd4e8ccf66671d5b5db86685f5a2c246d"
+    },
+    {
+      "path": "handoff-inputs/export/exports.json",
+      "sha256": "5c697f8dd632c2307d2c0618d5410cee761c51051bddba0b2aaf77f516960364"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/gabar.png",
+      "sha256": "cde2fa7baceba64fc46ed2c781e20751cfcafcab1b1d6d3f8e79fc163b592466"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/menu.png",
+      "sha256": "fe89b220e08756017118f1fd825617792be67008944698d66ff3ea06eba65678"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/olezhka.png",
+      "sha256": "56b0e4933775ddf4440f6ea75171e3e04afd182c49222d3855d8f4343b09f504"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/pasha_moving_shot.png",
+      "sha256": "a01d3ded567673fbacacc76559db7ba48b76010635059a9ede55e8896690a846"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/result.json",
+      "sha256": "99a307f2f2d6789f6c66ebd18b7f757976053f5e8c96da92e9cee573bd497d70"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/ryzhik_roll.png",
+      "sha256": "0ff4b00b62b155a0625f22e158ae14ebd2453208bbae669b3d6fab1fe9fda1de"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/tega_environment_kick.png",
+      "sha256": "bbc479e2cac27c8977752d9d0b94e643e9d4a485660495f7ddc77163bb73ef6a"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/timka_portrait.png",
+      "sha256": "cdb5bab36b2aa7ec896a6f5696130896fce13fda7129f78c842d2cfc2b2ae301"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/timka_present.png",
+      "sha256": "e2a5f5ea88714831686b6b1fb26c44d695b0a90c190fdf1d221c51f0bf209e4a"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke/timka_prime.png",
+      "sha256": "208a7b57e9c1e794c30b0f511c4b845fad9c1daa662126a35734bc35e1a004a2"
+    },
+    {
+      "path": "handoff-inputs/export/linux_smoke.log",
+      "sha256": "0be5e608755564307a160812ffd17885c0cb9e88d2a72ceb5bd3f67dda363f54"
+    },
+    {
+      "path": "handoff-inputs/export/owner-handoff.json",
+      "sha256": "a11a9c0e97dbd99a3e07f4e136af5ac2ae386433f157725da7595e160b554293"
+    },
+    {
+      "path": "handoff-inputs/export/preview.json",
+      "sha256": "9fae8963d9de6e3ae5372b85591d173b04bbfce3effa0e4606c660cbf3ec712c"
+    },
+    {
+      "path": "handoff-inputs/export/source_hashes.json",
+      "sha256": "4e91e3a1915aad931c67375849e145e070bb9cf2a91bc4ae3dcf10ebb50db8a9"
+    },
+    {
+      "path": "handoff-inputs/export/windows_smoke/result.json",
+      "sha256": "dd87033f89263c310dba2a0266b0032523bc084f0aed5ed7ec7372aef22d9ba1"
+    },
+    {
+      "path": "handoff-inputs/export/windows_smoke.log",
+      "sha256": "d174d2eb01cda0aeef6b53345ee38a44918a66b9651b60fa400d2aed08911d72"
+    },
+    {
+      "path": "handoff-inputs/owner-listening-acceptance.json",
+      "sha256": "3b6b3c69004668ea73a5cc1102263e80abf2d2757952876dfbd234a4526752d9"
+    },
+    {
+      "path": "handoff-inputs/root-export-job/input.json",
+      "sha256": "04b7c9952ca4cf0914aef53aecb04b63b7bbb04f940299c891540b466a6422b8"
+    },
+    {
+      "path": "handoff-inputs/root-export-job/output.log",
+      "sha256": "a1cb6147783831ba119c55432d869dfdf6fed4ab369616a633689b4fd2150731"
+    },
+    {
+      "path": "handoff-inputs/root-export-job/receipt.json",
+      "sha256": "3519a311e95eb6281c8dab8f7cee071e8c78235e7894071f8e4bce28a1f19cdc"
+    },
+    {
+      "path": "handoff-inputs/root-export-job/started.json",
+      "sha256": "2f5d726febdfbaab4050eaea0c3e8665889b56fb2e518e0dfc60c480301f5cee"
+    },
+    {
+      "path": "source-5403/game/export_presets.cfg",
+      "sha256": "c3448760c7f0b7a0ded0dff3c95c1fc45f6cb35eee0bedab0a01c89b803dcdb3"
+    },
+    {
+      "path": "source-5403/game/scripts/qa/owner_preview_smoke.gd",
+      "sha256": "2a82baf13ef7be6431f2fc41e40d8a2f2250bf94acc061b65206f1f5f9ddd632"
+    }
+  ],
+  "preserve_historical_inputs": [
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-runtime-review-01/preflight-01/decision.json",
+      "sha256": "29a002f0b2068fedafded20840abf8926933d5e9d364300f01940254b49c09c4"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/audio-c01-signal-review-01/decision.json",
+      "sha256": "c69fe500f8374fa25430e743fb39f6f8a9c251a9a8ee5d0ac7a5cde6c572c84c"
+    }
+  ],
+  "execution": "Only parent canonical serial Controller.stage after builder/author release; no concurrent executor; all seven Godot calls sequential in own physical f615copies",
+  "actual_audio_analysis": "Three saved real PulseAudio mixWAV; rawPCM/FFmpegtruepeak/channelDClevels/timewindows/20FFT+fullrateNCC source comparisons; boundedstress12voice8drops; actual45sameclock Core+stream receipts",
+  "actual_new_mix_or_listening_execution": false,
+  "historical_cold_contact47of48_and_four_Timka_fixture_FAILs": "Preserved by author; this job does not relabel them or rerun broad legacy tests",
+  "owner_acceptance": "Reported solo/runtime forP06prototype only, stresslisteningnotexplicit; agentnotlistened",
+  "full_phase_approval": false,
+  "merge_approval": false
+}

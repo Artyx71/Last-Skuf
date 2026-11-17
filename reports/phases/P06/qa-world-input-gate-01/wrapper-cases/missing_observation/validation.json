@@ -1,0 +1,88 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "timka",
+  "passed": false,
+  "source_head": "ffffffffffffffffffffffffffffffffffffffff",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/qa-fixture/godot-never-executed",
+        "--path",
+        "/tmp/qa-p06-world-gate-247p6bh9/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.007,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "timka",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 671,
+      "trace_samples": 672,
+      "errors": [
+        {
+          "reason": "Actual Engine Input vector differs from plan",
+          "sample": 50
+        }
+      ],
+      "violations": 1,
+      "passed": false
+    }
+  },
+  "strict_input_verified": false,
+  "artifacts": [
+    {
+      "path": "evidence/commands.json",
+      "sha256": "25cc402c1912ec0a200697e73344a4f66c97241cbbe7186adc0729aa9d06c0c7"
+    },
+    {
+      "path": "evidence/live/input_gate.json",
+      "sha256": "31130e57922bdad46b856a305da25ef0185e4b79a2976d26d34d0bdab6d7b62b"
+    },
+    {
+      "path": "evidence/live/result.json",
+      "sha256": "f50253f35208fe877fb7636a069b5dd8ce849ccd3b2ef8c9ae5f8ddd987739ef"
+    },
+    {
+      "path": "evidence/live.log",
+      "sha256": "1dba7504d3807bbce6adbc85cd31f8ced0ca3b1868b5483a2e5a2064c30cc28e"
+    },
+    {
+      "path": "evidence/source_hashes.json",
+      "sha256": "4ecae2ea7793bfb511d54d6ab371fa2e7c8db3bfc8ccbe48a847e99db8744911"
+    }
+  ]
+}

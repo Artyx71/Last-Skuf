@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "scope": "LOCAL_OWNER_P06_DEV_PREVIEW_ONLY",
+  "passed": true,
+  "source_head": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+  "source_unchanged": true,
+  "phase_approval": false,
+  "release_approval": false,
+  "last_full_PASS": "P05",
+  "available_combat_heroes": [
+    "gabar",
+    "olezhka",
+    "pasha",
+    "ryzhik",
+    "tega",
+    "timka"
+  ],
+  "available_combat_fixtures": [
+    "gabar_training",
+    "olezhka_training",
+    "pasha_training",
+    "ryzhik_training",
+    "tega_training",
+    "timka_present",
+    "timka_prime"
+  ],
+  "portrait_cast_count": 9,
+  "other_combat_heroes": "Not an approval of campaign combat; available fixtures are measured below",
+  "native_windows": "NOT_TESTED",
+  "audio_listening": "NOT_CLAIMED",
+  "FPS_acceptance": "NOT_CLAIMED",
+  "exports": [
+    {
+      "platform": "Linux",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-06/linux/last-skuf.x86_64",
+      "native_windows": null,
+      "sha256": "02cf0e0d65fbc3526a2d3921cf874ce8b36034c9f53b6df5f79c5db12d0c9613",
+      "bytes": 77902304,
+      "runtime_smoke_passed": true,
+      "verified_combat_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime",
+        "ryzhik_training",
+        "tega_training",
+        "pasha_training"
+      ],
+      "runtime_scope": "Linux renderer + Input menu/available fixtures",
+      "captures": 9
+    },
+    {
+      "platform": "Windows",
+      "export_passed": true,
+      "path": "build/P06/owner-preview-20261115-06/windows/last-skuf.exe",
+      "native_windows": "NOT_TESTED",
+      "sha256": "c0a15d629eed3a13dd80f80816410923be2c05d12092c348b89ea46824302235",
+      "bytes": 113651376,
+      "runtime_smoke_passed": true,
+      "verified_combat_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime",
+        "ryzhik_training",
+        "tega_training",
+        "pasha_training"
+      ],
+      "runtime_scope": "Actual Windows PE under Wine headless + Input menu/available fixtures",
+      "captures": 0
+    }
+  ],
+  "commands": [
+    {
+      "name": "export_linux",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--export-release",
+        "Linux",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-06/linux/last-skuf.x86_64"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 4.179,
+      "log_sha256": "03461ac2c31e938c1925278191cb5e529210fbf0b6e55f54c21527a5cc4a8811"
+    },
+    {
+      "name": "linux_smoke",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-06/linux/last-skuf.x86_64",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--",
+        "--p06-owner-preview-smoke"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 3.585,
+      "log_sha256": "443c3eba9c4a4aa72a1da985b63159739c336465373aa8dd9adb8bf179f49aa9"
+    },
+    {
+      "name": "export_windows",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--export-release",
+        "Windows",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-06/windows/last-skuf.exe"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 3.622,
+      "log_sha256": "18caf47868b1492ec007d6fcc84d570143e5c7f2d97bffee38aa99cc5a5a2d9a"
+    },
+    {
+      "name": "windows_smoke",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/wine/usr/bin/wine",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/owner-preview-20261115-06/windows/last-skuf.exe",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--",
+        "--p06-owner-preview-smoke"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 17.23,
+      "log_sha256": "86346af39b42463d1acce52bcafe8e65125acd9fc5a0817b498f1af1cdd0af6a"
+    }
+  ]
+}

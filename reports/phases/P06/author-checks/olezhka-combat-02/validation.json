@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "64c57f75671aeff07e8b9d13a8ee91d4cb79b3ff",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 152,
+  "checks_total": 152,
+  "actual_captures": 0,
+  "contacts": 49,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 2.013,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/commands.json",
+      "sha256": "227be2e80609c9bc5f8f0139501f0b6b374f28bbed864c976badbe0ba03c9a6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/live/result.json",
+      "sha256": "ebb23092b199bc839ec995e4734983632255961abce3883773ad0123f2285f19"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/live.log",
+      "sha256": "68eabe47fd77f2a88e8f624c0d7576a1b0d0a921952f9e3c6f3000f7ba63e6eb"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/olezhka-combat-02/source_hashes.json",
+      "sha256": "bea8ea91be3111feba5a1fd0dd9f9a6c07bb0c63855abf8df755866e8e219536"
+    }
+  ]
+}

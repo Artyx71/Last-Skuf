@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "role": "QA",
+  "reviewer": "independent qa_resume_recovery",
+  "scope": "TEGA_ENVIRONMENT_TECHNICAL_COMPONENT_ONLY",
+  "runtime_commit": "6a0224e016e53e13ddb1e6fde747b66e7f75447b",
+  "frozen_commit": "084026895f2ffb1b51b438cbf87e8a97440d7b77",
+  "blocking_findings": [
+    "TEG-Q03"
+  ],
+  "findings_file": "findings.json",
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "review_sha256": "b3c7888eb9c506f29de7e7879889d466a9eaa1a6c3c4a8d1b7a9c2018de5fc69",
+  "metrics_sha256": "349012701a95fc05922c7d5d3e58c0fb65ffea169e40ce13e7c2d35e26c9a180",
+  "source_freeze_sha256": "ca1a09e1f4b97a7bb866b9463359a7c136c4bd4ac766e4fd218f684e5127dde3",
+  "source_inventory_sha256": "41e6f1628996d870258f96561d9f3d0ad5c91b78f8a73520a97d44df71156793",
+  "source_delta_sha256": "6ddbc18e611fdd3c92db1e03a2905231ae5bb049cdbae15e163c8d79ded47615",
+  "findings_sha256": "613a83b9577c9e6a25000bb1e143159cfa6a7276e3c2e8039cd60ac422641468",
+  "limitations": [
+    "No phase/readiness/merge/export/nativeWindows/FPS/hardwarelatency/subjectiveaudio acceptance.",
+    "Actual callback spatial gap reproduced on unfixed runtime; green broader tests do not override it.",
+    "Native/movie author corpus rehashed and numeric checks recomputed; no new native engine/independent video decode by reviewer.",
+    "Source bootstrap headless smoke and mocked CI/export routing are not packaged export or actual GitHubCI."
+  ],
+  "lead_blocking_finding": "TEGA-L01"
+}

@@ -1,0 +1,35 @@
+{
+  "receipt": {
+    "operation": "02171a295d694f9abc8ceefac80f13c6",
+    "argv_sha256": "b963564084587fe7cff4b01413b9f82e9ae483cc79292517cb40dc2c422c8f27",
+    "exit_code": 0,
+    "log_sha256": "e4d9bdc2165af780505bc92e15340a3bde9a6c5926e1522c9112323ed09a71d6",
+    "seconds": 47.937
+  },
+  "receipt_sha256": "93e59f18cfaba793114d03223da0675e2ed19352d36b0dd281cc10d7483cc1a6",
+  "input_sha256": "e42dadb02c4adccde13059ae31ff6a55e1dc4c4aa9e678c4977937639ff0b31f",
+  "actual_log_sha256": "e4d9bdc2165af780505bc92e15340a3bde9a6c5926e1522c9112323ed09a71d6",
+  "exit0_and_hashes_verified": true,
+  "consumed": "Canonical history independently confirms P06_TIMKA_PRESENT_VALIDATION exit0 and subsequent author resume referencing this operation. A current consumed Boolean for this old operation was not independently observed; parent reports consumed.",
+  "canonical_matching_records": [
+    {
+      "jsonpath": "/history/151",
+      "record": {
+        "when": "2026-11-15T10:08:38+00:00",
+        "event": "P06_TIMKA_PRESENT_VALIDATION",
+        "operation": "02171a295d694f9abc8ceefac80f13c6",
+        "code": 0,
+        "phase_pass": false
+      }
+    },
+    {
+      "jsonpath": "/history/152",
+      "record": {
+        "when": "2026-11-15T10:13:47+00:00",
+        "event": "P06_HOST_AUTHOR_RESUMED",
+        "attempt": 1,
+        "previous_native": "02171a295d694f9abc8ceefac80f13c6"
+      }
+    }
+  ]
+}

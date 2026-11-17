@@ -1,0 +1,57 @@
+{
+  "scope": "INDEPENDENT_ISOLATED_PASHA_ENGINE_QA_ONLY",
+  "passed": true,
+  "phase_approval": false,
+  "results": [
+    {
+      "name": "import",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": null
+    },
+    {
+      "name": "Pasha",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "393",
+        "0"
+      ]
+    },
+    {
+      "name": "metadata-resource",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "24",
+        "0"
+      ]
+    },
+    {
+      "name": "wall-closure",
+      "passed": true,
+      "exit_code": 0,
+      "result_counts": [
+        "16",
+        "0"
+      ]
+    }
+  ],
+  "integrity": {
+    "copy_inputs_unchanged": true,
+    "WORK_inputs_unchanged": true,
+    "copy_differences": {},
+    "WORK_differences": {},
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "all_engine_processes_waited": true,
+    "QA_probe_inputs_unchanged": true,
+    "no_work_or_controller_mutations": true
+  },
+  "not_tested": [
+    "native Windows",
+    "hardware FPS/input latency",
+    "subjective audio",
+    "full P06",
+    "publication/merge"
+  ]
+}

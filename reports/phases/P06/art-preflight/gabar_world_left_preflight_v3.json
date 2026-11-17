@@ -1,0 +1,34 @@
+{
+  "phase": "P06",
+  "actor_id": "gabar",
+  "direction": "left",
+  "candidate_version": "v3_direction_specific",
+  "reviewer": "/root/art_review_p06",
+  "status": "FAIL_CAMERA_PROPORTION_CONSISTENCY",
+  "native_sha256": "dc54fa0b15f87ab7af22b048a747e14690f0435fbefccdd91111a8fcc22a6c4d",
+  "gait_semantics": "READABLE_SOURCE_CANDIDATE",
+  "gait_observations": [
+    "Contacts2/4 exchange near/far leg and reciprocalwatcharm roles",
+    "Passing3/5 narrow/weightroles read distinctly",
+    "Run6/7 exchange near/far legs/arms"
+  ],
+  "blocking_findings": [
+    {
+      "severity": "HIGH",
+      "issue": "V3 side-on tall/narrow smallhead proportions drift from V2 overhead/chibi camera and bodymodel.",
+      "required": "Wholepose camera/proportion edit using clear V2idle reference while preserving repaired gait phases."
+    }
+  ],
+  "camera_approval": false,
+  "runtime_approval": false,
+  "idle_breathing_approval": false,
+  "east_handedness_resolved": false,
+  "full_world_approval": false,
+  "phase_approval": false,
+  "source_mutations": false,
+  "candidate_in_production": false,
+  "v1_v2_failures_preserved": true,
+  "next_edit_is_preapproved_art": false,
+  "report": "gabar_world_left_preflight_v3.md",
+  "metrics": "gabar_world_left_preflight_v3_metrics.json"
+}

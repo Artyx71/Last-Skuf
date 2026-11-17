@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T14:59:03.887179+00:00",
+  "reviewer": "/root/art_timka_recovery",
+  "status": "FAIL_SIDE_GAIT_PHASE_READABILITY",
+  "phase": "P06",
+  "scope": "SOURCE_CANDIDATE_ONLY_AFTER_RESTART",
+  "actor_id": "timka",
+  "kind": "world",
+  "all32_freshly_reviewed": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "master_sha256": "f0fa1c7b2ac0a8d2b0ea57d567f906018bf39c8bf43d45b65768cf56ae87bd01",
+  "native_sha256": "f24a54dfe5272e97178ef563aee3e9e3356ca6906d10abc9c9dcb7d85aab3f0b",
+  "report_sha256": "f3c529e05273b33b23e50659f7190fe33cba91a06b798a014e4199f6f086a73a",
+  "metrics_sha256": "c2a0a328e557eeea9ad99906acbbfff5e8b05f47a45e1cac4b14c7561287df29",
+  "must_fix": [
+    {
+      "id": "TIMKA-WORLD-SOURCE-GAIT-01",
+      "severity": "HIGH",
+      "priority": "P1",
+      "scope": "source gait readability",
+      "summary": "SIDE run6/7 and RIGHTwalk2/4 do not clearly show opposite near/far leg phases at native scale; unique RGBA is insufficient evidence of a valid cycle",
+      "cells_to_correct": [
+        {
+          "direction": "left",
+          "row": 1,
+          "column": 7,
+          "source_rect": [
+            1344,
+            256,
+            1536,
+            512
+          ],
+          "native_rect": [
+            336,
+            64,
+            48,
+            64
+          ],
+          "requested_pose": "Near visible leg trails screenRIGHT/back, far leg leads screenLEFT/front; near arm swings screenLEFT/front and far arm back. Keep full-body grounded runner and traceable hip/leg ownership."
+        },
+        {
+          "direction": "right",
+          "row": 2,
+          "column": 4,
+          "source_rect": [
+            768,
+            512,
+            960,
+            768
+          ],
+          "native_rect": [
+            192,
+            128,
+            48,
+            64
+          ],
+          "requested_pose": "Opposite walking contact to RIGHT2: near leg trails screenLEFT/back, far leg leads screenRIGHT/front; near arm forward screenRIGHT/far arm back. Distinct walk stance, not airborne running."
+        },
+        {
+          "direction": "right",
+          "row": 2,
+          "column": 7,
+          "source_rect": [
+            1344,
+            512,
+            1536,
+            768
+          ],
+          "native_rect": [
+            336,
+            128,
+            48,
+            64
+          ],
+          "requested_pose": "Opposite running contact to RIGHT6: near leg trails screenLEFT/back, far leg leads screenRIGHT/front, near arm forward screenRIGHT/far arm back; retain overhead camera and readable near/far hip connection."
+        }
+      ],
+      "preserve": "Do not automatically replace6. LEFT6 already reads near-arm-back/near-leg-forward; keep LEFT6/RIGHT6 as phase references unless fresh art reveals another flaw. Preserve all other29 cells and v1 raw sources.",
+      "required_action": "Built-in whole-pose correction, complete sourcecell RGBA packing only. No mirror, limb cutting, digital anatomy repair or per-frame baseline tricks. Fresh all32 source and later actual native animation review required."
+    }
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/timka/world_master_v1.png": "f0fa1c7b2ac0a8d2b0ea57d567f906018bf39c8bf43d45b65768cf56ae87bd01",
+    "assets/source_art/characters/timka/world_native_v1.png": "f24a54dfe5272e97178ef563aee3e9e3356ca6906d10abc9c9dcb7d85aab3f0b",
+    "assets/source_art/characters/timka/world_manifest_v1.json": "d2fb431fca798c2e5d707f7f1493fa1e2c53e16eb1a110acb6a60553ad752876",
+    "assets/source_art/characters/timka/world_inspection_v1_3x.png": "8fd4d2cda37a5f3def90708eec33861956beb2a69ca2ad8e935dfa2a798a5ee9",
+    "assets/source_art/characters/timka/world_v1_prompt.txt": "d43cd16226af15e23282ce0ab540affb8ea0bd45f9ddbd8c655f2a41e83101bf",
+    "assets/source_art/characters/timka/world_v1_generation_metadata.json": "68219768a53926cc6805cef9a6195da9583d855ac92af2c80182d97741c7a728",
+    "assets/source_art/characters/timka/portraits_master_v1.png": "0d6f6e48e33b061467614dcd65b350728cd9425e38b6eb7b1945d30d2dd2f4d7",
+    "assets/source_art/characters/timka/portrait_prompt.txt": "864fb4d0f5bc86b47cae085bd3e954fd11cd411c1c74cf953460072baf6401d4",
+    "assets/source_art/characters/timka/portrait_generation_metadata.json": "d9be15f92e9608ef31b5c8e4c00d5c3cef3704909b2b9744044e972a6b777c0f",
+    "assets/source_art/characters/olezhka/world_camera_reference_v2b_4x.png": "0bda7d582e81969b8fc51b7d2eb422ebf90c935d08ca4e94caa324618ecc09df",
+    "assets/source_art/characters/olezhka/world_native_v2b.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "assets/source_art/characters/gabar/world_native_v7.png": "1fe0754e2d974d205ed21b02bd1bf2c712725263b9b87506f028f3e7f9419bdd",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "bd65b1ab0c4828aea2ac1dab376ee9109f1d5278081aa55ae16eb7c93aec6332"
+  },
+  "private_reference_local_sha256_verified": "63a3a1086570dcc5be30f80e363099b88ff77650385f26cb21ce1fd9097377c0",
+  "review_artifacts_sha256": {
+    "timka_world_preflight_v1r_down_light_dark_4x.png": "51d1f08bcf406873289b5ff23de59611f0689acece46e5ce573e0eb599d95aca",
+    "timka_world_preflight_v1r_down_walk2_walk4_run6_run7_8x.png": "4a8aee112e3f98ff6865970dd4f5f6e55804a8e14dd3468810181d6f1e3e659c",
+    "timka_world_preflight_v1r_left_light_dark_4x.png": "cf9f9647721fcafd313ae8f9d41476bf3db45fd677e3e72d047b874c4ecc2000",
+    "timka_world_preflight_v1r_left_walk2_walk4_run6_run7_8x.png": "e819de344a8cb1818baa507af4909bede99b7db3311054474b0f0b7ddd87f730",
+    "timka_world_preflight_v1r_right_light_dark_4x.png": "b87f5a7bdcb7718a426eaf9a0d4696a94680c8ef4f9d66f90d769196ada29846",
+    "timka_world_preflight_v1r_right_walk2_walk4_run6_run7_8x.png": "9a34cf93c1c393a5b50bd21b7df3d24c7cbd21abb838302829e2734e23cdccf1",
+    "timka_world_preflight_v1r_up_light_dark_4x.png": "274380f5807bdf5f235586a7eaaa8871368f83d1b06f7a256b38158290ccd435",
+    "timka_world_preflight_v1r_up_walk2_walk4_run6_run7_8x.png": "dec100fba0bd0d6d4871156e082f854175ec67a075ce75c5d54cc669769a3255",
+    "timka_world_preflight_v1r_family_idle_5x.png": "ccdd1afeae82b7ae496df7881d59bdb9ba5622eba602ede6b12b27302f6d17a2",
+    "timka_world_preflight_v1r_side_gait_vs_olezhka_6x.png": "69cce28bf65973dc806c3ba3255faf52fb0cf8c76ceb51ade072054ea696f555",
+    "timka_world_preflight_v1r.md": "f3c529e05273b33b23e50659f7190fe33cba91a06b798a014e4199f6f086a73a",
+    "timka_world_preflight_v1r_metrics.json": "c2a0a328e557eeea9ad99906acbbfff5e8b05f47a45e1cac4b14c7561287df29",
+    "timka_world_preflight_v1r.inspect.py": "2b0c52c79caec5520d25c768234488414e9ff51828e17a99b4f462290e235820"
+  },
+  "prior_interrupted_drafts_preserved": true,
+  "runtime_tests_performed": false,
+  "changed_source_or_authority": false
+}

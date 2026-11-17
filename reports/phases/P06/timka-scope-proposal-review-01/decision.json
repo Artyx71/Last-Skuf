@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-14T17:43:27.112716+00:00",
+  "phase": "P06",
+  "scope": "TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL_ONLY",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "status": "PROPOSAL_NEEDS_FIXES",
+  "owner_decision_status": "OWNER_DECISION_REQUIRED",
+  "owner_response_observed": false,
+  "proposal_sha256": "a27870889b2a7e93890cab096cdd1cfabb16e81f254f3f2effa98c320c685ed1",
+  "report_sha256": "7d97ab5945bda1f7c13b29cbd25724b1e4ac67823c0c85542a22b92f33794102",
+  "implementation_authorized_by_this_review": false,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "merge_approval": false,
+  "next_phase": "none",
+  "contract_waiver": false,
+  "findings": [
+    {
+      "id": "TIMKA-PROPOSAL-01",
+      "severity": "HIGH",
+      "status": "OPEN_PROPOSAL_CLARIFICATION",
+      "file": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
+      "summary": "Six-column finisher presentation specifies primeclinch but no concrete peaceful disengage mapping; both remain mandatory.",
+      "fix": "Specify context-bound clip/cell and gameplay presentation for both abilities, disclose any extra authored cells/budget change."
+    },
+    {
+      "id": "TIMKA-PROPOSAL-02",
+      "severity": "MEDIUM",
+      "status": "OPEN_PROPOSAL_CLARIFICATION",
+      "file": "reports/phases/P06/TIMKA_SUPPORTED_ANIMATIONS_PROPOSAL.md",
+      "summary": "Compact format migration needs exact allowlisted schema/count/maps/source-review/socket contract and preparation boundary.",
+      "fix": "Define fixed per-actor-kind expectations and new truthful count-aware source review/adopter schema, retain strict 8-column validation for all unchanged actors."
+    }
+  ],
+  "existing_art_findings_closed": [],
+  "tests": {
+    "executed": false,
+    "passed": null,
+    "failed": null,
+    "reason": "Static proposal review only; no Godot/native/tests/build/generator execution."
+  },
+  "next_action": "Clarify context presentation and compact-schema migration; retain owner decision pending; unaffected already-authorized P06 tasks may continue."
+}

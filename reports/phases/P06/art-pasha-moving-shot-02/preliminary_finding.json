@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "status": "OPEN_PRELIMINARY_ACTUAL_NATIVE02_FINDING",
+  "id": "PASHA-HUD-ARENA-OCCLUSION-01",
+  "source_head": "17b162d9d4320650f7e0422d63c1c2c77882a9d3",
+  "severity": "MEDIUM",
+  "actual": "Layout improves meter y63..67 to51..52 and is above arena54, but actual NPC crown starts near49 and is still crossed by full meter/background. Existing above-arena rectangle test passes and misses actor overhang.",
+  "expected": "No HUD pixels over actual NPC silhouette as well as no arena/title overlap.",
+  "minimum_remedy_candidate": "Move entire HUD up4px toposition.y21 (meter47..48), inspect actual title gap; or reduce meter horizontal reach belowNPCx548. Reviewer has not applied or preaccepted any remedy.",
+  "complete_movie_review_pending": true,
+  "phase_approval": false
+}

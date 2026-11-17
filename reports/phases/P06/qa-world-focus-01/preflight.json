@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "phase": "P06",
+  "reviewer": "/root/qa_resume_recovery",
+  "status": "SOURCE_PREFLIGHT_VERIFIED_NATIVE02_PENDING",
+  "reviewed_utc": "2026-11-14T16:02:27.155902+00:00",
+  "phase_approval": false,
+  "merge_allowed": false,
+  "native_focus_behavior_approved": false,
+  "native02_reviewed": false,
+  "source_patch_has_only_insertions": true,
+  "critical_code_regions_unchanged": {
+    "production_preview_actor_entire_class": true,
+    "input_driver_frames_and_record_functions": true,
+    "all_grid_continuous_movement_and_coverage_gates": true,
+    "failure_recording_shutdown_suffix": true
+  },
+  "headless_runs_verified": [
+    "70/70+672Input samples",
+    "70/70+672Input samples"
+  ],
+  "old_failed_evidence_preserved": true,
+  "findings": [],
+  "proof_limits": [
+    "headless does not exercise native FLAG_NO_FOCUS branch",
+    "actual_input means injected Godot Engine Input; no physical OS keyboard test",
+    "owner passwordwindow causality unproven",
+    "new diagnostic does not itself enforce zero sample losses"
+  ],
+  "current_fixture_sha256": "c0dd009906eac46965b942677811d4c07e5f1a0bc45faec3327f18eef8c4f9c5",
+  "before_fixture_sha256": "de8683ac2fb50812e2f1292417dad81ba4fea63ac90bfce107842661281a8126",
+  "report_sha256": "ade4f3e986fdec565c2bdbfd3dca11fce1fc5205d1f7a69ce78354b922b9f493",
+  "facts_sha256": "a1c257f08c668ca846d06d12ec5be7efd31528c46a48ef4d482311a8e4883293",
+  "next": "Fresh frozen native02 live/movie traces and receipt; preserve01FAIL"
+}

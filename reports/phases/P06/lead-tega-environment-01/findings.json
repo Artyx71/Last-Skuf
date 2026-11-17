@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scope": "BOUNDED_TEGA_LEAD_COMPONENT_REVIEW01",
+  "findings": [
+    {
+      "id": "TEGA-L01",
+      "QA_cross_reference": "TEG-Q03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "must_fix": true,
+      "requirement": "P06-CBT-08 actual foot/object eligibility; P06-CBT-10 cancel/once safety",
+      "file": "game/scripts/systems/environment_kick_runtime.gd",
+      "frozen_runtime": "6a0224e016e53e13ddb1e6fde747b66e7f75447b",
+      "mapped_QA_source": "084026895f2ffb1b51b438cbf87e8a97440d7b77",
+      "title": "Postcallback geometry is not revalidated before the same-tick object/actor sweep",
+      "repro": "QA05 real InputF; synchronous foot-audio callback moves the same enabled registered bench+100px or player-100px; priority1000 physics observer records state after Core in the same tick.",
+      "actual": "Both range128px cases still move actor and prop0.70001220703125px at pose1/.183333333333333 and retain job1; ticks19/48.",
+      "remote_damage_confirmed": false,
+      "damage_receipts_observed": 0,
+      "masks_exceptions_corrupted": false,
+      "proofs": [
+        "QA05-reproducer/callback-geometry-05/result.json",
+        "QA05-reproducer/callback-geometry-05/run.log",
+        "QA05-reproducer/qa_tega_callback_geometry.gd",
+        "callback-gap-proofs.json",
+        "source-snapshot/game/scripts/systems/environment_kick_runtime.gd"
+      ],
+      "fix": "Preserve lifetime/registry/epoch/authority guards, recompute full real _near_foot eligibility after both external callbacks and before motion/contact; stop only the stale action/job with matching attackID. No refund or implicit transform rollback.",
+      "acceptance": [
+        "Unchanged independent geometry test: no same-tick postcallback actor/prop step, jobs0, no damage/receipts for both transform cases.",
+        "Same eligibility recheck after noise callback and before contact, with instance validity before typed access.",
+        "Existing eight callback invalidations, genuine coupled movement/obstacle collision, custom masks/exclusions, once/hurt/death/reset/settings remain passing.",
+        "New source-bound independent QA and fresh actual native/movie evidence; preserve old FAIL and old source-specific ART/Gameplay decisions."
+      ]
+    }
+  ]
+}

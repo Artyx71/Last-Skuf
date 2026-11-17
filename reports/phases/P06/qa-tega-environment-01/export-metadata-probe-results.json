@@ -1,0 +1,101 @@
+{
+  "scope": "TEST_ONLY_ACTUAL_FROZEN_EXPORT_MAIN_METADATA_LOGIC_WITH_ALL_EXPORT_SMOKE_COMMANDS_MOCKED",
+  "actual_export_or_runtime_executed": false,
+  "source_sha256": "0b9c98bb17626ae583870a9c43ddb119000ea84d8e52d4e5b7fbef752f5824c8",
+  "cases": [
+    {
+      "case": "both_platforms_complete",
+      "actual_main_return": 0,
+      "actual_available_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "ryzhik_training",
+        "tega_training",
+        "timka_present",
+        "timka_prime"
+      ],
+      "actual_available_heroes": [
+        "gabar",
+        "olezhka",
+        "ryzhik",
+        "tega",
+        "timka"
+      ],
+      "per_platform_fixtures": [
+        [
+          "gabar_training",
+          "olezhka_training",
+          "timka_present",
+          "timka_prime",
+          "ryzhik_training",
+          "tega_training"
+        ],
+        [
+          "gabar_training",
+          "olezhka_training",
+          "timka_present",
+          "timka_prime",
+          "ryzhik_training",
+          "tega_training"
+        ]
+      ],
+      "mocked_calls": 4,
+      "all_expected": true
+    },
+    {
+      "case": "windows_missing_tega_check",
+      "actual_main_return": 0,
+      "actual_available_fixtures": [
+        "gabar_training",
+        "olezhka_training",
+        "ryzhik_training",
+        "timka_present",
+        "timka_prime"
+      ],
+      "actual_available_heroes": [
+        "gabar",
+        "olezhka",
+        "ryzhik",
+        "timka"
+      ],
+      "per_platform_fixtures": [
+        [
+          "gabar_training",
+          "olezhka_training",
+          "timka_present",
+          "timka_prime",
+          "ryzhik_training",
+          "tega_training"
+        ],
+        [
+          "gabar_training",
+          "olezhka_training",
+          "timka_present",
+          "timka_prime",
+          "ryzhik_training"
+        ]
+      ],
+      "mocked_calls": 4,
+      "all_expected": true
+    },
+    {
+      "case": "windows_smoke_fails",
+      "actual_main_return": 1,
+      "actual_available_fixtures": [],
+      "actual_available_heroes": [],
+      "per_platform_fixtures": [
+        [
+          "gabar_training",
+          "olezhka_training",
+          "timka_present",
+          "timka_prime",
+          "ryzhik_training",
+          "tega_training"
+        ],
+        []
+      ],
+      "mocked_calls": 4,
+      "all_expected": true
+    }
+  ]
+}

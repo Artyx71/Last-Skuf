@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "proposal_only": true,
+  "required_routes": 25,
+  "archetypes": [
+    "patrol",
+    "rusher",
+    "shooter"
+  ],
+  "NPC_directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "FullReduced_FIN_cases": 600,
+  "FullReduced_pairs": 300,
+  "new_nonYakuza_FIN_route_bindings": 240,
+  "conditional_contact_only_floor": 72,
+  "reviewable_FIN_candidate": {
+    "new_contact_wholeposes": 72,
+    "new_release_wholeposes": 72,
+    "new_prime_clinch_holds": 12,
+    "total_original_wholeposes": 156
+  },
+  "fixed_acceptance_drawing_count": false,
+  "additional_category_or_ability_refinements": "Add real wholefigure drawings wherever paired static/native contact, weapon, silhouette or release is incompatible. No arbitrary count is acceptance.",
+  "styles": [
+    {
+      "actor": "yakuza",
+      "context": "legacy_training_only",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "style": "weak_delayed_awkward",
+      "new_contact": 0,
+      "new_release": 0,
+      "new_hold": 0,
+      "contact_brief": "Retain exact accepted category contact0/1/2 path as legacy seventh baseline; long interruptible player poses do not acquire new NPC-launching force. Campaign remains escape only."
+    },
+    {
+      "actor": "gabar",
+      "context": "training",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "firearm"
+      ],
+      "style": "fast_power_strike",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 0,
+      "contact_brief": "Short chest/shoulder compression and braced backward lean; feet/weapon ownership remain readable. Release is compact buckle after the fast player strike, not airborne strength."
+    },
+    {
+      "actor": "olezhka",
+      "context": "training",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "sharp"
+      ],
+      "style": "learned_training_technique",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 0,
+      "contact_brief": "Controlled off-balance torso and checked forearm/shoulder; a deliberate lower-to-one-side release. Do not copy Gabar recoil or fabricate a new throwing mechanic."
+    },
+    {
+      "actor": "timka",
+      "context": "athletic_prime",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "style": "prime_grapple",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 12,
+      "contact_brief": "Hands/shoulders actually compressed into the own prime grip, then weighted forward fold and grounded release. Additional12 grip holds distinguish F clinch from loose generic restrained pose; only supported context/categories. peaceful_present has zero outgoing FIN."
+    },
+    {
+      "actor": "ryzhik",
+      "context": "training",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "style": "acrobatic_contact",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 0,
+      "contact_brief": "Diagonal loss of balance with a distinct shoulder/hip counterlean and low sideways fold. Match own kick/spin contact, no rotated bitmap stand-in or mechanically unimplemented somersault."
+    },
+    {
+      "actor": "tega",
+      "context": "training",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "environmental"
+      ],
+      "style": "improvised_environment",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 0,
+      "contact_brief": "Asymmetric bracing and body compression toward the registered object when relevant; release retains floor/bench clearance. Do not draw an absent cannon or move hitboxes to fit a picture."
+    },
+    {
+      "actor": "pasha",
+      "context": "training",
+      "categories": [
+        "unarmed",
+        "blunt",
+        "sharp",
+        "firearm",
+        "environmental"
+      ],
+      "style": "chaotic_improvisation",
+      "new_contact": 12,
+      "new_release": 12,
+      "new_hold": 0,
+      "contact_brief": "Uneven shoulder twist and separated arm silhouette, followed by staggered low collapse. Rifle/pistol contact and tool ownership remain correct; muzzle/bullet traces are not FIN reactions."
+    }
+  ],
+  "peaceful_present_new_FIN_drawings": 0,
+  "excluded_Timka_sharp_firearm_normal_fire_drawings": 0,
+  "signature_nonlethal_ability_budget_included": false
+}

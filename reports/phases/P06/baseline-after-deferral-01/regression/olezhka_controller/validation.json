@@ -1,0 +1,61 @@
+{
+  "phase": "P06",
+  "scope": "OLEZHKA_PRODUCTION_CONTROLLER_INTEGRATION_ONLY",
+  "phase_approval": false,
+  "actor_id": "olezhka",
+  "passed": true,
+  "source_head": "d80339829ed32a5d491657339ebe4c7df77e1252",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 164,
+  "checks_total": 164,
+  "actual_captures": 0,
+  "contacts": 57,
+  "actual_input": true,
+  "movie_recorded": false,
+  "engine_recording": null,
+  "movie_path": null,
+  "movie_audio": "Actual reused accepted cues; no new media and no subjective listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_CONTROLLER_SUBTASK",
+  "combat_abilities": "Olezhka only; four other hero bodies/abilities pending",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/olezhka_combat_replay.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 4.834,
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/olezhka_controller/commands.json",
+      "sha256": "9f7bc583a1e59d943a1d9311e7bfd133926e0ddfbfeb081f0d0e61da3b1dc56f"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/olezhka_controller/live/result.json",
+      "sha256": "cf496b4109c15cdb50cb711862ef807ff2718bebb45bcb7341d60d4aa1d413fa"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/olezhka_controller/live.log",
+      "sha256": "88b26819b77cb94fccc258aebcc8992b555c488bfd591ed2f2126f24f9332829"
+    },
+    {
+      "path": "reports/phases/P06/baseline-after-deferral-01/regression/olezhka_controller/source_hashes.json",
+      "sha256": "d3f9ace8a10a7217b96532b41959e476c06da69c27b15ead0f455be390ab9f66"
+    }
+  ]
+}

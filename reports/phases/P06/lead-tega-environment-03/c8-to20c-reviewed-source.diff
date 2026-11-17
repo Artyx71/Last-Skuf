@@ -1,0 +1,73 @@
+diff --git a/game/scripts/systems/environment_kick_runtime.gd b/game/scripts/systems/environment_kick_runtime.gd
+index 99fa94d..7a8482d 100644
+--- a/game/scripts/systems/environment_kick_runtime.gd
++++ b/game/scripts/systems/environment_kick_runtime.gd
+@@ -12,6 +12,10 @@ func _valid_object(object: Variant) -> bool:
+ 
+ func _near_foot(source: CharacterBody2D, object: PhysicsBody2D, aim: Vector2) -> bool:
+ 	if not _valid_object(object): return false
++	# A callback's Node2D transform may not yet have reached PhysicsServer2D.
++	# Queries and the subsequent sweep must use the same current transforms.
++	source.force_update_transform()
++	object.force_update_transform()
+ 	var offset := object.global_position-source.global_position
+ 	if offset.length() < 12.0 or offset.length() > 38.0 or aim.dot(offset.normalized()) < 0.85: return false
+ 	# Test the existing collider with a short foot reach, excluding only self.
+@@ -71,7 +75,7 @@ func _contact_eligible(job: Dictionary) -> bool:
+ func _stop_job(job: Dictionary) -> void:
+ 	jobs.erase(job)
+ 	# Do not cancel a replacement action created by an external listener.
+-	if _authorized_source(job.source) and job.source.melee_attack_id == job.id:
++	if job.epoch == combat.encounter_epoch and _authorized_source(job.source) and job.authority == job.source.action_authority_snapshot and job.source.melee_attack_id == job.id:
+ 		job.source.cancel_action()
+ 
+ func request_step(source: CharacterBody2D, distance: float) -> void:
+diff --git a/game/tests/tega_environment_replay.gd b/game/tests/tega_environment_replay.gd
+index 38d4417..f8ee252 100644
+--- a/game/tests/tega_environment_replay.gd
++++ b/game/tests/tega_environment_replay.gd
+@@ -3,6 +3,7 @@ extends "res://tests/gabar_combat_replay.gd"
+ var object_trace: Array[Dictionary] = []
+ const MOVE_KEYS := [KEY_S,KEY_A,KEY_D,KEY_W]
+ var foot_callback_mode := ""
++var callback_new_action_started := false
+ 
+ func on_audio(cue: StringName, _at: Vector2) -> void:
+ 	if cue != &"impact_unarmed_metal" or foot_callback_mode.is_empty(): return
+@@ -19,6 +20,12 @@ func on_audio(cue: StringName, _at: Vector2) -> void:
+ 		var replacement:=StaticBody2D.new();lab.add_child(replacement);lab.combat.register_environment("training_bench",replacement);replacement.queue_free()
+ 	if mode=="prop_far": lab.training_bench.position += Vector2(100,0)
+ 	if mode=="source_far": lab.player.position -= Vector2(100,0)
++	if mode=="prop_side": lab.training_bench.position += Vector2(0,16)
++	if mode=="reset_new_F":
++		var at:Vector2=lab.player.position
++		lab.combat.reset()
++		lab.player.reset(at)
++		callback_new_action_started=lab.player.use_ability()
+ 
+ func check(label: String, ok: bool, details: Dictionary = {}) -> void:
+ 	checks.append({"name":label,"passed":ok,"details":details})
+@@ -172,6 +179,23 @@ func run() -> void:
+ 		await tap(KEY_F);await frames(30)
+ 		check(segment+":same_instance_transform_callback_executed",foot_callback_mode.is_empty())
+ 		check(segment+":no_remote_step_or_receipt",lab.training_bench.position==prop_after_callback and lab.player.position==actor_after_callback and lab.combat.environment_kicks.jobs.is_empty() and lab.combat.receipts.is_empty() and lab.combat.damage_events==0)
++	await setup(2,false);segment="foot_geometry_sideways_same_instance"
++	var side_prop:Vector2=lab.training_bench.position+Vector2(0,16)
++	var side_actor:Vector2=lab.player.position
++	foot_callback_mode="prop_side"
++	await tap(KEY_F);await frames(30)
++	check("sideways_transform_callback_executed",foot_callback_mode.is_empty())
++	check("no_step_when_current_shape_misses_despite_valid_range_facing",lab.training_bench.position==side_prop and lab.player.position==side_actor and lab.combat.environment_kicks.jobs.is_empty() and lab.combat.damage_events==0)
++	await setup(2,false);segment="reset_new_epoch_same_kind_F"
++	var old_epoch:int=lab.combat.encounter_epoch
++	foot_callback_mode="reset_new_F";callback_new_action_started=false
++	await tap(KEY_F)
++	var callback_budget:=40
++	while not foot_callback_mode.is_empty() and callback_budget>0:await frames(1);callback_budget-=1
++	check("legitimate_reset_starts_new_F_with_reused_numeric_id",callback_new_action_started and lab.combat.encounter_epoch==old_epoch+1 and lab.player.melee_attack_id==1)
++	check("old_job_cannot_cancel_new_epoch_F",lab.player.action_kind=="special" and lab.combat.environment_kicks.jobs.size()==1 and lab.combat.environment_kicks.jobs[0].epoch==lab.combat.encounter_epoch)
++	await frames(45)
++	check("new_epoch_F_completes_physical_motion",lab.player.action_kind.is_empty() and lab.player.ability_distance>30 and lab.player.ability_distance<=37.81 and lab.combat.damage_events==0)
+ 	for reason in ["cancel","disabled","revoke"]:
+ 		await setup(2,false);segment="active_interrupt_"+reason
+ 		await tap(KEY_F)

@@ -1,0 +1,437 @@
+{
+  "method": "Independent analysis of frozen source and actual producer runtime observations; no engine rerun, no simulated evidence",
+  "runs": {
+    "native-03/live/result.json": {
+      "checks": 78,
+      "passed_checks": 78,
+      "observations": 274,
+      "HUD_model_or_guard_predicate_violations": [],
+      "layout_or_bar_violations": [],
+      "phases": {
+        "hidden": 7,
+        "ready": 40,
+        "preparing": 46,
+        "guard": 24,
+        "closed": 7,
+        "recovery": 25,
+        "cooldown": 79,
+        "counter": 33,
+        "dead": 1,
+        "paused": 10,
+        "unavailable": 2
+      },
+      "miss_phase_transitions": [
+        {
+          "physics_tick": 17,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        },
+        {
+          "physics_tick": 19,
+          "clock": 0.0,
+          "phase": "preparing",
+          "cooldown": 2.0
+        },
+        {
+          "physics_tick": 23,
+          "clock": 0.0666666666666667,
+          "phase": "guard",
+          "cooldown": 1.93333333333333
+        },
+        {
+          "physics_tick": 35,
+          "clock": 0.266666666666667,
+          "phase": "closed",
+          "cooldown": 1.73333333333333
+        },
+        {
+          "physics_tick": 42,
+          "clock": 0.383333333333333,
+          "phase": "recovery",
+          "cooldown": 1.61666666666667
+        },
+        {
+          "physics_tick": 63,
+          "clock": 0.0,
+          "phase": "cooldown",
+          "cooldown": 1.26666666666667
+        },
+        {
+          "physics_tick": 140,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        }
+      ],
+      "miss_guard_ticks": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "miss_guard_clock_bounds": [
+        0.0666666666666667,
+        0.25
+      ],
+      "actual_contact_pairs": [
+        {
+          "direction": "down",
+          "defense_tick": 148,
+          "counter_contact_tick": 149,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "left",
+          "defense_tick": 162,
+          "counter_contact_tick": 163,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "right",
+          "defense_tick": 176,
+          "counter_contact_tick": 177,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "up",
+          "defense_tick": 190,
+          "counter_contact_tick": 191,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        }
+      ]
+    },
+    "native-03/movie/result.json": {
+      "checks": 57,
+      "passed_checks": 57,
+      "observations": 269,
+      "HUD_model_or_guard_predicate_violations": [],
+      "layout_or_bar_violations": [],
+      "phases": {
+        "hidden": 5,
+        "ready": 37,
+        "preparing": 46,
+        "guard": 24,
+        "closed": 7,
+        "recovery": 25,
+        "cooldown": 79,
+        "counter": 33,
+        "dead": 1,
+        "paused": 10,
+        "unavailable": 2
+      },
+      "miss_phase_transitions": [
+        {
+          "physics_tick": 5,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        },
+        {
+          "physics_tick": 7,
+          "clock": 0.0,
+          "phase": "preparing",
+          "cooldown": 2.0
+        },
+        {
+          "physics_tick": 11,
+          "clock": 0.0666666666666667,
+          "phase": "guard",
+          "cooldown": 1.93333333333333
+        },
+        {
+          "physics_tick": 23,
+          "clock": 0.266666666666667,
+          "phase": "closed",
+          "cooldown": 1.73333333333333
+        },
+        {
+          "physics_tick": 30,
+          "clock": 0.383333333333333,
+          "phase": "recovery",
+          "cooldown": 1.61666666666667
+        },
+        {
+          "physics_tick": 51,
+          "clock": 0.0,
+          "phase": "cooldown",
+          "cooldown": 1.26666666666667
+        },
+        {
+          "physics_tick": 128,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        }
+      ],
+      "miss_guard_ticks": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "miss_guard_clock_bounds": [
+        0.0666666666666667,
+        0.25
+      ],
+      "actual_contact_pairs": [
+        {
+          "direction": "down",
+          "defense_tick": 136,
+          "counter_contact_tick": 137,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "left",
+          "defense_tick": 150,
+          "counter_contact_tick": 151,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "right",
+          "defense_tick": 164,
+          "counter_contact_tick": 165,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "up",
+          "defense_tick": 178,
+          "counter_contact_tick": 179,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        }
+      ]
+    },
+    "headless-03/live/result.json": {
+      "checks": 57,
+      "passed_checks": 57,
+      "observations": 269,
+      "HUD_model_or_guard_predicate_violations": [],
+      "layout_or_bar_violations": [],
+      "phases": {
+        "hidden": 5,
+        "ready": 37,
+        "preparing": 46,
+        "guard": 24,
+        "closed": 7,
+        "recovery": 25,
+        "cooldown": 79,
+        "counter": 33,
+        "dead": 1,
+        "paused": 10,
+        "unavailable": 2
+      },
+      "miss_phase_transitions": [
+        {
+          "physics_tick": 5,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        },
+        {
+          "physics_tick": 7,
+          "clock": 0.0,
+          "phase": "preparing",
+          "cooldown": 2.0
+        },
+        {
+          "physics_tick": 11,
+          "clock": 0.0666666666666667,
+          "phase": "guard",
+          "cooldown": 1.93333333333333
+        },
+        {
+          "physics_tick": 23,
+          "clock": 0.266666666666667,
+          "phase": "closed",
+          "cooldown": 1.73333333333333
+        },
+        {
+          "physics_tick": 30,
+          "clock": 0.383333333333333,
+          "phase": "recovery",
+          "cooldown": 1.61666666666667
+        },
+        {
+          "physics_tick": 51,
+          "clock": 0.0,
+          "phase": "cooldown",
+          "cooldown": 1.26666666666667
+        },
+        {
+          "physics_tick": 128,
+          "clock": 0.0,
+          "phase": "ready",
+          "cooldown": 0.0
+        }
+      ],
+      "miss_guard_ticks": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "miss_guard_clock_bounds": [
+        0.0666666666666667,
+        0.25
+      ],
+      "actual_contact_pairs": [
+        {
+          "direction": "down",
+          "defense_tick": 136,
+          "counter_contact_tick": 137,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "left",
+          "defense_tick": 150,
+          "counter_contact_tick": 151,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "right",
+          "defense_tick": 164,
+          "counter_contact_tick": 165,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        },
+        {
+          "direction": "up",
+          "defense_tick": 178,
+          "counter_contact_tick": 179,
+          "counter_contact_clock": 0.296666666666667,
+          "counter_damage": 1,
+          "defense_has_no_damage": true
+        }
+      ]
+    }
+  },
+  "source_head": "f844e4d3cb2c5a7d851337fdf49a00bf51c67b6c",
+  "producer_artifact_hashes_checked": 33,
+  "producer_artifact_hash_mismatches": [],
+  "movie": {
+    "path": "evidence/counter-feedback.mp4",
+    "sha256": "1b0bdb01be97cd87fe13109c097026983e79ac66bd8877223bd469e930068761",
+    "frames": 286,
+    "fps": 60,
+    "duration_seconds": 4.766666666666667,
+    "extracted_frames": [
+      {
+        "path": "video-frames/frame-01.png",
+        "source_zero_based_frame": 20,
+        "pts_seconds": 0.3333333333333333
+      },
+      {
+        "path": "video-frames/frame-02.png",
+        "source_zero_based_frame": 24,
+        "pts_seconds": 0.4
+      },
+      {
+        "path": "video-frames/frame-03.png",
+        "source_zero_based_frame": 26,
+        "pts_seconds": 0.43333333333333335
+      },
+      {
+        "path": "video-frames/frame-04.png",
+        "source_zero_based_frame": 38,
+        "pts_seconds": 0.6333333333333333
+      },
+      {
+        "path": "video-frames/frame-05.png",
+        "source_zero_based_frame": 45,
+        "pts_seconds": 0.75
+      },
+      {
+        "path": "video-frames/frame-06.png",
+        "source_zero_based_frame": 70,
+        "pts_seconds": 1.1666666666666667
+      },
+      {
+        "path": "video-frames/frame-07.png",
+        "source_zero_based_frame": 145,
+        "pts_seconds": 2.4166666666666665
+      },
+      {
+        "path": "video-frames/frame-08.png",
+        "source_zero_based_frame": 165,
+        "pts_seconds": 2.75
+      },
+      {
+        "path": "video-frames/frame-09.png",
+        "source_zero_based_frame": 181,
+        "pts_seconds": 3.0166666666666666
+      },
+      {
+        "path": "video-frames/frame-10.png",
+        "source_zero_based_frame": 205,
+        "pts_seconds": 3.4166666666666665
+      },
+      {
+        "path": "video-frames/frame-11.png",
+        "source_zero_based_frame": 214,
+        "pts_seconds": 3.566666666666667
+      },
+      {
+        "path": "video-frames/frame-12.png",
+        "source_zero_based_frame": 234,
+        "pts_seconds": 3.9
+      },
+      {
+        "path": "video-frames/frame-13.png",
+        "source_zero_based_frame": 255,
+        "pts_seconds": 4.25
+      }
+    ],
+    "visually_inspected_extracted_frames": [
+      20,
+      26,
+      165,
+      214
+    ],
+    "extraction": "ffmpeg select actual MP4 decoded frames; no synthesis or overlay"
+  }
+}

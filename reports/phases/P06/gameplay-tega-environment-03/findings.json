@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "source_head": "20cbc322441a80675907bf407f12962778c6c084",
+  "scope": "TEGA_CALLBACK_AND_ACTION_LIFETIME_COMPONENT_ONLY",
+  "closed_findings": [
+    {
+      "id": "TEGA-L01",
+      "status": "CLOSED_COMPONENT_FOR_TESTED_CASES",
+      "basis": "Original far-prop/far-source same-instance128px cases remain zero same-tick movement; geometry8/8 plus fresh author traces. Additional Node-cache and epoch defects tracked below are also closed."
+    },
+    {
+      "id": "TEGA-L02",
+      "QA_id": "TEG-Q03",
+      "severity": "MEDIUM",
+      "status": "CLOSED_COMPONENT",
+      "production_fix": "_near_foot synchronizes source/object current transforms before spatial query.",
+      "causal_proof": "Nonintervening clean5: callback leaves Node256/PhysicsServer240/currentShape miss; after Core SAMEtick19 PS256/currentShape+space miss and delta0/jobs0. Probe calls no runtime eligibility helper or transform flush.",
+      "native_proof": "Fresh native/movie sideways same-instance case has zero additional motion; aborts and finite idle state, no Core receipt."
+    },
+    {
+      "id": "TEGA-L03",
+      "QA_id": "TEG-Q04",
+      "severity": "MEDIUM",
+      "status": "CLOSED_COMPONENT",
+      "production_fix": "_stop_job binds original epoch, authority and numeric action ID before canceling.",
+      "causal_proof": "Unchanged reset/new-same-kind probe: oldepoch6/id1→new7/id1. After oldcleanup new special, epoch7/job1/id1 survive.",
+      "native_proof": "Both fresh traces preserve11new-windup samples without stale movement; new action then sweeps35.700012px and completes/jobs0. New action inside callback uses ordinary use_ability, initial trigger actual InputF."
+    }
+  ],
+  "open_must_fix": [],
+  "old_decisions_preserved": [
+    "GP01 052c1cf3",
+    "GP02 FAIL 9f96a120"
+  ],
+  "ordering_limit": "Comparative15 helper calls production _near_foot LAST and can sync transforms during telemetry. Clean5 proves production callsite causally; do not treat all comparative fields as one atomic state."
+}

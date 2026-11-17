@@ -1,0 +1,73 @@
+{
+  "scope": "TEST_ONLY_PURE_HELPER_CONSISTENCY_PROBES",
+  "source_sha256": "d073b12eb62c7593b6156428ac411c404a84ef33c641fca9d03d3d881686d51b",
+  "actual_native_or_engine_executed": false,
+  "results": [
+    {
+      "case": "baseline_toy",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "b927b9b0a6d5a1b5a7eb5b957dbc98b66afbeea2eea7ec0007046d1057c25445",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "contradictory_failed_commands_file",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Bound live commands contradict the validation summary')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "wrong_result_scope",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Native live result does not establish successful actual Input')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "duplicate_capture_aliases",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Native capture is not bound to the verified live inventory')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "summary_count_mismatch",
+      "accepted": false,
+      "return": null,
+      "error": "ValueError('Live check counts contradict the actual result')",
+      "TOY_FIXTURE_NOT_NATIVE": true
+    },
+    {
+      "case": "typed_commands_contradiction",
+      "accepted": true,
+      "return": {
+        "validation": "reports/native/validation.json",
+        "sha256": "bac97a4c6ae4d5d40b74764d0b1d0524791dd7e9a5a4c593d8cbfb8ecfd4619d",
+        "source_head": "0000000000000000000000000000000000000000",
+        "checks": [
+          {
+            "passed": 1,
+            "total": 1
+          }
+        ],
+        "captures": 1,
+        "all_artifacts_verified": true
+      },
+      "error": null,
+      "TOY_FIXTURE_NOT_NATIVE": true
+    }
+  ]
+}

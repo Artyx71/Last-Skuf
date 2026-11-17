@@ -1,0 +1,42 @@
+{
+  "phase": "P06",
+  "actor_id": "gabar",
+  "reviewer": "/root/art_review_p06",
+  "review_kind": "independent_world_source_movement_semantics_preflight",
+  "status": "FAIL_SOURCE_MOVEMENT_SEMANTICS",
+  "native_sha256": "166827e8c90cbd6e88118f330368178c165efee5419c2a2fdbd5ea98c7983c1a",
+  "static_identity_and_pixel_structure": "ACCEPTABLE_CANDIDATE_WITH_WATCH_HANDEDNESS_DEFECT",
+  "walk_approval": false,
+  "run_approval": false,
+  "idle_breathing_approval": false,
+  "runtime_approval": false,
+  "phase_approval": false,
+  "source_mutations": false,
+  "reviewer_godot_controller_generator_run": false,
+  "findings": [
+    {
+      "id": "GABAR-WORLD-01",
+      "severity": "HIGH",
+      "issue": "Side walk2–5 retain same extended contactstance; down/up repeat two contactfamilies without readable passingposes.",
+      "required": "Author readable contactA/passingA/contactB/passingB wholepose sequence per direction."
+    },
+    {
+      "id": "GABAR-WORLD-02",
+      "severity": "HIGH",
+      "issue": "Run6/7 retain same leadleg/arms family rather than an oppositephase pair.",
+      "required": "Author two clearly opposite leg/arm runposes per direction."
+    },
+    {
+      "id": "GABAR-WORLD-03",
+      "severity": "MEDIUM",
+      "issue": "Right/east view shows watch on near anatomicalright arm.",
+      "required": "Keep watch anatomicalleft, allowing natural occlusion; no procedural feature repair."
+    }
+  ],
+  "additional_motion_risk": "Left run headtop changes10→7 nativepx despite same semanticstance; align authored ground/pelvis/head and recheck actualplayback.",
+  "unique_rgba_frames": 32,
+  "unique_hashes_do_not_prove_gait": true,
+  "report": "gabar_world_preflight_v1.md",
+  "metrics": "gabar_world_preflight_v1_metrics.json",
+  "review_required_before_replication_to_other_heroes": true
+}

@@ -1,0 +1,101 @@
+{
+  "phase": "P06",
+  "version": 3,
+  "reviewer": "/root/gameplay_review_p06",
+  "source_head_observed": "79fa2ec645edf1ba4446f353f864b26c93362db3",
+  "review_kind": "independent_registered_policy_component_followup",
+  "status": "REGISTERED_POLICY_COMPONENT_VERIFIED_HOST_GAMEPLAY_PENDING",
+  "phase_approval": false,
+  "production_character_ability_approval": false,
+  "art_or_native_feel_approval": false,
+  "runtime_tests_performed_by_reviewer": false,
+  "source_mutations": false,
+  "controller_or_git_mutations": false,
+  "verified_changes": [
+    "Seven packaged fixture registry validates actor/context/equipment and rejects unregistered/raw context/save text",
+    "Copied definitions/authority prevent external copy mutations",
+    "Generation on reopen/invalidate and owner scene_instance revoke jobs through unchanged Core",
+    "Requested category matches selected category; Core checks actual weapon/environment/target geometry",
+    "Production policy exercised unchanged through test-only legacy visual actor and actual CombatSystem"
+  ],
+  "new_high_findings": [],
+  "remaining_constraints": [
+    "Production host/factory owns registered-key routing: valid keys are not credentials and must not derive unauthorized grants from save fields",
+    "Mandatory policy on new actors; production switch/reset lifecycle and actual scene equipment/props",
+    "Six actual abilities/actions/personal finishers with renderer/contact/cost/cancel contracts",
+    "Native four-direction Input/captures, save/CH01/process-restart isolation, once-ledger/reset/reload/settings and full platform/phase evidence"
+  ],
+  "independent_inventory_verification": {
+    "source_entries_checked": 156,
+    "mismatches": 0,
+    "operation": "current WORK SHA256 vs registered-policy-regression-02 source_hashes",
+    "unchanged_core_from_v2": true
+  },
+  "author_headless_results_read_not_rerun": {
+    "character_scene_policy_test": 99,
+    "character_policy_integration_test": 57,
+    "character_world_preview": 70,
+    "total_passed": 226,
+    "total_failed": 0,
+    "reported_exit_codes": [
+      0,
+      0,
+      0
+    ]
+  },
+  "previous_regressions_rerun_for_this_review": false,
+  "report": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/gameplay-preflight/review-v3.md",
+    "sha256": "b4153af08c1778871f7f3073d1ac50498b35df8bbda6e2422db92c84c96b9725"
+  },
+  "evidence": [
+    {
+      "path": "game/scripts/systems/character_scene_policy.gd",
+      "sha256": "6066515a552479729c13e118353368ff33a4725007464b2614e7964c035e39ef"
+    },
+    {
+      "path": "game/resources/characters/sandbox_scenes.json",
+      "sha256": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27"
+    },
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "sha256": "4ef3fc2717b3c6442c105b4708190b5914921aab8c61adf6e166c1bc9ae9804b"
+    },
+    {
+      "path": "game/tests/character_scene_policy_test.gd",
+      "sha256": "ec1730c0d99a5b7d44867c2c25a12788617140cd53d5e8282f5dd43cae503fac"
+    },
+    {
+      "path": "game/tests/character_policy_integration_test.gd",
+      "sha256": "30a057e055ac36b91d4109714c3c512cf8f04a5fb8272bf3f7f8008bb6629892"
+    },
+    {
+      "path": "game/tests/fixtures/character_policy_lab.gd",
+      "sha256": "fb1f3335720e7cae660c78ea062ce5d0be66687f7dbe450775955a9f87e8487e"
+    },
+    {
+      "path": "game/scripts/actors/pixel_presentation.gd",
+      "sha256": "a6dfc9819d5f710f2ad33c1fd01ee1d1beb3fc7eca8ce95839da483b5add88a0"
+    },
+    {
+      "path": "game/tests/character_world_preview.gd",
+      "sha256": "de8683ac2fb50812e2f1292417dad81ba4fea63ac90bfce107842661281a8126"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/registered-policy-regression-02.json",
+      "sha256": "5bb495c03e4b9c59b624d48fb924330e5e3b42da4138211cd4d34a29e4b9e57e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_scene_policy_test-registered-02.log",
+      "sha256": "14610d74017098784cf356812f9b9240cae22537d95b96b2f1e804358d75f0bd"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_policy_integration_test-registered-02.log",
+      "sha256": "790516c30ad0a1b3da9dbe613bf3ad935f4df51d24f643f330605ebec56f1d02"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/author-checks/character_world_preview-registered-02.log",
+      "sha256": "bf4193b8b77b6edc6fe7b8b81994f4ec60a0c3ec84751c68ad7db518bf63a853"
+    }
+  ]
+}

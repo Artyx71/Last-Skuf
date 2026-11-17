@@ -1,0 +1,26 @@
+{
+  "scope": "FIX11F_PREFLIGHT_ONLY",
+  "mandatory": [
+    {
+      "id": "PIPE-Q02",
+      "severity": "MEDIUM",
+      "status": "NOT_FULLY_CLOSED",
+      "actual_cases": [
+        "exp_overflow",
+        "negative_exp_overflow",
+        "legacy_name_int",
+        "legacy_log_int",
+        "legacy_name_list",
+        "argv_nonstring"
+      ],
+      "cause": "parse_constant seesliteralNaN/Infinity only; validJSON1e309 overflows builtinfloat toinf. Legacyname/log onlytruthy, commandargv onlynonemptylist.",
+      "required_fix": "Reject float overflow and type/content-check names/log/argv; no additional gameplay gates."
+    }
+  ],
+  "closed": [
+    {
+      "id": "PIPE-Q01",
+      "actualproof": "Inheritedpipe parentexit0\u2192structured124; silentparentexit0\u2192false; silentparentexit7\u2192false; noresidualchildren; ordinarycontrolpasses. Sourceexacte065."
+    }
+  ]
+}

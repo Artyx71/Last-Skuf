@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "review_status": "COMPLETED",
+  "status": "FAIL_RIGHT_SIGNATURE_HANDEDNESS_READABILITY",
+  "actor_id": "olezhka",
+  "kind": "finisher",
+  "all32_freshly_reviewed": true,
+  "technical_reconstruction_passed32": true,
+  "source_only_acceptance": false,
+  "runtime_approval": false,
+  "full_phase_approval": false,
+  "phase_approval": false,
+  "native_sha256": "68c2384240fec490b91d65f88e984c76f25a651e18e57d32be264ee37204ca1e",
+  "master_sha256": "25fd9063801e536514e81b75f8b203dfec80ef2bb88ef7c7ef0d2d65b61845f4",
+  "report_sha256": "751498c37eca72cdfa92e66793af69870f88358dec3f0c26bb4c3c73307530ff",
+  "metrics_sha256": "8462b00040f03d786ae6744b31b0a23358863890c98e4074d95311e754ab2a2e",
+  "must_fix": [
+    {
+      "id": "OLEZHKA-FIN-SOURCE-RIGHT7-01",
+      "severity": "major",
+      "direction": "right",
+      "column": 7,
+      "source_rect": [
+        1344,
+        512,
+        1536,
+        768
+      ],
+      "native_rect": [
+        336,
+        128,
+        48,
+        64
+      ],
+      "summary": "Required LEFT parry / RIGHT counter is not clearly readable from shoulder/forearm ownership; current foreground guard reads nearRIGHT",
+      "required_action": "bounded built-in whole-pose RIGHT7 correction with clear arm assignment; preservev1, no code anatomy repair"
+    }
+  ],
+  "pending_runtime_reservations": [
+    "RIGHT/UP lower crouched preparation scale/head-height joins vs world/action",
+    "fixedroot58 with some soles61 and narrow source/native tool gutters",
+    "shared0/contact/6 timing/tool continuity",
+    "actual parry/counter defense and ability mechanics untested",
+    "firearm/environmental source reservations grant no equipment"
+  ],
+  "source_inventory_sha256": {
+    "assets/source_art/characters/olezhka/finisher_master_v1.png": "25fd9063801e536514e81b75f8b203dfec80ef2bb88ef7c7ef0d2d65b61845f4",
+    "assets/source_art/characters/olezhka/finisher_native_v1.png": "68c2384240fec490b91d65f88e984c76f25a651e18e57d32be264ee37204ca1e",
+    "assets/source_art/characters/olezhka/finisher_manifest_v1.json": "de0ed62bb8bbec760acf0908cf9c951267fe0598a0748fde9911e0d2ad4762b9",
+    "assets/source_art/characters/olezhka/finisher_v1_prompt.txt": "e6c245c21bdb6f259be871966e669cea10d316e4c31d84f62a0935e81a24c004",
+    "assets/source_art/characters/olezhka/finisher_v1_generation_metadata.json": "e0a2d57154be202758ebc1d9a0c66d746c9a972e58ce14d088b18b5e3818eede",
+    "assets/source_art/characters/olezhka/world_camera_reference_v2b_4x.png": "0bda7d582e81969b8fc51b7d2eb422ebf90c935d08ca4e94caa324618ecc09df",
+    "assets/source_art/characters/olezhka/world_native_v2b.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "assets/source_art/characters/olezhka/portraits_master_v1.png": "22fa1de0c663acb13185ff32b1121d29ecf498a5b583e92c01e7b65409b40268",
+    "assets/source_art/characters/olezhka/action_inspection_v2a_3x.png": "c8f2d75e7201c9a5a5eae7eb8b79d02cdec84e0664508ebc56cff1188ca411c4",
+    "assets/source_art/characters/olezhka/action_native_v2a.png": "97f96ddba049e701cdd76a097d8cb685b8cf0ee2642a637961d151cebda633ce",
+    "assets/source_art/characters/olezhka/action_master_v2a.png": "55e6143df8a02e026c12491f3b7792ccedba85d09f86c249e1ebda47f511d6ea",
+    "assets/source_art/characters/pack_actor_sheet.py": "0abf9bbf877846c7cc7aa9af1e8392055c9f8730901baf59e312d73b4150fd11",
+    "assets/source_art/characters/pack_portraits.py": "5c40e3266a6d7946eb39102b08ecef165618d21ee7e4fa5ba7606d1f20ca71aa",
+    "game/assets/art/characters/olezhka/portraits.png": "6dc278dd2cc6c2956e5878e65a638bf9c7516fa594c7c29a70200fd047c1e29c",
+    "game/assets/art/characters/olezhka/world_sheet.png": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+    "game/assets/art/characters/olezhka/action_sheet.png": "97f96ddba049e701cdd76a097d8cb685b8cf0ee2642a637961d151cebda633ce",
+    "docs/ART_BIBLE.md": "1dcc06285ce547eccd48532cfb4badf1f2c5a54eb80f6d0ae742be4fc57f3a0e",
+    "docs/CHARACTER_BIBLE.md": "4db36b665d7a73d3c9b497543182eef93bd1f46f2ce317d9d7f263dd756dd8bb",
+    "specs/CHARACTER_EXPANSION_SPEC.md": "e8c7ff18dca88e39beed12668e430267223dfb7af6ea8423f383337d80320a69"
+  },
+  "review_artifacts_sha256": {
+    "olezhka_finisher_preflight_v1_down_light_dark_4x.png": "de3d5f9fbe19f96870c2cc67b15d36177bc5199f13b674b99c96fb8647fecb15",
+    "olezhka_finisher_preflight_v1_left_light_dark_4x.png": "9b60f04626b9127558eff12d1e060d618ea2b72eb1a67a3b50d085c5cdf7a985",
+    "olezhka_finisher_preflight_v1_right_light_dark_4x.png": "6f7963f59f8cac972f3ac3d2ecc3d086aa4baf40f58a097da4394ca3f34b425a",
+    "olezhka_finisher_preflight_v1_up_light_dark_4x.png": "03b13ef175c6f8eab2c8967ef73a100357217ab683e900cbb4924bb5929a7fa8",
+    "olezhka_finisher_preflight_v1_world_action_0_1_6_7_compare_5x.png": "5a85ad671d348f68397024d62150cfcc1f884c101557368a26e49659bee4de48",
+    "olezhka_finisher_preflight_v1_signature_wholecells_2x.png": "f875ec524aabbffaacdb34f6e302f82d8b49ee83619b3a2d3e3ac7a423456ebd",
+    "olezhka_finisher_preflight_v1_down_tools_wholecells_2x.png": "e67d9682d8a10d6f04c3578d0bac422b76480da79b54f171de33cf0469109ed4",
+    "olezhka_finisher_preflight_v1_left_tools_wholecells_2x.png": "1445035d6094bcda08caebd4dc8142451101d01efe55315eeb14fa979b2bb69f",
+    "olezhka_finisher_preflight_v1_right_tools_wholecells_2x.png": "7bc2dda339fb5e8b705e33fca82f9eb9ac0c53358671abf4a618991bf4180e73",
+    "olezhka_finisher_preflight_v1_up_tools_wholecells_2x.png": "0ba04ce8658261caa4fbf3e6a44f9aa2d3ef89ab7c3fd72a047fcb629ad55dfd",
+    "olezhka_finisher_preflight_v1_right_signature7_source_native.png": "92195d9c40fe2643c17fb1a15b0705c7b0ca305593300e5640a9029183eec525",
+    "olezhka_finisher_preflight_v1.md": "751498c37eca72cdfa92e66793af69870f88358dec3f0c26bb4c3c73307530ff",
+    "olezhka_finisher_preflight_v1_metrics.json": "8462b00040f03d786ae6744b31b0a23358863890c98e4074d95311e754ab2a2e"
+  }
+}

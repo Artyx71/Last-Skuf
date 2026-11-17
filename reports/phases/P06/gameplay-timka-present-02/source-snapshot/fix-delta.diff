@@ -1,0 +1,63 @@
+diff --git a/game/tests/timka_present_replay.gd b/game/tests/timka_present_replay.gd
+index 60b9805..90c533b 100644
+--- a/game/tests/timka_present_replay.gd
++++ b/game/tests/timka_present_replay.gd
+@@ -126,6 +126,45 @@ func run() -> void:
+ 		if reason in ["revoke","reopen"]: lab.scene_policy.open("timka_present")
+ 		await tap(KEY_R)
+ 		check(reason+":restart_clears_action_and_cost",lab.state=="playing" and lab.player.health==1 and lab.player.action_kind.is_empty() and lab.player.ability_cooldown==0 and lab.player.ability_distance==0)
++	# Controlled incoming production attacks, not direct receive_hit. Opponents
++	# have explicit initial positions and paused AI; bind_melee presents their
++	# real attack pose and CombatSystem does the live overlap/receipt/damage.
++	for phase_index in 3:
++		for fatal in [false,true]:
++			segment="Core_melee_"+["guard","active","recovery"][phase_index]+("_fatal" if fatal else "_hurt")
++			var target := await fixture(Vector2.RIGHT,3,false)
++			target.position=lab.player.position+Vector2([20.0,4.0,-50.0][phase_index],0)
++			lab.player.health=1 if fatal else 2
++			await frames(2)
++			await tap(KEY_F)
++			while lab.player.action_elapsed<float([0.03,0.19,0.39][phase_index]): await frames(1)
++			var before_clock: float=lab.player.action_elapsed
++			var before_frame: int=lab.player.action_frame
++			target.locked_aim=(lab.player.position-target.position).normalized()
++			var attack: Dictionary=lab.config.attacks.enemy_melee.duplicate(true)
++			var incoming: int=lab.combat.start_melee(target,"enemy",target.locked_aim,attack)
++			await frames(1)
++			var incoming_events:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.target_is_player)
++			check(segment+":live_overlap_receipt_and_damage",incoming_events.size()==1 and lab.player.health==(0 if fatal else 1) and lab.player.hits_received==1 and lab.combat.damage_events==1 and lab.combat.defended_events.is_empty(),{"clock_before_contact":before_clock,"frame_before_contact":before_frame,"attack_id":incoming,"contact_count":incoming_events.size()})
++			check(segment+":own_action_replaced_by_hurt_or_fall",lab.player.action_kind==("fall" if fatal else "hit") and lab.player.sprite.animation==StringName(("fall_" if fatal else "hit_")+"right"))
++			check(segment+":enemy_contact_pose_is_real",String(target.sprite.animation).begins_with("reaction_attack_") and target.attack_id==incoming)
++			await capture(segment+"_actual_contact")
++			var spent_distance: float=lab.player.ability_distance
++			await frames(10)
++			check(segment+":no_repeat_damage_or_outgoing_ability",lab.player.hits_received==1 and lab.combat.damage_events==1 and target.health==3 and lab.score==0 and lab.player.ability_distance==spent_distance and lab.player.action_kind!="disengage")
++			await tap(KEY_R)
++			check(segment+":restart_clears_receipts_and_action",lab.state=="playing" and lab.player.health==1 and lab.player.hits_received==0 and lab.combat.receipts.is_empty() and lab.player.ability_distance==0 and lab.player.ability_cooldown==0)
++	segment="Core_projectile_during_active"
++	var shooter := await fixture(Vector2.RIGHT,3,false)
++	lab.player.health=2
++	await tap(KEY_F)
++	await frames(9)
++	check("projectile_test_starts_inside_active_step",lab.player.action_kind=="disengage" and lab.player.action_frame in [1,2,3,4])
++	shooter.locked_aim=(lab.player.position-shooter.position).normalized()
++	lab.combat.fire(shooter,"enemy",shooter.locked_aim,lab.config.attacks.pistol)
++	await frames(12)
++	check("live_projectile_hits_moving_body_without_invulnerability",lab.player.health==1 and lab.player.hits_received==1 and lab.combat.damage_events==1 and lab.player.action_kind!="disengage" and contacts.any(func(item:Dictionary):return item.segment==segment and item.target_is_player))
++	await capture("projectile_interrupts_actual_step")
+ 	segment="pause"
+ 	await fixture(Vector2.RIGHT,3,false)
+ 	await tap(KEY_F)
+diff --git a/tools/verify.py b/tools/verify.py
+index 389a609..4c9bce6 100644
+--- a/tools/verify.py
++++ b/tools/verify.py
+@@ -69,6 +69,8 @@ def main():
+                          '--headless', '--output', str(output / 'olezhka_controller')]))
+         commands.append(('olezhka_counter_feedback', [sys.executable, 'tools/verify_p06_counter_feedback.py',
+                          '--headless', '--output', str(output / 'olezhka_counter_feedback')]))
++        commands.append(('timka_present_controller', [sys.executable, 'tools/verify_p06_timka_present.py',
++                         '--headless', '--output', str(output / 'timka_present_controller')]))
+     env = dict(os.environ)
+     for key, folder in [('XDG_CONFIG_HOME', 'config'), ('XDG_DATA_HOME', 'data')]:
+         isolated = output / 'isolated_saves' / folder

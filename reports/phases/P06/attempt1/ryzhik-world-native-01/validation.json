@@ -1,0 +1,338 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "ryzhik",
+  "passed": true,
+  "source_head": "b7bded7bbed827b95992cfd09c4ec3487b64316f",
+  "source_unchanged": true,
+  "renderer": "X11",
+  "checks_passed": 110,
+  "checks_total": 110,
+  "actual_captures": 40,
+  "phase_captures": 32,
+  "transition_captures": 8,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": true,
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/ryzhik-world-native-01/world.mp4",
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 13.21,
+      "passed": true
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/ryzhik-world-native-01/world.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 23.235,
+      "passed": true
+    },
+    {
+      "name": "encode_movie",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/ryzhik-world-native-01/world.avi",
+        "-an",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/ryzhik-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 1.234,
+      "passed": true
+    },
+    {
+      "name": "probe_movie",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/attempt1/ryzhik-world-native-01/world.mp4"
+      ],
+      "exit_code": 0,
+      "seconds": 0.046,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "ryzhik",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    },
+    "movie": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "ryzhik",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/commands.json",
+      "sha256": "a6966e36a9b527241000739ede134c0a86af6f67a550bc34646bd49cf25e84a5"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/encode_movie.log",
+      "sha256": "9fa3b6ead7afc298499f30c5b70014c78b6686a8269611537606fa5a7c02b6a2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_down_0.png",
+      "sha256": "2bb200d3a4011a9b699d6ec8489224608cd322c89592221009839ba56286bd26"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_down_1.png",
+      "sha256": "cd27865ccb889d7df4e367a756ff56e42c5dcefd058e85a648d173f359e69bb4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_left_0.png",
+      "sha256": "24c733dfeac395c119e7a6a19a6ce4530d8c13c971050f88e206ec72ee6524eb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_left_1.png",
+      "sha256": "cd50e759c6f2670dba5da88b3f9312305fec83e0fa4279648a2bbe2776a6c164"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_right_0.png",
+      "sha256": "afc896e431517cac8aeb6ecb3b2526c9db8bbce7dba9dd3d2fe28a92f6b01275"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_right_1.png",
+      "sha256": "2bb40cef8ea5f4353d3530ec8072f0239436a4a01c6532faeda0e096b32b5023"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_up_0.png",
+      "sha256": "7deb83903ee89baf6c28151143d88004cca5e32118cd73e2127fd1869251cec1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/idle_up_1.png",
+      "sha256": "f6f24e5b6934be83e5f49d2ea007c19d283888b70a40af6d8521e077d9ea7016"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/input_gate.json",
+      "sha256": "f35931332e20fa69e0a3930cc1cdbeb93005b2171c2cd4ba3e6b3edefe3bcb62"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/result.json",
+      "sha256": "4905f4942a915b7b081d5dcc252b44bf12ac6c98fd6791a90b419129d911ddb1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_down_0.png",
+      "sha256": "633a9d7a5c8829d099b4df1695eaf56f7fe47fc0a025969ba8ab63a2e93ccfa9"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_down_1.png",
+      "sha256": "1a6244e2846c9df8b318e06c2b459d6b73846d6ec7f4bab627f350b3fbc3fcdb"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_left_0.png",
+      "sha256": "a4ed800c3a59694abab73afe4c3dd94162faf4491ede6db1cf1513c02c619726"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_left_1.png",
+      "sha256": "3ea8ed33dccdc55ee7ae560ab69775072d3872b228b55f48ba068e9bef516c39"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_right_0.png",
+      "sha256": "8b643fa584ee63c1e89b0428c6bd0063adf089a159ecf15a17cce01fc93d8ae1"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_right_1.png",
+      "sha256": "894b18102c74ffd84f9196e0b86f08b666263d3d9b401c9f8753ed284a0fba01"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_up_0.png",
+      "sha256": "d52170d9d199f87b0d4e87fc4f18472aa5e504139809ce5a07e285e4ea80fe9a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/run_up_1.png",
+      "sha256": "d5f5eea1cadbb03300ca72c64d231876b73cec3c7bb6383313cedc6d44ac1be0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_504_idle_up.png",
+      "sha256": "1ff6803d83d69d85fcd8bf51ec744b8e49cecdfb038de91452eaa0f5500cdcfa"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_528_walk_right.png",
+      "sha256": "2e66cbcea05a7582b4ac39da728dc3f166f4b23b48c17d4792d455b3bd5699e0"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_552_run_right.png",
+      "sha256": "899e23122394416c54a1de76aa4a8f452377fbdd39b2c19aa32519a4f3f27788"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_576_idle_right.png",
+      "sha256": "924eb1ac5ddcf3bd5ba3553fb3631bed3585d4f8ab6af85b38b25981351c7d7a"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_600_walk_down.png",
+      "sha256": "b521b89b3236d79ef09887e9f268527467193dff9829da5ca1e47b200478a2e2"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_624_run_left.png",
+      "sha256": "7d636758dfd760b0fd74baaddb1fada7e26dc2f74013a97832de6f912d49d634"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_648_walk_up.png",
+      "sha256": "f194e9b63cc35396f1f9fc7cc6ad91b8450cab309a7aaf8e314cbf5738dfdd2c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/transition_672_idle_up.png",
+      "sha256": "24ee20ed651c08fc7846ad830b9a417d51988dd8ad99e93988e001f028b5aefc"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_down_0.png",
+      "sha256": "1205df7e2f54bd7d7495375c3e1aa0c5dc0a4c2f9eba2b5d8a4fbc0ac8aa7f34"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_down_1.png",
+      "sha256": "b3c37cfcf356b5fa69078fb44e8f749b30944ea29f93e2c165ad784bf0011713"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_down_2.png",
+      "sha256": "f74321d37294655388518fbeb54178ed2c1b7e0358c41cd2558b76aaff4eb3b6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_down_3.png",
+      "sha256": "b4a731e69469daadcb3cff9c47d097860e2a12871d6312a86a42280c0acc211b"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_left_0.png",
+      "sha256": "ecabd929926d614e780fd1fc0a65a26d0d96e206b0c2e63efcc9b115ee53fca7"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_left_1.png",
+      "sha256": "f4e3c2373456b1b37599913906bf167cfcba59369a7fc69f3e0664a1b16b6650"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_left_2.png",
+      "sha256": "7c4a3080f7690ef237beaa354ff0dfecbda0f1b638fa9ba0af193c6734ab5a7d"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_left_3.png",
+      "sha256": "daf13dda0c17fede3be2731cddd47f08dc51280ebb98e87eaf42df899907430e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_right_0.png",
+      "sha256": "e92b5f44d79457a4ecdaf4b711955edb1095e102276a8bd09266bdfab9cadaac"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_right_1.png",
+      "sha256": "bd089736ea1fde35878ac0be2004d194b0d714a7ab5e2e61573bc79eccd0f00e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_right_2.png",
+      "sha256": "5bdc091371cfd68520e553da8ec319ad53ea97fc19f19aae04623d8628d90dd4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_right_3.png",
+      "sha256": "36062abcb76c830dba6a45bebc91d124740bb6517a084100d3f32e6b3992ad55"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_up_0.png",
+      "sha256": "138ed79d7e75db3cb4bd364ea5e7948ab0e5f86f5774ae88deedd602fcca8a1e"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_up_1.png",
+      "sha256": "fe50481787e237969a79c590cc681b027efa1942410ae10531bd94272168a786"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_up_2.png",
+      "sha256": "02290fd144522344860cf0670b5eb1b5b72e1a42350da8237920447858c00d88"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live/walk_up_3.png",
+      "sha256": "4732b1a542eed5a6dbb4a08632ca45efe655d7f7cfbe082537f3528c744f229c"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/live.log",
+      "sha256": "0c33d6276de67058dae4414e63a930e24f6728268f9c364d8b5f017acd977568"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/movie/input_gate.json",
+      "sha256": "f35931332e20fa69e0a3930cc1cdbeb93005b2171c2cd4ba3e6b3edefe3bcb62"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/movie/result.json",
+      "sha256": "df66d02fc2e3ba068518207adee020f55022cc49f7bdff81dad2ade21f239fe4"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/movie.log",
+      "sha256": "3a05e14688077ebc6fac5c090f22b789b69f8c4346d4a09214cd73c68642dd97"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/movie_probe.json",
+      "sha256": "0bcb9692a611da3ed4777280fd7ae54623512be7114150ef01714c4f6c474760"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/probe_movie.log",
+      "sha256": "f44da81fec38448ceea13a01d28ec6f16c9454b4dac3d058e9b5c52b7bf25df6"
+    },
+    {
+      "path": "reports/phases/P06/attempt1/ryzhik-world-native-01/source_hashes.json",
+      "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+    }
+  ]
+}

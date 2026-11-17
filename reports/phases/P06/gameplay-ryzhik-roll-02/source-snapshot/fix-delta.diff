@@ -1,0 +1,285 @@
+diff --git a/game/assets/art/characters/ryzhik/roll.json b/game/assets/art/characters/ryzhik/roll.json
+index b243335..ee6eb5f 100644
+--- a/game/assets/art/characters/ryzhik/roll.json
++++ b/game/assets/art/characters/ryzhik/roll.json
+@@ -2,11 +2,11 @@
+   "schema": 1,
+   "actor_id": "ryzhik",
+   "kind": "roll",
+-  "status": "SOURCE_ACCEPTED_REQUIRES_ACTUAL_ANIMATION_AND_GAMEPLAY",
+-  "master": "assets/source_art/characters/ryzhik/roll_master_v1.png",
+-  "master_sha256": "8bbefa2e970d36ff143c6a1f368e812ced1da461f63094ccb0e863ad27edcc6e",
++  "status": "SOURCE_ACCEPTED_RUNTIME_REVIEW_ROUND2_PENDING",
++  "master": "assets/source_art/characters/ryzhik/roll_master_v2a.png",
++  "master_sha256": "3cb5723a4c7f01472dc472bd20ca4dbf18e6ab6906f4b1d08bd911087fad3923",
+   "file": "roll_sheet.png",
+-  "sha256": "d2aa67987d14f7c3a80069e6cfd343738ee22c00026065fa1c6f5c003d089d94",
++  "sha256": "494fdee20295ebcefe6ef84cd1a6dab5de84386590430bc9b01d1e3c4991590e",
+   "frame_size": [
+     48,
+     64
+@@ -1000,9 +1000,9 @@
+         1024
+       ],
+       "source_opaque_bounds": [
+-        34,
+-        104,
+-        147,
++        28,
++        19,
++        163,
+         227
+       ],
+       "translate_native": [
+@@ -1020,12 +1020,12 @@
+         58
+       ],
+       "bounds": [
+-        8,
+-        26,
+-        37,
++        7,
++        5,
++        41,
+         57
+       ],
+-      "rgba_sha256": "1c408805bc80ed3723b87aec6011b5f90020d2a94d76d274b05f8978a298ff5f"
++      "rgba_sha256": "bed986ddbf5ee05081455d48ab298b33baae6f3d21b95d38caeece67230d84ea"
+     },
+     {
+       "direction": "up",
+@@ -1111,9 +1111,9 @@
+         1024
+       ],
+       "source_opaque_bounds": [
+-        30,
+-        105,
+-        160,
++        9,
++        25,
++        182,
+         233
+       ],
+       "translate_native": [
+@@ -1131,12 +1131,12 @@
+         58
+       ],
+       "bounds": [
+-        7,
+-        26,
+-        40,
++        2,
++        6,
++        45,
+         58
+       ],
+-      "rgba_sha256": "2eaf87ece95ae2994997b5ef7d1ded299cc73ac0bc4744b4047be9159c795862"
++      "rgba_sha256": "dd9eb12be11b42b3366a983d4edd2ca572920498509f4ae3c8bb18ea4ddf4332"
+     },
+     {
+       "direction": "up",
+@@ -1285,5 +1285,5 @@
+     "independent_art": "PENDING",
+     "contact_alignment": "PENDING"
+   },
+-  "source_review_sha256": "3678206ef8209d89ae3d9f828f29ff57ecd73dbe981259fd5c08e37362bf3ceb"
++  "source_review_sha256": "14200fc4984ab1a677ea5934c18e2898c932e81248438a50d1c02b43f0ca71a8"
+ }
+diff --git a/game/assets/art/characters/ryzhik/roll.sockets.json b/game/assets/art/characters/ryzhik/roll.sockets.json
+index 200879d..b0dfc1f 100644
+--- a/game/assets/art/characters/ryzhik/roll.sockets.json
++++ b/game/assets/art/characters/ryzhik/roll.sockets.json
+@@ -2,8 +2,8 @@
+   "schema": 1,
+   "actor_id": "ryzhik",
+   "kind": "roll",
+-  "sheet_sha256": "d2aa67987d14f7c3a80069e6cfd343738ee22c00026065fa1c6f5c003d089d94",
+-  "status": "CANDIDATE_REQUIRES_ACTUAL_OVERLAY_ART_REVIEW",
++  "sheet_sha256": "494fdee20295ebcefe6ef84cd1a6dab5de84386590430bc9b01d1e3c4991590e",
++  "status": "REVISED_TWO_CLOTHING_ANCHORS_REQUIRES_ACTUAL_OVERLAY_ART_REVIEW",
+   "method": "largest connected authored garment palette component, nearest opaque garment pixel to centroid; metadata only, no bitmap changes",
+   "garment_palette": [
+     [
+@@ -285,11 +285,11 @@
+     {
+       "index": 26,
+       "clothing": [
+-        22,
+-        38
++        23,
++        31
+       ],
+-      "garment_component_pixels": 499,
+-      "source_frame_rgba_sha256": "1c408805bc80ed3723b87aec6011b5f90020d2a94d76d274b05f8978a298ff5f"
++      "garment_component_pixels": 1085,
++      "source_frame_rgba_sha256": "bed986ddbf5ee05081455d48ab298b33baae6f3d21b95d38caeece67230d84ea"
+     },
+     {
+       "index": 27,
+@@ -312,11 +312,11 @@
+     {
+       "index": 29,
+       "clothing": [
+-        24,
+-        40
++        23,
++        33
+       ],
+-      "garment_component_pixels": 603,
+-      "source_frame_rgba_sha256": "2eaf87ece95ae2994997b5ef7d1ded299cc73ac0bc4744b4047be9159c795862"
++      "garment_component_pixels": 870,
++      "source_frame_rgba_sha256": "dd9eb12be11b42b3366a983d4edd2ca572920498509f4ae3c8bb18ea4ddf4332"
+     },
+     {
+       "index": 30,
+diff --git a/game/tests/ryzhik_roll_replay.gd b/game/tests/ryzhik_roll_replay.gd
+index fd410b8..a3c2ad4 100644
+--- a/game/tests/ryzhik_roll_replay.gd
++++ b/game/tests/ryzhik_roll_replay.gd
+@@ -142,34 +142,42 @@ func run() -> void:
+ 	# All three permitted own finishers use genuinely Input-earned baseline
+ 	# shove control. AI starts disabled for initial placement, then the actual
+ 	# stunned NPC clock/motion/reactions run through death; no injected stun.
+-	for di in 4:
+-		for category in ["unarmed","blunt","environmental"]:
+-			var target:=await roll_fixture(di,false)
+-			segment="finisher_"+category+"_"+NAMES[di]
+-			target.position=lab.player.position+DIRECTIONS[di]*20.0
+-			lab.training_bench.position=target.position+DIRECTIONS[di]*24.0
+-			lab.training_bench.set_meta("finisher_enabled",category=="environmental")
+-			check(segment+":allowed_tool",lab.select_equipment({"unarmed":0,"blunt":1,"environmental":4}[category]))
+-			await frames(2);await tap(KEY_SPACE)
+-			var budget:=35
+-			while target.hits_received==0 and budget>0:await frames(1);budget-=1
+-			check(segment+":actual_Input_shove_earned_stun",target.health==1 and target.hits_received==1 and target.state=="stunned")
+-			target.set_physics_process(true)
+-			while not lab.player.action_kind.is_empty() and budget>0:await frames(1);budget-=1
+-			await tap(KEY_V)
+-			check(segment+":own_windup_and_real_reaction",lab.player.action_kind=="finish_"+category and target.state=="finisher_reaction" and target.sprite.frame==0)
+-			await capture(segment+"_windup")
+-			budget=65
+-			while lab.player.action_kind=="finish_"+category and lab.player.action_frame<1 and budget>0:await frames(1);budget-=1
+-			var fin_contacts:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.get("finisher",false))
+-			check(segment+":one_Core_contact_on_own_frame1",fin_contacts.size()==1 and fin_contacts[0].player_frame==1 and fin_contacts[0].player_animation=="finish_"+category+"_"+NAMES[di])
+-			check(segment+":NPC_dead_contact_then_once_reward",target.health==0 and target.state=="dead" and target.sprite.frame==1 and target.hits_received==2 and lab.score==100)
+-			await capture(segment+"_contact")
+-			await frames(9)
+-			check(segment+":NPC_own_corpse2",target.state=="dead" and target.sprite.frame==2)
+-			await capture(segment+"_recovery")
+-			await frames(45)
+-			check(segment+":no_repeat_damage_score_or_job",target.hits_received==2 and lab.score==100 and lab.combat.finishers.is_empty() and not lab.player.try_finisher())
++	var finisher_outcomes:Dictionary={}
++	for reduced in [false,true]:
++		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false)
++		root.get_node("OptionsStore").set_value(&"decals",true,false)
++		for di in 4:
++			for category in ["unarmed","blunt","environmental"]:
++				var target:=await roll_fixture(di,false)
++				segment="finisher_"+str(reduced)+"_"+category+"_"+NAMES[di]
++				target.position=lab.player.position+DIRECTIONS[di]*20.0
++				lab.training_bench.position=target.position+DIRECTIONS[di]*24.0
++				lab.training_bench.set_meta("finisher_enabled",category=="environmental")
++				check(segment+":allowed_tool",lab.select_equipment({"unarmed":0,"blunt":1,"environmental":4}[category]))
++				await frames(2);await tap(KEY_SPACE)
++				var budget:=35
++				while target.hits_received==0 and budget>0:await frames(1);budget-=1
++				check(segment+":actual_Input_shove_earned_stun",target.health==1 and target.hits_received==1 and target.state=="stunned")
++				target.set_physics_process(true)
++				while not lab.player.action_kind.is_empty() and budget>0:await frames(1);budget-=1
++				await tap(KEY_V)
++				check(segment+":own_windup_and_real_reaction",lab.player.action_kind=="finish_"+category and target.state=="finisher_reaction" and target.sprite.frame==0)
++				await capture(segment+"_windup")
++				budget=65
++				while lab.player.action_kind=="finish_"+category and lab.player.action_frame<1 and budget>0:await frames(1);budget-=1
++				var fin_contacts:=contacts.filter(func(item:Dictionary):return item.segment==segment and item.get("finisher",false))
++				check(segment+":one_Core_contact_on_own_frame1",fin_contacts.size()==1 and fin_contacts[0].player_frame==1 and fin_contacts[0].player_animation=="finish_"+category+"_"+NAMES[di])
++				check(segment+":NPC_dead_contact_then_once_reward",target.health==0 and target.state=="dead" and target.sprite.frame==1 and target.hits_received==2 and lab.score==100)
++				await capture(segment+"_contact")
++				await frames(9)
++				check(segment+":NPC_own_corpse2",target.state=="dead" and target.sprite.frame==2)
++				await capture(segment+"_corpse_recovery")
++				await frames(45)
++				check(segment+":no_repeat_damage_score_or_job",target.hits_received==2 and lab.score==100 and lab.combat.finishers.is_empty() and not lab.player.try_finisher())
++				var outcome:=[target.health,target.hits_received,lab.score,lab.combat.damage_events,lab.player.health,lab.combat.finishers.size()]
++				var route:String=NAMES[di]+"_"+String(category)
++				if not reduced:finisher_outcomes[route]=outcome
++				else:check(segment+":Full_Reduced_same_once_health_score",finisher_outcomes[route]==outcome,{"Full":finisher_outcomes[route],"Reduced":outcome})
+ 	await roll_fixture(2,false);segment="options_pause"
+ 	await tap(KEY_F);await frames(8);lab._set_options_visible(true)
+ 	var clock:float=lab.player.action_elapsed;start=lab.player.position;var cost:float=lab.player.ability_cooldown
+@@ -177,13 +185,49 @@ func run() -> void:
+ 	check("pause_freezes_clock_cost_motion",lab.player.action_elapsed==clock and lab.player.position==start and lab.player.ability_cooldown==cost)
+ 	lab._set_options_visible(false);await frames(36)
+ 	check("resume_finishes_finite_roll",lab.player.action_kind.is_empty() and absf(lab.player.ability_distance-57.6)<0.04)
++	var overlay_proofs:Array=[]
+ 	var outcomes:Array=[]
+ 	for reduced in [false,true]:
+ 		root.get_node("OptionsStore").set_value(&"reduced_gore",reduced,false);root.get_node("OptionsStore").set_value(&"decals",not reduced,false);root.get_node("OptionsStore").set_value(&"shake",0 if reduced else 100,false);root.get_node("OptionsStore").set_value(&"flashes",not reduced,false)
+ 		await roll_fixture(2);segment="settings_"+str(reduced);await tap(KEY_F);await frames(38)
+ 		outcomes.append([lab.player.health,lab.score,lab.combat.damage_events,lab.enemies[0].health,lab.enemies[0].hits_received,snappedf(lab.player.ability_distance,0.01)])
+ 	check("Full_Reduced_same_combat_logic",outcomes[0]==outcomes[1])
+-	await tap(KEY_R);await capture("ryzhik_ready_after_restart")
++	# Real nonfatal Core damage creates a persistent clothing decal. Wait out
++	# hurt, then roll UP without restarting/clearing the real effect pool.
++	root.get_node("OptionsStore").set_value(&"reduced_gore",false,false)
++	root.get_node("OptionsStore").set_value(&"decals",true,false)
++	root.get_node("OptionsStore").set_value(&"shake",0,false)
++	root.get_node("OptionsStore").set_value(&"flashes",false,false)
++	var source:=await roll_fixture(3,false)
++	segment="persistent_blood_UP_roll"
++	source.position=lab.player.position+Vector2(20,0)
++	source.locked_aim=Vector2.LEFT
++	lab.player.health=2 # Declared nonfatal test durability, not a story grant.
++	await frames(2)
++	var blood_attack:int=lab.combat.start_melee(source,"enemy",Vector2.LEFT,lab.config.attacks.enemy_melee)
++	await frames(1)
++	check("clothing_case_real_nonfatal_Core_contact",lab.player.health==1 and lab.player.hits_received==1 and lab.combat.damage_events==1 and source.attack_id==blood_attack)
++	await frames(15)
++	check("hurt_ends_without_restart_or_clearing_decals",lab.player.action_kind.is_empty() and lab.player.ability_cooldown==0 and lab.combat.impact.decals.any(func(entry:Dictionary):return entry.get("actor")==lab.player and entry.column in [6,7]))
++	await tap(KEY_F)
++	check("injured_player_can_roll_without_immunity",lab.player.action_kind=="roll" and lab.player.health==1 and lab.player.hits_received==1)
++	for f in range(8):
++		var budget:=45
++		while lab.player.action_kind=="roll" and lab.player.action_frame<f and budget>0:await frames(1);budget-=1
++		await frames(1) # The live effect process follows this pose, not a stale hurt socket.
++		await capture("persistent_blood_UP_roll"+str(f))
++		var blood:Array=lab.combat.impact.decals.filter(func(entry:Dictionary):return entry.get("actor")==lab.player and entry.column in [6,7])
++		var expected:Vector2=lab.player.global_position+preload("res://scripts/actors/polish_frames.gd").clothing_offset(lab.player.sprite)
++		var t:Texture2D=lab.player.sprite.sprite_frames.get_frame_texture(lab.player.sprite.animation,lab.player.sprite.frame)
++		var live_at:Vector2=blood[0].at if not blood.is_empty() else Vector2.INF
++		check("actual_blood_tracks_own_UP_pose"+str(f),lab.player.action_kind=="roll" and lab.player.action_frame==f and t.get_meta("source_kind","")=="roll" and not blood.is_empty() and live_at.distance_to(expected)<=3.2)
++		var socket:Vector2=t.get_meta("clothing_socket",Vector2.INF)
++		overlay_proofs.append({"tick":Engine.get_physics_frames(),"animation":String(lab.player.sprite.animation),"frame":lab.player.sprite.frame,"source_column":t.get_meta("source_column",-1),"clothing_socket":[socket.x,socket.y],"world_anchor":[expected.x,expected.y],"live_decal_at":[live_at.x,live_at.y],"remaining_ttl":blood[0].ttl if not blood.is_empty() else 0,"renderer":DisplayServer.get_name()})
++	await frames(10)
++	check("blood_case_has_no_ghost_damage_or_score",lab.player.health==1 and lab.player.hits_received==1 and lab.combat.damage_events==1 and lab.score==0)
++	await tap(KEY_R)
++	check("restart_clears_real_clothing_decal",lab.combat.impact.decals.is_empty() and lab.player.hits_received==0 and lab.player.health==1)
++	await capture("ryzhik_ready_after_restart")
+ 	var failed:=checks.filter(func(item:Dictionary):return not item.passed).size()
+-	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"not_tested":["character-specific finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
++	var file:=FileAccess.open(output.path_join("result.json"),FileAccess.WRITE);file.store_string(JSON.stringify({"schema":1,"scope":"RYZHIK_ROLL_COMPONENT_ONLY","passed":failed==0,"actual_input":true,"renderer":DisplayServer.get_name(),"phase_approval":false,"checks":checks,"trace":trace,"captures":captures,"contacts":contacts,"clothing_overlay":overlay_proofs,"not_tested":["full sevenhero finisher/audio/NPC matrix","actual host FPS","hardware input latency","native Windows","subjective listening","full P06"]},"  "));file.close()
+ 	print("RESULT P06_RYZHIK passed=%d failed=%d"%[checks.size()-failed,failed]);preload("res://scripts/core/runtime_shutdown.gd").quit_clean(self,0 if failed==0 else 1)
+diff --git a/tools/verify_p06_ryzhik.py b/tools/verify_p06_ryzhik.py
+index c4a9925..8eed54f 100644
+--- a/tools/verify_p06_ryzhik.py
++++ b/tools/verify_p06_ryzhik.py
+@@ -18,7 +18,8 @@ def valid_replay(result, headless):
+         return False
+     if result.get('phase_approval') is not False or result.get('actual_input') is not True or result.get('passed') is not True:
+         return False
+-    if not isinstance(result.get('renderer'), str) or ((result['renderer'] == 'headless') != headless):
++    allowed_renderers = {'headless'} if headless else {'X11', 'Wayland'}
++    if not isinstance(result.get('renderer'), str) or result['renderer'] not in allowed_renderers:
+         return False
+     checks = result.get('checks')
+     return bool(isinstance(checks, list) and checks and
+@@ -68,7 +69,8 @@ def main():
+         argv += ['--script', 'res://tests/ryzhik_roll_replay.gd']
+         started = time.monotonic()
+         try:
+-            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True, timeout=100)
++            run = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True,
++                                 timeout=180 if mode == 'movie' else 120)
+             code, log = run.returncode, run.stdout + run.stderr
+         except subprocess.TimeoutExpired as error:
+             code, log = 124, 'TIMEOUT\n' + str(error.stdout) + str(error.stderr)

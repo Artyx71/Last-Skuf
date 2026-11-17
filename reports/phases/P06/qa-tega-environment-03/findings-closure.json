@@ -1,0 +1,35 @@
+{
+  "scope": "BOUNDED_TEGA_COMPONENT_CLOSURE",
+  "findings": [
+    {
+      "id": "TEG-Q03",
+      "lead_cross_reference": "TEGA-L01",
+      "severity": "MEDIUM",
+      "status": "CLOSED_FOR_COMPONENT",
+      "change": "Production _near_foot synchronizes current source/object transforms before spatial eligibility; eligibility checked after external callbacks/before motion and commit.",
+      "proof": [
+        "clean-geometry/result.json:5/5 nohelper/noQAforce calls",
+        "geometry-closure/result.json:unchanged8/8",
+        "physics-qualification/result.json:unchanged15/15 comparativecontrol",
+        "callback-extended/result.json:unchanged12/12",
+        "closure-analysis.json",
+        "author-evidence/native-03/validation.json"
+      ],
+      "instrumentation_limitation": "Comparative physics15 calls production _near_foot LAST during telemetry and now syncs by design. Clean5 executes first, never calls eligibility/force itself, proving production path independently."
+    },
+    {
+      "id": "TEG-Q04",
+      "severity": "MEDIUM",
+      "status": "CLOSED_FOR_COMPONENT",
+      "change": "_stop_job checks encounter epoch plus pinned authority and numericid before canceling current action.",
+      "proof": [
+        "physics-qualification/result.json:samekind newepoch/reset id1 collision preserves special/job1",
+        "callback-extended/result.json:newshove action remainsreserved",
+        "tega/result.json:productionresetnewF finishes realmovement"
+      ],
+      "unchanged_predicates": true
+    }
+  ],
+  "blocking_findings": [],
+  "old_QA01_QA02_FAIL_remain_immutable": true
+}

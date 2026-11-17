@@ -1,0 +1,70 @@
+{
+  "scope": "COMBAT_SANDBOX_CAMPAIGN_VIEW_ISOLATION_AND_FRESH_PROCESS_RESTORE_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_head": "00298c2406243d7ef9cde20d10645ebfb8d1a648",
+  "source_unchanged": true,
+  "checks_passed": 25,
+  "checks_total": 25,
+  "actual_new_process_reload": true,
+  "commands": [
+    {
+      "name": "sandbox",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_lab_isolation_test.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.881
+    },
+    {
+      "name": "process-reload",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--script",
+        "res://tests/character_dialogue_reload.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.598
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/commands.json",
+      "sha256": "c9a571a30254f23461de1d5bfd572ed62aedddf911fbb37c6c8f04330659f973"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/process-reload.json",
+      "sha256": "261128340dc56cb3dccc1e27f5cf7962afd379b28c565111762956b921a7cf6d"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/process-reload.log",
+      "sha256": "7d52dc382a78469f753fa12b1b018fe5d8c9b4d294a3815baec9ad0d4292023a"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/result.json",
+      "sha256": "f85fed21fc2342ec784138d15763f72c3c1dc20803e31893252a23b33d6f1e55"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/sandbox.log",
+      "sha256": "175e31dea6c3d9a2b3ffaea0aad16a33fa280251f92ff00c7784a703df008e4f"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/readiness-regression-01/isolation/source_hashes.json",
+      "sha256": "a21f8e4f49d7ca35340872b75087356790bdf6974c32f611a3e5b0d22ce6896b"
+    }
+  ]
+}

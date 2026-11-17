@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "source_head": "fb5ca9bdf0e82e315c08197877e1f39a2a6c4091",
+  "status": "FAIL_COMPONENT",
+  "tickets": [
+    {
+      "id": "PASHA-HUD-ARENA-OCCLUSION-01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "blocks_component_ART_acceptance": true,
+      "source": "game/scripts/ui/ranged_feedback.gd",
+      "actual": "Actual ammo meter at native viewport x380..623,y63..67 crosses the upper-right NPC helmet/head. Detail text extends to y56 across arena top y54. Visible in actual live PNGs and decoded MP4 whole viewport.",
+      "expected": "All ammo/state labels and meter remain above arena y54 without overlapping chapter title or NPC/world silhouettes. Preserve visible ammo and recovery information.",
+      "evidence": [
+        "preliminary_actual_HUD_region_6x.png",
+        "native_pasha_after_restart_wholeviewport.png",
+        "native_empty_clip_HUD_wholeviewport.png",
+        "movie_whole_finite_clip_and_refill.png"
+      ],
+      "minimum_remedy": "Move/compact HUD layout; no bitmap regeneration required. Add actual screen rectangle assertion and provide fresh rendered ready/shot/empty/refill/paused/dead/restart viewport plus route/muzzle regression evidence for the new source SHA. Source-only coordinates or passing old HUD text tests do not close this finding."
+    }
+  ],
+  "ordinary_technical_fix_requires_owner_confirmation": false,
+  "phase_approval": false
+}

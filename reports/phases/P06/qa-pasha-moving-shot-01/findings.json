@@ -1,0 +1,48 @@
+{
+  "scope": "PASHA_BASELINE_COMPONENT_ONLY",
+  "findings": [
+    {
+      "id": "PQ-W01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Old wall impact restores flash/position after synchronous reset in new encounter",
+      "actual": "Real InputF, muzzle branch projectiles0 and travelwall branch projectiles1. Resetinsidecallback givesflash0,lastpos0; afterCore same tick flash.15/lastpos315,210 or349,210 in newepoch6/9.",
+      "evidence": [
+        "wall-baseline-v2/result.json",
+        "wall-baseline-v2/run.log",
+        "code-freeze/game/scripts/systems/combat_system.gd"
+      ],
+      "remediation": "Recheck pinned encounter epoch after _wall_contact before any old wall hit_flash/lastposition writes in BOTH fire muzzle and projectilewall branches."
+    },
+    {
+      "id": "PQ-HUD01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Ammo meter covers live NPC in gameplay area",
+      "origin": "Independent ART preliminary; independently confirmed actualnativePNG by thisQA",
+      "evidence": [
+        "author-evidence/empty_clip_HUD.png",
+        "native-HUD-observation.json",
+        "code-freeze/game/scripts/ui/ranged_feedback.gd"
+      ],
+      "remediation": "Move readable HUD entirely outside gameplay area and verify actual rect/readability in native capture; no hitbox/resource change."
+    },
+    {
+      "id": "PQ-CI01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Common verify does not invoke new Pasha verifier",
+      "evidence": [
+        "code-freeze/tools/verify.py",
+        "code-freeze/tools/verify_p06_pasha.py"
+      ],
+      "remediation": "Register headlessPasha requiredcontroller check and prove actual commonmain routing/failure propagation; not a remoteCIclaim."
+    }
+  ],
+  "blocking_findings": [
+    "PQ-W01",
+    "PQ-HUD01",
+    "PQ-CI01"
+  ],
+  "Gameplay_bodyimpact_reset_targetfree_not_duplicated": true
+}

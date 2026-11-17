@@ -1,0 +1,649 @@
+{
+  "scope": "RYZHIK_ROLL_COMPONENT_ONLY",
+  "phase_approval": false,
+  "passed": true,
+  "source_unchanged": true,
+  "source_head": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "headless": false,
+  "actual_input": true,
+  "checks": [
+    {
+      "passed": 439,
+      "total": 439
+    },
+    {
+      "passed": 311,
+      "total": 311
+    }
+  ],
+  "actual_captures": 128,
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--script",
+        "res://tests/ryzhik_roll_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 59.27,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-ryzhik-roll-qa/f695b66ccaa03f4536da"
+    },
+    {
+      "name": "movie",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--write-movie",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-03/ryzhik-roll.avi",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/ryzhik_roll_replay.gd"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 58.743,
+      "profile": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/p06-ryzhik-roll-qa/a2d3ecacbe0bf7ccdfb1"
+    },
+    {
+      "name": "encode",
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-v",
+        "error",
+        "-n",
+        "-i",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-03/ryzhik-roll.avi",
+        "-c:v",
+        "libx264",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-movflags",
+        "+faststart",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-03/ryzhik-roll.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "probe",
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-03/ryzhik-roll.mp4"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "movie_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/build/P06/ryzhik-roll-03/ryzhik-roll.mp4",
+  "audio": "Existing runtime cues only; no new media or listening claim",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_COMPONENT",
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/commands.json",
+      "sha256": "417177596057aa5bae721cab4339a99810fb465bc14e8e3ad11daf5597ab8808"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_0_fatal_actual_contact.png",
+      "sha256": "324aa87d68c02913390a4b1964d0a85a40838a57c5c11a118c18e72126d4801f"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_0_hurt_actual_contact.png",
+      "sha256": "dc738c4fa000de37b18fe26cd1ae27fcc028632b4e55dc417c18173fd9902679"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_1_fatal_actual_contact.png",
+      "sha256": "60d85596a99b5bada30d93071bd2eef64e624aab422ed2e9bf10f65363f6ffc4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_1_hurt_actual_contact.png",
+      "sha256": "07c5085eb4bc26f175e801fc7ebca651f2f02fcb722238b2b27e0ae319b7613e"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_2_fatal_actual_contact.png",
+      "sha256": "48e2a06931a0e15d0ae3094d011f6c7937d766a9d29b3e187837d905ef81206d"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/Core_incoming_2_hurt_actual_contact.png",
+      "sha256": "d51dc3ae2aeb623e63ae7f6694b49c23af05d9538cb19228c662aa84fa29bc01"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_down_contact.png",
+      "sha256": "d6946f9b04fbd8de3379d241098e2d6a2e49c19d6f78fc4bef05b237869abf2a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_down_corpse_recovery.png",
+      "sha256": "c304b7eb8e582e66e598545a19463edef52ad8a89ce916cb379a4f168f575723"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_down_windup.png",
+      "sha256": "a4d10db7013fe773f5d9300778526e25c25c2a742020780aa6a586c6f938a238"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_left_contact.png",
+      "sha256": "80087432ff483a575ed9ad0ae53fb09f276dcee5c17d420005e94c39a1850a01"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_left_corpse_recovery.png",
+      "sha256": "baaf1128fed244c4297f44cb82e0c5f09cf403bf00e035fb2cc96f96fd39c316"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_left_windup.png",
+      "sha256": "c0f39e62f91a5cd7a09c40872b413e26409d1ab9e26701d8ccc79895133ce02f"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_right_contact.png",
+      "sha256": "9d2510526c0bb77bcd48e818633fd1daaa9f71f7660de1d602c77808626cc007"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_right_corpse_recovery.png",
+      "sha256": "79a4a52843482d00ce25fa35dd639ba34586f62170fd14c6b6155fa39b1bc665"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_right_windup.png",
+      "sha256": "866d018c4911ac6b5e8c13073ab3d74368f41f681594237f550c39f0773583cc"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_up_contact.png",
+      "sha256": "82be8d076209a6dd34a3034eb8fe9b5217175dc346fb3c7c1b2f70350b75477c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_up_corpse_recovery.png",
+      "sha256": "6c98c4d44c6c3daa7ab36567edf18518a62a191f3ec7324f7cf5e84921759920"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_blunt_up_windup.png",
+      "sha256": "5d1d5e086ee0848f0a9b0a272f85138f688d2300d1ad8faf80e716d1813d4f40"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_down_contact.png",
+      "sha256": "9f1bb26a91cb81570c3032b69f2f396e6aad0b36b69a78294fc467d684ff02e4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_down_corpse_recovery.png",
+      "sha256": "44fa19431837ca00a208ee6e4cb7460c06a0743aed9fe180a7e825e75681d9f8"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_down_windup.png",
+      "sha256": "9e58cdc4b891c0e8e68e148258c013a25b7ff6b020d00c361880b45f6d779a77"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_left_contact.png",
+      "sha256": "2d1042812e2371634896b00e27094f3255cfa51b7d9c02fc754b66b7beb95377"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_left_corpse_recovery.png",
+      "sha256": "ef0ec8462387aec456c3bb7f30dfd47ecd5ea03a18a3e87be6c07bf5874b98f4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_left_windup.png",
+      "sha256": "8217068e238cdf9426f9c0dbb56d626337846c4be4ed3a5604786d1114743955"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_right_contact.png",
+      "sha256": "9d8dfbf0925a76f13099a7676523aa116d9dc5527500afe28fbdf1068d24e62a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_right_corpse_recovery.png",
+      "sha256": "0605f635256981c88882122885d5f62ec022e9d45c6e2211424e24a525143ed6"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_right_windup.png",
+      "sha256": "55b190225c8913b844f96ea29dac92f1963be56e4f79d51db5cfcb18f8fb5b9a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_up_contact.png",
+      "sha256": "e3e20d2b83824bb931620b8a4339a5ca8a0e9fe8a80b12857f230dab69d0f91a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_up_corpse_recovery.png",
+      "sha256": "702ba35c3e8becd86793d8c2b1c57e78b3bae5d54bd950f7de29652c0ac51aa2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_environmental_up_windup.png",
+      "sha256": "69dd127bb1e9a8b816d5b2df9a28978ae8b61bb7001dccee3886df63c4f21ce6"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_down_contact.png",
+      "sha256": "0307647a28c9ba89346faf0bc868ecd9d8afd914a979d86f883799cd7146b806"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_down_corpse_recovery.png",
+      "sha256": "6564dcc4460693c61d5665f28aee8cdf1810e2e9ad309e03f6274a6ee6630bf5"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_down_windup.png",
+      "sha256": "a7a426c9aa55541ffdd79e979bbb3f7a8fc464ffd6ded14ed5bc3169f0eb29e7"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_left_contact.png",
+      "sha256": "b7e344917f58a576baad152892cf984f0bbb1882cb95cd7cc891922a5bdc853c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_left_corpse_recovery.png",
+      "sha256": "b186827cb361bf29c4edaf45a106e0f2664b9d2ac930d2f7dd6b609f9c79dba1"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_left_windup.png",
+      "sha256": "fc8f2053b541d26bb68e92b811ca5ba5df4d7e598b18c988cc99a0bb8fb05d70"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_right_contact.png",
+      "sha256": "d3fc658590da81f5823fa16292d376299d17faacf16e16c14cd0320780e9ccdd"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_right_corpse_recovery.png",
+      "sha256": "db0b22854073a5755afc69f784abca2d956b6e545d4954555b9b3491f27e8581"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_right_windup.png",
+      "sha256": "a984e4dd725b56916e301c601868f030d27ca08439935fab43ac2c05bcc32603"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_up_contact.png",
+      "sha256": "46a88ef33f008c33b303c63fc4812cc2f8c9bdb3e6508f1c9e6a6250c5c619a2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_up_corpse_recovery.png",
+      "sha256": "b7aa7338784fec15cae7319349d214641d522e46d74d446baa4480a73b7dbe1a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_false_unarmed_up_windup.png",
+      "sha256": "6268ab6816e3d2994759232fcf1ce32f7d7ee3ea73f34488ef20446100fe1a38"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_down_contact.png",
+      "sha256": "0bcef3921a6368f6d6520e13ccd8045a9d55a00476b99a07f072819cf752add1"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_down_corpse_recovery.png",
+      "sha256": "79dc8f8e78994d5b24aa43fe83d8333147f7094592cd3c5b5c5ef41d4ef5951c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_down_windup.png",
+      "sha256": "c6c464e26e0e329180c4733dc96d348f8e68e194cff740ee5313c7a2cf79fa6d"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_left_contact.png",
+      "sha256": "7095ae27a9bbf1fdfb121ca4ec9d5a999d9fc8007ffd7c45b5af9346f6bff8c8"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_left_corpse_recovery.png",
+      "sha256": "aef5feda3365991134b1840976b0ed6253f75bd40302ec81e214f39aff58331e"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_left_windup.png",
+      "sha256": "c142ddc36b4da7fe54e6eb38e92aeca18741555637003115d963abab562e7ed0"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_right_contact.png",
+      "sha256": "a4259c1dcc8b9ee1d4fcfc4f9a7955f6478b2d81579cb42f1bf1925c88a939c1"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_right_corpse_recovery.png",
+      "sha256": "3c1f7cb97b0f3a99db7dcdda49e0aaa2bc7a5536d00ec1f8f8c6a8dd8be99310"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_right_windup.png",
+      "sha256": "85137106d3a5eceb655cbf3ea614a83f38e3f3839a562c51c678877ce4f353b9"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_up_contact.png",
+      "sha256": "ce5fc57e210c83fc3964588b4bc6615671ffe812f3f3d6654dd506b5466b3f1f"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_up_corpse_recovery.png",
+      "sha256": "a392f1f8e875f19460fb282fe6f537be43d755cbb55170b262fa77d3599c2b26"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_blunt_up_windup.png",
+      "sha256": "524b924365ddd491cd2b364faec284bac67f755c960b32bde82b8f5d2240456e"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_down_contact.png",
+      "sha256": "f6bc08f85058d9935977a986e92ac2b6f0b1e4034c193e060361cb83715b1e8e"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_down_corpse_recovery.png",
+      "sha256": "0dad9e494415d2cefaaafd6885d8489f719a1f24f0716c4e170092a6ce8b27d4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_down_windup.png",
+      "sha256": "df59bd54d2f2c0b228962ae41f343d8a1aab6e199a7c48606cea1630bf74b273"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_left_contact.png",
+      "sha256": "5d75aa0e0d5384f20ace73df3df9ecdf109a8384c3d6a0edc328dc269a211143"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_left_corpse_recovery.png",
+      "sha256": "df2c3e0aacee31559f00e438f9cbf164500b32bd8acf6f8276790061c69b6a34"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_left_windup.png",
+      "sha256": "06dc3553e7d4a1206fa07a01fd842128ef9501e43bf583d616911eb2ad3c0745"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_right_contact.png",
+      "sha256": "27583f1d615f3f2b06041ce1679d74c07393fd9dc066158d3feb806e6d1e2065"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_right_corpse_recovery.png",
+      "sha256": "e0db29908892c25e94e39cb2f0a0f646c3ebcae825e97382147039d322a38aaf"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_right_windup.png",
+      "sha256": "c9aaeb7914d75531bf279665541a0da1d35b2e1180897216c78fee06fe5cfe94"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_up_contact.png",
+      "sha256": "36caa951a88a6c96dbbc4c21476fb0acf8fdc2416a611f1b1290fcf09736c57d"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_up_corpse_recovery.png",
+      "sha256": "4e505aa4c7bae48ac58d3212c55d654211e065eb13dc752d05b31991f956c25a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_environmental_up_windup.png",
+      "sha256": "4a8397dcc7e876c6ca76087fb7bafac0652487f05471c3761b743388ab46d747"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_down_contact.png",
+      "sha256": "d4ce35f6a36569e0d867a3f7e41f06ddd682f21d3dff466bc1f22411c2d258e0"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_down_corpse_recovery.png",
+      "sha256": "7fa3c34f4e6e5e9e9288f36c493ddf02e29ae5ff448e89f61f321c616cb3c3a5"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_down_windup.png",
+      "sha256": "d3698a0b8ef820120b28a2f7754257cb793bd187d6d96e9691d38b01754c92de"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_left_contact.png",
+      "sha256": "fd5b0942f020e2ae3c6418cd26668e58144cca6c2a551e1decdda9e81919d51a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_left_corpse_recovery.png",
+      "sha256": "b1175092ed5c17200ba71850bdb1c16ccd97ce171a767fc0f7c9cacb61fa085c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_left_windup.png",
+      "sha256": "5d14511009f7616bf1fa3648e1f29374f772451805659c74623fa529b9f6692a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_right_contact.png",
+      "sha256": "d70f9b0469a9d12708e481edc7af26def757601fd255b78c63cb34dc01161e3d"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_right_corpse_recovery.png",
+      "sha256": "aaabdfd495da163d6e81f385d51b386efdc01ac185053172b46d4d3274c3d65c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_right_windup.png",
+      "sha256": "d81147ecd542fb9af1e3be4a748f124e1a7fdd834bafbe8ea530614e6098d937"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_up_contact.png",
+      "sha256": "b874e523943834dd2e83eb5e764692aefc193052c4bc70694cd4e0b8b718b1d0"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_up_corpse_recovery.png",
+      "sha256": "672c1821b6daf37a95ebdd9157f48d9c4bc19334b5720f2a6b7f89383ae056b2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/finisher_true_unarmed_up_windup.png",
+      "sha256": "f3689117a377f981fe684a2687522a876ff164b677116bfd7ffab47cca4d172b"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll0.png",
+      "sha256": "9ef57fcb66c0c22699e4e590a07db66dc2b43e00d72ce9d106cd5a9db3c4c8a6"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll1.png",
+      "sha256": "6ad32fc61115c5edb670c082f28a733a9be017a979eeaa8a680b5a9538d4f83f"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll2.png",
+      "sha256": "94c9acdd60b3b540e08867eb2b73a93fa24500a6b28fb1bcdfb579b20aaca447"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll3.png",
+      "sha256": "b6499f1b3a9f0cb82c73de66334c5fd30676a45d47150739978f1b5ecd05af16"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll4.png",
+      "sha256": "be83531b69b9e0ebd7032296e11250372a78be5054789e8e9c3d1e47e20d5bb8"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll5.png",
+      "sha256": "31044ca1b206079d23ec91df601cc9aaef9a8c31f8f20a7d38b0703734889026"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll6.png",
+      "sha256": "54ef3efc8f6e7501466788d711f1574c62a8bace7688a2044d99f6ef9c0578a8"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/persistent_blood_UP_roll7.png",
+      "sha256": "8643ca3754dbae9caf9b6ee511d3e183225c5fbd962183c41e9f7ae06f9a69ea"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/result.json",
+      "sha256": "df2199f27e9444db5cf0b9e328664c468817da5fea0643c26ac299024fb9f9c2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/ryzhik_ready_after_restart.png",
+      "sha256": "1df69299cf4505ad996477db5eb463a043144de6d49b21b61f280d5d4390feeb"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll0.png",
+      "sha256": "e42d14d411843bcc6cf6e4fee4957eca74963690083c5fceb717cda859710aaa"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll1.png",
+      "sha256": "0ec82d728836e052e6a6f472d94516f8e0b61da502e422a8b394ebed1b3e2362"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll2.png",
+      "sha256": "d2c3e63b85b948df3273e58d169914f418f90e9eeb437796807fddb804a4e8dc"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll3.png",
+      "sha256": "1a5e0215874f35240e40d4aeb2f1f86fcd478fbdf0443bad65aad9d307e837e6"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll4.png",
+      "sha256": "f9eb70f7e6dafd5df219f3ffa46e4570c331cd3a1b58dca6598ed37c5adec5ad"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll5.png",
+      "sha256": "bbe3c96034240d3688dec8c0f78b5c5c5412fd34ed2a24f38aff451f7913c9bd"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll6.png",
+      "sha256": "624f39945eaf406a4b2898b2d6deae7c2d80553934087d00ff48b245dc483382"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_roll7.png",
+      "sha256": "27ed4ab31e3b59edd846b35575788d11c849c04f29a99196904611f6b3e9538b"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_world_after.png",
+      "sha256": "ea7e8c43d38dc2a44a70fdc181f7fd7ec69e01a691df2975aa34e58e395f0418"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_down_world_before.png",
+      "sha256": "e580c93d478f5a0dd4ecedf8efebc4778588926e87280daf37d6f048b245d092"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll0.png",
+      "sha256": "c381c3c695a6d25218c9338f8a459b158444b9890e7b264dbb1c2e359e74b778"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll1.png",
+      "sha256": "024c296032e391924922279dd5053813410a22812a6b8c6e692a0baef0e46c61"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll2.png",
+      "sha256": "25656e3b3651e3a5b925d078cc53c7007e18ef4e41a97bee6b5a170a5c4f16a4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll3.png",
+      "sha256": "3cda5c3dff3c88690af6b89b0ff57742a2be3d09d117c8b1d7bfa049a46892a5"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll4.png",
+      "sha256": "f4ac4a73704a4e0faf3ee196f61ff0d329af0ba551dd42dbb8effc52d825ecec"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll5.png",
+      "sha256": "f6df39a07513c988754b4b0e3c7ccefd0843ebfaf4ceb6cd07d86788c9b8d990"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll6.png",
+      "sha256": "a2215ad4912eb88749ec410cd3c39992cd2df31c667961b0090e73c5372a2269"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_roll7.png",
+      "sha256": "d69e6187e6222ffaf193c71430ecb5b5709df0e5bce972649f1b09d732dc70ae"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_world_after.png",
+      "sha256": "cf882894fdc6536889c9ad1e8e4352b2f165bc064eddfcd1109a2f29f9c122be"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_left_world_before.png",
+      "sha256": "569092c6d74894f3f77eab5d8270c9cb0d9db62d810ec25c291633cf2592132f"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll0.png",
+      "sha256": "eb6d7d2d383afcab713aa24715e1bdc20c000535fe16027260cef880eb3b65aa"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll1.png",
+      "sha256": "f9b42adeade5467491c95cb548859f108f07fea8d5c07bc5071e9407cbfe284c"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll2.png",
+      "sha256": "36b213598ec348e1b8e5ee94d2a52d9f816f5e238eff7eab017b102f4fdeddb5"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll3.png",
+      "sha256": "46a77e5f18087504571445d3da0b39ac38fa6d2b256e4b318318c57acf73d2bd"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll4.png",
+      "sha256": "c2018bb3446a050a3d665781c9ab3005eb33a1c6d7cf6c84da512a139e864de7"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll5.png",
+      "sha256": "ebbc0abd5cc92c40cc3e88a1d8ed86be2b60e9a10affe6687f597bd516d635e9"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll6.png",
+      "sha256": "371b342e810d1c1dbea6bca77234c57454c11265e373910982c74a46d5d1fd5b"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_roll7.png",
+      "sha256": "e72848aaedf1aa054ccab71c9f496aaff9f8f1e6ec9b770f0e2c5f09082486c2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_world_after.png",
+      "sha256": "1fc1423cfb5ff755e4b1b798fab60a19377a6e0c5d62f8ed87297b6933b922f2"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_right_world_before.png",
+      "sha256": "d379f5ba976c537c1d8de6ba27b2c926ca86ce9dd61e233856a62ace78ae575a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll0.png",
+      "sha256": "5391dc7facc9ab187c49c8d69cdaa7fc26178f0223dce2653089ab89e9470a86"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll1.png",
+      "sha256": "8c7e483df1c5eabd7133edefaa4915466820eed98116d5b185bf0f52fc87b646"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll2.png",
+      "sha256": "4fd9af81a8e234c34eabb56873f7d3e8ce322be6ee71af68346b379d6e37c58a"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll3.png",
+      "sha256": "13d26534cccafe89d06546be574cace97129d7c083bf30b0a3c498be3c4ea322"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll4.png",
+      "sha256": "27017c232d380c6edefff6c5ed270560e4200f154ebc01646fcb75336250ea1b"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll5.png",
+      "sha256": "df6e92489bd9cd004bca1ae4e8d19333b784519bb7fe767e5de7cfcdeef7adc8"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll6.png",
+      "sha256": "94c9ce4005cfaf7fc89bfe9015a9876d26f2fca002056435075061420f9c3acd"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_roll7.png",
+      "sha256": "c07ab5afda769f1d0882950103de1890489e05eed8783f03060724d56a8b7780"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_world_after.png",
+      "sha256": "97651c3a2e1d0ccd79788a0a2afa8b6f56ec4849cd3c9145107ac818c48fb7a5"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/walk_roll_walk_up_world_before.png",
+      "sha256": "9b7f7959e3e2d8062fa6d4189d1fb0bd775a36ffed3dd56d77ba4ab7fed8ef76"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live/wall_blocks_roll.png",
+      "sha256": "c51a212368ab73aed99c7db61bf1b2ac41f324e32f479cdc87987b24751606f4"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/live.log",
+      "sha256": "3f21a981bda6b29c93bd2fe305244ff871bcc5d9359fe6dd0c6d68fa4def31e0"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/movie/result.json",
+      "sha256": "79d3828656387bd82adddd6d5cbca19ff6a0e3025ee3b8219baf00c0118d1f66"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/movie.log",
+      "sha256": "3a79a0eebd9ed088a084ca73851db00502a639cddd99efb121d068c86ebe7152"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/movie_probe.json",
+      "sha256": "c2e58a5eed66c9a100f5d58233ef00908e81c41647fa9b5f0bf8e40ef26136de"
+    },
+    {
+      "path": "reports/phases/P06/ryzhik-roll-01/native-03/source_hashes.json",
+      "sha256": "c9e6966c9521697ad3d4d12dde3681457a5b82220ce388d56f1631836efd1958"
+    }
+  ]
+}

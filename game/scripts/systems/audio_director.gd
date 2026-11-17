@@ -2,6 +2,7 @@ extends Node
 ## All stems share one AudioStreamSynchronized mixer clock. No gameplay RNG access.
 signal state_committed(state: StringName, beat: int)
 const MANIFEST_PATH := "res://assets/audio/manifest.json"
+const FinisherAudio = preload("res://scripts/systems/character_finisher_audio.gd")
 const MAX_VOICES := 12
 var manifest: Dictionary = {}
 var music: AudioStreamPlayer
@@ -78,6 +79,16 @@ func load_assets() -> bool:
   var polish: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(polish_path))
   manifest.sfx.merge(polish.sfx)
  if manifest.get("schema") != 1: return false
+ var character_sfx := FinisherAudio.entries()
+ if character_sfx.is_empty(): return false
+ for cue in character_sfx:
+  # Reject collisions rather than validating one asset and playing an older
+  # same-name entry retained by Dictionary.merge(overwrite=false).
+  if manifest.sfx.has(cue): return false
+  var stream: Resource = load(character_sfx[cue].path)
+  if not stream is AudioStreamWAV or stream.loop_mode!=AudioStreamWAV.LOOP_DISABLED: return false
+  if stream.get_length()<=0.02 or stream.get_length()>2.0: return false
+ manifest.sfx.merge(character_sfx)
  synchronized = AudioStreamSynchronized.new()
  synchronized.stream_count = manifest.music.stems.size()
  beat_seconds = 60.0 / float(manifest.music.bpm)
@@ -216,7 +227,8 @@ func variant(prefix: StringName, at: Vector2) -> bool:
  return play_cue(StringName(String(prefix) + "_" + str(n % 2 + 1)), at)
 
 func bleep(speaker: StringName) -> void:
- if speaker != &"YAKUZA": return
+ # Explicit shared fictional bleep profile; no friend voice recording or imitation.
+ if preload("res://scripts/systems/character_catalog.gd").speaker(String(speaker)).is_empty(): return
  variant(&"speech_yakuza", Vector2.ZERO)
 
 func stop_speech() -> void:

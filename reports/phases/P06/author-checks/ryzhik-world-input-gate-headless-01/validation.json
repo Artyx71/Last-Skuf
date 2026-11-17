@@ -1,0 +1,83 @@
+{
+  "phase": "P06",
+  "scope": "WORLD_ART_MOVEMENT_PREVIEW_ONLY",
+  "phase_approval": false,
+  "actor_id": "ryzhik",
+  "passed": true,
+  "source_head": "f042d1f43086e1e3fcdf3651d62f44fdaf937aa9",
+  "source_unchanged": true,
+  "renderer": "headless",
+  "checks_passed": 70,
+  "checks_total": 70,
+  "actual_captures": 0,
+  "phase_captures": 32,
+  "transition_captures": 0,
+  "continuous_input_transitions": true,
+  "actual_input": true,
+  "movie_recorded": false,
+  "movie_path": null,
+  "movie_audio": "Muted art-only fixture; no audio/listening review",
+  "native_windows": "NOT_TESTED",
+  "exports": "NOT_REQUESTED_FOR_THIS_ART_SUBTASK",
+  "combat_abilities": "NOT_IMPLEMENTED_IN_THIS_PREVIEW",
+  "commands": [
+    {
+      "name": "live",
+      "argv": [
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+        "--path",
+        "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+        "--disable-vsync",
+        "--max-fps",
+        "60",
+        "--headless",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "res://tests/character_world_preview.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.691,
+      "passed": true
+    }
+  ],
+  "strict_input_gates": {
+    "live": {
+      "schema": 1,
+      "scope": "WORLD_PREVIEW_ENGINE_INPUT_SIGNAL_ONLY",
+      "actor_id": "ryzhik",
+      "phase_approval": false,
+      "manual_keyboard_approval": false,
+      "focus_efficacy_approval": false,
+      "expected_samples": 672,
+      "matched_samples": 672,
+      "trace_samples": 672,
+      "errors": [],
+      "violations": 0,
+      "passed": true
+    }
+  },
+  "strict_input_verified": true,
+  "artifacts": [
+    {
+      "path": "reports/phases/P06/author-checks/ryzhik-world-input-gate-headless-01/commands.json",
+      "sha256": "8ed2183beca4433ecffc73f25df630ebd0e0af4ea29345577799caf680f8b7e3"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/ryzhik-world-input-gate-headless-01/live/input_gate.json",
+      "sha256": "f35931332e20fa69e0a3930cc1cdbeb93005b2171c2cd4ba3e6b3edefe3bcb62"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/ryzhik-world-input-gate-headless-01/live/result.json",
+      "sha256": "0422ac6bd4edc5d6227ae4c78a4b8d3ca2c7c8d1212c7c8c23d4317aa57847a6"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/ryzhik-world-input-gate-headless-01/live.log",
+      "sha256": "c5cdfa02f5dfcc861666885548aad136a68f2bde1df1784917b9b2aad77a4107"
+    },
+    {
+      "path": "reports/phases/P06/author-checks/ryzhik-world-input-gate-headless-01/source_hashes.json",
+      "sha256": "3f868ee7241933d2b13f4909775c5ad2c85694a0293eeae20defbb29bdaa375a"
+    }
+  ]
+}

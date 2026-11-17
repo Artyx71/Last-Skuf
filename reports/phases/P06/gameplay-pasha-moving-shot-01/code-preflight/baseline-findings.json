@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "CONFIRMED_ACTUAL_BASELINE_FINDINGS",
+  "source_head": "5f5a6fe9d59d5f74dc434d51d31de38a035705e7",
+  "Core_SHA256": "e97cc174600b8c074b95d3ffec5267019e75313279a8c86a6a176a63bf049dc9",
+  "runtime_component_signoff": false,
+  "phase_approval": false,
+  "findings": [
+    {
+      "id": "GP-PAS-01",
+      "severity": "MEDIUM",
+      "status": "OPEN_PENDING_UNCHANGED_PROBE_FIX_RUN",
+      "source": "source-snapshot-01/game/scripts/systems/combat_system.gd",
+      "actual_stack_reference": "actual-baseline-01/impact-reset/result.json callback.stack _apply_hit:256",
+      "title": "Impact audio reset publishes an old hit into the newly reset encounter",
+      "observed": "Actual initial InputF; impact_firearm_body listener enters _apply_hit and normal combat.reset/player.reset changes epoch4→5, clears all collections. After Core same tick25 oldid2 is appended/emitted as epoch5; decals2/particles1 reappear while damage_events0/receipts{} remain reset.",
+      "damage_limit": "No additional post-reset receive_hit or lethal exploit is demonstrated; defect is stale contact/effect publication and epoch attribution.",
+      "required_fix": "Pin original contact epoch/recipient/event data; revalidate encounter, receipt and node lifetime after external callbacks before stale event/effect publication. Preserve real once semantics and existing counter/finisher callers.",
+      "closure_oracle": "Original impact probe unchanged:5/5, exit0, cleanlog; no contact_events/contact_committed/decals/particles after normal reset in same tick.",
+      "actual_result": "3/5, exit1; canonical Controller operation6f26fcc9f3f243cdabca7eb4199bd8a9 consumedexit1."
+    },
+    {
+      "id": "GP-PAS-02",
+      "severity": "MEDIUM",
+      "status": "OPEN_PENDING_UNCHANGED_PROBE_FIX_RUN",
+      "source": "source-snapshot-01/game/scripts/systems/combat_system.gd",
+      "actual_stack_reference": "actual-baseline-01/finisher-frame-free.log _tick_finishers:414",
+      "title": "Finisher target-frame callback frees target before a typed eligible call",
+      "observed": "Actual InputSpace earns stun, NPC true physics then InputV firearm FIN. Enemy finisher_reaction frame1 callback stack proves _tick_finishers:412. target.free is effective; next typed eligible arg2 receives previously freed object at414. Source early-frame callbacks are not used as Core proof.",
+      "resource_limit": "Ammo4/rounds_spent0/score0 preserved; no extra firearm damage or reward demonstrated. SCRIPT ERROR is the actual failure even though result JSON7/7 and process exit0.",
+      "required_fix": "Check both pinned node lifetimes (including queued free), membership and epoch immediately after each presentation callback before target access or any typed eligible call; guard stale posthit reservation writes.",
+      "closure_oracle": "Original finisherfree probe unchanged:7/7 with effective Core-frame free, exit0 AND cleanlog; eventual oldreservation removal, no resource/damage/reward commit.",
+      "actual_result": "JSON7/7/exit0 but strict cleanlogFAIL for Invalidtype eligible arg2 previouslyfreed; same tick46 callback proven."
+    }
+  ],
+  "nonblocking_native_observation": {
+    "id": "GP-PAS-HUD-OBS-01",
+    "status": "NEEDS_NATIVE_RECT_AND_READABILITY_REVIEW",
+    "detail": "Static rangedmeter globaly63..68 vs arena top62. Check actual rect/no actor telegraph occlusion and readable ammo/refill/cooldown labels; code coordinates alone do not establish a visual failure."
+  },
+  "test_gap_followup": {
+    "already_added_in_fb5_source_but_actual_pending": [
+      "actual held RMB/release/repress",
+      "emptyclip actualInputV on earnedstun target",
+      "mixed moving shot→firearmFIN spends sameclip"
+    ],
+    "remaining_native_scope": [
+      "continuous Input movement/aim/wall joins all8poses",
+      "actual HUD/refill/dead/pause visibility and own blood8poses",
+      "FullReduced40FIN and projectile authority/once across recovery; no listening/FPS/latency claim"
+    ]
+  }
+}

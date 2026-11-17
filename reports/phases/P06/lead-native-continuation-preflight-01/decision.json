@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD_PREFLIGHT",
+  "status": "FAIL_COMPONENT",
+  "scope": "742_CONTINUATION_COORDINATOR_PURE_PREFLIGHT_ONLY",
+  "source_commit": "742e9dc79bb97568a929b01ab39b398cb0536473",
+  "module_sha256": "8100208ff8e3fba1010c0461cc1c1bddf2aee59b30e8428b3be82bb8bb354ddf",
+  "contract_sha256": "86ddfcf1efb3ec1bfcab725586058d32eb013032c070f2c8bd30c50e7d1ac9da",
+  "findings": [
+    {
+      "id": "CONT-L01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "summary": "Midrun contract/approval drift accepted with composed passed=true",
+      "fix": "Pin same bytes/hash/parse; before-nextchild/end digest equality fail closed; pure negative +valid controls."
+    }
+  ],
+  "actual_pure_cases": 3,
+  "actual_real_tail_children_run": 0,
+  "phase_approval": false,
+  "execution_approval": false,
+  "merge_approval": false,
+  "readiness_approval": false,
+  "ROOT_installation_approval": false,
+  "formal_phase_attempt_consumed": false
+}

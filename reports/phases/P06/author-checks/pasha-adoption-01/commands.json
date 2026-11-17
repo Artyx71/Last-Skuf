@@ -1,0 +1,48 @@
+[
+  {
+    "name": "import",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--editor",
+      "--quit"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 2.78,
+    "log_sha256": "aa98593dd8666dff2bc09301c13fd091db5196e12a24354fc4ba3eb1a85b4a8b"
+  },
+  {
+    "name": "frames",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/game",
+      "--script",
+      "res://tests/character_frames_test.gd"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 0.692,
+    "log_sha256": "5c658f0e80866921dd75b264dd04c83664356868b1591063f7eae37992534e27"
+  },
+  {
+    "name": "world-headless",
+    "argv": [
+      "python3",
+      "tools/verify_p06_world.py",
+      "--actor",
+      "pasha",
+      "--headless",
+      "--output",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06/reports/phases/P06/author-checks/pasha-adoption-01/headless"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 1.081,
+    "log_sha256": "e8b4ddf8595ddcd731b42d6bd97b8df094aafc91359d33dee34e0927a913f7cf"
+  }
+]

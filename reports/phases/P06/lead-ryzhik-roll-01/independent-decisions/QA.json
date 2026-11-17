@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "role": "QA",
+  "reviewer": "independent qa_resume_recovery",
+  "scope": "RYZHIK_ROLL_TPR_R01_R02_ROUND2_QA_ONLY",
+  "frozen_commit": "8ad1729984321fbd646e96bbe9762a8c4cca689e",
+  "findings": [
+    {
+      "id": "TPR-R01",
+      "status": "CLOSED",
+      "severity": "MEDIUM",
+      "evidence": [
+        "roll/result.json",
+        "mode-contact-overlay-analysis.json",
+        "observer-selected-proof.json"
+      ],
+      "scope": "ActualFullReduced24FIN/NPC/once outcomeclosure"
+    },
+    {
+      "id": "TPR-R02",
+      "status": "CLOSED",
+      "severity": "MEDIUM",
+      "evidence": [
+        "schema-unit-final.log",
+        "report-schema-probes.json",
+        "code-freeze-final/tools/verify_p06_ryzhik.py"
+      ],
+      "scope": "Renderer/schema guard closure"
+    }
+  ],
+  "blocking_findings": [],
+  "phase_approval": false,
+  "full_phase_approval": false,
+  "readiness_approval": false,
+  "merge_approval": false,
+  "release_approval": false,
+  "review_sha256": "13b252663d908237e0bff67a2a84b62d693637b841dac1a7d176f2d702ea379c",
+  "metrics_sha256": "a4d56ab42227d12fbaa09e7852924862b3bbe5d4f98ae59397d984a46a70252e",
+  "source_freeze_sha256": "57ac185bf257ab5afb537c0f36181199a7509a1001f2a01c98ce86e551bf4478",
+  "source_inventory_sha256": "c9e6966c9521697ad3d4d12dde3681457a5b82220ce388d56f1631836efd1958",
+  "source_delta_sha256": "50fc322381f26eb9994d46b3754bb2dd18f7ab725090d7f5854e04626b91cefa",
+  "limitations": [
+    "Actualtargetedheadless311+observerrepeat311+33+70+18 only; prior407otherherocases reusedbyexactunchangedhashes, notfresh8ad runs.",
+    "Authornative/movie independentlyinspected, notindependentlyrerun; mockrouting/meta tests notGitHubCI/exports.",
+    "Sourcepixel/anchortransfer+livecoordinates are notindependentART/likeness/fullvisualacceptance.",
+    "No fullP06/readiness/merge/release/nativeWindows/FPS/hardwarelatency/newaudio/listening acceptance."
+  ]
+}
