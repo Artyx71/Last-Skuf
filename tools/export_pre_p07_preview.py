@@ -64,7 +64,9 @@ def main():
         assert row['sha256'] == digest(target) and row['runtime_smoke_passed'] is True
         probe = project / export_report / (folder + '_smoke/result.json')
         actual = json.loads(probe.read_text())
-        assert actual['passed'] is True and len(actual['checks']) == 72
+        expected_checks = 72 if folder == 'windows' else 81
+        assert actual['passed'] is True and len(actual['checks']) == expected_checks
+        assert all(check['passed'] is True for check in actual['checks'])
         home = out / 'isolated_saves' / folder
         env = dict(os.environ)
         env.update(XDG_CONFIG_HOME=str(home / 'config'), XDG_DATA_HOME=str(home / 'data'),
@@ -87,7 +89,8 @@ def main():
         run(folder + '-chapter-smoke', command + ['--headless', '--', '--open-mission', '--p04-smoke'], env, 45)
         assert 'P04_SMOKE passed=true' in (out / f'{folder}-chapter-smoke.log').read_text()
         checks.append({'platform': platform, 'sha256': row['sha256'], 'bytes': target.stat().st_size,
-                       'actual_input_checks': 72, 'chapter_smoke': True,
+                       'runtime_checks': expected_checks, 'common_input_checks': 72,
+                       'capture_checks': expected_checks - 72, 'chapter_smoke': True,
                        'runtime': 'Linux native' if folder == 'linux' else 'Windows PE under Wine',
                        'native_windows': 'NOT_TESTED' if folder == 'windows' else None})
     assert before == inventory()
