@@ -1,0 +1,67 @@
+{
+  "scope": "PURE_EXACT_FIXED_HELPER_BOUNDARY_CONTROLS_ONLY",
+  "source_sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+  "cases": [
+    {
+      "name": "bare library fixture remains allowed",
+      "expected_blocked": false,
+      "actual_blocked": false,
+      "passed": true,
+      "reason": null
+    },
+    {
+      "name": "source pending fences otherwise clean custom fixture",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "dangling target pending marker blocks",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "dangling source pending marker blocks custom fixture",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "other installed runtime cannot be borrowed",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "Load the controller from the requested canonical checkout; cross-root runtime is forbidden"
+    },
+    {
+      "name": "dangling installed runtime cannot be borrowed",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "Load the controller from the requested canonical checkout; cross-root runtime is forbidden"
+    },
+    {
+      "name": "loaded source mutation blocks custom fixture",
+      "expected_blocked": true,
+      "actual_blocked": true,
+      "passed": true,
+      "reason": "AUTOPILOT runtime changed after import; start a fresh controller process"
+    },
+    {
+      "name": "resolved same-root alias preserves valid admission",
+      "expected_blocked": false,
+      "actual_blocked": false,
+      "passed": true,
+      "reason": null
+    }
+  ],
+  "passed": true,
+  "Controller_calls": 0,
+  "process_calls": 0,
+  "engine_calls": 0,
+  "production_state_writes": 0
+}

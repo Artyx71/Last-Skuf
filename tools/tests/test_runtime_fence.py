@@ -39,6 +39,8 @@ class RuntimeFenceTests(unittest.TestCase):
                           'operation': None, 'active_author': None}}))
         self.pending = self.root / '.autopilot/HANDOFF_PENDING.json'
         self.before_state = self.state.read_bytes()
+        self.pause = self.root / '.autopilot/PAUSE'
+        self.before_pause = None
 
     def tearDown(self):
         self.temp.cleanup()
@@ -55,6 +57,7 @@ class RuntimeFenceTests(unittest.TestCase):
 
     def assert_untouched(self):
         self.assertEqual(self.state.read_bytes(), self.before_state)
+        self.assertEqual(self.pause.read_bytes() if self.pause.exists() else None, self.before_pause)
         self.assertFalse((self.code / 'UNEXPECTED_REMOTE_CALL').exists())
         self.assertFalse((self.root / '.autopilot/RUNNING.lock').exists())
 
@@ -68,13 +71,36 @@ class RuntimeFenceTests(unittest.TestCase):
         self.pending.parent.mkdir()
         self.pending.write_text('{"status":"INSTALLING","TEST_ONLY":true}')
         for args in [('status',), ('pr', '--phase', 'P06', '--pr-action', 'merge'),
-                     ('resume',), ('reconcile',), ('init',), ('run',),
+                     ('pause',), ('resume',), ('reconcile',), ('init',), ('run',),
                      ('run', '--task', 'audio-qa')]:
             with self.subTest(args=args):
                 run = self.cli(*args)
                 self.assertNotEqual(run.returncode, 0)
                 self.assertIn('handoff pending', run.stderr)
                 self.assert_untouched()
+
+    def test_pending_pause_preserves_existing_pause_bytes(self):
+        self.pending.parent.mkdir()
+        self.pause.write_bytes(b'{"owner_requested":"preserve"}\n')
+        self.before_pause = self.pause.read_bytes()
+        self.pending.write_text('{"TEST_ONLY":true}')
+        run = self.cli('pause')
+        self.assertNotEqual(run.returncode, 0)
+        self.assertIn('handoff pending', run.stderr)
+        self.assert_untouched()
+
+    def test_imported_before_pending_cannot_enter_pause(self):
+        run = self.probe("""
+import runner,sys
+runner.HANDOFF_PENDING.parent.mkdir()
+runner.HANDOFF_PENDING.write_text('{"TEST_ONLY":true}')
+sys.argv=['runner.py','pause']
+try: runner.main()
+except runner.Blocked as error: assert 'handoff pending' in str(error)
+else: raise AssertionError('late pending pause admitted')
+""")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assert_untouched()
 
     def test_even_dangling_pending_marker_blocks(self):
         self.pending.parent.mkdir()
