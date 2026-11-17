@@ -1,0 +1,217 @@
+{
+  "canonical_registry_SHA_matches_production_registry": true,
+  "CH01_identity": {
+    "id": "CH01_THE_MISSED_FIGHT",
+    "event_id": "EV_CH01_SERVICE_ESCAPE",
+    "title_ru": "Пропущенная драка",
+    "presentation": 1,
+    "chronology": 1,
+    "period": "past",
+    "timestamp": "2023-10-14T22:18:00+03:00",
+    "timestamp_status": "locked",
+    "povs": [
+      "YAKUZA"
+    ],
+    "location": "washroom_service_street",
+    "prerequisites": [],
+    "availability": "playable",
+    "scene": "res://scenes/levels/missed_fight.tscn"
+  },
+  "CH12_identity": {
+    "id": "CH12_CYBERX",
+    "event_id": "EV_CH12_COMPLETE",
+    "title_ru": "Киберикс",
+    "presentation": 12,
+    "chronology": 12,
+    "period": "present",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "PASHA",
+      "GABAR"
+    ],
+    "location": "planned_ch12",
+    "prerequisites": [
+      "EV_CH11_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "D02_exact_canonical_definition": {
+    "id": "D02",
+    "name": "PASHAS_BACKUP",
+    "chapter": "CH12_CYBERX",
+    "accept": {
+      "flags.pasha_shared_evidence": true,
+      "evidence.pashas_backup": true,
+      "relationships.gabar_pasha": 1
+    },
+    "refuse": {
+      "flags.pasha_shared_evidence": false,
+      "relationships.gabar_pasha": -1
+    }
+  },
+  "D02_comment": "Draft effect paths/deltas correctly reproduce registry; refuse does not award or erase backup beyond declared effects. Shared exposure may happen in both branches. route_plan exposes backup_preserved_exposure_risk versus sale_exposure_trust_lost, with content_available=false.",
+  "CH02_actual_availability": {
+    "availability": "planned",
+    "scene": "",
+    "prerequisites": [
+      "EV_CH01_SERVICE_ESCAPE"
+    ],
+    "code": "story_registry.entry_ready(...,planned=false) rejects planned; missed_fight.objective_text explicitly next chapter unavailable"
+  },
+  "CH01_actual_geometry_matches_draft": {
+    "world_size": [
+      1152,
+      640
+    ],
+    "player_spawn": [
+      96,
+      544
+    ],
+    "key_position": [
+      96,
+      144
+    ],
+    "checkpoint_position": [
+      432,
+      544
+    ],
+    "doors": [
+      {
+        "id": "service",
+        "bounds": [
+          368,
+          480,
+          32,
+          96
+        ]
+      },
+      {
+        "id": "street",
+        "bounds": [
+          976,
+          480,
+          32,
+          96
+        ]
+      }
+    ],
+    "exit": [
+      1056,
+      96,
+      64,
+      64
+    ],
+    "phone_zone": [
+      752,
+      480,
+      192,
+      128
+    ],
+    "spawns": [
+      {
+        "kind": "patrol",
+        "position": [
+          288,
+          160
+        ],
+        "patrol_end": [
+          288,
+          240
+        ]
+      },
+      {
+        "kind": "rusher",
+        "position": [
+          624,
+          512
+        ],
+        "patrol_end": [
+          688,
+          512
+        ]
+      },
+      {
+        "kind": "shooter",
+        "position": [
+          896,
+          160
+        ],
+        "patrol_end": [
+          944,
+          160
+        ]
+      }
+    ],
+    "wall_blocks_named_in_draft": [
+      [
+        512,
+        352,
+        192,
+        112
+      ],
+      [
+        736,
+        192,
+        160,
+        128
+      ]
+    ],
+    "basis": "Actual config/code comparison only; no new navigation/runtime test performed."
+  },
+  "CH01_actual_kit_matches_draft": {
+    "player": {
+      "speed": 82,
+      "health": 1
+    },
+    "escape_kit": {
+      "label": "СЛАБЫЙ ЯКУДЗА / УХОД",
+      "melee": "shove",
+      "ranged": "",
+      "distract_cooldown": 3.2
+    },
+    "shove_damage": 0,
+    "shove_stun": 1.15
+  },
+  "CH01_music_existing_metadata": {
+    "id": "MISSED_FIGHT_BACK_DOOR",
+    "bpm": 144,
+    "bars": 8,
+    "key": "E minor; Cmaj7 colour, B dominant turnaround",
+    "stems": 4
+  },
+  "CH12_spatial_diagnostic_not_runtime": {
+    "rows_y_span": 480,
+    "stated_table_height": 320,
+    "stated_gap_height": 144,
+    "note": "Wording could describe segmented furniture, but endpoints/rectangles are ambiguous; not proof of a collision defect.",
+    "archive_south_exit_y": 640,
+    "cupboard_point": [
+      1600,
+      352
+    ],
+    "shooter_point": [
+      1648,
+      1120
+    ],
+    "shooter_south_of_exit_pixels": 480,
+    "cupboard_north_of_exit_pixels": 288,
+    "cover_width_height_missing_for_cupboard": true,
+    "service_cover_point": [
+      1512,
+      1072
+    ],
+    "note_E2": "Specify which blocker protects which stage; do not infer a verified simultaneous doorway crossfire from these points."
+  },
+  "production_boundary": {
+    "main_rows": 21,
+    "CH01_CH12_design_status": [
+      "DRAFT_PENDING_INDEPENDENT_REVIEW",
+      "DRAFT_PENDING_INDEPENDENT_REVIEW"
+    ],
+    "all21_complete": false,
+    "mass_production_approved": false
+  },
+  "runtime_engine_tests": 0
+}

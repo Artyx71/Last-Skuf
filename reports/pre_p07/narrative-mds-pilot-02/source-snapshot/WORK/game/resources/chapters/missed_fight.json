@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "seed": 1042023,
+  "player": {
+    "speed": 82,
+    "health": 1
+  },
+  "kits": {
+    "escape": {
+      "label": "СЛАБЫЙ ЯКУДЗА / УХОД",
+      "melee": "shove",
+      "ranged": "",
+      "distract_cooldown": 3.2
+    }
+  },
+  "attacks": {
+    "shove": {
+      "damage": 0,
+      "stun": 1.15,
+      "cooldown": 1.2,
+      "active": 0.14,
+      "reach": 19,
+      "radius": 15,
+      "windup": 0.08333333333333333,
+      "recovery": 0.08333333333333333
+    },
+    "knife": {
+      "damage": 1,
+      "stun": 0,
+      "cooldown": 0.48,
+      "active": 0.16,
+      "reach": 22,
+      "radius": 17,
+      "windup": 0.08333333333333333,
+      "recovery": 0.08333333333333333
+    },
+    "pistol": {
+      "damage": 1,
+      "cooldown": 0.5,
+      "speed": 440,
+      "lifetime": 1.4
+    },
+    "enemy_melee": {
+      "damage": 1,
+      "stun": 0,
+      "cooldown": 0.85,
+      "active": 0.12,
+      "reach": 18,
+      "radius": 14
+    },
+    "enemy_bullet": {
+      "damage": 1,
+      "cooldown": 1.1,
+      "speed": 245,
+      "lifetime": 2.2
+    }
+  },
+  "enemies": {
+    "patrol": {
+      "speed": 36,
+      "chase_speed": 67,
+      "sight": 175,
+      "reaction": 0.24,
+      "range": 28,
+      "telegraph": 0.7,
+      "recovery": 0.85,
+      "attack": "enemy_melee"
+    },
+    "rusher": {
+      "speed": 42,
+      "chase_speed": 94,
+      "sight": 230,
+      "reaction": 0.22,
+      "range": 29,
+      "telegraph": 0.68,
+      "recovery": 0.85,
+      "attack": "enemy_melee"
+    },
+    "shooter": {
+      "speed": 28,
+      "chase_speed": 44,
+      "sight": 240,
+      "reaction": 0.28,
+      "range": 185,
+      "telegraph": 0.95,
+      "recovery": 1.15,
+      "attack": "enemy_bullet"
+    }
+  },
+  "spawns": [
+    {
+      "kind": "patrol",
+      "position": [
+        288,
+        160
+      ],
+      "patrol_end": [
+        288,
+        240
+      ]
+    },
+    {
+      "kind": "rusher",
+      "position": [
+        624,
+        512
+      ],
+      "patrol_end": [
+        688,
+        512
+      ]
+    },
+    {
+      "kind": "shooter",
+      "position": [
+        896,
+        160
+      ],
+      "patrol_end": [
+        944,
+        160
+      ]
+    }
+  ],
+  "walls": [
+    [
+      0,
+      0,
+      1152,
+      32
+    ],
+    [
+      0,
+      608,
+      1152,
+      32
+    ],
+    [
+      0,
+      0,
+      32,
+      640
+    ],
+    [
+      1120,
+      0,
+      32,
+      640
+    ],
+    [
+      368,
+      32,
+      32,
+      448
+    ],
+    [
+      368,
+      576,
+      32,
+      32
+    ],
+    [
+      32,
+      320,
+      16,
+      24
+    ],
+    [
+      144,
+      320,
+      224,
+      24
+    ],
+    [
+      512,
+      352,
+      192,
+      112
+    ],
+    [
+      736,
+      192,
+      160,
+      128
+    ],
+    [
+      976,
+      32,
+      32,
+      448
+    ],
+    [
+      976,
+      576,
+      32,
+      32
+    ]
+  ],
+  "player_spawn": [
+    96,
+    544
+  ],
+  "exit": [
+    1056,
+    96,
+    64,
+    64
+  ],
+  "chapter_id": "CH01_THE_MISSED_FIGHT",
+  "event_id": "EV_CH01_SERVICE_ESCAPE",
+  "timestamp": "2023-10-14T22:18:00+03:00",
+  "title_ru": "ПРОПУЩЕННАЯ ДРАКА",
+  "subtitle_ru": "14 ОКТЯБРЯ 2023 · ВЛАДИКАВКАЗ · РАНЬШЕ",
+  "world_size": [
+    1152,
+    640
+  ],
+  "doors": [
+    {
+      "id": "service",
+      "bounds": [
+        368,
+        480,
+        32,
+        96
+      ]
+    },
+    {
+      "id": "street",
+      "bounds": [
+        976,
+        480,
+        32,
+        96
+      ]
+    }
+  ],
+  "key_position": [
+    96,
+    144
+  ],
+  "phone_zone": [
+    752,
+    480,
+    192,
+    128
+  ],
+  "checkpoint_position": [
+    432,
+    544
+  ],
+  "route": [
+    [
+      96,
+      544
+    ],
+    [
+      80,
+      544
+    ],
+    [
+      80,
+      144
+    ],
+    [
+      96,
+      144
+    ],
+    [
+      80,
+      144
+    ],
+    [
+      80,
+      544
+    ],
+    [
+      336,
+      544
+    ],
+    [
+      432,
+      544
+    ],
+    [
+      736,
+      544
+    ],
+    [
+      944,
+      544
+    ],
+    [
+      1056,
+      544
+    ],
+    [
+      1088,
+      544
+    ],
+    [
+      1088,
+      128
+    ]
+  ],
+  "interactions_ru": {
+    "key": "F · снять куртку с крючка",
+    "service": "F · служебная дверь",
+    "locked": "Ключ в куртке у раковины",
+    "street": "F · открыть выход во двор",
+    "exit": "F · уйти домой",
+    "phone": "ЗВОНОК · ЖИНЬКА"
+  },
+  "credits_ru": "Оригинальные код, пиксельное окружение и синтез проекта. Godot Engine. Вымышленная сатира.",
+  "fixture_bounds": [
+    [
+      152,
+      88,
+      80,
+      32
+    ],
+    [
+      264,
+      64,
+      72,
+      64
+    ],
+    [
+      248,
+      432,
+      80,
+      48
+    ]
+  ],
+  "signs": [
+    {
+      "text_ru": "НЕ БЕЙТЕ СУШИЛКУ",
+      "at": [
+        112,
+        44
+      ]
+    },
+    {
+      "text_ru": "М",
+      "at": [
+        48,
+        290
+      ]
+    },
+    {
+      "text_ru": "ЗАЛ · ДРАКА ЗА ДВЕРЬЮ",
+      "at": [
+        464,
+        112
+      ]
+    },
+    {
+      "text_ru": "СЛУЖЕБНЫЙ КОРИДОР",
+      "at": [
+        432,
+        592
+      ]
+    },
+    {
+      "text_ru": "ВО ДВОР →",
+      "at": [
+        864,
+        568
+      ]
+    },
+    {
+      "text_ru": "ДОМОЙ ↑",
+      "at": [
+        1024,
+        176
+      ]
+    }
+  ]
+}

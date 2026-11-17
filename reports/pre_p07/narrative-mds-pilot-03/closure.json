@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "repeat_scope": "two_medium_residuals_from_review02",
+  "checks": [
+    {
+      "id": "N-MDS-CH12-03-R1",
+      "status": "CLOSED_IN_DRAFT_NARRATIVE_SCOPE",
+      "path": "planning/missions/CH12_CYBERX.md",
+      "line": 115,
+      "observed": "Северный portal96px закрывает отдельная дверь(1840,624,96,16). Закрыта с тревоги; B5 Паша закрывает восточную дверь и проверяет обе. Габар проходит E3 снаружи. Север открывается только после E3 и очистки projectile/jobs через existing scripted Door interaction, без ключа. CP2 сохраняет последовательность и обе door-state.",
+      "conclusion": "Бумажный порядок больше не оставляет Пашу в открытой с севера комнате перед E3. Новая способность, immunity или escort AI не добавлены. Actual walls/doors/LOS/retry safety должны быть отдельно реализованы и проверены."
+    },
+    {
+      "id": "N-MDS-CH12-05-R1",
+      "status": "CLOSED_IN_DRAFT_NARRATIVE_SCOPE",
+      "path": "planning/missions/CH12_CYBERX.md",
+      "line": 46,
+      "observed": "Левый проход исправлен на160px, правый128px при том же cover1504,1008,96,96 в CX3 x1344..1728.",
+      "conclusion": "Оба числа соответствуют заданным bounds:1504−1344=160;1728−1600=128. Геометрия и weapon range не расширены."
+    }
+  ],
+  "all_six_review01_tickets_closed_in_current_component_draft_scope": [
+    "N-MDS-CH01-01",
+    "N-MDS-CH12-01",
+    "N-MDS-CH12-02",
+    "N-MDS-CH12-03",
+    "N-MDS-CH12-04",
+    "N-MDS-CH12-05"
+  ],
+  "findings_remaining": [],
+  "new_unapproved_canon_or_mechanic_conflicts_observed": []
+}
