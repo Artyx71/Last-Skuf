@@ -1,6 +1,8 @@
 # READINESS-C02: безопасная передача ROOT
 
-Это очередь реализации, не разрешение установки или массового производства.
+Техническая установка A/B/C завершена и независимо проверена17.11.2026. Исторический план ниже сохранён как описание шагов; это не разрешение массового производства.
+
+Фактический итог: ROOT runtime runner d700e88e, schema12; Game533/tools54 из Git f832. A/B/C повторно не применять. Независимые actual receipts: `reports/pre_p07/lead-bootstrap-A-installed-01`, `lead-runtime-bundle-B-installed-01`, `lead-canonical-source-C-installed-01`. Последний содержит отдельный `handoff-capability-decision.json`: technical safe_handoff PASS, полный Readiness/21MDS/P07 не приняты. Fresh canonical SOURCE import/boot/input72/72. State/index/refs и пользовательские профили сохранены. StopP06 остаётся.
 P06 полностью принята/merged; её результат не переоткрывается. Единственный автор
 работает в WorkP07, reviewers проверяют реальные изменения отдельно.
 
@@ -16,7 +18,7 @@ P06 полностью принята/merged; её результат не пе�
 3. **Canonical tree.** Проверить всю Root Game/toolchain против подтверждённого
    P06 snapshot. Согласовать ROOT HEAD/index/dirty/untracked без reset/stash/clean,
    потери пользовательских данных или публикации raw photos. Одного Python bundle
-   недостаточно: Root Game сейчас P05, полноценный verifier отсутствует.
+   недостаточно: До C Root Game была P05; фактическая C установила frozen P06 и полный verifier.
 4. **Fresh process.** После полного commit verification завершить старый процесс.
    Новый процесс проверяет реальные module paths/SHA, config/schema/prompt/worker
    и read-only status. Не использовать init/reconcile как проверку без записи.
