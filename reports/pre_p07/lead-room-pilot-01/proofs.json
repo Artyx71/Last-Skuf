@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "runtime_source": "80689f4e44d490730ab1a88e70d71b46533c1147",
+  "QA_preload_typing_fix_source": "1ddd275bf7de98f352cc543c9910a66908459432",
+  "source_and_tool_files_before_after_current_exact": 607,
+  "selected_source_sha256": {
+    "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+    "game/scripts/ai/room_navigation_host.gd": "4ea40b7cb7e7de8cce10eeebc889fcabef8525fa08ee4ccae5c1d6dc9d9b5cd5",
+    "game/scripts/levels/missed_fight.gd": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+    "tools/fixtures/p07_room_pilot.gd": "65fda11ffb0665c484939594227242ca7af4b0a14a938a078c62f0c3df5003ed",
+    "tools/p07_room_pilot.py": "d7b7a258f3d27e2633189dca4a4dd8277806acce93798d30a64c53818e5319f2",
+    "game/scripts/qa/mission_replay.gd": "aaf244613bb6a0a93af727d58983b0f63de9a304f9df8d42cd2370feefb4e43e",
+    "game/tests/mission_test.gd": "6b1fd3551cc7c057c01b688158493106afc8aff60964c3967c5c2489c1aed55c",
+    "game/resources/chapters/missed_fight.json": "c9e3ff7421816fa51c4fcb623da38021cf1d24e1519429c0161997b75e4e2bb8",
+    "game/scripts/levels/chapter_progress.gd": "5e3ea63e36d9ba98396b5767a71ab737b32460009b0fcf453a68fb05f6a09cfe",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab"
+  },
+  "canonical_operation": "6ede6fcd30da4296bc9b0b3c908e111a",
+  "receipt_sha256": "f031f4e7ace3a48aa08a8d66437ea402c583d5de69787a973337a2f111e36bff",
+  "input_sha256": "8ee5e57db911cb42eb9b850b07b2076334f0079ff13f96eec93e688a0ff02327",
+  "output_log_sha256": "d340bc909614ea49eeed30ef56cf5ac701259738b098c20378b4bec28bdd6712",
+  "validation_sha256": "b6c24cf46788aa6ebff3679a557f0e64347aa6f39931a5231bdec7104cebfa28",
+  "log_sha256": {
+    "import": "c0e042538fb10b59474ca516e532a28621d040eb08309ebb95267e50e05c4954",
+    "room": "76d8007108d9308e4d4817d4dfa32ad69eb5ef4921f4fa4c922ba81636114876",
+    "mission": "2a7bedb22a4479770e5eead6de5193379ef7bb3f7c1ba40a53aade5f2eba08ca",
+    "native": "c1fc13476e7c4f47da5246aa566ba1bd38cf38ab844e03b37aba1a91c5ebbe3b"
+  },
+  "room_checks": 18,
+  "room_raw_sha256": "ff54e7e9fe7808908bc7dcc4cb141d891b3d798f6fd590f5996f565c920c4adb",
+  "room_route_rows": [
+    {
+      "kind": "patrol",
+      "route": "service_door",
+      "closed_reached": false,
+      "opened_ticks": 151,
+      "opened_samples": 13,
+      "min_y": 544.0,
+      "max_y": 544.0
+    },
+    {
+      "kind": "patrol",
+      "route": "hall_cover",
+      "closed_reached": null,
+      "opened_ticks": 599,
+      "opened_samples": 50,
+      "min_y": 336.0,
+      "max_y": 400.0
+    },
+    {
+      "kind": "rusher",
+      "route": "service_door",
+      "closed_reached": false,
+      "opened_ticks": 129,
+      "opened_samples": 11,
+      "min_y": 544.0,
+      "max_y": 544.0
+    },
+    {
+      "kind": "rusher",
+      "route": "hall_cover",
+      "closed_reached": null,
+      "opened_ticks": 511,
+      "opened_samples": 43,
+      "min_y": 336.0,
+      "max_y": 400.0
+    },
+    {
+      "kind": "shooter",
+      "route": "service_door",
+      "closed_reached": false,
+      "opened_ticks": 194,
+      "opened_samples": 17,
+      "min_y": 544.0,
+      "max_y": 544.0
+    },
+    {
+      "kind": "shooter",
+      "route": "hall_cover",
+      "closed_reached": null,
+      "opened_ticks": 776,
+      "opened_samples": 65,
+      "min_y": 336.0,
+      "max_y": 400.0
+    }
+  ],
+  "room_sampled_footprints": 223,
+  "room_sampled_wall_penetrations": 0,
+  "targeted_room_setup_uses_warps_and_disables_other_combat": true,
+  "mission_existing_tests": 28,
+  "native_existing_Input_checks": 58,
+  "native_result_sha256": "76b884aa1f1570cfb8e37517e71307e6cc58bd88cc4562c1ecd8bdad4ce04e34",
+  "native_actual_input": true,
+  "native_route_warps": 0,
+  "native_AI_deaths_and_retries": 10,
+  "native_completion_events": 1,
+  "native_nonlethal_score": 1000,
+  "actual_capture_files": [
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/intro.png",
+      "sha256": "501a0f576b61fe3deecdca9dd8cb13fec4d348b1cdab98c2937a37799329dd19",
+      "bytes": 54188,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/washroom.png",
+      "sha256": "3097a0185e0c06351a2ff0839f4f67fdc9e7b74439bf85f7f6811adf7d870106",
+      "bytes": 46783,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/service_checkpoint.png",
+      "sha256": "10d10ed858dc7dedc6b4472409ca30c3de22e44f9b91a6b01fd583fffca9061f",
+      "bytes": 44303,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/death.png",
+      "sha256": "03bc66331932d152b42dd87e05809b76dbf725837f168262945db65cbed4590d",
+      "bytes": 44576,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/distraction.png",
+      "sha256": "1f63ef18407b04e6b91154cdeb692d88f278488bba2be38538495201dc200f29",
+      "bytes": 45695,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/phone.png",
+      "sha256": "09bd2d690aa9cc0fb8e7ab7c3896bd4212eb5592b023ba103562590bec2eee51",
+      "bytes": 54956,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/options.png",
+      "sha256": "1b78054ebe984fbcb356907ea7e2ff66233beb4451c64e138ea93e70bbe9d23f",
+      "bytes": 60642,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/street.png",
+      "sha256": "fbed2609cc1abcc14847bd2c80e8534ea5857e2027dd168a66f296cb4811c2eb",
+      "bytes": 43549,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    },
+    {
+      "path": "reports/pre_p07/room-pilot-02/native_captures/complete.png",
+      "sha256": "52ec50f25a9d5671f35557db9304a29ced018667e668e433b9de624066c8421f",
+      "bytes": 61320,
+      "dimensions": [
+        640,
+        360
+      ],
+      "personally_viewed_actual_PNG": true
+    }
+  ],
+  "frame_timings_are_legacy_process_delta_not_wall_performance": true,
+  "old01_parse_failure_preserved": {
+    "validation_sha256": "7247987fb5dbb8b97dd6568a6e28dee7f6dcd61d9efd1b2911bc0c29ff2efc09",
+    "room_log_sha256": "dfc653f3e8498d05eba1262986ae3d683e1229adc965de9e3612fbd9693ee3ad",
+    "production_bug_claim": false,
+    "mission_and_native_NOT_RUN": true
+  },
+  "reviewer_Godot_Controller_executor_Git_or_state_mutations": 0
+}
