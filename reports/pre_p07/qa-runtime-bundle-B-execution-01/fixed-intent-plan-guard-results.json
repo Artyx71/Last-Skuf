@@ -1,0 +1,23 @@
+{
+  "scope": "EXACT_FIXED_COMMON_INTENT_GUARD_WITH_DISPOSABLE_B_ONLY",
+  "passed": true,
+  "cases": [
+    {
+      "case": "valid",
+      "passed": true,
+      "result": "COMMIT_VERIFIED",
+      "runtime_still_before": false,
+      "marker_retained": false,
+      "actual_ROOT_installation": false
+    },
+    {
+      "case": "protected_changed_after_initial_check",
+      "passed": true,
+      "result": "BLOCKED_BEFORE_FIRST_COPY",
+      "runtime_still_before": true,
+      "marker_retained": true,
+      "actual_ROOT_installation": false
+    }
+  ],
+  "actual_ROOT_Controller_engine_or_installation_calls": 0
+}

@@ -1,0 +1,84 @@
+"""Standalone B operator. No Controller imports; never changes phase authority."""
+import argparse,hashlib,json,os,subprocess,sys
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];W=R/'.autopilot/worktrees/P07'
+PINNED={'tools/bootstrap_runtime_fence.py':'16d0c64f331ce651647b70bbb81fad51d6b855e13f5ec29dbb763a3f4eb557e3','tools/cold_bootstrap.py':'11a8e0d1fd150dbb4364cede5539af5f1df15bcb0f0ed558c1fb402b41dc7dde','tools/cold_runtime_bundle.py':'63091cde9bdf99bd327b439e0b67a8f668bc3a96a757a1f852d01e3dc736f5fb'}
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+for n,h in PINNED.items():assert sha(W/n)==h,(n,'operator source changed')
+sys.path.insert(0,str(W/'tools'))
+from cold_runtime_bundle import RuntimeBundle,TARGETS,MARKER,LEDGER
+from cold_bootstrap import BOOTSTRAP_SHA,writejson,readjson,parsejson
+O=R/'reports/pre_p07/bundle-actual-B-01';PLAN=O/'plan.json'
+A={'path':'reports/pre_p07/lead-bootstrap-A-installed-01/decision.json','sha256':'147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308'}
+COMPONENTS={'qa':'f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17','lead':'d9b4f6aedd3e3c924bffec0ef112c2dd6180f1749b78aefa5d255fef99396d53'}
+p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','apply','finish','rollback']);p.add_argument('--expected-plan-sha');p.add_argument('--transaction');args=p.parse_args()
+def drain():
+ s=readjson(R/'automation/phase_state.json');a=s['autopilot'];op=a['operation']
+ assert s['active_phase']=='P07' and a['phases']['P07']['status']=='PENDING' and a['phases']['P07']['attempts']==0
+ assert a['active_author'].get('ended_at') and not Path('/proc/'+str(a['active_author']['pid'])).exists()
+ assert a['phases']['P06']['merge']['merge_sha']=='f8325212381d67a469b5d9a6dffbf3d244bc9933'
+ assert op['id']=='aa92cb16188040b99881123e054c7d04' and op['consumed'] and op['exit_code']==0
+ receipt=readjson(Path(op['receipt']));assert receipt['operation']==op['id'] and receipt['exit_code']==0 and receipt['log_sha256']==sha(Path(op['log']))
+ started=readjson(Path(op['started']))
+ for key in ['worker','child']:
+  assert not Path('/proc/'+str(started[key]['pid'])).exists(),('old process identity still present',key)
+ assert not (R/'.autopilot/RUNNING.lock').exists()
+ assert readjson(R/'autopilot/config.json')['stop_after_phase']=='P06'
+ # Known launcher/process check, not a claim about arbitrary hidden imported Python.
+ processes=[]
+ for proc in Path('/proc').iterdir():
+  if not proc.name.isdecimal() or int(proc.name)==os.getpid():continue
+  try:
+   cmd=(proc/'cmdline').read_bytes().split(b'\0');first=Path(cmd[0].decode()).name if cmd else ''
+   if 'python' not in first and not any(n in first.lower() for n in ['godot','runner.listener','runner.worker']):continue
+   text=b' '.join(cmd).decode(errors='replace')
+   if any(n in text for n in ['autopilot/runner.py','autopilot/worker.py','pre-p07-resume-author.py','pre-p07-recover-author.py','Runner.Listener','Runner.Worker']) or 'godot' in first.lower():
+    processes.append({'pid':int(proc.name),'argv0':first})
+  except (OSError,IndexError):pass
+ assert not processes,('known processes/launchers active',processes)
+ return {'last_operation':op['id'],'receipt_sha256':sha(Path(op['receipt'])),'previous_author':a['active_author'],'worker_identities':started,'known_launchers_or_engine':processes,'no_arbitrary_hidden_interpreter_guarantee':True}
+
+with RuntimeBundle(R).lease() as maintenance:
+ d=drain();assert (R/'automation/.executor.lock').stat().st_ino==1118521
+ for role,h in COMPONENTS.items():
+  f=R/f'reports/pre_p07/{role}-runtime-bundle-B-02/decision.json';blob=f.read_bytes();v=parsejson(blob)
+  assert hashlib.sha256(blob).hexdigest()==h and v['status']=='PASS_COMPONENT'
+ if args.action=='prepare':
+  assert not O.exists();assert not (R/MARKER).exists() and not (R/LEDGER).exists()
+  baseline=maintenance.verify_a(A);assert maintenance.protected(baseline)==baseline
+  assert (W/'.git').is_file() and subprocess.check_output(['git','rev-parse','--path-format=absolute','--git-common-dir'],cwd=W,text=True).strip()==str(R/'.git')
+  for n,h in TARGETS.items():assert sha(W/n)==h
+  oldplan=readjson(R/'reports/pre_p07/bootstrap-actual-A-03/plan.json')
+  paths=sorted(set(oldplan['protected'])-set(TARGETS))
+  paths+=list(A['path'] for _ in [0])+['reports/pre_p07/lead-bootstrap-A-installed-01/post-A-runtime-baseline.json']
+  paths+=[str((W/n).relative_to(R)) for n in list(PINNED)+list(TARGETS)]
+  paths+=[f'reports/pre_p07/{role}-runtime-bundle-B-02/decision.json' for role in COMPONENTS]
+  protected=maintenance.protected(paths);before=maintenance.protected(TARGETS)
+  O.mkdir(parents=True)
+  plan={'schema':1,'scope':'RUNTIME_BUNDLE_B_ONLY_NOT_GAMESYNC_FULL_C02_READINESS_OR_P07','root':str(R),'source_pins':PINNED,'target_pins':TARGETS,'before':before,'protected':protected,'installed_A':A,'component_decisions':COMPONENTS,'wrapper_sha256':sha(Path(__file__)),'work_head_note':subprocess.check_output(['git','rev-parse','HEAD'],cwd=W,text=True).strip(),'lock_inode':1118521,'drain':d,'stop_after_phase':'P06','recovery_scope':'Only same intent/before/protected/installedA; unexpected mutation BLOCKS; never replay newbegin'}
+  writejson(PLAN,plan);print(json.dumps({'plan':str(PLAN),'sha256':sha(PLAN),'protected_files':len(protected),'read_only_preparation':True,'B_installed':False}),flush=True)
+ else:
+  plan_blob=PLAN.read_bytes();plan_sha=hashlib.sha256(plan_blob).hexdigest();plan=parsejson(plan_blob)
+  assert args.expected_plan_sha and args.expected_plan_sha==plan_sha
+  assert plan['wrapper_sha256']==sha(Path(__file__)) and plan['source_pins']==PINNED and plan['target_pins']==TARGETS and plan['installed_A']==A
+  assert maintenance.protected(plan['protected'])==plan['protected']
+  approvals=[];approval_blobs=[]
+  for role in ['qa','lead']:
+   f=R/f'reports/pre_p07/{role}-runtime-bundle-B-execution-01/decision.json';blob=f.read_bytes();v=parsejson(blob)
+   assert v.get('status')=='PASS' and v.get('actual_ROOT_B_execution_approved') is True and v.get('plan_sha256')==plan_sha,role
+   approvals.append({'path':str(f.relative_to(R)),'sha256':hashlib.sha256(blob).hexdigest()});approval_blobs.append((f,blob))
+  assert PLAN.read_bytes()==plan_blob and all(f.read_bytes()==blob for f,blob in approval_blobs)
+  if args.action=='apply':
+   assert not args.transaction
+   payloads={n:(W/n).read_bytes() for n in TARGETS}
+   ident=maintenance.begin_bundle(payloads,plan['before'],list(plan['protected']),A)
+   writejson(O/'transaction.json',{'id':ident,'plan_sha256':plan_sha,'approvals':approvals})
+  else:
+   assert args.transaction;ident=args.transaction
+   _,intent=maintenance.load_bundle(ident,allow_prepare_repair=True)
+   assert intent['before']==plan['before'] and intent['protected']==plan['protected'] and intent['installed_a']==A
+  result=maintenance.finish_bundle(ident,rollback=args.action=='rollback')
+  desired=plan['before'] if args.action=='rollback' else {n:dict(plan['before'][n] or {'mode':420,'uid':os.geteuid(),'gid':os.getegid()},sha256=h) for n,h in TARGETS.items()}
+  assert maintenance.protected(TARGETS)==desired and maintenance.protected(plan['protected'])==plan['protected']
+  writejson(O/('rollback.json' if args.action=='rollback' else 'installed.json'),{'result':result,'plan_sha256':plan_sha,'ROOT_state_unchanged':True,'fresh_process_still_required':True,'full_C02_Readiness_P07_approved':False})
+  print(json.dumps(result),flush=True)

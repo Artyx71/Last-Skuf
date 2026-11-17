@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "canonical_CH09": {
+    "id": "CH09_THE_NIGHT_SHIFT",
+    "event_id": "EV_CH09_COMPLETE",
+    "title_ru": "Ночная смена",
+    "presentation": 9,
+    "chronology": 9,
+    "period": "present",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "TEGA"
+    ],
+    "location": "planned_ch09",
+    "prerequisites": [
+      "EV_CH08_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "D05": {
+    "id": "D05",
+    "name": "TEGA_PHONE",
+    "chapter": "CH09_THE_NIGHT_SHIFT",
+    "accept": {
+      "evidence.tegas_phone": true
+    },
+    "refuse": {}
+  },
+  "EV_PHONE_DECODED": {
+    "id": "EV_PHONE_DECODED",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "flags.phone_decoded": true,
+      "evidence.illegal_operations": true
+    },
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "evidence.tegas_phone",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.open_source_origin",
+            true
+          ]
+        }
+      ]
+    },
+    "prerequisites": []
+  },
+  "EV_MEMORABILIA_2": {
+    "id": "EV_MEMORABILIA_2",
+    "chapter": "CH09_THE_NIGHT_SHIFT",
+    "kind": "record",
+    "effects": {
+      "flags.memorabilia_2": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "identity_and_effects_match_draft": true,
+  "phone_handoff": {
+    "accept": "Tega carries whole device through escape, then gives it to Gabar in separate authored scene beat before CH14 investigation",
+    "refuse": "no friend custody; no early decode",
+    "offscreen_decode_before_open_source_proof": false,
+    "source_line": 62
+  },
+  "environment_kick_actual_source": {
+    "windup": 0.18,
+    "active": 0.18,
+    "recovery": 0.32,
+    "cooldown": 2.4,
+    "speed_px_s": 210,
+    "max_motion_px": 37.8,
+    "foot_center_distance_min": 12,
+    "foot_center_distance_max": 38,
+    "facing_dot_min": 0.85,
+    "short_overlap_and_LOS": true,
+    "real_registered_PhysicsBody2D": true,
+    "first_actual_collision_then_Core_hit": true,
+    "remote_shockwave_or_free_shooting": false
+  },
+  "proposed_A_setup_diagnostic": {
+    "source": [
+      660,
+      736
+    ],
+    "object": [
+      688,
+      736
+    ],
+    "center_distance_px": 28,
+    "within_foot_distance": true,
+    "aim_right_dot": 1,
+    "patrol_local_x": [
+      704,
+      728
+    ],
+    "object_to_patrol_dx_px": [
+      16,
+      40
+    ],
+    "guaranteed_hit_claimed": false,
+    "actual_collider_sweep_or_feel_verified": false
+  },
+  "routes": {
+    "stock": [
+      "NS0",
+      "NS2",
+      "NS1/phone/D05",
+      "NS2/E1",
+      "NS3/E2",
+      "NS4/E3/exit"
+    ],
+    "back_stair": [
+      "NS0",
+      "NS2",
+      "NS1/phone/D05",
+      "NS2/E1",
+      "NS5",
+      "NS4/E3/exit"
+    ],
+    "both_D05_outcomes_use_both_routes": true,
+    "NS5_gate": "manual latch from NS2, nonconsumable, no timed reclosure",
+    "mandatory_object_hit_or_kill_all": false
+  },
+  "CP1": "conditional safe transition after D05; closed door/no active contacts or projectiles; if unsafe retain CP0 with canonical D05 and physical phone outcome",
+  "memorabilia_optional_once_no_cannon_grant": true,
+  "new_assets_required_not_created": true,
+  "duration_NOT_MEASURED": true,
+  "accepted_CH01_CH12_CH16_unchanged": true
+}
