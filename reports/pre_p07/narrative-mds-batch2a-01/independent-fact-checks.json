@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "CH05_registry": {
+    "id": "CH05_THE_ORIGINAL_PRIME",
+    "event_id": "EV_CH05_COMPLETE",
+    "title_ru": "Настоящий прайм",
+    "presentation": 5,
+    "chronology": 5,
+    "period": "present",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "GABAR",
+      "OLEZHKA"
+    ],
+    "location": "planned_ch05",
+    "prerequisites": [
+      "EV_CH04_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "CH06_registry": {
+    "id": "CH06_THE_BREAKER",
+    "event_id": "EV_CH06_COMPLETE",
+    "title_ru": "Брейкер",
+    "presentation": 6,
+    "chronology": 6,
+    "period": "present",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "RYZHIK"
+    ],
+    "location": "planned_ch06",
+    "prerequisites": [
+      "EV_CH05_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "D03": {
+    "id": "D03",
+    "name": "RYZHIK_WARNING",
+    "chapter": "CH06_THE_BREAKER",
+    "accept": {
+      "flags.ryzhik_warned": true,
+      "relationships.yakuza_ryzhik": 1
+    },
+    "refuse": {
+      "flags.ryzhik_warned": false,
+      "relationships.yakuza_ryzhik": -1
+    }
+  },
+  "tooth": {
+    "id": "EV_SECRET_BROKEN_TOOTH",
+    "chapter": "CH06_THE_BREAKER",
+    "kind": "record",
+    "effects": {
+      "secrets.SECRET_BROKEN_TOOTH": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "identity_and_pending_dates_match": true,
+  "CH05_only_public_material_no_D04_evidence_or_Kaban": true,
+  "CH06_Yakuza_is_explicit_caller_decider_not_combat_POV": true,
+  "D03_existing_carry": "flags.ryzhik_warned/choices.D03 and trust; StoryState.route_plan.supplier derives ryzhik_ally_safe vs ryzhik_rival_exposed; full CH13/18 scenes remain future MDS obligation",
+  "moves": {
+    "gabar_speed": 110,
+    "olezhka_speed": 106,
+    "ryzhik_speed": 120,
+    "gabar_lunge_and_melee_counter_roles_match_existing_code": true,
+    "counter_only_actual_melee_contact_not_projectiles": true,
+    "roll": {
+      "windup": 0.08,
+      "active": 0.32,
+      "recovery": 0.16,
+      "cooldown": 1.2,
+      "speed": 180,
+      "max_free_motion": 57.6,
+      "no_invulnerability_or_mask_change": true,
+      "matches_actual_ground_roll": true
+    },
+    "campaign_grants_not_implemented_or_inferred_from_sandbox": true
+  },
+  "OP2_alternative_graph_path": [
+    "OP4",
+    "OP3",
+    "OP0",
+    "OP1",
+    "OP2"
+  ],
+  "BR4_bounds": [
+    1024,
+    1024,
+    1024,
+    384
+  ],
+  "CP1_BR4_point": [
+    1504,
+    1248
+  ],
+  "E3_BR4_points": [
+    [
+      1792,
+      1136
+    ],
+    [
+      1952,
+      1088
+    ]
+  ],
+  "all_three_points_inside_BR4": true,
+  "future_E3_actual_activation_or_Gameplay_safe_distance_verified": false,
+  "durations_NOT_MEASURED_and_new_assets_not_created": true,
+  "CH03_owner_amendment_and_private_photo": "outside this batch; not inspected, copied or generated",
+  "NPC_ammo_annotation": "not accepted as a new enemy-resource requirement by this Narrative review; separate Gameplay authoring cleanup, not a canonical Narrative blocker"
+}

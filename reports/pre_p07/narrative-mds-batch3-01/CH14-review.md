@@ -1,0 +1,11 @@
+# CH14 Narrative / paper-contract
+
+**CHANGES_REQUESTED: HIGH N-MDS-CH14-01 + MEDIUM N-MDS-CH14-02**, SHA `5e9daf0627955b7156d7f392617ce8161823847568503dd58b1719ac9d3db9e9`.
+
+Канон identity/GABAR/present/pending/CH13 prerequisite верен. D04 accept точно open_source_origin+gabar_exonerated, refuse{} ничего не стирает. EV_PHONE_DECODED только tegas_phone && open_source_origin и отдельная законченная сцена; illegal_operations здесь допустим по существующему event, не означает раннего раскрытия Кабана. CH18 не должен забывать уже принятую history/exoneration. Lunge110/optional trusted firearm не даёт moving_shot; «рой» не новый AI/бесконечная волна.
+
+**HIGH:** второй источник назван «полученным в клубе» с fragment/date, но его доступность при D02=false/D05=false не обеспечена принятой custody. В CH12 друзьям не оставлена full backup, наблюдаемый Габаром факт — send log/reply; диск изъят доCH14 и возвращается толькоCH16. Поскольку оба sources требуются даже для main completion/refuse, нельзя молча предположить архив у друзей/новый backup gate. Назвать независимо доступный artifact/public build или ограниченный след на обеих ветках, его происхождение и проверяемость. Это не утверждение, что любой «артефакт» обязан быть полным архивом: именно нужная ограниченная природа пока не прописана. Нужна бумажная trace без backup/phone, без изменения прежней CH12 истории.
+
+**MEDIUM:** AS1 east portal→AS4 не имеет названного physical gate, хотя AS4 объявлен предметно закрытым доchoice. Две AS3 двери закрывают safe compare room, но не эту третью связь. Дать real gate/CP states/opening послеsealed D04, либо честно разрешить ранний courtyard access с безопасной activation; final predicate не подменяет стену.
+
+MEM3 — существующий optional event доcomplete. Dream all3flags лишь открывает отдельный Tega/Akhshar slapstick эпизод; record только после реально завершённой сцены/допустимого skip. Он High future/not implemented, UI не выдаёт ложный secret/cannon. Main не требует сна/телефона/D04accept. CP1 доchoice/CP2 послеdurable outcome/E3 future once cohort в целом coherent, но source/gate fixes ещё нужны. Все assets/music NOT_CREATED,25–40min NOT_MEASURED. Это не actual source proof/ART/GameFeel/runtime/Lead/all21/Readiness approval.

@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "CH07_CH08_PAPER_GAMEPLAY_DESIGN_COMPONENT_ONLY",
+  "status": "FAIL_COMPONENT",
+  "verdict": "FAIL",
+  "source_head": "3ec07a5a8cf245d845f50b0e08f84c1079ac77bd",
+  "source_sha256": {
+    "planning/missions/CH07_THE_AMERICAN_PROGRAM.md": "98e607d44bb8154b87a887986f670c0e7f1390284f586b1b2d3a9398b5c9e334",
+    "planning/missions/CH08_WIFE_APPROVAL.md": "b722fe8026d1f06ce08b6ef8ff0affa7eedfb88c443291ceb09b1fc9a0f963a3",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/abilities/moving_shot.gd": "3dac565c6bf72a98f592336cd008204b6e3dc7cc4c91ade8a174b5d259547dac",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/core/input_bindings.gd": "0aebea4af98c797393ec3f22c1a6af8930c57156359e6bfb1448efc14672a6d1",
+    "game/scripts/core/options_store.gd": "663eaae1ae7115320168d0e7c3aebc8e288935f107ae1211f8afc28f11eb8a12",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "planning/MISSION_DESIGN_TEMPLATE.md": "e6462ac72ffe19966cd80bad7e48182451aa99d8791a3ea2284bba4347a4c28a",
+    "planning/PRE_P07_REQUIREMENTS.md": "abd58302c69d45fcf30477bf835ac9ceb8d80437ee724c9169d227213ffe705c"
+  },
+  "per_document": [
+    {
+      "chapter": "CH07_THE_AMERICAN_PROGRAM",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "98e607d44bb8154b87a887986f670c0e7f1390284f586b1b2d3a9398b5c9e334",
+      "blocking_findings": []
+    },
+    {
+      "chapter": "CH08_WIFE_APPROVAL",
+      "status": "FAIL_PAPER_COMPONENT",
+      "sha256": "b722fe8026d1f06ce08b6ef8ff0affa7eedfb88c443291ceb09b1fc9a0f963a3",
+      "blocking_findings": [
+        "B2B-MDS-G01"
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "B2B-MDS-G01",
+      "severity": "MEDIUM",
+      "chapter": "CH08_WIFE_APPROVAL",
+      "status": "PAPER_GEOMETRY_PROMISE_FIX_REQUIRED",
+      "summary": "The optional hostile service route is longer than the described safe public route, so it does not actually provide the promised shortcut.",
+      "analytical_counterexample": {
+        "pickup": [
+          1120,
+          928
+        ],
+        "handoff": [
+          1600,
+          992
+        ],
+        "declared_public_route_y": 1040,
+        "public_polyline_length_px": 640,
+        "service_both_portal_y": 576,
+        "service_vertical_travel_lower_bound_px": 768,
+        "interpretation": "Service arclength≥768px from vertical travel alone, before horizontal/clearance; explicitly clear public polyline is640px. Not actualruntime timing."
+      },
+      "minimal_fix": "Either change geometry so the riskyservice really cutsdistance, or honestly designate a longeroptionalserviceexploration/loop and state it isnotfaster/required/nohiddendeliveryreward. Do not add compulsorycombat/newreward or inflatepublicpath justtojustify maplabel."
+    }
+  ],
+  "nonblocking_clarifications": [
+    {
+      "id": "B2B-MDS-N01",
+      "severity": "LOW",
+      "chapter": "CH08_WIFE_APPROVAL",
+      "summary": "Neutralisation is not an independent lethal solution for this weakescape kit",
+      "requested": "Ifmeaningtemporaryshovecontrol, say it onlyhelpsreturnhostileacrossopenportal;stunnedlivefootprintinsideWA2stillfailsnohostilehandoff. Removeimpliedkill/disablegrant; actualscenehasnoFINorlethaldamage."
+    }
+  ],
+  "positive_paper_checks": {
+    "CH07_Pasha_exact_movingShot_windup_active_recovery_CD_clip_refill": [
+      0.1,
+      0.08,
+      0.12,
+      0.4,
+      4,
+      0.9
+    ],
+    "CH07_passive_refill_perround_onlyoutside_movingShot_playing_liveauthority": true,
+    "CH07_campaigngrant_onlyfirearm_not_wholetrainingkit": true,
+    "CH07_routesforkjoin_distinctfromCH12archivePOVandCH16revelation": true,
+    "CH07_singleagencyingress_physicaldoor_can_isolateunvisitedbranches": true,
+    "CH07_CP1E3dead/jobsclear/insideagencyclear/doorclosed_offer_pending": true,
+    "CH07_contact_US_CURATOR_sameCH12_noD02/evidence": true,
+    "CH08_initialpublicpathsafe_withbothserviceportalsclosed": true,
+    "CH08_exercise_singleauthoredscene_notnewdamageDummy_or_XP": true,
+    "CH08_Yakuza_escape_nofinisher_or_traininggrant": true,
+    "CH08_safehandoff_realcloseddoors_noWA2hostilejobs_failedFnoConsumePause": true,
+    "CH08_CP1originaldoorsNPCparcelrestore_no_false_delivery_writefailure": true
+  },
+  "future_HIGH_NOT_IMPLEMENTED": [
+    "Bothtrustedchapterfactory/policy/director/typedstage/checkpoint/savefailure/once",
+    "CH07firearmgrant/passiveammoHUD+finitecost authority and actualroutecombat",
+    "Physicaldoorclosure/footprintclearance/actualenabledcollider-navsync/AIrecovery policy; newhostnotalreadytested",
+    "Originalmaps/sceneprops/portraits/cues/musicstems/listening/nativepacing/platformbuilds"
+  ],
+  "actual_runtime_feel_collision_FPS_or_playthrough_verified": false,
+  "all21_Readiness_H02_P07_phase_approval": false,
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}

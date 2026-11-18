@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "evidence_kind": "small diagnostic evaluation of actual routes.json, not Godot/StoryState runtime or playthrough test",
+  "routes_sha256": "7137e57c9e17678bcfca6e0ad39bae9f2904f880a31116da4f70bbeb9b689aa8",
+  "cases": [
+    {
+      "case": "missing_choices_not_explicit_refusals",
+      "state": {
+        "flags": {},
+        "choices": {},
+        "evidence": {},
+        "secrets": {}
+      },
+      "primary_eligible_by_routes_json": [
+        "ENDING_WIFE_CALLING"
+      ],
+      "primary_completed_assumed_for_paper_case": false,
+      "overlay_condition": false,
+      "overlay_eligible_with_primary_precondition": false
+    },
+    {
+      "case": "family_optional_proofs_skipped",
+      "state": {
+        "flags": {
+          "kimono_truth": false,
+          "ryzhik_warned": false,
+          "yakuza_accepted_responsibility": true
+        },
+        "choices": {
+          "D01": false,
+          "D03": false,
+          "D06": true
+        },
+        "evidence": {},
+        "secrets": {}
+      },
+      "primary_eligible_by_routes_json": [
+        "ENDING_WIFE_CALLING",
+        "ENDING_FAMILY_BUSINESS"
+      ],
+      "primary_completed_assumed_for_paper_case": false,
+      "overlay_condition": false,
+      "overlay_eligible_with_primary_precondition": false
+    },
+    {
+      "case": "brotherhood_existing_verified_operations",
+      "state": {
+        "flags": {
+          "kimono_truth": true,
+          "yakuza_accepted_responsibility": true
+        },
+        "choices": {
+          "D01": true,
+          "D03": false,
+          "D06": true
+        },
+        "evidence": {
+          "illegal_operations": true
+        },
+        "secrets": {}
+      },
+      "primary_eligible_by_routes_json": [
+        "ENDING_WIFE_CALLING",
+        "ENDING_BROTHERHOOD"
+      ],
+      "primary_completed_assumed_for_paper_case": false,
+      "overlay_condition": false,
+      "overlay_eligible_with_primary_precondition": false
+    },
+    {
+      "case": "all_overlay_conditions_after_primary",
+      "state": {
+        "flags": {
+          "kimono_truth": true,
+          "yakuza_accepted_responsibility": true,
+          "kimono_record": true,
+          "phone_decoded": true
+        },
+        "choices": {
+          "D01": true,
+          "D03": true,
+          "D06": true
+        },
+        "evidence": {
+          "open_source_origin": true,
+          "founding_records": true,
+          "illegal_operations": true,
+          "tegas_phone": true,
+          "pashas_backup": true
+        },
+        "secrets": {
+          "SECRET_SUPPOSITORY_CANNON": true,
+          "SECRET_BROKEN_TOOTH": true,
+          "SECRET_BATHROOM_INCIDENT": true,
+          "SECRET_JACK_REVENGE": true,
+          "SECRET_PRIME_PHOTOS": true
+        }
+      },
+      "primary_eligible_by_routes_json": [
+        "ENDING_WIFE_CALLING",
+        "ENDING_BROTHERHOOD"
+      ],
+      "primary_completed_assumed_for_paper_case": true,
+      "overlay_condition": true,
+      "overlay_eligible_with_primary_precondition": true
+    }
+  ],
+  "two_phase_API_inspected": {
+    "complete_chapter_must_precede_finish_story": true,
+    "finish_story_requires_primary_eligible_and_primary_not_already_locked": true,
+    "StoryService_begin_chapter_forks_completed_chapter": true,
+    "CH21_explicit_pending_finish_in_real_store_is_future_High_integration": true
+  },
+  "Family_preserved_by_optional_CH19_CH20_verified_records": true,
+  "Family_and_REAL_overlay_incompatible_by_existing_evidence_conditions": true,
+  "future_reachability_gameplay_NOT_VERIFIED": true
+}

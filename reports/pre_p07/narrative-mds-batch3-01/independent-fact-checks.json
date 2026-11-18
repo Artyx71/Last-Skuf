@@ -1,0 +1,205 @@
+{
+  "registry_chapters": [
+    {
+      "id": "CH10_THE_KIMONO",
+      "event_id": "EV_CH10_COMPLETE",
+      "title_ru": "Кимоно",
+      "presentation": 10,
+      "chronology": 10,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "OLEZHKA",
+        "YAKUZA"
+      ],
+      "location": "planned_ch10",
+      "prerequisites": [
+        "EV_CH09_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH13_NO_REFUNDS",
+      "event_id": "EV_CH13_COMPLETE",
+      "title_ru": "Без возврата",
+      "presentation": 13,
+      "chronology": 13,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "RYZHIK"
+      ],
+      "location": "planned_ch13",
+      "prerequisites": [
+        "EV_CH12_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH14_AGENT_SWARM",
+      "event_id": "EV_CH14_COMPLETE",
+      "title_ru": "Рой агентов",
+      "presentation": 14,
+      "chronology": 14,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "GABAR"
+      ],
+      "location": "planned_ch14",
+      "prerequisites": [
+        "EV_CH13_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    },
+    {
+      "id": "CH15_THE_SUPERSUIT",
+      "event_id": "EV_CH15_COMPLETE",
+      "title_ru": "Суперкостюм",
+      "presentation": 15,
+      "chronology": 15,
+      "period": "present",
+      "timestamp": "",
+      "timestamp_status": "production_pending",
+      "povs": [
+        "TIMKA"
+      ],
+      "location": "planned_ch15",
+      "prerequisites": [
+        "EV_CH14_COMPLETE"
+      ],
+      "availability": "planned",
+      "scene": ""
+    }
+  ],
+  "D01": {
+    "id": "D01",
+    "name": "KIMONO_TRUTH",
+    "chapter": "CH10_THE_KIMONO",
+    "accept": {
+      "flags.kimono_truth": true,
+      "relationships.yakuza_olezhka": 1
+    },
+    "refuse": {
+      "flags.kimono_truth": false,
+      "relationships.yakuza_olezhka": -1
+    }
+  },
+  "D04": {
+    "id": "D04",
+    "name": "OPEN_SOURCE_PROOF",
+    "chapter": "CH14_AGENT_SWARM",
+    "accept": {
+      "evidence.open_source_origin": true,
+      "flags.gabar_exonerated": true
+    },
+    "refuse": {}
+  },
+  "KIMONO_RECORD": {
+    "id": "EV_KIMONO_RECORD",
+    "chapter": "CH10_THE_KIMONO",
+    "kind": "record",
+    "effects": {
+      "flags.kimono_record": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "PHONE_DECODED": {
+    "id": "EV_PHONE_DECODED",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "flags.phone_decoded": true,
+      "evidence.illegal_operations": true
+    },
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "evidence.tegas_phone",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "evidence.open_source_origin",
+            true
+          ]
+        }
+      ]
+    },
+    "prerequisites": []
+  },
+  "MEMORABILIA3": {
+    "id": "EV_MEMORABILIA_3",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "flags.memorabilia_3": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "dream": {
+    "id": "EV_SECRET_SUPPOSITORY_CANNON",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "secrets.SECRET_SUPPOSITORY_CANNON": true
+    },
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "flags.memorabilia_1",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.memorabilia_2",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.memorabilia_3",
+            true
+          ]
+        }
+      ]
+    },
+    "prerequisites": []
+  },
+  "photos": {
+    "id": "EV_SECRET_PRIME_PHOTOS",
+    "chapter": "CH15_THE_SUPERSUIT",
+    "kind": "record",
+    "effects": {
+      "secrets.SECRET_PRIME_PHOTOS": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "identities_prerequisites_pending_dates_match": true,
+  "CH10_record_before_complete_both_D01": true,
+  "CH15_scripted_guard_refuge": "SS2→SS0 south real door closed AND SS2↔SS3 west closed; no route SS2→SS0→SS1. Guard route stays physically in SS2, no escape outside world required. PRINT south opened only for safe transfer/reclosed for review.",
+  "CH15_actual_disengage_context_matches": true,
+  "new_dream_episode_implemented_or_cannon_granted": false,
+  "raw_photo_or_external_processing": false,
+  "source_custody_and_AS4_gate_unresolved_as_findings": true,
+  "durations_NOT_MEASURED_and_new_assets_NOT_CREATED": true
+}

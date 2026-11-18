@@ -1,0 +1,9 @@
+# Targeted batch2b02 — current CH07 / CH08 / CH03 owner chain
+
+**PASS_COMPONENT — только Narrative/paper delta и указанные неизменённые части.** Source bindings: CH07 `98e607d44bb8154b87a887986f670c0e7f1390284f586b1b2d3a9398b5c9e334` (не изменена); CH08 `226709d052bb1f2eb7ee4bf0c6a158d54bd695652c02d12adbaf286669d5a484`; CH03 `d68813e97dbe29d3c340efde4822d006735a7394f754aacd1ce0d5608e8ea0f0`. Заявленный WORK prefix8fd5edec; authority actual bytes/SHA, Git не вызывался.
+
+CH08 закрывает LOW N-MDS-CH08-NOTE-01: больше не обещает ускорение через север. Это явно длинный необязательный service detour с видимой надписью/планом, без отдельной награды/улики и включения в обязательную длину. Короткая public delivery остаётся полной главной трассой. Дополнительно weak shove не назван убийством для очистки depot; угроза физически возвращается/отделяется существующими LOS/coin/door средствами. Canon/жена/local ownership/once не изменились.
+
+CH03 корректно уточняет InputMap interact отдельно от ещё не реализованных persistent remapping/controller UI. AKIMBO69 остаётся вымышленным спортивным соперником, не преступной ролью; original two-actor animated QTE requirement,0.25s project window/physics settled outcomes/win_pending→exit_ready/MEM1 не изменены. Старый anonymous packet остаётся историческим, owner01 переносится только на неизменённые части exact current source. Фото не открывалось/не хешировалось/не копировалось. Сообщение owner о12 refs/validate_pack12/0 не называется результатом собственного запуска.
+
+CH07 полностью совпала с ранее independently reviewed bytes. Новых must-fix Narrative замечаний нет. Ни actual new sprite/QTE/likeness, ни input availability, door policy/пейсинг/production readiness не принимались. High assets/host/checkpoint/input/music остаются открыты. Нет Gameplay/ART/Audio/QA/Lead/all21/runtime/production/phase/merge/release approval. Только owned packet, source-before/end совпали; прежние reports immutable.
