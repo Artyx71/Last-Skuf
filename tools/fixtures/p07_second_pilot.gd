@@ -12,6 +12,7 @@ var route_overlap := false
 var route_jumps := false
 var maximum_step := 0.0
 var movement_failures: Array[Dictionary] = []
+var unexpected_run := false
 
 func _initialize() -> void: call_deferred("run")
 
@@ -96,9 +97,10 @@ func drive(goal: Vector2) -> bool:
 		var physics_ticks := Engine.get_physics_frames()-prior_tick
 		var jump: bool = step > lab.player.move_speed*physics_ticks/60.0+0.2
 		var overlap := overlaps(lab.player)
+		unexpected_run = unexpected_run or (InputMap.has_action("character_run") and Input.is_action_pressed("character_run"))
 		if (jump or overlap) and movement_failures.size()<8:
 			var rect := foot(lab.player)
-			movement_failures.append({"jump":jump,"overlap":overlap,"previous":[prior.x,prior.y],"current":[lab.player.position.x,lab.player.position.y],"prior_tick":prior_tick,"now_tick":Engine.get_physics_frames(),"physics_ticks":physics_ticks,"step":step,"speed":lab.player.move_speed,"multiplier":lab.player._movement_multiplier(),"velocity":[lab.player.velocity.x,lab.player.velocity.y],"run_held":Input.is_physical_key_pressed(KEY_SHIFT),"foot":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
+			movement_failures.append({"jump":jump,"overlap":overlap,"previous":[prior.x,prior.y],"current":[lab.player.position.x,lab.player.position.y],"prior_tick":prior_tick,"now_tick":Engine.get_physics_frames(),"physics_ticks":physics_ticks,"step":step,"speed":lab.player.move_speed,"multiplier":lab.player._movement_multiplier(),"velocity":[lab.player.velocity.x,lab.player.velocity.y],"run_held":Input.is_physical_key_pressed(KEY_SHIFT),"character_run":InputMap.has_action("character_run") and Input.is_action_pressed("character_run"),"Input_vector":str(Input.get_vector("move_left","move_right","move_up","move_down")),"enabled_world_rects":lab.room_navigation.router.blockers.map(func(r: Rect2):return [r.position.x,r.position.y,r.size.x,r.size.y]),"foot":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
 		route_jumps = route_jumps or jump
 		route_overlap = route_overlap or overlap
 		prior = lab.player.position
@@ -120,6 +122,7 @@ func walking_routes() -> void:
 		route_jumps = false
 		maximum_step = 0
 		movement_failures.clear()
+		unexpected_run = false
 		var start := Time.get_ticks_usec()
 		var identity_ok: bool = lab.player.get_script()==preload("res://scripts/actors/combat_player.gd") if context=="yakuza" else lab.player.actor_id==lab.scene_policy.definition().actor_id
 		check(context+"/actual_body_and_art",identity_ok and lab.player.sprite.sprite_frames.get_animation_names().size()>0)
@@ -138,6 +141,7 @@ func walking_routes() -> void:
 		await tap(KEY_ENTER)
 		await tap(KEY_ENTER)
 		check(context+"/exit_once",returning and lab.stage=="complete" and lab.completions==1 and lab.player.health==1)
+		check(context+"/Input_walk_mode_no_run",not unexpected_run)
 		check(context+"/continuous_collision_clearance",not route_overlap and not route_jumps,{"jump":route_jumps,"overlap":route_overlap,"first_failures":movement_failures.duplicate(true),"maximum_step":maximum_step,"foot":[foot(lab.player).size.x,foot(lab.player).size.y]})
 		rows.append({"context":context,"scope":"actual_Input_walk_no_setup_warps_after_spawn","wall_ms":float(Time.get_ticks_usec()-start)/1000.0,"native":native,"stage":lab.stage,"completions":lab.completions})
 		await tap(KEY_R)
