@@ -1,0 +1,181 @@
+{
+  "scope": "FROZEN_PURE_FUNCTION_CLOSURE_NO_ENGINE_OR_CONTROLLER",
+  "source_sha256": "5dc94e6911058afda130f1bf242fbe4db599b08d35ce22ca59ef5c89894d7e83",
+  "raw_sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+  "cases": [
+    {
+      "name": "original_actual74_baseline",
+      "accepted": true,
+      "expected_acceptance": true,
+      "matches_expected": true,
+      "exception": null
+    },
+    {
+      "name": "original_Q02_all48_anchor_rebinding",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Ordered actual input requests required"
+    },
+    {
+      "name": "wrong_context_accepted_state",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Acceptance must be the first causal actor/context physics observation"
+    },
+    {
+      "name": "missing_outgoing_contact",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Eight outgoing and eight lethal Core contacts required"
+    },
+    {
+      "name": "fabricated_restart_death",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Restart must follow the same real lethal Core contact/dead state"
+    },
+    {
+      "name": "wrong_full_render_state",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Render must be the first changed draw of the same actor/context"
+    },
+    {
+      "name": "duplicate_request_id",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: All eight contexts / 48 unique observed requests required"
+    },
+    {
+      "name": "functional_check_false_with_failed_summary_zero",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Functional summary must match actual typed unique checks"
+    },
+    {
+      "name": "request_id_boolean_instead_of_int",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Integer, not boolean, observation IDs/timestamps required"
+    },
+    {
+      "name": "valid_contract",
+      "accepted": true,
+      "expected_acceptance": true,
+      "matches_expected": true,
+      "exception": null
+    },
+    {
+      "name": "original_Q01_readtext_swap_now_unused",
+      "accepted": true,
+      "expected_acceptance": true,
+      "matches_expected": true,
+      "exception": null
+    },
+    {
+      "name": "changed_contract.json_pin",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Pinned calibration contract/review changed: /tmp/pacing-qa02-pmdzdbx9/contract.json"
+    },
+    {
+      "name": "deleted_contract.json_pin",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pacing-qa02-pmdzdbx9/contract.json'"
+    },
+    {
+      "name": "changed_review.json_pin",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Pinned calibration contract/review changed: /tmp/pacing-qa02-pmdzdbx9/review.json"
+    },
+    {
+      "name": "deleted_review.json_pin",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pacing-qa02-pmdzdbx9/review.json'"
+    },
+    {
+      "name": "original_Q01_duplicate_FAIL_PASS_status",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Duplicate JSON key: status"
+    },
+    {
+      "name": "boolean_contract_schema",
+      "accepted": false,
+      "expected_acceptance": false,
+      "matches_expected": true,
+      "exception": "ValueError: Stale calibrated source inventory"
+    }
+  ],
+  "metrics": {
+    "input_accept_ms": {
+      "samples": 48,
+      "p50": 16.545,
+      "p95": 18.058,
+      "p99": 18.252,
+      "max": 18.252
+    },
+    "input_render_ms": {
+      "samples": 48,
+      "p50": 17.141,
+      "p95": 19.047,
+      "p99": 19.417,
+      "max": 19.417
+    },
+    "death_to_control_ms": {
+      "samples": 8,
+      "p50": 16.49,
+      "p95": 16.671,
+      "p99": 16.671,
+      "max": 16.671
+    },
+    "accepted_to_contact_ms": {
+      "samples": 8,
+      "p50": 82.769,
+      "p95": 199.721,
+      "p99": 199.721,
+      "max": 199.721
+    },
+    "movement_frame_ms": {
+      "samples": 958,
+      "p50": 16.65,
+      "p95": 17.069,
+      "p99": 17.861,
+      "max": 19.881
+    },
+    "idle_frame_ms": {
+      "samples": 239,
+      "p50": 16.656,
+      "p95": 16.967,
+      "p99": 17.129,
+      "max": 18.203
+    },
+    "meaningful_movement_gaps_ms": {
+      "samples": 106,
+      "p50": 49.956,
+      "p95": 100.02,
+      "p99": 100.079,
+      "max": 100.089
+    },
+    "physical_keyboard_or_photon_latency": "NOT_MEASURED",
+    "campaign_duration_or_full_Readiness_approval": false
+  },
+  "old_readtext_swap_count": 0,
+  "loaded_approved_limit": 24
+}

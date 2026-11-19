@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "scope": "INDEPENDENT_CURRENT_H04_NATIVE_TIMING_LIMITS_ONLY",
+  "source_code_head": "df7a6eeae8a8e1a440f8d8e35d84a17a20296290",
+  "operation": {
+    "operation": "a75a4330de35414ab87b8a143a28cce0",
+    "argv_sha256": "f54bb1b5f8eda8795ebefdf304f40010b2b3e6ebcae35e83a538c36d8e609fce",
+    "exit_code": 0,
+    "log_sha256": "b8155b3076a92cf8044cf649e33e27c4fc09042fbf4949313f666e3c9c56b47d",
+    "seconds": 54.344
+  },
+  "canonical_consumed": true,
+  "argv_sha256_independently_recomputed": true,
+  "source_before_after_contract_current_files_exact": 616,
+  "guard_and_inherited_driver_match_QA02": true,
+  "initial_contract_and_Lead_pins_match_final_validation": {
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-contract-03/contract.PROPOSED.json": "4eb9b3f8a3aaa568a32c7b41ae1db80429f7f7f945a020513c206f0c1b23225a",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/lead-pacing-calibration-02/decision.json": "9966128fa846201420b9891d751e6f7da060871cdf819e5152337a488a5f5b85"
+  },
+  "hardware_equals_approved_contract": {
+    "CPU": "AMD Ryzen 5 3600 6-Core Processor",
+    "GPU": "NVIDIA GeForce GTX 1050 Ti",
+    "backend": "X11",
+    "engine": "4.7.2-stable (official)",
+    "max_fps": 60,
+    "physics_hz": 60,
+    "viewport": [
+      466,
+      508
+    ]
+  },
+  "actual_checks": 74,
+  "actual_context_kind_counts": {
+    "yakuza": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "gabar_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "olezhka_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "timka_present": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "timka_prime": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "ryzhik_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "tega_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "pasha_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    }
+  },
+  "actual_request_state_firstphysics_firstdraw_bindings": 48,
+  "actual_outgoing_Core_contacts": 8,
+  "actual_lethal_Core_contacts_and_restart_states": 8,
+  "independently_rederived_stats": {
+    "input_accept_ms": {
+      "samples": 48,
+      "p50": 16.612,
+      "p95": 17.914,
+      "p99": 18.069,
+      "max": 18.069
+    },
+    "input_render_ms": {
+      "samples": 48,
+      "p50": 17.227,
+      "p95": 18.876,
+      "p99": 19.047,
+      "max": 19.047
+    },
+    "death_to_control_ms": {
+      "samples": 8,
+      "p50": 16.491,
+      "p95": 16.722,
+      "p99": 16.722,
+      "max": 16.722
+    },
+    "accepted_to_contact_ms": {
+      "samples": 8,
+      "p50": 82.933,
+      "p95": 199.696,
+      "p99": 199.696,
+      "max": 199.696
+    },
+    "movement_frame_ms": {
+      "samples": 958,
+      "p50": 16.661,
+      "p95": 17.093,
+      "p99": 17.567,
+      "max": 18.529
+    },
+    "idle_frame_ms": {
+      "samples": 239,
+      "p50": 16.662,
+      "p95": 16.82,
+      "p99": 16.959,
+      "max": 17.108
+    }
+  },
+  "budgets": {
+    "accept_p95_ms": {
+      "actual": 17.914,
+      "limit": 34,
+      "passed": true
+    },
+    "render_p95_ms": {
+      "actual": 18.876,
+      "limit": 60,
+      "passed": true
+    },
+    "frame_p95_ms": {
+      "actual": 17.093,
+      "limit": 24,
+      "passed": true
+    },
+    "frame_p99_ms": {
+      "actual": 17.567,
+      "limit": 33,
+      "passed": true
+    },
+    "restart_max_ms": {
+      "actual": 16.722,
+      "limit": 1000,
+      "passed": true
+    }
+  },
+  "video": {
+    "frames": 105,
+    "maximum_PTS_error_ms": 0.4979999999998874,
+    "ffprobe_argv": [
+      "ffprobe",
+      "-v",
+      "error",
+      "-select_streams",
+      "v:0",
+      "-show_entries",
+      "stream=time_base,nb_frames,duration",
+      "-show_entries",
+      "frame=best_effort_timestamp_time",
+      "-of",
+      "json",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-acceptance-01/native-camera.mp4"
+    ],
+    "stream": [
+      {
+        "time_base": "1/1000",
+        "duration": "5.201000",
+        "nb_frames": "105"
+      }
+    ],
+    "native_capture_paths_confined": true
+  },
+  "guard_tests_reused_from_immutable_QA02": {
+    "cases": 17,
+    "pure_unit_tests": 13,
+    "decision_sha256": "3b1a2b8b83b510d49fa39c55cff1d735f029662d678fc53519350062671da7be"
+  },
+  "new_engine_runs_by_reviewer": 0,
+  "full_Readiness_campaign_hardware_latency_approval": false
+}

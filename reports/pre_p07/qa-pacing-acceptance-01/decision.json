@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "H04_BOUNDED_NATIVE_SOFTWARE_TIMING_ACCEPTANCE_ONLY",
+  "role": "INDEPENDENT_QA",
+  "reviewer": "qa_resume_recovery",
+  "independent_of_author": true,
+  "source_head": "df7a6eeae8a8e1a440f8d8e35d84a17a20296290",
+  "contract_sha256": "4eb9b3f8a3aaa568a32c7b41ae1db80429f7f7f945a020513c206f0c1b23225a",
+  "Lead_approval_sha256": "9966128fa846201420b9891d751e6f7da060871cdf819e5152337a488a5f5b85",
+  "raw_sha256": "7f6b1aaabb444fc1af0299a735bd8bde90d3057af685b5f28ff455c0ef1211e5",
+  "operation": "a75a4330de35414ab87b8a143a28cce0",
+  "receipt_exit_code": 0,
+  "canonical_consumed": true,
+  "must_fix": [],
+  "actual_checks": 74,
+  "requests_verified": 48,
+  "actual_outgoing_Core_contacts": 8,
+  "actual_lethal_Core_deaths": 8,
+  "all_five_budgets_passed": true,
+  "budgets": {
+    "accept_p95_ms": {
+      "actual": 17.914,
+      "limit": 34,
+      "passed": true
+    },
+    "render_p95_ms": {
+      "actual": 18.876,
+      "limit": 60,
+      "passed": true
+    },
+    "frame_p95_ms": {
+      "actual": 17.093,
+      "limit": 24,
+      "passed": true
+    },
+    "frame_p99_ms": {
+      "actual": 17.567,
+      "limit": 33,
+      "passed": true
+    },
+    "restart_max_ms": {
+      "actual": 16.722,
+      "limit": 1000,
+      "passed": true
+    }
+  },
+  "approved_hardware_equals_actual": true,
+  "source_before_after_current_contract_exact": 616,
+  "native_clip_frames": 105,
+  "maximum_video_PTS_error_ms": 0.4979999999998874,
+  "scope_erratum": "scope-erratum.json",
+  "NPC_frozen_authored_clip_claim": false,
+  "acceptance_run_verified": true,
+  "engine_runs_by_reviewer": 0,
+  "production_mutations_by_reviewer": false,
+  "physical_key_photon_or_hardware_latency_approval": false,
+  "continuous_readability_or_feel_approval": false,
+  "full_H04_approval": false,
+  "full_Readiness_or_P07_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "review": "REVIEW.md",
+  "evidence": "audit.json",
+  "input_inventory": "input-inventory.json"
+}

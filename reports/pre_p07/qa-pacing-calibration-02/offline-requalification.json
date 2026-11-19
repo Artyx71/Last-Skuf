@@ -1,0 +1,134 @@
+{
+  "scope": "READ_ONLY_ORIGINAL_BASELINE_OFFLINE_REQUALIFICATION_NOT_ACCEPTANCE",
+  "old_raw_reference": "../qa-pacing-calibration-01/actual-evidence/raw.json",
+  "old_raw_sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+  "guard_head": "82bfe80494ce343334e91545593f5976a48e25d8",
+  "baseline_current_inventory_keys": 616,
+  "only_two_guard_paths_changed": [
+    "tools/p07_pacing.py",
+    "tools/tests/test_p07_pacing.py"
+  ],
+  "GDScript_Game_measurement_unchanged": true,
+  "old_latency_stats_unchanged": true,
+  "controlled_only_stats_independently_recomputed": {
+    "samples": 958,
+    "p50": 16.65,
+    "p95": 17.069,
+    "p99": 17.861,
+    "max": 19.881
+  },
+  "encoded_PNG_paths_exactly_original": true,
+  "ffprobe_argv": [
+    "ffprobe",
+    "-v",
+    "error",
+    "-select_streams",
+    "v:0",
+    "-show_entries",
+    "stream=time_base,nb_frames,duration",
+    "-show_entries",
+    "frame=best_effort_timestamp_time",
+    "-of",
+    "json",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/native-camera.mp4"
+  ],
+  "decoded_frames": 106,
+  "maximum_PTS_error_ms": 0.4709999999999992,
+  "encoded_stream": [
+    {
+      "time_base": "1/1000",
+      "duration": "5.251000",
+      "nb_frames": "106"
+    }
+  ],
+  "proposed_contract_sha256": "ad734ad113b303a321a7ef674d55ade8e8dff7110679218698936a8798ee4b87",
+  "proposal_hardware_unchanged": true,
+  "offline_receipt": {
+    "operation": "ea510df4231643a086f45a24681369ed",
+    "argv_sha256": "4acf7b8b9a2def86fcac10234c79e2f0f2da6058519d2587a2610f836d7d67fe",
+    "exit_code": 0,
+    "log_sha256": "e79e75a8de00c3d15fe51b66fd9b589063922fb034a711077ec6cb9cf0ba628e",
+    "seconds": 1.103
+  },
+  "new_engine_runs": 0,
+  "inputs": [
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/metrics.json",
+      "copy": "actual-evidence/metrics.json",
+      "sha256": "7f2e2692b4cfbfe140435e1a1299569bd98faed7296243d9e5ee07cc90a1a341",
+      "bytes": 52216
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/negative-binding-checks.json",
+      "copy": "actual-evidence/negative-binding-checks.json",
+      "sha256": "a20354994c6ea58c46242229a25c125f7f5c5046bc11360c4eadcd5f0eeb2968",
+      "bytes": 1102
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/reanalysis.json",
+      "copy": "actual-evidence/reanalysis.json",
+      "sha256": "4784816a21932749fbd14e34ef88d2eaf0dc703d6e03e2e83db7f62bc24b7a17",
+      "bytes": 632
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/contract.PROPOSED.json",
+      "copy": "actual-evidence/contract.PROPOSED.json",
+      "sha256": "ad734ad113b303a321a7ef674d55ade8e8dff7110679218698936a8798ee4b87",
+      "bytes": 149049
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/execution.py",
+      "copy": "actual-evidence/execution.py",
+      "sha256": "2ab77bd66271477496d1eb0656672c1379e7d16fe90325b5d1250362bfa9a869",
+      "bytes": 3883
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/clip.ffconcat",
+      "copy": "actual-evidence/clip.ffconcat",
+      "sha256": "8385cc0089729b7a723c5142ccb6b8103e6725018c4888523e3a7c46fe0e5ead",
+      "bytes": 20355
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/encode.json",
+      "copy": "actual-evidence/encode.json",
+      "sha256": "ae707e22614faf0b832ca63f430193eb92129c920998c816943f3a4456485c42",
+      "bytes": 629
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/encode.log",
+      "copy": "actual-evidence/encode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/clip-timing.json",
+      "copy": "actual-evidence/clip-timing.json",
+      "sha256": "9bcd00bd18dd42d8b2565ed5837cb1f5bb38f98a1c2f1ffc28bb839b3ba0bc7d",
+      "bytes": 2680
+    },
+    {
+      "origin": ".autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/native-camera.mp4",
+      "copy": "actual-evidence/native-camera.mp4",
+      "sha256": "b8087747b0fabfe0b5a4e07f6abd43bd94de5b75544149a638aad6495ff008ff",
+      "bytes": 176811
+    },
+    {
+      "origin": ".autopilot/jobs/ea510df4231643a086f45a24681369ed/input.json",
+      "copy": "actual-evidence/operation/input.json",
+      "sha256": "8ef3fbef0acac27dc22d2c27a6504f0646769adfe4f2888a1664b8ebdd546ce1",
+      "bytes": 1033
+    },
+    {
+      "origin": ".autopilot/jobs/ea510df4231643a086f45a24681369ed/receipt.json",
+      "copy": "actual-evidence/operation/receipt.json",
+      "sha256": "8c66323e39c98d2507fc92dd83f34ed6c68304b9d4aac4ae156a8944edd3967b",
+      "bytes": 261
+    },
+    {
+      "origin": ".autopilot/jobs/ea510df4231643a086f45a24681369ed/output.log",
+      "copy": "actual-evidence/operation/output.log",
+      "sha256": "e79e75a8de00c3d15fe51b66fd9b589063922fb034a711077ec6cb9cf0ba628e",
+      "bytes": 167
+    }
+  ]
+}

@@ -1,0 +1,1070 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-19T09:36:13.702513+00:00",
+  "HEAD_start": "df7a6eeae8a8e1a440f8d8e35d84a17a20296290",
+  "HEAD_end": "df7a6eeae8a8e1a440f8d8e35d84a17a20296290",
+  "original_measurement_commit": "85ca24b080667b24ca1a35ca12ec1a7f5fe0e103",
+  "read_only_Git_diff_game_tools": [
+    "tools/p07_pacing.py",
+    "tools/tests/test_p07_pacing.py"
+  ],
+  "baseline_to_current_changes": "Guard/analyzer Python only; game and GDScript fixture unchanged",
+  "critical_actual_files_match_original_inventory": [
+    {
+      "path": "tools/fixtures/p07_pacing.gd",
+      "actual_sha256": "edd17ee45525c85ee470dacc9456f12910c61246206b6cf612ab426d3d4388bd",
+      "baseline_source_inventory_sha256": "edd17ee45525c85ee470dacc9456f12910c61246206b6cf612ab426d3d4388bd",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "tools/fixtures/p07_second_pilot.gd",
+      "actual_sha256": "fe241b7bddc231812939873e850c7f18b9c433739d758e84726d42bc1c8aa6f9",
+      "baseline_source_inventory_sha256": "fe241b7bddc231812939873e850c7f18b9c433739d758e84726d42bc1c8aa6f9",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "tools/fixtures/p07_second_pilot_host.gd",
+      "actual_sha256": "d605e27ed4f1af37ac24fc868e0d97156c61d851855e3938249c93c57e334e0c",
+      "baseline_source_inventory_sha256": "d605e27ed4f1af37ac24fc868e0d97156c61d851855e3938249c93c57e334e0c",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/levels/missed_fight.gd",
+      "actual_sha256": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+      "baseline_source_inventory_sha256": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/actors/yakuza_actor.gd",
+      "actual_sha256": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+      "baseline_source_inventory_sha256": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/actors/combat_player.gd",
+      "actual_sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+      "baseline_source_inventory_sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "actual_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+      "baseline_source_inventory_sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/actors/character_frames.gd",
+      "actual_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+      "baseline_source_inventory_sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/actors/polish_frames.gd",
+      "actual_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+      "baseline_source_inventory_sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/systems/character_combat_profile.gd",
+      "actual_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+      "baseline_source_inventory_sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/scripts/systems/combat_system.gd",
+      "actual_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+      "baseline_source_inventory_sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/resources/characters/catalog.json",
+      "actual_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+      "baseline_source_inventory_sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/yakuza/world_sheet.png",
+      "actual_sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8",
+      "baseline_source_inventory_sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/yakuza/action_sheet.png",
+      "actual_sha256": "d968a578b07b44de359756d4333e63f769ae948f0dd6829bd41dc4aff167c361",
+      "baseline_source_inventory_sha256": "d968a578b07b44de359756d4333e63f769ae948f0dd6829bd41dc4aff167c361",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/gabar/world_sheet.png",
+      "actual_sha256": "1fe0754e2d974d205ed21b02bd1bf2c712725263b9b87506f028f3e7f9419bdd",
+      "baseline_source_inventory_sha256": "1fe0754e2d974d205ed21b02bd1bf2c712725263b9b87506f028f3e7f9419bdd",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/gabar/action_sheet.png",
+      "actual_sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d",
+      "baseline_source_inventory_sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/gabar/finisher_sheet.png",
+      "actual_sha256": "760d20224ff01be63ed225d2a8fe919a595bae717483193ae2e29d515391250b",
+      "baseline_source_inventory_sha256": "760d20224ff01be63ed225d2a8fe919a595bae717483193ae2e29d515391250b",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/olezhka/world_sheet.png",
+      "actual_sha256": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+      "baseline_source_inventory_sha256": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/olezhka/action_sheet.png",
+      "actual_sha256": "97f96ddba049e701cdd76a097d8cb685b8cf0ee2642a637961d151cebda633ce",
+      "baseline_source_inventory_sha256": "97f96ddba049e701cdd76a097d8cb685b8cf0ee2642a637961d151cebda633ce",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/olezhka/finisher_sheet.png",
+      "actual_sha256": "e22296ad7634d339d62bb44067e8bf8c5ff3e3d9321e14ff5c8d97851273295c",
+      "baseline_source_inventory_sha256": "e22296ad7634d339d62bb44067e8bf8c5ff3e3d9321e14ff5c8d97851273295c",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/timka/world_sheet.png",
+      "actual_sha256": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+      "baseline_source_inventory_sha256": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/timka/action_sheet.png",
+      "actual_sha256": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+      "baseline_source_inventory_sha256": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/timka/finisher_sheet.png",
+      "actual_sha256": "26aa10f81a3d4d3197133983d7e117f976278420f40919b4d9a27e3c204e57ae",
+      "baseline_source_inventory_sha256": "26aa10f81a3d4d3197133983d7e117f976278420f40919b4d9a27e3c204e57ae",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/ryzhik/world_sheet.png",
+      "actual_sha256": "cd3f563b42f035df58f8d3e70344f82cbd6670e112644ef6aee7791ecdec622e",
+      "baseline_source_inventory_sha256": "cd3f563b42f035df58f8d3e70344f82cbd6670e112644ef6aee7791ecdec622e",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/ryzhik/action_sheet.png",
+      "actual_sha256": "4605ae8dc1f7d5eb0f361cc3fe6d83685d43c970e3eba4922dcbc27eff64aa90",
+      "baseline_source_inventory_sha256": "4605ae8dc1f7d5eb0f361cc3fe6d83685d43c970e3eba4922dcbc27eff64aa90",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/ryzhik/finisher_sheet.png",
+      "actual_sha256": "04f92049a52484f9e54f9f533978f5d1c71230c0e29f55c55295a6f15b3b9df0",
+      "baseline_source_inventory_sha256": "04f92049a52484f9e54f9f533978f5d1c71230c0e29f55c55295a6f15b3b9df0",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/tega/world_sheet.png",
+      "actual_sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f",
+      "baseline_source_inventory_sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/tega/action_sheet.png",
+      "actual_sha256": "be8bf8a1e3f83435a416c9435fe8c9fbeff812ae8b675f91d6f965a25742c056",
+      "baseline_source_inventory_sha256": "be8bf8a1e3f83435a416c9435fe8c9fbeff812ae8b675f91d6f965a25742c056",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/tega/finisher_sheet.png",
+      "actual_sha256": "188acc9f4a4d657f23500a808dac9fe7209538e7192d795db43764eadacc98ed",
+      "baseline_source_inventory_sha256": "188acc9f4a4d657f23500a808dac9fe7209538e7192d795db43764eadacc98ed",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/pasha/world_sheet.png",
+      "actual_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
+      "baseline_source_inventory_sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/pasha/action_sheet.png",
+      "actual_sha256": "4346402084b207a0a739582f3b9dfcbddac9c56aca77db43098a3bc6edf896b9",
+      "baseline_source_inventory_sha256": "4346402084b207a0a739582f3b9dfcbddac9c56aca77db43098a3bc6edf896b9",
+      "same_as_measurement_source": true
+    },
+    {
+      "path": "game/assets/art/characters/pasha/finisher_sheet.png",
+      "actual_sha256": "2edb015ba128636532fa42698c0377a5c8965ce3ddf5d6853f3f53ed069b1787",
+      "baseline_source_inventory_sha256": "2edb015ba128636532fa42698c0377a5c8965ce3ddf5d6853f3f53ed069b1787",
+      "same_as_measurement_source": true
+    }
+  ],
+  "P06_28_sources_before_end_exact": true,
+  "files": [
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/AGENTS.md",
+      "sha256": "a7fd8b06934c622f763449cc3e14a16b8ff163b8e90b40d65f113c1eb07ac5a6",
+      "bytes": 3113
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/agents/GAMEPLAY_AGENT.md",
+      "sha256": "0977f7b6796c9aa8ab87563902bc073c21d480094fd6246cd81aa59e07e080d9",
+      "bytes": 374
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/docs/PROJECT_GATES.md",
+      "sha256": "b01b6d212c12e203a5d5a1b36b79e953cb69671cb8f89ed29b65bdeb07230d81",
+      "bytes": 7307
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/gabar/action_sheet.png",
+      "sha256": "f7974642a6efe5461a97d6fe786836498912545392503c8af196b466c9ae753d",
+      "bytes": 71970
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/gabar/finisher_sheet.png",
+      "sha256": "760d20224ff01be63ed225d2a8fe919a595bae717483193ae2e29d515391250b",
+      "bytes": 66421
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/gabar/world_sheet.png",
+      "sha256": "1fe0754e2d974d205ed21b02bd1bf2c712725263b9b87506f028f3e7f9419bdd",
+      "bytes": 62087
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/olezhka/action_sheet.png",
+      "sha256": "97f96ddba049e701cdd76a097d8cb685b8cf0ee2642a637961d151cebda633ce",
+      "bytes": 65042
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/olezhka/finisher_sheet.png",
+      "sha256": "e22296ad7634d339d62bb44067e8bf8c5ff3e3d9321e14ff5c8d97851273295c",
+      "bytes": 61237
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/olezhka/world_sheet.png",
+      "sha256": "516a65e2f3ae0448857a3e43b03b0f64514bdd363a9bdebafca885caf92fad3b",
+      "bytes": 65270
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/pasha/action_sheet.png",
+      "sha256": "4346402084b207a0a739582f3b9dfcbddac9c56aca77db43098a3bc6edf896b9",
+      "bytes": 72941
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/pasha/finisher_sheet.png",
+      "sha256": "2edb015ba128636532fa42698c0377a5c8965ce3ddf5d6853f3f53ed069b1787",
+      "bytes": 67380
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/pasha/world_sheet.png",
+      "sha256": "5be839b79f4b588f0c88d4038bec5fe633e59a1dac88ed2062742062fd5ad094",
+      "bytes": 68592
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/ryzhik/action_sheet.png",
+      "sha256": "4605ae8dc1f7d5eb0f361cc3fe6d83685d43c970e3eba4922dcbc27eff64aa90",
+      "bytes": 61430
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/ryzhik/finisher_sheet.png",
+      "sha256": "04f92049a52484f9e54f9f533978f5d1c71230c0e29f55c55295a6f15b3b9df0",
+      "bytes": 67443
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/ryzhik/world_sheet.png",
+      "sha256": "cd3f563b42f035df58f8d3e70344f82cbd6670e112644ef6aee7791ecdec622e",
+      "bytes": 65817
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/tega/action_sheet.png",
+      "sha256": "be8bf8a1e3f83435a416c9435fe8c9fbeff812ae8b675f91d6f965a25742c056",
+      "bytes": 61890
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/tega/finisher_sheet.png",
+      "sha256": "188acc9f4a4d657f23500a808dac9fe7209538e7192d795db43764eadacc98ed",
+      "bytes": 64563
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/tega/world_sheet.png",
+      "sha256": "3a34b5233d76ea0fe18f39061a9d1ed0e6b8bdfd139fae3848bfcf7cf5f5048f",
+      "bytes": 55989
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/timka/action_sheet.png",
+      "sha256": "542dfe10459d04d1d0725c495965bd2f04bb25db701a16b8acff7d4fd2000d2c",
+      "bytes": 56758
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/timka/finisher_sheet.png",
+      "sha256": "26aa10f81a3d4d3197133983d7e117f976278420f40919b4d9a27e3c204e57ae",
+      "bytes": 56583
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/characters/timka/world_sheet.png",
+      "sha256": "8e505380e88fb538988310a364c6b16a135cb69b94d136fe00307c8a49a99cea",
+      "bytes": 64113
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/yakuza/action_sheet.png",
+      "sha256": "d968a578b07b44de359756d4333e63f769ae948f0dd6829bd41dc4aff167c361",
+      "bytes": 51994
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/assets/art/yakuza/world_sheet.png",
+      "sha256": "cd8e4d905e6eff88220c52989110bc13113c753598d32ed0fe83b662ec72b8b8",
+      "bytes": 46399
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/project.godot",
+      "sha256": "f562bae5aa657461c45e448ce73d8984e9791f26885c40be766dc5a4827ad351",
+      "bytes": 994
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/resources/characters/catalog.json",
+      "sha256": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+      "bytes": 9758
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/actors/character_frames.gd",
+      "sha256": "5d337d50862341a3c076d8153ae635e9c48cdec6d624acec9f0e204854bfb0a1",
+      "bytes": 15478
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/actors/character_player.gd",
+      "sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+      "bytes": 20931
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/actors/combat_player.gd",
+      "sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+      "bytes": 12158
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/actors/polish_frames.gd",
+      "sha256": "bcc398c3589573e78329a0b595431293bc0ae21b275a01f8296ed9cf98b29c36",
+      "bytes": 3125
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/actors/yakuza_actor.gd",
+      "sha256": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+      "bytes": 2555
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/levels/missed_fight.gd",
+      "sha256": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59",
+      "bytes": 14788
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/qa/mission_replay.gd",
+      "sha256": "aaf244613bb6a0a93af727d58983b0f63de9a304f9df8d42cd2370feefb4e43e",
+      "bytes": 11000
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/systems/character_combat_profile.gd",
+      "sha256": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+      "bytes": 1595
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/systems/combat_system.gd",
+      "sha256": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+      "bytes": 23444
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/ui/mission_ui.gd",
+      "sha256": "dfa4dcb6620e5ae342d487d259532fd90ceeafaafd55491aa423dbc042a5c858",
+      "bytes": 7515
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/planning/PRE_P07_REQUIREMENTS.md",
+      "sha256": "abd58302c69d45fcf30477bf835ac9ceb8d80437ee724c9169d227213ffe705c",
+      "bytes": 9843
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/phases/P06/gameplay-full-current-01/decision.json",
+      "sha256": "e43c34229072421e1e27f23e73b9cb5166260ac648d2ebcbd86684751c7b2121",
+      "bytes": 2461
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/phases/P06/gameplay-full-current-01/review.md",
+      "sha256": "ac8a584d3fe94d2c48d258a4a2a0f2752397a7172f2b9d207711c374535ad9ee",
+      "bytes": 12211
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0000.png",
+      "sha256": "0e88a91397d36f985130b0d48fd487f858a5954136d064dc636c19873eef5511",
+      "bytes": 38664
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0001.png",
+      "sha256": "04b3b5119da3118fcc10f0cc2ca65c5df5d825703b875cda19d4659f215baa2f",
+      "bytes": 38972
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0002.png",
+      "sha256": "ae824ce5549f9486eceea6a2547bcd724e4458a96a84ab9cd31b885fb46ee125",
+      "bytes": 38847
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0003.png",
+      "sha256": "45fa69435bd29bc8ccc564584c8a5d40e43f33cf69e0ff297b314719ffa01893",
+      "bytes": 38553
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0004.png",
+      "sha256": "73a7397a6416cdd26aa266ab44d0a9644721ca8ba2a9393ccc3d56136b61876b",
+      "bytes": 38174
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0005.png",
+      "sha256": "1a8b33ee96d04e67d0a0d6897f078a2c5b53ddbeacee66583c423a04b0ff6a0b",
+      "bytes": 37872
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0006.png",
+      "sha256": "8da4c654c7d264768dfba496ab934e340fbb291d53512d2c2e05589a1774c943",
+      "bytes": 37641
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0007.png",
+      "sha256": "784732b524c73d4b57118f0805246585f5ad1c4614b0d9fde7c7a95a63e7240d",
+      "bytes": 37457
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0008.png",
+      "sha256": "887ef345867deb85b4ca28d0e97bfe68a8135002660aac663d3a46e827225f4a",
+      "bytes": 37359
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0009.png",
+      "sha256": "d986fac55afe19f74981157a1939273c1bc2b7958c1cc66ce868f83b22522e75",
+      "bytes": 37429
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0010.png",
+      "sha256": "7e0757a6c919fed1feec05993242d7f7c9cd5652267192d470ccacbfdea4830d",
+      "bytes": 37415
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0011.png",
+      "sha256": "0673b3de768a60562aa72f89af9a41da4654331cf02e143e12584c4acbddcc98",
+      "bytes": 37437
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0012.png",
+      "sha256": "33b85f64a717ce673d4e320d78bf494943178e8b373b515f4975531500b64e8a",
+      "bytes": 37332
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0013.png",
+      "sha256": "ff11c08f8d9d832d2c87d2a3dba5073ab172f43510b187afe911fec916d76e43",
+      "bytes": 37384
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0014.png",
+      "sha256": "1b89a62628be0d5f8d1ea59fb0466d2db0d47d2b358dfe285c88a9a76ace8966",
+      "bytes": 37239
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0015.png",
+      "sha256": "747a096d451e21421e039a2c0f687dbf7b12f3baf281ef1947d757576bc38999",
+      "bytes": 37229
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0016.png",
+      "sha256": "844dfc74657241cafece715687034a5dc949ccdaaee4a9487376fb6764797642",
+      "bytes": 37067
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0017.png",
+      "sha256": "bf9941a677e8b29e69f9bc21e39d54857b20f18912b7a8c3d89a6d6696c6a89e",
+      "bytes": 37093
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0018.png",
+      "sha256": "f789fb97104531963653954a19e19965b9c217d45b8da828f6566857d9d331ad",
+      "bytes": 37207
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0019.png",
+      "sha256": "f29cf53f434eb385082063d4f2e7d2a63c10430eca36595f0ee15e09c63cbdb8",
+      "bytes": 37244
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0020.png",
+      "sha256": "906c9ad91cfc87590abb18159f890c42264691858b108cab497b020bc77fb75a",
+      "bytes": 37219
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0021.png",
+      "sha256": "bbc58dc7c5a980319ac80fea49472d68e41ea9888e3f9d1979847adb9e1e1cca",
+      "bytes": 37233
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0022.png",
+      "sha256": "468e8dae7b6ca9f2ba50e7bb083e922423ea92b1931115e9feacac11e6a059f2",
+      "bytes": 37138
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0023.png",
+      "sha256": "6b2c338e5555d5a08d42a21cdcf279af06fa63b53a97ac119f2a2ad7d483ac8a",
+      "bytes": 37147
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0024.png",
+      "sha256": "d79ddcec2499b122371cc2e15dd9f82d7f254c25b57f20b83e09cb314ba45089",
+      "bytes": 37277
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0025.png",
+      "sha256": "194b9986c493099d0f70f3525ae50fe5b89d18acb0b8161d1098c6803b6fa3c6",
+      "bytes": 37230
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0026.png",
+      "sha256": "9161bd80a90db290fce76a613cefdfd8ae07698bfa308de8e0070377509a59e4",
+      "bytes": 36979
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0027.png",
+      "sha256": "fc86b927bbcc2d427309c56a0b1495c53376384b09604f2c16f383c6f54bd34b",
+      "bytes": 37108
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0028.png",
+      "sha256": "4036a48bb448cc31cbe3bac9f8d00825c9dab52a6ff2e7516cd1ef161b6c509c",
+      "bytes": 37108
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0029.png",
+      "sha256": "40127128c6a62ff85556749bd63d125b72a2b41487bbd3fa04810dd1c728da1e",
+      "bytes": 36899
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0030.png",
+      "sha256": "07d4df3de782c17321de5c409f14e1e953aa246c0b766fda04492c93fd4d380b",
+      "bytes": 37199
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0031.png",
+      "sha256": "4a82a6be0e8851fb645867aed21492078e85f4a85c729caf98b33279eb058cb5",
+      "bytes": 37460
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0032.png",
+      "sha256": "1744175b3ca4a5257641579dd0d6a49b4e39faa65111d18ebd49fe9efb0f2af1",
+      "bytes": 38122
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0033.png",
+      "sha256": "f33f1a641ad36168bc3d7d9568fd30fc9ca64f6c3416b84aaa31dc5c62eec3cc",
+      "bytes": 37839
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0034.png",
+      "sha256": "5559c5cb72ec4839d6be34dd00e82cef8a7a754b1b270e95db84c637a8ee5344",
+      "bytes": 37285
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0035.png",
+      "sha256": "31a80b23fd75bea9103bbafed55478056e384077b659a2888e3f5b11dd2f0a7c",
+      "bytes": 36936
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0036.png",
+      "sha256": "d74ba0cd294d7c7bcec11c53f04d30a90057fc5947adda18921f650b38864c89",
+      "bytes": 36711
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0037.png",
+      "sha256": "f05776defe745f3f6e3503c99d7508065683694d8e5171b95e410de38c01299e",
+      "bytes": 36086
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0038.png",
+      "sha256": "70e6b5d08e6b00ec6dc27cb54cfaf16b0280d29ff1042632590924d3140ec9f9",
+      "bytes": 36544
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0039.png",
+      "sha256": "634958ad8f16ebd0990540a303c3a78b64d095d1abce76cc9c05594c427bd493",
+      "bytes": 36846
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0040.png",
+      "sha256": "effaa797624a033623a8b53fe6c3107d6e835ce0bbc41251c0cbfea6e4cec9c4",
+      "bytes": 37519
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0041.png",
+      "sha256": "bee99b354de5c7a5eb457964ff5b70bba33b533a7b0b062f0627684f69965be7",
+      "bytes": 37461
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0042.png",
+      "sha256": "8b0ec60a564e6704e7429899880abc040543b81fe8a84e34fcef08bb2d805ce0",
+      "bytes": 37378
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0043.png",
+      "sha256": "dd4f31078b8b2fa3cf3266bcc7b455f3a9b0f39b8ddd81d697baf8d30c1d5115",
+      "bytes": 37968
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0044.png",
+      "sha256": "91ad49b520ab22a28b41f99f1f17ce07a223874bf7eaffe8f370cc610e5b98b5",
+      "bytes": 37616
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0045.png",
+      "sha256": "37029089dfe2164902c04028ea88b2905288419227a7ca9a7d7d1de4e734428c",
+      "bytes": 37885
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0046.png",
+      "sha256": "46f2e4d3b06ee2d34c14ef735c4c38d50f315b8ec400c1454198e3428ebd4ecd",
+      "bytes": 38031
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0047.png",
+      "sha256": "f3a3cb46c96e67d76b0a5a81a24e7bd664476d8d2bb41a35e6053dab129f422e",
+      "bytes": 38522
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0048.png",
+      "sha256": "814eb092acba2c4f4071fc7d755a0b98467340e7248db21a3e488792e0dad305",
+      "bytes": 38853
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0049.png",
+      "sha256": "e35f933c4eecf6ac6d09580e30653e9f75532778353d6ff9d1b1137047a4eb99",
+      "bytes": 38917
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0050.png",
+      "sha256": "0421867fac1cfe20b962563a1fc82e5076d9d8fc3e55074a5080063da6ae5ee0",
+      "bytes": 38926
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0051.png",
+      "sha256": "342bc03b2e9d94694592ad2b13647aa4d9c0b5042431f267b8bac92cf36c35e7",
+      "bytes": 39103
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0052.png",
+      "sha256": "ed21039449b7ce381ae275e37a78979384d51739ad9bcfbab27eccbddc2fd8c8",
+      "bytes": 38623
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0053.png",
+      "sha256": "02cb162ccb7206451ab7d3bec4e0315a938557340c10af32460831b06f8527cc",
+      "bytes": 38412
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0054.png",
+      "sha256": "3671cd0d2f2b12d4cf4df2a07a0e013ab176e905ba958d4cee389cc5db103057",
+      "bytes": 38637
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0055.png",
+      "sha256": "889201500751c84845ffe8fc7690caf5fb1a8bd48b1a1aae47db104bd63f87c0",
+      "bytes": 38903
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0056.png",
+      "sha256": "5e5fcb22ce8eff37ea52429436cb257a3c4ca3f9644d7103e69018af4f03a568",
+      "bytes": 38721
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0057.png",
+      "sha256": "6312155575b5f09fb5a1854e33b90b920c8b11a6b9e9fe90d82bb40a34ad869d",
+      "bytes": 37975
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0058.png",
+      "sha256": "4a9381b5e43f3960eb01563951686145c0f030f87382d2ada5d8ffac9b133167",
+      "bytes": 38456
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0059.png",
+      "sha256": "d7a69a56dddc450cc43f0072619980aefa2c5509e006814b72bf965a561b7d6f",
+      "bytes": 38227
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0060.png",
+      "sha256": "825c822484a3a03668544d38b0f47204902fe33ff50bc79cc10b8fa1025ef727",
+      "bytes": 37702
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0061.png",
+      "sha256": "893030e31f9a7228252fa60243c76cd17ab309ab0ba1a5bb29fa54d279711b84",
+      "bytes": 37625
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0062.png",
+      "sha256": "20e48112ba3d9093fd29ed477ae073879d177a65237ac7fe7f37bc94be915a84",
+      "bytes": 38001
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0063.png",
+      "sha256": "85115632217818e0f88aead6ea60b612c2fb321612c9cb83c8d26a799a55363d",
+      "bytes": 38416
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0064.png",
+      "sha256": "775c0b9423b113955cb691c3651f7acb266622370ca4f49fb2db13d31e297aa7",
+      "bytes": 39021
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0065.png",
+      "sha256": "dedd2e390d32d21a460c13beff008dca62978602141901a81c5d3d9ea214fdc3",
+      "bytes": 39513
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0066.png",
+      "sha256": "8e396ab89e74147319070152f2ee1fd3e6f2ad5179b2488cdd838a66454e8043",
+      "bytes": 39812
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0067.png",
+      "sha256": "7138cf69fc8cbd0924f2aa570b910cd56c76270ef4da8ecfccdd1ab72dd4275a",
+      "bytes": 39760
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0068.png",
+      "sha256": "5c28ec2995fbb8c31ae50f7133e5d043912a5415644c31d16f107aec838e471f",
+      "bytes": 39498
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0069.png",
+      "sha256": "473c6c7cfd6ce4d86af83730e20ae86a678c50790b06ab316b840c2028739be4",
+      "bytes": 39579
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0070.png",
+      "sha256": "f7b84859da635d32a73aedcc95709007b4fd6ed2c13b947848a6cf5357d50d99",
+      "bytes": 39872
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0071.png",
+      "sha256": "5747ee78ca709389b91c1acbfa68efcc5f2670db0fa5905c4f5a95442009fa79",
+      "bytes": 40358
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0072.png",
+      "sha256": "04fa0b2fb67ccf25e10f6ce4366b8c5c98c3031bc687c631aa05f245385add0c",
+      "bytes": 40339
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0073.png",
+      "sha256": "fe07cbc17af911b6cbeffd7e28de22fb257c60f61f3feb52d45e2d1d26eccda5",
+      "bytes": 40188
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0074.png",
+      "sha256": "7e6e1d982215a9e3db82af61b7834f3d3d199769311739e6830fd44f681c75e6",
+      "bytes": 40596
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0075.png",
+      "sha256": "35cbaf882956cee23a5c321aacf9d32d7695785911650f8bbc990b1201f9e5c8",
+      "bytes": 40505
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0076.png",
+      "sha256": "68af6bb93084f7339c15bd110fee181aa239b588022df6b40331f2d9769a406e",
+      "bytes": 40202
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0077.png",
+      "sha256": "b1ba4ad176d96cbb7adf199944e2631228b4ef4a02d8cb38e67d3778d7bd07ef",
+      "bytes": 40874
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0078.png",
+      "sha256": "68fca75d46bdf5828e8802e16d749fd38e5cc1658dcf145e6dd878e579164fca",
+      "bytes": 41330
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0079.png",
+      "sha256": "ca372f0e84e5a4ab2ad15daecac985fd8bbc33270b043cdbfac887d104a8c53e",
+      "bytes": 42149
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0080.png",
+      "sha256": "8162d79395757a9230cd033653c2f80d7ca361f73d21174a77c89e7c918364ee",
+      "bytes": 42001
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0081.png",
+      "sha256": "02c033f9c35829a07a5efebcf17cbacd86bbe6fd5f1ffc17c7f8d0dc923e541a",
+      "bytes": 42439
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0082.png",
+      "sha256": "86b73c42e58fad55f28eb4f12b638e5b2b7a5503f32f92f7c2501695f55fbbaf",
+      "bytes": 42589
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0083.png",
+      "sha256": "01c37a870be85cec87ef6e705354554f5c0cc606b348c57580e2a2f70226d4b4",
+      "bytes": 41979
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0084.png",
+      "sha256": "c6468d4d8160aceec8dceb65dddc0ed7fdce68ef2aa0d6b95efa801cdadcd6e4",
+      "bytes": 42096
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0085.png",
+      "sha256": "105f39ca84c6e390b9f9e29913a376c9a5ce44f56dabdc0dea4635b67ae22368",
+      "bytes": 42386
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0086.png",
+      "sha256": "0932edc19bd5cd31dadbb316ed5f28016609cbc15fd162a289f6931f3ce82516",
+      "bytes": 42753
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0087.png",
+      "sha256": "7e4abb42b429f82bd1f8e29bb55247572c254c39038dc62d84be931aaa13d07c",
+      "bytes": 42686
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0088.png",
+      "sha256": "2076f0fbb828d305ae85e6b14bcec92102a38c6bef6bec21dffc911b8aa86a8d",
+      "bytes": 42684
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0089.png",
+      "sha256": "368d9096ad55619cec5fe11889ba07bd6682369ccce3114fa1e72419a637d958",
+      "bytes": 42122
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0090.png",
+      "sha256": "759b5ccdc5f1e23be1cd6971beddb2c74ff3999b6bec92a882761523213befec",
+      "bytes": 41944
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0091.png",
+      "sha256": "11df9a9c18d6b46a67141cad247d54449d762cd43c442a08ca55f3c4722ce7a0",
+      "bytes": 39147
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0092.png",
+      "sha256": "407cb175484c53f305e754b87c600de0f288c3583eaa52c6f8b8b704816be254",
+      "bytes": 39607
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0093.png",
+      "sha256": "54002bf6a41553f9bffc68f980d34567a8f8207d3b768622f36c22979c9dcfd4",
+      "bytes": 39825
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0094.png",
+      "sha256": "3095f103ccf9f31b638c7f8d6556ac89d0adedea390a6e454a00c7fddb12123c",
+      "bytes": 39822
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0095.png",
+      "sha256": "f00cb1145b96658e2437b1ca366cde41aebafa18e9803b79a0714d992cdc3778",
+      "bytes": 39743
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0096.png",
+      "sha256": "d84864f0c548e580e73d1e52ad993552aa055d251b5bfeab75fdae3f6bf76096",
+      "bytes": 39669
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0097.png",
+      "sha256": "6db55c0d829415718cdae7a03c23a139eda02befc2dd585723587090133100e9",
+      "bytes": 39460
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0098.png",
+      "sha256": "98923276f3bf67b5b472def3600fdf36190f8fe05c56c298fc4242f1b6d4b5e8",
+      "bytes": 39509
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0099.png",
+      "sha256": "3082281fcad7b36e26a02ebc85c9b8468a78234aff8e81e41109a70d95f5a87c",
+      "bytes": 39434
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0100.png",
+      "sha256": "328ca8ec496f3c2154095f7dc8a593f7fad83bbbe46c18a69afa678672bb68ab",
+      "bytes": 39725
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0101.png",
+      "sha256": "91e9448268eef3ceb20a85c0e7557a91b19398d7265f119ae55013e6dddec8e4",
+      "bytes": 39713
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0102.png",
+      "sha256": "7382067448faa4eae8c6553cb932c2cb4c05fffbbcca841c50366b185bea7e5d",
+      "bytes": 39739
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0103.png",
+      "sha256": "9e0d1815fde2c3b05a650fb94a16ab9f14f789f4009fb434c0117b8f186c4ae7",
+      "bytes": 39735
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0104.png",
+      "sha256": "5d0b502371ebe5ec0f8caa997a0d842d9556e22e4c31d746bf8a2aa226b72029",
+      "bytes": 39681
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/native_captures/clip-0105.png",
+      "sha256": "a647a7ef0a00f7d984e10939e84d934987dcca88b8b7215f073c697477342d77",
+      "bytes": 39674
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/raw.json",
+      "sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+      "bytes": 2642308
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/runs.json",
+      "sha256": "9c773bec59e002440d28d123a6a387e6af148777a19a0f27af2679d8ad81173d",
+      "bytes": 940
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/source_after.json",
+      "sha256": "8f8cf37ca8fbacaea27d6c643f91a35d717405324d2123dffa2b17c4b0f823fe",
+      "bytes": 72535
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/source_before.json",
+      "sha256": "8f8cf37ca8fbacaea27d6c643f91a35d717405324d2123dffa2b17c4b0f823fe",
+      "bytes": 72535
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-baseline-01/validation.json",
+      "sha256": "754a57ed138f7113a7fb75fd22fbfab7f2c2512299b407f644477ad5659b7ae5",
+      "bytes": 257
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/clip-timing.json",
+      "sha256": "9bcd00bd18dd42d8b2565ed5837cb1f5bb38f98a1c2f1ffc28bb839b3ba0bc7d",
+      "bytes": 2680
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/encode.json",
+      "sha256": "ae707e22614faf0b832ca63f430193eb92129c920998c816943f3a4456485c42",
+      "bytes": 629
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-calibration-02/native-camera.mp4",
+      "sha256": "b8087747b0fabfe0b5a4e07f6abd43bd94de5b75544149a638aad6495ff008ff",
+      "bytes": 176811
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-contract-03/contract.PROPOSED.json",
+      "sha256": "4eb9b3f8a3aaa568a32c7b41ae1db80429f7f7f945a020513c206f0c1b23225a",
+      "bytes": 149049
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-contract-03/metrics.json",
+      "sha256": "7f2e2692b4cfbfe140435e1a1299569bd98faed7296243d9e5ee07cc90a1a341",
+      "bytes": 52216
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-contract-03/negative_checks.json",
+      "sha256": "47b918ac45fb3336470e6d4530eb0b7335f4201ff18a133e16081488b68c9be6",
+      "bytes": 667
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-contract-03/source_equivalence.json",
+      "sha256": "226d650e80824dc3a6b6bef59eb3e9805eb315321fba781df07389f5c3a48807",
+      "bytes": 74381
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-01.png",
+      "sha256": "ecbbd2c56e4596e88325145b20267434181009ab47dbe3003afd626d27197cfe",
+      "bytes": 115640
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-02.png",
+      "sha256": "aeeecf6db3a00852940ab4afffe5532e6388cc1ba3c4855bc8e93fbcd5802df8",
+      "bytes": 137554
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-03.png",
+      "sha256": "0e37e57da8f56448123875b20de6c78e81bc78c9ed3a3d6b5e222b3e90b4947a",
+      "bytes": 163459
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-04.png",
+      "sha256": "da1e45a223d563771b55034ee2899416578e59c6dad47b45aea857e2bfc77580",
+      "bytes": 169824
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-05.png",
+      "sha256": "f6fcc6ec76ba48a65bbe3a28d1a5f12ac192ea33d2dc3fd9fb305fcd6aab5ef5",
+      "bytes": 175408
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-06.png",
+      "sha256": "beda10c19e2cb0111fff6b970e9c522cd1eb2ec8c22de8b927a424980825eb21",
+      "bytes": 179490
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/sequence-07.png",
+      "sha256": "39c8e68cc60b30eb1f961a95db9f6edb59ba75e33e6cbdbbefac0eeecf4964b3",
+      "bytes": 91590
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-visual-sequence-01/source.json",
+      "sha256": "56019863e935e838bd9fbf88f335df53247a698a1b8bce395ac40c22c3bcd58e",
+      "bytes": 15748
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/specs/GAMEPLAY_SPEC.md",
+      "sha256": "6aaf91c7845ff30ce1d1895d589193287d7ab7a0f4d02b1d53ffc44f1701deaa",
+      "bytes": 5710
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/specs/P06_COMBAT_ACCEPTANCE.md",
+      "sha256": "57ef8988154f63b34b0f05f5fbbbbdc77a3c9d9be8287bd5a12b7d428726a109",
+      "bytes": 21230
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/fixtures/p07_pacing.gd",
+      "sha256": "edd17ee45525c85ee470dacc9456f12910c61246206b6cf612ab426d3d4388bd",
+      "bytes": 9866
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/fixtures/p07_second_pilot.gd",
+      "sha256": "fe241b7bddc231812939873e850c7f18b9c433739d758e84726d42bc1c8aa6f9",
+      "bytes": 18388
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/fixtures/p07_second_pilot_host.gd",
+      "sha256": "d605e27ed4f1af37ac24fc868e0d97156c61d851855e3938249c93c57e334e0c",
+      "bytes": 4065
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/p07_pacing.py",
+      "sha256": "5dc94e6911058afda130f1bf242fbe4db599b08d35ce22ca59ef5c89894d7e83",
+      "bytes": 19261
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/p07_second_pilot.py",
+      "sha256": "eb9664393b829c663fb1a0428fe96f6a71e5af20e6058aa1f9ebc3347563fa6a",
+      "bytes": 4084
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/tests/test_p07_pacing.py",
+      "sha256": "84b7090b1485323d12f4e6b102dda38d619d3153af191eb37e5badbcd27a7421",
+      "bytes": 5357
+    }
+  ],
+  "source_work_git_state_mutations": false
+}

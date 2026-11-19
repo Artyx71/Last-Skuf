@@ -1,0 +1,112 @@
+{
+  "scope": "PURE_FROZEN_FUNCTION_PROBES_NO_ENGINE_OR_CONTROLLER",
+  "source_sha256": "680b94f2d7e11c30e56d00957d7dc72e729fa29f051170a032e47ea7403839ad",
+  "raw_sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+  "cases": [
+    {
+      "name": "actual_baseline_control",
+      "accepted": true,
+      "metrics": {
+        "input_accept_ms": {
+          "samples": 48,
+          "p50": 16.545,
+          "p95": 18.058,
+          "p99": 18.252,
+          "max": 18.252
+        },
+        "input_render_ms": {
+          "samples": 48,
+          "p50": 17.141,
+          "p95": 19.047,
+          "p99": 19.417,
+          "max": 19.417
+        },
+        "death_to_control_ms": {
+          "samples": 8,
+          "p50": 16.49,
+          "p95": 16.671,
+          "p99": 16.671,
+          "max": 16.671
+        },
+        "accepted_to_contact_ms": {
+          "samples": 8,
+          "p50": 82.769,
+          "p95": 199.721,
+          "p99": 199.721,
+          "max": 199.721
+        },
+        "movement_frame_ms": {
+          "samples": 1197,
+          "p50": 16.652,
+          "p95": 17.05,
+          "p99": 17.788,
+          "max": 19.881
+        },
+        "idle_frame_ms": {
+          "samples": 239,
+          "p50": 16.656,
+          "p95": 16.967,
+          "p99": 17.129,
+          "max": 18.203
+        },
+        "meaningful_movement_gaps_ms": {
+          "samples": 106,
+          "p50": 49.956,
+          "p95": 100.02,
+          "p99": 100.079,
+          "max": 100.089
+        },
+        "physical_keyboard_or_photon_latency": "NOT_MEASURED",
+        "campaign_duration_or_full_Readiness_approval": false
+      }
+    },
+    {
+      "name": "all48requests_bound_to_first_yakuza_observation_context_state_contact_death_mismatch",
+      "accepted": true,
+      "metrics": {
+        "input_accept_ms": {
+          "samples": 48,
+          "p50": 16.583,
+          "p95": 16.583,
+          "p99": 16.583,
+          "max": 16.583
+        },
+        "input_render_ms": {
+          "samples": 48,
+          "p50": 17.16,
+          "p95": 17.16,
+          "p99": 17.16,
+          "max": 17.16
+        },
+        "death_to_control_ms": {
+          "samples": 8,
+          "p50": 16.584,
+          "p95": 16.584,
+          "p99": 16.584,
+          "max": 16.584
+        },
+        "accepted_to_contact_ms": {
+          "samples": 8,
+          "p50": 0.578,
+          "p95": 0.578,
+          "p99": 0.578,
+          "max": 0.578
+        }
+      },
+      "wrong_context_bound_requests": 42
+    },
+    {
+      "name": "contract_hashed_original_but_parsed_unapproved_limit",
+      "accepted": true,
+      "approved_limit": 24,
+      "actual_loaded_limit": 25,
+      "disk_restored_original": true,
+      "parse_sha256": "216a2b2d915191f5463a985cf0c26c98dd544a841fadf9f860aa64d60b621ade",
+      "approved_sha256": "9f098ec65b6ae15b10e055430574b1d07f308c8b6d2597a19e5f10bbbba2e8f8"
+    },
+    {
+      "name": "contradictory_duplicate_review_status_FAIL_then_PASS",
+      "accepted": true
+    }
+  ]
+}
