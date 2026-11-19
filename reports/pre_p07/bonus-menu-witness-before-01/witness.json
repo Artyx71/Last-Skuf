@@ -1,0 +1,40 @@
+{
+  "actual_session_is_canonical": false,
+  "actual_session_replay": true,
+  "checks": [
+    {
+      "check": "initial_menu_canonical_context",
+      "passed": true
+    },
+    {
+      "check": "TEST_ONLY_initial_menu_admission",
+      "passed": true
+    },
+    {
+      "check": "existing_CH01_replay_owner_entry",
+      "passed": true
+    },
+    {
+      "check": "actual_session_is_readonly_fork",
+      "passed": true
+    },
+    {
+      "check": "real_Bootstrap_return_restores_canonical_menu_session",
+      "passed": false
+    },
+    {
+      "check": "TEST_ONLY_menu_admission_after_replay",
+      "passed": false
+    },
+    {
+      "check": "main_bytes_preserved",
+      "passed": true
+    }
+  ],
+  "current_scene": "res://scenes/bootstrap/bootstrap.tscn",
+  "failed": 2,
+  "no_real_CH10_CH14_or_bonus_level_approval": true,
+  "passed": 5,
+  "schema": 1,
+  "scope": "TEST_ONLY_CH01_REPLAY_OWNER_TO_REAL_BOOTSTRAP_CONTEXT"
+}

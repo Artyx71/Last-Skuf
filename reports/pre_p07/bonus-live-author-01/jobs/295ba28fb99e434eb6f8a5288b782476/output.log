@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/p07_bonus_live.py", line 109, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/p07_bonus_live.py", line 79, in main
+    process = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, text=True, timeout=180)
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/.tools/godot/Godot_v4.7.2-stable_linux.x86_64', '--path', '/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/bonus-live-adapter-03/isolated_project/game', '--disable-vsync', '--max-fps', '60', '--', '--p05-replay']' timed out after 180 seconds

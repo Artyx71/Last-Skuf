@@ -1,0 +1,7 @@
+import json,os,shutil,subprocess
+from pathlib import Path
+r=Path.cwd();w=r/'.autopilot/worktrees/P07';out=w/'reports/pre_p07/bonus-namespace-witness-02';assert not out.exists();out.mkdir(parents=True)
+project=out/'isolated_project/game';shutil.copytree(w/'reports/pre_p07/bonus-compatibility-06/isolated_project/game',project)
+probe=r/'reports/pre_p07/qa-bonus-pilot-01/probes/namespace_alias_probe.gd';shutil.copyfile(probe,project/'tests/namespace_alias_probe.gd');shutil.copyfile(probe,out/'namespace_alias_probe.gd')
+isolate=out/'isolated_saves';isolate.mkdir();env=dict(os.environ,XDG_DATA_HOME=str(isolate/'data'),XDG_CONFIG_HOME=str(isolate/'config'),XDG_CACHE_HOME=str(isolate/'cache'),AYAY_STORY_SAVE_PATH=str(isolate/'story.json'),AYAY_BP_PROFILE=str(isolate/'profiles'),AYAY_BP_RESULT=str(out/'witness.json'),GODOT_SILENCE_ROOT_WARNING='1')
+lock=json.loads((w/'tools/toolchain.lock.json').read_text());engine=w/'.tools/godot'/f'Godot_v{lock["release"]}_linux.x86_64';argv=[str(engine),'--path',str(project),'--headless','--script','res://tests/namespace_alias_probe.gd'];p=subprocess.run(argv,env=env,capture_output=True,text=True,timeout=90);(out/'witness.log').write_text(p.stdout+p.stderr);(out/'execution.json').write_text(json.dumps({'argv':argv,'exit_code':p.returncode,'meaning':'TEST_ONLY_WITNESS_EXECUTION_NOT_BP_PASS'},indent=2)+'\n');print(p.stdout+p.stderr,flush=True);raise SystemExit(p.returncode)

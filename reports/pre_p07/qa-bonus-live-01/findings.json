@@ -1,0 +1,20 @@
+[
+  {
+    "id": "BONUS-LIVE-Q01",
+    "severity": "MEDIUM",
+    "status": "OPEN_IN_REVIEWED_VERSION",
+    "kind": "QA_DRIVER_AND_MISSING_REQUIRED_UI_PROOF",
+    "source": "tools/fixtures/p07_bonus_live.gd",
+    "description": "The END/UP driver does not reach bonus row21. It continues with Enter on another selection and dereferences the freed Bootstrap atline90. Actual live20/22 plus ScriptError prevents native UI/CLI and old native StoryReplay stages. This is not proof of a planned bonus launch bypass.",
+    "required_fix": "Record actual selected row/focus; drive supported real navigation to both bonus rows, stop safely if selection fails, then prove Enter and actual mouse on disabled bonus rows preserve Bootstrap/main bytes. Fresh output required."
+  },
+  {
+    "id": "BONUS-LIVE-L01",
+    "severity": "MEDIUM",
+    "status": "OPEN_IN_REVIEWED_VERSION",
+    "kind": "OWNER_SESSION_LIFECYCLE",
+    "primary_reviewer": "/root/art_olezhka_recovery",
+    "description": "begin_chapter creates replay fork; no original Bootstrap/menu entry restores canonical session. Bonus._valid_campaign denies when owner.session differs from canonical Store, so safe-menu return after main replay leaves future-eligible bonus access denied. Existing live test manually resets session and does not exercise real replay→Bootstrap cleanup. This source-flow gap is not a positive actual CH10/14 unlock test.",
+    "required_fix": "Restore canonical owner/session on actual safe Bootstrap entry without importing replay facts; prove completed CH01 replay really uses fork then menu return restores canonical Store/pending state and future-eligibility seam can launch. Preserve main bytes."
+  }
+]

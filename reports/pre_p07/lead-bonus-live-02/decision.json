@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "WORK_ONLY_REAL_BONUS_OWNER_UI_BOOTSTRAP_ADAPTER_PILOT",
+  "role": "LEAD_REVIEWER",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "source_head": "1ac06074",
+  "must_fix": [
+    "BONUS-LIVE-L02"
+  ],
+  "closed_findings": [
+    "BONUS-LIVE-L01"
+  ],
+  "findings": [
+    {
+      "id": "BONUS-LIVE-L02",
+      "severity": "MEDIUM",
+      "crossref": "BONUS-LIVE-Q01",
+      "cause": "UNKNOWN_IN_FROZEN_RECORD",
+      "failed_native_assertions": [
+        "mouse_bonus_selection_21",
+        "planned_bonus_mouse_stays_21",
+        "mouse_bonus_selection_22",
+        "planned_bonus_mouse_stays_22"
+      ],
+      "planned_bonus_bypass_proven": false,
+      "missing_remaining": [
+        "native_CLI",
+        "old_native_StoryReplay"
+      ]
+    }
+  ],
+  "actual_native_passed": 34,
+  "actual_native_failed": 4,
+  "actual_headless_owner_passed": 21,
+  "actual_headless_CLI_passed": 4,
+  "same_replay_probe_after_passed": 7,
+  "QA_decision_sha256": "4c60439dac7d456109aff179b4791c8ddea7a541d7aacfc81c34846fcd061724",
+  "core_previous_acceptance_preserved": true,
+  "actual_H05_capability_accepted": false,
+  "full_Readiness_approval": false,
+  "P07_production_approval": false,
+  "ROOT_installation_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "engine_runs_by_Lead": 0,
+  "review": "REVIEW.md",
+  "review_sha256": "3d972ca7fb3dba72b1f6d57fdef665f9af5c1a769af05383a15fd1bf6d0a44d5",
+  "proof": "proof-bindings.json",
+  "next_action": "Correct/qualify real mouse event delivery with all four oracles retained; complete nativeCLI/oldReplay on fresh bounded evidence; third independent review."
+}
