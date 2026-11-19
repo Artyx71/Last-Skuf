@@ -44,13 +44,29 @@ func current_bootstrap() -> Control:
 func journal_controls(bootstrap: Control, id: String) -> void:
  var viewport := tree.root.get_visible_rect()
  check("journal_controls_visible_"+id,viewport.encloses(bootstrap.journal.launch.get_global_rect()) and viewport.encloses(bootstrap.journal.close.get_global_rect()))
+func startup_snapshot(bootstrap: Control) -> Dictionary:
+ var focus := tree.root.gui_get_focus_owner()
+ return {"drawn_frames":Engine.get_frames_drawn(),"physics_frames":Engine.get_physics_frames(),
+  "current_is_bootstrap":tree.current_scene == bootstrap,"node_ready":bootstrap.is_node_ready(),
+  "journal_ready":is_instance_valid(bootstrap.journal) and bootstrap.journal.is_node_ready(),
+  "window_focus":tree.root.has_focus(),"window_id":tree.root.get_window_id(),
+  "focus_node":str(focus.get_path()) if is_instance_valid(focus) else ""}
 func run(bootstrap: Control) -> void:
  tree = get_tree(); story = tree.root.get_node("StoryState")
  directory = OS.get_environment("AYAY_P05_CAPTURE_DIR")
+ report["startup_before_physics_wait"] = startup_snapshot(bootstrap)
  await frames(3)
+ report["startup_after_physics_wait"] = startup_snapshot(bootstrap)
+ # Physics catch-up can precede the first native window draw/input registration.
+ if DisplayServer.get_name() != "headless": await RenderingServer.frame_post_draw
+ await tree.process_frame
+ bootstrap = await current_bootstrap()
+ if bootstrap == null: return
+ report["startup_before_first_key"] = startup_snapshot(bootstrap)
  var resume_only := "--p05-resume" in OS.get_cmdline_user_args()
  await key(KEY_F4)
  check("journal_visible",bootstrap.journal.visible)
+ if not bootstrap.journal.visible: finish(); return
  check("journal_21_main_and_2_bonus_slots",story.store.registry.data.chapters.size() == 21 and bootstrap.journal.list.item_count == 23)
  journal_controls(bootstrap,"initial")
  await capture("journal_initial")
@@ -58,6 +74,7 @@ func run(bootstrap: Control) -> void:
  bootstrap.journal.list.grab_focus()
  await key(KEY_DOWN)
  check("planned_slot_disabled",bootstrap.journal.selected == 1 and bootstrap.journal.launch.disabled)
+ if bootstrap.journal.selected != 1 or not bootstrap.journal.launch.disabled: finish(); return
  await key(KEY_ENTER)
  check("unavailable_enter_stays",tree.current_scene == bootstrap and bootstrap.journal.visible)
  journal_controls(bootstrap,"unavailable")
@@ -130,6 +147,9 @@ func run(bootstrap: Control) -> void:
  await capture("replay_complete")
  report["story"] = readback.state
  report["audio"] = mission.audio.diagnostics()
+ finish()
+
+func finish() -> void:
  report["display"] = DisplayServer.get_name()
  report["rendered"] = DisplayServer.get_name() != "headless"
  report["scope"] = "Headless Input/save technical execution; no rendered/audio-device/native-Windows claim" if not report.rendered else "Actual renderer/Input run; listening and native Windows require separate review"
