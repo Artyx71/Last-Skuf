@@ -82,7 +82,11 @@ func navigation_velocity(body: CharacterBody2D, point: Vector2, speed: float) ->
 	return room_navigation.velocity_for(body,point,speed)
 
 func _draw() -> void:
-	super._draw()
+	draw_rect(Rect2(0,0,640,360),Color("151a24"))
+	for x in range(0,641,16): draw_line(Vector2(x,0),Vector2(x,360),Color("202a35"))
+	for y in range(0,361,16): draw_line(Vector2(0,y),Vector2(640,y),Color("202a35"))
+	if not config.is_empty():
+		for wall in config.walls: draw_rect(Rect2(wall[0],wall[1],wall[2],wall[3]),Color("4c4a62"))
 	for entry in [{"at":Vector2(80,280),"label":"РЫЧАГ"},{"at":Vector2(544,144),"label":"ЦЕЛЬ"},{"at":Vector2(80,80),"label":"ВЫХОД"}]:
 		draw_circle(entry.at,5,Color("ffcc71"))
 		draw_string(ThemeDB.fallback_font,entry.at+Vector2(12,0),entry.label,HORIZONTAL_ALIGNMENT_LEFT,-1,12)

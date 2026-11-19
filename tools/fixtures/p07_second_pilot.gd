@@ -11,6 +11,7 @@ var previous_usec := 0
 var route_overlap := false
 var route_jumps := false
 var maximum_step := 0.0
+var movement_failures: Array[Dictionary] = []
 
 func _initialize() -> void: call_deferred("run")
 
@@ -34,7 +35,7 @@ func key(code: Key, pressed: bool) -> void:
 	Input.parse_input_event(event)
 
 func release_keys() -> void:
-	for code in [KEY_W,KEY_A,KEY_S,KEY_D,KEY_ENTER,KEY_F]: key(code,false)
+	for code in [KEY_W,KEY_A,KEY_S,KEY_D,KEY_ENTER,KEY_F,KEY_SPACE,KEY_SHIFT]: key(code,false)
 
 func tap(code: Key) -> void:
 	key(code,true)
@@ -65,6 +66,7 @@ func create(context := "yakuza") -> void:
 	lab.config_path = "res://tests/p07_second_pilot.json"
 	root.add_child(lab)
 	current_scene = lab
+	release_keys()
 	await frames(3)
 	for enemy in lab.enemies: enemy.set_physics_process(false)
 
@@ -92,8 +94,13 @@ func drive(goal: Vector2) -> bool:
 		var step := prior.distance_to(lab.player.position)
 		maximum_step = maxf(maximum_step,step)
 		var physics_ticks := Engine.get_physics_frames()-prior_tick
-		route_jumps = route_jumps or step > lab.player.move_speed*physics_ticks/60.0+0.2
-		route_overlap = route_overlap or overlaps(lab.player)
+		var jump: bool = step > lab.player.move_speed*physics_ticks/60.0+0.2
+		var overlap := overlaps(lab.player)
+		if (jump or overlap) and movement_failures.size()<8:
+			var rect := foot(lab.player)
+			movement_failures.append({"jump":jump,"overlap":overlap,"previous":[prior.x,prior.y],"current":[lab.player.position.x,lab.player.position.y],"prior_tick":prior_tick,"now_tick":Engine.get_physics_frames(),"physics_ticks":physics_ticks,"step":step,"speed":lab.player.move_speed,"multiplier":lab.player._movement_multiplier(),"velocity":[lab.player.velocity.x,lab.player.velocity.y],"run_held":Input.is_physical_key_pressed(KEY_SHIFT),"foot":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
+		route_jumps = route_jumps or jump
+		route_overlap = route_overlap or overlap
 		prior = lab.player.position
 		prior_tick = Engine.get_physics_frames()
 	release_keys()
@@ -112,6 +119,7 @@ func walking_routes() -> void:
 		route_overlap = false
 		route_jumps = false
 		maximum_step = 0
+		movement_failures.clear()
 		var start := Time.get_ticks_usec()
 		var identity_ok: bool = lab.player.get_script()==preload("res://scripts/actors/combat_player.gd") if context=="yakuza" else lab.player.actor_id==lab.scene_policy.definition().actor_id
 		check(context+"/actual_body_and_art",identity_ok and lab.player.sprite.sprite_frames.get_animation_names().size()>0)
@@ -130,7 +138,7 @@ func walking_routes() -> void:
 		await tap(KEY_ENTER)
 		await tap(KEY_ENTER)
 		check(context+"/exit_once",returning and lab.stage=="complete" and lab.completions==1 and lab.player.health==1)
-		check(context+"/continuous_collision_clearance",not route_overlap and not route_jumps,{"maximum_step":maximum_step,"foot":[foot(lab.player).size.x,foot(lab.player).size.y]})
+		check(context+"/continuous_collision_clearance",not route_overlap and not route_jumps,{"jump":route_jumps,"overlap":route_overlap,"first_failures":movement_failures.duplicate(true),"maximum_step":maximum_step,"foot":[foot(lab.player).size.x,foot(lab.player).size.y]})
 		rows.append({"context":context,"scope":"actual_Input_walk_no_setup_warps_after_spawn","wall_ms":float(Time.get_ticks_usec()-start)/1000.0,"native":native,"stage":lab.stage,"completions":lab.completions})
 		await tap(KEY_R)
 		for enemy in lab.enemies: enemy.set_physics_process(false)
@@ -325,6 +333,8 @@ func AI_routes() -> void:
 
 func run() -> void:
 	native = DisplayServer.get_name()!="headless"
+	# Scripted Input remains active; the QA window must not receive desktop typing.
+	if native: root.set_flag(Window.FLAG_NO_FOCUS,true)
 	root.content_scale_size = Vector2i(640,360)
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	root.get_node("OptionsStore").set_value(&"vhs",false,false)
@@ -337,7 +347,7 @@ func run() -> void:
 		for quantile in [0.50,0.95,0.99]: timing[str(quantile)] = wall_frames[mini(wall_frames.size()-1,int(ceil(quantile*wall_frames.size()))-1)]
 	var passed := checks.filter(func(c: Dictionary):return c.passed).size()
 	var completed_routes := rows.filter(func(row: Dictionary):return row.has("context") and row.stage=="complete" and row.completions==1).size()
-	var output := {"schema":1,"passed":passed,"failed":checks.size()-passed,"checks":checks,"rows":rows,"wall_frame_ms":timing,"renderer":RenderingServer.get_video_adapter_name() if native else "headless","CPU":OS.get_processor_name(),"completed_Input_routes":completed_routes,"seven_heroes_eight_registered_contexts":completed_routes==8,"AI_targeted_setups_not_playthrough":true,"peer_collision_separation_claim":false,"new_campaign_or_full_Readiness_approval":false}
+	var output := {"schema":1,"passed":passed,"failed":checks.size()-passed,"checks":checks,"rows":rows,"wall_frame_ms":timing,"display_backend":DisplayServer.get_name(),"window_no_focus_flag":root.get_flag(Window.FLAG_NO_FOCUS),"renderer":RenderingServer.get_video_adapter_name() if native else "headless","CPU":OS.get_processor_name(),"completed_Input_routes":completed_routes,"seven_heroes_eight_registered_contexts":completed_routes==8,"AI_targeted_setups_not_playthrough":true,"peer_collision_separation_claim":false,"new_campaign_or_full_Readiness_approval":false}
 	var file := FileAccess.open(OS.get_environment("AYAY_P07_SECOND_RESULT"),FileAccess.WRITE)
 	assert(file!=null)
 	file.store_string(JSON.stringify(output,"  "))
