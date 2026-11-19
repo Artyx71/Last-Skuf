@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from p07_pacing import CONTEXTS, analyze, load_contract, percentile, validate_pins
+from p07_pacing import CONTEXTS, analyze, integer_fields, load_contract, percentile, validate_pins
 
 
 class PacingValidation(unittest.TestCase):
@@ -82,6 +82,14 @@ class PacingValidation(unittest.TestCase):
     def test_non_monotonic_raw_observations_rejected(self):
         raw = {'schema': 1, 'failed': 0, 'draws': [{'usec': 100}] * 120}
         with self.assertRaises(ValueError): analyze(raw)
+
+    def test_false_functional_check_cannot_hide_behind_zero_summary(self):
+        raw = {'schema': 1, 'passed': 1, 'failed': 0, 'checks': [{'check': 'TEST_ONLY', 'passed': False}]}
+        with self.assertRaises(ValueError): analyze(raw)
+
+    def test_boolean_is_not_an_observation_id(self):
+        with self.assertRaises(ValueError): integer_fields({'id': True}, ['id'])
+        with self.assertRaises(ValueError): integer_fields({'usec': False}, ['usec'])
 
     def test_reversed_action_timestamps_rejected(self):
         raw = {'schema': 1, 'failed': 0,

@@ -64,15 +64,30 @@ def visual_key(state):
                 or not all(type(x) in [int, float] and math.isfinite(x) for x in state[key])):
             raise ValueError('Finite actual actor coordinates required')
     if (not isinstance(state.get('animation'), str) or type(state.get('frame')) is not int
+            or type(state.get('action_frame')) is not int
             or type(state.get('health')) is not int or not isinstance(state.get('context'), str)):
         raise ValueError('Actual rendered actor pose required')
     return tuple(state['draw_position']), state['animation'], state['frame']
 
 
+def integer_fields(row, keys):
+    if any(type(row.get(key)) is not int or row[key] < 0 for key in keys):
+        raise ValueError('Integer, not boolean, observation IDs/timestamps required')
+
+
 def analyze(raw):
-    if raw.get('schema') != 1 or raw.get('failed') != 0:
+    if type(raw.get('schema')) is not int or raw['schema'] != 1 or type(raw.get('failed')) is not int or raw['failed'] != 0:
         raise ValueError('Complete functional native run required')
+    checks = raw.get('checks', [])
+    if (not checks or type(raw.get('passed')) is not int or any(type(c.get('passed')) is not bool for c in checks)
+            or len({c.get('check') for c in checks}) != len(checks)
+            or raw['passed'] != sum(c['passed'] for c in checks)
+            or raw['failed'] != sum(not c['passed'] for c in checks)):
+        raise ValueError('Functional summary must match actual typed unique checks')
     draws = raw['draws']
+    for row in draws:
+        integer_fields(row, ['usec', 'draw', 'tick'])
+        if 'state' in row: visual_key(row['state'])
     if len(draws) < 120 or any(b['usec'] <= a['usec'] for a, b in zip(draws, draws[1:])):
         raise ValueError('Ordered monotonic rendered frames required')
     intervals = [(b['usec'] - a['usec']) / 1000 for a, b in zip(draws, draws[1:])
@@ -80,9 +95,21 @@ def analyze(raw):
     idle = [(b['usec'] - a['usec']) / 1000 for a, b in zip(draws, draws[1:])
             if a['segment'] == b['segment'] == 'idle_calibration']
     physics = raw['physics']
+    for row in physics:
+        integer_fields(row, ['usec', 'tick'])
+        visual_key(row['state'])
     if not physics or any(b['usec'] <= a['usec'] for a, b in zip(physics, physics[1:])):
         raise ValueError('Ordered monotonic physics observations required')
     requests = raw['requests']
+    for row in requests:
+        integer_fields(row, ['id', 'input_usec', 'input_tick', 'accepted_usec', 'accepted_tick', 'render_usec', 'render_draw'])
+        for key in ['before_state', 'accepted_state', 'render_state']: visual_key(row[key])
+        if row['kind'] == 'melee': integer_fields(row, ['contact_usec'])
+        if row['kind'] == 'restart': integer_fields(row, ['death_usec'])
+    for row in raw['contacts']: integer_fields(row, ['usec', 'tick', 'id', 'epoch', 'target', 'player_id', 'damage', 'action_frame'])
+    for row in raw['activity']:
+        integer_fields(row, ['usec', 'tick'])
+        if 'request' in row['details']: integer_fields(row['details'], ['request'])
     expected = [(context, kind) for context in CONTEXTS for kind in ['move']*4+['melee', 'restart']]
     if len(requests) != 48 or [(r['context'], r['kind']) for r in requests] != expected or [r['id'] for r in requests] != list(range(1, 49)):
         raise ValueError('All eight contexts / 48 unique observed requests required')
