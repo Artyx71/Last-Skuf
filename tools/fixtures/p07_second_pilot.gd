@@ -42,14 +42,14 @@ func tap(code: Key) -> void:
 	key(code,false)
 	await frames(2)
 
-func foot(body: CharacterBody2D) -> Rect2:
+func foot(body: PhysicsBody2D) -> Rect2:
 	for child in body.get_children():
 		if child is CollisionShape2D and not child.disabled:
 			return child.global_transform*Rect2(-child.shape.size/2,child.shape.size)
 	assert(false,"Actual rectangle foot required")
 	return Rect2()
 
-func overlaps(body: CharacterBody2D) -> bool:
+func overlaps(body: PhysicsBody2D) -> bool:
 	var rect := foot(body)
 	for blocker in lab.room_navigation.router.blockers:
 		if rect.intersects(blocker): return true
