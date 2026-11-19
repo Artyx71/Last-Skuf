@@ -10,17 +10,7 @@ import subprocess
 from p07_room_pilot import ROOT, digest, inventory, write
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--native', action='store_true')
-    args = parser.parse_args()
-    out = args.output.resolve()
-    if out.exists():
-        raise SystemExit('Fresh output required; preserve previous evidence')
-    out.mkdir(parents=True)
-    before = inventory()
-    write(out / 'source_before.json', before)
+def prepare_project(out):
     project = out / 'isolated_project/game'
     shutil.copytree(ROOT / 'game', project, ignore=shutil.ignore_patterns('.godot', '__pycache__'))
     for name in ['p07_second_pilot.gd', 'p07_second_pilot_host.gd']:
@@ -32,6 +22,21 @@ def main():
                   spawns=[{'kind': k, 'position': [128, 144 + i * 24], 'patrol_end': [544, 280]}
                           for i, k in enumerate(['patrol', 'rusher', 'shooter'])])
     write(project / 'tests/p07_second_pilot.json', config)
+    return project
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--native', action='store_true')
+    args = parser.parse_args()
+    out = args.output.resolve()
+    if out.exists():
+        raise SystemExit('Fresh output required; preserve previous evidence')
+    out.mkdir(parents=True)
+    before = inventory()
+    write(out / 'source_before.json', before)
+    project = prepare_project(out)
     lock = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
     engine = ROOT / '.tools/godot' / f'Godot_v{lock["release"]}_linux.x86_64'
     assert digest(engine) == lock['linux_binary_sha256']
