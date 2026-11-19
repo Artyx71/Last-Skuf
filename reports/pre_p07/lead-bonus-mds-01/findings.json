@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "BONUS-L01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "crossref": [
+        "GBONUS-GP-01"
+      ],
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "problem": "Advertised no-parry/noFIN route cannot satisfy defeated/resolved shooter gates with existing nonlethal ordinary shove.",
+      "evidence": "CharacterPlayer.attack_melee copies config.attacks.shove; prototype damage0/stun1.15. Counter requires a qualifying melee contact; shooter bullets do not provide it. No permanent nonkill resolution is specified. Static paper incompatibility, not a new runtime bug.",
+      "fix": "Specify reachable nonkill marker/return/physical-isolation/retirement objectives and a safe closure path, or openly revise allowed techniques through design review. Do not add lethal shove, bullet parry, guns or a new combat system."
+    },
+    {
+      "id": "BONUS-L02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "crossref": [
+        "GBONUS-GP-02"
+      ],
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "problem": "Immediate next-door opening conflicts with required hint before opening; crossing a zone boundary does not clear the player footprint from a closing door.",
+      "fix": "Define exact safe points/body-clear guards and ordered marker-ready\u2192walk-return\u2192occupancy-clear close\u2192collision-confirmation/job cancellation/cohort retirement\u2192CP/hint\u2192explicit next-door opening. Supply CP0/1/2 door/cohort resets; no teleport, invisible leash or invulnerability."
+    },
+    {
+      "id": "BONUS-L03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "crossref": [
+        "BONUS-Q01"
+      ],
+      "file": "specs/BONUS_PROGRESS_CONTRACT.md \u00a73/BP04",
+      "problem": "Blanket crash leaves old bytes conflicts with successful rename already being the commit.",
+      "fix": "Before rename preserve old path/memory and ignore tmp; after successful rename fresh load accepts the new committed fact exactly once even without UI acknowledgement. Preserve no duplicate reward/write; specify both interruption tests."
+    },
+    {
+      "id": "BONUS-L04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "crossref": [
+        "BONUS-Q02"
+      ],
+      "file": "specs/BONUS_PROGRESS_CONTRACT.md \u00a7\u00a72\u20135/BP03/BP06/BP09",
+      "problem": "Attempt generation alone cannot authorize delayed exit after profile/canonical Store/NewGame replacement; arbitrary safe-scene return manager is not implemented.",
+      "fix": "Pin trusted profile, canonical Store/profile/campaign generation, current durable prerequisite, bonus ID/host/attempt and actual Bootstrap journal return owner. Revoke on replacement/reset, revalidate before commit and before idempotent shortcut. Explicitly distinguish valid duplicate, stale/cancelled and readonly replay."
+    },
+    {
+      "id": "BONUS-L05",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "specs/BONUS_PROGRESS_CONTRACT.md \u00a76 and readiness submission boundary",
+      "problem": "One heading mixes preproduction compatibility-contract tests with BP10 complete actual levels/ART/audio/build acceptance, inviting either premature H05 closure or a circular demand for finished levels before production.",
+      "fix": "Separate actual isolated namespace/once/defaultfalse/profile/current-old-save/replay/crash compatibility pilot and independent review required before FULL Readiness/integration from actual bonus level/art/music/native/export BP10 evidence required after implementation under HIGH secret_delivery_7. Design PASS alone closes neither actual testing nor content obligations."
+    }
+  ],
+  "nonblocking": [
+    {
+      "id": "BONUS-L06",
+      "severity": "LOW",
+      "crossref": [
+        "BONUS-Q03"
+      ],
+      "problem": "Current valid campaign fixtures are fresh/CH01, not all5secrets/D01\u2013D06/endings; those complete graph fixtures are scenario-domain. Keep current production bonuses locked. Positive isolated pilot fixtures must remain explicitly TEST_ONLY; future true CH10/14 production positives await legitimately admitted chapters."
+    },
+    {
+      "id": "BONUS-L07",
+      "severity": "LOW",
+      "crossref": [
+        "GBONUS-GP-03",
+        "NB-MDS-LOW-01"
+      ],
+      "problem": "Counter table has5NPC, prose says6; canonical CH17 name is BROTHERHOOD. Fix prose without adding a sixth NPC or changing frozen mainMDS."
+    }
+  ]
+}

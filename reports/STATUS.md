@@ -12,7 +12,9 @@ H02 second pilot/routerfix приняты как компонент Lead `70aa8a
 
 Audio pipeline audit PASS_COMPONENT `9ffd7b3d…` поддерживает принятую P06 prototypeспособность:233файла совпали с принятымиP06SHA,13historicalmedia сохранилиSHA; прежнее ownerlistening сохранено. Нового прослушивания/музыки/миксов не было. Dedicated scene-reload acoustic continuity ещё требует проверки; разныхscore crossfade нет.
 
-Далее: контракт bonus journal/unlock/once/defaultfalse/old-save и полные MDS двух ранее одобренных бонусных концептов; затем отдельная FULL Readiness-приёмка всех направлений. Будущие ART/audio/пейсинг/геометрия принимаются по фактическому контенту. P07 PENDING/formal0, stop_after_phase=P06, global2; компоненты не разрешают phase/merge. НовогоPR/push/CI нет. Один ROOT executor, постоянныйdaemon не настроен.
+Два отдельных полных бумажных MDS бонусов и контракт сохранений приняты независимым Lead `a04b0a71…` на `947045bd`, после исправлений Gameplay/QA. Старые FAIL сохранены. Габар — сервисная петля/узлы/lunge; Олег — радиальные секторы/оглушение/отход/физическая изоляция без обязательного убийства. Это DESIGN_ONLY: сцен/миграции/ассетов/новых тестов бонуса ещё нет.
+
+Далее: реальный изолированный compatibility pilot BP01–09 (namespace/defaultfalse/once/old-save/replay/profile/crash) и независимая приёмка; только затем отдельная FULL Readiness-приёмка всех направлений. BP10 — будущие реальные уровни/ART/audio/native acceptance, HIGH OPEN. Будущие ART/audio/пейсинг/геометрия принимаются по фактическому контенту. P07 PENDING/formal0, stop_after_phase=P06, global2; компоненты не разрешают phase/merge. НовогоPR/push/CI нет. Один ROOT executor, постоянныйdaemon не настроен.
 
 Candidatefix/H04helpers находятся в WorkP07; RootGame остаётсяP06. A/B/C technicalhandoff и21MDS не повторять. ФотоAKIMBO69 приватное; CH03анимация/QTE ещё NOT_IMPLEMENTED,12private references, новыхгенераций/публикаций нет.
 

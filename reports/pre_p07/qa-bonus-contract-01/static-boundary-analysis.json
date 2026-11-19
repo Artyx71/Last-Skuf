@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "scope": "STATIC_DESIGN_AND_SOURCE_TRACE_NOT_EXECUTED_BONUS_TESTS",
+  "atomic_boundary": {
+    "initial": "bonus file old; memory old",
+    "order_from_current_StoryState": [
+      "candidate duplicate",
+      "_write: temp store_string/flush/get_error/close",
+      "_write: same-directory rename(temp,path)",
+      "record: state=candidate"
+    ],
+    "counterexample": "Process stops after successful rename and before state=candidate. Durable path contains candidate; old memory no longer survives. Fresh load must observe committed history once. BP04 blanket old-bytes/state requirement cannot hold at this boundary.",
+    "required_precommit": "Before successful rename: old authoritative path/state unchanged; leftover temp ignored",
+    "required_postcommit": "After successful rename: valid new committed sidecar authoritative on reload; do not rollback a committed fact solely because UI acknowledgement was absent; duplicate grants forbidden"
+  },
+  "profile_boundary": {
+    "current_StoryService_fields": [
+      "store",
+      "session",
+      "pending_replay",
+      "error_message"
+    ],
+    "current_story_profile_override": "AYAY_STORY_SAVE_PATH only; bonus profile owner/generation not implemented",
+    "current_journal_host": "bootstrap.gd constructs StoryJournal; journal _launch enters chapter.scene",
+    "missing_explicit_token_binding": [
+      "active trusted profile identity",
+      "canonical Store object/durable revision",
+      "profile/campaign generation",
+      "bonus ID and host instance",
+      "attempt generation",
+      "trusted safe return target"
+    ],
+    "counterexample": "Start an incomplete bonus from profileA with durable prerequisite. Before its delayed exit callback, trusted owner switches to profileB or resets A campaign. A mere still-current scene attempt number does not prove the same profile/store/prerequisite; commit must be rejected before even an idempotent success check.",
+    "required_boundary": "Revoke old sessions on profile/store/newgame transitions; recheck pinned owner and current durable prerequisite at commit; keep bonus namespace acrossNewGame but do not inherit active completion authority."
+  },
+  "current_fixture_classification": {
+    "production_playable_chapters": [
+      "CH01_THE_MISSED_FIGHT"
+    ],
+    "bonus_prerequisites": [
+      {
+        "id": "CH10_THE_KIMONO",
+        "availability": "planned",
+        "scene": ""
+      },
+      {
+        "id": "CH14_AGENT_SWARM",
+        "availability": "planned",
+        "scene": ""
+      }
+    ],
+    "canonical_secret_count": 5,
+    "secret_event_chapters": [
+      "CH06_THE_BREAKER",
+      "CH11_THE_DOG_WALKER",
+      "CH12_CYBERX",
+      "CH14_AGENT_SWARM",
+      "CH15_THE_SUPERSUIT"
+    ],
+    "existing_full_graph_test_domain": "Store.new(true,registry); replay=true -> scenario, memory-only",
+    "required_BP01_wording": "Current backward-compatibility fixtures: fresh/CH01 plus legitimate dialogue history. All5secrets/D01–D06/endings remain scenario compatibility fixtures; future production-positive CH10/14 unlock fixtures require independently admitted main chapter availability/validation, never relabel scenario as campaign."
+  },
+  "new_BP_tests_run": false,
+  "new_runtime_or_migration_claim": false
+}

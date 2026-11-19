@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-19T09:59:12.872469+00:00",
+  "reviewer": "/root/narrative_bonus_mds",
+  "independent_of_author": true,
+  "status": "PASS_COMPONENT",
+  "acceptance_level": "DESIGN_ONLY",
+  "scope": "NARRATIVE_ONLY_TWO_OPTIONAL_NONCANONICAL_FULL_PAPER_MDS_AND_NARRATIVE_CONTRACT_BOUNDARIES",
+  "frozen_work_head": "f2b5e9f516a7a37d3331010dbf0fb4bd6a771382",
+  "bonus_ids": [
+    "BONUS_OFFLINE_BUILD",
+    "BONUS_COUNTER_LESSON"
+  ],
+  "source_inventory_sha256": {
+    "planning/missions/BONUS_OFFLINE_BUILD_MDS.md": "333f9ff1aad9ced6d4b4e46884f660dcf8fa4c0b32327426ee67a568be06af51",
+    "planning/missions/BONUS_COUNTER_LESSON_MDS.md": "b24e3e1309bed596772455f062bb5b354d900e5139c34f3edd2a027da17c5e0d",
+    "specs/BONUS_PROGRESS_CONTRACT.md": "ca9e0e64cee41f2be5eaf72ffb7b91e4e7b4bac642c6b2a8ab0017389bbe54de",
+    "planning/missions/SECRET_OFFLINE_BUILD.md": "ac4acd07f2a0c9c7124794ff82a112fd39a3f8e356ff82b6d7c8dbdd23e02579",
+    "planning/missions/SECRET_COUNTER_LESSON.md": "417f7e6e0ec82ca1615c2b6a9d50648e9bf2eb727c8fb6d6de3c0915030323be"
+  },
+  "input_inventory_sha256": "5972b76091384f62576e01bc5ed74025decd0c7d2922631e7bf33082d4e0e33c",
+  "report_sha256": "65a715c407be8e98be1438819ce5f0649f19005b6e9717878d6e89d21ceeaa2d",
+  "findings": [
+    {
+      "id": "NB-MDS-LOW-01",
+      "severity": "LOW",
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "line": 57,
+      "observed": "CH17_THE_LAST_JUDO is not the canonical chapter ID; actual related chapter is CH17_BROTHERHOOD. The comparison meaning matches actual CH17 responsibility/help/D06.",
+      "expected": "Reference CH17_BROTHERHOOD without editing canonical main MDS.",
+      "fix": "Replace only the comparison identifier, then bind the erratum to its exact new source hash.",
+      "blocking_for_narrative_design": false
+    }
+  ],
+  "must_fix_before_narrative_design_acceptance": [],
+  "tests": {
+    "runtime_passed": 0,
+    "runtime_failed": 0,
+    "runtime_not_run": true,
+    "independent_source_hash_checks_passed": 40,
+    "independent_source_hash_checks_failed": 0
+  },
+  "canonical_integration_approval": false,
+  "runtime_approval": false,
+  "technical_save_contract_approval": false,
+  "level_production_approval": false,
+  "full_MDS_Lead_approval": false,
+  "full_Readiness_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "P07_start_approval": false,
+  "prior_phase_or_canonical_state_mutated": false,
+  "work_source_mutated": false,
+  "photos_accessed": false,
+  "external_services_used": false,
+  "next_action": "Root fixes LOW comparison-reference typo and binds erratum; independent Gameplay/technical QA/Lead review remains required. No runtime or phase advancement.",
+  "next_phase": "none"
+}

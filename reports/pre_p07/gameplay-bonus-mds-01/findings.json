@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "GBONUS-GP-01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "lines": [
+        11,
+        31,
+        32,
+        33,
+        35,
+        37,
+        41
+      ],
+      "title": "Обещанный путь обычных ударов/отхода не разрешает обязательные cohorts",
+      "expected": "Существующие P06 abilities и честный вариант без обязательного parry/finisher; условия markers должны быть достижимы именно объявленным способом",
+      "observed": "Marker1 requires defeated NPC; subsequent markers require both opponents resolved. Olezhka starts unarmed, ordinary attack is prototype shove damage0/stun1.15; only successful melee counter adds damage1. Shooter fires enemy_bullet at all ranges, projectiles bypass counter and enemy bullets target player/walls, no hostile friendly fire. Ordinary shove does not kill or permanently resolve NPC, and no nonkill sector-isolation objective is specified. Thus advertised no-counter/noFIN route cannot satisfy marker1 and shooter-clear gates.",
+      "paper_repro": "Выбрать заявленный обход/обычные удары, не применять counter или FIN: NPC health остаётся1 при любом числе shove; marker1 defeated predicate недостижим. В E2/E3 стрелок не даёт парируемого melee.",
+      "source_evidence": [
+        "game/scripts/actors/character_player.gd:237",
+        "game/resources/combat/prototype.json:23",
+        "game/scripts/ai/enemy_actor.gd:146",
+        "game/scripts/ai/enemy_actor.gd:237",
+        "game/scripts/systems/combat_system.gd:190",
+        "game/scripts/systems/combat_system.gd:246"
+      ],
+      "minimal_fix": "Определить честный неубийственный marker/return/isolation predicate на существующих cover/stun/дверях: marker становится ready при reach, окончательное разрешение только после полного возврата в hub, физического закрытия occupied-clear двери/noNPC inhub и retirement изолированного cohort без kill/score, с cancel jobs. Либо явно пересмотреть обещанный разрешённый способ по Narrative/Lead, не выдавая Олегу вымышленный lethal shove/gun/bullet-counter. Уточнить lethal wording как запрет counter ПОСЛЕ уже принятого смертельного урона, не запрет защиты от входящего damage1 до apply_hit.",
+      "acceptance": "Для каждого сектора описан выполнимый путь без counter/FIN, реальные safe close/body-clear/LOS/CP stages и исходы; обычный удар по-прежнему damage0. No runtime PASS from paper."
+    },
+    {
+      "id": "GBONUS-GP-02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "lines": [
+        23,
+        25,
+        41,
+        43,
+        49
+      ],
+      "title": "Порядок next-door/безопасного hint и физического CP join противоречив/неполон",
+      "expected": "Единственный исполнимый порядок marker→return→close→safe checkpoint/dialogue→nextsector, без захлопывания створки на foot и без активных NPC в hub",
+      "observed": "Marker1 немедленно открывает north, marker2 — east (l23), но BC_E2_HINT должен происходить в безопасном hub ДО открытияE2, а все диалоги требуют закрытых дверей(l49). CP1/2 создаются на пересечении hub; нет координаты безопасного crossing/closure и обязательного occupied-footprint guard. У центра на (512,768) foot504,756,16,12 ещё пересекает west door496,704,16,128; при (896,512) foot888,500,16,12 пересекает north door832,496,128,16. Наличие clear/dead NPC само не убирает footprint игрока.",
+      "paper_repro": "Выполнить marker1, получить уже-open north, затем вернуться для обязательного hint before-opening; такого порядка в написанном contract нет. Центр пересекает границу раньше полного body clearance.",
+      "source_evidence": [
+        "game/scripts/actors/yakuza_actor.gd:16",
+        "paper-diagnostics.json"
+      ],
+      "minimal_fix": "Marker лишь ставит sector-ready/return stage; задать точные safe points/trigger bounds и отложенное закрытие только при clear actual player/NPC footprints +noNPCinhub. Затем cancel old jobs/retire cohort, publish local CP, провести hint при safe door states, после него отдельным разрешённым interaction открыть следующую дверь. Согласовать initial intro door state и CP0/1/2 reset table.",
+      "acceptance": "Для CP1/CP2/exit_ready явно перечислены marker states, old/new door states, actor position/foot-clear predicate, NPC activation/retirement/generation; нет teleport/invisible AI barrier/invulnerability."
+    },
+    {
+      "id": "GBONUS-GP-03",
+      "severity": "LOW",
+      "status": "OPEN",
+      "file": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "lines": [
+        57,
+        59
+      ],
+      "title": "Две точные ошибки описания",
+      "observed": "Состав E1/E2/E3 равен1+2+2=5NPC, prose говорит6. Approved CH17 ID — CH17_BROTHERHOOD, не CH17_THE_LAST_JUDO.",
+      "minimal_fix": "Исправить количество на5 и ссылку на действительный CH17_BROTHERHOOD/ответственностьD06; не добавлять шестого NPC ради текста/длительности.",
+      "gate": "Nonblocking copy correction; no new encounter/content requirement."
+    }
+  ]
+}
