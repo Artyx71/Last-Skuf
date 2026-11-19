@@ -132,7 +132,7 @@ func isolation() -> void:
 func invalid_files() -> void:
 	var owner := owner_at(profile.path_join("invalid"))
 	var main := bytes_at(owner.store.path)
-	var location := owner.store.path.get_base_dir().path_join("bonus_progress_v1.json")
+	var location: String = owner.store.path.get_base_dir().path_join("bonus_progress_v1.json")
 	var cases := {"corrupt":"{", "duplicate_root":'{"schema":1,"schema":1,"domain":"bonus_profile","history":[],"completed":{"BONUS_OFFLINE_BUILD":false,"BONUS_COUNTER_LESSON":false}}',
 		"duplicate_escaped":'{"schema":1,"\\u0073chema":1,"domain":"bonus_profile","history":[],"completed":{"BONUS_OFFLINE_BUILD":false,"BONUS_COUNTER_LESSON":false}}',
 		"trailing_comma":'{"schema":1,"domain":"bonus_profile","history":[],"completed":{"BONUS_OFFLINE_BUILD":false,"BONUS_COUNTER_LESSON":false,}}'}
