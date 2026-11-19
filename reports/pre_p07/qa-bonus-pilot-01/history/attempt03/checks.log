@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BONUS_CONTRACT checks checks=71 failed=1
+ERROR: Object is locked and can't be freed.
+   at: callp (core/object/object.cpp:787)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://tests/p07_bonus_contract.gd:146)
+       [1] bonus_goal_ready (res://tests/p07_bonus_host.gd:9)
+       [2] complete (res://tests/p07_bonus_progress.gd:96)
+       [3] callback_revocation (res://tests/p07_bonus_contract.gd:147)
+       [4] run (res://tests/p07_bonus_contract.gd:221)
+SCRIPT ERROR: Attempted to free a locked object (calling or emitting).
+          at: <anonymous lambda> (res://tests/p07_bonus_contract.gd:146)
+          GDScript backtrace (most recent call first):
+              [0] <anonymous lambda> (res://tests/p07_bonus_contract.gd:146)
+              [1] bonus_goal_ready (res://tests/p07_bonus_host.gd:9)
+              [2] complete (res://tests/p07_bonus_progress.gd:96)
+              [3] callback_revocation (res://tests/p07_bonus_contract.gd:147)
+              [4] run (res://tests/p07_bonus_contract.gd:221)
+WARNING: FAIL BONUS goal_callback_free_host_clean_denial
+     at: push_warning (core/variant/variant_utility.cpp:1033)
+     GDScript backtrace (most recent call first):
+         [0] check (res://tests/p07_bonus_contract.gd:33)
+         [1] callback_revocation (res://tests/p07_bonus_contract.gd:147)
+         [2] run (res://tests/p07_bonus_contract.gd:221)
+
+exit_code=1

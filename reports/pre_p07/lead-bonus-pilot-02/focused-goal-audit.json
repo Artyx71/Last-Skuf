@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "final_source_head": "c4b9b4ea473e11e14b88a820374e442bff5615d7",
+  "source_inventory_sha256": {
+    "tools/p07_bonus_pilot.py": "25fa9c5ce44573327e8d124024bfa35196bbd2b270413733c7d00a5e4db487b4",
+    "tools/fixtures/p07_bonus_progress.gd": "d4656c3cf5bd03a7baa3df82331e05ad96b14825607143fcd9633aea758dff22",
+    "tools/fixtures/p07_bonus_contract.gd": "568eb414b1cdb84cd9eaadb5ec5a7a3d9502c38cbd6efa74b1d72280bcd3253c",
+    "tools/fixtures/p07_bonus_host.gd": "2d99350fd7aa4fa10d97b399704846e0ebd189656a1b5a3ca8d1217d6ce61757"
+  },
+  "Progress_core_exact_3a36_06": true,
+  "Progress_core_sha256": "d4656c3cf5bd03a7baa3df82331e05ad96b14825607143fcd9633aea758dff22",
+  "focused_actual_checks": [
+    {
+      "check": "goal_callback_revoke_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_profile_swap_no_commit",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_queued_host_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "already_freed_host_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "nested_goal_callback_no_recursion_single_commit",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_current_alive_denied",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_current_objective_denied",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_current_jobs_denied",
+      "passed": true
+    }
+  ],
+  "focused_stages": 2,
+  "current_source_files_rehashed": 620,
+  "unchanged_06_full_IO_crash_graph_evidence_carried_forward_not_rerun": true,
+  "goal_ready_contract": "Authoritative current alive/objective/nojobs at callback return; not a stale pre-callback snapshot. Real future mission host remains BP10 implementation/review.",
+  "operation": "a625621894894a618db1853f02baebe8",
+  "receipt": {
+    "operation": "a625621894894a618db1853f02baebe8",
+    "argv_sha256": "ce934bbcfe0f96793a60c0af109bc8e9d49336b7bc0032f335f748576c046b15",
+    "exit_code": 0,
+    "log_sha256": "e83c1140fa3096019e26ed73c4612f9a811f5bde6b0b05484708091d3942f78d",
+    "seconds": 5.507
+  },
+  "receipt_sha256": "1daa0fb3f867de53f6fe7eaa43ebf9b775ae60dfb6cec5d57b99b9ee30d0f34d",
+  "references": [
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-goal-fixture-01/validation.json",
+      "sha256": "fb63562e5577e36b0d05d4a9d3e50fc9ff990b2f03a41be3e5470d89b29e4fd1"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-goal-fixture-01/runs.json",
+      "sha256": "7fa8a19120adffb548868944a27895cc82b2b7bc08aee7d655b557e018cda29e"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-goal-fixture-01/goals-result.json",
+      "sha256": "9060104b3d1c91a69199a9d0c79a1235d39f07d47d6128c47ec33d8f0da005fe"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-goal-fixture-01/source_before.json",
+      "sha256": "3fd6235ff7ba960a6e843813730876294393ce6156b638b7aa2e3a16c5d35271"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-goal-fixture-01/source_after.json",
+      "sha256": "3fd6235ff7ba960a6e843813730876294393ce6156b638b7aa2e3a16c5d35271"
+    }
+  ],
+  "engine_calls_by_Lead": 0
+}

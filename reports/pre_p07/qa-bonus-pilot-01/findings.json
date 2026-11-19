@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "H05-QA01-NAMESPACE_ALIAS",
+      "severity": "HIGH",
+      "must_fix": true,
+      "source_head": "6ae6128bcb18eef8c916e8ded766f8ecbd82104f",
+      "source": "tools/fixtures/p07_bonus_progress.gd _sync_scope / _write",
+      "problem": "The sidecar and its write temp are not reserved against the canonical campaign path. A valid trusted profile configuration can cause a bonus commit to overwrite or remove the main save.",
+      "actual_disposable_cases": [
+        {
+          "case": "main_is_sidecar_tmp",
+          "began": true,
+          "committed": true,
+          "main_exists_after": false,
+          "main_bytes_preserved": false,
+          "main_valid_after": false
+        },
+        {
+          "case": "main_created_after_candidate_at_sidecar",
+          "began": true,
+          "committed": true,
+          "main_exists_after": true,
+          "main_bytes_preserved": false,
+          "main_valid_after": false
+        }
+      ],
+      "minimal_fix": "Reject normalized canonical main path equal to sidecar final OR sidecar.tmp before loading/begin/write; revoke the colliding binding. Keep ordinary profile file behavior unchanged.",
+      "acceptance": "Run the exact QA probe against fixed code; both begin/complete must be denied and valid main bytes/schema retained, including normalized ./ aliases. Preserve existing once/crash/replay/profile negative controls.",
+      "proof": "namespace-witness-verification.json",
+      "actual_production_user_save_damage": false,
+      "witness_profiles_only": true
+    }
+  ]
+}
