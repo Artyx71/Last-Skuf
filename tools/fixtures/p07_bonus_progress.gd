@@ -66,10 +66,13 @@ func _scene_path(_id: String) -> String:
 	return ""
 
 func can_launch(id: String) -> bool:
-	return id in IDS and _valid_campaign() and writable and _prerequisite(id) and not _scene_path(id).is_empty()
+	return id in IDS and _valid_campaign() and writable \
+		and path == _campaign_path.get_base_dir().path_join("bonus_progress_v1.json") \
+		and _prerequisite(id) and not _scene_path(id).is_empty()
 
-func begin(id: String, host: Node, origin: Node) -> bool:
+func begin(id: String, host: Variant, origin: Variant) -> bool:
 	if not can_launch(id) or not is_instance_valid(host) or not is_instance_valid(origin): return _fail("UNAVAILABLE")
+	if not host is Node or not origin is Node: return _fail("HOST_INVALID")
 	if origin.scene_file_path != BOOTSTRAP or origin.get_tree().current_scene != origin: return _fail("ORIGIN_INVALID")
 	if host.scene_file_path != _scene_path(id): return _fail("HOST_INVALID")
 	revoke()
@@ -77,17 +80,23 @@ func begin(id: String, host: Node, origin: Node) -> bool:
 		"profile":_campaign_path,"origin":weakref(origin),"replay":state.completed[id]}
 	return true
 
-func _authorized(host: Node) -> bool:
+func _authorized(host: Variant) -> bool:
+	if not is_instance_valid(host) or not host is Node: return false
 	if not _valid_campaign() or _active.is_empty(): return false
+	if not writable or path != _campaign_path.get_base_dir().path_join("bonus_progress_v1.json"): return false
 	return is_instance_valid(host) and _active.host.get_ref() == host and _active.store == _store \
 		and _active.profile == _campaign_path and _active.generation == generation \
 		and host.scene_file_path == _scene_path(_active.id) and _prerequisite(_active.id)
 
-func complete(host: Node) -> bool:
+func complete(host: Variant) -> bool:
 	# Check current owner/prerequisite BEFORE the idempotent and read-only branches.
-	if not _authorized(host) or not writable: return _fail("SESSION_REVOKED")
-	if path != _campaign_path.get_base_dir().path_join("bonus_progress_v1.json"): return _fail("PROFILE_PATH_CHANGED")
-	if not host.has_method("bonus_goal_ready") or not host.bonus_goal_ready(): return _fail("GOAL_UNRESOLVED")
+	if not _authorized(host): return _fail("SESSION_REVOKED")
+	var request_generation := generation
+	if not host.has_method("bonus_goal_ready"): return _fail("GOAL_UNRESOLVED")
+	var ready: Variant = host.bonus_goal_ready()
+	# A host callback may synchronously revoke, replace the profile, or free itself.
+	if not _authorized(host) or generation != request_generation: return _fail("SESSION_REVOKED")
+	if not ready is bool or not ready: return _fail("GOAL_UNRESOLVED")
 	if _active.replay or state.completed[_active.id]: return true
 	var candidate := state.duplicate(true)
 	candidate.history.append(_active.id)
@@ -96,14 +105,15 @@ func complete(host: Node) -> bool:
 	state = candidate
 	return true
 
-func request_return(host: Node) -> bool:
+func request_return(host: Variant) -> bool:
 	if not _authorized(host): return _fail("RETURN_REVOKED")
 	_return = {"store":_store,"profile":_campaign_path,"generation":generation}
 	_active.clear()
 	return true
 
-func consume_return(bootstrap: Node) -> bool:
+func consume_return(bootstrap: Variant) -> bool:
 	if not _sync_scope() or _return.is_empty() or not is_instance_valid(bootstrap): return false
+	if not bootstrap is Node: return false
 	var allowed: bool = _return.store == _store and _return.profile == _campaign_path \
 		and _return.generation == generation and bootstrap.scene_file_path == BOOTSTRAP \
 		and bootstrap.get_tree().current_scene == bootstrap
@@ -158,7 +168,11 @@ func load_save() -> bool:
 	if read_error != OK or parsed == null:
 		writable = false
 		return _fail("INVALID_PRESERVED")
-	state = parsed
+	# JSON numbers are floats; rebuild the typed derived state just like StoryState.load_save.
+	state = fresh()
+	for id in parsed.history:
+		state.history.append(id)
+		state.completed[id] = true
 	return true
 
 func _boundary(_stage: String) -> bool:

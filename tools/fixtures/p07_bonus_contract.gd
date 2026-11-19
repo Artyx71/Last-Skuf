@@ -129,6 +129,25 @@ func isolation() -> void:
 	owner.store.simulation = false
 	check("no_profile_bonus_files_on_denials",not FileAccess.file_exists(progress.path))
 
+func callback_revocation() -> void:
+	var owner := owner_at(profile.path_join("callbacksA")); var progress := EligibilityDouble.new(owner)
+	var actor := host(); var first_path: String = progress.path
+	assert(progress.begin(Progress.IDS[0],actor,origin))
+	actor.callback = func(): progress.revoke()
+	check("goal_callback_revoke_clean_denial",not progress.complete(actor) and not FileAccess.file_exists(first_path))
+	actor.callback = Callable()
+	assert(progress.begin(Progress.IDS[0],actor,origin))
+	var other := owner_at(profile.path_join("callbacksB"))
+	actor.callback = func():
+		owner.store = other.store
+		owner.session = owner.store
+	check("goal_callback_profile_swap_no_commit",not progress.complete(actor) and not FileAccess.file_exists(first_path) and not FileAccess.file_exists(progress.path))
+	actor.callback = Callable(); assert(progress.begin(Progress.IDS[0],actor,origin))
+	actor.callback = func(): actor.free()
+	check("goal_callback_free_host_clean_denial",not progress.complete(actor) and not FileAccess.file_exists(progress.path))
+	var freed := host(); freed.free()
+	check("already_freed_host_clean_denial",not progress.complete(freed) and not progress.request_return(freed))
+
 func invalid_files() -> void:
 	var owner := owner_at(profile.path_join("invalid"))
 	var main := bytes_at(owner.store.path)
@@ -199,7 +218,7 @@ func run() -> void:
 	assert(not profile.is_empty() and profile.is_absolute_path())
 	origin = load(Progress.BOOTSTRAP).instantiate(); root.add_child(origin); current_scene = origin
 	var mode := OS.get_environment("AYAY_BP_MODE")
-	if mode == "checks": mutations(); isolation(); invalid_files(); failures()
+	if mode == "checks": mutations(); isolation(); callback_revocation(); invalid_files(); failures()
 	else: process_case(mode)
 	var passed := 0
 	for row in rows:

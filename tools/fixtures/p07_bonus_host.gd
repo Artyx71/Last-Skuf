@@ -3,5 +3,8 @@ extends Node
 var alive := true
 var objective := true
 var jobs := false
+var callback := Callable()
 func bonus_goal_ready() -> bool:
-	return alive and objective and not jobs
+	var ready := alive and objective and not jobs
+	if callback.is_valid(): callback.call()
+	return ready
