@@ -17,9 +17,11 @@ import cold_runtime_bundle as bundle
 from cold_runtime_bundle import RuntimeBundle, TARGETS, Refused
 import cold_bootstrap as fs
 
+# Historical B recovery must keep its reviewed bytes when live policy advances.
+PINNED_B = ROOT / 'reports/pre_p07/lead-runtime-bundle-B-02/source-snapshot/payloads'
 A = build((ROOT / 'tools/fixtures/autopilot_legacy_02b.py.txt').read_bytes(),
-          (ROOT / 'autopilot/runner.py').read_bytes())
-PAYLOADS = {p: (ROOT / p).read_bytes() for p in TARGETS}
+          (PINNED_B / 'autopilot/runner.py').read_bytes())
+PAYLOADS = {p: (PINNED_B / p).read_bytes() for p in TARGETS}
 
 
 class BundleTests(unittest.TestCase):
@@ -77,6 +79,18 @@ class BundleTests(unittest.TestCase):
         run = subprocess.run([sys.executable,str(self.root / 'autopilot/runner.py'),'status'],
                              cwd=self.root,capture_output=True,text=True,timeout=5)
         self.assertEqual(run.returncode,0,run.stderr)
+        self.assert_kept()
+
+    def test_later_stop_policy_cannot_replace_reviewed_B_payload(self):
+        payloads = dict(PAYLOADS)
+        config = json.loads(payloads['autopilot/config.json'])
+        self.assertEqual(config['stop_after_phase'], 'P06')
+        config['stop_after_phase'] = 'P07'
+        payloads['autopilot/config.json'] = (json.dumps(config, indent=2)+'\n').encode()
+        with RuntimeBundle(self.root).lease() as install:
+            with self.assertRaisesRegex(Refused, 'Unreviewed/missing target: autopilot/config.json'):
+                install.begin_bundle(payloads, self.before, self.protected, self.proof)
+        self.assertEqual(RuntimeBundle(self.root).protected(TARGETS), self.before)
         self.assert_kept()
 
     def test_actual_process_exit_at_all_copy_boundaries_can_resume_or_rollback(self):

@@ -16,6 +16,8 @@ from canonical_source_transfer import CanonicalSourceTransfer,Refused
 from cold_runtime_bundle import TARGETS
 import cold_bootstrap as fs
 
+PINNED_B=ROOT/'reports/pre_p07/lead-runtime-bundle-B-02/source-snapshot/payloads'
+
 
 class SourceTransferTests(unittest.TestCase):
     def setUp(self):
@@ -27,7 +29,7 @@ class SourceTransferTests(unittest.TestCase):
         (self.root/'.git/index').write_bytes(b'INDEX TEST_ONLY')
         (self.root/'automation/phase_state.json').write_text('{"active_phase":"P07","attempts":2,"autopilot":{"history":["keep"],"paused":false,"phases":{}}}')
         for p in TARGETS:
-            dest=self.root/p;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes((ROOT/p).read_bytes())
+            dest=self.root/p;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes((PINNED_B/p).read_bytes())
         (self.root/'autopilot/worker.py').write_bytes(b'# TEST_ONLY worker; never replace\n')
         (self.root/'game/old.gd').write_bytes(b'extends Node\n# OLD TEST_ONLY\n')
         (self.root/'tools/verify.py').write_bytes(b'# OLD VERIFY TEST_ONLY\n')
