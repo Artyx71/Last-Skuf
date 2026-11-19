@@ -3,6 +3,7 @@ extends "res://tests/p07_bonus_contract.gd"
 var service: Node
 var native := false
 var captures: Array[String] = []
+var ui_trace: Array[Dictionary] = []
 
 func frames(count := 3) -> void:
 	for index in count: await process_frame
@@ -72,8 +73,16 @@ func lifecycle() -> void:
 	await bootstrap()
 	check("live_scene_change_revokes",not service.complete_bonus(pending_actor))
 	check("no_bonus_file_from_lifecycle_denials",not FileAccess.file_exists(progress.path))
+	assert(service.store.complete_chapter(service.store.registry.CH01))
+	service.pending_replay = true
+	assert(change_scene_to_file("res://scenes/levels/missed_fight.tscn") == OK)
+	await scene_changed; await frames(4)
+	check("actual_CH01_replay_uses_fork",service.session != service.store and service.session.replay)
+	await bootstrap()
+	check("actual_replay_return_restores_canonical_owner",service.session == service.store and not service.pending_replay)
+	check("future_eligibility_after_real_replay_menu",service.bonus_entries()[0].available)
 
-func journal() -> void:
+func journal() -> bool:
 	origin = await bootstrap()
 	await tap(KEY_J)
 	check("real_bootstrap_journal_visible",origin.journal.visible)
@@ -83,8 +92,12 @@ func journal() -> void:
 		origin.journal.list.grab_focus()
 		origin.journal.list.select(0); origin.journal._select(0)
 		await tap(KEY_END)
-		if row == 21: await tap(KEY_UP)
+		ui_trace.append({"phase":"END_diagnostic","selected":origin.journal.selected,"renderer":DisplayServer.get_name(),"focus_is_list":root.gui_get_focus_owner() == origin.journal.list})
+		origin.journal.list.select(0); origin.journal._select(0)
+		for step in row: await tap(KEY_DOWN)
+		ui_trace.append({"phase":"DOWN_selection","selected":origin.journal.selected,"expected":row,"focus_is_list":root.gui_get_focus_owner() == origin.journal.list})
 		check("keyboard_bonus_selection_"+str(row),origin.journal.selected == row and origin.journal.launch.disabled)
+		if origin.journal.selected != row: return false
 		await tap(KEY_ENTER)
 		check("planned_bonus_enter_stays_"+str(row),current_scene == origin and origin.journal.visible)
 		var scroll: float = origin.journal.list.get_v_scroll_bar().value
@@ -103,6 +116,7 @@ func journal() -> void:
 		check("planned_direct_launch_denied_"+str(row),not service.launch_bonus(Progress.IDS[row-21],origin))
 	check("planned_journal_no_sidecar_or_main_change",main_before == bytes_at(service.store.path) and not FileAccess.file_exists(service.store.path.get_base_dir().path_join("bonus_progress_v1.json")))
 	await capture("planned_bonus_journal")
+	return true
 
 func normal_return() -> void:
 	enable_eligibility_double()
@@ -140,14 +154,17 @@ func run() -> void:
 	var mode := OS.get_environment("AYAY_BP_MODE")
 	if mode == "cli": await cli_return()
 	else:
-		await journal()
-		await lifecycle()
-		await normal_return()
+		var ready := true
+		if native: ready = await journal()
+		if ready:
+			await lifecycle()
+			await normal_return()
 	var passed := 0
 	for row in rows:
 		if row.passed: passed += 1
 	put(OS.get_environment("AYAY_BP_RESULT"),JSON.stringify({"schema":1,"mode":mode,"checks":rows,"passed":passed,"failed":rows.size()-passed,
 		"renderer":DisplayServer.get_name(),"captures":captures,"real_owner_and_UI_adapters":true,
+		"UI_keyboard_mouse_tested":native and mode != "cli","UI_trace":ui_trace,
 		"positive_future_chapter_scene_eligibility_double":true,"CLI_pending_return_seeded":mode=="cli",
 		"actual_new_bonus_levels_or_canonical_CH10_CH14_unlock":false},"  "))
 	print("BONUS_LIVE ",mode," checks=",rows.size()," failed=",rows.size()-passed)
