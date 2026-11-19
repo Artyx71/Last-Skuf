@@ -59,7 +59,7 @@ func run(bootstrap: Control) -> void:
  report["startup_after_physics_wait"] = startup_snapshot(bootstrap)
  # Physics catch-up can precede the first native window draw/input registration.
  if DisplayServer.get_name() != "headless": await RenderingServer.frame_post_draw
- await tree.process_frame
+ for index in 3: await tree.process_frame
  bootstrap = await current_bootstrap()
  if bootstrap == null: return
  report["startup_before_first_key"] = startup_snapshot(bootstrap)
