@@ -24,7 +24,8 @@ def load_contract(path, review_path, current):
     contract = json.loads(path.read_text())
     review = json.loads(review_path.read_text())
     if (review.get('status') != 'PASS_COMPONENT' or review.get('scope') != 'H04_CALIBRATION_CONTRACT'
-            or review.get('independent_of_author') is not True or review.get('reviewer') in [None, '', '/root']
+            or review.get('role') != 'LEAD_REVIEWER' or review.get('independent_of_author') is not True
+            or not isinstance(review.get('reviewer'), str) or review['reviewer'].strip() in ['', '/root']
             or review.get('must_fix') != [] or review.get('contract_sha256') != digest(path)):
         raise ValueError('Missing, unreviewed or changed calibration contract')
     if contract.get('scope') != 'H04_PILOT_ACCEPTANCE' or contract.get('source_inventory_sha256') != current:

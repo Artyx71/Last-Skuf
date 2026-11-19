@@ -19,7 +19,7 @@ class PacingValidation(unittest.TestCase):
                      'limits': {'accept_p95_ms': 34, 'render_p95_ms': 60, 'frame_p95_ms': 24,
                                 'frame_p99_ms': 32, 'restart_max_ms': 1000}}
         self.verdict = {'status': 'PASS_COMPONENT', 'scope': 'H04_CALIBRATION_CONTRACT',
-                        'independent_of_author': True, 'reviewer': 'TEST_ONLY_REVIEWER', 'must_fix': []}
+                        'role': 'LEAD_REVIEWER', 'independent_of_author': True, 'reviewer': 'TEST_ONLY_REVIEWER', 'must_fix': []}
         self.save()
 
     def save(self):
@@ -43,7 +43,7 @@ class PacingValidation(unittest.TestCase):
         with self.assertRaises(ValueError): load_contract(self.contract, self.review, {'TEST_ONLY': 'a'})
 
     def test_unresolved_or_self_approval_cannot_start_acceptance(self):
-        for key, value in [('status', 'BLOCKED'), ('independent_of_author', False), ('reviewer', '/root'), ('must_fix', ['TEST_ONLY'])]:
+        for key, value in [('status', 'BLOCKED'), ('role', 'QA'), ('independent_of_author', False), ('reviewer', '/root'), ('reviewer', {}), ('must_fix', ['TEST_ONLY'])]:
             with self.subTest(key=key):
                 before = dict(self.verdict)
                 self.verdict[key] = value
