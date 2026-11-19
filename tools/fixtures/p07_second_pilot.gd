@@ -131,19 +131,57 @@ func walking_routes() -> void:
 		await tap(KEY_R)
 		for enemy in lab.enemies: enemy.set_physics_process(false)
 		check(context+"/Input_retry_resets_objectives_and_gates",lab.stage=="lever" and lab.completions==0 and lab.player.health==1 and not lab.doors.north.shape.disabled and not lab.doors.south.shape.disabled)
-		if context in ["gabar_training","ryzhik_training","timka_present"]:
-			# Targeted wall probe, deliberately separate from the no-warp route.
-			lab.player.position = Vector2(280,224)
-			lab.player.set_aim(Vector2.LEFT if context=="timka_present" else Vector2.RIGHT)
-			var mask: int = lab.player.collision_mask
-			await tap(KEY_F)
-			var bad := false
-			var used: int = lab.player.ability_uses
-			for tick in 50:
-				await frames(1)
-				bad = bad or overlaps(lab.player)
-			check(context+"/own_movement_ability_stopped_by_wall",used==1 and not bad and lab.player.position.x<=296.1 and lab.player.collision_mask==mask,{"x":lab.player.position.x,"ability":lab.player.prepared_ability})
+		if context!="yakuza": await ability_at_wall(context)
 		await dispose()
+
+func ability_at_wall(context: String) -> void:
+	# Targeted setup; these positions are never counted as walking playthrough.
+	lab.player.position = Vector2(280,224)
+	lab.player.set_aim(Vector2.LEFT if context=="timka_present" else Vector2.RIGHT)
+	if context=="tega_training":
+		lab.player.position = Vector2(254,224)
+		var bench := StaticBody2D.new()
+		bench.position = Vector2(282,224)
+		bench.collision_layer = 1
+		bench.collision_mask = 2|4
+		bench.set_meta("finisher_enabled",true)
+		bench.set_meta("combat_surface","metal")
+		var collider := CollisionShape2D.new()
+		var shape := RectangleShape2D.new()
+		shape.size = Vector2(20,12)
+		collider.shape = shape
+		collider.position = Vector2(0,-6)
+		bench.add_child(collider)
+		var art := Sprite2D.new()
+		art.texture = load("res://assets/art/combat_polish/training_bench.png")
+		art.position = Vector2(0,-26)
+		bench.add_child(art)
+		lab.add_child(bench)
+		lab.training_bench = bench
+		lab.combat.register_environment("training_bench",bench)
+	if context=="timka_prime":
+		lab.player.position = Vector2(252,224)
+		var target: CharacterBody2D = lab.enemies[0]
+		target.position = Vector2(280,224)
+		target.set_physics_process(true)
+		await tap(KEY_SPACE)
+		await frames(13)
+		check("prime/earned_vulnerable_target",target.stun_remaining>0 and target.health==1)
+	await frames(2)
+	var mask: int = lab.player.collision_mask
+	if context=="pasha_training": key(KEY_D,true)
+	await tap(KEY_F)
+	var bad := false
+	var used: int = lab.player.ability_uses
+	for tick in 90:
+		await frames(1)
+		bad = bad or overlaps(lab.player)
+		if context=="tega_training": bad = bad or overlaps(lab.training_bench)
+	release_keys()
+	check(context+"/own_ability_real_wall_clearance",used==1 and not bad and lab.player.position.x<=296.1 and lab.player.collision_mask==mask,{"x":lab.player.position.x,"ability":lab.player.prepared_ability})
+	if context=="tega_training": check("Tega/real_prop_stops_at_wall",lab.training_bench.position.x>282 and lab.training_bench.position.x<=294.1)
+	if context=="olezhka_training": check("Oleg/no_counter_without_incoming_hit",lab.player.counter_blocks==0 and lab.kills==0 and lab.player.health==1)
+	if context=="timka_prime": check("prime/clinch_committed_once",lab.enemies[0].health==0 and lab.kills==1)
 
 func follow(enemy: CharacterBody2D, goal: Vector2, ticks: int) -> Dictionary:
 	var bad := false
@@ -233,6 +271,8 @@ func AI_routes() -> void:
 	lab.room_navigation.refresh()
 	for kind in kinds:
 		var enemy: CharacterBody2D = lab.enemies.filter(func(e: CharacterBody2D):return e.kind==kind)[0]
+		for other in lab.enemies:
+			if other!=enemy: other.position = Vector2(-1024,-1024)
 		enemy.reset()
 		enemy.position = Vector2(272,280)
 		enemy.spawn_position = enemy.position

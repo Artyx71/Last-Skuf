@@ -87,9 +87,18 @@ func velocity_for(body: CharacterBody2D, goal: Vector2, speed: float, delta: flo
 		last_reason = "arrived"
 		return Vector2.ZERO
 	body.force_update_transform()
+	var id := body.get_instance_id()
+	var rebuild := not paths.has(id)
+	if not rebuild:
+		var old: Dictionary = paths[id]
+		rebuild = old.revision != revision or old.goal.distance_to(goal) > 4.0 or old.foot != foot or old.index >= old.points.size()
+		if not rebuild:
+			rebuild = body.global_position.distance_to(old.points[old.index]) > CELL*2.5
 	# Prefer the actual swept body when a direct path is clear. No grid snapping
 	# or changes to position/masks/health/animation/attack eligibility happen here.
-	if not body.test_move(body.global_transform,goal-body.global_position,null,0.08,true):
+	# Keep a valid detour: switching to a marginal shortcut then re-centering
+	# on the start cell can otherwise trap slow bodies in an endless cycle.
+	if rebuild and not body.test_move(body.global_transform,goal-body.global_position,null,0.08,true):
 		paths.erase(body.get_instance_id())
 		last_reason = "direct_sweep_clear"
 		return _toward(body,goal,speed,delta)
@@ -99,13 +108,6 @@ func velocity_for(body: CharacterBody2D, goal: Vector2, speed: float, delta: flo
 	if not grid.is_in_boundsv(start) or not grid.is_in_boundsv(end) or grid.is_point_solid(start) or grid.is_point_solid(end):
 		last_reason = "blocked_or_outside_endpoint"
 		return Vector2.ZERO
-	var id := body.get_instance_id()
-	var rebuild := not paths.has(id)
-	if not rebuild:
-		var old: Dictionary = paths[id]
-		rebuild = old.revision != revision or old.goal.distance_to(goal) > 4.0 or old.foot != foot
-		if not rebuild and old.index < old.points.size():
-			rebuild = body.global_position.distance_to(old.points[old.index]) > CELL*2.5
 	if rebuild:
 		if paths.size() >= 128: paths.clear()
 		var points := grid.get_point_path(start,end)
