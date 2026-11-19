@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from p07_pacing import analyze, load_contract, percentile
+from p07_pacing import CONTEXTS, analyze, load_contract, percentile, validate_pins
 
 
 class PacingValidation(unittest.TestCase):
@@ -15,10 +15,10 @@ class PacingValidation(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.contract = Path(self.directory.name) / 'contract.json'
         self.review = Path(self.directory.name) / 'review.json'
-        self.data = {'scope': 'H04_PILOT_ACCEPTANCE', 'source_inventory_sha256': {'TEST_ONLY': 'a'},
+        self.data = {'schema': 1, 'scope': 'H04_PILOT_ACCEPTANCE', 'source_inventory_sha256': {'TEST_ONLY': 'a'},
                      'limits': {'accept_p95_ms': 34, 'render_p95_ms': 60, 'frame_p95_ms': 24,
                                 'frame_p99_ms': 32, 'restart_max_ms': 1000}}
-        self.verdict = {'status': 'PASS_COMPONENT', 'scope': 'H04_CALIBRATION_CONTRACT',
+        self.verdict = {'schema': 1, 'status': 'PASS_COMPONENT', 'scope': 'H04_CALIBRATION_CONTRACT',
                         'role': 'LEAD_REVIEWER', 'independent_of_author': True, 'reviewer': 'TEST_ONLY_REVIEWER', 'must_fix': []}
         self.save()
 
@@ -33,7 +33,25 @@ class PacingValidation(unittest.TestCase):
             with self.assertRaises(ValueError): percentile(samples, .5)
 
     def test_exact_independent_contract(self):
-        self.assertEqual(load_contract(self.contract, self.review, {'TEST_ONLY': 'a'}), self.data)
+        data, pins = load_contract(self.contract, self.review, {'TEST_ONLY': 'a'})
+        self.assertEqual(data, self.data)
+        validate_pins(pins)
+
+    def test_loaded_approval_pinned_through_run(self):
+        data, pins = load_contract(self.contract, self.review, {'TEST_ONLY': 'a'})
+        self.review.write_text(self.review.read_text() + '\n')
+        with self.assertRaises(ValueError): validate_pins(pins)
+        self.assertEqual(data, self.data)
+
+    def test_duplicate_contract_and_review_keys_rejected(self):
+        for target in [self.contract, self.review]:
+            self.save()
+            original = target.read_text()
+            target.write_text(original[:-1] + ',"schema":1}')
+            if target == self.contract:
+                self.verdict['contract_sha256'] = hashlib.sha256(target.read_bytes()).hexdigest()
+                self.review.write_text(json.dumps(self.verdict))
+            with self.assertRaises(ValueError): load_contract(self.contract, self.review, {'TEST_ONLY': 'a'})
 
     def test_no_review_cannot_start_acceptance(self):
         with self.assertRaises(ValueError): load_contract(self.contract, None, {'TEST_ONLY': 'a'})
@@ -68,8 +86,9 @@ class PacingValidation(unittest.TestCase):
     def test_reversed_action_timestamps_rejected(self):
         raw = {'schema': 1, 'failed': 0,
                'draws': [{'usec': i + 1, 'segment': 'idle_calibration'} for i in range(120)],
-               'requests': [{'id': i, 'context': str(i % 8), 'input_usec': 20,
-                             'accepted_usec': 10, 'render_usec': 30} for i in range(48)]}
+               'physics': [{'usec': 1}], 'contacts': [{}] * 16,
+               'requests': [{'id': i+1, 'context': CONTEXTS[i//6], 'kind': (['move']*4+['melee','restart'])[i%6],
+                             'input_usec': i*10+50, 'accepted_usec': i*10+49, 'render_usec': i*10+55} for i in range(48)]}
         with self.assertRaises(ValueError): analyze(raw)
 
 
