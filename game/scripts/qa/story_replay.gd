@@ -51,7 +51,7 @@ func run(bootstrap: Control) -> void:
  var resume_only := "--p05-resume" in OS.get_cmdline_user_args()
  await key(KEY_F4)
  check("journal_visible",bootstrap.journal.visible)
- check("journal_21_slots",bootstrap.journal.list.item_count == 21)
+ check("journal_21_main_and_2_bonus_slots",story.store.registry.data.chapters.size() == 21 and bootstrap.journal.list.item_count == 23)
  journal_controls(bootstrap,"initial")
  await capture("journal_initial")
  # Keyboard navigation selects a real unavailable slot; Enter must leave the journal open.

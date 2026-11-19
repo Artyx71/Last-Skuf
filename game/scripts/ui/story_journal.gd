@@ -14,7 +14,7 @@ func _ready() -> void:
  for side in ["left","right","top","bottom"]: margin.add_theme_constant_override("margin_"+side,16)
  add_child(margin)
  var column := VBoxContainer.new(); margin.add_child(column)
- var title := Label.new(); title.text = "ИСТОРИЯ · ГЛАВЫ"; title.add_theme_font_size_override("font_size",22); column.add_child(title)
+ var title := Label.new(); title.text = "ИСТОРИЯ · ГЛАВЫ И БОНУСЫ"; title.add_theme_font_size_override("font_size",22); column.add_child(title)
  var row := HBoxContainer.new(); row.size_flags_vertical = Control.SIZE_EXPAND_FILL; column.add_child(row)
  list = ItemList.new(); list.custom_minimum_size = Vector2(270,220); list.size_flags_vertical = Control.SIZE_EXPAND_FILL; list.add_theme_font_size_override("font_size",14); row.add_child(list)
  var right := VBoxContainer.new(); right.size_flags_horizontal = Control.SIZE_EXPAND_FILL; row.add_child(right)
@@ -35,10 +35,28 @@ func refresh() -> void:
   var status := "скоро"
   if chapter.availability == "playable": status = "пройдена" if story.store.state.chapter_complete.has(chapter.id) else "доступна"
   list.add_item("%02d · %s · %s" % [chapter.presentation,chapter.title_ru,status])
+ for entry in story.bonus_entries():
+  list.add_item("Бонус · %s · %s" % [entry.title,"доступен" if entry.available else "в работе"])
+ selected = clampi(selected,0,list.item_count-1)
  list.select(selected); _select(selected)
 
+func open_bonuses() -> void:
+ show()
+ selected = story.store.registry.data.chapters.size()
+ list.select(selected); _select(selected)
+ list.ensure_current_is_visible()
+
 func _select(index: int) -> void:
+ if index < 0 or index >= list.item_count: return
  selected = index
+ var count: int = story.store.registry.data.chapters.size()
+ if index >= count:
+  var entry: Dictionary = story.bonus_entries()[index-count]
+  launch.disabled = not entry.available
+  launch.text = "Повторить · Enter" if entry.completed else "Играть · Enter"
+  recap.text = "БОНУСЫ · ВНЕ ОСНОВНОЙ ИСТОРИИ\n\n%s\n\n%s" % [entry.title,"Отдельное упражнение. Прохождение не меняет основной сюжет." if entry.available else "Этот эпизод ещё в работе. Он появится после выпуска."]
+  if story.bonus != null and not story.bonus.writable: recap.text += "\n\nСохранение бонусов недоступно. Основной сюжет можно продолжить."
+  return
  var chapter: Dictionary = story.store.registry.data.chapters[index]
  var completed: bool = story.store.state.chapter_complete.has(chapter.id)
  launch.disabled = not story.store.registry.entry_ready(chapter.id,story.store.state)
@@ -50,6 +68,13 @@ func _select(index: int) -> void:
  if not story.error_message.is_empty(): recap.text += "\n\n"+story.error_message
 
 func _launch() -> void:
+ var count: int = story.store.registry.data.chapters.size()
+ if selected >= count:
+  var entries: Array = story.bonus_entries()
+  if selected-count >= 0 and selected-count < entries.size() and entries[selected-count].available:
+   story.launch_bonus(entries[selected-count].id,get_tree().current_scene)
+  return
+ if selected < 0: return
  var chapter: Dictionary = story.store.registry.data.chapters[selected]
  if not story.store.registry.entry_ready(chapter.id,story.store.state): return
  story.pending_replay = story.store.state.chapter_complete.has(chapter.id)

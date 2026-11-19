@@ -1,7 +1,8 @@
 extends RefCounted
-## Isolated compatibility-pilot candidate; not installed in StoryService or shipped UI.
+## Profile-owned bonus sidecar; planned scenes cannot launch or grant story facts.
 const Story = preload("res://scripts/story/story_state.gd")
 const IDS := ["BONUS_OFFLINE_BUILD", "BONUS_COUNTER_LESSON"]
+const TITLES := ["Офлайн-сборка", "Пауза между ударами"]
 const CHAPTERS := ["CH14_AGENT_SWARM", "CH10_THE_KIMONO"]
 const BOOTSTRAP := "res://scenes/bootstrap/bootstrap.tscn"
 var owner: Node
@@ -32,6 +33,12 @@ func revoke() -> void:
 	generation += 1
 	_active.clear()
 	_return.clear()
+
+func scene_changed(scene: Variant) -> void:
+	if not _active.is_empty() and (not is_instance_valid(scene) or scene != _active.host.get_ref()):
+		revoke()
+	elif not _return.is_empty() and (not is_instance_valid(scene) or scene.scene_file_path != BOOTSTRAP):
+		revoke()
 
 func _sync_scope() -> bool:
 	if not is_instance_valid(owner) or not owner.store is Story: return _fail("OWNER_INVALID")

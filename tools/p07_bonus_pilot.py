@@ -23,7 +23,7 @@ def main():
     write(out / 'source_before.json', before)
     project = out / 'isolated_project/game'
     shutil.copytree(ROOT / 'game', project, ignore=shutil.ignore_patterns('.godot', '__pycache__'))
-    for name in ['p07_bonus_progress.gd', 'p07_bonus_contract.gd', 'p07_bonus_host.gd']:
+    for name in ['p07_bonus_contract.gd', 'p07_bonus_host.gd']:
         shutil.copy2(ROOT / 'tools/fixtures' / name, project / 'tests' / name)
     prior = subprocess.check_output(['git', 'show', '50a7a837236f8f9b263cedc72406b17db30e7b89:tools/fixtures/p07_bonus_progress.gd'], cwd=ROOT)
     prior_path = project / 'tests/p07_bonus_before_strict.gd'

@@ -1,5 +1,5 @@
 extends SceneTree
-const Progress = preload("res://tests/p07_bonus_progress.gd")
+const Progress = preload("res://scripts/story/bonus_progress.gd")
 const Story = preload("res://scripts/story/story_state.gd")
 const Host = preload("res://tests/p07_bonus_host.gd")
 const BeforeStrict = preload("res://tests/p07_bonus_before_strict.gd")
@@ -14,7 +14,7 @@ class Owner extends Node:
 	var session: RefCounted
 	var pending_replay := false
 
-class EligibilityDouble extends "res://tests/p07_bonus_progress.gd":
+class EligibilityDouble extends "res://scripts/story/bonus_progress.gd":
 	# Only future chapter/scene eligibility is doubled; campaign validation and IO stay real.
 	var fixture_ready := true
 	var fault := ""
