@@ -5,6 +5,7 @@ const Host = preload("res://tests/p07_bonus_host.gd")
 var rows: Array[Dictionary] = []
 var profile := ""
 var origin: Node
+var roundtrip_diagnostic := {}
 
 class Owner extends Node:
 	var store: RefCounted
@@ -94,6 +95,12 @@ func mutations() -> void:
 	check("production_still_locked_despite_completed_sidecar",not actual.can_launch(Progress.IDS[0]) and not actual.can_launch(Progress.IDS[1]))
 	var restored := EligibilityDouble.new(owner)
 	check("actual_file_roundtrip",restored.state == progress.state and restored.writable)
+	var file := FileAccess.open(progress.path,FileAccess.READ)
+	var raw: Variant = Progress.strict_decode(file.get_as_text())
+	roundtrip_diagnostic = {"read_error":file.get_error(),"restored_error":restored.error,"restored_writable":restored.writable,
+		"decoded_schema_type":typeof(raw.schema),"memory_schema_type":typeof(progress.state.schema),
+		"raw_dictionary_equals_typed":raw == progress.state,"rebuilt_dictionary_equals_typed":restored.state == progress.state}
+	file.close()
 	check("new_profile_defaultfalse",Progress.new(owner_at(profile.path_join("B"))).state == Progress.fresh())
 
 func isolation() -> void:
@@ -143,8 +150,8 @@ func callback_revocation() -> void:
 		owner.session = owner.store
 	check("goal_callback_profile_swap_no_commit",not progress.complete(actor) and not FileAccess.file_exists(first_path) and not FileAccess.file_exists(progress.path))
 	actor.callback = Callable(); assert(progress.begin(Progress.IDS[0],actor,origin))
-	actor.callback = func(): actor.free()
-	check("goal_callback_free_host_clean_denial",not progress.complete(actor) and not FileAccess.file_exists(progress.path))
+	actor.callback = func(): actor.queue_free()
+	check("goal_callback_queued_host_clean_denial",not progress.complete(actor) and not FileAccess.file_exists(progress.path))
 	var freed := host(); freed.free()
 	check("already_freed_host_clean_denial",not progress.complete(freed) and not progress.request_return(freed))
 
@@ -224,6 +231,7 @@ func run() -> void:
 	for row in rows:
 		if row.passed: passed += 1
 	var report := {"schema":1,"mode":mode,"checks":rows,"passed":passed,"failed":rows.size()-passed,
+		"roundtrip_diagnostic":roundtrip_diagnostic,
 		"positive_eligibility_is_test_double":true,"real_current_campaign_bonus_launches":0,
 		"shipped_bonus_UI_or_levels_tested":false,"new_export_or_audio_tests":false}
 	put(OS.get_environment("AYAY_BP_RESULT"),JSON.stringify(report,"  "))

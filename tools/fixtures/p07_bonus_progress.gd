@@ -82,6 +82,7 @@ func begin(id: String, host: Variant, origin: Variant) -> bool:
 
 func _authorized(host: Variant) -> bool:
 	if not is_instance_valid(host) or not host is Node: return false
+	if host.is_queued_for_deletion() or not host.is_inside_tree(): return false
 	if not _valid_campaign() or _active.is_empty(): return false
 	if not writable or path != _campaign_path.get_base_dir().path_join("bonus_progress_v1.json"): return false
 	return is_instance_valid(host) and _active.host.get_ref() == host and _active.store == _store \
