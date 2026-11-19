@@ -1,0 +1,18 @@
+# Текущий пакет Production Readiness: авторский указатель доказательств
+
+Не независимое решение. Полный Readiness ещё не принят. Canonical ROOT Game533файла проверен по Git f832; frozen24 planning и all21MDS gate действительны. Новые runtime-изменения WORK сохранены неизменяемой копией9 Game-файлов и diff. ROOT Game не устанавливался из WORK.
+
+| Направление | Что уже подтверждено | Что остаётся перед приёмкой соответствующего контента |
+|---|---|---|
+| Combat / finishers | ПолныйP06 PASS/MERGED, собственные стили семи героев, два состояния Тимки, timing/Core/once/settings; accepted phase receipt | Trusted campaign grants и реальные encounters/читаемость/баланс в каждой новой главе. Дополнительный согласованный декоративный gore — P08 debt, не отсутствие обязательной реакции |
+| Анимации | Принятые P06 sheets/frames/NPC reactions/finisher cues, actual role reviews и runtime regressions | Новые постановочные кадры/портреты/боссы/главаТеги сAKIMBO69/QTE ещё не созданы. ART/GamePlay/QA по фактическим новым ресурсам |
+| AI / navigation | Два representative layout и CH01 pilot; router detour fix,3архетипа/7героев/doors/LOS/clearance; Lead70aa8ad1 | Actual geometry/moving props/followers/doors/checkpoints каждой главы. Две fixture-карты не доказывают всю кампанию |
+| Диалоги / сцены | P05/P06 event/skip/replay и новая полная native CH01 regression; все21MDS имеют независимые design approvals | Полная постановка каждой ещё не построенной главы, краткие естественные реплики, безопасные choice/POV/skip. Не вводить непроверенные осетинские фразы |
+| Музыка | Existing audio pipeline audit9ffd7b3d, прежнее owner listening сохраняется; новых аудиофайлов нет | Новые темы/стемы/миксы/cues, реальный signal/mixer/loops/retry/scene reload + слушание до relevant acceptance. Разныхscore crossfade не заявлен |
+| Флаги / saves | P06 story_v2 unchanged; реальные defaultfalse/once/profile/rename/crash cases; callback invalidation; native once/replay byte-preservation | H05 после3 broadFAIL направлен на manualLead adjudication: core и first4stages +ONE finite legacy41/49 nowpassed. Positive CH10/14 unlock только после законного допуска; BP10 actual7secrets/bonus missions не созданы |
+| UI / VHS / переходы | Существующий P04G/P06 settings pipeline; новые native23строки, Down/Enter/мышь, owner replay/menu reset, return доCLI и once; independentGameplay0d71e52a | Это software Input/viewport proof, не physical input/window approval. Новые chapter titles/cutscenes/actual level UI/VHS transitions проверяются по контенту |
+| Производительность / effects | H04 calibrated native rawseries,48requests/8deaths и5предварительно утверждённыхлимитов; actor code не менялся | Реальные большие столкновения/эффекты/память/FPS на готовом контенте. Цель420–540мин — NOT_MEASURED. Не считать controlled/simulated/AFK/optional/exclusive paths длительностью кампании |
+
+Оставшиеся Medium/Low P08 cosmetic задачи не переписываются как выполненные. Critical/High прошлой preproduction-аудитной версии закрывает только новый независимый Lead по реальным доказательствам. Будущие HIGH obligations фиксируются отдельно и сохраняются OPEN до P07_LEAD_PASS_AND_MERGE.
+
+Следующая независимая FULL проверка использует INPUTS.DRAFT.json и underlying artifacts, а не эту таблицу как доказательство. Mutable phase_state/config и будущая WORK разработка не должны создавать самоподписанный PASS или циклическую hash-зависимость; действующий typed guard всё равно проверяет реальные ROOT Game/код guards/all21MDS при входе. Изменение stopP06 допустимо только после фактического FULL Readiness и существующего all21design gate, с сохранением CI/currentSHA/protection/merge требований.
