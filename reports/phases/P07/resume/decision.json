@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_PREPRODUCTION_RESUME_NOT_READINESS_OR_PHASE_PASS",
-  "updated_utc": "2026-11-19T13:25:27.532737+00:00",
+  "updated_utc": "2026-11-19T13:37:33.875131+00:00",
   "phase": "P07",
   "stage": "PRE_P07_PRODUCTION_READINESS",
   "status": "PREPARATION_ONLY",
@@ -24,10 +24,10 @@
   "mass_production_approval": false,
   "owner_preview": "ROOT/build/PRE_P07_DEV_20261117_10",
   "current_author_kind": "SOLE_PREPRODUCTION_REPORT_AUTHOR_LEASE",
-  "next_action": "Inspect manual Lead H05 escalation adjudication; no fourth broad loop. If capability accepted, independently review FULL Readiness separately before opening P07. Preserve P06, original3FAIL, currentpins and once-only finite execution.",
+  "next_action": "Consume independent FULL Readiness Lead/QA when actualfinal. H05manual076c accepted only preproduction capability. Do not start P07 until genuine FULLreceipt/current houseguard. No newbroadloop/budgetreset/engine repetition.",
   "pending_generator_calls": 0,
   "always_on_runner": false,
-  "checkpoint": "H05_FINITE_NATIVE_PASS_AWAIT_INDEPENDENT_MANUAL_LEAD",
+  "checkpoint": "H05_LEAD_COMPONENT_ACCEPTED_FULL_READINESS_IN_REVIEW",
   "source_head": "a0ab23a9838d9308ee9acc38d3ef2cdc91cedfc4",
   "bootstrap_component_tests": 221,
   "bootstrap_installed": true,
@@ -318,7 +318,12 @@
     "finite_status": "PASS_COMPONENT_QA",
     "native_checks": 41,
     "nested_CH01_checks": 49,
-    "manual_Lead_pending": true,
-    "Readiness_or_phase_approval": false
+    "manual_Lead_pending": false,
+    "Readiness_or_phase_approval": false,
+    "manual_Lead": {
+      "path": "reports/pre_p07/lead-bonus-escalation-adjudication-01/decision.json",
+      "sha256": "076c4dc3fadd948ac54101d4b1c1e8ba7595e8c8d54eed2c5bd0cbc55e70080f"
+    },
+    "preproduction_secret_integration_contract_accepted": true
   }
 }

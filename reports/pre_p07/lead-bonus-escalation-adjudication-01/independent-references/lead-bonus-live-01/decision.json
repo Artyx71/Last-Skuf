@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "WORK_ONLY_REAL_BONUS_OWNER_UI_BOOTSTRAP_ADAPTER_PILOT",
+  "role": "LEAD_REVIEWER",
+  "reviewer": "/root/art_olezhka_recovery",
+  "independent_of_author": true,
+  "source_head": "0fe3ac1d2989c02b3e81d95e53d2a7ffdcc6335d",
+  "must_fix": [
+    "BONUS-LIVE-L01",
+    "BONUS-LIVE-L02"
+  ],
+  "findings": [
+    {
+      "id": "BONUS-LIVE-L01",
+      "severity": "MEDIUM",
+      "kind": "OWNER_REPLAY_MENU_CONTEXT",
+      "actual_probe": "504bae58b634bd3cbcbfd9bce97564597422aaccc7861537de3fa981276f11a3",
+      "actual_checks_passed": 5,
+      "actual_checks_failed": 2,
+      "operation": "08e8214503f9432fbae97c245ca80faf"
+    },
+    {
+      "id": "BONUS-LIVE-L02",
+      "severity": "MEDIUM",
+      "crossref": "BONUS-LIVE-Q01",
+      "kind": "UI_DRIVER_FAILURE_AND_MISSING_REQUIRED_NATIVE_PROOF",
+      "actual_live_passed": 20,
+      "actual_live_failed": 2,
+      "ScriptError": true,
+      "planned_bonus_bypass_proven": false
+    }
+  ],
+  "QA_decision_sha256": "ce42adbab176b4b9f822e71571206c615f4a89804efc9ab709a9e53b8b83d3e6",
+  "core_previous_acceptance_preserved": true,
+  "actual_native_UI_CLI_oldReplay_completed": false,
+  "actual_production_CH10_CH14_positive_unlock": false,
+  "actual_bonus_level_approval": false,
+  "actual_H05_capability_accepted": false,
+  "full_Readiness_approval": false,
+  "P07_production_approval": false,
+  "ROOT_installation_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "engine_runs_by_Lead": 0,
+  "review": "REVIEW.md",
+  "review_sha256": "d910ab5a609b15efea12c52065dcddb0bbb6ba8ecde9ea106c8b8865e28ddf1e",
+  "actual_proof": "actual-proof-bindings.json",
+  "next_action": "Bounded menu-context and real-input fixture fixes, fresh serialized pipeline and independent review; preserve old evidence."
+}
