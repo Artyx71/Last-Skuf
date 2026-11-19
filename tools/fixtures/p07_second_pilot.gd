@@ -109,7 +109,8 @@ func walking_routes() -> void:
 		route_jumps = false
 		maximum_step = 0
 		var start := Time.get_ticks_usec()
-		check(context+"/actual_body_and_art",lab.player.actor_id==("yakuza" if context=="yakuza" else lab.scene_policy.definition().actor_id) and lab.player.sprite.sprite_frames.get_animation_names().size()>0)
+		var identity_ok: bool = lab.player.get_script()==preload("res://scripts/actors/combat_player.gd") if context=="yakuza" else lab.player.actor_id==lab.scene_policy.definition().actor_id
+		check(context+"/actual_body_and_art",identity_ok and lab.player.sprite.sprite_frames.get_animation_names().size()>0)
 		check(context+"/initial_physical_gates",not lab.doors.north.shape.disabled and not lab.doors.south.shape.disabled and lab.stage=="lever")
 		await tap(KEY_ENTER)
 		check(context+"/Input_lever",lab.stage=="collect" and lab.doors.south.shape.disabled and not lab.doors.north.shape.disabled)
@@ -281,7 +282,8 @@ func run() -> void:
 	if not wall_frames.is_empty():
 		for quantile in [0.50,0.95,0.99]: timing[str(quantile)] = wall_frames[mini(wall_frames.size()-1,int(ceil(quantile*wall_frames.size()))-1)]
 	var passed := checks.filter(func(c: Dictionary):return c.passed).size()
-	var output := {"schema":1,"passed":passed,"failed":checks.size()-passed,"checks":checks,"rows":rows,"wall_frame_ms":timing,"renderer":RenderingServer.get_video_adapter_name() if native else "headless","CPU":OS.get_processor_name(),"seven_heroes_eight_registered_contexts":true,"AI_targeted_setups_not_playthrough":true,"peer_collision_separation_claim":false,"new_campaign_or_full_Readiness_approval":false}
+	var completed_routes := rows.filter(func(row: Dictionary):return row.has("context") and row.stage=="complete" and row.completions==1).size()
+	var output := {"schema":1,"passed":passed,"failed":checks.size()-passed,"checks":checks,"rows":rows,"wall_frame_ms":timing,"renderer":RenderingServer.get_video_adapter_name() if native else "headless","CPU":OS.get_processor_name(),"completed_Input_routes":completed_routes,"seven_heroes_eight_registered_contexts":completed_routes==8,"AI_targeted_setups_not_playthrough":true,"peer_collision_separation_claim":false,"new_campaign_or_full_Readiness_approval":false}
 	var file := FileAccess.open(OS.get_environment("AYAY_P07_SECOND_RESULT"),FileAccess.WRITE)
 	assert(file!=null)
 	file.store_string(JSON.stringify(output,"  "))
