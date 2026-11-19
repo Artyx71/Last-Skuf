@@ -81,6 +81,13 @@ func leave_bonus(host: Variant) -> bool:
 func consume_bonus_return(bootstrap: Node) -> bool:
  return bonus != null and bonus.consume_return(bootstrap)
 
+func enter_menu(bootstrap: Node) -> bool:
+ if bootstrap.scene_file_path != Bonus.BOOTSTRAP or get_tree().current_scene != bootstrap: return false
+ if bonus != null: bonus.revoke()
+ session = store
+ pending_replay = false
+ return true
+
 func _on_scene_changed() -> void:
  if bonus != null: bonus.scene_changed(get_tree().current_scene)
 

@@ -8,6 +8,7 @@ const DISCLAIMER := "Вымышленная криминальная сатир�
 
 func _ready() -> void:
 	var bonus_return: bool = get_node("/root/StoryState").consume_bonus_return(self)
+	get_node("/root/StoryState").enter_menu(self)
 	if not bonus_return and "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
 		get_tree().set_meta("p06_combat_startup_route", true)
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/character_lab.tscn")

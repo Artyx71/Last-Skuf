@@ -87,6 +87,7 @@ func run(bootstrap: Control) -> void:
  if bootstrap == null: return
  await key(KEY_J)
  check("completed_chapter_label", "пройдена" in bootstrap.journal.list.get_item_text(0))
+ check("safe_menu_restores_canonical_session",story.session == story.store and not story.pending_replay)
  check("future_chapter_still_disabled",not story.store.registry.entry_ready(story.store.registry.data.chapters[1].id,story.store.state))
  journal_controls(bootstrap,"complete")
  await capture("journal_complete")
