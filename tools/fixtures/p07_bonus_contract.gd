@@ -187,6 +187,12 @@ func callback_revocation() -> void:
 	assert(progress.begin(Progress.IDS[0],nested_host,origin))
 	nested_host.callback = func(): nested.append(progress.complete(nested_host))
 	check("nested_goal_callback_no_recursion_single_commit",progress.complete(nested_host) and nested == [false] and progress.state.history == [Progress.IDS[0]])
+	var old := bytes_at(progress.path)
+	for property in ["alive","objective","jobs"]:
+		var changing := host()
+		assert(progress.begin(Progress.IDS[1],changing,origin))
+		changing.callback = func(): changing.set(property,property == "jobs")
+		check("goal_callback_current_"+property+"_denied",not progress.complete(changing) and old == bytes_at(progress.path) and progress.state.history == [Progress.IDS[0]])
 
 func invalid_files() -> void:
 	var owner := owner_at(profile.path_join("invalid"))
@@ -266,6 +272,7 @@ func run() -> void:
 	origin = load(Progress.BOOTSTRAP).instantiate(); root.add_child(origin); current_scene = origin
 	var mode := OS.get_environment("AYAY_BP_MODE")
 	if mode == "checks": mutations(); isolation(); namespace_aliases(); callback_revocation(); invalid_files(); failures()
+	elif mode == "goals": callback_revocation()
 	else: process_case(mode)
 	var passed := 0
 	for row in rows:

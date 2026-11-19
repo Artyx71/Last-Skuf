@@ -13,6 +13,7 @@ from p07_room_pilot import ROOT, digest, inventory, write
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--goal-probe', action='store_true', help='Only review the host-fixture callback delta; preserve full IO proof separately')
     args = parser.parse_args()
     out = args.output.resolve()
     if out.exists():
@@ -43,6 +44,9 @@ def main():
     stages += [(name, ['--headless', '--script', 'res://tests/p07_bonus_contract.gd']) for name in
                ['checks', 'prepare', 'before_rename', 'recover_before', 'after_rename', 'recover_after']]
     stages += [(name, ['--headless', '--script', f'res://tests/{name}_test.gd']) for name in ['story_state', 'story_graph', 'story_integration']]
+    if args.goal_probe:
+        stages = [('import', ['--headless', '--editor', '--quit']),
+                  ('goals', ['--headless', '--script', 'res://tests/p07_bonus_contract.gd'])]
     runs = []
     for name, flags in stages:
         result_path = out / f'{name}-result.json'
@@ -84,6 +88,7 @@ def main():
             shutil.copyfile(file, target)
     passed = len(runs) == len(stages) and all(row['passed'] for row in runs) and before == after
     report = {'schema': 1, 'passed': passed, 'scope': 'ISOLATED_BONUS_NAMESPACE_IO_SESSION_PILOT',
+              'focused_goal_fixture_probe_only': args.goal_probe,
               'runs': runs, 'source_unchanged': before == after, 'engine_sha256': digest(engine),
               'real_current_campaign_positive_unlock': 'NOT_AVAILABLE_PLANNED_CH10_CH14',
               'positive_session_tests': 'EXPLICIT_CHAPTER_AND_SCENE_ELIGIBILITY_DOUBLE_ONLY',
