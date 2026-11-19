@@ -51,8 +51,12 @@ func foot(body: PhysicsBody2D) -> Rect2:
 
 func overlaps(body: PhysicsBody2D) -> bool:
 	var rect := foot(body)
-	for blocker in lab.room_navigation.router.blockers:
-		if rect.intersects(blocker): return true
+	for other in lab.get_children():
+		if not other is PhysicsBody2D or other==body or other.collision_layer&1==0: continue
+		for collider in other.get_children():
+			if collider is CollisionShape2D and not collider.disabled:
+				var blocker: Rect2 = collider.global_transform*Rect2(-collider.shape.size/2,collider.shape.size)
+				if rect.intersects(blocker): return true
 	return false
 
 func create(context := "yakuza") -> void:
@@ -160,13 +164,19 @@ func ability_at_wall(context: String) -> void:
 		lab.training_bench = bench
 		lab.combat.register_environment("training_bench",bench)
 	if context=="timka_prime":
-		lab.player.position = Vector2(252,224)
+		lab.player.position = Vector2(264,224)
 		var target: CharacterBody2D = lab.enemies[0]
 		target.position = Vector2(280,224)
 		target.set_physics_process(true)
 		await tap(KEY_SPACE)
 		await frames(13)
 		check("prime/earned_vulnerable_target",target.stun_remaining>0 and target.health==1)
+		await tap(KEY_F)
+		check("prime/F_does_not_interrupt_strike",lab.player.ability_uses==0 and lab.player.action_kind=="shove")
+		for tick in 90:
+			if lab.player.action_timer<=0: break
+			await frames(1)
+		check("prime/recovered_and_target_still_in_range",target.stun_remaining>0 and lab.player.position.distance_to(target.position)<=35)
 	await frames(2)
 	var mask: int = lab.player.collision_mask
 	if context=="pasha_training": key(KEY_D,true)
@@ -178,7 +188,7 @@ func ability_at_wall(context: String) -> void:
 		bad = bad or overlaps(lab.player)
 		if context=="tega_training": bad = bad or overlaps(lab.training_bench)
 	release_keys()
-	check(context+"/own_ability_real_wall_clearance",used==1 and not bad and lab.player.position.x<=296.1 and lab.player.collision_mask==mask,{"x":lab.player.position.x,"ability":lab.player.prepared_ability})
+	check(context+"/own_ability_real_wall_clearance",used==1 and not bad and lab.player.position.x<=296.1 and lab.player.collision_mask==mask,{"x":lab.player.position.x,"ability":lab.player.prepared_ability,"uses":used,"wall_overlap":bad,"action":lab.player.action_kind})
 	if context=="tega_training": check("Tega/real_prop_stops_at_wall",lab.training_bench.position.x>282 and lab.training_bench.position.x<=294.1)
 	if context=="olezhka_training": check("Oleg/no_counter_without_incoming_hit",lab.player.counter_blocks==0 and lab.kills==0 and lab.player.health==1)
 	if context=="timka_prime": check("prime/clinch_committed_once",lab.enemies[0].health==0 and lab.kills==1)
