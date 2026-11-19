@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "scope": "TWO_HISTORICAL_CI_FIXTURES_ONLY",
+  "source_head": "0caf5d2ee4d1f0544f9eb1c26b4b25a168839286",
+  "fix_parent": "8e67dcaef65a092665bdf4d6f5c9e04fd20127e5",
+  "failed_CI_head": "4dc02a9ff382b534fa14a7120180a5b1ad6cc0c0",
+  "exact_fix_changed_files": [
+    "tools/tests/test_canonical_source_transfer.py",
+    "tools/tests/test_cold_runtime_bundle.py"
+  ],
+  "frozen_source": [
+    {
+      "path": "tools/tests/test_cold_runtime_bundle.py",
+      "sha256": "a6da50ada3e2fc4771faa5f6acc0a9baf1b0505cee03d5cf4603a8d1c0a7d2b6",
+      "bytes": 16283
+    },
+    {
+      "path": "tools/tests/test_canonical_source_transfer.py",
+      "sha256": "2ce15ebf98c8d5d14091397dc84541233caaf6323284bf214bffc4795e4828b1",
+      "bytes": 13635
+    },
+    {
+      "path": "tools/cold_runtime_bundle.py",
+      "sha256": "63091cde9bdf99bd327b439e0b67a8f668bc3a96a757a1f852d01e3dc736f5fb",
+      "bytes": 14302
+    },
+    {
+      "path": "tools/canonical_source_transfer.py",
+      "sha256": "c2850516f3397bcefdf4fbacb949180d7baf17af2518598e17dfbea5b76db8a3",
+      "bytes": 13489
+    },
+    {
+      "path": "tools/cold_bootstrap.py",
+      "sha256": "11a8e0d1fd150dbb4364cede5539af5f1df15bcb0f0ed558c1fb402b41dc7dde",
+      "bytes": 10868
+    },
+    {
+      "path": "tools/bootstrap_runtime_fence.py",
+      "sha256": "16d0c64f331ce651647b70bbb81fad51d6b855e13f5ec29dbb763a3f4eb557e3",
+      "bytes": 3411
+    }
+  ],
+  "seven_accepted_B_payload_pins": [
+    {
+      "path": "autopilot/readiness.py",
+      "accepted_TARGET_sha256": "ed539635e4d8cd4d9f7d770ce591a73830343b2bd2a333eb7f08b9991cf44a4e",
+      "actual_snapshot_sha256": "ed539635e4d8cd4d9f7d770ce591a73830343b2bd2a333eb7f08b9991cf44a4e",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/github.py",
+      "accepted_TARGET_sha256": "3a7d7c7011c08631b377a1b4aa21b17dbc4be58e11a1bead18e8a414eee83fba",
+      "actual_snapshot_sha256": "3a7d7c7011c08631b377a1b4aa21b17dbc4be58e11a1bead18e8a414eee83fba",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/config.json",
+      "accepted_TARGET_sha256": "d004b30737356e1c18b7a9819ce9e32aaa2ef2a4e4008194a30638314139c95d",
+      "actual_snapshot_sha256": "d004b30737356e1c18b7a9819ce9e32aaa2ef2a4e4008194a30638314139c95d",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/review_schema.json",
+      "accepted_TARGET_sha256": "45bdeb187e2419076086a372c4f0cab0a0d6b3f2d5c4376df90c72e40dc3f5ae",
+      "actual_snapshot_sha256": "45bdeb187e2419076086a372c4f0cab0a0d6b3f2d5c4376df90c72e40dc3f5ae",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/prompts/INDEPENDENT_REVIEW.md",
+      "accepted_TARGET_sha256": "09dafcfa7229f59b36b7b5735417990880496a1b7d41805c5cd03eb0c07a37ff",
+      "actual_snapshot_sha256": "09dafcfa7229f59b36b7b5735417990880496a1b7d41805c5cd03eb0c07a37ff",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/PRODUCTION_GATES.md",
+      "accepted_TARGET_sha256": "9d74e56c6fea921ce0c9ef7a7af8925189891a179193ffda5fb1094df0a81ef6",
+      "actual_snapshot_sha256": "9d74e56c6fea921ce0c9ef7a7af8925189891a179193ffda5fb1094df0a81ef6",
+      "tracked_in_Git": true
+    },
+    {
+      "path": "autopilot/runner.py",
+      "accepted_TARGET_sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+      "actual_snapshot_sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+      "tracked_in_Git": true
+    }
+  ],
+  "pure_in_memory_A_builder_sha256": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "expected_A_BOOTSTRAP_SHA": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "production_installers_and_guards_unchanged": [
+    "tools/cold_runtime_bundle.py",
+    "tools/canonical_source_transfer.py",
+    "tools/cold_bootstrap.py",
+    "tools/bootstrap_runtime_fence.py",
+    "autopilot/runner.py",
+    "autopilot/readiness.py",
+    "autopilot/github.py",
+    "autopilot/review_schema.json"
+  ],
+  "before_remote_CI": {
+    "workflow": 44537672218,
+    "job": 135607315402,
+    "tests": 256,
+    "errors": 36,
+    "same_actual_config_hash_rejections": 36
+  },
+  "after_actual_local": {
+    "operation": "bf62c1d6425f491e85dbe282af6d7da3",
+    "tests": 257,
+    "test_seconds": 16.09,
+    "receipt_seconds": 16.314,
+    "exit_code": 0,
+    "canonical_consumed": true,
+    "log_sha256": "c8c507b39535ca5740b4f38c15d9064b04817441c2a4b56fe6338819bad37508",
+    "receipt_argv_and_log_hashes_verified": true,
+    "new_P07_payload_negative_passed": true
+  },
+  "live_config_stop": "P07",
+  "historical_payload_stop": "P06",
+  "remote_new_CI_confirmed": false,
+  "QA_engine_or_testworkers_launched": false,
+  "phase_or_merge_approval": false
+}

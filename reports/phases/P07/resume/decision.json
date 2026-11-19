@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "kind": "AUTHOR_PREPRODUCTION_RESUME_NOT_READINESS_OR_PHASE_PASS",
-  "updated_utc": "2026-11-19T13:47:12.766346+00:00",
+  "updated_utc": "2026-11-19T14:09:42.633973+00:00",
   "phase": "P07",
   "stage": "P07_CAMPAIGN_PRODUCTION",
   "status": "IMPLEMENTING",
@@ -24,11 +24,11 @@
   "mass_production_approval": true,
   "owner_preview": "ROOT/build/PRE_P07_DEV_20261117_10",
   "current_author_kind": "SOLE_ROOT_P07_AUTHOR",
-  "next_action": "ContinueexistingWORK sequential P07 CH02 prime host/scene authority integration, then realmissionassets/encounters/nativeproof; CH03TegaAKIMBOanimatedQTE next. PreservefourfutureHIGHOPEN/phaseLead/CI/SHA/protection. NoP07PASS/merge.",
+  "next_action": "ArchiveART86a23/QAcd722 andactualnative/unitreceipts; republishdraftPR12 andchecknewcurrentSHAremoteCI. ThenCH02realtrustedprimehost/registry/checkpoints/map/content; CH03TegaAKIMBOanimatedQTE next. NoP07PASS/merge.",
   "pending_generator_calls": 0,
   "always_on_runner": false,
-  "checkpoint": "P07_CH02_A_TRUSTED_PRIME_CHAPTER_INTEGRATION",
-  "source_head": "b65eba1579492a31555b7722fbc3eaa764be429f",
+  "checkpoint": "P07_CH02_PROP_VISUAL_PASS_CI_FIX_LOCAL257_PASS_PUBLISH_NEXT",
+  "source_head": "0caf5d2ee4d1f0544f9eb1c26b4b25a168839286",
   "bootstrap_component_tests": 221,
   "bootstrap_installed": true,
   "bootstrap_actual_plan": "reports/pre_p07/bootstrap-actual-A-03/plan.json",
@@ -173,28 +173,29 @@
     "exit_code": 0
   },
   "last_consumed_operation": {
-    "id": "b72bdfd3dce24e3fb499c3d06bb06c02",
-    "task": "PRE_P07/H05-finite-legacy-native-supplement-01",
+    "id": "bf62c1d6425f491e85dbe282af6d7da3",
+    "task": "P07/CI-historical-fixture-repair-01",
     "argv": [
       "/usr/bin/python",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/p07_legacy_startup_probe.py",
-      "--runtime-evidence",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/bonus-live-adapter-03",
-      "--output",
-      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/bonus-legacy-supplement-01"
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
     ],
-    "argv_sha256": "efee87c50ee3f816a7eb773826b5d9ed96d6e8f6058961f459b5f240e688b208",
+    "argv_sha256": "0e5406f90cf32f0379b8d8bede99c510ff691699826261f88b368ffd09b1bb57",
     "cwd": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07",
-    "timeout": 240,
+    "timeout": 120,
     "stdin": "",
-    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b72bdfd3dce24e3fb499c3d06bb06c02/output.log",
-    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b72bdfd3dce24e3fb499c3d06bb06c02/receipt.json",
-    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/b72bdfd3dce24e3fb499c3d06bb06c02/started.json",
+    "log": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf62c1d6425f491e85dbe282af6d7da3/output.log",
+    "receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf62c1d6425f491e85dbe282af6d7da3/receipt.json",
+    "started": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/jobs/bf62c1d6425f491e85dbe282af6d7da3/started.json",
     "status": "COMPLETED",
     "consumed": true,
-    "input_sha256": "50a3f673074c309469c5bf2a5ac97829f4826b260c2226ca19e78a865d2e449a",
+    "input_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
     "safe_retry": false,
-    "created_at": "2026-11-19T12:52:35+00:00",
+    "created_at": "2026-11-19T14:03:24+00:00",
     "exit_code": 0
   },
   "audio_pipeline_audit": {
@@ -331,5 +332,19 @@
     "sha256": "199fd99405bf6459243a597c0a40c054d0cb2891b317181a7697dcad6cb6211d"
   },
   "actual_fresh_Controller_prerequisite": "PASS",
-  "P07_phase_PASS_or_merge": false
+  "P07_phase_PASS_or_merge": false,
+  "P07_PR": "https://github.com/Artyx71/Last-Skuf/pull/12",
+  "CH02_prop_visual": {
+    "status": "PASS_COMPONENT",
+    "decision": "reports/phases/P07/art-ch02-bench-01/decision.json",
+    "sha256": "86a23bc030a42e7c38551ec04148e188001f3ee8947d3e4eb06ec8a727af0556",
+    "actual_chapter_or_collision_accepted": false
+  },
+  "CI_fixture_repair": {
+    "source": "0caf5d2e",
+    "QA": "cd722e9547bb7f0771c2d30abe6521871b599de1fbef91c767e56f5465536c55",
+    "local_tests": 257,
+    "old_remote_failure": 44537672218,
+    "new_remote_CI": "NOT_YET_CONFIRMED"
+  }
 }
