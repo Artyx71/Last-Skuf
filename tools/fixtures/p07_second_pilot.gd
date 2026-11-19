@@ -196,7 +196,7 @@ func follow(enemy: CharacterBody2D, goal: Vector2, ticks: int) -> Dictionary:
 		jump = jump or prior.distance_to(enemy.position)>float(enemy.definition.chase_speed)*physics_ticks/60.0+0.2
 		prior = enemy.position
 		prior_tick = Engine.get_physics_frames()
-		if tick%120==0:
+		if tick%120==0 or (tick>=180 and tick<216):
 			var cached: Dictionary = lab.room_navigation.router.paths.get(enemy.get_instance_id(),{})
 			trace.append({"tick":tick,"position":[prior.x,prior.y],"reason":lab.room_navigation.router.last_reason,"index":cached.get("index",-1),"replans":lab.room_navigation.router.replans})
 		if prior.distance_to(goal)<=4.1: return {"reached":true,"overlap":bad,"jump":jump,"ticks":tick+1,"trace":trace}
