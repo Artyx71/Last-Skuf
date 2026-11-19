@@ -14,6 +14,7 @@ var _store: RefCounted
 var _campaign_path := ""
 var _active: Dictionary = {}
 var _return: Dictionary = {}
+var _checking_goal := false
 
 static func fresh() -> Dictionary:
 	return {"schema":1,"domain":"bonus_profile","history":[],
@@ -91,10 +92,13 @@ func _authorized(host: Variant) -> bool:
 
 func complete(host: Variant) -> bool:
 	# Check current owner/prerequisite BEFORE the idempotent and read-only branches.
+	if _checking_goal: return _fail("REENTRANT_GOAL")
 	if not _authorized(host): return _fail("SESSION_REVOKED")
 	var request_generation := generation
 	if not host.has_method("bonus_goal_ready"): return _fail("GOAL_UNRESOLVED")
+	_checking_goal = true
 	var ready: Variant = host.bonus_goal_ready()
+	_checking_goal = false
 	# A host callback may synchronously revoke, replace the profile, or free itself.
 	if not _authorized(host) or generation != request_generation: return _fail("SESSION_REVOKED")
 	if not ready is bool or not ready: return _fail("GOAL_UNRESOLVED")
@@ -138,23 +142,32 @@ static func validate(value: Variant) -> bool:
 
 static func strict_decode(text: String) -> Variant:
 	if text.length() > 65536: return null
-	var parser := JSON.new()
-	if parser.parse(text) != OK: return null
-	# Native JSON accepts duplicate keys/trailing commas; this six-key namespace must not.
-	var strings := RegEx.create_from_string('"([^"\\\\]|\\\\.)*"')
+	# Native JSON accepts lax numbers/control strings as well as duplicate/trailing keys.
+	var lexer := RegEx.create_from_string("\"(?:[^\"\\\\\\x00-\\x1F]|\\\\(?:[\"\\\\/bfnrt]|u[0-9a-fA-F]{4}))*\"|-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?|true|false|null|[{}\\[\\],:]")
 	var keys := {}
-	var outside := ""
 	var previous := 0
-	for token in strings.search_all(text):
-		outside += text.substr(previous,token.get_start()-previous)+"s"
+	var previous_token := ""
+	var previous_primitive := false
+	for token in lexer.search_all(text):
+		var gap := text.substr(previous,token.get_start()-previous)
+		for whitespace in [" ","\t","\r","\n"]: gap = gap.replace(whitespace,"")
+		if not gap.is_empty(): return null
+		var lexeme: String = token.get_string()
+		var primitive := not lexeme in ["{","}","[","]",",",":"]
+		if previous_primitive and primitive: return null
+		if previous_token == "," and lexeme in ["}","]"]: return null
 		previous = token.get_end()
-		if text.substr(previous).strip_edges().begins_with(":"):
-			var key: Variant = JSON.parse_string(token.get_string())
+		if lexeme.begins_with('"') and text.substr(previous).strip_edges().begins_with(":"):
+			var key: Variant = JSON.parse_string(lexeme)
 			if keys.has(key): return null
 			keys[key] = true
-	outside += text.substr(previous)
-	for whitespace in [" ","\t","\r","\n"]: outside = outside.replace(whitespace,"")
-	if ",}" in outside or ",]" in outside: return null
+		previous_token = lexeme
+		previous_primitive = primitive
+	var remaining := text.substr(previous)
+	for whitespace in [" ","\t","\r","\n"]: remaining = remaining.replace(whitespace,"")
+	if not remaining.is_empty(): return null
+	var parser := JSON.new()
+	if parser.parse(text) != OK: return null
 	return parser.data if validate(parser.data) else null
 
 func load_save() -> bool:

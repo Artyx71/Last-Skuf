@@ -24,6 +24,11 @@ def main():
     shutil.copytree(ROOT / 'game', project, ignore=shutil.ignore_patterns('.godot', '__pycache__'))
     for name in ['p07_bonus_progress.gd', 'p07_bonus_contract.gd', 'p07_bonus_host.gd']:
         shutil.copy2(ROOT / 'tools/fixtures' / name, project / 'tests' / name)
+    prior = subprocess.check_output(['git', 'show', '50a7a837236f8f9b263cedc72406b17db30e7b89:tools/fixtures/p07_bonus_progress.gd'], cwd=ROOT)
+    prior_path = project / 'tests/p07_bonus_before_strict.gd'
+    prior_path.write_bytes(prior)
+    write(out / 'strictness-reference.json', {'commit': '50a7a837236f8f9b263cedc72406b17db30e7b89',
+                                            'path': 'tools/fixtures/p07_bonus_progress.gd', 'sha256': digest(prior_path)})
     lock = json.loads((ROOT / 'tools/toolchain.lock.json').read_text())
     engine = ROOT / '.tools/godot' / f'Godot_v{lock["release"]}_linux.x86_64'
     assert digest(engine) == lock['linux_binary_sha256']

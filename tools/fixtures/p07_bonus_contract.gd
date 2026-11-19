@@ -2,10 +2,12 @@ extends SceneTree
 const Progress = preload("res://tests/p07_bonus_progress.gd")
 const Story = preload("res://scripts/story/story_state.gd")
 const Host = preload("res://tests/p07_bonus_host.gd")
+const BeforeStrict = preload("res://tests/p07_bonus_before_strict.gd")
 var rows: Array[Dictionary] = []
 var profile := ""
 var origin: Node
 var roundtrip_diagnostic := {}
+var strictness_witness := {}
 
 class Owner extends Node:
 	var store: RefCounted
@@ -154,6 +156,10 @@ func callback_revocation() -> void:
 	check("goal_callback_queued_host_clean_denial",not progress.complete(actor) and not FileAccess.file_exists(progress.path))
 	var freed := host(); freed.free()
 	check("already_freed_host_clean_denial",not progress.complete(freed) and not progress.request_return(freed))
+	var nested_host := host(); var nested: Array[bool] = []
+	assert(progress.begin(Progress.IDS[0],nested_host,origin))
+	nested_host.callback = func(): nested.append(progress.complete(nested_host))
+	check("nested_goal_callback_no_recursion_single_commit",progress.complete(nested_host) and nested == [false] and progress.state.history == [Progress.IDS[0]])
 
 func invalid_files() -> void:
 	var owner := owner_at(profile.path_join("invalid"))
@@ -177,12 +183,19 @@ func invalid_files() -> void:
 				continue
 		cases[fault] = JSON.stringify(data)
 	cases["oversize"] = " ".repeat(65537)
+	for number in ["01","1.","1.e0","+1","1e"]:
+		var malformed := JSON.stringify(Progress.fresh()).replace('"schema":1','"schema":'+number)
+		cases["number_"+number] = malformed
+		strictness_witness[number] = {"before_50_accepted":BeforeStrict.strict_decode(malformed) != null,
+			"current_accepted":Progress.strict_decode(malformed) != null}
 	for fault in cases:
 		put(location,cases[fault]); var old := bytes_at(location)
 		var progress := EligibilityDouble.new(owner)
 		check("invalid_preserved_"+fault,not progress.writable and old == bytes_at(location) and not progress.begin(Progress.IDS[0],host(),origin))
 		check("invalid_does_not_touch_main_"+fault,main == bytes_at(owner.store.path) and owner.store.validate(owner.store.state))
 	check("strict_accepts_escaped_legal_keys",Progress.strict_decode(JSON.stringify(Progress.fresh()).replace('"schema"','"\\u0073chema"')) != null)
+	for number in ["1.0","1e0","1E-00"]:
+		check("strict_accepts_valid_number_"+number,Progress.strict_decode(JSON.stringify(Progress.fresh()).replace('"schema":1','"schema":'+number)) != null)
 	DirAccess.remove_absolute(location)
 	put(location+".tmp",JSON.stringify(Progress.fresh()))
 	check("orphan_tmp_not_commit",EligibilityDouble.new(owner).state == Progress.fresh() and not FileAccess.file_exists(location))
@@ -232,6 +245,7 @@ func run() -> void:
 		if row.passed: passed += 1
 	var report := {"schema":1,"mode":mode,"checks":rows,"passed":passed,"failed":rows.size()-passed,
 		"roundtrip_diagnostic":roundtrip_diagnostic,
+		"strictness_witness":strictness_witness,
 		"positive_eligibility_is_test_double":true,"real_current_campaign_bonus_launches":0,
 		"shipped_bonus_UI_or_levels_tested":false,"new_export_or_audio_tests":false}
 	put(OS.get_environment("AYAY_BP_RESULT"),JSON.stringify(report,"  "))
