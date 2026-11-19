@@ -4,6 +4,7 @@ var service: Node
 var native := false
 var captures: Array[String] = []
 var ui_trace: Array[Dictionary] = []
+var mouse_trace: Array[Dictionary] = []
 
 func frames(count := 3) -> void:
 	for index in count: await process_frame
@@ -14,11 +15,23 @@ func tap(code: Key) -> void:
 	event = InputEventKey.new(); event.keycode = code; event.physical_keycode = code; event.pressed = false
 	Input.parse_input_event(event); await frames(2)
 
-func click(point: Vector2) -> void:
-	var event := InputEventMouseButton.new(); event.button_index = MOUSE_BUTTON_LEFT; event.position = point; event.pressed = true
-	Input.parse_input_event(event); await frames(1)
-	event = InputEventMouseButton.new(); event.button_index = MOUSE_BUTTON_LEFT; event.position = point; event.pressed = false
-	Input.parse_input_event(event); await frames(2)
+func pointer_event(event: InputEvent, local: bool) -> void:
+	if local: root.push_input(event,true)
+	else: Input.parse_input_event(event)
+
+func click(point: Vector2, local := true) -> void:
+	# GUI coordinates are viewport-local; window scaling must not be guessed.
+	root.notify_mouse_entered()
+	var motion := InputEventMouseMotion.new(); motion.position = point; motion.global_position = point; motion.window_id = root.get_window_id()
+	pointer_event(motion,local); await frames(1)
+	var event := InputEventMouseButton.new(); event.button_index = MOUSE_BUTTON_LEFT; event.position = point; event.global_position = point
+	event.window_id = root.get_window_id(); event.pressed = true; event.button_mask = MOUSE_BUTTON_MASK_LEFT
+	pointer_event(event,local); await frames(1)
+	event = InputEventMouseButton.new(); event.button_index = MOUSE_BUTTON_LEFT; event.position = point; event.global_position = point
+	event.window_id = root.get_window_id(); event.pressed = false
+	pointer_event(event,local); await frames(2)
+	mouse_trace.append({"route":"viewport_local" if local else "legacy_window","point":[point.x,point.y],
+		"selected":current_scene.journal.selected if current_scene != null and current_scene.get("journal") != null else -1})
 
 func capture(name: String) -> void:
 	if not native: return
@@ -105,11 +118,18 @@ func journal() -> bool:
 		origin.journal.list.get_v_scroll_bar().value = scroll
 		await frames(2)
 		var local := Vector2(-1,-1)
+		var matches: Array[int] = []
 		for y in int(origin.journal.list.size.y):
 			if origin.journal.list.get_item_at_position(Vector2(16,y),true) == row:
-				local = Vector2(16,y); break
+				matches.append(y)
+		if not matches.is_empty(): local = Vector2(16,matches[matches.size()/2])
 		check("mouse_bonus_hit_target_"+str(row),local.x >= 0)
-		if local.x >= 0: await click(origin.journal.list.global_position+local)
+		if local.x >= 0:
+			await click(origin.journal.list.global_position+local,false)
+			origin.journal.list.select(0); origin.journal._select(0)
+			origin.journal.list.get_v_scroll_bar().value = scroll
+			await frames(2)
+			await click(origin.journal.list.global_position+local)
 		check("mouse_bonus_selection_"+str(row),origin.journal.selected == row and origin.journal.launch.disabled)
 		if origin.journal.selected == row: await click(origin.journal.launch.get_global_rect().get_center())
 		check("planned_bonus_mouse_stays_"+str(row),current_scene == origin and origin.journal.selected == row and origin.journal.launch.disabled)
@@ -165,6 +185,9 @@ func run() -> void:
 	put(OS.get_environment("AYAY_BP_RESULT"),JSON.stringify({"schema":1,"mode":mode,"checks":rows,"passed":passed,"failed":rows.size()-passed,
 		"renderer":DisplayServer.get_name(),"captures":captures,"real_owner_and_UI_adapters":true,
 		"UI_keyboard_mouse_tested":native and mode != "cli","UI_trace":ui_trace,
+		"mouse_trace":mouse_trace,"window_size":[root.size.x,root.size.y],
+		"viewport_size":[root.get_visible_rect().size.x,root.get_visible_rect().size.y],
+		"screen_transform":str(root.get_screen_transform()),
 		"positive_future_chapter_scene_eligibility_double":true,"CLI_pending_return_seeded":mode=="cli",
 		"actual_new_bonus_levels_or_canonical_CH10_CH14_unlock":false},"  "))
 	print("BONUS_LIVE ",mode," checks=",rows.size()," failed=",rows.size()-passed)
