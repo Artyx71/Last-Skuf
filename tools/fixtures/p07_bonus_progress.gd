@@ -38,6 +38,15 @@ func _sync_scope() -> bool:
 	var current: RefCounted = owner.store
 	if current.path.is_empty(): return _fail("PROFILE_INVALID")
 	var current_path: String = ProjectSettings.globalize_path(current.path).simplify_path()
+	var sidecar_path := current_path.get_base_dir().path_join("bonus_progress_v1.json")
+	if current_path in [sidecar_path,sidecar_path+".tmp"]:
+		revoke()
+		_store = null
+		_campaign_path = ""
+		path = ""
+		state = fresh()
+		writable = false
+		return _fail("PROFILE_NAMESPACE_COLLISION")
 	if current != _store or current_path != _campaign_path:
 		revoke()
 		_store = current
@@ -50,11 +59,15 @@ func _sync_scope() -> bool:
 	return true
 
 func _valid_campaign() -> bool:
-	if not _sync_scope() or owner.session != _store or owner.pending_replay: return false
-	if not _store.writable or _store.simulation or _store.replay or not _store.validate(_store.state): return false
-	if not FileAccess.file_exists(_campaign_path): return false
+	if not _sync_scope(): revoke(); return false
+	if owner.session != _store or owner.pending_replay:
+		revoke(); return false
+	if not _store.writable or _store.simulation or _store.replay or not _store.validate(_store.state):
+		revoke(); return false
+	if not FileAccess.file_exists(_campaign_path): revoke(); return false
 	var disk: Variant = Story.read_json(_campaign_path)
-	return _store.validate(disk) and _store._equivalent(disk,_store.state)
+	if not _store.validate(disk) or not _store._equivalent(disk,_store.state): revoke(); return false
+	return true
 
 func _prerequisite(id: String) -> bool:
 	var index := IDS.find(id)
@@ -86,9 +99,10 @@ func _authorized(host: Variant) -> bool:
 	if host.is_queued_for_deletion() or not host.is_inside_tree(): return false
 	if not _valid_campaign() or _active.is_empty(): return false
 	if not writable or path != _campaign_path.get_base_dir().path_join("bonus_progress_v1.json"): return false
+	if not _prerequisite(_active.id): revoke(); return false
 	return is_instance_valid(host) and _active.host.get_ref() == host and _active.store == _store \
 		and _active.profile == _campaign_path and _active.generation == generation \
-		and host.scene_file_path == _scene_path(_active.id) and _prerequisite(_active.id)
+		and host.scene_file_path == _scene_path(_active.id)
 
 func complete(host: Variant) -> bool:
 	# Check current owner/prerequisite BEFORE the idempotent and read-only branches.

@@ -83,6 +83,8 @@ func mutations() -> void:
 	progress.fixture_ready = false
 	check("prerequisite_before_idempotent",not progress.complete(actor) and committed == bytes_at(progress.path))
 	progress.fixture_ready = true
+	check("prerequisite_restore_does_not_revive_old_exit",not progress.complete(actor) and committed == bytes_at(progress.path))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	check("forged_host_denied",not progress.complete(host()) and committed == bytes_at(progress.path))
 	progress.revoke()
 	check("cancel_or_newgame_generation_revoked",not progress.complete(actor) and committed == bytes_at(progress.path))
@@ -120,23 +122,48 @@ func isolation() -> void:
 	owner.pending_replay = true
 	check("pending_replay_denied",not progress.complete(actor))
 	owner.pending_replay = false
+	check("pending_replay_restore_does_not_revive_exit",not progress.complete(actor))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	owner.session = owner.store.fork_replay()
 	check("fork_session_denied",not progress.complete(actor))
 	owner.session = owner.store
+	check("fork_restore_does_not_revive_exit",not progress.complete(actor))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	owner.store.writable = false
 	check("readonly_campaign_denied",not progress.complete(actor))
 	owner.store.writable = true
+	check("readonly_restore_does_not_revive_exit",not progress.complete(actor))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	var source: Dictionary = owner.store.state.duplicate(true)
 	owner.store.state.chapter_complete["CH14_AGENT_SWARM"] = true
 	check("forged_campaign_state_denied",not progress.complete(actor))
 	owner.store.state = source
+	check("valid_state_restore_does_not_revive_exit",not progress.complete(actor))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	put(owner.store.path,"{")
 	check("invalid_campaign_disk_denied",not progress.complete(actor))
 	put(owner.store.path,JSON.stringify(source))
+	check("valid_disk_restore_does_not_revive_exit",not progress.complete(actor))
+	assert(progress.begin(Progress.IDS[0],actor,origin))
 	owner.store.simulation = true
 	check("scenario_never_unlocks",not progress.can_launch(Progress.IDS[0]))
 	owner.store.simulation = false
+	check("simulation_restore_does_not_revive_exit",not progress.complete(actor))
 	check("no_profile_bonus_files_on_denials",not FileAccess.file_exists(progress.path))
+
+func namespace_aliases() -> void:
+	for mode in ["main_is_tmp","main_is_final","main_created_after_candidate"]:
+		var directory := profile.path_join(mode)
+		DirAccess.make_dir_recursive_absolute(directory)
+		var service := Owner.new(); root.add_child(service)
+		service.store = Story.new(); service.session = service.store
+		service.store.path = directory.path_join("bonus_progress_v1.json.tmp" if mode == "main_is_tmp" else "./bonus_progress_v1.json")
+		if mode != "main_created_after_candidate": assert(service.store.record("EV_CH01_INTRO"))
+		var progress := EligibilityDouble.new(service)
+		if mode == "main_created_after_candidate": assert(service.store.record("EV_CH01_INTRO"))
+		var before := bytes_at(service.store.path)
+		check(mode+"_namespace_rejected_before_launch",not progress.can_launch(Progress.IDS[0]) and not progress.begin(Progress.IDS[0],host(),origin) and progress.error == "UNAVAILABLE")
+		check(mode+"_main_bytes_schema_preserved",before == bytes_at(service.store.path) and service.store.validate(Story.read_json(service.store.path)))
 
 func callback_revocation() -> void:
 	var owner := owner_at(profile.path_join("callbacksA")); var progress := EligibilityDouble.new(owner)
@@ -238,7 +265,7 @@ func run() -> void:
 	assert(not profile.is_empty() and profile.is_absolute_path())
 	origin = load(Progress.BOOTSTRAP).instantiate(); root.add_child(origin); current_scene = origin
 	var mode := OS.get_environment("AYAY_BP_MODE")
-	if mode == "checks": mutations(); isolation(); callback_revocation(); invalid_files(); failures()
+	if mode == "checks": mutations(); isolation(); namespace_aliases(); callback_revocation(); invalid_files(); failures()
 	else: process_case(mode)
 	var passed := 0
 	for row in rows:
