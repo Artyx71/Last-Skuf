@@ -1,6 +1,6 @@
 # PRE-P07 H02 — навигационный пилот
 
-Это проверка технической способности pipeline, не готовый уровень, не полный H02 и не PASS P07. Базовая P06/DEV09 сохранена. Production host кампании ещё не подключён к адаптеру. Каноническая ROOT Game остаётся frozen P06 `f8325212381d67a469b5d9a6dffbf3d244bc9933`; изменения пилота находятся в phase/p07-implementation.
+Это проверка технической способности pipeline, не готовый уровень, не полный H02 и не PASS P07. Базовая P06 и прежние DEV09/DEV10 сохранены. Адаптер фактически подключён к production host CH01; первоначальная независимая приёмка — reports/pre_p07/lead-room-pilot-01. Каноническая ROOT Game остаётся frozen P06 `f8325212381d67a469b5d9a6dffbf3d244bc9933`; изменения пилота находятся в phase/p07-implementation.
 
 ## Доказанный пробел и минимальное изменение
 
@@ -36,3 +36,13 @@ Existing72 проверки используют SOURCE headless на обычн
 - Проверить reset/retry/save переходы на настоящем room director. Нынешний reset проверяет реальный CombatLab, не будущие chapter checkpoints.
 
 Итоговый navigation_pilot receipt выдаёт независимый Lead по этому и последующему фактическому evidence. Component PASS не закрывает остальные readiness capabilities,21MDS, P07 content obligations или P08.
+
+## Второй пилот и исправление cached detour
+
+Реальный дефект медленных NPC воспроизведён до изменения: direct_sweep_clear стирал cached path; следующий blocked tick возвращал NPC к центру start cell, и цикл повторялся. Consecutive32-tick witness: reports/pre_p07/second-pilot-shortcut-before-01. Исправление4f091985 сохраняет валидный обход до завершения/инвалидации; реальные sweeps, footprint/bounds, FSM, LOS и contact не ослаблены.
+
+Второй host — технический проверочный layout, не готовая глава: Input Enter у рычага открывает South, реальный маршрут к цели; pickup закрывает South и открывает North, возврат и exit once. Пройдены8контекстов/7героев обычным Input/move_and_slide. В7контекстах6героев проверены существующие способностиF у стены (обаТимки), без выдачи новой способностиF Якудзе. Отдельно actual3NPC cached/dynamic/moving-goal/multiNPC и LOS/priority; это не автопроводка семи partyfollowers.
+
+reports/pre_p07/second-pilot-06:121headless/102native проверок; navigation-contract-after-shortcut-01:70; room-pilot-after-shortcut-01:18room/28mission/58native,10реальныхdeath/retry. Все результаты реальны; независимые QA/Lead PASS_COMPONENT: qa-second-pilot-02/lead-second-pilot-01 (433c0132/70aa8ad1). Исторические01–05FAIL сохранены. Причина native05Olegcombinedflag UNKNOWN: oldtelemetry недостаточна; новая06проверка отдельно записывает jump/overlap и actualrun, держит исходный порог и подтверждает walk-only. Native QAwindow unfocusable для изоляции от desktop input, API https://docs.godotengine.org/en/4.6/classes/class_window.html#class-window-constant-flag-no-focus .
+
+Wall-frame observations — реальные monotonic physics→process samples в помеченных movement-сегментах при cap60, не hardwareinput latency и не campaignFPS. Полная H02/Readiness, calibratedH04/continuousreadability, остальные pipeline contracts и будущий контент этим текстом не приняты.

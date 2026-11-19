@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "scope": "STATIC_NUMERIC_HYPOTHESIS_NOT_CAUSAL_PROOF",
+  "native_olezhka_maximum_step": 2.54400634765625,
+  "configured_speed": 106,
+  "registered_character_run_multiplier": 1.44,
+  "one_tick_run_distance": 2.5439999999999996,
+  "source_movement_formula": "Input.get_vector(...)*move_speed*_movement_multiplier(); move_and_slide()",
+  "fixture_release_keys": [
+    "W",
+    "A",
+    "S",
+    "D",
+    "ENTER",
+    "F"
+  ],
+  "fixture_walk_oracle": "step <= move_speed * elapsed_physics_ticks/60 +0.2; no run allowance",
+  "missing_observation": [
+    "separate overlap/jump failure identity",
+    "offending prior/current positions + physics ticks",
+    "actual character_run and physical SHIFT state",
+    "actual Inputvector/velocity/movement multiplier",
+    "intersecting enabled world rectangles if any"
+  ],
+  "conclusion": "Existing report cannot establish whether a physical overlap or uncontrolled legitimate run caused failed walk check. No claim of OS cause, teleport or router defect. Do not weaken oracle to accept unmeasured run state."
+}

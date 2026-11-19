@@ -1,0 +1,642 @@
+{
+  "scope": "INDEPENDENT_READ_ONLY_DIAGNOSIS_NOT_FINAL_ACCEPTANCE",
+  "status": "FAILURES_CONFIRMED_AWAITING_CAUSAL_TRACE_AND_FIX",
+  "actual_reviewer_engine_Controller_Work_mutations": false,
+  "attempts": [
+    {
+      "source_head": "2e0351517d658873338ae0e5396857264cd7fab9",
+      "report": "reports/pre_p07/second-pilot-02",
+      "checks": [
+        97,
+        103
+      ],
+      "completed_unique_contexts": [
+        "yakuza",
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime",
+        "ryzhik_training",
+        "tega_training",
+        "pasha_training"
+      ],
+      "native_executed": false,
+      "failed_checks": [
+        {
+          "check": "patrol/cached_gate_and_moving_goal",
+          "details": {
+            "jump": false,
+            "overlap": false,
+            "position": [
+              128.0,
+              206.799987792969
+            ],
+            "reached": false,
+            "ticks": 2400
+          },
+          "passed": false
+        },
+        {
+          "check": "shooter/cached_gate_and_moving_goal",
+          "details": {
+            "jump": false,
+            "overlap": false,
+            "position": [
+              128.136962890625,
+              207.425003051758
+            ],
+            "reached": false,
+            "ticks": 2400
+          },
+          "passed": false
+        },
+        {
+          "check": "three_live_NPC_routes",
+          "details": {
+            "reached": {
+              "patrol": false,
+              "rusher": true,
+              "shooter": false
+            },
+            "wall_overlap": false
+          },
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_physical_closed",
+          "details": {},
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_loss_existing_patrol_policy",
+          "details": {},
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_reacquired",
+          "details": {},
+          "passed": false
+        }
+      ],
+      "source": {
+        "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+        "tools/fixtures/p07_second_pilot.gd": "b1a207ab178a5ad2bca461a5e09b73c0d62511437950e1fb803c7eb5692a4aca",
+        "tools/fixtures/p07_second_pilot_host.gd": "f57e5b2d3e36739ec154b9fc6bb9a9d12d7ba71cc298fd1b298794ef558072f9",
+        "tools/p07_second_pilot.py": "b30740e62e99b9ca5d0ba87c4fc8d07432c95bd9722711929794d002c2b82f0a"
+      },
+      "evidence_sha256": {
+        "pilot-result.json": "1f572768570e5587b5af51abbdca372650915408e6bec84988d6895241c8b89e",
+        "pilot.log": "54f2bdda0aba55b9309838045a62e2cefed1e93c2ecb1dfbddb93a2ed46f2fe7",
+        "import.log": "46544b217d0a44df7adeab5d37b61f5bdb1d6e80e054143eebc3c74a19272d5f",
+        "source_before.json": "b3c65ecca67f2f0303ebb0eb2e3a88761928eb801a1e2ebba7f8e6d6ced1c48b",
+        "source_after.json": "b3c65ecca67f2f0303ebb0eb2e3a88761928eb801a1e2ebba7f8e6d6ced1c48b",
+        "validation.json": "ed49738cf9801bdd424180100ca4adf599d3b5e3e991455e33470d217d6b4e9b"
+      }
+    },
+    {
+      "source_head": "db52ceb4a36fffe3fecf72c23c5d98465332dc8a",
+      "report": "reports/pre_p07/second-pilot-03",
+      "checks": [
+        97,
+        103
+      ],
+      "completed_unique_contexts": [
+        "yakuza",
+        "gabar_training",
+        "olezhka_training",
+        "timka_present",
+        "timka_prime",
+        "ryzhik_training",
+        "tega_training",
+        "pasha_training"
+      ],
+      "native_executed": false,
+      "failed_checks": [
+        {
+          "check": "patrol/cached_gate_and_moving_goal",
+          "details": {
+            "jump": false,
+            "overlap": false,
+            "position": [
+              128.0,
+              206.799987792969
+            ],
+            "reached": false,
+            "ticks": 2400,
+            "trace": [
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  286.799987792969
+                ],
+                "reason": "grid_route",
+                "replans": 6,
+                "tick": 0
+              },
+              {
+                "index": 5,
+                "position": [
+                  128.0,
+                  215.599914550781
+                ],
+                "reason": "grid_route",
+                "replans": 6,
+                "tick": 120
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 19,
+                "tick": 240
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 34,
+                "tick": 360
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 49,
+                "tick": 480
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 64,
+                "tick": 600
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 79,
+                "tick": 720
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 94,
+                "tick": 840
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 109,
+                "tick": 960
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 124,
+                "tick": 1080
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 139,
+                "tick": 1200
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 154,
+                "tick": 1320
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 169,
+                "tick": 1440
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 184,
+                "tick": 1560
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 199,
+                "tick": 1680
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 214,
+                "tick": 1800
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 229,
+                "tick": 1920
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 244,
+                "tick": 2040
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 259,
+                "tick": 2160
+              },
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  206.199981689453
+                ],
+                "reason": "grid_route",
+                "replans": 274,
+                "tick": 2280
+              }
+            ]
+          },
+          "passed": false
+        },
+        {
+          "check": "shooter/cached_gate_and_moving_goal",
+          "details": {
+            "jump": false,
+            "overlap": false,
+            "position": [
+              128.136962890625,
+              207.425003051758
+            ],
+            "reached": false,
+            "ticks": 2400,
+            "trace": [
+              {
+                "index": 1,
+                "position": [
+                  128.0,
+                  286.533447265625
+                ],
+                "reason": "grid_route",
+                "replans": 301,
+                "tick": 0
+              },
+              {
+                "index": 4,
+                "position": [
+                  128.0,
+                  231.13346862793
+                ],
+                "reason": "grid_route",
+                "replans": 301,
+                "tick": 120
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 308,
+                "tick": 240
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 320,
+                "tick": 360
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 332,
+                "tick": 480
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 344,
+                "tick": 600
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 356,
+                "tick": 720
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 368,
+                "tick": 840
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 380,
+                "tick": 960
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 392,
+                "tick": 1080
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 404,
+                "tick": 1200
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 416,
+                "tick": 1320
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 428,
+                "tick": 1440
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 440,
+                "tick": 1560
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 452,
+                "tick": 1680
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 464,
+                "tick": 1800
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 476,
+                "tick": 1920
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 488,
+                "tick": 2040
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 500,
+                "tick": 2160
+              },
+              {
+                "index": 0,
+                "position": [
+                  128.028823852539,
+                  207.878967285156
+                ],
+                "reason": "grid_route",
+                "replans": 512,
+                "tick": 2280
+              }
+            ]
+          },
+          "passed": false
+        },
+        {
+          "check": "three_live_NPC_routes",
+          "details": {
+            "reached": {
+              "patrol": false,
+              "rusher": true,
+              "shooter": false
+            },
+            "wall_overlap": false
+          },
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_physical_closed",
+          "details": {
+            "NPC_positions": [
+              [
+                272.0,
+                280.0
+              ],
+              [
+                320.0,
+                272.0
+              ],
+              [
+                289.86669921875,
+                160.0
+              ]
+            ],
+            "north_disabled": false,
+            "south_disabled": true
+          },
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_loss_existing_patrol_policy",
+          "details": {},
+          "passed": false
+        },
+        {
+          "check": "patrol/LOS_reacquired",
+          "details": {},
+          "passed": false
+        }
+      ],
+      "source": {
+        "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+        "tools/fixtures/p07_second_pilot.gd": "9f2d8cdf172a4bb62436cf44019771b2198d5220c0dd51b28be022ece6407fd6",
+        "tools/fixtures/p07_second_pilot_host.gd": "f57e5b2d3e36739ec154b9fc6bb9a9d12d7ba71cc298fd1b298794ef558072f9",
+        "tools/p07_second_pilot.py": "b30740e62e99b9ca5d0ba87c4fc8d07432c95bd9722711929794d002c2b82f0a"
+      },
+      "evidence_sha256": {
+        "pilot-result.json": "9cac5013c4822d2896fc5851f311294e39a74ab39dbc1a4513a75450d4403ab4",
+        "pilot.log": "ff2934d53e2bebb290925112395504dd7bad4f580db5a787d318798ee4721428",
+        "import.log": "46544b217d0a44df7adeab5d37b61f5bdb1d6e80e054143eebc3c74a19272d5f",
+        "source_before.json": "e23e2cf89bf1cde0c231b20ffec57821d961571f53e2de07f57553f51c397861",
+        "source_after.json": "e23e2cf89bf1cde0c231b20ffec57821d961571f53e2de07f57553f51c397861",
+        "validation.json": "a3fef0d4bb136bb89256f209d51be548a99e9d502822b9d88c836a428d81f58f"
+      }
+    }
+  ],
+  "confirmed_LOS_fixture_issue": {
+    "id": "SP-Q04",
+    "severity": "MEDIUM",
+    "actual_south_door_disabled": true,
+    "door_rect": [
+      304,
+      248,
+      16,
+      64
+    ],
+    "inactive_rusher_position": [
+      320,
+      272
+    ],
+    "actual16x12_offset_0_minus6_foot_rect": [
+      312,
+      260,
+      16,
+      12
+    ],
+    "overlap_width_height": [
+      8,
+      12
+    ],
+    "conclusion": "DoorcorrectlyheldopenbyinactiveRusherfromprecedingmulti-route;closedLOSassertpreconditionfalse. MoveotherinactiveNPCoffmap/resetisolatedLOSsetup;donotchangeproductionsees_player."
+  },
+  "router_issue": {
+    "id": "SP-Q03",
+    "severity": "MEDIUM",
+    "actual": "patrol/shooter2400ticksunreached;patrol+15replans/120samepoint,index1;shooter+12/120samepoint,index0;Rusherreaches",
+    "hypothesis": "directclearerasesvalidroute;nextblockedrequestrebuildsfirstcellcenterandcanreverseprogress",
+    "causality_limit": "120ticktracedoesnotshowdirectclear/cachetoggleedge;needboundedconsecutivepostnavsamplesbeforerootcauseclaim",
+    "small_fix_candidate_not_implemented_by_QA": "Keepvalidcachedrouteuntilcompletion/orrealrevision/goal/collider/blockerinvalidates,ortesthysteresis;preserveactualsweeps/no warps."
+  }
+}

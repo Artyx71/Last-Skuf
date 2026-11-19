@@ -1,0 +1,40 @@
+Что меняет код: optionalrouter сохраняет действующий обход вместо повторного выбора едва свободной прямой линии и возврата к центру стартовой клетки. Новый технический пилот проверяет другой layout с настоящими дверями, сменой цели и восемью зарегистрированными player contexts.
+
+**PASS_COMPONENT — только second technical navigation pilot и исправление cache-loop.** Открытых обязательных замечаний к этому текущему компоненту нет. Это независимый Lead review, не FULL H02, не Production Readiness и не разрешение P07/merge/релиза. Автор — `/root`, reviewer — `/root/art_olezhka_recovery`; собственных engine/Controller/Git/network запусков и изменений production/source/state не было.
+
+Прочитаны actualrouter/adapter/EnemyActor callsite/productionCH01host, playerancestor и CharacterPlayer, новый host/driver/Pythonrunner и их изоляция. Сопоставлены old2f418 и currentf9f23 исходники; diff находится рядом. Новый branch проверяет пригодность cache до direct sweep, перестраивает завершённый/изменённый/сместившийся маршрут и продолжает действующий detour. Каждый следующий шаг по-прежнему проходит настоящий body.test_move, скорость ограничена speed×delta; позиции, маски, damage/score, FSM и способности не переписаны. Для host без optionalhook прежний fallback сохраняется. Проверяемая нагрузка — один desktop и три одновременно действующих NPC, не произвольная толпа.
+
+Старый дефект подтверждён actualconsecutive witness, не только редкими точками. Patrol наtick185 выбираетdirect_sweep_clear/cacheindex−1, на186перестраиваетindex0, на189возвращается(128,208), на193повторяеттотжешаг. Shooter также циклирует. Это квалифицирует cache/direct смену именно в сохранённом сценарии. В currentheadlesspatrol/rusher/shooter доходят к перемещённой цели за924/787/1196ticks; per-stepoverlap/jump не зарегистрированы. Native повторяет targetedcached/LOSслучаи только дляrusher и отдельно запускает все три архетипа вместе; всемтрём individualnativecases не приписаны.
+
+| Фактический прогон | Результат и граница |
+|---|---|
+|Secondpilot06headless|121/121; восемь uniqueInputroutes/completiononce; семь non-Yakuza abilitycontexts.|
+|Secondpilot06X11native|102/102; те же восемь routes, восемь явныхwalk-no-runchecks; три реальныеPNG.|
+|Existingnavigationcontract|70/70 на currentrouter, включая реальные doors/clearance/boundaries/LOS/contact cases.|
+|ExistingCH01room/mission|18/18 и фактический MISSION_TEST checks=28 failures=0.|
+|ExistingCH01native|58truechecks, actual_input=true, route_warps0;10actualAIdeathrecords/retries;9capturedPNG.|
+
+Восьмиконтекстные маршруты — player Input→move_and_slide без setupwarp после spawn: рычаг открывает South, pickup закрывает South/открывает North, возвращение и повторный exit не дублируют completion, Rсбрасываетstage/двери. Это не автоматическое AStarведение всех семи partyfollowers: router вызывается отдельно NPCчерезEnemyActor._walk_to. Во время playerwalking NPCphysics отключены; опасные AI setup/abilitypositions явно отделены от walkingplaythrough.
+
+Семь ownFwallcases относятся к **шести героям** и семи контекстам: Габар/Олег/Тимкаpresent/Тимкаprime/Рыжик/Тега/Паша. Якудзе Fability не выдаётся. Олег здесь начинаетguard безincomingcounter; новый Corecounterfeel не принимается. Prime получает stun настоящим Space, раннийF не отменяет busystrike, после фактического recovery/range выполняет clinchonce. Тега двигает зарегистрированный physicalprop до стены. Oracle исключает сам prop по identity, сохраняя остальные enabledworldcolliders. AI LOS/stun/noise/death используют настоящих actors/physics, но targetedprioritychecks с receive_hit не названы новым Coreincoming-contactproof.
+
+Самостоятельно перехешированы все115файлов producerportablemanifest и87QAartifacts. Current source inventories совпадают before/after/живыми WORK:613Game+tools,535Game для старого contract и613дляCH01. Просмотрены сами rawchecks/results/logs, все6terminalreceipts/argv/log/canonicalreceiptbindings; последнийoperation0105c9c807cd4e9d8103f36fe0a0075e завершёнexit0 за241.888s и canonicalconsumed=true. Портативный input.json сохраняет начальноеRUNNING/consumed=false; текущий COMPLETED/consumed подтверждён по canonicalauthority, эти стадии не перепутаны. Проверяемый sourcecommit c3ea57f57e5acc8adbb533232d116e49c4d4d9d2 заявлен producer; настоящая текущая byteпривязка независимо подтверждена hash613, GitHEADне запрашивался.
+
+Независимый QA02 PASS_COMPONENT433c0132… прочитан вместе с REVIEW и проверенным87-filemanifest, а не принят как единственный аргумент. Его scopes/counts соответствуют собственной проверке. Итоговые source/manifest/proof SHA приведены в JSON рядом; огромные isolatedprojects/savefolders не копируются.
+
+ИсторияFAIL сохранена. Попытка01 имела ошибку legacyidentity/derivedcoverage в fixture;02/03 реально обнаружили slowAIcycle и отдельную LOSfixturecontamination неактивнымNPCвдвери. Попытка04 —108/111: benchсамсебяпересекалворacle, аPrimeFподавалсявbusystrike/внедиапазонапослеknockback. Исправлены fixture, неtimings/range/коллизииспособностей. Попытка05headless113/113, native93/94 остаётсяFAIL: combinedOlezhkawalkpredicateне сохранил offendinginterval/отдельныеflags. 2.544px совпадаетс106×1.44/60, но это лишь гипотезаrunstate, не доказанная причина/обвинениеOS.06отпускаетShift/Space, записываетNO_FOCUSflag, строго требуетwalk-no-run и добавляет failuretelemetry; исходныйwalkspeed/tickbound не ослаблен. Старый05 не переписан вPASS, efficacyfocus-isolation ретроспективно не заявлена.
+
+Лично просмотрены3native06 и9CH01PNG: видны реальный renderer, technicalbanner, actualactorart, North/Southdoors, existingCH01routes/death/phone/options/completion. AI-three-routes.png снят уже послеLOS/deathstage и не доказывает визуально три одновременно движущихсяNPC; соответствующая численная проверка отдельная. Статичные кадры не подтверждают непрерывную читаемость поворотов, GameFeel или художественную приёмку кампании.
+
+Native06 сообщает6813monotonicmovementintervalsamples, p50=16.665ms/p95=17.194ms/p99=17.512ms на X11/GTX1050Ti/Ryzen53600, --disable-vsync --max-fps60. Это Time.get_ticks_usec на awaitedphysics→processточках только вmovingsections, не fixedphysicsdelta. Rawwall_framesarrayнеэкспортируется: quantiles независимо не пересчитаны; предзаданныхacceptanceпорогов нет, universalFPSPASS не выдан. CH01legacyframe_timings используетprocessdelta и не включён в этот wall-result. InjectedInput не измеряет OSkeyboard/hardwarelatency.
+
+Конкретные оставшиеся границы H02/H04:
+
+- **H02/readability и сложные roomcontracts:** непрерывное nativeнаблюдение движения/поворотов/камеры в реальном authoredпилоте; actualnarrow/minimumclearance/динамическиеprops/partyfollowers и checkpoint/doorstaging соответствующих будущих миссий. Три peeractors не доказывают crowdseparation; axis-alignedrectangle support не универсальныеrotated/nested/multishapegeometry. Текущие доказанные CH01/второйlayout/LOS/reset не переоткрываются из-за этих будущихграниц.
+- **H04/instrumentation до приемочных прогонов:** сохраняемый rawmonotonicseries, event→accepted/firstvisible отдельно отwindup, retrywalltime, meaningful-actiongaps/deathcauses; hardware/backend/settings и thresholds послеbaseline, но **до** acceptancerun. Настоящий representativepilot, а не один фиксированный physicsсчётчик, необходим для полногоReadinessвывода.
+- **После производства конкретного контента:** собственные route/ART/audio/listening/platform/pacingacceptance. Реальные длительности всех глав/одного420–540minмаршрута измеряются когда главы существуют; требование измерить ещё не созданную кампанию не подменяет предстоящий preproductioninstrumentationgate и не оправдывает padding.
+
+ПолныйH02/Readiness и отдельныеcapabilityаудиты принимаются другим scopedрешением. Approved21MDS/c812 и stopP06 не менялись этим review. Нет новых exports/nativeWindows/слушания/fullcampaign/новойARTприёмки.
+
+Verdict: Ship this bounded component.
+Not checked: fullH02/Readiness/P07 admission, continuoussubjectiveGameFeel, newchapterassets/audio, currentfixexportedbuilds/nativeWindows, rawquantilerecomputation, hardwareinputlatency andcampaignlength.

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "status": "PASS_COMPONENT",
+  "scope": "SECOND_TECHNICAL_NAVIGATION_PILOT_AND_ROUTER_CACHE_FIX_ONLY",
+  "reviewer_role": "INDEPENDENT_QA",
+  "reviewer": "qa_resume_recovery",
+  "source_head": "c3ea57f57e5acc8adbb533232d116e49c4d4d9d2",
+  "router_sha256": "f9f23f82d9219bbd39037fce5a3d65ff0bfc271ebaf6ab8e4199c108451d8697",
+  "operation": "0105c9c807cd4e9d8103f36fe0a0075e",
+  "receipt_exit_code": 0,
+  "canonical_consumed": true,
+  "must_fix_findings": [],
+  "closed_findings": [
+    "SP-Q01 legacy identity field access",
+    "SP-Q02 coverage derived from actual completed contexts",
+    "SP-Q03 slow-AI shortcut/cache loop",
+    "SP-Q04 LOS fixture occupancy contamination",
+    "SP-Q05 own-bench self-overlap oracle",
+    "SP-Q06 Prime action/range eligibility fixture"
+  ],
+  "preserved_unresolved_historical_cause": {
+    "attempt": "second-pilot-05",
+    "status": "FAIL_RETAINED",
+    "reason": "Combined walk predicate failed without offending interval telemetry; external input/run cause not established",
+    "current_acceptance": "Fresh06 controlled walk passed unchanged bound with explicit no-run checks; old result not rewritten"
+  },
+  "actual_checks": {
+    "second_pilot_headless": 121,
+    "second_pilot_native": 102,
+    "existing_routing_contract_headless": 70,
+    "CH01_room_headless": 18,
+    "CH01_mission_headless": 28,
+    "CH01_native": 58
+  },
+  "engine_runs_by_reviewer": 0,
+  "production_source_or_worktree_mutations_by_reviewer": false,
+  "full_H02_approval": false,
+  "readiness_approval": false,
+  "phase_approval": false,
+  "merge_approval": false,
+  "new_campaign_or_art_acceptance": false,
+  "native_Windows_tested": false,
+  "review": "REVIEW.md",
+  "evidence": "final-evidence-audit.json",
+  "input_inventory": "bound-input-inventory.json",
+  "review_sha256": "55c4a0ac576f8f0764c7815ea92a1de93a94ab1607c74e3bc98a10f31117f78f"
+}

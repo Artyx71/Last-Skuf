@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_READ_ONLY_QA_SOURCE_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "status": "FAIL_COMPONENT",
+  "verdict": "FAIL",
+  "scope": "SECOND_TECHNICAL_PILOT_FROZEN_AB7_FIRST_FAILURE_ONLY",
+  "source_head": "ab7a0e380d5fe54a820eda9cb5404250bcf6cff8",
+  "source_sha256": {
+    "tools/p07_second_pilot.py": "b30740e62e99b9ca5d0ba87c4fc8d07432c95bd9722711929794d002c2b82f0a",
+    "tools/fixtures/p07_second_pilot_host.gd": "f57e5b2d3e36739ec154b9fc6bb9a9d12d7ba71cc298fd1b298794ef558072f9",
+    "tools/fixtures/p07_second_pilot.gd": "f173bba1d83bf0aec4cf7e32a80059b7a0283ed5f5c2de59d5a7b306d08e9d9d",
+    "game/scripts/actors/combat_player.gd": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+    "game/scripts/actors/yakuza_actor.gd": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/ai/room_navigation.gd": "2f418685068a641b024598c18bbee2ae9ff61fbcc03b779b3485e951d6de4c85",
+    "game/scripts/ai/room_navigation_host.gd": "4ea40b7cb7e7de8cce10eeebc889fcabef8525fa08ee4ccae5c1d6dc9d9b5cd5",
+    "game/scripts/core/combat_lab.gd": "3174690ac6df08c538b0784af5a0f4b3f855d6544591a274f78a8cd35407f97e",
+    "tools/p07_room_pilot.py": "d7b7a258f3d27e2633189dca4a4dd8277806acce93798d30a64c53818e5319f2"
+  },
+  "evidence_sha256": {
+    "WORK/reports/pre_p07/second-pilot-01/validation.json": "669f07b64074e7b835d8b0ae95cf3e4a26f96afc77fc44299e45b3db6439ecd7",
+    "WORK/reports/pre_p07/second-pilot-01/runs.json": "a700a61e7c905c993a4d2ab9fce63d85f14d3fc2f98f5f5e5f808e5750cd7a25",
+    "WORK/reports/pre_p07/second-pilot-01/pilot-result.json": "727cf27df66d29493993c8ec02129435b983a88222f723f21d4006b6464b41f2",
+    "WORK/reports/pre_p07/second-pilot-01/pilot.log": "a7b3cdfce4656089af4ca2e22d4fafeee590d336938adfe2c410e2a22b4bd4c0",
+    "WORK/reports/pre_p07/second-pilot-01/import.log": "46544b217d0a44df7adeab5d37b61f5bdb1d6e80e054143eebc3c74a19272d5f",
+    "ROOT/.autopilot/jobs/8856b95712bb4c0a8a60d395b4dcadf9/input.json": "d7fab173e1e741597ed6ea2f30c7afec4c8d707401ada57945c4460b8571d0f1",
+    "ROOT/.autopilot/jobs/8856b95712bb4c0a8a60d395b4dcadf9/receipt.json": "2c590383725ef770abe9d40bc029bbaa6915cca672a09a09a86e14631230e252",
+    "ROOT/.autopilot/jobs/8856b95712bb4c0a8a60d395b4dcadf9/started.json": "1b18b6c1a64115030b0989f57b29e240beb4f61cb071eaf90fc66a1ae6965ffc",
+    "ROOT/.autopilot/jobs/8856b95712bb4c0a8a60d395b4dcadf9/output.log": "1333ca79060f77aee1e79ce73394a78e3f57edbcb81df827db828e80b63b2132"
+  },
+  "source_before_after_equal": true,
+  "source_inventory_records": 613,
+  "canonical_operation": "8856b95712bb4c0a8a60d395b4dcadf9",
+  "canonical_exit": 1,
+  "actual_checks": 36,
+  "passed_checks": 26,
+  "failed_checks": 10,
+  "actual_completed_walking_context_rows": 0,
+  "native_executed": false,
+  "blocking_findings": [
+    {
+      "id": "SP-Q01",
+      "severity": "MEDIUM",
+      "status": "OPEN_IN_AB7_FROZEN_ATTEMPT01",
+      "location": "tools/fixtures/p07_second_pilot.gd:112",
+      "summary": "LegacyYakuzaPlayer has no actor_id; unguarded property read aborts firstwalkingroute beforeanycontextcompletion.",
+      "fix": "Short-circuitlegacybranchusingactualPlayer script/class contract;characteractorID onlyforCharacterPlayer. Abort/cleanup onunexpectedwalkingfailure so AItestsneverreuseleakedlivehost."
+    },
+    {
+      "id": "SP-Q02",
+      "severity": "MEDIUM",
+      "status": "OPEN_IN_AB7_FROZEN_ATTEMPT01",
+      "location": "tools/fixtures/p07_second_pilot.gd output seven_heroes_eight_registered_contexts",
+      "summary": "Unconditionaltrue coverageflag contradicts actualzero contextrows infailedrun.",
+      "fix": "Deriveexpectedcontextset/count fromactual completedroute rows andfailedchecks, notconstant; preservescope/errorandfailoverall onmissingcoverage."
+    }
+  ],
+  "AI_failure_qualification": "Walkingcoroutineerrorsbefore dispose;oldHostcanremainalivewhenAIcreateoverwriteslab. Contaminatedsame-runAI failures notqualifiedasproductionrouterbug; no causalitystrongerthansource/logsupports.",
+  "newer_fixed_source_or_evidence_accepted": false,
+  "full_H02_Readiness_phase_art_campaign_FPS_approval": false,
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}
