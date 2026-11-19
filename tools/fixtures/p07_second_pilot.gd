@@ -148,6 +148,7 @@ func walking_routes() -> void:
 func follow(enemy: CharacterBody2D, goal: Vector2, ticks: int) -> Dictionary:
 	var bad := false
 	var jump := false
+	var trace: Array[Dictionary] = []
 	var prior := enemy.position
 	var prior_tick := Engine.get_physics_frames()
 	for tick in ticks:
@@ -157,8 +158,11 @@ func follow(enemy: CharacterBody2D, goal: Vector2, ticks: int) -> Dictionary:
 		jump = jump or prior.distance_to(enemy.position)>float(enemy.definition.chase_speed)*physics_ticks/60.0+0.2
 		prior = enemy.position
 		prior_tick = Engine.get_physics_frames()
-		if prior.distance_to(goal)<=4.1: return {"reached":true,"overlap":bad,"jump":jump,"ticks":tick+1}
-	return {"reached":false,"overlap":bad,"jump":jump,"ticks":ticks,"position":[enemy.position.x,enemy.position.y]}
+		if tick%120==0:
+			var cached: Dictionary = lab.room_navigation.router.paths.get(enemy.get_instance_id(),{})
+			trace.append({"tick":tick,"position":[prior.x,prior.y],"reason":lab.room_navigation.router.last_reason,"index":cached.get("index",-1),"replans":lab.room_navigation.router.replans})
+		if prior.distance_to(goal)<=4.1: return {"reached":true,"overlap":bad,"jump":jump,"ticks":tick+1,"trace":trace}
+	return {"reached":false,"overlap":bad,"jump":jump,"ticks":ticks,"position":[enemy.position.x,enemy.position.y],"trace":trace}
 
 func AI_routes() -> void:
 	await create()
@@ -238,7 +242,7 @@ func AI_routes() -> void:
 		await frames(3)
 		enemy.set_physics_process(true)
 		await frames(15)
-		check(kind+"/LOS_physical_closed",not enemy.sees_player() and enemy.attacks_started==0)
+		check(kind+"/LOS_physical_closed",not enemy.sees_player() and enemy.attacks_started==0,{"north_disabled":lab.doors.north.shape.disabled,"south_disabled":lab.doors.south.shape.disabled,"NPC_positions":lab.enemies.map(func(e: CharacterBody2D):return [e.position.x,e.position.y])})
 		lab.request_doors(false,true)
 		for tick in 90:
 			await frames(1)
