@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "source_python_sha256": "5dc94e6911058afda130f1bf242fbe4db599b08d35ce22ca59ef5c89894d7e83",
+  "contract_sha256": "4eb9b3f8a3aaa568a32c7b41ae1db80429f7f7f945a020513c206f0c1b23225a",
+  "raw_sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+  "actual_measurement_is_historical_85": true,
+  "current_inventory_files_verified": 616,
+  "changed_since_measurement": [
+    "tools/p07_pacing.py",
+    "tools/tests/test_p07_pacing.py"
+  ],
+  "controlled_intervals": 958,
+  "idle_intervals": 239,
+  "metrics_exact_rederived": true,
+  "cases": [
+    {
+      "name": "functional_check_false",
+      "rejected": true,
+      "error": "ValueError: Functional summary must match actual typed unique checks"
+    },
+    {
+      "name": "boolean_request_id",
+      "rejected": true,
+      "error": "ValueError: Integer, not boolean, observation IDs/timestamps required"
+    },
+    {
+      "name": "boolean_timestamp",
+      "rejected": true,
+      "error": "ValueError: Integer, not boolean, observation IDs/timestamps required"
+    },
+    {
+      "name": "boolean_raw_schema",
+      "rejected": true,
+      "error": "ValueError: Complete functional native run required"
+    },
+    {
+      "name": "wrong_full_before_context",
+      "rejected": true,
+      "error": "ValueError: Input does not match its actual context/precondition"
+    },
+    {
+      "name": "invented_outgoing_contact_time",
+      "rejected": true,
+      "error": "ValueError: Contact must be the same actual Core action/contact pose"
+    },
+    {
+      "name": "invented_lethal_time",
+      "rejected": true,
+      "error": "ValueError: Restart must follow the same real lethal Core contact/dead state"
+    },
+    {
+      "name": "later_accepted_anchor",
+      "rejected": true,
+      "error": "ValueError: Invalid input/accept/render timestamp order"
+    },
+    {
+      "name": "later_changed_draw_anchor",
+      "rejected": true,
+      "error": "ValueError: Render must be the first changed draw of the same actor/context"
+    },
+    {
+      "name": "valid_contract_same_blob_once_each",
+      "passed": true
+    },
+    {
+      "name": "changed_contract.json_pin",
+      "rejected": true
+    },
+    {
+      "name": "changed_review.json_pin",
+      "rejected": true
+    },
+    {
+      "name": "duplicate_review_status",
+      "rejected": true
+    }
+  ],
+  "all_passed": true,
+  "engine_Controller_Git_network_calls": 0
+}

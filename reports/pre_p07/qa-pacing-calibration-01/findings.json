@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "PACE-Q01",
+      "severity": "MEDIUM",
+      "must_fix": true,
+      "file": "tools/p07_pacing.py",
+      "function": "load_contract / main",
+      "problem": "The approved hash is not necessarily the parsed contract bytes, duplicate JSON review status is accepted, and contract/review are not pinned unchanged through the native run.",
+      "actual_repro": "Frozen function loads unapproved frame_p95_ms25 while Lead approved24: transient parse-file swap restored before digest succeeds. A review with contradictory status FAIL then PASS_COMPONENT also succeeds. Temporary fixtures only; no production files touched.",
+      "minimal_fix": "Read each contract/review blob once, strict-parse that same blob, hash that same blob, reject duplicate keys/nonfinite constants/types. Carry pinned initial digests; recheck immutable bytes before engine launch and before final acceptance, retaining the initial digest in result.",
+      "verification": "Original valid control accepted; exact transient/duplicate probes and mid-run changed/deleted contract/review controls rejected without a successful acceptance."
+    },
+    {
+      "id": "PACE-Q02",
+      "severity": "MEDIUM",
+      "must_fix": true,
+      "file": "tools/p07_pacing.py",
+      "function": "analyze",
+      "problem": "Timestamp membership alone accepts observations from a different context/kind/state and invented contact/death timestamps; the validator does not prove the measured request was accepted/rendered.",
+      "actual_repro": "All48 request timestamps were rebound to the first Yakuza physics/draw while keeping original context/kind names and untouched raw series.42 requests then point at the wrong character; eight restart death/contact fields were invented. analyze still returned apparently good16.583ms acceptance/17.16ms render stats.",
+      "minimal_fix": "Validate exact registered8contexts and6requests each (4directional move, melee, restart), typed monotonic event identity; match full accepted/render state/context and actual acceptance predicates; check first changed post-draw after acceptance; bind actual outgoing contact and lethal death/restart by matching recorded Core/context/event/state. Record any missing expected identity at observation time, rather than trusting summaries.",
+      "verification": "Current actual baseline remains valid under independent full-state/context/first-draw and8+8Core checks. Exact rebinding, missing/duplicate/mismatched state/context/contact/death and malformed records must fail closed."
+    },
+    {
+      "id": "PACE-Q03",
+      "severity": "LOW",
+      "must_fix": false,
+      "file": "tools/p07_pacing.py",
+      "function": "native clip ffconcat encoding",
+      "problem": "MP4 timestamps quantize the roughly50ms captures to40/80ms because concat defaults to25Hz. This adds uneven cadence that is absent from capture timestamps.",
+      "actual_repro": "All106 frames retained; raw49.115..51.439ms intervals become79×40ms and26×80ms; maximum PTS error19.998ms.",
+      "minimal_fix": "Before using video to judge cadence, re-encode the same PNGs with a sufficiently fine input time base and verify output PTS against saved capture times. No new Godot run is required. Otherwise explicitly restrict the video to a sampled visual illustration.",
+      "verification": "Raw software timing statistics are unaffected. Do not use this current MP4 as faithful frame-pacing evidence."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "ffmpeg",
+    "-nostdin",
+    "-n",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-acceptance-01/clip.ffconcat",
+    "-fps_mode",
+    "vfr",
+    "-enc_time_base",
+    "1:1000",
+    "-video_track_timescale",
+    "1000",
+    "-c:v",
+    "libx264",
+    "-pix_fmt",
+    "yuv420p",
+    "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/pacing-acceptance-01/native-camera.mp4"
+  ],
+  "exit_code": 0
+}

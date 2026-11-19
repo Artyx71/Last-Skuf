@@ -249,6 +249,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _walk_to(point: Vector2, speed: float) -> void:
+	if lab.has_method("navigation_velocity"):
+		velocity = lab.navigation_velocity(self,point,speed)
+		return
 	if position.distance_to(point) > 3:
 		velocity = (point - position).normalized() * speed
 

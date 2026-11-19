@@ -1,0 +1,76 @@
+{
+  "scope": "EXACT_CANDIDATE_HELPERS_PURE_FIXTURE_ONLY",
+  "source_sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+  "method": "Exact two AST function bodies compiled unchanged in explicit temporary namespaces. No Controller import/construction, no child subprocess, no engine or canonical state/Git writes. Integration applicability assessed separately from actual constructor/exclusive source calls.",
+  "rows": [
+    {
+      "name": "valid unchanged module-root control",
+      "target_role": "MODULE_ROOT",
+      "expected": "ADMITTED",
+      "actual": "ADMITTED",
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "same-root pending blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "same-root loaded source change blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT runtime changed after import; start a fresh controller process"
+    },
+    {
+      "name": "same-root phase worktree blocks",
+      "target_role": "MODULE_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "Run the controller from the canonical checkout, not a phase worktree"
+    },
+    {
+      "name": "phase-source library targeting another canonical root with pending install MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "canonical-source library targeting another canonical root with pending install MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT handoff pending; repair/rollback is required"
+    },
+    {
+      "name": "changed loaded source library targeting another canonical root MUST block",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "AUTOPILOT runtime changed after import; start a fresh controller process"
+    },
+    {
+      "name": "other target phase worktree remains denied",
+      "target_role": "OTHER_CANONICAL_SHAPED_ROOT",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "error": "Run the controller from the canonical checkout, not a phase worktree"
+    }
+  ],
+  "passed": true,
+  "Controller_calls": 0,
+  "child_processes": 0,
+  "network_calls": 0,
+  "production_state_writes": 0
+}

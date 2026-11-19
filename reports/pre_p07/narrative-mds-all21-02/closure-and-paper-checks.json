@@ -1,0 +1,79 @@
+{
+  "closed_findings": [
+    {
+      "id": "N-MDS-CH21-01",
+      "status": "CLOSED_IN_NARRATIVE_PAPER_SCOPE",
+      "evidence": [
+        "PR1 wall spans full384..896 except672..704, fixed segments384..672 and704..896; no side bypass.",
+        "Tega south688,496/cart688,464;32px foot distance inside P06 12..38. UP motion max37.8 releases authored gap, actual sweep still to be proved.",
+        "Person starts PR1 north768,224, east door880,192,16,128 locked; exit is PR2. Stopper832,272 is reached after crossing gap; released person must cross the formerly closed door and arrive exit.",
+        "CP_R1 stores TegaSouth/personNorth/cartInitial/lockedEastGate; patrol dead/no jobs before noncombat person walk; retry/once/primary preserved."
+      ]
+    }
+  ],
+  "CH20_geometry": {
+    "wall_x": [
+      1456,
+      1472
+    ],
+    "fixed_y_segments": [
+      [
+        0,
+        256
+      ],
+      [
+        384,
+        768
+      ],
+      [
+        896,
+        1024
+      ]
+    ],
+    "north_shutter_y": [
+      256,
+      384
+    ],
+    "south_always_open_y": [
+      768,
+      896
+    ],
+    "both_gaps_px": 128,
+    "waypoints_cross_actual_gaps": true,
+    "north_close_does_not_trap_either_side": true,
+    "actual_body_LOS_native_proof": false
+  },
+  "CH21_B_gate": {
+    "wall_x": [
+      2320,
+      2336
+    ],
+    "fixed_y_segments": [
+      [
+        1152,
+        1920
+      ],
+      [
+        2048,
+        2304
+      ]
+    ],
+    "door_y": [
+      1920,
+      2048
+    ],
+    "initial_state": "OPEN for Pasha/FINAL cohort",
+    "close_only_after": "Pasha and party return to SB2, room/body clear,1.2s warning",
+    "Ryzhik_release": [
+      2288,
+      1984
+    ],
+    "release_access": "west side before crossing locked gate",
+    "checkpoint": "keeps Pasha/FINAL dead IDs, gate closed and party positions; no respawn",
+    "open_lock_until_final": true
+  },
+  "main_B_cart_is_optional_tactical_cover_not_invisible_required_puzzle": true,
+  "story_evidence_endings_QTE_predicates_changed": false,
+  "remaining_Narrative_findings": [],
+  "GameFeel_collision_AI_safety_actual_quality_verified": false
+}

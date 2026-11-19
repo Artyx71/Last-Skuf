@@ -1,0 +1,50 @@
+# PRE-P07 C02 — независимый architecture/Lead review дизайна
+
+**Дизайн A→B технически реализуем при перечисленных ниже обязательных условиях. Это не разрешение actual ROOT bootstrap/install, не полный C02 и не Production Readiness PASS.** Принятый candidate runtime-fence component5c07/RF-Q01 не переоткрывается: actual code и независимый QA02 подтверждают исправление. Исходники bootstrap generator/installer и его собственные crash tests в этом снимке не представлены, поэтому они не приняты за реализацию.
+
+Review read-only: прочитаны actual ROOT runner02b59b6d…, WORK runner5c07e933…/SHA d700e88e…, обе версии схемы/config, readiness, guards, QA02 raw16purecontrols/functional-test source, прежние15compatibility cases и все11required installation cases. Source snapshots/hash inventory сохранены; Controller/worker/engine/network/Git mutations не запускались. Production изменения выполняет только parent ROOT. P06 full PASS/подтверждённый mergef832 остаётся неизменным.
+
+## Что уже подтверждено
+
+В нынешнем candidate убран blanket `root!=ROOT:return`. Source и requested-target pending markers, в том числе dangling symlinks, проверяются; `.git`-file worktree запрещён как operational authority. Фактический source fingerprint проверяется и для custom fixture. Другой operational root с installedrunner не может заимствовать source другого checkout. Constructor и exclusive вызывают helper до допуска, exclusive ещё раз после получения flock. Это закрывает три RF-Q01 контрпримера. QA02 decision6b78bada…: исходные8purecases+8boundarycontrols положительны; авторскийactual191/191 и12functional tests с receipt85ec… подтверждены отдельно, не выдаются за новые тесты этого reviewer.
+
+Fence — **admission check**, не installer: он не создаёт backup/journal, не атомарно меняет семь файлов, не синхронизирует Game и не изменяет stopP06. Fingerprint покрывает10listedfiles, не всё дерево; семь меняемых runtime paths и worker/tools verify-only/precondition paths надо различать. ROOT всё ещё использует старые runner/GitHub, readiness.py отсутствует; холодный ROOT Game остаётся P05. Старый Root preflight15/15 показывает совместимость чтения, а не actual installation и не актуальный full-tree sync.
+
+## Почему отдельный bootstrap допустим
+
+Нельзя требовать от ещё не установленного fence блокировать старый код. Actual old `main` читает status и пишет PAUSE вне flock; старые загруженные Controller вообще не имеют fingerprint check. Ни PAUSE, ни создание intent/marker само по себе не добавят им эту способность. Поэтому утверждение «все entrypoints технически блокируются с начала A» было бы неверным.
+
+A следует оформлять как отдельное cold **single-file coherent bugfix**: точный old02b runner → тот же legacy runner с минимально добавленным accepted fence. Все остальные старые dependencies/config/семантика неизменны, новый readiness import не добавляется. До atomic replacement существует целиком старый runtime; после — целиком guarded-old. До A обязан фактически завершиться весь известный набор старых unfenced authors/controllers/workers с проверкой PID/startticks/bootID и наследуемых fd; launchers/daemon entrypoints должны быть отсутствующими или остановленными на всём cold window. Это организационно проверяемая предпосылка закрытой maintenance-сессии, не ретроспективная техническая защита произвольного старого Python процесса.
+
+A тоже требует durable backup+собственный intent/journal **до первой code replacement**, тот же существующий flock inode, exact old/target bytes/modes, same-filesystem temp+verified hash+fsync+atomic replace+directory fsync, отказ при unknown change/symlink/failed durability. Нельзя переносить durable backup «после A» только потому, что A состоит из одного файла. Но A не начинает неподготовленный многофайловый bundle и не выдаёт `DURABLE_MAINTENANCE` полного C02 за выполненный: crash до replacement оставляет coherent old; после replacement — coherent guarded-old либо состояние, требующее отдельной проверки журнала/хешей. До установленного fence не обещается all-command marker enforcement.
+
+Только после independently reviewed/tested A, actual source installation verification и fresh-process smoke можно начать B. Если требуется абсолютный запрет даже unlocked status/pause до первого A rename при произвольном новом launcher, предложенных старых primitives недостаточно: нужен заранее действующий внешний launch barrier. Этот более сильный threat model не следует молча объявлять доказанным. В согласованном сценарии нет заявленного daemon, stopP06 закрыт, нет второго автора; cold single-writer premise должна быть подтверждена непосредственно перед actual A.
+
+## Раздельные commit/recovery boundaries
+
+| Момент | Допустимый результат восстановления | Что нельзя заявлять |
+|---|---|---|
+| A intent/backup, до replacement | Проверить old hash и журнал; старый coherent runtime сохранён; B не начинался | Что old entrypoints уже знают marker |
+| A replacement, до durable verified completion | Только old/guarded-old, точные hash/mode/fsync checks; unknown→BLOCKED; authority не откатывать | Что незавершённый журнал — установка PASS |
+| A verified, новый процесс | Guarded legacy runtime доказан; stopP06/authority/index/refs/Game сохранены | Что readiness/GameSync уже выполнены |
+| B pending, до любой bundle copy | Все operational entrypoints блокирует реально установленный fence; journal/backup durable | Что PAUSE заменяет этот барьер |
+| B после любого из7 replacements | Marker остаётся; repair либо полный verified rollback под тем же flock | Что отдельный файл или stale loaded Controller разрешают запуск |
+| B full target verified | Durable COMMIT_VERIFIED перед durable снятием marker; installer заканчивается | Что старый installer может продолжить run_phase |
+| Новый процесс после B | Проверяет exact ROOT module paths/hashes/schema/prompt/config и read-only state/status | Что code-only install закрывает C02/P07 |
+
+**B rollback baseline — post-A guarded-old snapshot.** Нельзя восстанавливать исходный02b из старого preflight backup и незаметно убирать fence. A rollback возможен только пока B не начинался. При B rollback pending сохраняется до восстановления/проверки всего post-A baseline; старые state/mirror/lease/PID/lock snapshots не восстанавливаются. Новое неизвестное изменение code/state/auth/index/ref — BLOCKED independent recovery, не автоматический reset/copy-over.
+
+## Обязательные acceptance tickets до actual действий
+
+1. **C02-D01 / HIGH — cold bootstrap admission.** Подтвердить consumed receipts, actual terminated identities и отсутствие нового launcher; отпустить author lease. Installer standalone, без импорта Controller и без удерживающего canonical worker, конфликтующего с отдельным flock. Existing lock inode не менять/не удалять; busy→отказ. Не убивать несвязанные процессы ради доказательства drain.
+2. **C02-D02 / HIGH — минимальный atomic A.** Зафиксировать генератор, input02b и targetSHA. AST после удаления только fence additions должен быть legacy-equivalent; прочие imports/functions/config/PR/phase/worker semantics неизменны. Backup+intent/fsync до code; preserve modes/absence/ownership; tests stop-before/after rename, write/fsync/rename denial, busy lock, source mutation/symlink/corrupt backup. Не включать readiness dependency в A.
+3. **C02-D03 / MEDIUM — unlocked pause control.** QA02 pending CLI matrix пока не содержит pause. Для A явно проверить fresh pending `pause` и constructor после старого import с поздним marker: PAUSE bytes/absence, canonical state и RUNNING.lock неизменны. Существующие RF-Q01/cross-root/loaded-source controls сохранить. Это узкое дополнение, не новый engine-прогон.
+4. **C02-D04 / HIGH — B dependency/durability.** B требует hash-bound actual A verification; full backup использует post-A runner. Все7target files+unchanged worker/other pinned dependencies сверяются под lease. Durable HANDOFF_PENDING+backup/journal до первой copy; все controller/pr/resume/task/status/pause paths заблокированы до complete commit/verified rollback. Проверить interruption после каждого из7 путей и перед commit, strict source/symlink/failure injections из прежних11cases.
+5. **C02-D05 / HIGH — commit/rollback ordering.** Полный target и protected inputs проверяются до durable COMMIT_VERIFIED; marker не снимать при незавершённой проверке/commit journal. Recovery не удаляет неизвестные files и не восстанавливает history/counters/merge ledger/authorization/locks. После commit — конец старого maintenance процесса; fresh interpreter, не hot continuation.
+6. **C02-D06 / HIGH — separate canonical sync/readiness.** Root Game/tools/canonical tree требуют отдельного protected transaction, полного сравнения с frozen approved P06 и проверки Root dirty/private/staged4debugdeletions/localfiles. Code install не закрывает `safe_handoff`. Новый read-only parser/status обязан сохранить current global/per-phase counters, P06MERGED/history/consumed/custom checkpoint и historical подписанные решения; не переписывать их под новую schema. stopP06 сохраняется до независимого FULL Readiness/21MDS и проверенного handoff.
+
+Это acceptance requirements ещё не выполненного installer, не шесть новых обнаруженных runtime-дефектов. Все прежние11installation cases сохраняются обязательными для полного B/C02; ни один не помечен выполненным по данному design report. Для A нужны собственные фактические isolated tests и отдельный независимый execution review до изменения ROOT. После этого — actual A evidence, затем отдельно implementation/review B. Не нужен новый permission-вопрос владельцу для выбора этой инженерной последовательности; существующие quality gates и авторизация не расширены.
+
+## Итог
+
+Рекомендую реализовывать и тестировать A/B в указанной последовательности, не выполнять full bundle по одному плану. RF-Q01 закрыт в reviewed5c07 candidate; A source/installer отсутствуют в этом review и не одобрены. Полный READINESS-C02, ROOT installation, GameSync, FULL Production Readiness, P07 mass-production/release остаются **OPEN/NOT_APPROVED**. P06 PASS/MERGED не затронут; review не расходует новый phase attempt и не меняет progress.

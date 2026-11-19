@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "status": "ACTUAL_BASELINE_VALID_DATA_NOT_CONTRACT_APPROVAL",
+  "raw_sha256": "5ec6a6896ba577043ce42d4940b805c4d61bcdd3fbd5aa98c28795a0442fc69d",
+  "old_contract_sha256": "1d1220b8d4f07d45097d3f6056fd71df4c011fbca2605a6eb778d3af0c864cfc",
+  "functional_checks": 74,
+  "raw_draws": 2772,
+  "raw_physics": 2627,
+  "request_kind_counts": {
+    "timka_prime": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "ryzhik_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "gabar_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "timka_present": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "yakuza": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "tega_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "olezhka_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    },
+    "pasha_training": {
+      "move": 4,
+      "melee": 1,
+      "restart": 1
+    }
+  },
+  "all48_full_physics_context_and_first_changed_draw_bindings": true,
+  "actual8_outgoing_and8_lethal_contact_bindings": true,
+  "derived_stats_independent": {
+    "input_accept_ms": {
+      "samples": 48,
+      "p50": 16.545,
+      "p95": 18.058,
+      "p99": 18.252,
+      "max": 18.252
+    },
+    "input_render_ms": {
+      "samples": 48,
+      "p50": 17.141,
+      "p95": 19.047,
+      "p99": 19.417,
+      "max": 19.417
+    },
+    "death_to_control_ms": {
+      "samples": 8,
+      "p50": 16.49,
+      "p95": 16.671,
+      "p99": 16.671,
+      "max": 16.671
+    },
+    "accepted_to_contact_ms": {
+      "samples": 8,
+      "p50": 82.769,
+      "p95": 199.721,
+      "p99": 199.721,
+      "max": 199.721
+    },
+    "old_mixed_movement_frame_ms": {
+      "samples": 1197,
+      "p50": 16.652,
+      "p95": 17.05,
+      "p99": 17.788,
+      "max": 19.881
+    },
+    "controlled_only_frame_ms": {
+      "samples": 958,
+      "p50": 16.65,
+      "p95": 17.069,
+      "p99": 17.861,
+      "max": 19.881
+    },
+    "idle_calibration_frame_ms": {
+      "samples": 239,
+      "p50": 16.656,
+      "p95": 16.967,
+      "p99": 17.129,
+      "max": 18.203
+    }
+  },
+  "derived_limit_values": {
+    "accept_p95_ms": 34,
+    "render_p95_ms": 60,
+    "frame_p95_ms": 24,
+    "frame_p99_ms": 33,
+    "restart_max_ms": 1000
+  },
+  "hardware_raw": {
+    "CPU": "AMD Ryzen 5 3600 6-Core Processor",
+    "GPU": "NVIDIA GeForce GTX 1050 Ti",
+    "backend": "X11",
+    "engine": "4.7.2-stable (official)",
+    "max_fps": 60,
+    "physics_hz": 60,
+    "viewport": [
+      466,
+      508
+    ]
+  },
+  "capture_texture_dimensions": [
+    640,
+    360
+  ],
+  "legacy_hardware_viewport_is_Window_size": [
+    466,
+    508
+  ],
+  "old_budget_includes_idle_despite_plan": true,
+  "guard_and_scope_findings_prevent_GO": true,
+  "no_engine_Controller_Git_network_calls": true
+}

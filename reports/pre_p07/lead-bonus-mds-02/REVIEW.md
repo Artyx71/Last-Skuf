@@ -1,0 +1,35 @@
+# Two bonus full paper MDS / progress contract — independent Lead02
+
+**PASS_COMPONENT / FULL_PAPER_MDS_DESIGN_ONLY** for the two exact optional bonus designs and progress contract on947045bdecc031b36fd0a34048a137b67b4019fb. No current paper-design must-fix remains. The actual storage/owner compatibility pilot has not run and remains required before FULL Readiness/integration. This decision does not approve runtime levels or production admission.
+
+## Independent closure
+
+I reread the changed contract and Counter MDS, their connected current Store/Service/journal/Bootstrap/combat/policy assumptions, the fa0 amendment and final947three-line correction. Offline remains byte-identical to the first review. Only the contract and Counter paper changed from original f2; the20retained non-draft inputs and ROOT/WORK frozen24 main planning pins were checked. The unapproved fa0 snapshots remain historical, distinct from final-source947. Original Lead01 e04910d932fe8608b7d7a28e3f1759d260a803b73b7e45b16cbd17d0e1c256a1 and original role FAILs are unchanged.
+
+| Prior finding | Final paper disposition |
+| --- | --- |
+| BONUS-L01 HIGH / GP01 | Goal is now reaching markers and physically isolating sectors, not killing shooters with a nonexistent lethal ordinary attack. Shove remains damage0/stun1.15; counter/FIN remain optional. No gun/bullet-parry/new power is invented. After actual collision closure the isolated cohort is revoked/retired without fake death, score or completion. |
+| BONUS-L02 / GP02 | Exact return points/occupancy guards and repeat physics confirmation precede job retirement, CP/hint and next-door opening. Intro947has all3doors closed and no cohorts/jobs; west opens after intro/skip intoCP0. CP reset table preserves completed isolation and resets unfinished sector/authority. |
+| BONUS-L03 / Q01 | Before rename, old committed path/state remain; after successful rename, fresh load accepts the one committed fact even if UI/memory acknowledgement was interrupted. No untested power-loss guarantee is made. |
+| BONUS-L04 / Q02 | Service-owned token pins trusted profile/path, canonical Store/profile generation, bonus/host/attempt and fixed Bootstrap return. Replacement/NewGame/cancel/transition/relaunch revoke old authority. Same owner and current durable prerequisite are rechecked before commit and any idempotent shortcut. A declared one-shot Bootstrap return adapter precedes dev CLI autoroute. These adapters remain unimplemented. |
+| BONUS-L05 | BP01–09actual compatibility pilot/independent review is explicitly before FULL Readiness/integration. BP10actual levels/ART/audio/native/export acceptance stays HIGH future secret_delivery_7; no circular demand for finished levels before production and no paper substitution for actual tests. |
+
+My analytic16×12foot checks at(552,768),(896,552),(1224,768) show each rectangle fully inside the hub and outside its closing door; each point is48px from the corresponding door centre. This is arithmetic on the paper bounds, not actual collision/pathfinding/timing proof. If an NPC/projectile occupies the hub/door, closure/CP/next cohort remain blocked. The player may use the existing stun/cover/retreat/FIN/retry choices; no invisible leash, teleport or invulnerability is accepted. Actual no-kill reach/retreat, pursuit/LOS, close timing and invisible-safe cohort retirement remain mandatory gameplay tests as the scene is built.
+
+All LOW corrections are addressed:5NPC not6, CH17_BROTHERHOOD, already-applied lethal-damage wording, and legitimate current fresh/CH01 campaign versus scenario-only graph fixture classification. Current CH10/14 remain planned, so both bonus launches stay locked; a TEST_ONLY pilot does not become production unlock. Future positive production unlock tests require legitimately admitted chapters.
+
+## Role agreement and exact scope
+
+Gameplay02 decision79b5d6d2d9caedcce66899b6c2dd5f759691202b67968c140f74a3dc989ca0d5 is final PAPER PASS on the same three hashes. TechnicalQA02 af0269f68a3c703974c247c4192ade3987536006db71088632ac511bdef0c632 is final DESIGN_ONLY PASS; its contract is unchanged sincefa0 and it also inspected947. Both immutable manifests were rehashed.
+
+Narrative01 494920b27b9af3f2b755ce9ee0feda02ebec729e8fd00e77cc288af1d1bf95fc remains the original f2-byte-specific narrative approval. I explicitly carry its noncanonical narrative boundary forward after reviewing the delta: no new dialogue, character identity, chronology, canonical event/secret/ending/reward or relationship facts were added. The nonkill gameplay promise is made concrete and the chapter comparison label corrected. This is documented Lead delta judgment, not a fabricated second Narrative execution. Offline's whole document is exact original333f9ff1… . The physical loop/lunge and radial marker/defense/retreat structures remain meaningfully distinct on paper.
+
+Bodies/Core/abilities and StoryState VERSION2 are not changed by this design. The sidecar remains a separate profile namespace with two unique history IDs and exactly derived bool completion, no campaign facts/rewards or saved authority/path. Invalid/future/duplicate/partial state is preserved read-only; a strict reader and owner adapters still need real implementation. Actual Main21MDS approval and frozen24 files are neither replaced nor edited by this bonus receipt.
+
+## Next required evidence
+
+Implement the minimal intended bonus progress/owner behavior in an isolated compatibility pilot, then run BP01–09and existing story regressions through the sole serialized executor. Evidence must cover namespace/defaultfalse/current-old-save preservation, strict invalid-state handling, once/idempotence/replay, profile/NewGame/Store invalidation, stale callbacks, actual pre/post-rename interruption and fresh reload, and the bounded Bootstrap return contract. Current production stays locked; positive isolated owner/storage fixtures are clearly TEST_ONLY, while actual future canonical CH10/14 admission remains a separate content integration obligation. No complete bonus levels/assets are required just to prove this contract.
+
+After actual pilot results and independent acceptance, request a separate FULL Readiness Lead aggregation of all six real capability proofs, their source/authority continuity and original Critical/High closures. Keep the four HIGH OPEN future obligations chapter_delivery_21, campaign_pacing_actual, new_audio_acceptance and secret_delivery_7 at P07_LEAD_PASS_AND_MERGE. Neither this paper PASS nor the author evidence-index.DRAFT substitutes for that receipt. Bounded H04 software timing/short camera evidence is not widened into campaign/combat feel or duration acceptance.
+
+No BP/runtime/engine/Controller/Git/network/photo/generator/source/state actions were performed by Lead; only owned reports and paper arithmetic. No ART/audio/level/actual migration/Readiness/P07/phase/merge approval is granted. The paper package can proceed to compatibility-pilot implementation and independent code/test review.

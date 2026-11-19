@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "N-MDS-CH05-01",
+      "priority": "MEDIUM",
+      "status": "CHANGES_REQUIRED_PAPER_REFUGE",
+      "path": "planning/missions/CH05_THE_ORIGINAL_PRIME.md",
+      "lines": [
+        15,
+        16,
+        17,
+        18,
+        21,
+        34
+      ],
+      "title": "Одна южная дверь не изолирует OP2 от двора по всему графу",
+      "evidence": "OP2 south→OP4 закрыта при switch, но OP2 west↔OP1↔OP0↔OP3↔OP4 остаётся связным открытым обходом по перечисленным portals. У OP2 west нет названной двери. Значит утверждение «физически отделяет его от OP4» относится лишь к прямому пути; отсутствует барьер от альтернативного подхода к paused Габару.",
+      "impact": "POV refuge/carry-forward нельзя объявить физически закрытым без контроля второго доступа. Не утверждается, что E3 сам увидит далёкого Габара или что runtime уже допускает атаку; дефект — в обещании бумажной изоляции.",
+      "minimum_fix": "Закрыть реальный west portal OP1↔OP2 перед switch, например дверью(1392,384,16,128), либо дать иной явный физический барьер на альтернативном пути. CP1 должен хранить соответствующие обе границы/door states, opening доступен только в согласованной безопасной sequence после E3/jobs. Не нужен actor immunity/телепорт/новая AIleash.",
+      "verification": "Граф активного E3 не имеет открытого пути в paused refuge до безопасной встречи; actual collision/LOS/door timing после создания отдельно."
+    },
+    {
+      "id": "N-MDS-CH06-01",
+      "priority": "MEDIUM",
+      "status": "CHANGES_REQUIRED_CHECKPOINT_COHORT",
+      "path": "planning/missions/CH06_THE_BREAKER.md",
+      "lines": [
+        19,
+        24,
+        36
+      ],
+      "title": "CP1 не разделяет живую будущую E3 и запрещённые live NPC в BR4",
+      "evidence": "CP1player(1504,1248) находится в BR4; строка36 одновременно восстанавливает E3 initialactors и запрещает CP1 при «любом ещё живом NPC внутри BR4». E3 patrol(1792,1136) и shooter(1952,1088) тоже расположены в BR4 и должны быть живы перед активацией. Не описано, считается ли их inactive future cohort исключением/ещё не instantiated; буквальный live-predicate не совместим с physical initial actors.",
+      "impact": "Неоднозначен сам допустимый checkpoint: либо он никогда не возникает при preplaced E3, либо реализация молча исключает неизвестный набор. Это paper state противоречие/ambiguity, не проверенный runtime softlock.",
+      "minimum_fix": "Явно разделить cohort: ни один остаточный E1/E2 live actor не внутри BR4; будущая E3 — ровно известные IDs, static inactive/no jobs/no detection до собственного предупреждения/resume. Либо отдельно определить её неинстанцированные definitions до активации. Согласовать CP1 predicate/restore и сохранение двух doorway states. Не нужно убирать E3/убивать её ради checkpoint или менять основной исход/D03.",
+      "verification": "Перечислить допустимый CP1 с carried invoice и будущей E3, а затем одинаковую activation после restore; остаточная активная угроза по прежнему запрещает safe CP."
+    }
+  ],
+  "HIGH": 0,
+  "MEDIUM": 2,
+  "unapproved_canon_conflicts_observed": []
+}

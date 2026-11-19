@@ -1,0 +1,39 @@
+[
+  {
+    "id": "BA-L01",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "file": "tools/cold_bootstrap.py",
+    "lines": "163,167–194",
+    "message": "Unbound mutable journal controls protected map/target mode; retained prepare hash not verified. Two corrupted-intent fixtures return VERIFIED and remove marker.",
+    "proof_cases": [
+      "journal_protected_removed",
+      "journal_target_mode_changed"
+    ],
+    "remedy": "Pin immutable typed intent bytes separately from mutable outcome journal; validate the same originally prepared digest and metadata at recovery and every commit boundary."
+  },
+  {
+    "id": "BA-L02",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "file": "tools/cold_bootstrap.py",
+    "lines": "213–224",
+    "message": "Canonical lock inode replacement before_commit is admitted; new canonical flock is acquirable while old fd held, yet installer returns VERIFIED.",
+    "proof_cases": [
+      "canonical_lock_replaced_before_commit"
+    ],
+    "remedy": "Revalidate canonical lease/path/fd identity after boundary hooks and before commit and marker removal; lost ownership blocks without deleting unknown lock."
+  },
+  {
+    "id": "BA-L03",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "file": "tools/cold_bootstrap.py",
+    "lines": "218–224",
+    "message": "Unknown protected-state change at after_commit is certified VERIFIED and recovery marker removed. This is pure deterministic fault injection, not an actual concurrent Controller.",
+    "proof_cases": [
+      "protected_changed_after_commit"
+    ],
+    "remedy": "Revalidate bound intent/source/protected/lease/marker before final release; retain recovery evidence and block on unexpected drift, never restore stale authority."
+  }
+]

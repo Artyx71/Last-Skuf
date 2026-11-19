@@ -1,0 +1,127 @@
+{
+  "canonical_chapter": {
+    "id": "CH03_THE_LAST_ARMRESTLER",
+    "event_id": "EV_CH03_COMPLETE",
+    "title_ru": "Последний армрестлер",
+    "presentation": 3,
+    "chronology": 3,
+    "period": "past",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "TEGA"
+    ],
+    "location": "planned_ch03",
+    "prerequisites": [
+      "EV_CH02_COMPLETE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "memorabilia_1": {
+    "id": "EV_MEMORABILIA_1",
+    "chapter": "CH03_THE_LAST_ARMRESTLER",
+    "kind": "record",
+    "effects": {
+      "flags.memorabilia_1": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "memorabilia_2": {
+    "id": "EV_MEMORABILIA_2",
+    "chapter": "CH09_THE_NIGHT_SHIFT",
+    "kind": "record",
+    "effects": {
+      "flags.memorabilia_2": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "memorabilia_3": {
+    "id": "EV_MEMORABILIA_3",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "flags.memorabilia_3": true
+    },
+    "condition": {
+      "all": []
+    },
+    "prerequisites": []
+  },
+  "dream_secret": {
+    "id": "EV_SECRET_SUPPOSITORY_CANNON",
+    "chapter": "CH14_AGENT_SWARM",
+    "kind": "record",
+    "effects": {
+      "secrets.SECRET_SUPPOSITORY_CANNON": true
+    },
+    "condition": {
+      "all": [
+        {
+          "eq": [
+            "flags.memorabilia_1",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.memorabilia_2",
+            true
+          ]
+        },
+        {
+          "eq": [
+            "flags.memorabilia_3",
+            true
+          ]
+        }
+      ]
+    },
+    "prerequisites": []
+  },
+  "identity_matches_draft": true,
+  "new_D01_D06_evidence_relations_or_permanent_stats": false,
+  "mechanic_status": "new scene-local proposal, not P06 ability, not implemented; separate Gameplay/Lead approval required",
+  "proposed_local_phase_contract": {
+    "advantage_start": 0,
+    "win": 2,
+    "loss": -2,
+    "success_delta": 1,
+    "error_delta": -1,
+    "load_sequence_seconds": [
+      0.6,
+      0.8,
+      0.5,
+      0.7
+    ],
+    "commit_window_seconds": 0.25,
+    "regrip_seconds": 0.35,
+    "settled_once_per_transaction": true,
+    "buttonmashing_advantage": false,
+    "actual_accessibility_or_sport_quality_verified": false
+  },
+  "checkpoint_allowed_pairs": [
+    {
+      "stage": "match_ready",
+      "match_won": false
+    },
+    {
+      "stage": "win_pending",
+      "match_won": true
+    },
+    {
+      "stage": "exit_ready",
+      "match_won": true
+    }
+  ],
+  "new_checkpoint_or_table_driver_implemented_claim": false,
+  "new_original_poses_audio_UI_NOT_CREATED": true,
+  "duration_NOT_MEASURED": true,
+  "new_unapproved_canon_conflicts_observed": []
+}

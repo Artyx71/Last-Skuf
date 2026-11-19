@@ -7,24 +7,26 @@ const DISCLAIMER := "Вымышленная криминальная сатир�
 
 
 func _ready() -> void:
-	if "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
+	var bonus_return: bool = get_node("/root/StoryState").consume_bonus_return(self)
+	get_node("/root/StoryState").enter_menu(self)
+	if not bonus_return and "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
 		get_tree().set_meta("p06_combat_startup_route", true)
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/character_lab.tscn")
 		return
-	if "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
+	if not bonus_return and "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
 		get_tree().set_meta("p06_cast_startup_route", true)
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/cast_viewer.tscn")
 		return
-	if "--open-mission" in OS.get_cmdline_user_args():
+	if not bonus_return and "--open-mission" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/missed_fight.tscn")
 		return
-	if "--open-dialogue" in OS.get_cmdline_user_args():
+	if not bonus_return and "--open-dialogue" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/dialogue_audio_lab.tscn")
 		return
-	if "--open-combat" in OS.get_cmdline_user_args():
+	if not bonus_return and "--open-combat" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/combat_lab.tscn")
 		return
-	if "--open-lab" in OS.get_cmdline_user_args():
+	if not bonus_return and "--open-lab" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/movement_lab.tscn")
 		return
 	var panel := VBoxContainer.new()
@@ -41,6 +43,8 @@ func _ready() -> void:
 	journal.story = get_node("/root/StoryState")
 	add_child(journal)
 	journal.hide()
+	if bonus_return:
+		journal.open_bonuses()
 	if "--p06-owner-preview-smoke" in OS.get_cmdline_user_args() and not get_tree().root.has_node("P06OwnerPreviewSmoke"):
 		var probe := preload("res://scripts/qa/owner_preview_smoke.gd").new()
 		probe.name = "P06OwnerPreviewSmoke"

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "evidence_kind": "manual_reading_of_draft_not_engine_test",
+  "traces": [
+    {
+      "name": "accept_without_AM2",
+      "steps": [
+        "sealed D02/shared",
+        "friend-held backup -> known physical ramp access",
+        "AM1 -> AM3/E2/card",
+        "CP1 shared predicate satisfied once safe",
+        "AM4/E3 -> AM5/E4/exit -> AM16_EXIT",
+        "EV_CH16_COMPLETE/reward once"
+      ],
+      "backup_or_relation_reissued": false
+    },
+    {
+      "name": "refuse_with_pickup",
+      "steps": [
+        "sealed D02/refuse -> contact invitation/address",
+        "AM0 -> AM2/E1",
+        "F retrieves same CX-ADMIN workdisk, carrier_taken=true",
+        "AM3/E2/card -> safe CP1 preserving local carrier",
+        "AM4/E3 -> AM5/E4/exit -> AM16_EXIT",
+        "EV_CH16_COMPLETE/reward once"
+      ],
+      "backup_or_relation_reissued": false
+    },
+    {
+      "name": "refuse_missing_pickup_then_return",
+      "steps": [
+        "AM0 -> AM2 without F -> AM3/E2/card",
+        "carrier_taken=false denies CP1 and final; HUD retains reclaim goal",
+        "reopen AM3->AM2 without consumable key, retrieve same carrier",
+        "return AM3; safe CP1 now allowed",
+        "exit/outro/final as usual"
+      ],
+      "premature_completion_allowed": false,
+      "automatic_evidence_grant": false,
+      "death_before_CP1": "CP0 with fixed seed and reachable AM2; sealed D02 unchanged"
+    }
+  ],
+  "scope_limits": [
+    "Actual collision/LOS/AI/action feel/save behavior not tested",
+    "Production scene-policy/H02/QA/playtests remain required"
+  ]
+}

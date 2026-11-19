@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "acceptance_level": "DESIGN_ONLY",
+  "scope": "PRE_P07_TWO_BONUS_MDS_GAMEPLAY_PAPER_DESIGN",
+  "recorded_at": "2026-11-19T10:03:21.487090+00:00",
+  "reviewer": {
+    "agent": "/root/art_c09_gabar_source",
+    "role": "INDEPENDENT_GAMEPLAY_DESIGN_REVIEWER",
+    "independent_of_author": true,
+    "source_author": false
+  },
+  "reviewed_head": "f2b5e9f516a7a37d3331010dbf0fb4bd6a771382",
+  "must_fix": [
+    "GBONUS-GP-01",
+    "GBONUS-GP-02"
+  ],
+  "nonblocking": [
+    "GBONUS-GP-03"
+  ],
+  "per_document": [
+    {
+      "path": "planning/missions/BONUS_OFFLINE_BUILD_MDS.md",
+      "sha256": "333f9ff1aad9ced6d4b4e46884f660dcf8fa4c0b32327426ee67a568be06af51",
+      "status": "PASS_COMPONENT",
+      "scope": "DESIGN_ONLY_GAMEPLAY_PAPER"
+    },
+    {
+      "path": "planning/missions/BONUS_COUNTER_LESSON_MDS.md",
+      "sha256": "b24e3e1309bed596772455f062bb5b354d900e5139c34f3edd2a027da17c5e0d",
+      "status": "FAIL",
+      "must_fix": [
+        "GBONUS-GP-01",
+        "GBONUS-GP-02"
+      ]
+    },
+    {
+      "path": "specs/BONUS_PROGRESS_CONTRACT.md",
+      "sha256": "ca9e0e64cee41f2be5eaf72ffb7b91e4e7b4bac642c6b2a8ab0017389bbe54de",
+      "status": "PASS_COMPONENT",
+      "scope": "GAMEPLAY_NAMESPACE_GOAL_BOUNDARY_ONLY; separate technical QA/storage/launch binding outstanding"
+    }
+  ],
+  "main_frozen24_hashes_verified_unchanged": true,
+  "runtime_implementation_tests_assets_or_feel_approval": false,
+  "full_Readiness_Lead_P07_massproduction_approval": false,
+  "tests": {
+    "engine_runs": 0,
+    "runtime_bonus_tests": 0,
+    "paper_checks_only": true
+  },
+  "next_action": "Root revises new bonus docs only; repeat independent bounded review on new frozen SHA",
+  "evidence": [
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-bonus-mds-01/inventory.json",
+      "sha256": "a8481814bdfe1f283a4c326a18acf8bb0d4b1cce29587f6c90d4e5b841ddf364"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-bonus-mds-01/findings.json",
+      "sha256": "430b1a19faee92ce607ee58a1bf62436bef1211fb5ed2706ec8140ca2dbd22bd"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-bonus-mds-01/paper-diagnostics.json",
+      "sha256": "a2fba4c2b6e2a8855b8a9ff2f294cbddc1c51dfd7dcc065575d0309b8e67a97f"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-bonus-mds-01/REVIEW.md",
+      "sha256": "6df448ae626960df94f9b3a0849d3081ad58e361c20e54bf00e4b7abad6d7fdd"
+    }
+  ]
+}

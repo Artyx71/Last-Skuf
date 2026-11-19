@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scope": "CORRECTION_OF_PRIOR_QA_PROSE_ONLY",
+  "affected_file": "../qa-pacing-calibration-01/REVIEW.md:17",
+  "affected_review_sha256": "0fac80af7775e159788cf686df860b053f44b17611f3dd7bee72a7fdff0816b1",
+  "incorrect_statement": "The camera sequence is actual CH01 with AI disabled and separately excluded readback time, not campaign playthrough/feel acceptance.",
+  "correction": "The authored CH01 clip is not NPC-frozen. The fixture disables enemies before finish_dialogue; production _dialogue_finished starts resume_lock_ticks=2, then _freeze_actors(false) re-enables them. There is no second disable after dialogue. NPC processing/activity during this clip must not be represented as disabled.",
+  "source_chain": [
+    "p07_pacing.authored_clip: disable enemies before await replay.finish_dialogue",
+    "mission_replay.finish_dialogue: advance actual production dialogue and wait physics frames",
+    "missed_fight._dialogue_finished: resume_lock_ticks=2",
+    "missed_fight._physics_process/_freeze_actors(false): re-enable enemy physics"
+  ],
+  "old_immutable_review_preserved": true,
+  "timing_impact": "Eight technical Host timing contexts are separate; visual_clip_readback is excluded from their performance budget. Raw/frame data and bounded software timing conclusions remain valid. No rerun is needed merely to conform to the mistaken prose.",
+  "sources": [
+    {
+      "path": "tools/fixtures/p07_pacing.gd",
+      "sha256": "edd17ee45525c85ee470dacc9456f12910c61246206b6cf612ab426d3d4388bd"
+    },
+    {
+      "path": "game/scripts/qa/mission_replay.gd",
+      "sha256": "aaf244613bb6a0a93af727d58983b0f63de9a304f9df8d42cd2370feefb4e43e"
+    },
+    {
+      "path": "game/scripts/levels/missed_fight.gd",
+      "sha256": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59"
+    }
+  ]
+}

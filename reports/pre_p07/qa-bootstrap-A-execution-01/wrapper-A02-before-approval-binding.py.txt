@@ -1,0 +1,75 @@
+"""Private actual A wrapper: prepare is read-only; apply requires exact independent GO."""
+import argparse,hashlib,json,os,subprocess,sys
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];W=R/'.autopilot/worktrees/P07'
+PINNED={'tools/bootstrap_runtime_fence.py':'16d0c64f331ce651647b70bbb81fad51d6b855e13f5ec29dbb763a3f4eb557e3','tools/cold_bootstrap.py':'11a8e0d1fd150dbb4364cede5539af5f1df15bcb0f0ed558c1fb402b41dc7dde'}
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+for n,h in PINNED.items():assert sha(W/n)==h,(n,'source changed')
+sys.path.insert(0,str(W/'tools'))
+from bootstrap_runtime_fence import build,LEGACY_SHA
+from cold_bootstrap import Bootstrap,BOOTSTRAP_SHA,fingerprint,checked,writejson,readjson,parsejson
+O=R/'reports/pre_p07/bootstrap-actual-A-02';PLAN=O/'plan.json'
+p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','apply']);p.add_argument('--expected-plan-sha');args=p.parse_args()
+
+def drain():
+ s=readjson(R/'automation/phase_state.json');a=s['autopilot'];op=a['operation']
+ assert s['active_phase']=='P07' and a['phases']['P07']['status']=='PENDING' and a['phases']['P07']['attempts']==0
+ assert a['active_author'].get('ended_at') and not Path('/proc/'+str(a['active_author']['pid'])).exists()
+ assert a['phases']['P06']['merge']['merge_sha']=='f8325212381d67a469b5d9a6dffbf3d244bc9933'
+ assert op['id']=='29ea5f4adba245938c179a509250d10f' and op['consumed'] and op['exit_code']==0
+ receipt=readjson(Path(op['receipt']));assert receipt['operation']==op['id'] and receipt['exit_code']==0 and receipt['log_sha256']==sha(Path(op['log']))
+ started=readjson(Path(op['started']))
+ for key in ['worker','child']:
+  assert not Path('/proc/'+str(started[key]['pid'])).exists(),('old process identity still present',key)
+ assert not (R/'.autopilot/RUNNING.lock').exists()
+ assert readjson(R/'autopilot/config.json')['stop_after_phase']=='P06'
+ # Known launcher/process check, not a claim about arbitrary hidden imported Python.
+ processes=[]
+ for proc in Path('/proc').iterdir():
+  if not proc.name.isdecimal() or int(proc.name)==os.getpid():continue
+  try:
+   cmd=(proc/'cmdline').read_bytes().split(b'\0');first=Path(cmd[0].decode()).name if cmd else ''
+   if 'python' not in first and not any(n in first.lower() for n in ['godot','runner.listener','runner.worker']):continue
+   text=b' '.join(cmd).decode(errors='replace')
+   if any(n in text for n in ['autopilot/runner.py','autopilot/worker.py','pre-p07-resume-author.py','pre-p07-recover-author.py','Runner.Listener','Runner.Worker']) or 'godot' in first.lower():
+    processes.append({'pid':int(proc.name),'argv0':first})
+  except (OSError,IndexError):pass
+ assert not processes,('known processes/launchers active',processes)
+ return {'last_operation':op['id'],'receipt_sha256':sha(Path(op['receipt'])),'previous_author':a['active_author'],'worker_identities':started,'known_launchers_or_engine':processes,'no_arbitrary_hidden_interpreter_guarantee':True}
+
+with Bootstrap(R).lease() as maintenance:
+ d=drain()
+ assert (R/'automation/.executor.lock').stat().st_ino==1118521
+ if args.action=='prepare':
+  assert not O.exists();O.mkdir(parents=True)
+  candidate=build((R/'autopilot/runner.py').read_bytes(),(W/'autopilot/runner.py').read_bytes())
+  assert hashlib.sha256(candidate).hexdigest()==BOOTSTRAP_SHA and sha(R/'autopilot/runner.py')==LEGACY_SHA
+  paths=['automation/phase_state.json','automation/AUTHORIZATIONS.json','.autopilot/STATE.json','.autopilot/PAUSE','.git/index','.git/HEAD','.git/refs/heads/main','.git/refs/remotes/origin/main','.git/packed-refs','.gitignore','docs/CONSENT_STATUS.md','autopilot/github.py','autopilot/worker.py','autopilot/config.json','autopilot/queue.json','autopilot/review_schema.json','autopilot/prompts/INDEPENDENT_REVIEW.md','autopilot/readiness.py','autopilot/PRODUCTION_GATES.md']
+  paths += ['reports/phases/'+x+'/decision.json' for x in ['P00','P01','P02','P03','P04','P04G','P05','P06']]
+  paths += [str(f.relative_to(R)) for f in sorted((R/'game').rglob('*')) if f.is_file() and '.godot' not in f.parts]
+  paths += [str(f.relative_to(R)) for f in sorted((R/'tools').rglob('*')) if f.is_file() and '__pycache__' not in f.parts]
+  protected=maintenance.protected(paths)
+  plan={'schema':1,'scope':'BOOTSTRAP_A_ONLY_NOT_BUNDLE_GAMESYNC_READINESS_OR_P07_PASS','root':str(R),'work_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=W,text=True).strip(),'source_pins':PINNED,'wrapper_sha256':sha(Path(__file__)),'legacy_sha256':LEGACY_SHA,'target_sha256':BOOTSTRAP_SHA,'lock_inode':1118521,'protected':protected,'drain':d,'cold_single_author_no_launcher_premise':True,'all_old_entrypoint_technical_barrier_claim':False,'B_started':False}
+  writejson(PLAN,plan);print(json.dumps({'plan':str(PLAN),'sha256':sha(PLAN),'protected_files':len(protected),'prepared_readonly':True,'installed':False}),flush=True)
+ else:
+  plan_blob=PLAN.read_bytes();plan_sha=hashlib.sha256(plan_blob).hexdigest()
+  assert args.expected_plan_sha and args.expected_plan_sha==plan_sha,'Exact independently approved plan SHA required'
+  plan=parsejson(plan_blob)
+  assert plan['wrapper_sha256']==sha(Path(__file__)) and plan['source_pins']==PINNED
+  assert maintenance.protected(plan['protected'])==plan['protected']
+  # Exact independent execution approval on the concrete plan, never an author test PASS.
+  approvals=[]
+  for role in ['qa','lead']:
+   f=R/f'reports/pre_p07/{role}-bootstrap-A-execution-01/decision.json'
+   v=readjson(f)
+   assert v.get('actual_A_execution_approved') is True and v.get('plan_sha256')==plan_sha and v.get('status')=='PASS',role
+   approvals.append({'path':str(f.relative_to(R)),'sha256':sha(f)})
+  candidate=build((R/'autopilot/runner.py').read_bytes(),(W/'autopilot/runner.py').read_bytes())
+  assert PLAN.read_bytes()==plan_blob,'Plan changed after approval check'
+  ident=maintenance.begin(candidate,list(plan['protected']))
+  writejson(O/'transaction.json',{'id':ident,'plan_sha256':plan_sha,'approvals':approvals})
+  record=maintenance.finish(ident)
+  assert record['status']=='VERIFIED' and sha(R/'autopilot/runner.py')==BOOTSTRAP_SHA
+  assert maintenance.protected(plan['protected'])==plan['protected']
+  writejson(O/'installed.json',{'status':'A_INSTALLED_REQUIRES_SEPARATE_FRESH_SMOKE','transaction':ident,'runner_sha256':BOOTSTRAP_SHA,'ROOT_state_unchanged':True,'P07_production_approval':False})
+  print('A_INSTALLED; installer exits without importing a Controller or starting P07',flush=True)

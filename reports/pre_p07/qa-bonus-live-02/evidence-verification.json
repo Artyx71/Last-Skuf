@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "source_count": 622,
+  "source_before_equals_after": true,
+  "critical_source_pins_match": true,
+  "operation": "cb9fbc71ec9440a48f8687816db078a6",
+  "receipt_exit": 1,
+  "receipt_log_hash_valid": true,
+  "argv_hash_valid": true,
+  "runs": [
+    {
+      "name": "live",
+      "exit_code": 0,
+      "renderer": "headless",
+      "checks": 21,
+      "true": 21,
+      "log_hash_valid": true,
+      "script_error": false
+    },
+    {
+      "name": "cli",
+      "exit_code": 0,
+      "renderer": "headless",
+      "checks": 4,
+      "true": 4,
+      "log_hash_valid": true,
+      "script_error": false
+    },
+    {
+      "name": "native",
+      "exit_code": 1,
+      "renderer": "X11",
+      "checks": 38,
+      "true": 34,
+      "log_hash_valid": true,
+      "script_error": false
+    }
+  ],
+  "core_runs": [
+    {
+      "name": "import",
+      "exit_code": 0,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    },
+    {
+      "name": "checks",
+      "exit_code": 0,
+      "passed": true,
+      "checks": 101,
+      "log_hash_valid": true
+    },
+    {
+      "name": "prepare",
+      "exit_code": 0,
+      "passed": true,
+      "checks": 1,
+      "log_hash_valid": true
+    },
+    {
+      "name": "before_rename",
+      "exit_code": -9,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    },
+    {
+      "name": "recover_before",
+      "exit_code": 0,
+      "passed": true,
+      "checks": 3,
+      "log_hash_valid": true
+    },
+    {
+      "name": "after_rename",
+      "exit_code": -9,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    },
+    {
+      "name": "recover_after",
+      "exit_code": 0,
+      "passed": true,
+      "checks": 3,
+      "log_hash_valid": true
+    },
+    {
+      "name": "story_state",
+      "exit_code": 0,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    },
+    {
+      "name": "story_graph",
+      "exit_code": 0,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    },
+    {
+      "name": "story_integration",
+      "exit_code": 0,
+      "passed": true,
+      "checks": null,
+      "log_hash_valid": true
+    }
+  ],
+  "witness_same_probe_bytes": true,
+  "witness_probe_sha256": "504bae58b634bd3cbcbfd9bce97564597422aaccc7861537de3fa981276f11a3",
+  "menu_before": {
+    "passed": 5,
+    "failed": 2,
+    "session_is_canonical": false
+  },
+  "menu_after": {
+    "passed": 7,
+    "failed": 0,
+    "session_is_canonical": true
+  },
+  "native_UI_trace": [
+    {
+      "focus_is_list": true,
+      "phase": "END_diagnostic",
+      "renderer": "X11",
+      "selected": 0
+    },
+    {
+      "expected": 21,
+      "focus_is_list": true,
+      "phase": "DOWN_selection",
+      "selected": 21
+    },
+    {
+      "focus_is_list": true,
+      "phase": "END_diagnostic",
+      "renderer": "X11",
+      "selected": 0
+    },
+    {
+      "expected": 22,
+      "focus_is_list": true,
+      "phase": "DOWN_selection",
+      "selected": 22
+    }
+  ],
+  "native_failed": [
+    "mouse_bonus_selection_21",
+    "planned_bonus_mouse_stays_21",
+    "mouse_bonus_selection_22",
+    "planned_bonus_mouse_stays_22"
+  ],
+  "native_capture_sizes": {
+    "planned_bonus_journal.png": [
+      640,
+      360
+    ],
+    "returned_bonus_journal.png": [
+      640,
+      360
+    ]
+  },
+  "native_CLI_and_old_native_story_replay_executed": false
+}

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD_ARCHITECTURE",
+  "status": "FAIL_COMPONENT",
+  "scope": "BOOTSTRAP_A_FIXED9E5_SAME_BYTES_BOUNDARY",
+  "source_commit": "9e5e7c303f1ea5f89024063a529ad70d7dc57fb6",
+  "generated_runner_target_sha256": "d1c347d43877f79c276e606fcd55f2f6c58b62aace8ba4904d32fa2bd31585d5",
+  "original_five_controls_passed": 5,
+  "new_exact_boundary_failure": {
+    "id": "BA-L04",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "file": "tools/cold_bootstrap.py",
+    "message": "Intent digest uses read_bytes but parser separately rereads read_text; transient parse-time intent corruption returns VERIFIED despite unmodified anchors and unknown protected state.",
+    "remedy": "Hash and strict-parse one read-once blob; carry verified digest to commit, do not re-read path for parsed intent or commit binding."
+  },
+  "old_findings": {
+    "BA-L01": "DIRECT_STATIC_CASES_CLOSED_RESIDUAL_BINDING_BA_L04",
+    "BA-L02": "CLOSED_FOR_TESTED_BOUNDARY",
+    "BA-L03": "CLOSED_FOR_TESTED_BOUNDARY"
+  },
+  "author_actual220_receipt0_verified": true,
+  "actual_ROOT_or_Controller_engine_network_Git_calls": 0,
+  "execution_approval": false,
+  "ROOT_installation_approval": false,
+  "full_C02_approval": false,
+  "readiness_approval": false,
+  "P07_approval": false,
+  "phase_attempt_consumed": false,
+  "P06_PASS_MERGED_unchanged": true,
+  "review_sha256": "64333fbb020e874966d30fed474f56934a071c2888763d4ba4d7061b7f9d9445",
+  "source_freeze_sha256": "4d7da679ff1fb0e4f37c30c1c316c386d8342d6ea5108101829be1dd4970a117",
+  "same_bytes_proof_sha256": "ced433f9e1937979bd656783711039c18f5989cf3bb88ac2ce7187ffd43feef1"
+}

@@ -1,0 +1,11 @@
+# CH08 Narrative / paper-contract
+
+**PASS_COMPONENT с одним LOW уточнением маршрута**, current SHA `b722fe8026d1f06ce08b6ef8ff0affa7eedfb88c443291ceb09b1fc9a0f963a3`. Must-fix Narrative замечаний нет. Identity/prerequisite/present/pending date совпадают с registry; жена — Эллана/Жинька, не Эля. Решение о работе/ложная уверенность собственные; женщине не приписана вина/преступное руководство. Нет раннего WIFE_CALLING финала, повторной подписи CH04, D/evidence/отношений/тренировочной прокачки.
+
+Один staged exercise показывает слабое тело без dummy HP/new damage API/XP; «добровольный F» читается как явный запуск линейного beat, а не новый canonical выбор. Existing82/health1/nonlethal shove/E совпадают с kit; FIN/training weapon/iframes не выдаются. Job confirmation и pickup — локальные стадии, CP1 явно оставляет package на источнике/carried=false и двери закрытыми, поэтому новая попытка не получает вторую посылку из старого ownership.
+
+Публичный depot path существует без открытия угрозы. Два закрытых service portal отделяют WA3, охрана не удерживается выдуманной zone leash. После выбора опасного пути handoff не замораживает active threat/не принимает посылку, пока обе реальные двери не closed и внутри нет hostile/jobs. Возврат/отвлечение/контроль требуют actual Gameplay; permanent lethal neutralisation слабому герою этим не предоставляется. Delivered после сцены/успешной записи, затем home end/complete once; failed write/retry не дублируют parcel/reward. Новый actor/context из save не выдаёт права.
+
+**LOW N-MDS-CH08-NOTE-01:** северная WA3 по координатам не быстрее публичной дороги. Показанный public путь около640px, conservative minimum для захода/выхода через северные portals уже960px. Называть её «срезать/shortcut» неточно; достаточная правка — «необязательный служебный обход». Геометрию менять не нужно. Это не блокирует Narrative канон/безопасный обязательный маршрут; не принимается обещание более короткой дистанции/реального gameplay преимущества.
+
+Новые дом/позы/посылка/мешок/UI/music/door+checkpoint pipeline NOT_CREATED.8–15min — NOT_MEASURED, нет очередей/лишних доставок ради диапазона. Это только Narrative draft review, не Gameplay/ART/Audio/QA/Lead/all21/Readiness/runtime/production PASS.

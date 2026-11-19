@@ -1,0 +1,131 @@
+{
+  "scope": "DISPOSABLE_B_METADATA_TERMINAL_AND_RECOVERY_PROBES_ONLY",
+  "rows": [
+    {
+      "case": "valid",
+      "expected": "COMMIT_VERIFIED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": true,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "4b7cc7aa29b54ef28f3580c2e204266f"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "missing_marker",
+      "expected": "COMMIT_VERIFIED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": true,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "86266d7b2a6241d786efe9e7f1152af2"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "wrong_marker_owner",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Bundle marker ownership changed",
+      "marker_after": true,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "a5b90b09674d4d09b0e2204afe9cb952"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "malformed_ledger_dict",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Invalid bundle-start ledger",
+      "marker_after": true,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": {
+          "514aa65b2d8a40689e1add6602bbe13f": "CORRUPT_TEST_ONLY_NOT_A_LIST"
+        }
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "missing_ledger",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Invalid bundle-start ledger",
+      "marker_after": true,
+      "state_unchanged": true,
+      "ledger_after": null,
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "terminal_source_drift",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Durable terminal outcome changed",
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "f30142d133064c1aac61199ffd8fb1c6"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "after_commit_resume",
+      "expected": "COMMIT_VERIFIED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": true,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "0f17bdddf6814e019b183bf309ff901b"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "partial_missing_marker",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Pending marker missing outside coherent post-A preparation",
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "0dec604265ac4de19332b4c48f5a0386"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    }
+  ],
+  "passed": true,
+  "actual_ROOT_Controller_engine_Git_or_network_calls": 0,
+  "actual_ROOT_B_installation": false
+}

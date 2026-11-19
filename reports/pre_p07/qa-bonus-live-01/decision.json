@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "WORK_ONLY_REAL_BONUS_OWNER_UI_BOOTSTRAP_ADAPTER_PILOT",
+  "reviewer": "/root/qa_resume_recovery",
+  "role": "INDEPENDENT_QA",
+  "source_head": "0fe3ac1d2989c02b3e81d95e53d2a7ffdcc6335d",
+  "operation": "8b5cbddd1688403a9d9a1fa568d57c69",
+  "evidence": {
+    "schema": 1,
+    "source_count": 622,
+    "source_before_equals_after": true,
+    "selected_frozen_source_pins_match_recorded_input": true,
+    "receipt_exit_code": 1,
+    "receipt_log_hash_valid": true,
+    "receipt_argv_hash_valid": true,
+    "live_total": 22,
+    "live_true": 20,
+    "live_false": [
+      "keyboard_bonus_selection_21",
+      "planned_bonus_enter_stays_21"
+    ],
+    "live_script_error": true,
+    "native_UI_or_CLI_stages_executed": false,
+    "core_runs": [
+      {
+        "name": "import",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "checks",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "prepare",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "before_rename",
+        "exit_code": -9,
+        "log_hash_matches": true
+      },
+      {
+        "name": "recover_before",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "after_rename",
+        "exit_code": -9,
+        "log_hash_matches": true
+      },
+      {
+        "name": "recover_after",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "story_state",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "story_graph",
+        "exit_code": 0,
+        "log_hash_matches": true
+      },
+      {
+        "name": "story_integration",
+        "exit_code": 0,
+        "log_hash_matches": true
+      }
+    ]
+  },
+  "findings": [
+    "BONUS-LIVE-Q01",
+    "BONUS-LIVE-L01"
+  ],
+  "core_previous_acceptance_revoked": false,
+  "actual_production_bonus_unlock_or_levels_approved": false,
+  "ROOT_installation_approved": false,
+  "H05_full_or_Readiness_approved": false,
+  "phase_approval": false
+}

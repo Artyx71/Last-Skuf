@@ -1,0 +1,701 @@
+{
+  "schema": 1,
+  "scope": "HISTORICAL_SECOND_PILOT_ACTUAL_EVIDENCE",
+  "runs": [
+    {
+      "name": "second-pilot-02",
+      "source_inventory_count": 613,
+      "source_before_after_exact": true,
+      "modes": [
+        {
+          "mode": "pilot",
+          "actual_checks": 103,
+          "recomputed_passed": 97,
+          "recomputed_failed": 6,
+          "reported_counts_match": true,
+          "unique_contexts": [
+            "gabar_training",
+            "olezhka_training",
+            "pasha_training",
+            "ryzhik_training",
+            "tega_training",
+            "timka_present",
+            "timka_prime",
+            "yakuza"
+          ],
+          "all_context_rows_complete_once": true,
+          "failed_checks": [
+            {
+              "check": "patrol/cached_gate_and_moving_goal",
+              "details": {
+                "jump": false,
+                "overlap": false,
+                "position": [
+                  128.0,
+                  206.799987792969
+                ],
+                "reached": false,
+                "ticks": 2400
+              },
+              "passed": false
+            },
+            {
+              "check": "shooter/cached_gate_and_moving_goal",
+              "details": {
+                "jump": false,
+                "overlap": false,
+                "position": [
+                  128.136962890625,
+                  207.425003051758
+                ],
+                "reached": false,
+                "ticks": 2400
+              },
+              "passed": false
+            },
+            {
+              "check": "three_live_NPC_routes",
+              "details": {
+                "reached": {
+                  "patrol": false,
+                  "rusher": true,
+                  "shooter": false
+                },
+                "wall_overlap": false
+              },
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_physical_closed",
+              "details": {},
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_loss_existing_patrol_policy",
+              "details": {},
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_reacquired",
+              "details": {},
+              "passed": false
+            }
+          ],
+          "result_sha256": "1f572768570e5587b5af51abbdca372650915408e6bec84988d6895241c8b89e"
+        }
+      ]
+    },
+    {
+      "name": "second-pilot-03",
+      "source_inventory_count": 613,
+      "source_before_after_exact": true,
+      "modes": [
+        {
+          "mode": "pilot",
+          "actual_checks": 103,
+          "recomputed_passed": 97,
+          "recomputed_failed": 6,
+          "reported_counts_match": true,
+          "unique_contexts": [
+            "gabar_training",
+            "olezhka_training",
+            "pasha_training",
+            "ryzhik_training",
+            "tega_training",
+            "timka_present",
+            "timka_prime",
+            "yakuza"
+          ],
+          "all_context_rows_complete_once": true,
+          "failed_checks": [
+            {
+              "check": "patrol/cached_gate_and_moving_goal",
+              "details": {
+                "jump": false,
+                "overlap": false,
+                "position": [
+                  128.0,
+                  206.799987792969
+                ],
+                "reached": false,
+                "ticks": 2400,
+                "trace": [
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      286.799987792969
+                    ],
+                    "reason": "grid_route",
+                    "replans": 6,
+                    "tick": 0
+                  },
+                  {
+                    "index": 5,
+                    "position": [
+                      128.0,
+                      215.599914550781
+                    ],
+                    "reason": "grid_route",
+                    "replans": 6,
+                    "tick": 120
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 19,
+                    "tick": 240
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 34,
+                    "tick": 360
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 49,
+                    "tick": 480
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 64,
+                    "tick": 600
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 79,
+                    "tick": 720
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 94,
+                    "tick": 840
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 109,
+                    "tick": 960
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 124,
+                    "tick": 1080
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 139,
+                    "tick": 1200
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 154,
+                    "tick": 1320
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 169,
+                    "tick": 1440
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 184,
+                    "tick": 1560
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 199,
+                    "tick": 1680
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 214,
+                    "tick": 1800
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 229,
+                    "tick": 1920
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 244,
+                    "tick": 2040
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 259,
+                    "tick": 2160
+                  },
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      206.199981689453
+                    ],
+                    "reason": "grid_route",
+                    "replans": 274,
+                    "tick": 2280
+                  }
+                ]
+              },
+              "passed": false
+            },
+            {
+              "check": "shooter/cached_gate_and_moving_goal",
+              "details": {
+                "jump": false,
+                "overlap": false,
+                "position": [
+                  128.136962890625,
+                  207.425003051758
+                ],
+                "reached": false,
+                "ticks": 2400,
+                "trace": [
+                  {
+                    "index": 1,
+                    "position": [
+                      128.0,
+                      286.533447265625
+                    ],
+                    "reason": "grid_route",
+                    "replans": 301,
+                    "tick": 0
+                  },
+                  {
+                    "index": 4,
+                    "position": [
+                      128.0,
+                      231.13346862793
+                    ],
+                    "reason": "grid_route",
+                    "replans": 301,
+                    "tick": 120
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 308,
+                    "tick": 240
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 320,
+                    "tick": 360
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 332,
+                    "tick": 480
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 344,
+                    "tick": 600
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 356,
+                    "tick": 720
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 368,
+                    "tick": 840
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 380,
+                    "tick": 960
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 392,
+                    "tick": 1080
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 404,
+                    "tick": 1200
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 416,
+                    "tick": 1320
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 428,
+                    "tick": 1440
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 440,
+                    "tick": 1560
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 452,
+                    "tick": 1680
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 464,
+                    "tick": 1800
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 476,
+                    "tick": 1920
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 488,
+                    "tick": 2040
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 500,
+                    "tick": 2160
+                  },
+                  {
+                    "index": 0,
+                    "position": [
+                      128.028823852539,
+                      207.878967285156
+                    ],
+                    "reason": "grid_route",
+                    "replans": 512,
+                    "tick": 2280
+                  }
+                ]
+              },
+              "passed": false
+            },
+            {
+              "check": "three_live_NPC_routes",
+              "details": {
+                "reached": {
+                  "patrol": false,
+                  "rusher": true,
+                  "shooter": false
+                },
+                "wall_overlap": false
+              },
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_physical_closed",
+              "details": {
+                "NPC_positions": [
+                  [
+                    272.0,
+                    280.0
+                  ],
+                  [
+                    320.0,
+                    272.0
+                  ],
+                  [
+                    289.86669921875,
+                    160.0
+                  ]
+                ],
+                "north_disabled": false,
+                "south_disabled": true
+              },
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_loss_existing_patrol_policy",
+              "details": {},
+              "passed": false
+            },
+            {
+              "check": "patrol/LOS_reacquired",
+              "details": {},
+              "passed": false
+            }
+          ],
+          "result_sha256": "9cac5013c4822d2896fc5851f311294e39a74ab39dbc1a4513a75450d4403ab4"
+        }
+      ]
+    },
+    {
+      "name": "second-pilot-04",
+      "source_inventory_count": 613,
+      "source_before_after_exact": true,
+      "modes": [
+        {
+          "mode": "pilot",
+          "actual_checks": 111,
+          "recomputed_passed": 108,
+          "recomputed_failed": 3,
+          "reported_counts_match": true,
+          "unique_contexts": [
+            "gabar_training",
+            "olezhka_training",
+            "pasha_training",
+            "ryzhik_training",
+            "tega_training",
+            "timka_present",
+            "timka_prime",
+            "yakuza"
+          ],
+          "all_context_rows_complete_once": true,
+          "failed_checks": [
+            {
+              "check": "timka_prime/own_ability_real_wall_clearance",
+              "details": {
+                "ability": "clinch",
+                "x": 252.0
+              },
+              "passed": false
+            },
+            {
+              "check": "prime/clinch_committed_once",
+              "details": {},
+              "passed": false
+            },
+            {
+              "check": "tega_training/own_ability_real_wall_clearance",
+              "details": {
+                "ability": "environment_kick",
+                "x": 265.992980957031
+              },
+              "passed": false
+            }
+          ],
+          "result_sha256": "1e1955106835997af399783ec52b86c1aa806ef131fbb96fcbc057381c0a5a1e"
+        }
+      ]
+    },
+    {
+      "name": "second-pilot-05",
+      "source_inventory_count": 613,
+      "source_before_after_exact": true,
+      "modes": [
+        {
+          "mode": "pilot",
+          "actual_checks": 113,
+          "recomputed_passed": 113,
+          "recomputed_failed": 0,
+          "reported_counts_match": true,
+          "unique_contexts": [
+            "gabar_training",
+            "olezhka_training",
+            "pasha_training",
+            "ryzhik_training",
+            "tega_training",
+            "timka_present",
+            "timka_prime",
+            "yakuza"
+          ],
+          "all_context_rows_complete_once": true,
+          "failed_checks": [],
+          "result_sha256": "aba576b768d472bd4f13a544ed6a6c3479553492b4e421763dc235a5f4e6720d"
+        },
+        {
+          "mode": "native",
+          "actual_checks": 94,
+          "recomputed_passed": 93,
+          "recomputed_failed": 1,
+          "reported_counts_match": true,
+          "unique_contexts": [
+            "gabar_training",
+            "olezhka_training",
+            "pasha_training",
+            "ryzhik_training",
+            "tega_training",
+            "timka_present",
+            "timka_prime",
+            "yakuza"
+          ],
+          "all_context_rows_complete_once": true,
+          "failed_checks": [
+            {
+              "check": "olezhka_training/continuous_collision_clearance",
+              "details": {
+                "foot": [
+                  16.0,
+                  12.0
+                ],
+                "maximum_step": 2.54400634765625
+              },
+              "passed": false
+            }
+          ],
+          "result_sha256": "da147b91671269bac850e88a925335d8097554e41047666f98e9ccf76a06ab60"
+        }
+      ]
+    }
+  ]
+}

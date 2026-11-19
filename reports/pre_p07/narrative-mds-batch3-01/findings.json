@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "N-MDS-CH13-01",
+      "priority": "MEDIUM",
+      "path": "planning/missions/CH13_NO_REFUNDS.md",
+      "lines": [
+        7,
+        17,
+        20
+      ],
+      "title": "Не объяснена повторная передача/копия накладной после CH06",
+      "evidence": "Принятая CH06 требует invoice_taken и выводит Рыжика с накладной в обеих D03 ветках. CH13 уже размещает нужную накладную у поставщика и в refuse требует вернуть «оставленную», не называя когда/зачем герой её передал, либо что это другой экземпляр/новый документ. Variant position не изменяется после pickup, но cross-chapter custody до pickup не задан.",
+      "impact": "Центральный fetch/сравнение имеет недостающий предметный мост; не утверждается автоматически новая глобальная улика или факт телепортации в уже созданной игре.",
+      "minimum_fix": "Один entry/custody beat: это принесённая CH06 накладная, переданная сотруднику для возврата/проверки до конфликта, или явная новая копия/связанная накладная с источником. Объяснить оба D03 placements и что сравнивается с ledger; сохранить sealed D03/один local instance/no new evidence.",
+      "verification": "Бумажная trace CH06 exit→CH13 entry→variant pickup→ledger не теряет/не дублирует предмет."
+    },
+    {
+      "id": "N-MDS-CH14-01",
+      "priority": "HIGH",
+      "path": "planning/missions/CH14_AGENT_SWARM.md",
+      "lines": [
+        7,
+        17,
+        22,
+        30,
+        36
+      ],
+      "title": "Источник клубного артефакта не обеспечивает ветку без D02 backup/телефона",
+      "evidence": "Для D04 и даже main exit обязательны два checked sources, один назван полученным в клубе артефактом с code fragment/date. В принятой CH12 D02=false полная копия остаётся на CX-ADMIN, Габар наблюдает send log/reply, не получает полный архив; принятое CH16 объясняет изъятие исходного диска после CH12 в AM2. CH14 не задаёт отдельный limited artifact/общедоступный источник, независимо достижимый при D02=false и D05=false.",
+      "impact": "Неявная зависимость от backup/phone может закрыть обязательный CH14 sourcechecked, добавить неутверждённый gate D04 или подарить друзьям отвергнутую копию. Это отсутствие обеспеченной причинной трассы, не утверждение, что любой клубный артефакт обязательно равен полному архиву.",
+      "minimum_fix": "Назвать конкретный independently available второй источник (например публично доступный build/demo artifact с проверяемым fragment/date и происхождением), либо явно ограниченный след, существующий на обеих D02/D05 ветках, не surviving full backup. Не менять принятую CH12 custody молча. Дать trace D02false/D05false→оба sources→D04accept/refuse→main exit без подарка evidence.pashas_backup/tegas_phone.",
+      "verification": "Отсутствие backup/phone не блокирует main chapter и existing D04; phoneproof по прежнему только phone+open_source_origin+finished scene."
+    },
+    {
+      "id": "N-MDS-CH14-02",
+      "priority": "MEDIUM",
+      "path": "planning/missions/CH14_AGENT_SWARM.md",
+      "lines": [
+        17,
+        22,
+        25,
+        30
+      ],
+      "title": "Физическое закрытие AS4 до D04 не привязано к AS1 portal",
+      "evidence": "AS1 имеет east1472,y1152..1280→AS4. Названы двери двух AS3 portals, но нет gate/state для AS1→AS4, хотя25 обещает AS4 предметно закрытым до обработанного choice. Через названный AS1 portal courtyard остаётся открыт по графу; completion predicate сам по себе не физический барьер.",
+      "impact": "Неоднозначны доступность будущей E3 площадки до D04 и stage restore/activation; это не proof ранней runtime победы, которой final predicate всё равно не даёт.",
+      "minimum_fix": "Явно назвать real gate/initial closed state на AS1→AS4 (например1456,1152,16,128), его CP1/CP2 состояние и порядок открытия после sealed D04/warning. Либо честно разрешить раннее исследование AS4 и согласовать safe activation без claim физического закрытия; новых глобальных flags/AI не нужно.",
+      "verification": "Все входы AS4 до и после D04 имеют однозначные physical states, без скрытого invisible gate."
+    }
+  ],
+  "HIGH": 1,
+  "MEDIUM": 2,
+  "new_unapproved_canon_changes_already_established": []
+}

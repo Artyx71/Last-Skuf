@@ -1,0 +1,57 @@
+{
+  "scope": "EXACT_PRIVATE_WRAPPER_ADMISSION_NODES_TEMP_FIXTURES_NO_INSTALL",
+  "wrapper_sha256": "837188ceb806c7e6fc090d4ceb8d155fc9b968be58f028c00f74ff5ea7dcd534",
+  "cases": [
+    {
+      "case": "valid",
+      "admitted": true,
+      "expected_admitted": true,
+      "passed": true,
+      "error": null
+    },
+    {
+      "case": "wrong_requested_planSHA",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "Exact independently approved plan SHA required"
+    },
+    {
+      "case": "plan_drift_after_parse",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "Plan changed after approval check"
+    },
+    {
+      "case": "approval_drift_after_parse",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "Independent approval changed after check"
+    },
+    {
+      "case": "FAIL_approval",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "qa"
+    },
+    {
+      "case": "wrong_approval_planSHA",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "qa"
+    },
+    {
+      "case": "false_execution_flag",
+      "admitted": false,
+      "expected_admitted": false,
+      "passed": true,
+      "error": "qa"
+    }
+  ],
+  "passed": true,
+  "actual_ROOT_Bootstrap_Controller_engine_process_calls": 0
+}

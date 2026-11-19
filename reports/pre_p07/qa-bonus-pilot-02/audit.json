@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "scope": "ISOLATED_H05_CORE_PILOT_CLOSURE_NOT_LIVE_INTEGRATION",
+  "core_source_head": "3a3645e8c74e74520f37c2085b58ccc560091961",
+  "final_fixture_head": "c4b9b4ea473e11e14b88a820374e442bff5615d7",
+  "Progress_core_sha256": "d4656c3cf5bd03a7baa3df82331e05ad96b14825607143fcd9633aea758dff22",
+  "Progress_core_identical": true,
+  "final_source_changes_only": [
+    "tools/fixtures/p07_bonus_contract.gd",
+    "tools/fixtures/p07_bonus_host.gd",
+    "tools/p07_bonus_pilot.py"
+  ],
+  "current_physical_source_pins_verified": 620,
+  "production_Game_source_pins_unchanged": 535,
+  "actual_runs": {
+    "bonus-compatibility-06": {
+      "source_count": 620,
+      "before_after_exact": true,
+      "stage_exit_codes": {
+        "import": 0,
+        "checks": 0,
+        "prepare": 0,
+        "before_rename": -9,
+        "recover_before": 0,
+        "after_rename": -9,
+        "recover_after": 0,
+        "story_state": 0,
+        "story_graph": 0,
+        "story_integration": 0
+      },
+      "typed_counts_recomputed": {
+        "checks": 98,
+        "prepare": 1,
+        "recover_before": 3,
+        "recover_after": 3
+      }
+    },
+    "bonus-goal-fixture-01": {
+      "source_count": 620,
+      "before_after_exact": true,
+      "stage_exit_codes": {
+        "import": 0,
+        "goals": 0
+      },
+      "typed_counts_recomputed": {
+        "goals": 8
+      }
+    }
+  },
+  "exact_independent_probe_before_after_verified": true,
+  "namespace_fixed_cases": [
+    {
+      "began": false,
+      "case": "main_is_sidecar_tmp",
+      "committed": false,
+      "main_bytes_preserved": true,
+      "main_exists_after": true,
+      "main_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/bonus-namespace-witness-02/isolated_saves/profiles/main_is_sidecar_tmp/bonus_progress_v1.json.tmp",
+      "main_valid_after": true,
+      "sidecar_path": ""
+    },
+    {
+      "began": false,
+      "case": "main_created_after_candidate_at_sidecar",
+      "committed": false,
+      "main_bytes_preserved": true,
+      "main_exists_after": true,
+      "main_path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/bonus-namespace-witness-02/isolated_saves/profiles/main_created_after_candidate_at_sidecar/bonus_progress_v1.json",
+      "main_valid_after": true,
+      "sidecar_path": ""
+    }
+  ],
+  "old_story_checks": {
+    "story_state": 40,
+    "story_graph": 662778,
+    "story_integration": 11
+  },
+  "old_story_graph_scenario_paths": 6344,
+  "actual_canonical_receipts": [
+    {
+      "operation": "df473ff47e2946b29d50ff1237805ace",
+      "argv_sha256": "e6514acb64d7ffbdf8a71164d6bccb5849b7672a9c05f38f2801decb86c47972",
+      "exit_code": 0,
+      "log_sha256": "2c234a98825eda6567832f5a8d9bc90aed6e203f0c48eefb04566f386dc4d89b",
+      "seconds": 53.856
+    },
+    {
+      "operation": "967cd3206eb943b98a2ba2208e33e52b",
+      "argv_sha256": "cb153f57789206bf72136cf03ae092dd41b0b64379f11e73e233bdb9664d7dba",
+      "exit_code": 0,
+      "log_sha256": "900b293cff11cd09346d29fdac16b5aac3c7f9a98410c2f37c372edcf14edbee",
+      "seconds": 0.906
+    },
+    {
+      "operation": "a625621894894a618db1853f02baebe8",
+      "argv_sha256": "ce934bbcfe0f96793a60c0af109bc8e9d49336b7bc0032f335f748576c046b15",
+      "exit_code": 0,
+      "log_sha256": "e83c1140fa3096019e26ed73c4612f9a811f5bde6b0b05484708091d3942f78d",
+      "seconds": 5.507
+    }
+  ],
+  "normal98_not_rerun_at_final_fixture_head": true,
+  "engine_runs_by_reviewer": 0,
+  "real_current_campaign_positive_bonus_unlock": false,
+  "all_BP01_to_BP09_closed": false,
+  "full_Readiness_P07_phase_approval": false
+}

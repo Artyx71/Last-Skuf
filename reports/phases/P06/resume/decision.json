@@ -3,7 +3,7 @@
   "kind": "AUTHOR_RESUME_STATE_NOT_LEAD_VERDICT",
   "updated_utc": "2026-11-16T23:40:32.252003+00:00",
   "phase": "P06",
-  "status": "IMPLEMENTING",
+  "status": "PASS_MERGED",
   "formal_attempt": 1,
   "global_counter": 2,
   "last_full_pass": "P05",
@@ -50,7 +50,10 @@
     "path": "reports/phases/P06/qa-full-current-01/decision.json",
     "sha256": "2df9528c6b5b58d0e498bc6beb1529b7ad373ab62f186efbdc69cde2cb663629"
   },
-  "full_Lead": "PENDING_FINAL_ARCHIVE_HEAD_AND_CI",
+  "full_Lead": {
+    "status": "PASS",
+    "sha256": "fdd0da699e5bade50e21115614150091aae83f6fb0d126c4c8f56bb8d3175b7e"
+  },
   "P06_PR": "https://github.com/Artyx71/Last-Skuf/pull/11",
   "publication": "fa869 published nonforce; finalmetadataHEAD notyetpublished",
   "CI": "bootstrapfa869SUCCESS; afterarchive newHEADneedsnewCI",
@@ -75,8 +78,8 @@
     "agent_listening": false
   },
   "owner_preview": "ROOT/build/P06_DEV_20261117_09",
-  "full_phase_approval": false,
-  "merge_approval": false,
+  "full_phase_approval": true,
+  "merge_approval": true,
   "pending_generator_calls": 0,
   "P07_gates": [
     "P06 full PASS/current CI/confirmed protected squash",
@@ -85,7 +88,8 @@
     "21 full Lead-approved MDS before mass"
   ],
   "historical_resumes": "reports/phases/P06/resume/history/",
-  "next_action": "Commit checked metadata only; fresh private11/currentPR11CI/exactLead/guardedsquash, no more engine tests without new finding",
+  "next_action": "P06 complete; continue PRE-P07 via reports/phases/P07/resume/decision.json",
   "always_on_runner": false,
-  "owner_preview_kind": "BYTE_EXACT_COPY_OF_ACTUALLY_VALIDATED_LINUX_WINE_EXPORTS"
+  "owner_preview_kind": "BYTE_EXACT_COPY_OF_ACTUALLY_VALIDATED_LINUX_WINE_EXPORTS",
+  "confirmed_merge_sha": "f8325212381d67a469b5d9a6dffbf3d244bc9933"
 }

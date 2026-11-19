@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "source_head": "3a3645e8c74e74520f37c2085b58ccc560091961",
+  "normal06_stages": 10,
+  "functional_counts": {
+    "checks": 98,
+    "prepare": 1,
+    "recover_before": 3,
+    "recover_after": 3
+  },
+  "two_actual_SIGKILL_boundaries_recovered": true,
+  "exact_same_QA_namespace_probe_sha256": "3bc7f8978c2ec9c1ca5b98cd22e0f0dfa1fe4988c309db574e1cc81a0596aa24",
+  "both_fixed_namespace_cases_denied_with_valid_main_preserved": true,
+  "clone_scripts_equal_frozen_source": true,
+  "selected_new_source_bound_checks": [
+    {
+      "check": "prerequisite_restore_does_not_revive_old_exit",
+      "passed": true
+    },
+    {
+      "check": "pending_replay_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "fork_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "readonly_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "valid_state_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "valid_disk_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "simulation_restore_does_not_revive_exit",
+      "passed": true
+    },
+    {
+      "check": "main_is_tmp_namespace_rejected_before_launch",
+      "passed": true
+    },
+    {
+      "check": "main_is_tmp_main_bytes_schema_preserved",
+      "passed": true
+    },
+    {
+      "check": "main_is_final_namespace_rejected_before_launch",
+      "passed": true
+    },
+    {
+      "check": "main_is_final_main_bytes_schema_preserved",
+      "passed": true
+    },
+    {
+      "check": "main_created_after_candidate_namespace_rejected_before_launch",
+      "passed": true
+    },
+    {
+      "check": "main_created_after_candidate_main_bytes_schema_preserved",
+      "passed": true
+    },
+    {
+      "check": "nested_goal_callback_no_recursion_single_commit",
+      "passed": true
+    }
+  ],
+  "operations": {
+    "df473ff47e2946b29d50ff1237805ace": {
+      "receipt": {
+        "operation": "df473ff47e2946b29d50ff1237805ace",
+        "argv_sha256": "e6514acb64d7ffbdf8a71164d6bccb5849b7672a9c05f38f2801decb86c47972",
+        "exit_code": 0,
+        "log_sha256": "2c234a98825eda6567832f5a8d9bc90aed6e203f0c48eefb04566f386dc4d89b",
+        "seconds": 53.856
+      },
+      "receipt_sha256": "04797a7832233116bb35466c827887a789a5e4fa47bf7511edea7688adef5d03",
+      "input_sha256": "975077a75f8e63fe7e323940b11126ec07a0b0704eeb3afdd89ae3cb58e38dc7",
+      "log_sha256": "2c234a98825eda6567832f5a8d9bc90aed6e203f0c48eefb04566f386dc4d89b"
+    },
+    "967cd3206eb943b98a2ba2208e33e52b": {
+      "receipt": {
+        "operation": "967cd3206eb943b98a2ba2208e33e52b",
+        "argv_sha256": "cb153f57789206bf72136cf03ae092dd41b0b64379f11e73e233bdb9664d7dba",
+        "exit_code": 0,
+        "log_sha256": "900b293cff11cd09346d29fdac16b5aac3c7f9a98410c2f37c372edcf14edbee",
+        "seconds": 0.906
+      },
+      "receipt_sha256": "0319e9d6c8721ba0826c644bdc4b8677b7d6d1154cf3c6357075f9fd4fb0336f",
+      "input_sha256": "2d1f27ee61e260f137d504dd73ba0d8255eb33b0c93e6f5bc9cd685ae86a1d31",
+      "log_sha256": "900b293cff11cd09346d29fdac16b5aac3c7f9a98410c2f37c372edcf14edbee"
+    }
+  },
+  "references": [
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/validation.json",
+      "sha256": "99c744402b9c317ccbd7a4e88b78958dfdad25a3bff9df8c3053d7e1d180b55e"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/runs.json",
+      "sha256": "21668d50591f94f1123f9746ec31b7a808c33b1b6c238b88e8d6a535fb08c7cd"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/checks-result.json",
+      "sha256": "38260aee1941c726b08a70615ff15e92b20d30e982c6caa650c71666ee034fe1"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/prepare-result.json",
+      "sha256": "07b87743f1e804b77f38e380a26d3e4340404b60a7e6037202a330125d784da1"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/recover_before-result.json",
+      "sha256": "c9033a11e70d9dbc3085484402ac71ecb49c5a691087532def7515b85ceb5634"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-compatibility-06/recover_after-result.json",
+      "sha256": "d7c5aff9d073ea0bedcd832e87eda8278792d425de4640cb8ad2fe06b4173b5d"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-namespace-witness-02/witness.json",
+      "sha256": "7b72a41edf0e04e7a7936d13e178fbb9508435dcec920feeac11835df04d1151"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-namespace-witness-02/execution.json",
+      "sha256": "1020d34fe212975d604394068bb203abfbc07609856166d46f8e616d98063ccb"
+    },
+    {
+      "path": ".autopilot/worktrees/P07/reports/pre_p07/bonus-namespace-witness-02/namespace_alias_probe.gd",
+      "sha256": "3bc7f8978c2ec9c1ca5b98cd22e0f0dfa1fe4988c309db574e1cc81a0596aa24"
+    }
+  ],
+  "engine_Controller_Git_calls_by_Lead": 0,
+  "no_full_BP07_BP09_live_adapter_claim": true
+}

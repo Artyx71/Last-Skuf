@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_LEAD_ARCHITECTURE",
+  "status": "FAIL_COMPONENT",
+  "scope": "COLD_RUNTIME_BUNDLE_B_SOURCE_AND_PREPARATION_RECOVERY_ONLY",
+  "source_commit": "2e22039a49b843f4f0959d18941aeba654fd2ada",
+  "findings": [
+    {
+      "id": "B-L01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "tools/cold_runtime_bundle.py",
+      "method": "verify_a",
+      "message": "Byte-exact genuine installed-A147c receipt rejected because verifier requires nonexistent reviewer field; synthetic test uses a different wire format.",
+      "remedy": "Validate actual typed role/scope/verified/baseline contract and test real147c bytes without modifying immutable receipt."
+    },
+    {
+      "id": "B-L02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "file": "tools/cold_runtime_bundle.py",
+      "method": "begin_bundle/load_bundle",
+      "message": "Marker creation failure after durable PREPARED journal/ledger cannot resume or rollback, yet another begin is admitted while old transaction unresolved. Runtime/protected remain baseline in demonstrated case.",
+      "remedy": "Recover owned no-copy preparation safely and refuse new begin until durable unfinished entry repaired/aborted; retain B history and reject unknown mutations."
+    }
+  ],
+  "pure_counterexamples": 2,
+  "author229_receipt0_log_argv_verified": true,
+  "actual_ROOT_B_started": false,
+  "actual_ROOT_or_Controller_engine_network_Git_calls": 0,
+  "production_mutations_by_Lead": 0,
+  "actual_B_execution_approved": false,
+  "full_C02_approved": false,
+  "GameSync_approved": false,
+  "Readiness_approved": false,
+  "P07_approved": false,
+  "phase_attempt_consumed": false,
+  "actual_A_verification_and_P06_PASS_MERGED_unchanged": true,
+  "review_sha256": "43fc43c01ecb2196e29276ae4b198af9405f34ab6478db7eb98fb931e267909d",
+  "source_freeze_sha256": "a12b546754e54d6f182ae38817ead5bc8f96ac043262c3d631d6f7ffb3233b88",
+  "probe_results_sha256": "d21c14001d85478db4c90618d0addc37ce4836fad467270049f347b9f99e31b7"
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "scope": "PREEXISTING_UNIMPLEMENTED_HANDOFF_SCOPE_NOT_SEPARATE_FENCE_BUGS",
+  "items": [
+    "Durable maintenance transaction/journal with backup, fsync, deterministic interrupted-copy detection and rollback. HANDOFF_PENDING alone is not an installer.",
+    "Cold drain and identity-verified stop of old unfenced loaded controllers/workers; no hot replacement and no old-instance/bootstrap gap.",
+    "Maintenance ownership of the same existing flock inode throughout commit/rollback; preserve worker inherited leases, canonical counters/history/receipts and ROOT dirty/auth/private data.",
+    "Explicit approved ROOT/WORK bundle and ROOT Game source synchronization plus cold-reload compatibility checks. Runtime signature covers ten listed files, not complete Game or production content.",
+    "Safe bootstrap/resume/recovery after interrupted maintenance, with canonical authority and strict original production/readiness gates. stopP06 and separate P07 production controls remain unchanged."
+  ],
+  "not_implemented_or_approved": true,
+  "ROOT_install_approval": false,
+  "readiness_approval": false,
+  "P07_mass_production_approval": false
+}

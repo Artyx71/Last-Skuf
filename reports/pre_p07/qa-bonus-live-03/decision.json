@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "FAIL_COMPONENT",
+  "scope": "WORK_ONLY_REAL_BONUS_OWNER_UI_BOOTSTRAP_ADAPTER_PILOT",
+  "reviewer": "/root/qa_resume_recovery",
+  "role": "INDEPENDENT_QA",
+  "source_head": "a684304adfadcdbe0f14b8b1cfa0e38d3713b6cd",
+  "operation": "295ba28fb99e434eb6f8a5288b782476",
+  "closed_findings": [
+    "BONUS-LIVE-Q01_NATIVE_MOUSE",
+    "BONUS-LIVE-L01"
+  ],
+  "remaining_findings": [
+    "BONUS-LIVE-Q02_LEGACY_NATIVE_STORY_REPLAY_ABORT"
+  ],
+  "completed_positive_stages": [
+    {
+      "name": "live",
+      "checks": 21,
+      "all_true": true,
+      "exit_code": 0,
+      "renderer": "headless",
+      "UI_keyboard_mouse_tested": false
+    },
+    {
+      "name": "cli",
+      "checks": 4,
+      "all_true": true,
+      "exit_code": 0,
+      "renderer": "headless",
+      "UI_keyboard_mouse_tested": false
+    },
+    {
+      "name": "native",
+      "checks": 38,
+      "all_true": true,
+      "exit_code": 0,
+      "renderer": "X11",
+      "UI_keyboard_mouse_tested": true
+    },
+    {
+      "name": "native_cli",
+      "checks": 5,
+      "all_true": true,
+      "exit_code": 0,
+      "renderer": "X11",
+      "UI_keyboard_mouse_tested": false
+    }
+  ],
+  "core_reused_not_rerun": true,
+  "full_wrapper_source_after_missing": true,
+  "actual_bonus_levels_or_positive_canonical_unlock_approved": false,
+  "ROOT_installation_approved": false,
+  "H05_full_or_Readiness_approved": false,
+  "phase_approval": false
+}

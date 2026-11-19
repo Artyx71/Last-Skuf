@@ -1,0 +1,748 @@
+diff --git a/game/scripts/ai/enemy_actor.gd b/game/scripts/ai/enemy_actor.gd
+index 6348c36d..7afeaed8 100644
+--- a/game/scripts/ai/enemy_actor.gd
++++ b/game/scripts/ai/enemy_actor.gd
+@@ -249,6 +249,9 @@ func _physics_process(delta: float) -> void:
+ 
+ 
+ func _walk_to(point: Vector2, speed: float) -> void:
++	if lab.has_method("navigation_velocity"):
++		velocity = lab.navigation_velocity(self,point,speed)
++		return
+ 	if position.distance_to(point) > 3:
+ 		velocity = (point - position).normalized() * speed
+ 
+diff --git a/game/scripts/ai/room_navigation.gd b/game/scripts/ai/room_navigation.gd
+new file mode 100644
+index 00000000..5840c476
+--- /dev/null
++++ b/game/scripts/ai/room_navigation.gd
+@@ -0,0 +1,129 @@
++extends RefCounted
++## Optional room-host routing. Combat clocks, FSM and collision masks stay owned
++## by the existing actor/Core. Geometry is in logical world pixels.
++## AStarGrid2D API: https://docs.godotengine.org/en/stable/classes/class_astargrid2d.html
++const CELL := 16.0
++const MARGIN := 0.5
++var bounds := Rect2()
++var blockers: Array[Rect2] = []
++var revision := 0
++var grids: Dictionary = {}
++var paths: Dictionary = {}
++var requests := 0
++var replans := 0
++var last_reason := "unconfigured"
++
++func configure(world: Rect2, rectangles: Array[Rect2]) -> void:
++	bounds = world
++	blockers.assign(rectangles)
++	revision += 1
++	grids.clear()
++	paths.clear()
++	last_reason = "layout_changed"
++
++func reset_paths() -> void:
++	paths.clear()
++
++func _foot(body: CharacterBody2D) -> Rect2:
++	if not is_zero_approx(body.global_rotation) or not body.global_scale.is_equal_approx(Vector2.ONE): return Rect2()
++	var result := Rect2()
++	var found := false
++	for child in body.get_children():
++		if not child is CollisionShape2D or child.disabled: continue
++		if not child.shape is RectangleShape2D or not is_zero_approx(child.rotation) or not child.scale.is_equal_approx(Vector2.ONE): return Rect2()
++		var shape: RectangleShape2D = child.shape
++		var rectangle := Rect2(child.position - shape.size * 0.5, shape.size)
++		result = result.merge(rectangle) if found else rectangle
++		found = true
++	return result
++
++func _grid(foot: Rect2) -> AStarGrid2D:
++	var key := str(foot)
++	if grids.has(key): return grids[key]
++	if grids.size() >= 8: grids.clear()
++	var grid := AStarGrid2D.new()
++	grid.region = Rect2i(Vector2i.ZERO, Vector2i(ceili(bounds.size.x/CELL)+1,ceili(bounds.size.y/CELL)+1))
++	grid.cell_size = Vector2(CELL,CELL)
++	grid.offset = bounds.position
++	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
++	grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
++	grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
++	grid.update()
++	for y in grid.region.size.y:
++		for x in grid.region.size.x:
++			var id := Vector2i(x,y)
++			var rectangle := Rect2(grid.get_point_position(id)+foot.position,foot.size).grow(MARGIN)
++			var solid := not bounds.encloses(rectangle)
++			for wall in blockers:
++				if rectangle.intersects(wall):
++					solid = true
++					break
++			grid.set_point_solid(id,solid)
++	grids[key] = grid
++	return grid
++
++func _cell(point: Vector2) -> Vector2i:
++	return Vector2i(roundi((point.x-bounds.position.x)/CELL),roundi((point.y-bounds.position.y)/CELL))
++
++func _toward(body: CharacterBody2D, point: Vector2, speed: float, delta: float) -> Vector2:
++	var displacement := point-body.global_position
++	return displacement.normalized()*minf(speed,displacement.length()/maxf(delta,0.000001))
++
++func velocity_for(body: CharacterBody2D, goal: Vector2, speed: float, delta: float) -> Vector2:
++	requests += 1
++	if bounds.size.x <= 0 or bounds.size.y <= 0 or speed <= 0 or delta <= 0:
++		last_reason = "invalid_request"
++		return Vector2.ZERO
++	var foot := _foot(body)
++	if foot.size.x <= 0 or foot.size.y <= 0:
++		last_reason = "unsupported_collider"
++		return Vector2.ZERO
++	# The direct sweep only knows physical walls. Respect the host's navigation
++	# boundary even when no wall was authored along its edge.
++	if not bounds.encloses(Rect2(body.global_position+foot.position,foot.size).grow(MARGIN)) or not bounds.encloses(Rect2(goal+foot.position,foot.size).grow(MARGIN)):
++		last_reason = "outside_endpoint"
++		return Vector2.ZERO
++	if body.global_position.distance_to(goal) <= 3.0:
++		last_reason = "arrived"
++		return Vector2.ZERO
++	body.force_update_transform()
++	var id := body.get_instance_id()
++	var rebuild := not paths.has(id)
++	if not rebuild:
++		var old: Dictionary = paths[id]
++		rebuild = old.revision != revision or old.goal.distance_to(goal) > 4.0 or old.foot != foot or old.index >= old.points.size()
++		if not rebuild:
++			rebuild = body.global_position.distance_to(old.points[old.index]) > CELL*2.5
++	# Prefer the actual swept body when a direct path is clear. No grid snapping
++	# or changes to position/masks/health/animation/attack eligibility happen here.
++	# Keep a valid detour: switching to a marginal shortcut then re-centering
++	# on the start cell can otherwise trap slow bodies in an endless cycle.
++	if rebuild and not body.test_move(body.global_transform,goal-body.global_position,null,0.08,true):
++		paths.erase(body.get_instance_id())
++		last_reason = "direct_sweep_clear"
++		return _toward(body,goal,speed,delta)
++	var grid := _grid(foot)
++	var start := _cell(body.global_position)
++	var end := _cell(goal)
++	if not grid.is_in_boundsv(start) or not grid.is_in_boundsv(end) or grid.is_point_solid(start) or grid.is_point_solid(end):
++		last_reason = "blocked_or_outside_endpoint"
++		return Vector2.ZERO
++	if rebuild:
++		if paths.size() >= 128: paths.clear()
++		var points := grid.get_point_path(start,end)
++		paths[id] = {"goal":goal,"foot":foot,"revision":revision,"points":points,"index":0}
++		replans += 1
++	var route: Dictionary = paths[id]
++	while route.index < route.points.size() and body.global_position.distance_to(route.points[route.index]) <= 0.1:
++		route.index += 1
++	if route.index >= route.points.size():
++		last_reason = "no_route"
++		return Vector2.ZERO
++	var waypoint: Vector2 = route.points[route.index]
++	var motion := _toward(body,waypoint,speed,delta)*delta
++	if body.test_move(body.global_transform,motion,null,0.08,true):
++		paths.erase(id)
++		last_reason = "physical_blocker_replan_required"
++		return Vector2.ZERO
++	last_reason = "grid_route"
++	return motion/delta
+diff --git a/game/scripts/ai/room_navigation_host.gd b/game/scripts/ai/room_navigation_host.gd
+new file mode 100644
+index 00000000..73af477f
+--- /dev/null
++++ b/game/scripts/ai/room_navigation_host.gd
+@@ -0,0 +1,44 @@
++extends RefCounted
++## Shared room adapter for actual world-layer rectangles and deferred doors.
++## It reads physical geometry; mission objectives and AI states remain in hosts.
++const Router = preload("res://scripts/ai/room_navigation.gd")
++var router := Router.new()
++var room: Node2D
++var local_bounds := Rect2()
++var supported := false
++
++func setup(owner_room: Node2D, rectangle: Rect2) -> void:
++	room = owner_room
++	local_bounds = rectangle
++	refresh()
++
++func _collect(parent: Node, rectangles: Array[Rect2]) -> bool:
++	for child in parent.get_children():
++		if child is PhysicsBody2D and child.collision_layer & 1 != 0:
++			for collider in child.get_children():
++				if not collider is CollisionShape2D or collider.disabled: continue
++				if not collider.shape is RectangleShape2D: return false
++				var shape: RectangleShape2D = collider.shape
++				# A rotated wall's AABB would invent impassable space. Restrict the
++				# supported contract rather than claiming arbitrary geometry works.
++				if not is_zero_approx(collider.global_rotation): return false
++				rectangles.append(collider.global_transform * Rect2(-shape.size*0.5,shape.size))
++		if not _collect(child,rectangles): return false
++	return true
++
++func refresh() -> void:
++	supported = is_instance_valid(room) and is_zero_approx(room.global_rotation) and room.global_scale.is_equal_approx(Vector2.ONE)
++	if not supported: return
++	var rectangles: Array[Rect2] = []
++	supported = _collect(room,rectangles)
++	if not supported: return
++	var world := Rect2(room.to_global(local_bounds.position),local_bounds.size)
++	if world != router.bounds or rectangles != router.blockers:
++		router.configure(world,rectangles)
++
++func velocity_for(body: CharacterBody2D, local_goal: Vector2, speed: float) -> Vector2:
++	if not supported: return Vector2.ZERO
++	return router.velocity_for(body,room.to_global(local_goal),speed,body.get_physics_process_delta_time())
++
++func reset_paths() -> void:
++	router.reset_paths()
+diff --git a/game/scripts/core/bootstrap.gd b/game/scripts/core/bootstrap.gd
+index 9f3b7d90..fb6adc64 100644
+--- a/game/scripts/core/bootstrap.gd
++++ b/game/scripts/core/bootstrap.gd
+@@ -7,24 +7,26 @@ const DISCLAIMER := "Вымышленная криминальная сатир
+ 
+ 
+ func _ready() -> void:
+-	if "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
++	var bonus_return: bool = get_node("/root/StoryState").consume_bonus_return(self)
++	get_node("/root/StoryState").enter_menu(self)
++	if not bonus_return and "--open-character-combat" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_combat_startup_route"):
+ 		get_tree().set_meta("p06_combat_startup_route", true)
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/character_lab.tscn")
+ 		return
+-	if "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
++	if not bonus_return and "--open-cast" in OS.get_cmdline_user_args() and not get_tree().has_meta("p06_cast_startup_route"):
+ 		get_tree().set_meta("p06_cast_startup_route", true)
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/cast_viewer.tscn")
+ 		return
+-	if "--open-mission" in OS.get_cmdline_user_args():
++	if not bonus_return and "--open-mission" in OS.get_cmdline_user_args():
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/missed_fight.tscn")
+ 		return
+-	if "--open-dialogue" in OS.get_cmdline_user_args():
++	if not bonus_return and "--open-dialogue" in OS.get_cmdline_user_args():
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/dialogue_audio_lab.tscn")
+ 		return
+-	if "--open-combat" in OS.get_cmdline_user_args():
++	if not bonus_return and "--open-combat" in OS.get_cmdline_user_args():
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/combat_lab.tscn")
+ 		return
+-	if "--open-lab" in OS.get_cmdline_user_args():
++	if not bonus_return and "--open-lab" in OS.get_cmdline_user_args():
+ 		get_tree().call_deferred("change_scene_to_file", "res://scenes/world/movement_lab.tscn")
+ 		return
+ 	var panel := VBoxContainer.new()
+@@ -41,6 +43,8 @@ func _ready() -> void:
+ 	journal.story = get_node("/root/StoryState")
+ 	add_child(journal)
+ 	journal.hide()
++	if bonus_return:
++		journal.open_bonuses()
+ 	if "--p06-owner-preview-smoke" in OS.get_cmdline_user_args() and not get_tree().root.has_node("P06OwnerPreviewSmoke"):
+ 		var probe := preload("res://scripts/qa/owner_preview_smoke.gd").new()
+ 		probe.name = "P06OwnerPreviewSmoke"
+diff --git a/game/scripts/levels/missed_fight.gd b/game/scripts/levels/missed_fight.gd
+index dad56432..2e0b9c30 100644
+--- a/game/scripts/levels/missed_fight.gd
++++ b/game/scripts/levels/missed_fight.gd
+@@ -1,6 +1,8 @@
+ extends "res://scripts/core/combat_lab.gd"
+ ## First authored chapter. Combat, contact clock and enemy AI are inherited unchanged.
+ const Progress = preload("res://scripts/levels/chapter_progress.gd")
++const NavigationHost = preload("res://scripts/ai/room_navigation_host.gd")
++var room_navigation: RefCounted
+ var story: Node
+ var requested_replay := false
+ var progress: RefCounted
+@@ -56,6 +58,8 @@ func _ready() -> void:
+   art.centered = false; art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+   body.add_child(art); add_child(body)
+   doors[definition.id] = {"body":body,"shape":shape,"art":art,"open":false,"rect":rect}
++ room_navigation = NavigationHost.new()
++ room_navigation.setup(self,Rect2(0,0,config.world_size[0],config.world_size[1]))
+  camera = Camera2D.new()
+  camera.position = player.position
+  camera.limit_left = 0; camera.limit_top = 0
+@@ -101,6 +105,7 @@ func _add_wall(bounds: Rect2) -> void:
+ 
+ func reset_encounter() -> void:
+  super.reset_encounter()
++ if room_navigation: room_navigation.reset_paths()
+  has_key = checkpoint == "service"
+  phone_seen = false
+  visited_phone = false
+@@ -127,6 +132,8 @@ func _set_door(id: String, opened: bool) -> void:
+ 
+ func _physics_process(delta: float) -> void:
+  if not scene_ready: return
++ # Read enabled physical shapes after deferred door updates, before actors move.
++ room_navigation.refresh()
+  if resume_lock_ticks > 0:
+   resume_lock_ticks -= 1
+   if resume_lock_ticks == 0: _freeze_actors(false)
+@@ -161,6 +168,10 @@ func _physics_process(delta: float) -> void:
+   player.modulate = Color("b1bdcb") if get_node("/root/OptionsStore").values.reduced_gore else Color("a66f80")
+  queue_redraw()
+ 
++func navigation_velocity(body: CharacterBody2D, target: Vector2, speed: float) -> Vector2:
++ if not room_navigation: return Vector2.ZERO
++ return room_navigation.velocity_for(body,target,speed)
++
+ func player_died() -> void:
+  if state != "playing": return
+  super.player_died()
+diff --git a/game/scripts/qa/story_replay.gd b/game/scripts/qa/story_replay.gd
+index dc194bb4..ed536e89 100644
+--- a/game/scripts/qa/story_replay.gd
++++ b/game/scripts/qa/story_replay.gd
+@@ -44,20 +44,37 @@ func current_bootstrap() -> Control:
+ func journal_controls(bootstrap: Control, id: String) -> void:
+  var viewport := tree.root.get_visible_rect()
+  check("journal_controls_visible_"+id,viewport.encloses(bootstrap.journal.launch.get_global_rect()) and viewport.encloses(bootstrap.journal.close.get_global_rect()))
++func startup_snapshot(bootstrap: Control) -> Dictionary:
++ var focus := tree.root.gui_get_focus_owner()
++ return {"drawn_frames":Engine.get_frames_drawn(),"physics_frames":Engine.get_physics_frames(),
++  "current_is_bootstrap":tree.current_scene == bootstrap,"node_ready":bootstrap.is_node_ready(),
++  "journal_ready":is_instance_valid(bootstrap.journal) and bootstrap.journal.is_node_ready(),
++  "window_focus":tree.root.has_focus(),"window_id":tree.root.get_window_id(),
++  "focus_node":str(focus.get_path()) if is_instance_valid(focus) else ""}
+ func run(bootstrap: Control) -> void:
+  tree = get_tree(); story = tree.root.get_node("StoryState")
+  directory = OS.get_environment("AYAY_P05_CAPTURE_DIR")
++ report["startup_before_physics_wait"] = startup_snapshot(bootstrap)
+  await frames(3)
++ report["startup_after_physics_wait"] = startup_snapshot(bootstrap)
++ # Physics catch-up can precede the first native window draw/input registration.
++ if DisplayServer.get_name() != "headless": await RenderingServer.frame_post_draw
++ for index in 3: await tree.process_frame
++ bootstrap = await current_bootstrap()
++ if bootstrap == null: return
++ report["startup_before_first_key"] = startup_snapshot(bootstrap)
+  var resume_only := "--p05-resume" in OS.get_cmdline_user_args()
+  await key(KEY_F4)
+  check("journal_visible",bootstrap.journal.visible)
+- check("journal_21_slots",bootstrap.journal.list.item_count == 21)
++ if not bootstrap.journal.visible: finish(); return
++ check("journal_21_main_and_2_bonus_slots",story.store.registry.data.chapters.size() == 21 and bootstrap.journal.list.item_count == 23)
+  journal_controls(bootstrap,"initial")
+  await capture("journal_initial")
+  # Keyboard navigation selects a real unavailable slot; Enter must leave the journal open.
+  bootstrap.journal.list.grab_focus()
+  await key(KEY_DOWN)
+  check("planned_slot_disabled",bootstrap.journal.selected == 1 and bootstrap.journal.launch.disabled)
++ if bootstrap.journal.selected != 1 or not bootstrap.journal.launch.disabled: finish(); return
+  await key(KEY_ENTER)
+  check("unavailable_enter_stays",tree.current_scene == bootstrap and bootstrap.journal.visible)
+  journal_controls(bootstrap,"unavailable")
+@@ -87,6 +104,7 @@ func run(bootstrap: Control) -> void:
+  if bootstrap == null: return
+  await key(KEY_J)
+  check("completed_chapter_label", "пройдена" in bootstrap.journal.list.get_item_text(0))
++ check("safe_menu_restores_canonical_session",story.session == story.store and not story.pending_replay)
+  check("future_chapter_still_disabled",not story.store.registry.entry_ready(story.store.registry.data.chapters[1].id,story.store.state))
+  journal_controls(bootstrap,"complete")
+  await capture("journal_complete")
+@@ -129,6 +147,9 @@ func run(bootstrap: Control) -> void:
+  await capture("replay_complete")
+  report["story"] = readback.state
+  report["audio"] = mission.audio.diagnostics()
++ finish()
++
++func finish() -> void:
+  report["display"] = DisplayServer.get_name()
+  report["rendered"] = DisplayServer.get_name() != "headless"
+  report["scope"] = "Headless Input/save technical execution; no rendered/audio-device/native-Windows claim" if not report.rendered else "Actual renderer/Input run; listening and native Windows require separate review"
+diff --git a/game/scripts/story/bonus_progress.gd b/game/scripts/story/bonus_progress.gd
+new file mode 100644
+index 00000000..13a5e75f
+--- /dev/null
++++ b/game/scripts/story/bonus_progress.gd
+@@ -0,0 +1,231 @@
++extends RefCounted
++## Profile-owned bonus sidecar; planned scenes cannot launch or grant story facts.
++const Story = preload("res://scripts/story/story_state.gd")
++const IDS := ["BONUS_OFFLINE_BUILD", "BONUS_COUNTER_LESSON"]
++const TITLES := ["Офлайн-сборка", "Пауза между ударами"]
++const CHAPTERS := ["CH14_AGENT_SWARM", "CH10_THE_KIMONO"]
++const BOOTSTRAP := "res://scenes/bootstrap/bootstrap.tscn"
++var owner: Node
++var state := fresh()
++var path := ""
++var writable := true
++var error := ""
++var generation := 0
++var _store: RefCounted
++var _campaign_path := ""
++var _active: Dictionary = {}
++var _return: Dictionary = {}
++var _checking_goal := false
++
++static func fresh() -> Dictionary:
++	return {"schema":1,"domain":"bonus_profile","history":[],
++		"completed":{IDS[0]:false,IDS[1]:false}}
++
++func _init(service: Node) -> void:
++	owner = service
++	_sync_scope()
++
++func _fail(message: String) -> bool:
++	error = message
++	return false
++
++func revoke() -> void:
++	generation += 1
++	_active.clear()
++	_return.clear()
++
++func scene_changed(scene: Variant) -> void:
++	if not _active.is_empty() and (not is_instance_valid(scene) or scene != _active.host.get_ref()):
++		revoke()
++	elif not _return.is_empty() and (not is_instance_valid(scene) or scene.scene_file_path != BOOTSTRAP):
++		revoke()
++
++func _sync_scope() -> bool:
++	if not is_instance_valid(owner) or not owner.store is Story: return _fail("OWNER_INVALID")
++	var current: RefCounted = owner.store
++	if current.path.is_empty(): return _fail("PROFILE_INVALID")
++	var current_path: String = ProjectSettings.globalize_path(current.path).simplify_path()
++	var sidecar_path := current_path.get_base_dir().path_join("bonus_progress_v1.json")
++	if current_path in [sidecar_path,sidecar_path+".tmp"]:
++		revoke()
++		_store = null
++		_campaign_path = ""
++		path = ""
++		state = fresh()
++		writable = false
++		return _fail("PROFILE_NAMESPACE_COLLISION")
++	if current != _store or current_path != _campaign_path:
++		revoke()
++		_store = current
++		_campaign_path = current_path
++		path = current_path.get_base_dir().path_join("bonus_progress_v1.json")
++		state = fresh()
++		writable = true
++		error = ""
++		return load_save()
++	return true
++
++func _valid_campaign() -> bool:
++	if not _sync_scope(): revoke(); return false
++	if owner.session != _store or owner.pending_replay:
++		revoke(); return false
++	if not _store.writable or _store.simulation or _store.replay or not _store.validate(_store.state):
++		revoke(); return false
++	if not FileAccess.file_exists(_campaign_path): revoke(); return false
++	var disk: Variant = Story.read_json(_campaign_path)
++	if not _store.validate(disk) or not _store._equivalent(disk,_store.state): revoke(); return false
++	return true
++
++func _prerequisite(id: String) -> bool:
++	var index := IDS.find(id)
++	if index < 0: return false
++	var chapter: String = CHAPTERS[index]
++	return _store.registry.entry_ready(chapter,_store.state) and _store.state.chapter_complete.get(chapter,false)
++
++func _scene_path(_id: String) -> String:
++	# Both actual bonus missions remain planned; a save cannot supply a scene/ability grant.
++	return ""
++
++func can_launch(id: String) -> bool:
++	return id in IDS and _valid_campaign() and writable \
++		and path == _campaign_path.get_base_dir().path_join("bonus_progress_v1.json") \
++		and _prerequisite(id) and not _scene_path(id).is_empty()
++
++func begin(id: String, host: Variant, origin: Variant) -> bool:
++	if not can_launch(id) or not is_instance_valid(host) or not is_instance_valid(origin): return _fail("UNAVAILABLE")
++	if not host is Node or not origin is Node: return _fail("HOST_INVALID")
++	if origin.scene_file_path != BOOTSTRAP or origin.get_tree().current_scene != origin: return _fail("ORIGIN_INVALID")
++	if host.scene_file_path != _scene_path(id): return _fail("HOST_INVALID")
++	revoke()
++	_active = {"id":id,"host":weakref(host),"generation":generation,"store":_store,
++		"profile":_campaign_path,"origin":weakref(origin),"replay":state.completed[id]}
++	return true
++
++func _authorized(host: Variant) -> bool:
++	if not is_instance_valid(host) or not host is Node: return false
++	if host.is_queued_for_deletion() or not host.is_inside_tree(): return false
++	if not _valid_campaign() or _active.is_empty(): return false
++	if not writable or path != _campaign_path.get_base_dir().path_join("bonus_progress_v1.json"): return false
++	if not _prerequisite(_active.id): revoke(); return false
++	return is_instance_valid(host) and _active.host.get_ref() == host and _active.store == _store \
++		and _active.profile == _campaign_path and _active.generation == generation \
++		and host.scene_file_path == _scene_path(_active.id)
++
++func complete(host: Variant) -> bool:
++	# Check current owner/prerequisite BEFORE the idempotent and read-only branches.
++	if _checking_goal: return _fail("REENTRANT_GOAL")
++	if not _authorized(host): return _fail("SESSION_REVOKED")
++	var request_generation := generation
++	if not host.has_method("bonus_goal_ready"): return _fail("GOAL_UNRESOLVED")
++	_checking_goal = true
++	var ready: Variant = host.bonus_goal_ready()
++	_checking_goal = false
++	# A host callback may synchronously revoke, replace the profile, or free itself.
++	if not _authorized(host) or generation != request_generation: return _fail("SESSION_REVOKED")
++	if not ready is bool or not ready: return _fail("GOAL_UNRESOLVED")
++	if _active.replay or state.completed[_active.id]: return true
++	var candidate := state.duplicate(true)
++	candidate.history.append(_active.id)
++	candidate.completed[_active.id] = true
++	if not validate(candidate) or not _write(candidate): return false
++	state = candidate
++	return true
++
++func request_return(host: Variant) -> bool:
++	if not _authorized(host): return _fail("RETURN_REVOKED")
++	_return = {"store":_store,"profile":_campaign_path,"generation":generation}
++	_active.clear()
++	return true
++
++func consume_return(bootstrap: Variant) -> bool:
++	if not _sync_scope() or _return.is_empty() or not is_instance_valid(bootstrap): return false
++	if not bootstrap is Node: return false
++	var allowed: bool = _return.store == _store and _return.profile == _campaign_path \
++		and _return.generation == generation and bootstrap.scene_file_path == BOOTSTRAP \
++		and bootstrap.get_tree().current_scene == bootstrap
++	revoke()
++	return allowed
++
++static func validate(value: Variant) -> bool:
++	if not value is Dictionary or value.size() != 4: return false
++	if not value.get("schema") is float and not value.get("schema") is int: return false
++	if value.schema != 1 or value.get("domain") != "bonus_profile": return false
++	if not value.get("history") is Array or value.history.size() > 2 or not value.get("completed") is Dictionary: return false
++	if value.completed.size() != 2: return false
++	var expected := fresh()
++	for id in value.history:
++		if not id is String or not id in IDS or expected.completed[id]: return false
++		expected.history.append(id)
++		expected.completed[id] = true
++	for id in IDS:
++		if not value.completed.get(id) is bool or value.completed[id] != expected.completed[id]: return false
++	return true
++
++static func strict_decode(text: String) -> Variant:
++	if text.length() > 65536: return null
++	# Native JSON accepts lax numbers/control strings as well as duplicate/trailing keys.
++	var lexer := RegEx.create_from_string("\"(?:[^\"\\\\\\x00-\\x1F]|\\\\(?:[\"\\\\/bfnrt]|u[0-9a-fA-F]{4}))*\"|-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?|true|false|null|[{}\\[\\],:]")
++	var keys := {}
++	var previous := 0
++	var previous_token := ""
++	var previous_primitive := false
++	for token in lexer.search_all(text):
++		var gap := text.substr(previous,token.get_start()-previous)
++		for whitespace in [" ","\t","\r","\n"]: gap = gap.replace(whitespace,"")
++		if not gap.is_empty(): return null
++		var lexeme: String = token.get_string()
++		var primitive := not lexeme in ["{","}","[","]",",",":"]
++		if previous_primitive and primitive: return null
++		if previous_token == "," and lexeme in ["}","]"]: return null
++		previous = token.get_end()
++		if lexeme.begins_with('"') and text.substr(previous).strip_edges().begins_with(":"):
++			var key: Variant = JSON.parse_string(lexeme)
++			if keys.has(key): return null
++			keys[key] = true
++		previous_token = lexeme
++		previous_primitive = primitive
++	var remaining := text.substr(previous)
++	for whitespace in [" ","\t","\r","\n"]: remaining = remaining.replace(whitespace,"")
++	if not remaining.is_empty(): return null
++	var parser := JSON.new()
++	if parser.parse(text) != OK: return null
++	return parser.data if validate(parser.data) else null
++
++func load_save() -> bool:
++	if not FileAccess.file_exists(path): return true
++	var file := FileAccess.open(path,FileAccess.READ)
++	if file == null: writable = false; return _fail("READ_FAILED")
++	if file.get_length() > 65536: file.close(); writable = false; return _fail("OVERSIZE_PRESERVED")
++	var text := file.get_as_text()
++	var read_error := file.get_error()
++	file.close()
++	var parsed: Variant = strict_decode(text)
++	if read_error != OK or parsed == null:
++		writable = false
++		return _fail("INVALID_PRESERVED")
++	# JSON numbers are floats; rebuild the typed derived state just like StoryState.load_save.
++	state = fresh()
++	for id in parsed.history:
++		state.history.append(id)
++		state.completed[id] = true
++	return true
++
++func _boundary(_stage: String) -> bool:
++	return true
++
++func _write(candidate: Dictionary) -> bool:
++	var temporary := path+".tmp"
++	var file := FileAccess.open(temporary,FileAccess.WRITE)
++	if file == null: return _fail("OPEN_FAILED")
++	file.store_string(JSON.stringify(candidate,"  "))
++	file.flush()
++	var write_error := file.get_error()
++	file.close()
++	if write_error != OK or not _boundary("written"):
++		DirAccess.remove_absolute(temporary)
++		return _fail("WRITE_FAILED")
++	if not _boundary("before_rename") or DirAccess.rename_absolute(temporary,path) != OK:
++		DirAccess.remove_absolute(temporary)
++		return _fail("RENAME_FAILED")
++	_boundary("after_rename")
++	return true
+diff --git a/game/scripts/story/story_service.gd b/game/scripts/story/story_service.gd
+index 5abb8554..15f0893c 100644
+--- a/game/scripts/story/story_service.gd
++++ b/game/scripts/story/story_service.gd
+@@ -2,9 +2,20 @@ extends Node
+ ## Sole campaign owner; viewing history remains DialogueDirector's responsibility.
+ signal changed
+ const Store = preload("res://scripts/story/story_state.gd")
+-var store: RefCounted
+-var session: RefCounted
+-var pending_replay := false
++const Bonus = preload("res://scripts/story/bonus_progress.gd")
++var bonus: RefCounted
++var store: RefCounted:
++ set(value):
++  if bonus != null: bonus.revoke()
++  store = value
++var session: RefCounted:
++ set(value):
++  if value != store and bonus != null: bonus.revoke()
++  session = value
++var pending_replay := false:
++ set(value):
++  if value and bonus != null: bonus.revoke()
++  pending_replay = value
+ var error_message := ""
+ const DIALOGUE_EVENTS := {"CH01_INTRO":"EV_CH01_INTRO","CH01_PHONE":"EV_CH01_PHONE","CH01_OUTRO":"EV_CH01_OUTRO"}
+ 
+@@ -19,9 +30,70 @@ func _ready() -> void:
+   error_message = "История не записывается. Сохранение оставлено для восстановления."
+  session = store
+  director.finished.connect(_on_dialogue_finished)
++ get_tree().scene_changed.connect(_on_scene_changed)
++
++func _bonuses() -> RefCounted:
++ if bonus == null: bonus = Bonus.new(self)
++ return bonus
++
++func adopt_campaign(candidate: RefCounted) -> bool:
++ if not candidate is Store or candidate.simulation or candidate.replay or not candidate.writable: return false
++ if candidate.path.is_empty() or not candidate.validate(candidate.state): return false
++ var disk: Variant = Store.read_json(candidate.path)
++ if not candidate.validate(disk) or not candidate._equivalent(disk,candidate.state): return false
++ # Rebinding even the same Store is the owner boundary for a new campaign/profile.
++ store = candidate
++ session = store
++ pending_replay = false
++ changed.emit()
++ return true
++
++func bonus_entries() -> Array[Dictionary]:
++ var controller := _bonuses()
++ var entries: Array[Dictionary] = []
++ for index in Bonus.IDS.size():
++  var id: String = Bonus.IDS[index]
++  var available: bool = controller.can_launch(id)
++  entries.append({"id":id,"title":Bonus.TITLES[index],"available":available,"completed":controller.state.completed[id]})
++ return entries
++
++func launch_bonus(id: String, origin: Variant) -> bool:
++ var controller := _bonuses()
++ if not controller.can_launch(id): return false
++ var packed: Variant = load(controller._scene_path(id))
++ if not packed is PackedScene: return false
++ var host: Node = packed.instantiate()
++ if not controller.begin(id,host,origin): host.free(); return false
++ if get_tree().change_scene_to_node(host) != OK:
++  controller.revoke(); host.free(); return false
++ return true
++
++func complete_bonus(host: Variant) -> bool:
++ return _bonuses().complete(host)
++
++func leave_bonus(host: Variant) -> bool:
++ var controller := _bonuses()
++ if not controller.request_return(host): return false
++ if get_tree().change_scene_to_file(Bonus.BOOTSTRAP) != OK:
++  controller.revoke(); return false
++ return true
++
++func consume_bonus_return(bootstrap: Node) -> bool:
++ return bonus != null and bonus.consume_return(bootstrap)
++
++func enter_menu(bootstrap: Node) -> bool:
++ if bootstrap.scene_file_path != Bonus.BOOTSTRAP or get_tree().current_scene != bootstrap: return false
++ if bonus != null: bonus.revoke()
++ session = store
++ pending_replay = false
++ return true
++
++func _on_scene_changed() -> void:
++ if bonus != null: bonus.scene_changed(get_tree().current_scene)
+ 
+ func begin_chapter(id: String) -> bool:
+  if not store.registry.entry_ready(id,store.state): return false
++ if bonus != null: bonus.revoke()
+  session = store.fork_replay() if pending_replay or store.state.chapter_complete.has(id) else store
+  pending_replay = false
+  return true
+diff --git a/game/scripts/ui/story_journal.gd b/game/scripts/ui/story_journal.gd
+index 9e45d0db..d0b59c82 100644
+--- a/game/scripts/ui/story_journal.gd
++++ b/game/scripts/ui/story_journal.gd
+@@ -14,7 +14,7 @@ func _ready() -> void:
+  for side in ["left","right","top","bottom"]: margin.add_theme_constant_override("margin_"+side,16)
+  add_child(margin)
+  var column := VBoxContainer.new(); margin.add_child(column)
+- var title := Label.new(); title.text = "ИСТОРИЯ · ГЛАВЫ"; title.add_theme_font_size_override("font_size",22); column.add_child(title)
++ var title := Label.new(); title.text = "ИСТОРИЯ · ГЛАВЫ И БОНУСЫ"; title.add_theme_font_size_override("font_size",22); column.add_child(title)
+  var row := HBoxContainer.new(); row.size_flags_vertical = Control.SIZE_EXPAND_FILL; column.add_child(row)
+  list = ItemList.new(); list.custom_minimum_size = Vector2(270,220); list.size_flags_vertical = Control.SIZE_EXPAND_FILL; list.add_theme_font_size_override("font_size",14); row.add_child(list)
+  var right := VBoxContainer.new(); right.size_flags_horizontal = Control.SIZE_EXPAND_FILL; row.add_child(right)
+@@ -35,10 +35,28 @@ func refresh() -> void:
+   var status := "скоро"
+   if chapter.availability == "playable": status = "пройдена" if story.store.state.chapter_complete.has(chapter.id) else "доступна"
+   list.add_item("%02d · %s · %s" % [chapter.presentation,chapter.title_ru,status])
++ for entry in story.bonus_entries():
++  list.add_item("Бонус · %s · %s" % [entry.title,"доступен" if entry.available else "в работе"])
++ selected = clampi(selected,0,list.item_count-1)
+  list.select(selected); _select(selected)
+ 
++func open_bonuses() -> void:
++ show()
++ selected = story.store.registry.data.chapters.size()
++ list.select(selected); _select(selected)
++ list.ensure_current_is_visible()
++
+ func _select(index: int) -> void:
++ if index < 0 or index >= list.item_count: return
+  selected = index
++ var count: int = story.store.registry.data.chapters.size()
++ if index >= count:
++  var entry: Dictionary = story.bonus_entries()[index-count]
++  launch.disabled = not entry.available
++  launch.text = "Повторить · Enter" if entry.completed else "Играть · Enter"
++  recap.text = "БОНУСЫ · ВНЕ ОСНОВНОЙ ИСТОРИИ\n\n%s\n\n%s" % [entry.title,"Отдельное упражнение. Прохождение не меняет основной сюжет." if entry.available else "Этот эпизод ещё в работе. Он появится после выпуска."]
++  if story.bonus != null and not story.bonus.writable: recap.text += "\n\nСохранение бонусов недоступно. Основной сюжет можно продолжить."
++  return
+  var chapter: Dictionary = story.store.registry.data.chapters[index]
+  var completed: bool = story.store.state.chapter_complete.has(chapter.id)
+  launch.disabled = not story.store.registry.entry_ready(chapter.id,story.store.state)
+@@ -50,6 +68,13 @@ func _select(index: int) -> void:
+  if not story.error_message.is_empty(): recap.text += "\n\n"+story.error_message
+ 
+ func _launch() -> void:
++ var count: int = story.store.registry.data.chapters.size()
++ if selected >= count:
++  var entries: Array = story.bonus_entries()
++  if selected-count >= 0 and selected-count < entries.size() and entries[selected-count].available:
++   story.launch_bonus(entries[selected-count].id,get_tree().current_scene)
++  return
++ if selected < 0: return
+  var chapter: Dictionary = story.store.registry.data.chapters[selected]
+  if not story.store.registry.entry_ready(chapter.id,story.store.state): return
+  story.pending_replay = story.store.state.chapter_complete.has(chapter.id)

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "scope": "H04_CH01_CAMERA_MOVEMENT_READABILITY_CORRECTED_CONDITION",
+  "status": "PASS_COMPONENT",
+  "recorded_at": "2026-11-19T09:38:17.203246+00:00",
+  "reviewer": {
+    "agent": "/root/art_c09_gabar_source",
+    "role": "INDEPENDENT_GAMEPLAY_PACING_READABILITY_REVIEWER",
+    "independent_of_author": true
+  },
+  "current_HEAD": "df7a6eeae8a8e1a440f8d8e35d84a17a20296290",
+  "supersedes_condition_in": {
+    "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-pacing-readability-01/decision.json",
+    "sha256": "007c8d2107bcd4bf5313512bd27bd65e655fbdd16b5d442cef81939080bd1403",
+    "initial_review_sha256": "b5a61cb1a1cf9600b50c6440f3da0d5107088483ce8ecea720b2187d11962c52"
+  },
+  "corrected_condition": "CH01 dialogue resume re-enables NPC physics after fixture disables it; old clip must not be described as AI-off",
+  "finding": {
+    "id": "GPR-COND-01",
+    "severity": "MEDIUM",
+    "domain": "fixture-condition claim",
+    "observed": "set_physics_process(false) before finish_dialogue is undone by actual _freeze_actors(false) after resume_lock_ticks",
+    "minimal_disposition": "Describe existing clip honestly with post-dialogue active NPC. Only if future acceptance requires AI-off isolation: disable after dialogue and assert precondition in future fixture; no Game change",
+    "gate": "Any future claim that this old clip had NPC physics disabled; no broad combat/pacing claim"
+  },
+  "must_fix_observed_readability": [],
+  "must_fix": [],
+  "remaining_condition_claim": "AI_OFF_NOT_SUPPORTED_BY_THIS_BASELINE",
+  "camera_movement_visual_verdict": "PASS_COMPONENT for actual personally sampled movement regardless of mistaken isolation label",
+  "controlled_timing_metrics_affected": false,
+  "new_engine_run": false,
+  "contract_calibration_or_acceptance_approval": false,
+  "full_Readiness_P07_approval": false,
+  "evidence": [
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/tools/fixtures/p07_pacing.gd",
+      "sha256": "edd17ee45525c85ee470dacc9456f12910c61246206b6cf612ab426d3d4388bd"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/qa/mission_replay.gd",
+      "sha256": "aaf244613bb6a0a93af727d58983b0f63de9a304f9df8d42cd2370feefb4e43e"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/scripts/levels/missed_fight.gd",
+      "sha256": "12538b3699638b74210788a3cf518769331759d000835d4d5af1b0266e8e2b59"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/game/resources/chapters/missed_fight.json",
+      "sha256": "c9e3ff7421816fa51c4fcb623da38021cf1d24e1519429c0161997b75e4e2bb8"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-pacing-readability-01/decision.json",
+      "sha256": "007c8d2107bcd4bf5313512bd27bd65e655fbdd16b5d442cef81939080bd1403"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-pacing-readability-01/review.md",
+      "sha256": "b5a61cb1a1cf9600b50c6440f3da0d5107088483ce8ecea720b2187d11962c52"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-pacing-readability-01/SHA256-manifest.json",
+      "sha256": "4f7bf729894ce26fda6cfb4bb6e218758828c147ebc03884ceafa9e01c22f5f0"
+    },
+    {
+      "path": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/pre_p07/gameplay-pacing-readability-01/correction-01/review.md",
+      "sha256": "ff684a2144b623908ebe3666e1707839976ae37af5423932c1606f6754b73162"
+    }
+  ]
+}

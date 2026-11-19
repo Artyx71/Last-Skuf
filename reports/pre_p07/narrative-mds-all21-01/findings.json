@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "N-MDS-CH21-01",
+      "priority": "MEDIUM",
+      "scope": "optional POST_STORY_RESCUE paper physical dependency",
+      "path": "planning/missions/CH21_THE_LAST_CALL.md",
+      "line": 50,
+      "title": "Cart/release не образуют описанную физическую спасательную цепочку",
+      "evidence": {
+        "PR1_bounds": [
+          384,
+          0,
+          512,
+          768
+        ],
+        "partition_x": [
+          576,
+          768
+        ],
+        "partition_y": [
+          448,
+          464
+        ],
+        "open_around_left_width": 192,
+        "open_around_right_width": 128,
+        "gap_x": [
+          672,
+          704
+        ],
+        "person_initial": "closed safe niche in PR2, geometry/release connection unspecified",
+        "controlled_door": "PR1↔PR2 at880,192,16,128",
+        "exit": "PR2 point1152,256"
+      },
+      "impact": "Tega может дойти к stopper832,272 вокруг короткой полосы, не освобождая cart gap. Человек уже находится в exit-секторе PR2; открытие двери из PR1 в PR2 само не освобождает путь от него к exit. Если предполагается дополнительная закрытая ниша, её барьер и связь с release не описаны. Это бумажная зависимость optional mission, не runtime bug/не ошибка primary predicates.",
+      "minimum_fix": "Перекрыть PR1 полностью поперечной стеной кроме32px gap, либо честно дать другой реальный обязательный путь. Человек должен быть на удерживаемой стороне целевой двери (например safe PR1 north) с конкретным началом пути вPR2 exit, или отдельная физическая ниша/дверь должна явно открываться тем же release. Сохранить patrol-dead до friend walk, once/CP и отсутствие escort-перестрелки. Никаких новых global flags/primary changes/непроверенной teleportability.",
+      "verification": "Непрерывная бумажная цепочка Gabar clear→Tega actual cart motion→stopper→real door opens→person crosses formerly blocked route→PR2 exit, без обхода перегородки."
+    }
+  ],
+  "HIGH": 0,
+  "MEDIUM": 1,
+  "remaining_primary_canon_or_ending_predicate_conflicts": [],
+  "old_batch3_three_findings_closed": true
+}

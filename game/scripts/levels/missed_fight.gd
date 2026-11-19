@@ -1,6 +1,8 @@
 extends "res://scripts/core/combat_lab.gd"
 ## First authored chapter. Combat, contact clock and enemy AI are inherited unchanged.
 const Progress = preload("res://scripts/levels/chapter_progress.gd")
+const NavigationHost = preload("res://scripts/ai/room_navigation_host.gd")
+var room_navigation: RefCounted
 var story: Node
 var requested_replay := false
 var progress: RefCounted
@@ -56,6 +58,8 @@ func _ready() -> void:
   art.centered = false; art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
   body.add_child(art); add_child(body)
   doors[definition.id] = {"body":body,"shape":shape,"art":art,"open":false,"rect":rect}
+ room_navigation = NavigationHost.new()
+ room_navigation.setup(self,Rect2(0,0,config.world_size[0],config.world_size[1]))
  camera = Camera2D.new()
  camera.position = player.position
  camera.limit_left = 0; camera.limit_top = 0
@@ -101,6 +105,7 @@ func _add_wall(bounds: Rect2) -> void:
 
 func reset_encounter() -> void:
  super.reset_encounter()
+ if room_navigation: room_navigation.reset_paths()
  has_key = checkpoint == "service"
  phone_seen = false
  visited_phone = false
@@ -127,6 +132,8 @@ func _set_door(id: String, opened: bool) -> void:
 
 func _physics_process(delta: float) -> void:
  if not scene_ready: return
+ # Read enabled physical shapes after deferred door updates, before actors move.
+ room_navigation.refresh()
  if resume_lock_ticks > 0:
   resume_lock_ticks -= 1
   if resume_lock_ticks == 0: _freeze_actors(false)
@@ -160,6 +167,10 @@ func _physics_process(delta: float) -> void:
  if state == "dead":
   player.modulate = Color("b1bdcb") if get_node("/root/OptionsStore").values.reduced_gore else Color("a66f80")
  queue_redraw()
+
+func navigation_velocity(body: CharacterBody2D, target: Vector2, speed: float) -> Vector2:
+ if not room_navigation: return Vector2.ZERO
+ return room_navigation.velocity_for(body,target,speed)
 
 func player_died() -> void:
  if state != "playing": return

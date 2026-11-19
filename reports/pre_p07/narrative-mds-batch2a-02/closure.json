@@ -1,0 +1,16 @@
+{
+  "findings": [
+    {
+      "id": "N-MDS-CH05-01",
+      "status": "CLOSED_IN_PAPER_SCOPE",
+      "evidence": "OP1↔OP2 real west door1392,384,16,128; west+south doors both closed/enabled/foot-clear before POV switch; CP1 stores both states. Alternate loop no longer enters refuge."
+    },
+    {
+      "id": "N-MDS-CH06-01",
+      "status": "CLOSED_IN_PAPER_SCOPE",
+      "evidence": "court_ready before E3 instantiation; only authored future IDs in snapshot; YARD_ENTER after resume-lock spawns once per attempt/generation. Any live runtime NPC forbids CP1. court_active/any created E3 forbids late CP1, even dead."
+    }
+  ],
+  "other_delta": "Safe secret return through reopened cleared own route before completion; no deadID resurrection; unvisited route remains dangerous. Removed unrequested NPC ammo annotation.",
+  "remaining_findings": []
+}

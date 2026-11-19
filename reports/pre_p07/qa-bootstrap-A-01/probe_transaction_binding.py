@@ -1,0 +1,29 @@
+"""Real candidate filesystem/flock corruption probes in disposable roots only."""
+from pathlib import Path
+import hashlib,json,sys,tempfile
+sys.dont_write_bytecode=True
+Q=Path(__file__).resolve().parent;S=Q/'source';sys.path.insert(0,str(S/'tools'))
+import bootstrap_runtime_fence as builder
+import cold_bootstrap as cb
+OLD=(S/'tools/fixtures/autopilot_legacy_02b.py.txt').read_bytes();NEW=builder.build(OLD,(S/'autopilot/runner.py').read_bytes())
+rows=[]
+def setup(base):
+ root=base/'checkout';root.mkdir()
+ for n in ['.git','.autopilot','automation','autopilot']:(root/n).mkdir()
+ (root/'automation/.executor.lock').touch(mode=0o600);(root/cb.RUNNER).write_bytes(OLD);(root/cb.RUNNER).chmod(0o755);(root/'automation/phase_state.json').write_text('{"attempts":2,"history":["keep"]}');(root/'autopilot/config.json').write_text('{}');return root
+def write(p,x):p.write_text(json.dumps(x,indent=2)+'\n')
+for mode in ['valid_control','state_changed_control','marker_hash_corruption','journal_drop_protected_and_state_change','journal_target_mode_corruption']:
+ with tempfile.TemporaryDirectory(prefix='qa-bootstrapA-') as tmp:
+  root=setup(Path(tmp));state=root/'automation/phase_state.json';initial=state.read_bytes();runner=root/cb.RUNNER
+  with cb.Bootstrap(root).lease() as install:ident=install.begin(NEW,['automation/phase_state.json','autopilot/config.json'])
+  marker=root/cb.MARKER;journal=root/'.autopilot/bootstrap'/ident/'journal.json';original_marker=json.loads(marker.read_text());original_journal=json.loads(journal.read_text())
+  if mode=='state_changed_control':state.write_bytes(b'{"new_owner_history":["preserve"]}')
+  if mode=='marker_hash_corruption':m=json.loads(marker.read_text());m['journal_sha256_at_prepare']='0'*64;write(marker,m)
+  if mode=='journal_drop_protected_and_state_change':j=json.loads(journal.read_text());j['protected']={};write(journal,j);state.write_bytes(b'{"new_owner_history":["preserve"]}')
+  if mode=='journal_target_mode_corruption':j=json.loads(journal.read_text());j['target']['mode']=0o777;write(journal,j)
+  before_journal=journal.read_bytes();before_marker=marker.read_bytes();error=None;returned=None
+  try:
+   with cb.Bootstrap(root).lease() as install:returned=install.finish(ident)
+  except Exception as exc:error={'type':type(exc).__name__,'message':str(exc)}
+  expected_refuse=mode!='valid_control';actual_refuse=error is not None;rows.append({'case':mode,'expected_refuse':expected_refuse,'actual_refuse':actual_refuse,'passed':expected_refuse==actual_refuse,'error':error,'actual_returned_status':returned.get('status') if returned else None,'marker_present_after':marker.exists(),'runner_is_target_after':runner.read_bytes()==NEW,'runner_mode_after':oct(runner.stat().st_mode&0o777),'state_bytes_preserved_from_prebegin':state.read_bytes()==initial,'marker_prepare_hash_at_begin':original_marker['journal_sha256_at_prepare'],'actual_journal_hash_before_finish':hashlib.sha256(before_journal).hexdigest(),'marker_bytes_before_finish':before_marker.decode(),'journal_protected_paths_at_begin':list(original_journal['protected'])})
+result={'scope':'EXACT_FROZEN_BOOTSTRAP_A_TEMP_CHECKOUT_FAULT_PROBES','target_sha256':hashlib.sha256(NEW).hexdigest(),'old_sha256':hashlib.sha256(OLD).hexdigest(),'rows':rows,'passed':all(x['passed'] for x in rows),'ROOT_Controller_or_engine_calls':0,'production_writes':0,'actual_disposable_Bootstrap_leases':10,'note':'Bootstrap methods are actual unmodified candidate. No actual Root maintenance/installation occurred.'};write(Q/'transaction-binding-results.json',result);print(json.dumps({'passed':result['passed'],'cases':len(rows),'failed':[x['case'] for x in rows if not x['passed']]}))

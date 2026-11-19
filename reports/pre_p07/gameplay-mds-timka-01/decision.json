@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "CH02_AND_CH11_PAPER_GAMEPLAY_DESIGN_COMPONENT_ONLY_NOT_RUNTIME_FEEL_OR_ALL21",
+  "status": "FAIL_COMPONENT",
+  "verdict": "FAIL",
+  "source_head": "7d97af62ebd42b20cf9aa598ee38ed450d54ef53",
+  "source_sha256": {
+    "planning/missions/CH02_THE_TITAN.md": "5f5279ce433a748de439b9332aa4e3910deddc5dc89e25b7876bcccb93a44d8e",
+    "planning/missions/CH11_THE_DOG_WALKER.md": "be372f97ae68a2f9b082ae760b24ca21d34c9dc733188b967c56413eba4462ab",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/scripts/systems/character_combat_profile.gd": "c07a7be8c3f34d486ee67a1703f076ee876c541b16b604a54514e18855796097",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/levels/chapter_progress.gd": "5e3ea63e36d9ba98396b5767a71ab737b32460009b0fcf453a68fb05f6a09cfe",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/characters/combat_profiles.json": "e03f98a9c6196e9e361e54b4433fe673c2f4a8422800080b85f602f6f9085c93",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "game/resources/combat/finishers.json": "5f5175bbf79ce571bd6abe6584fea0ebb0b86b1889f3b991f0eb5ea8c2f972ab",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4"
+  },
+  "per_document": [
+    {
+      "chapter": "CH02_THE_TITAN",
+      "status": "FAIL_PAPER_COMPONENT",
+      "document_sha256": "5f5279ce433a748de439b9332aa4e3910deddc5dc89e25b7876bcccb93a44d8e",
+      "blocking_design_findings": [
+        "TIMKA-MDS-G01"
+      ],
+      "abilities_match_existing_P06": true,
+      "mandatory_no_kill_route_not_disproved": true
+    },
+    {
+      "chapter": "CH11_THE_DOG_WALKER",
+      "status": "PASS_PAPER_COMPONENT",
+      "document_sha256": "be372f97ae68a2f9b082ae760b24ca21d34c9dc733188b967c56413eba4462ab",
+      "blocking_design_findings": [],
+      "abilities_match_existing_P06": true,
+      "companion_shotcamera_assets_or_runtime_ready": false
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "TIMKA-MDS-G01",
+      "severity": "MEDIUM",
+      "chapter": "CH02_THE_TITAN",
+      "status": "PAPER_DESIGN_FIX_REQUIRED",
+      "location": "Checkpoints paragraph61/63 and rhythm paragraph53",
+      "summary": "ConditionalCP1 has fallbackCP0, but permitted alive-E2 snapshot and safe admission predicate are not defined; a near-expiry stun can restore into immediate threat.",
+      "paper_geometry": {
+        "CP1": [
+          1344,
+          288
+        ],
+        "E2_spawn": [
+          1248,
+          176
+        ],
+        "distance_px": 147.5127113166862,
+        "rusher_sight_px": 230,
+        "partition_x_span": [
+          1024,
+          1056
+        ],
+        "direct_line_partition_blocked": false
+      },
+      "qualification": "Not an observed runtime death/softlock. CP1 is optional and CP0 preserves chapter viability. The issue is underspecified safe snapshot acceptance, not a mandatory kill requirement.",
+      "minimal_requested_change": "Specify CP1 admission/restore whitelist and stage transaction now. For example, disable this optional CP1 whenever liveE2 remains within clear230px sight/current pursuit unless a separately specified deterministic safe state is authored; expired/short stun alone cannot qualify. Otherwise retainCP0 and say so in rhythm. Enumerate restored encounter/NPC position-state-timer policy, player health/equipment and cooldowns, door/prop/pickup stage; clear transientjobs and do not promise CP1 on failedwrite. No engine implementation needed for this paper closure.",
+      "acceptance": "An implementer can determine whether CP1 is allowed and restore an exact safe state without inventing safe radius or saved stun/cooldown policy. Nonkill bypass still reaches chapterexit usingCP0."
+    }
+  ],
+  "future_high_dependencies": [
+    {
+      "chapter": "CH02_THE_TITAN",
+      "severity": "HIGH",
+      "status": "FUTURE_PRODUCTION_OBLIGATION_NOT_PAPER_FAILURE",
+      "items": [
+        "Trusted CH02 athletic_prime scene policy + implemented factory/frames binding, generation/cancel tests; sandboxfixture does not grantcampaign",
+        "Validated multiroom collision/navigation/camera/doors/bench and optionalpickup",
+        "Chaptercheckpoint schema/atomic state and once progression",
+        "Original props/scenes/arrangement/stems/listening/art and actual Input/native acceptance"
+      ]
+    },
+    {
+      "chapter": "CH11_THE_DOG_WALKER",
+      "severity": "HIGH",
+      "status": "FUTURE_PRODUCTION_OBLIGATION_NOT_PAPER_FAILURE",
+      "items": [
+        "Trusted CH11 peaceful_present scene/factory binding explicitly retain noFIN/noequipment; currentimplemented whitelist accepts onlysandboxkeys",
+        "Jack follower/art/footprint/speed/separation recovery and pairedCP/exit semantics",
+        "Shotcamera/composition and real LOS/readability for witnessbeat; crate not visible in playercentered640x360view",
+        "ValidatedchapterCP/eventcheckpoint write-failure recovery and deterministicguardstage",
+        "New originalworld/transferposes/companion/SFX/arrangement/stems/listening and actualInput/native acceptance"
+      ]
+    }
+  ],
+  "geometry_paper_checks": {
+    "CH11_observation_ray_crosses_y512_at_x": 723.5555555555555,
+    "CH11_portal_x": [
+      640,
+      736
+    ],
+    "CH11_CP1_to_guard1_distance": 373.18092127009925,
+    "CH11_CP1_to_guard2_distance": 694.6653870749572,
+    "CH11_CP1_default_patrol_sight": 175,
+    "CH11_crate_y288_outside_player_centered_camera_top396": true,
+    "actual_collision_or_camera_acceptance": false
+  },
+  "not_claimed": [
+    "New chapter implementation/playthrough",
+    "Gameplay feel/hardwarelatency/FPS",
+    "Asset/music/listening readiness",
+    "All21MDS/fullReadiness/P07/phasePASS"
+  ],
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}

@@ -1,0 +1,115 @@
+{
+  "scope": "DISPOSABLE_B_METADATA_TERMINAL_AND_RECOVERY_PROBES_ONLY",
+  "rows": [
+    {
+      "case": "valid",
+      "expected": "COMMIT_VERIFIED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": true,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "835268d4b8ee4b99946dc98acf439abe"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "missing_marker",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Pending bundle marker missing",
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "cceae24393ef414dab5e7b2a105db5a1"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "wrong_marker_owner",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Bundle marker ownership changed",
+      "marker_after": true,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "bf08a66784e048d5a80f9579976d85d2"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "malformed_ledger_dict",
+      "expected": "REFUSED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": false,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": {
+          "612e65af880547fc9a42b39b64e4e6c1": "CORRUPT_TEST_ONLY_NOT_A_LIST"
+        }
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "missing_ledger",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmph8e6k8jo/.autopilot/RUNTIME_BUNDLE_STARTED.json'",
+      "marker_after": true,
+      "state_unchanged": true,
+      "ledger_after": null,
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "terminal_source_drift",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "passed": true,
+      "error": "Refused: Durable terminal outcome changed",
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "ea716b6eebe841f5a787c7025a37963e"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    },
+    {
+      "case": "after_commit_resume",
+      "expected": "COMMIT_VERIFIED",
+      "actual": "COMMIT_VERIFIED",
+      "passed": true,
+      "error": null,
+      "marker_after": false,
+      "state_unchanged": true,
+      "ledger_after": {
+        "schema": 1,
+        "transactions": [
+          "e05d60e3aeb24db59f3cff24493afb33"
+        ]
+      },
+      "receipt_scope": "TEST_ONLY_TEMP_FIXTURE_NOT_ACTUAL_INSTALLED_A_APPROVAL"
+    }
+  ],
+  "passed": false,
+  "actual_ROOT_Controller_engine_Git_or_network_calls": 0,
+  "actual_ROOT_B_installation": false
+}

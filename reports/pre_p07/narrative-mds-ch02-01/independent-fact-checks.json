@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "canonical_chapter": {
+    "id": "CH02_THE_TITAN",
+    "event_id": "EV_CH02_COMPLETE",
+    "title_ru": "Титан",
+    "presentation": 2,
+    "chronology": 2,
+    "period": "past",
+    "timestamp": "",
+    "timestamp_status": "production_pending",
+    "povs": [
+      "TIMKA"
+    ],
+    "location": "planned_ch02",
+    "prerequisites": [
+      "EV_CH01_SERVICE_ESCAPE"
+    ],
+    "availability": "planned",
+    "scene": ""
+  },
+  "identity_matches_draft": true,
+  "new_D01_D06_evidence_relations_secrets_permanent_upgrade": false,
+  "fictional_brawl_status": "authored proposal fills Timka flashback slot; not real-world allegation or new mandatory boss/PRIME organisation origin",
+  "Timka_prime_catalog": {
+    "speed": 118,
+    "rules": {
+      "speed": 118,
+      "lethal": true,
+      "finishers": true,
+      "ability": "clinch"
+    },
+    "equipment": [
+      "unarmed",
+      "blunt",
+      "environmental"
+    ]
+  },
+  "actual_prime_strike": {
+    "windup": 0.2,
+    "active": 0.12,
+    "recovery": 0.28,
+    "cooldown": 0.9,
+    "damage": 0,
+    "stun": 1.25,
+    "strong": true,
+    "source": "character_player.attack_melee"
+  },
+  "actual_clinch": {
+    "minimum_source_target_distance": 8,
+    "maximum_source_target_distance": 35,
+    "facing_dot": 0.72,
+    "profile": {
+      "windup": 0.48,
+      "active": 0.12,
+      "recovery": 0.38
+    },
+    "ability_cooldown_on_successful_F_start": 2.4,
+    "requires_empty_hands_and_live_stunned_or_knockdown_target": true,
+    "LOS_live_authority_and_vulnerability_rechecked": true,
+    "only_one_target_per_start": true
+  },
+  "environmental": {
+    "definition": {
+      "weapon": "unarmed",
+      "environment": "training_bench",
+      "range": 36,
+      "environment_range": 43,
+      "facing_dot": 0.72,
+      "windup": 0.92,
+      "active": 0.1,
+      "recovery": 0.6,
+      "damage": 1,
+      "stun": 0,
+      "strong": true,
+      "finisher": true,
+      "category": "environmental",
+      "cue": "finish_environmental"
+    },
+    "registered_alias": "training_bench",
+    "only_real_enabled_registered_object_eligible": true,
+    "example_source": [
+      1728,
+      496
+    ],
+    "example_target": [
+      1728,
+      472
+    ],
+    "example_bench": [
+      1728,
+      448
+    ],
+    "source_target_distance": 24,
+    "target_bench_distance": 24,
+    "facing_and_environment_alignment_dot": 1,
+    "within_36_and_43": true,
+    "footprints_LOS_actual_native_verified": false,
+    "new_bench_art_not_created": true
+  },
+  "paper_graph": {
+    "ordered": [
+      "TT0",
+      "TT1/E1",
+      "TT2/E2",
+      "TT3/E3",
+      "TT4/exit"
+    ],
+    "TT1_TT4_shortcut": "locked from TT1 until ordinary latch opened in TT4; not kill-based",
+    "yard_north_waypoint": [
+      2112,
+      192
+    ],
+    "yard_south_waypoint": [
+      1792,
+      544
+    ],
+    "south_portal_x": [
+      1824,
+      1952
+    ],
+    "two_routes_geometrically_distinct_around_cover": true,
+    "all_paths_must_work_without_blunt_environmental_or_clinch_ready": true,
+    "actual_clearance_threat_AI_or_feel_verified": false
+  },
+  "CP1": "conditional no threat/projectile/attack in safe radius; exact surviving NPC vulnerability/state must be reproducible, else CP0 fallback. Not guaranteed merely because named safe.",
+  "declared_production_HIGH_dependencies": [
+    "Trusted campaign scene registration/factory ability whitelist",
+    "Per-chapter checkpoint/director/schema/atomic restore",
+    "Blunt pickup/inventory restoration and real bench registration",
+    "New original stage art/music plus Gameplay/ART/Audio/native proof"
+  ],
+  "duration": "12–20min hypothetical NOT_MEASURED; no padding required"
+}

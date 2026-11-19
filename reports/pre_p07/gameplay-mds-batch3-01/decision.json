@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "role": "INDEPENDENT_PAPER_GAMEPLAY_DESIGN_REVIEWER",
+  "reviewer": "/root/qa_resume_recovery",
+  "scope": "CH10_CH13_CH14_CH15_PAPER_GAMEPLAY_DESIGN_COMPONENT_ONLY",
+  "status": "FAIL_COMPONENT",
+  "verdict": "FAIL",
+  "source_head": "8fd5edecf8f31ec48aece0579950de33bbf82a0c",
+  "source_sha256": {
+    "planning/missions/CH10_THE_KIMONO.md": "93d1931a21013e7b15024865929f0b127cd95a643f5683057e34e8def48f2c16",
+    "planning/missions/CH13_NO_REFUNDS.md": "c632e6a38fe2ca9e8ad83bc6b1c3f54d9256e88296dbe0fb8a192f1d0f62bbbd",
+    "planning/missions/CH14_AGENT_SWARM.md": "5e9daf0627955b7156d7f392617ce8161823847568503dd58b1719ac9d3db9e9",
+    "planning/missions/CH15_THE_SUPERSUIT.md": "f9678a1d25e90f11305a5d05d7d54d5fb858239c8e3c2f671d3a9746298673e6",
+    "planning/missions/CH12_CYBERX.md": "16b7c1ed056cad8a424c6fddda01d94387451261a7ab1511ab62269aad5e42a2",
+    "planning/missions/CH05_THE_ORIGINAL_PRIME.md": "5ecfcb1592380483092659cb13bd8abb4134d37802704333e6a2481042d7b3bc",
+    "game/scripts/actors/character_player.gd": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+    "game/scripts/abilities/ground_roll.gd": "b290e1d466e4cb82b0e84c52b0c7ad4140febd4c8abcc274ed0509ab7ff57d13",
+    "game/scripts/ai/enemy_actor.gd": "70469e91e900e228d570422700f85c03250c22b025db78df74fa09f92d5bc09e",
+    "game/scripts/ai/room_navigation_host.gd": "4ea40b7cb7e7de8cce10eeebc889fcabef8525fa08ee4ccae5c1d6dc9d9b5cd5",
+    "game/scripts/systems/character_scene_policy.gd": "80719b0e110b8366b1e6d64ac7098482c6ea4b9ff0a06e09ec2433f3fea34392",
+    "game/scripts/systems/combat_system.gd": "48695ad1669c7c17aa6a3ab77960382ad67026434571aaf70c40c0b9e81084ab",
+    "game/scripts/story/story_state.gd": "ae0a3f566f93fa9d0c35795708f9d3dc0672b9c60d332676b560204993db4922",
+    "game/resources/characters/catalog.json": "56e99412cbbfb3629e1a6e461967b3f9d9d8c564601a61cf6645658cded49488",
+    "game/resources/characters/sandbox_scenes.json": "06c9bfb5a45f8dd68dbf0ca3b0d8c6b62e0f32cbdadf712924feacee99196f27",
+    "game/resources/story/registry.json": "7f338f4e889f560ce2b98448a9243f80018984c0b01def8bf9f03b30777effb4",
+    "game/resources/combat/prototype.json": "e0c4669b413358b1ce26faf8fffe2c471e4efd5649ad3eb000109da2116c0a6d",
+    "specs/STORY_SPEC.md": "a2848fedb28ee1a8594d3e79b18a31d79320b4c48b57a0f71580db37bd352438",
+    "planning/MISSION_DESIGN_TEMPLATE.md": "e6462ac72ffe19966cd80bad7e48182451aa99d8791a3ea2284bba4347a4c28a",
+    "planning/PRE_P07_REQUIREMENTS.md": "abd58302c69d45fcf30477bf835ac9ceb8d80437ee724c9169d227213ffe705c"
+  },
+  "per_document": [
+    {
+      "chapter": "CH10_THE_KIMONO",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "93d1931a21013e7b15024865929f0b127cd95a643f5683057e34e8def48f2c16",
+      "blocking_findings": []
+    },
+    {
+      "chapter": "CH13_NO_REFUNDS",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "c632e6a38fe2ca9e8ad83bc6b1c3f54d9256e88296dbe0fb8a192f1d0f62bbbd",
+      "blocking_findings": []
+    },
+    {
+      "chapter": "CH14_AGENT_SWARM",
+      "status": "FAIL_PAPER_COMPONENT",
+      "sha256": "5e9daf0627955b7156d7f392617ce8161823847568503dd58b1719ac9d3db9e9",
+      "blocking_findings": [
+        "B3-MDS-G01"
+      ]
+    },
+    {
+      "chapter": "CH15_THE_SUPERSUIT",
+      "status": "PASS_PAPER_COMPONENT",
+      "sha256": "f9678a1d25e90f11305a5d05d7d54d5fb858239c8e3c2f671d3a9746298673e6",
+      "blocking_findings": []
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "B3-MDS-G01",
+      "severity": "MEDIUM",
+      "chapter": "CH14_AGENT_SWARM",
+      "status": "PAPER_CROSS_CHAPTER_RESOURCE_CONTRACT_FIX_REQUIRED",
+      "summary": "Mandatory club artifact for D04/two-source completion has no defined availability when D02 refused; full archive recovery occurs only in laterCH16.",
+      "evidence": [
+        "CH14requirespublishedoldcommitlog+clubartifactwithmatchingfragment/date beforeD04 andcompletion",
+        "CH12D02refuseexplicitlykeepsfullcopyoncompromisedclubPC,nosurvivingfriendbackup; laterCH16mustrecoverit",
+        "CH12commonB0-B7handoffdoesnotdefineanindependentretainedlimitedartifact/header forCH14"
+      ],
+      "qualification": "A gap in proposed resource availability, not an actual runtime softlock or claim that all artifacts must equal fullbackup. Gabar can have a limitedindependentartifact, but currentMDS must define its source/retention/availability rather than imply fullbackup.",
+      "minimal_fix": "Define concrete limitedverifiableartifact accessibleforbothD02 outcomes and align CH12commonhandoff or anotherestablishedsource. Distinguish metadata/codefragment from fullarchive; do notgrant evidence.pashas_backup/undoD02 or awaitCH16. D04accept/refuse/mainCH14exit and phonecomparison mustremainreachablewithD02refuse. Newartifact is localresource/provenance, notnewcanonicalevidenceflag.",
+      "paper_acceptance": "Reader can trace both requiredsourceinstances from acquisition throughload/replay independentofD02 and knowwhatphysicaldocumentiscompared."
+    }
+  ],
+  "bounded_future_staging_notes": [
+    {
+      "chapter": "CH10_THE_KIMONO",
+      "status": "FUTURE_IMPLEMENTATION_NOT_PAPER_FAILURE",
+      "note": "FreshCP1/CP2needsknownbothactorposes/policygeneration/releasedInput;existingtypedchapterhostnotimplemented. Currentpaperoneingress+deadIDs/closedcollisionprovidessafety."
+    },
+    {
+      "chapter": "CH13_NO_REFUNDS",
+      "status": "FUTURE_IMPLEMENTATION_NOT_PAPER_FAILURE",
+      "note": "Shutterclear andmanualoverride, office2doors/navsync, stage-ownedE3spawn/restoreinsideoffice mustbeactualtested; currentpaper resourcecohort/lateCP1ban avoidsresurrection."
+    },
+    {
+      "chapter": "CH15_THE_SUPERSUIT",
+      "status": "FUTURE_STAGING_NOT_PAPER_FAILURE",
+      "note": "Implement explicit Southopen→playerenter→reseal beforealbumreview afterguardwithdraw;CP1startsheroSS1withPRINTclosed. Ordinarydoorentry is feasible, not a requestforungrantedability. Guard-scriptnotcurrentpursue;realbodyroute/speed/clearance/pacing needproductionproof."
+    }
+  ],
+  "positive_checks": {
+    "CH10_D01_Yakuza_after_safe_switch_not_Olegcombat": true,
+    "CH10_counter_actual_frontmelee_only_and_refuge_oneingressclosed": true,
+    "CH10_optional_KIMONO_RECORD_bothD01beforecompletion": true,
+    "CH13_D03sealed_meaningfulvariant_andno_repeat_relationship": true,
+    "CH13_shutterclear_no_crush_Foverride_otherexit_exists": true,
+    "CH13_office_bothdoorsclosed_resourceE3_only_until_exit_once": true,
+    "CH14_D04effects_matchregistry_refuse_doesnoterase": true,
+    "CH14_phone_only_evidence_tegasphone_and_opensourceorigin": true,
+    "CH14_memorabilia3_onlyunlocksseparateoptionalfinishedDream_not_autocompletes": true,
+    "CH14_AS3_twoactualdoors_andE3pending_lateCPban": true,
+    "CH15_present84_noFIN_noequipment_noPrimebuff": true,
+    "CH15_scriptedguardwithdraw_not_claimedexisting_AIleash_or_damagecancel": true,
+    "CH15_SS2west_and_SS2southclosed_block_bypassloop": true,
+    "CH15_secretPRIME_PHOTOS_optionalbeforechaptercomplete": true
+  },
+  "future_HIGH_NOT_IMPLEMENTED": [
+    "Trustedchapterfactory/authority/context/dualPOV orscriptedroute hosts",
+    "Typedstage/checkpoint/once/writefailure/skip/inputpause/replay handling",
+    "Actualmultiroomcollision/LOS/clearance/doors/enemypriority/nonlethalexit and paperroutevalidations",
+    "Originalmaps/props/portrait/scenes/audio/stems/mixer/listening/ART",
+    "Nativeinput/pacing/retry/wallframe/platformbuild andindependentLeadafterimplementation",
+    "CH14optionalTegadreamviewmode/token/ownassets not currentcompletedsecret"
+  ],
+  "actual_runtime_input_collision_feel_FPS_playthrough_verified": false,
+  "all21_Readiness_H02_P07_phase_approval": false,
+  "actual_reviewer_engine_Controller_Work_Git_state_mutations": false
+}

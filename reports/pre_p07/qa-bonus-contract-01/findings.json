@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "BONUS-Q01",
+      "severity": "MEDIUM",
+      "must_fix_before_implementation": true,
+      "scope": "DESIGN_ONLY",
+      "source": "specs/BONUS_PROGRESS_CONTRACT.md §3, BP04",
+      "problem": "BP04 promises old bytes/state for an undifferentiated crash, but a successful rename has already committed the new sidecar before memory/UI publication.",
+      "concrete_boundary": "Crash after rename(temp,path)==OK and before state=candidate. On next process load the valid new history/completed must remain authoritative, not be rolled back to old bytes.",
+      "minimal_fix": "Define pre-rename failures versus post-rename committed recovery. Precommit retains old state/path and ignores stale tmp. Postcommit reload accepts the one committed fact, no duplicate reward/write; UI acknowledgement is not the commit boundary. Update BP04 accordingly.",
+      "required_future_verification": "Process interruption before rename and after rename/before in-memory publish, then fresh load and duplicate exit/once checks. These tests are future required; not executed here."
+    },
+    {
+      "id": "BONUS-Q02",
+      "severity": "MEDIUM",
+      "must_fix_before_implementation": true,
+      "scope": "DESIGN_ONLY",
+      "source": "specs/BONUS_PROGRESS_CONTRACT.md §§2–5, BP03/BP06/BP09; story_service.gd and ui/story_journal.gd",
+      "problem": "The future session generation is not explicitly bound to the active trusted profile/canonical Store/durable prerequisite and safe return owner. Current Service has store/session/pending_replay only; the existing journal is hosted by Bootstrap, not an arbitrary campaign safe-scene resume manager.",
+      "concrete_boundary": "Launch unfinished bonus from profileA with its prerequisite, then trusted owner switches to profileB/replaces Store or startsNewGame before delayed exit. A still-matching scene attempt generation alone cannot authorize that callback against the new owner/prerequisite.",
+      "minimal_fix": "Specify a service-owned launch token pinning profile identity+canonical Store/profile generation, bonus ID/host/attempt and trusted safe return target. Revoke on profile/NewGame/store replacement; revalidate same owner and current durable prerequisite before commit and before any idempotent-success shortcut. Define legal duplicate completion versus canceled/stale/replay requests. Narrow first return policy to the actual Bootstrap journal or explicitly declare another reviewed adapter prerequisite; no generic scene resume implied.",
+      "required_future_verification": "ProfileA→B, NewGame-in-same-profile and canonical-store replacement with queued old exit cannot write either profile or grant completion; valid same-session duplicate is idempotent; cancel/readonly replay never obtains first-completion authority."
+    },
+    {
+      "id": "BONUS-Q03",
+      "severity": "LOW",
+      "must_fix_before_implementation": false,
+      "scope": "DESIGN_FIXTURE_CLASSIFICATION",
+      "source": "specs/BONUS_PROGRESS_CONTRACT.md BP01/BP02; story_registry.gd validate/entry_ready; story_graph_test.gd scenario",
+      "problem": "BP01 calls all-five-secret/D01–D06/ending states old valid story_v2 fixtures. Current production registry admits onlyCH01; those existing complete graph fixtures are scenario-domain, memory-only. CH10/CH14 are planned and cannot supply a current production-positive unlock.",
+      "minimal_fix": "Separate current valid campaign compatibility fixtures (fresh/CH01/legitimate dialogue histories), existing scenario graph compatibility fixtures, and future admitted canonical CH10/14 positives. State that positive production unlock tests wait for independently admitted main chapter availability/validation; never relabel scenario as campaign or weaken current guards.",
+      "required_future_verification": "Actual current campaign remains locked for both bonuses; scenario never grants unlock; later production-ready canonical prerequisites are tested through their legitimate durable owner."
+    }
+  ]
+}

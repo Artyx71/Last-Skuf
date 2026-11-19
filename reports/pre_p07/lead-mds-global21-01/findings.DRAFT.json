@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "status": "DRAFT_IN_PROGRESS_NOT_A_VERDICT",
+  "findings": [
+    {
+      "id": "GLOBAL-MDS-C01",
+      "severity": "HIGH",
+      "status": "PAPER_REMEDY_INDEPENDENTLY_READ_ACCEPTABLE_AWAITING_FINAL_SUBREVIEWS",
+      "file": "planning/missions/CH14_AGENT_SWARM.md",
+      "related_file": "planning/missions/CH12_CYBERX.md",
+      "expected": "D04 two-source verification is reachable with either sealed D02 outcome without fabricating surviving full pashas_backup.",
+      "observed": "CH14 requires a club artifact with code fragment/date. CH12 D02refuse leaves full copy on working disk later seized; B6 expressly shows sendlog/CX-ADMIN but does not expressly retain the limited fragment used in CH14.",
+      "repro": "Paper trace D02refuse → CH12 B6 send-index observation → no full friendcopy → CH14 mandatory clubsourcechecked; provenance of specific retained fragment not declared. This is a paper causality gap, not an actual runtime defect.",
+      "minimal_remedy": "Explicitly retain a limited shown outgoing index/code-fragment/date in B6 for either D02, distinct from full surviving backup; CH14 consumes exactly that artifact. No new global flag or mechanic.",
+      "sha256": {
+        "planning/missions/CH12_CYBERX.md": "16b7c1ed056cad8a424c6fddda01d94387451261a7ab1511ab62269aad5e42a2",
+        "planning/missions/CH14_AGENT_SWARM.md": "5e9daf0627955b7156d7f392617ce8161823847568503dd58b1719ac9d3db9e9"
+      },
+      "crossref": "N-MDS-CH14-01 independently found before cross-role messaging",
+      "mandatory_route_case": "D02false and D05false, CH14 completion stillrequires bothlocal sourceschecked",
+      "fixed_source_sha256": {
+        "planning/missions/CH12_CYBERX.md": "e1c0d2a58e53a21b16e28532a679d2bb04d2c8982454e28f844bd5946676e76f",
+        "planning/missions/CH14_AGENT_SWARM.md": "d0fafc6af3c0d0051e40deb64fb66fafc16012ee1c2f1b664a9907c5997b1170"
+      },
+      "own_remedy_inspection": "CH12B6 limitedimmutable indexpreview/date retainedinbothD02 andCP2; CH14referencesexactlimitedartifact independentlyofbackup/phone."
+    },
+    {
+      "id": "GLOBAL-MDS-C02",
+      "severity": "HIGH",
+      "status": "PAPER_REMEDY_INDEPENDENTLY_READ_ACCEPTABLE_AWAITING_FINAL_SUBREVIEWS",
+      "file": "planning/missions/CH20_THE_ARCHITECT.md",
+      "expected": "Inactive weak Yakuza is physically isolated from active B_E2 until clearedjoin.",
+      "observed": "AR2 is the whole three-door Yakuza refuge while B_E2 patrol/shooter and mechanisms are inside AR2; outerdoors do not isolate internal threat.",
+      "minimal_remedy": "Add exact innerrefuge pose/walls/door with E2clear release or move inactive body to separateclearedsector with explicit safejoin; no immunity/newescortcombat.",
+      "sha256": "d74d7591f56fafad995729a818bdd79cac68e7a7db54fc6add7e1f4f65500056",
+      "actual_runtime_bug_claim": false,
+      "fixed_source_sha256": {
+        "planning/missions/CH20_THE_ARCHITECT.md": "f9769bfa1bf05a89ec8fcc527b671ca9768761e52f9a72aec026104cf3719187"
+      },
+      "own_remedy_inspection": "Yakuzaat192,1760 inAR0singleclosedphysicaldoor; OlegE2insideAR2, laterclearsremainingE1inAR1beforeopeningrefugeandjoiningthroughclearedroute."
+    },
+    {
+      "id": "GLOBAL-MDS-C03",
+      "severity": "HIGH",
+      "status": "PAPER_REMEDY_INDEPENDENTLY_READ_ACCEPTABLE_AWAITING_FINAL_SUBREVIEWS",
+      "file": "planning/missions/CH21_THE_LAST_CALL.md",
+      "expected": "A continuous positive-width physical path LC_A→LC_FINAL exists without entering lockedC/teleport.",
+      "observed": "LC_A east x2432 y832..960 opens into LC_C y0..1152, not FINAL y1152..2304. A/FINAL share onlycorner2432,1152.",
+      "minimal_remedy": "Map an actualconnector/repartition/explicitA-ownedlane with gates preserving distinctB/C routes.",
+      "sha256": "dce7f9cf6c8ae193d695651a2c63fd8cbe77664f869d8ea42dcc1b1e2c03ae06",
+      "actual_runtime_bug_claim": false,
+      "fixed_source_sha256": {
+        "planning/missions/CH21_THE_LAST_CALL.md": "7382bc09622e668df8a4278b4f0deddda968906983bf3a11ff22621dba737c33"
+      },
+      "own_remedy_inspection": "FINALboundsy768..2304 shareA eastportal832..960; Cshrunkheight768,guard/exitmovedinsideC."
+    },
+    {
+      "id": "GLOBAL-MDS-C04",
+      "severity": "MEDIUM",
+      "status": "PAPER_REMEDY_INDEPENDENTLY_READ_ACCEPTABLE_AWAITING_FINAL_SUBREVIEWS",
+      "file": "planning/missions/CH21_THE_LAST_CALL.md",
+      "expected": "REAL_PRIME futureplayable rescue has a concrete bounded objective/actor/route/stage and preserves committedprimary.",
+      "observed": "Current paragraph names rescue/finish_overlay but no concretephysicalgoal/route/checkpoint; originalcanon requires playable difference.",
+      "minimal_remedy": "Briefly define existingbody rescue route/objective/safecheckpoint/once cancellation or link separate concrete optionaldesign beforeproduction; no newmechanic/evidencegate.",
+      "sha256": "dce7f9cf6c8ae193d695651a2c63fd8cbe77664f869d8ea42dcc1b1e2c03ae06",
+      "actual_runtime_bug_claim": false,
+      "fixed_source_sha256": {
+        "planning/missions/CH21_THE_LAST_CALL.md": "7382bc09622e668df8a4278b4f0deddda968906983bf3a11ff22621dba737c33"
+      },
+      "own_remedy_inspection": "ExplicitPR0/PR1/PR2Gabarclear→Tegacart/release→personscriptedwalk/CP_R1/oncefinishoverlay,primaryretained."
+    }
+  ],
+  "engine_or_runtime_bug_claim": false
+}

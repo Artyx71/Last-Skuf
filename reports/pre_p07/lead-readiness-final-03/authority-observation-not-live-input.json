@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "kind": "READ_ONLY_BOOKKEEPING_OBSERVATION_NOT_SOURCE_INVENTORY_TARGET",
+  "P06": {
+    "status": "PASS",
+    "attempts": 1,
+    "workspace": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P06",
+    "branch": "phase/p06-implementation",
+    "checkpoint": "merge",
+    "last_commit": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+    "component_reviews": {
+      "pasha": {
+        "status": "PASS_COMPONENT",
+        "reviewed_game_source": "b359747361c6ac76ccfc0cc8ff262c8327cf33e4",
+        "metadata_commit": "41a2b347761859f1be5e52b09e3cccb759bd9c55",
+        "lead_sha256": "f43d243455d133ee43648436f85123fe93dd43cd6267e96249a428cc53c827c5",
+        "phase_approval": false
+      },
+      "finisher_audio_C01": {
+        "status": "PASS_COMPONENT",
+        "reviewed_game_source": "0dd1cc4dad9379c457e277969b721fcc23a14fe3",
+        "lead_sha256": "031cc8c15b0b191006112f742d750c8a06549b47e123920b4c29fa2c611e7828",
+        "QA02_sha256": "eed5a827352d31cb7a830d2c3cc056e785ca75895c1170899bc30b511c505ba8",
+        "DEV08": "build/P06_DEV_20261116_08",
+        "scope": "Prototype audio source/runtime/actualPCM/localsmoke; nofullP06/readiness/merge",
+        "phase_approval": false
+      },
+      "gabar_NPC_source": {
+        "status": "ART_BLOCKED_CONTACT4_WITH_ONE_RELEASE_REUSE_REF",
+        "decision_sha256": "18dfe9a8a4f062409f1825cda0ff552457fed48ca97760a51c03f6b8680119c1",
+        "retained_new": 19,
+        "existing_release_ref": 1,
+        "missing_contact": 4,
+        "runtime_approval": false,
+        "phase_approval": false,
+        "deferred_by_owner_to": "P08-NPC-STYLE-01",
+        "required_before_P06_PASS": false,
+        "owner_scope_decision_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a"
+      }
+    },
+    "owner_scope_amendment": {
+      "decision": "automation/decisions/P06_NPC_VISUAL_POLISH_TO_P08.json",
+      "owner_sha256": "58abd098c446842d8f2ae8ccb8859757f218afe64714ec1780197eb432a9923a",
+      "independent_scope_review_sha256": "c812fae21eb3af43ab30c02faa601ac3c50404c2862afaa96e16926dbcde0b76",
+      "scope": "Only additional NPCvisualstyles deferred; baselineNPC/player/audio/correctness/fullQA retained",
+      "phase_approval": false
+    },
+    "native_pipeline_preflight": {
+      "status": "PASS_COMPONENT_EXECUTION_ONLY",
+      "source_commit": "8e17546f15a9ca563afbfa0fdd0ac9558f3eed30",
+      "execution_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+      "decisions": {
+        "QA": {
+          "path": "reports/phases/P06/qa-native-pipeline-preflight-03/decision.json",
+          "sha256": "745469b173586b580a9f938eee645e6517e433aa23c7c36004ded758ba2352b8",
+          "expected_status": "PASS_COMPONENT"
+        },
+        "Lead": {
+          "path": "reports/phases/P06/lead-native-pipeline-preflight-03/decision.json",
+          "sha256": "461d67a41662da18df5be0a9efb6b4326c804def82572df200afdfe64f85fa40",
+          "expected_status": "PASS_COMPONENT_EXECUTION_ONLY"
+        }
+      },
+      "phase_approval": false
+    },
+    "native_full_validation": {
+      "operation": "8e8ab4a27ccd47ebacf5a66dd3b6780c",
+      "exit_code": 1,
+      "execution_head": "beb30f319b2cf86a1799672ed24837c4640a9bee",
+      "report": "reports/phases/P06/full-native-current-source-01/validation.json",
+      "report_sha256": "a3ace9d4b979e808780891c6fc6006ced781fc1877773d3dd3e2b40f8ddedafe",
+      "phase_approval": false
+    },
+    "pasha_input_diagnostic": {
+      "source": "651d730bfdf6750d92511b841256435eed2f6dd9",
+      "operations": [
+        {
+          "mode": "headless",
+          "operation": "2d814544cdc44d8c880d9caa426d74b6",
+          "exit_code": 0
+        },
+        {
+          "mode": "native_movie",
+          "operation": "c0d32773dff14eac9a082e5eb50c50ef",
+          "exit_code": 0
+        }
+      ],
+      "scope": "CONTROLLED_INPUT_DIAGNOSTIC_ONLY",
+      "phase_approval": false,
+      "original_failure_cause": "UNKNOWN"
+    },
+    "native_continuation_preflight": {
+      "status": "EXECUTION_ONLY_GO",
+      "source": "263e888afc9875ebf887267c0dd734b70897f344",
+      "contract_sha256": "e5ef81ddc24fc12420cc602c403deefe5cb8891961b2e985d85c64e53515a343",
+      "reviews": {
+        "QA": {
+          "path": "reports/phases/P06/qa-cast-stateful-preflight-01/decision.json",
+          "sha256": "c0c4e4ca64f83da47f560bf5298e17acd6373e703c198e608761ae3571a1bf00",
+          "expected_status": "PASS_COMPONENT"
+        },
+        "Lead": {
+          "path": "reports/phases/P06/lead-cast-continuation-preflight-01/decision.json",
+          "sha256": "f3acaab752e1ff8a677987c2e0f076762b7763b6136ba0ff949aac1dfe4fabb0",
+          "expected_status": "PASS_COMPONENT_EXECUTION_ONLY"
+        }
+      },
+      "phase_approval": false
+    },
+    "native_composed_validation": {
+      "operation": "311fdc08f73e43169295d6a2d67786b0",
+      "exit_code": 1,
+      "source_head": "263e888afc9875ebf887267c0dd734b70897f344",
+      "report": "reports/phases/P06/native-remaining5-02/validation.json",
+      "sha256": "96bdffecde3908c3de521126c478489ee6c0a01d7c0a0e565b6c351d87a4f1ca",
+      "phase_approval": false
+    },
+    "cast_driver_diagnostic": {
+      "source": "263e888afc9875ebf887267c0dd734b70897f344",
+      "operations": [
+        {
+          "mode": "normal",
+          "operation": "c08352a08c1d456499ced55d3bef1148",
+          "code": 0
+        },
+        {
+          "mode": "large",
+          "operation": "a0997839475f40d08a14124518925d7c",
+          "code": 0
+        }
+      ],
+      "scope": "HEADLESS_DIAGNOSTIC_NOT_RENDERED_ACCEPTANCE",
+      "phase_approval": false
+    },
+    "cast_instant_control": {
+      "operation": "5ed9fb4693ae43d4ae26dc0dade69ee1",
+      "code": 0,
+      "scope": "EXISTING_SETTING_HEADLESS_BRANCH_ONLY",
+      "phase_approval": false
+    },
+    "prior_native_composed_validations": [
+      {
+        "operation": "d56af6d9cc6b4b13be4a0436e4a13a21",
+        "exit_code": 1,
+        "source_head": "6dfa2a769a8189bdfeaf64c340a7806bc4a241bd",
+        "report": "reports/phases/P06/native-remaining5-01/validation.json",
+        "sha256": "0375c472222f4b7df6c537ed17d8069db15f0107fad0bd31099b1e9bea9f22b2",
+        "phase_approval": false
+      }
+    ],
+    "fresh_C01_signal": {
+      "operation": "aeebd30ea7e147b880329f2a6f92009c",
+      "exit_code": 0,
+      "report": "reports/phases/P06/qa-c01-tail02-signal-02/analysis-01/result.json",
+      "phase_approval": false
+    },
+    "branch_publication": {
+      "operation": "73b9dfa206e94a81984787234fe294f0",
+      "exit_code": 0,
+      "report": "reports/autopilot/P06/branch-publication-02.json",
+      "phase_approval": false
+    },
+    "pull_request_number": 11,
+    "merge": {
+      "status": "MERGED",
+      "reviewed_head": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+      "merge_sha": "f8325212381d67a469b5d9a6dffbf3d244bc9933",
+      "number": 11,
+      "method": "squash",
+      "base": "main",
+      "recovered": true
+    },
+    "combat_movie_recovery": {
+      "operation": "5766e682ba6546a0b4eb0dab35cca6be",
+      "exit_code": 130,
+      "report": "reports/phases/P06/combat-movie-recovery-01/validation.json",
+      "sha256": null,
+      "phase_approval": false
+    },
+    "combat_missing_continuation": {
+      "operation": "69b305de0c5c4e65a1fa90433c4c7e97",
+      "exit_code": 0,
+      "report": "reports/phases/P06/combat-interruption-continuation-01/validation.json",
+      "sha256": "24f754c0e07bfb9317e6dc2426ee1af8e9c0d68a1334bf283cc6edfdff41472e",
+      "phase_approval": false
+    },
+    "final_archive_head": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+    "final_archive_scope": "README/reports only; full1456 executionfa869 source unchanged",
+    "final_privacy": {
+      "report": "reports/phases/P06/final-private11-audit-05/validation.json",
+      "sha256": "5840fb0a54c835a3834dd2bc562192a5c6b1a4c89272320ace8a43d3a95d5389",
+      "operation": "1726d94ffce54b75b0d676298fa98278",
+      "exit_code": 0
+    },
+    "remediation": [
+      "gh: Server Error (HTTP 502)"
+    ],
+    "review_receipt": "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/reports/phases/P06/lead-full-phase-review-01/decision.json",
+    "decision": "reports/phases/P06/decision.json",
+    "decision_sha256": "fdd0da699e5bade50e21115614150091aae83f6fb0d126c4c8f56bb8d3175b7e",
+    "reviewer": "/root/art_olezhka_recovery — independent Lead, not implementation author",
+    "reviewed_commit": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+    "review_origin": "Independent collaboration Lead context, not author",
+    "full_phase_review_imported_at": "2026-11-17T00:07:03+00:00",
+    "merge_intent": {
+      "head_sha": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+      "method": "squash",
+      "snapshot": {
+        "number": 11,
+        "repository": "Artyx71/Last-Skuf",
+        "private": false,
+        "permissions": {
+          "admin": true,
+          "maintain": true,
+          "push": true,
+          "triage": true,
+          "pull": true
+        },
+        "squash_allowed": true,
+        "head_sha": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+        "head_repo": "Artyx71/Last-Skuf",
+        "base": "main",
+        "base_sha": "be4d59e9f68f32833719c82dee36bf731bb43ad0",
+        "state": "open",
+        "draft": false,
+        "merged": false,
+        "merge_commit_sha": "75fa69e8deadd4e0183456e1e0d41a9fd28ec980",
+        "mergeable": true,
+        "merge_state": "CLEAN",
+        "review_decision": null,
+        "threads_complete": true,
+        "unresolved_threads": 0,
+        "required_checks": [
+          "bootstrap"
+        ],
+        "integration_ids": {},
+        "checks": {
+          "bootstrap": {
+            "status": "completed",
+            "conclusion": "success",
+            "head_sha": "37a0aa5995e65d6577338e80c7aacc9a7f60d893",
+            "app_id": 15368,
+            "app_slug": "github-actions",
+            "url": "https://github.com/Artyx71/Last-Skuf/actions/runs/43983165690/job/133704512046"
+          }
+        },
+        "approvals_required": 0,
+        "queue_required": false,
+        "protection_inspected": true,
+        "expected_ci_app_slug": "github-actions"
+      },
+      "review_sha256": "e638d4e79f83be9333c0eba90eb9da96ca35a5b4828503e9e32f0d997aa6a107"
+    }
+  },
+  "P07_status": "PENDING",
+  "P07_formal_attempts": 0,
+  "legacy_attempts": 2,
+  "stop_after_phase": "P06",
+  "production_gate_names": [
+    "mission_designs"
+  ],
+  "live_state_and_config_not_pinned": true
+}

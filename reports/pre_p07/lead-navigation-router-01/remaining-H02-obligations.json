@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "full_H02_status": "OPEN",
+  "source_High_ticket": "PR-H02",
+  "navigation_pilot_readiness_accepted": false,
+  "requirements": [
+    {
+      "id": "H02-R01",
+      "gate": "Before full H02/navigation_pilot readiness",
+      "requirement": "Use the optional adapter from a reviewed production room host with real pilot geometry/objectives/doors/alternate routes. Prove two representative layouts and actual retry/checkpoint/save transitions; synthetic fixtures are not a completed mission."
+    },
+    {
+      "id": "H02-R02",
+      "gate": "Before affected mission layout acceptance",
+      "requirement": "Actual mandatory-route reachability for all3 NPC archetypes and all7 player-body clearance; grid16/minimum gaps/shifted geometry must fit authored level dimensions. Current NPC tests all use16x12 footprint; QA host640x360/unit transforms is not general translated/rotated geometry acceptance."
+    },
+    {
+      "id": "H02-R03",
+      "gate": "Before multiroom AI/pursuit claims",
+      "requirement": "Exercise patrol/investigate/pursue, loss and reacquisition of LOS, timers and hurt/stun/death priority on actual detours. Existing immediate pursue-to-patrol on lost LOS and2.1s investigate are unchanged; prove intended mission policy or separately review a demonstrated minimal fix, not speculative FSM rewrite."
+    },
+    {
+      "id": "H02-R04",
+      "gate": "Before dynamic/crowd production acceptance",
+      "requirement": "Dynamic obstruction during an already cached detour, moving goals, several simultaneous NPCs and correctly synchronized physical geometry/layout revision. Current dynamic wall appears during direct movement with settling ticks; no stronger same-tick or crowd/fairness claim."
+    },
+    {
+      "id": "H02-R05",
+      "gate": "Before full H02/navigation_pilot readiness",
+      "requirement": "Actual native visual turning/movement and bounded wall-frame performance/multiNPC load on target hardware; headless fixed-fps ticks are functional evidence only. No new ART/FPS/hardware-latency/export approval from this component."
+    }
+  ]
+}

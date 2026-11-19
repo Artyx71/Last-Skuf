@@ -1,0 +1,13 @@
+# CH06 — Narrative / paper-contract review
+
+**CHANGES_REQUESTED_COMPONENT_DRAFT_REVIEW_ONLY: один MEDIUM N-MDS-CH06-01.** Фактический SHA `ba3e68de12b59af81c753ece2e5c4f255e8ce98be6e4816ed208ded3ce1ecd7e`.
+
+CH06/EV_CH06_COMPLETE,6/6,present,RYZHIK,CH05 prerequisite/pending date совпадают с registry. Поставщик/завышенная сумма соответствуют его занятиям и конфликту. D03 делает явно подписанный Якудза в телефонной вставке, боевой POV остаётся Рыжиком. Accept/refuse точно дают ryzhik_warned true/false и yakuza_ryzhik±1, sealed choice не повторяется после смерти. Накладная — local item, не новая canonical evidence; нет раннего Кабана/вины/нового ending gate.
+
+Локальное различие содержательно: warning→loading/ранняя накладная, conceal→front/E1/racks и поздний вариант того же предмета. Положение объяснено переносом, после pickup документ не телепортируется. Существующие D03/trust переходят в canonical route_plan ally-safe/rival-exposed; конкретные CH13/18 постановки должны закрепиться в следующих полных MDS, их готовность здесь не заявляется. Подобие названий service/front с CH16 не делает главы одинаковыми: supplier invoice/roll/склад и caller warning — иная задача/последствие, а не Pasha archive reclaim.
+
+Ryzhik120 и actual ground_roll0.08/0.32/0.16/CD1.2/speed180/max57.6 соответствуют исходнику: move_and_collide, без iframes/teleport/collision-mask hack. Unarmed/optional blunt не дают sharp/firearm. Optional tooth — отдельный breakdance mishap, не случайное наказание roll; разрешён только safe до финальной сцены/EV_CH06_COMPLETE. EV_SECRET_BROKEN_TOOTH принадлежит CH06, выдаёт только secret once; skip не блокирует главу, sealed D03 не меняется ради replay.
+
+**Остаток:**36 одновременно помещает CP1 и будущую live E3 в BR4 и запрещает CP1 при «любом ещё живом NPC внутри BR4». На указанной геометрии все три точки внутри BR4. При physical inactive E3 буквальный predicate невозможен; при deferred spawn не описано исключение. Нужно явно развести остаточную E1/E2 угрозу и ровно известный future E3 cohort: static inactive/no jobs/no detection до предупреждения/resume, либо явные non-instantiated definitions. Исправить predicate/restore с сохранением обеих doorway states. Не требуется убирать бой или делать его убийство условием checkpoint.
+
+Документ честно оставляет scene grants/variant checkpoint/door/secret staging/assets/music High NOT_IMPLEMENTED.20–30min — NOT_MEASURED, альтернативы не суммируются. Реальная проходимость, roll/LOS, безопасный CP1 и ресурсная политика NPC не приняты этим Narrative review. Нет Gameplay/ART/Audio/QA/Lead/all21/Readiness/runtime/production PASS.

@@ -1,0 +1,383 @@
+{
+  "checks": [
+    {
+      "check": "missing_sidecar_defaultfalse_no_file",
+      "passed": true
+    },
+    {
+      "check": "production_planned_locked_BONUS_OFFLINE_BUILD",
+      "passed": true
+    },
+    {
+      "check": "production_planned_locked_BONUS_COUNTER_LESSON",
+      "passed": true
+    },
+    {
+      "check": "unknown_id_locked",
+      "passed": true
+    },
+    {
+      "check": "fixture_only_positive_session",
+      "passed": true
+    },
+    {
+      "check": "unresolved_goal_no_write",
+      "passed": true
+    },
+    {
+      "check": "dead_host_no_write",
+      "passed": true
+    },
+    {
+      "check": "pending_jobs_no_write",
+      "passed": true
+    },
+    {
+      "check": "first_complete_real_file",
+      "passed": true
+    },
+    {
+      "check": "duplicate_callback_same_session_no_write",
+      "passed": true
+    },
+    {
+      "check": "prerequisite_before_idempotent",
+      "passed": true
+    },
+    {
+      "check": "forged_host_denied",
+      "passed": true
+    },
+    {
+      "check": "cancel_or_newgame_generation_revoked",
+      "passed": true
+    },
+    {
+      "check": "completed_replay_begin",
+      "passed": true
+    },
+    {
+      "check": "completed_replay_readonly",
+      "passed": true
+    },
+    {
+      "check": "return_intent_from_same_host",
+      "passed": true
+    },
+    {
+      "check": "return_retires_completion_authority",
+      "passed": true
+    },
+    {
+      "check": "fixed_bootstrap_return_once",
+      "passed": true
+    },
+    {
+      "check": "second_bonus_begin",
+      "passed": true
+    },
+    {
+      "check": "second_unique_complete",
+      "passed": true
+    },
+    {
+      "check": "main_campaign_bytes_state_and_reward_unchanged",
+      "passed": true
+    },
+    {
+      "check": "production_still_locked_despite_completed_sidecar",
+      "passed": true
+    },
+    {
+      "check": "actual_file_roundtrip",
+      "passed": true
+    },
+    {
+      "check": "new_profile_defaultfalse",
+      "passed": true
+    },
+    {
+      "check": "A_to_B_queued_exit_rejected",
+      "passed": true
+    },
+    {
+      "check": "B_begin",
+      "passed": true
+    },
+    {
+      "check": "same_profile_store_replacement_rejected",
+      "passed": true
+    },
+    {
+      "check": "pending_replay_denied",
+      "passed": true
+    },
+    {
+      "check": "fork_session_denied",
+      "passed": true
+    },
+    {
+      "check": "readonly_campaign_denied",
+      "passed": true
+    },
+    {
+      "check": "forged_campaign_state_denied",
+      "passed": true
+    },
+    {
+      "check": "invalid_campaign_disk_denied",
+      "passed": true
+    },
+    {
+      "check": "scenario_never_unlocks",
+      "passed": true
+    },
+    {
+      "check": "no_profile_bonus_files_on_denials",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_revoke_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_profile_swap_no_commit",
+      "passed": true
+    },
+    {
+      "check": "goal_callback_queued_host_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "already_freed_host_clean_denial",
+      "passed": true
+    },
+    {
+      "check": "nested_goal_callback_no_recursion_single_commit",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_corrupt",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_corrupt",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_duplicate_root",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_duplicate_root",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_duplicate_escaped",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_duplicate_escaped",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_trailing_comma",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_trailing_comma",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_newer",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_newer",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_partial",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_partial",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_extra",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_extra",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_nonbool",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_nonbool",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_duplicate_history",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_duplicate_history",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_unknown_id",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_unknown_id",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_contradictory",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_contradictory",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_duplicate_completed",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_duplicate_completed",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_oversize",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_oversize",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_number_01",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_number_01",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_number_1.",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_number_1.",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_number_1.e0",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_number_1.e0",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_number_+1",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_number_+1",
+      "passed": true
+    },
+    {
+      "check": "invalid_preserved_number_1e",
+      "passed": true
+    },
+    {
+      "check": "invalid_does_not_touch_main_number_1e",
+      "passed": true
+    },
+    {
+      "check": "strict_accepts_escaped_legal_keys",
+      "passed": true
+    },
+    {
+      "check": "strict_accepts_valid_number_1.0",
+      "passed": true
+    },
+    {
+      "check": "strict_accepts_valid_number_1e0",
+      "passed": true
+    },
+    {
+      "check": "strict_accepts_valid_number_1E-00",
+      "passed": true
+    },
+    {
+      "check": "orphan_tmp_not_commit",
+      "passed": true
+    },
+    {
+      "check": "injected_written_rollback",
+      "passed": true
+    },
+    {
+      "check": "injected_before_rename_rollback",
+      "passed": true
+    },
+    {
+      "check": "actual_open_failure_rollback",
+      "passed": true
+    },
+    {
+      "check": "retry_after_failure_commits_once",
+      "passed": true
+    },
+    {
+      "check": "actual_rename_failure_rollback",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "mode": "checks",
+  "new_export_or_audio_tests": false,
+  "passed": 85,
+  "positive_eligibility_is_test_double": true,
+  "real_current_campaign_bonus_launches": 0,
+  "roundtrip_diagnostic": {
+    "decoded_schema_type": 3,
+    "memory_schema_type": 2,
+    "raw_dictionary_equals_typed": false,
+    "read_error": 0,
+    "rebuilt_dictionary_equals_typed": true,
+    "restored_error": "",
+    "restored_writable": true
+  },
+  "schema": 1,
+  "shipped_bonus_UI_or_levels_tested": false,
+  "strictness_witness": {
+    "+1": {
+      "before_50_accepted": false,
+      "current_accepted": false
+    },
+    "01": {
+      "before_50_accepted": true,
+      "current_accepted": false
+    },
+    "1.": {
+      "before_50_accepted": true,
+      "current_accepted": false
+    },
+    "1.e0": {
+      "before_50_accepted": true,
+      "current_accepted": false
+    },
+    "1e": {
+      "before_50_accepted": false,
+      "current_accepted": false
+    }
+  }
+}

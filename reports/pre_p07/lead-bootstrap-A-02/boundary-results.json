@@ -1,0 +1,112 @@
+{
+  "scope": "PURE_TEST_ONLY_FILESYSTEM_BOUNDARY_PROBES_NO_REAL_ROOT",
+  "source": {
+    "schema": 1,
+    "reported_HEAD": "9e5e7c303f1ea5f89024063a529ad70d7dc57fb6",
+    "sources": [
+      {
+        "path": "tools/bootstrap_runtime_fence.py",
+        "sha256": "16d0c64f331ce651647b70bbb81fad51d6b855e13f5ec29dbb763a3f4eb557e3",
+        "snapshot": "bootstrap_runtime_fence.py"
+      },
+      {
+        "path": "tools/cold_bootstrap.py",
+        "sha256": "de6f6a1335c9f9dab8aac03ab1e94740c0305dd39711bc79acae45a2a488130d",
+        "snapshot": "cold_bootstrap.py"
+      },
+      {
+        "path": "tools/tests/test_cold_bootstrap.py",
+        "sha256": "04fb7e9e853c1089cf9b61cce607e1422f905db9aec2f7256ddc9a9634722bf0",
+        "snapshot": "test_cold_bootstrap.py.txt"
+      },
+      {
+        "path": "tools/tests/test_runtime_fence.py",
+        "sha256": "7496c0a0883f43201ec79383f6886d30e8493ce74fbb40c9550ac1fda7d793cb",
+        "snapshot": "test_runtime_fence.py.txt"
+      },
+      {
+        "path": "tools/fixtures/autopilot_legacy_02b.py.txt",
+        "sha256": "02b59b6d33b35b1eb147f889562be697519c648d48c19129ddb4af8747e19856",
+        "snapshot": "legacy.py.txt"
+      },
+      {
+        "path": "autopilot/runner.py",
+        "sha256": "d700e88e585a2dfb4455290421109a7209acb34dd6fd6730afaf24bc3a6fe3a0",
+        "snapshot": "fence.py.txt"
+      }
+    ],
+    "no_actual_ROOT_changes": true
+  },
+  "results": [
+    {
+      "case": "positive",
+      "expected": "VERIFIED",
+      "actual": "VERIFIED",
+      "contract_passed": true,
+      "error": null,
+      "state_before_preserved": true,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": false,
+      "prepare_journal_sha": "077f509874b5beda05c1f7c38b8cdce5d893f60acade7df48b8489b8e034cc1d",
+      "extra": {}
+    },
+    {
+      "case": "journal_protected_removed",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "contract_passed": true,
+      "error": "Refused: Immutable intent binding failed",
+      "state_before_preserved": false,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": true,
+      "prepare_journal_sha": "f1bdea15967c9ceb1cf84256e20a4946715ba468e0dc149c8ebf93919eea271b",
+      "extra": {}
+    },
+    {
+      "case": "journal_target_mode_changed",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "contract_passed": true,
+      "error": "Refused: Immutable intent binding failed",
+      "state_before_preserved": true,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": true,
+      "prepare_journal_sha": "94e3d08b34c3a5959a3f2cbcee7a717535346dad5360512fe3b570e5fbefc2af",
+      "extra": {}
+    },
+    {
+      "case": "canonical_lock_replaced_before_commit",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "contract_passed": true,
+      "error": "Refused: Lock inode changed",
+      "state_before_preserved": true,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": false,
+      "marker_exists": true,
+      "prepare_journal_sha": "dc461ab62dc05fa3cd4773ab1cb04447ec4939d223ed0b8d5ef29c0b694cf9b8",
+      "extra": {
+        "replacement_canonical_lock_acquirable_while_old_lease_held": true
+      }
+    },
+    {
+      "case": "protected_changed_after_commit",
+      "expected": "REFUSED",
+      "actual": "REFUSED",
+      "contract_passed": true,
+      "error": "Refused: Protected data changed; do not restore stale state",
+      "state_before_preserved": false,
+      "runner_mode": "0o755",
+      "lock_inode_preserved": true,
+      "marker_exists": true,
+      "prepare_journal_sha": "933593017336cda21591a6114cec9ce889f5cad44e5c29bbe0ed878640c3a93c",
+      "extra": {}
+    }
+  ],
+  "Controller_calls": 0,
+  "engine_calls": 0,
+  "actual_ROOT_or_Git_mutations": 0
+}

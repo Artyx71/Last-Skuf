@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "findings": [
+    {
+      "id": "A-Q01",
+      "Lead_alias": "BA-L01",
+      "severity": "HIGH",
+      "status": "OPEN_IN_FROZEN6C",
+      "summary": "Prepared marker journal hash unused; mutable journal controls protected preconditions and target metadata without immutable binding.",
+      "independent_repro": "Actual disposable Bootstrap5cases: markerhash0 accepted; journal.protected{}+changedstate accepted; targetmode0777 accepted/installed. AllreturnVERIFIED and markerremoved; changedstatecontrol with intactjournal correctlyrefuses.",
+      "proofs": [
+        "probe_transaction_binding.py",
+        "transaction-binding-results.json"
+      ],
+      "minimum_fix": "Bind immutable preconditions/identity/protectedfingerprints/targetmetadata with validated intent/marker hash; keep mutable status separate and preserve legitimate recovery."
+    },
+    {
+      "id": "A-Q02",
+      "Lead_alias": "BA-L02",
+      "severity": "HIGH",
+      "status": "OPEN_IN_FROZEN6C",
+      "summary": "Canonical lock inode can change at before_commit after last check_lock; finish still commits and clears marker while replacement lock is acquirable.",
+      "proof_origin": "Separate independent Lead actual temporary-filesystem/flock probe; QA read exact script/results and matched frozen source. Not a second claimed QA execution.",
+      "proofs": [
+        "independent-Lead-proof/probe_boundaries.py",
+        "independent-Lead-proof/boundary-results.json"
+      ],
+      "minimum_fix": "Revalidate canonical same-inode ownership at finalcommit and terminalmarker cleanup boundaries; refuse marker removal after lease invalidation."
+    },
+    {
+      "id": "A-Q03",
+      "Lead_alias": "BA-L03",
+      "severity": "MEDIUM",
+      "status": "OPEN_IN_FROZEN6C",
+      "summary": "Protected state changes in after_commit hook are not revalidated before marker removal/VERIFIED return.",
+      "proof_origin": "Separate independent Lead fault injection, not a real concurrent production controller.",
+      "proofs": [
+        "independent-Lead-proof/probe_boundaries.py",
+        "independent-Lead-proof/boundary-results.json"
+      ],
+      "minimum_fix": "After durablejournal write, revalidate lock/intent/protected data/marker ownership before clearing maintenance intent and reporting success."
+    }
+  ]
+}

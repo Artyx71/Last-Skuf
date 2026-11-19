@@ -17,6 +17,52 @@ import uuid
 from readiness import require_p07_production, ReadinessBlocked, strict_json
 
 ROOT=Path(__file__).resolve().parents[1]
+
+# Installation uses a separate, cold maintenance process holding the SAME flock.
+# Unlike PAUSE, this fence applies before status/pr/resume/task entrypoints too.
+HANDOFF_PENDING=ROOT/'.autopilot/HANDOFF_PENDING.json'
+RUNTIME_FILES=(
+    'autopilot/runner.py','autopilot/github.py','autopilot/readiness.py',
+    'autopilot/worker.py','autopilot/config.json','autopilot/review_schema.json',
+    'autopilot/prompts/INDEPENDENT_REVIEW.md','autopilot/PRODUCTION_GATES.md',
+    'tools/verify.py','tools/verify_p06.py',
+)
+
+
+def _runtime_signature():
+    result={}
+    for name in RUNTIME_FILES:
+        path=ROOT/name
+        if path.is_symlink():
+            result[name]='SYMLINK'
+        elif path.is_file():
+            result[name]=hashlib.sha256(path.read_bytes()).hexdigest()
+        else:
+            result[name]=None
+    return result
+
+
+if HANDOFF_PENDING.exists() or HANDOFF_PENDING.is_symlink():
+    raise RuntimeError('AUTOPILOT handoff pending: inspect the durable journal and repair/rollback before restarting')
+_LOADED_RUNTIME=_runtime_signature()
+
+
+def _require_current_runtime(root):
+    root=Path(root).resolve()
+    # A custom root must never bypass either the source or target transaction.
+    # Library fixtures have no installed runner; operational roots must load
+    # their own runtime instead of borrowing code from another checkout.
+    if (root/'.git').is_file():
+        raise Blocked('Run the controller from the canonical checkout, not a phase worktree')
+    for marker in {HANDOFF_PENDING,root/'.autopilot/HANDOFF_PENDING.json'}:
+        if marker.exists() or marker.is_symlink():
+            raise Blocked('AUTOPILOT handoff pending; repair/rollback is required')
+    if _runtime_signature()!=_LOADED_RUNTIME:
+        raise Blocked('AUTOPILOT runtime changed after import; start a fresh controller process')
+    entry=root/'autopilot/runner.py'
+    if root!=ROOT and (entry.exists() or entry.is_symlink()):
+        raise Blocked('Load the controller from the requested canonical checkout; cross-root runtime is forbidden')
+
 DEFAULT_PHASES=['P00','P01','P02','P03','P04','P04G','P05','P06','P07','P08']
 
 
@@ -47,6 +93,7 @@ class Blocked(RuntimeError): pass
 class Controller:
     def __init__(self,root=ROOT):
         self.root=Path(root).resolve(); self.data=self.root/'.autopilot'
+        _require_current_runtime(self.root)
         self.state_path=self.root/'automation/phase_state.json'
         self.lock_path=self.root/'automation/.executor.lock'
         self.pause_path=self.data/'PAUSE'
@@ -58,11 +105,13 @@ class Controller:
 
     @contextmanager
     def exclusive(self):
+        _require_current_runtime(self.root)
         self.lock_path.parent.mkdir(parents=True,exist_ok=True)
         fd=os.open(self.lock_path,os.O_RDWR|os.O_CREAT,0o600)
         try:
             try: fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
             except BlockingIOError: raise Busy('Another controller/worker holds the exclusive execution lease')
+            _require_current_runtime(self.root)
             self.fd=fd
             legacy=self.data/'RUNNING.lock'; previous=load(legacy)
             if previous and previous.get('pid')!=os.getpid():

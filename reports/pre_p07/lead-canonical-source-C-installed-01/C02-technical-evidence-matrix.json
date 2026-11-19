@@ -1,0 +1,352 @@
+{
+  "schema": 1,
+  "scope": "PRE_P07_C02_TECHNICAL_SAFE_HANDOFF_EVIDENCE_11_ROWS_WITH_EXTERNAL_PRODUCTION_PREREQUISITES_SPLIT",
+  "original_contract_sha256": "343ffc35e513d6ffaab58bc2e81a4c5b839aef8e0bb98c508f6af822eea8f2d7",
+  "cases": [
+    {
+      "id": "QUIESCENCE",
+      "status": "VERIFIED_ACTUAL_A_B_C",
+      "evidence": "Actual preflights pinned consumed receipts, terminated author/worker/child identities and bounded known-launcher absence. No unrelated processes killed; arbitrary hidden import absence is not claimed.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-execution-01/decision.json",
+          "sha256": "2a121bccbe5717952c60bf64e4c63c5a8630d02df94da9809eed9a726ee4d2b4"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-execution-01/decision.json",
+          "sha256": "d2ffad04a5c30156b068625b11eb7e19c27d451b88c6070a36225e6212b505b7"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-execution-01/decision.json",
+          "sha256": "754019cd75da2437976402531532702467c5a3bfefd0f7e163a8ba6231f8c7e1"
+        }
+      ]
+    },
+    {
+      "id": "LOCK_INODE",
+      "status": "VERIFIED_ACTUAL_AND_FAULT_FIXTURES",
+      "evidence": "Same canonical dev59/inode1118521 retained through each transaction and fresh verification; isolated late inode replacement refuses marker cleanup.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+          "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-02/decision.json",
+          "sha256": "e0466ec2fa870b010c6fae891e82f46467881442aa0c4df2d0473b40fb0d1195"
+        }
+      ]
+    },
+    {
+      "id": "DURABLE_MAINTENANCE",
+      "status": "VERIFIED_SCOPED_BOOTSTRAP_AND_GUARDED_B_C",
+      "evidence": "A coherent single-file cold bootstrap exception explicitly reviewed before runtime fence; then B/C pending blocks entrypoints until verified commit/rollback. Actual terminal journals and isolated pending CLI/crash cases bound; no claim old unfenced instances retroactively blocked.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-runtime-handoff-design-01/decision.json",
+          "sha256": "558bdff33bc198844e1211bd7187bdd52cca4c8be0ccde54257066fa127c7394"
+        },
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-03/decision.json",
+          "sha256": "b559dc4c88327f14c316aebb1969db7ad8b335a014699690b458d2caf9226871"
+        },
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+          "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+          "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+        },
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+          "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        }
+      ]
+    },
+    {
+      "id": "BACKUP_BARRIER",
+      "status": "VERIFIED_CODE_FAULT_FIXTURES_ACTUAL_BACKUPS",
+      "evidence": "A/B old/new and absences retained privately; actual C16 old/293new SHA,0600/0700 exact. Reviewed implementation fsyncs before copying; fault tests reject failed durability.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+          "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        },
+        {
+          "path": "reports/pre_p07/qa-bootstrap-A-03/decision.json",
+          "sha256": "0880bf18c6f623c6b4c78da91f7d2f92cd41ec5f823bd41a4f1b878876602b0d"
+        },
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+          "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+          "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+        }
+      ]
+    },
+    {
+      "id": "STRICT_COMPARE",
+      "status": "VERIFIED_ACTUAL_AND_NEGATIVE_FIXTURES",
+      "evidence": "Before/source/runtime/ownership/symlink/common Git/payload checks; current587 files exactly frozen f832, no reset/clean/copytree; actualC before310be4 plus277absences and40protected verified. Alias defect closed and original FAIL preserved.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-execution-01/decision.json",
+          "sha256": "754019cd75da2437976402531532702467c5a3bfefd0f7e163a8ba6231f8c7e1"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-02/decision.json",
+          "sha256": "e0466ec2fa870b010c6fae891e82f46467881442aa0c4df2d0473b40fb0d1195"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-02/decision.json",
+          "sha256": "d9b4f6aedd3e3c924bffec0ef112c2dd6180f1749b78aefa5d255fef99396d53"
+        }
+      ]
+    },
+    {
+      "id": "INTERRUPTION_MATRIX",
+      "status": "VERIFIED_DISPOSABLE_REAL_CHILD_EXITS_NOT_ROOT_INTERRUPTION",
+      "evidence": "Independent B18 real os._exit77 children cover before first/after each7/beforecommit\u00d7resume/rollback; C10 exit78 representative sourcegroup cases preserve pending and resume/rollback. Actual Root installs deliberately not killed.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+          "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+        },
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/legacy-C02-11-case-matrix.json",
+          "sha256": "fa57fc977606c94e17c0f6b0276c7b29f2ebf447d250a2c14344074ac4608f50"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+          "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/legacy-C02-11-case-matrix.json",
+          "sha256": "59c2691cdb49d3c2f3aa93958c2b6e72417d555bf9b3aa97cf08cf4957f6af17"
+        }
+      ]
+    },
+    {
+      "id": "FAILURE_INJECTION",
+      "status": "VERIFIED_DISPOSABLE_COMPONENT_NEGATIVES",
+      "evidence": "Corrupt backup/intent/JSON/target/missing dependency/symlink/ownership/lock/state/write/fsync/rename and pending marker faults; C original3alias data-loss negatives now refuse before staging and on rebound recovery. No universal filesystem-fault auto-repair claim.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-03/decision.json",
+          "sha256": "b559dc4c88327f14c316aebb1969db7ad8b335a014699690b458d2caf9226871"
+        },
+        {
+          "path": "reports/pre_p07/qa-bootstrap-A-03/decision.json",
+          "sha256": "0880bf18c6f623c6b4c78da91f7d2f92cd41ec5f823bd41a4f1b878876602b0d"
+        },
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+          "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+          "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-02/decision.json",
+          "sha256": "e0466ec2fa870b010c6fae891e82f46467881442aa0c4df2d0473b40fb0d1195"
+        }
+      ]
+    },
+    {
+      "id": "FRESH_PROCESS",
+      "status": "VERIFIED_ACTUAL_A_B_C",
+      "evidence": "Standalone installers exited; actual ROOT module paths/runtime hashes/schema and read-only statuses checked in fresh process, including own one status after each actual install. C actual isolated editorimport/bootstrap/source Input72 passes.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+          "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        }
+      ]
+    },
+    {
+      "id": "READ_ONLY_AUTHORITY",
+      "status": "VERIFIED_ACTUAL_CONTINUITY",
+      "evidence": "A337/B345/C40 protected fingerprints verified per fresh plan; state/history/auth/index/refs/decisions preserve progress. global2/P06formal1/P07formal0, P06mergef832, stopP06. C RootHEAD/indexbe4 explicitly kept while Game/tools frozen source=f832. Private profile paths not targets and Godot uses distinct isolated XDG roots.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+          "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-execution-01/decision.json",
+          "sha256": "754019cd75da2437976402531532702467c5a3bfefd0f7e163a8ba6231f8c7e1"
+        }
+      ]
+    },
+    {
+      "id": "ROLLBACK",
+      "status": "VERIFIED_DISPOSABLE_OWNED_RECOVERY_NOT_ROOT_ROLLBACK",
+      "evidence": "Only original bound before/target/known owned files; state/mirror/PID/history never restored. Real fixture resume/rollback and marker-fault recovery verified; B-start ledger retained to prevent un-fencing A. Actual Root A/B/C were committed, no actual Root rollback claimed or newly approved.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-02/decision.json",
+          "sha256": "d9b4f6aedd3e3c924bffec0ef112c2dd6180f1749b78aefa5d255fef99396d53"
+        },
+        {
+          "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+          "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-02/decision.json",
+          "sha256": "e0466ec2fa870b010c6fae891e82f46467881442aa0c4df2d0473b40fb0d1195"
+        },
+        {
+          "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+          "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+        },
+        {
+          "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+          "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        }
+      ]
+    },
+    {
+      "id": "BEFORE_P07",
+      "status": "TECHNICAL_PORTION_VERIFIED_PRODUCTION_GATE_STILL_CLOSED",
+      "evidence": "Confirmed full P06 PASS/MERGED and canonical sourcef832 plus technical safehandoff accepted here. FULL Production Readiness and21unique fully approved MDS are NOT granted or complete; no mass P07/execution/phase/merge approval. Actual production gate still rejects missing independent records and stopP06 remains.",
+      "bindings": [
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+          "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+        },
+        {
+          "path": "reports/pre_p07/lead-canonical-source-C-execution-01/decision.json",
+          "sha256": "754019cd75da2437976402531532702467c5a3bfefd0f7e163a8ba6231f8c7e1"
+        }
+      ]
+    }
+  ],
+  "all_10_technical_installation_requirements_verified": true,
+  "BEFORE_P07_technical_P06_source_handoff_portion_verified": true,
+  "BEFORE_P07_FULL_readiness_21MDS_production_prerequisites_complete": false,
+  "all_11_production_prerequisites_PASS_claimed": false,
+  "technical_safe_handoff_capability_accepted": true,
+  "P07_production_approved": false,
+  "bindings": {
+    "required11": {
+      "path": "reports/pre_p07/qa-root-handoff-preflight-01/required-installation-tests-NOT-RUN.json",
+      "sha256": "343ffc35e513d6ffaab58bc2e81a4c5b839aef8e0bb98c508f6af822eea8f2d7"
+    },
+    "accepted_design": {
+      "path": "reports/pre_p07/lead-runtime-handoff-design-01/decision.json",
+      "sha256": "558bdff33bc198844e1211bd7187bdd52cca4c8be0ccde54257066fa127c7394"
+    },
+    "A_component_Lead": {
+      "path": "reports/pre_p07/lead-bootstrap-A-03/decision.json",
+      "sha256": "b559dc4c88327f14c316aebb1969db7ad8b335a014699690b458d2caf9226871"
+    },
+    "A_component_QA": {
+      "path": "reports/pre_p07/qa-bootstrap-A-03/decision.json",
+      "sha256": "0880bf18c6f623c6b4c78da91f7d2f92cd41ec5f823bd41a4f1b878876602b0d"
+    },
+    "A_execution_Lead": {
+      "path": "reports/pre_p07/lead-bootstrap-A-execution-01/decision.json",
+      "sha256": "2a121bccbe5717952c60bf64e4c63c5a8630d02df94da9809eed9a726ee4d2b4"
+    },
+    "A_actual": {
+      "path": "reports/pre_p07/lead-bootstrap-A-installed-01/decision.json",
+      "sha256": "147c691e86b13050ce3929816e53230198190c5d74fa02bab1d7f565a1a82308"
+    },
+    "B_component_Lead": {
+      "path": "reports/pre_p07/lead-runtime-bundle-B-02/decision.json",
+      "sha256": "d9b4f6aedd3e3c924bffec0ef112c2dd6180f1749b78aefa5d255fef99396d53"
+    },
+    "B_component_QA": {
+      "path": "reports/pre_p07/qa-runtime-bundle-B-02/decision.json",
+      "sha256": "f6dad86723364c515d9c60e3dde97c7c66ec8ebcd57759d951e66004a6118d17"
+    },
+    "B_execution_Lead": {
+      "path": "reports/pre_p07/lead-runtime-bundle-B-execution-01/decision.json",
+      "sha256": "d2ffad04a5c30156b068625b11eb7e19c27d451b88c6070a36225e6212b505b7"
+    },
+    "B_actual": {
+      "path": "reports/pre_p07/lead-runtime-bundle-B-installed-01/decision.json",
+      "sha256": "a44b41568b740ea03a9549ad6468b2aecf8156b5e4382e68fc98127673175a5c"
+    },
+    "C_component_Lead": {
+      "path": "reports/pre_p07/lead-canonical-source-C-02/decision.json",
+      "sha256": "e0466ec2fa870b010c6fae891e82f46467881442aa0c4df2d0473b40fb0d1195"
+    },
+    "C_component_QA": {
+      "path": "reports/pre_p07/qa-canonical-source-C-02/decision.json",
+      "sha256": "3a5a52e27e7de921a1be19dc2d59020ee544b122781e8e2ba5948c9ffb76c015"
+    },
+    "C_execution_Lead": {
+      "path": "reports/pre_p07/lead-canonical-source-C-execution-01/decision.json",
+      "sha256": "754019cd75da2437976402531532702467c5a3bfefd0f7e163a8ba6231f8c7e1"
+    },
+    "C_execution_QA": {
+      "path": "reports/pre_p07/qa-canonical-source-C-execution-01/decision.json",
+      "sha256": "c630a49fdec04c95260acb649363bcb632a2cd1d8e8d0062915ed3003071e679"
+    },
+    "C_actual_verification": {
+      "path": "reports/pre_p07/lead-canonical-source-C-installed-01/verification.json",
+      "sha256": "820c421471c337fdd594fcbd65f613bc24d3c2b5bd45acea92c551933b15adfd"
+    },
+    "B_failure_matrix": {
+      "path": "reports/pre_p07/qa-runtime-bundle-B-02/legacy-C02-11-case-matrix.json",
+      "sha256": "fa57fc977606c94e17c0f6b0276c7b29f2ebf447d250a2c14344074ac4608f50"
+    },
+    "C_failure_matrix": {
+      "path": "reports/pre_p07/qa-canonical-source-C-02/legacy-C02-11-case-matrix.json",
+      "sha256": "59c2691cdb49d3c2f3aa93958c2b6e72417d555bf9b3aa97cf08cf4957f6af17"
+    }
+  }
+}

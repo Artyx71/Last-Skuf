@@ -1,0 +1,65 @@
+[
+  {
+    "name": "export_linux",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/game",
+      "--export-release",
+      "Linux",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/build/linux/last-skuf.x86_64"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 3.44,
+    "log_sha256": "fec9147983e750bd130a55e77050ef6d50c54499c062dbc815ca66364c3f36be"
+  },
+  {
+    "name": "linux_smoke",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/build/linux/last-skuf.x86_64",
+      "--disable-vsync",
+      "--max-fps",
+      "60",
+      "--",
+      "--p06-owner-preview-smoke"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 4.398,
+    "log_sha256": "0be5e608755564307a160812ffd17885c0cb9e88d2a72ceb5bd3f67dda363f54"
+  },
+  {
+    "name": "export_windows",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/.tools/godot/Godot_v4.7.2-stable_linux.x86_64",
+      "--headless",
+      "--path",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/game",
+      "--export-release",
+      "Windows",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/build/windows/last-skuf.exe"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 3.252,
+    "log_sha256": "fec9147983e750bd130a55e77050ef6d50c54499c062dbc815ca66364c3f36be"
+  },
+  {
+    "name": "windows_smoke",
+    "argv": [
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/.tools/wine/usr/bin/wine",
+      "/home/artyx/Projects/AYAY_SDD_v1.0_Codex/AYAY_SDD_v1.0/.autopilot/worktrees/P07/reports/pre_p07/preview-build-01/isolated_project/build/windows/last-skuf.exe",
+      "--headless",
+      "--fixed-fps",
+      "60",
+      "--",
+      "--p06-owner-preview-smoke"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "seconds": 17.569,
+    "log_sha256": "017c8fa16fc19efafa72f05fcbc0df30b335a65527b21b7acc21fcc439ed35b9"
+  }
+]

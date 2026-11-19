@@ -1,0 +1,15 @@
+# CH04 Narrative review03 — physical handoff delta
+
+**PASS_COMPONENT — только текущий Narrative/paper-contract CH04.** Нового Narrative противоречия в bounded delta не найдено. Текущий SHA `15b50298b1eee452e079c186a205b2ab2fc6a03080544bc2827afda135698225`; заявленный HEAD prefix `3591ebcf`. Предыдущие01/02 immutable сохраняют свои source bindings. Автор — ROOT; Git не вызывался, authority — exact actual bytes/SHA.
+
+Actual diff меняет физические двери/cover и условия dispatch/CP1. Recruitment/Max public face/пределы ранних знаний/явная подпись/EV_CH04_COMPLETE/local stages/реплики/смысл папки остаются прежними. Нет новых D/globalflags/evidence/реального договора или силы для слабого героя. Предыдущее закрытие ниши E3 сохраняется.
+
+Северный SERVICE_RETURN(1472,624,128,16) покрывает north portal1472..1600, западный PUBLIC_RETURN(1136,832,16,128) — west portal832..960. Остальная граница SK4 закрыта. PUBLIC_RETURN первоначально заперт со стороны SK1, после первого снятия задвижки доступен обеим сторонам; NPC могут пройти открытый portal. Исчезло предположение, будто patrol_end ограничивает погоню. Новый cover и обычные shove/noise/LOS представлены как способы освободить комнату, а не как teleport/leash/отмена угрозы.
+
+Закрытие требует свободного door.grow(12), отсутствия hostile footprints внутри SK4 и реального collider/nav settling. Handoff только с single owned folder/paper_taken, обеими закрытыми дверями и отсутствием live hostile/active Core jobs. При отказе F сохраняет gameplay/папку/угрозу; UI не отменяет нападение. После этого используется обычная общая dialoguepause и успешная запись dispatched. Это логически согласует безопасную сцену с физической комнатой, вместо локальной неуязвимости. CP1 явно возвращает открытый north door, закрытый/исходно запертый west door, пустой SK4, исходные SK3 NPC и пустые transient jobs.
+
+Actual CombatPlayer.distract подтверждает110px/rayclamp, EnemyActor.hear_noise —260px и2.1s с проверкой текущего state; cooldown3.2 задан существующим kit. Пример1536,688→1536,578 при открытом portal согласован с этим ограничением. Это **не** доказательство, что любая погоня разрешается одной монетой: позиция/состояние/LOS/cooldown и реальные пути должны пройти Gameplay. Source прямо оставляет room/door/interaction policy HIGH NOT_IMPLEMENTED, не объявляет новую FSM или готовый AI boundary.
+
+PASS поддерживает Narrative на exact current draft; он не закрывает Gameplay paper/runtime finding от имени другого reviewer и не доказывает доступность закрытия дверей на82px/s, body clearance, no deadlock или freshprocess restore. Chapter policy/director/checkpoints/UI/двери/арт/музыка остаются High до производства. CH02 current298b/CH03b11d проверены неизменными.
+
+Нет Gameplay/ART/Audio/QA/Lead/all21/Readiness/runtime/production/phase/merge/release approval. Engine/Controller/generator/network/Git не запускались, source/registry/status не менялись. Только небольшой owned packet: один snapshot, diff, exact references/checks/decision и FINAL_HASHES. Before/end совпали; после verdict report immutable.

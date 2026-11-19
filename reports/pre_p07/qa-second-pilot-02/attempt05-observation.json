@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "scope": "ATTEMPT05_OBSERVATION_NOT_FINAL_COMPONENT_DECISION",
+  "head": "29e62b5bbe9f7a1a5e8969d4af736e3679a9edda",
+  "headless": {
+    "passed": 113,
+    "failed": 0,
+    "completed_Input_routes": 8
+  },
+  "native": {
+    "passed": 93,
+    "failed": 1,
+    "completed_Input_routes": 8,
+    "failed_checks": [
+      {
+        "check": "olezhka_training/continuous_collision_clearance",
+        "details": {
+          "foot": [
+            16.0,
+            12.0
+          ],
+          "maximum_step": 2.54400634765625
+        },
+        "passed": false
+      }
+    ]
+  },
+  "cause": "UNDETERMINED: combined overlap/jump boolean has no offending physics sample",
+  "requested_minimum": "Add first-failure telemetry without changing predicates, then qualify actual overlap vs jump with current physics tick/position/body rectangles. Do not infer cause from maximum_step alone.",
+  "engine_run_by_reviewer": false,
+  "full_H02_Readiness_approved": false,
+  "inputs": [
+    {
+      "path": "tools/p07_second_pilot.py",
+      "sha256": "b30740e62e99b9ca5d0ba87c4fc8d07432c95bd9722711929794d002c2b82f0a",
+      "bytes": 4002
+    },
+    {
+      "path": "tools/fixtures/p07_second_pilot.gd",
+      "sha256": "240ebb6ac9cd59835be6c74ba92a5e4287f5da25886254e5f985bba0c876355f",
+      "bytes": 16760
+    },
+    {
+      "path": "tools/fixtures/p07_second_pilot_host.gd",
+      "sha256": "f57e5b2d3e36739ec154b9fc6bb9a9d12d7ba71cc298fd1b298794ef558072f9",
+      "bytes": 3748
+    },
+    {
+      "path": "game/scripts/ai/room_navigation.gd",
+      "sha256": "f9f23f82d9219bbd39037fce5a3d65ff0bfc271ebaf6ab8e4199c108451d8697",
+      "bytes": 5443
+    },
+    {
+      "path": "game/scripts/actors/yakuza_actor.gd",
+      "sha256": "f1ce7d12faecc0800244331b31888c52b593e3fbed9a85a359eb828c1828157a",
+      "bytes": 2555
+    },
+    {
+      "path": "game/scripts/actors/character_player.gd",
+      "sha256": "fecaca106b82034e9230934ac0164d5eabbffebf98fcae1a4dd5aee13348f3a9",
+      "bytes": 20931
+    },
+    {
+      "path": "game/scripts/actors/combat_player.gd",
+      "sha256": "5c435078feac74090e8c331d0e4f19b883d5a05014049a5980318c1061ec1f58",
+      "bytes": 12158
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/pilot-result.json",
+      "sha256": "aba576b768d472bd4f13a544ed6a6c3479553492b4e421763dc235a5f4e6720d",
+      "bytes": 79274
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/native-result.json",
+      "sha256": "da147b91671269bac850e88a925335d8097554e41047666f98e9ccf76a06ab60",
+      "bytes": 34854
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/validation.json",
+      "sha256": "86acb680cdd160d672df16939367d59191cf89179e561d2e075259b3eb048661",
+      "bytes": 1816
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/runs.json",
+      "sha256": "a168c0348f9af1e7c45bb6b7628e99ff2116b7ad040c28a795e4063712db51ff",
+      "bytes": 1436
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/source_before.json",
+      "sha256": "a53cce5eae81a0842103ab8d4112c522306be2068774ece956aef753f53467a1",
+      "bytes": 72236
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/source_after.json",
+      "sha256": "a53cce5eae81a0842103ab8d4112c522306be2068774ece956aef753f53467a1",
+      "bytes": 72236
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/pilot.log",
+      "sha256": "68d45dd92cdcfd027e32a0eb686b5229f07df2fe5bc55bd2a5310fbdbb87c8a8",
+      "bytes": 114
+    },
+    {
+      "path": "reports/pre_p07/second-pilot-05/native.log",
+      "sha256": "71c6509685f89abb2b50d866d754b8b4017bad452c7c716f36ea85c26ebeaa89",
+      "bytes": 635
+    }
+  ]
+}
